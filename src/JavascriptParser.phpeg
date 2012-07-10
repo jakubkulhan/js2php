@@ -1,0 +1,452 @@
+program
+  = __ statements:(statement / function_declaration)* !.
+    -> count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements))
+
+function_body
+  = statements:(statement / function_declaration)*
+    -> count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements))
+
+function_declaration
+  = "function" _ name:identifier
+    __ "(" __ parameters:list(identifier, __ "," __)? __ ")" __
+    "{" __ body:function_body __ "}" __
+	-> array("var", array(array($name, array("function", $name, (array) $parameters, $body))))
+
+function_expr
+  = "function" name:( _ i:identifier -> $i
+                    )?
+	__ "(" __ parameters:list(identifier, __ "," __)? __ ")" __
+    "{" __ body:function_body __ "}"
+	-> array("function", $name, (array) $parameters, $body)
+
+statement
+  = ( block
+	/ php_statement
+    / variable_statement
+    / empty_statement
+    / expr_statement
+    / if_statement
+    / iteration_statement
+    / continue_statement
+    / break_statement
+    / return_statement
+    / with_statement
+    / labelled_statement
+    / switch_statement
+    / throw_statement
+    / try_statement
+    / debugger_statement
+	) __
+
+
+// STATEMENTS
+
+block
+  = "{" __ statements:list(statement, __)? __ "}"
+    -> count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements))
+
+variable_statement
+  = "var" _ declarations:list(variable_declaration, __ "," __) EOS -> array("discard", array("var", $declarations))
+
+variable_declaration
+  = name:identifier exprs:( __ "=" !"=" __ e:assignment_expr -> $e
+                          )*
+    {
+		if (empty($exprs)) {
+			return array($name, NULL);
+		}
+
+		$base = array_pop($exprs);
+		foreach (array_reverse($exprs) as $expr) {
+			$base = array("assignment", "=", $expr, $base);
+		}
+
+		return array($name, $base);
+	}
+
+
+variable_declaration_no_in
+  = name:identifier exprs:( __ "=" !"=" __ e:assignment_expr_no_in -> $e
+                          )*
+    {
+		if (empty($exprs)) {
+			return array($name, NULL);
+		}
+
+		$base = array_pop($exprs);
+		foreach (array_reverse($exprs) as $expr) {
+			$base = array("assignment", "=", $expr, $base);
+		}
+
+		return array($name, $base);
+	}
+
+empty_statement
+  = ";" -> NULL
+
+expr_statement
+  = !("{" / "function" !identifier_part) e:expr EOS -> array("discard", $e)
+
+if_statement
+  = "if" __ "(" __ cond:expr __ ")" __ statement:statement
+    else:(__ "else" __ else_statement:statement -> $else_statement
+		 )?
+	-> array("if", $cond, $statement, $else)
+
+iteration_statement
+  = do_while_statement / while_statement / for_in_statement / for_statement
+
+do_while_statement
+  = "do" !identifier_part __ statement:statement __ "while" __ "(" __ cond:expr __ ")"
+    -> array("do", $cond, $statement)
+
+while_statement
+  = "while" __ "(" __ cond:expr __ ")" __ statement:statement
+    -> array("while", $cond, $statement)
+
+for_in_statement
+  = "for" __ "(" __ lhs:left_hand_side_expr __ "in" !identifier_part __ in_expr:expr __ ")" __
+    statement:statement
+	-> array("for_in", $lhs, $in_expr, $statement)
+  / "for" __ "(" __ "var" !identifier_part __ declarations:list(variable_declaration_no_in, __ "," __)
+    __ "in" !identifier_part __ in_expr:expr __ ")" __ statement:statement
+	-> array("for_in", array("var", $declarations), $in_expr, $statement)
+
+for_statement
+  = "for" __ "(" __ init:expr_no_in? __ ";" __ cond:expr? __ ";" __ iter:expr? __ ")" __
+    statement:statement
+	-> array("for", $init, $cond, $iter, $statement)
+  / "for" __ "(" __ "var" !identifier_part __ declarations:list(variable_declaration_no_in, __ "," __)
+    __ ";" __ cond:expr? __ ";" __ iter:expr? __ ")" __ statement:statement
+	-> array("for", array("var", $declarations), $cond, $iter, $statement)
+
+continue_statement
+  = "continue" label:( _noLB l:identifier EOS -> $l
+                     / __noLB EOSnoLB -> NULL
+                     )
+    -> array("continue", $label)
+
+break_statement
+  = "break" label:( _noLB l:identifier EOS -> $l
+                  / __noLB EOSnoLB -> NULL
+                  )
+    -> array("break", $label)
+
+return_statement
+  = "return" !identifier_part __noLB expr:( EOSnoLB -> NULL
+                                          / expr EOS
+                                          )
+    -> array("return", $expr)
+
+with_statement
+  = "with" __ "(" __ expr:expr __ ")" __ statement:statement
+    -> array("with", $expr, $statement)
+
+labelled_statement
+  = label:identifier __ ":" __ statement:statement
+    -> array("labelled", $label, $statement)
+
+switch_statement
+  = "switch" __ "(" __ expr:expr __ ")" __ "{"
+    case_clauses:case_clause*
+	additional_clauses:( default:default_clause clauses:case_clause* -> array_merge(array($default), $clauses)
+					   )?
+	__ "}"
+	-> array("switch", $expr, array_merge($case_clauses, (array) $additional_clauses))
+
+case_clause
+  = __ "case" !identifier_part __ expr:expr __ ":" __ statements:statement*
+    -> array("case", $expr, count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements)))
+
+default_clause
+  = __ "default" __ ":" __ statements:statement*
+    -> array("default", count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements)))
+
+throw_statement
+  = "throw" !identifier_part __noLB expr:( EOSnoLB -> NULL
+  	                                     / expr EOS
+	                                     )
+    -> array("throw", $expr)
+
+try_statement
+  = "try" __ try_block:block __
+    "catch" __ "(" __ catch_var:identifier __ ")" __ catch_block:block __
+    finally:( "finally" __ finally_block:block -> $finally_block
+	        )?
+	-> array("try", $try_block, $catch_var, $catch_block, $finally)
+  / "try" __ try_block:block __
+    "finally" __ finally_block:block
+	-> array("try", $try_block, NULL, NULL, $finally_block)
+
+debugger_statement
+  = "debugger" __ EOS
+
+php_statement
+  = "@@" parts:php "@@" -> array("php_statement", $parts)
+
+
+// EXPRESSIONS
+
+expr
+  = exprs:list(assignment_expr, __ "," __)
+    -> count($exprs) > 1 ? array("exprs", $exprs) : $exprs[0]
+
+expr_no_in
+  = exprs:list(assignment_expr_no_in, __ "," __)
+    -> count($exprs) > 1 ? array("exprs", $exprs) : $exprs[0]
+
+assignment_expr
+  = lhs:left_hand_side_expr __ op:assignment_operator __ rhs:assignment_expr
+    -> array("assignment", $op, $lhs, $rhs)
+  / cond:logical_or_expr __ "?" __ iftrue:assignment_expr __ ":" __ iffalse:assignment_expr
+    -> array("cond", $cond, $iftrue, $iffalse)
+  / logical_or_expr
+
+assignment_expr_no_in
+  = lhs:left_hand_side_expr __ op:assignment_operator __ rhs:assignment_expr_no_in
+    -> array("assignment", $op, $lhs, $rhs)
+  / cond:logical_or_expr_no_in __ "?" __ iftrue:assignment_expr_no_in __ ":" __ iffalse:assignment_expr_no_in
+    -> array("cond", $cond, $iftrue, $iffalse)
+  / logical_or_expr_no_in
+
+assignment_operator
+  = "=" !("=") / "*=" / "/=" / "%=" / "+=" / "-=" / "<<=" / ">>=" / ">>>=" / "&=" / "^=" / "|="
+
+logical_or_expr
+  = left_associative(logical_and_expr, "||", __)
+
+logical_or_expr_no_in
+  = left_associative(logical_and_expr_no_in, "||", __)
+
+logical_and_expr
+  = left_associative(bitwise_or_expr, "&&", __)
+
+logical_and_expr_no_in
+  = left_associative(bitwise_or_expr_no_in, "&&", __)
+
+bitwise_or_expr
+  = left_associative(bitwise_xor_expr, "|" !"=", __)
+
+bitwise_or_expr_no_in
+  = left_associative(bitwise_xor_expr_no_in, "|" !"=", __)
+
+bitwise_xor_expr
+  = left_associative(bitwise_and_expr, "^" !"=", __)
+
+bitwise_xor_expr_no_in
+  = left_associative(bitwise_and_expr_no_in, "^" !"=", __)
+
+bitwise_and_expr
+  = left_associative(equality_expr, "&" !"=", __)
+
+bitwise_and_expr_no_in
+  = left_associative(equality_expr_no_in, "&" !"=", __)
+
+equality_expr
+  = left_associative(relational_expr, "===" / "!==" / "==" / "!=", __)
+
+equality_expr_no_in
+  = left_associative(relational_expr_no_in, "===" / "!==" / "==" / "!=", __)
+
+relational_expr
+  = left_associative(shift_expr, relational_op, __)
+
+relational_expr_no_in
+  = left_associative(shift_expr, relational_op_no_in, __)
+
+relational_op
+  = "<=" / ">=" / "<" / ">" / "instanceof" / "in"
+
+relational_op_no_in
+  = "<=" / ">=" / "<" / ">" / "instanceof"
+
+shift_expr
+  = left_associative(additive_expr, "<<" / ">>>" / ">>", __)
+
+additive_expr
+  = left_associative(multiplicative_expr, "+" !("+" / "=") / "-" !("-" / "="), __)
+
+multiplicative_expr
+  = left_associative(unary_expr, ("*" / "/" / "%") !"=", __)
+
+unary_expr
+  = "delete" !identifier_part __ expr:unary_expr -> array("delete", $expr)
+  / "void" !identifier_part __ expr:unary_expr -> array("void", $expr)
+  / "typeof" !identifier_part __ expr:unary_expr -> array("typeof", $expr)
+  / "++" __ expr:unary_expr -> array("preinc", $expr)
+  / "--" __ expr:unary_expr -> array("predec", $expr)
+  / "+" __ expr:unary_expr -> array("positive", $expr)
+  / "-" __ expr:unary_expr -> array("negative", $expr)
+  / "~" __ expr:unary_expr -> array("inverse", $expr)
+  / "!" __ expr:unary_expr -> array("not", $expr)
+  / postfix_expr
+
+postfix_expr
+  = lhs:left_hand_side_expr __noLB "++" -> array("postinc", $lhs)
+  / lhs:left_hand_side_expr __noLB "--" -> array("postdec", $lhs)
+  / left_hand_side_expr
+
+left_hand_side_expr
+  = call_expr
+  / new_expr
+
+call_expr
+  = base:( name:member_expr __ arguments:arguments -> array("call", $name, $arguments)
+         )
+    arguments_or_accessors:( __ arguments:arguments -> array("call", NULL, $arguments)
+                           / __ "[" __ expr:expr __ "]" -> array("index", NULL, $expr)
+                           / __ "." __ id:identifier_name -> array("index", NULL, array("string", $id))
+						   )*
+	{
+		foreach ($arguments_or_accessors as $new_base) {
+			$new_base[1] = $base;
+			$base = $new_base;
+		}
+
+		return $base;
+	}
+
+arguments
+  = "(" __ arguments:list(assignment_expr, __ "," __)? __ ")" -> (array) $arguments
+
+new_expr
+  = member_expr
+  / "new" !identifier_part __ expr:new_expr -> array("new", $expr, array())
+
+member_expr
+  = base:( primary_expr
+         / "new" !identifier_part __ e:member_expr __ a:arguments -> array("new", $e, $a)
+         / function_expr
+         )
+    accessors:( __ "[" __ e:expr __ "]" -> array("index", NULL, $e)
+              / __ "." __ id:identifier_name -> array("index", NULL, array("string", $id))
+              )*
+    {
+		foreach ($accessors as $new_base) {
+			$new_base[1] = $base;
+			$base = $new_base;
+		}
+
+		return $base;
+	}
+
+primary_expr
+  = "this" !identifier_part -> array("this")
+  / "null" !identifier_part -> array("null")
+  / "true" !identifier_part -> array("true")
+  / "false" !identifier_part -> array("false")
+  / "undefined" !identifier_part -> array("undefined")
+  / n:number -> array("number", $n)
+  / s:string -> array("string", $s)
+  / regexp
+  / id:identifier -> array("identifier", $id)
+  / "[" __ a:assignment_expr? b:( __ "," __ e:assignment_expr -> $e
+                                / __ "," __ -> NULL
+								)*
+	__ "]" -> array("array", !$a && empty($b) ? array() : array_merge(array($a), $b))
+  / "{" __ o:list(name:(identifier_name / string / number) __ ":" __ value:assignment_expr -> array((string) $name, $value)
+                       , __ "," __)?
+    __ "}" -> array("object", (array) $o)
+  / "(" __ e:expr __ ")" -> $e
+  / "@@" parts:php "@@" -> array("php", $parts)
+
+php
+  = parts:( "`" id:identifier_name -> array("identifier", $id)
+          / code:(!"@@" !"`" .)+ -> array("raw", $code)
+		  )*
+	-> $parts
+
+
+// LITERALS
+
+number
+  = "0" [Xx] hex:[0-9a-fA-F]+ !identifier_start -> hexdec($hex)
+  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]+)? exp:([eE] [+-]? [0-9]+)? !identifier_start -> intval($int . $frac . $exp)
+  / "." frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> intval("0." . $frac . $exp)
+
+string
+  = ["] value:(!["] char)* ["] -> implode("", $value)
+  / ['] value:(!['] char)* ['] -> implode("", $value)
+
+char
+  = ![\\\n\r] .
+  / "\\b" -> chr(8)
+  / "\\f" -> "\f"
+  / "\\n" -> "\n"
+  / "\\r" -> "\r"
+  / "\\t" -> "\t"
+  / "\\v" -> "\v"
+  / "\\\\" -> "\\"
+  / "\\\"" -> '"'
+  / "\\'" -> "'"
+  / "\\0" ![0-9] -> chr(0)
+  / "\\x" a:[0-9a-fA-F] b:[0-9a-fA-F] -> chr(hexdec($a . $b))
+  / "\\" EOL -> ""
+
+regexp
+  = "/" value:( "\\\\" -> "\\\\"
+              / "\\/" -> "/"
+              / !"/" .
+			  )+
+	"/" flags:identifier_part*
+	-> array("regexp", implode("", $value), implode("", $flags))
+
+
+// BASE PARTS
+_
+  = ( [ \t]
+    / EOL
+	/ "//" (!EOL .)*
+	/ "/*" (!"*/" .)* "*/"
+	)+
+
+__ = _?
+
+_noLB
+  = ( [ \t]
+    / "//" (!EOL .)*
+	/ "/*" (!"*/" !EOL .)* "*/"
+	)*
+
+__noLB = _noLB?
+
+EOS
+  = __ ";"
+  / __noLB EOL
+  / __noLB &"}"
+  / __ !.
+
+EOSnoLB
+  = __noLB ";"
+  / __noLB EOL
+  / __noLB &"}"
+  / __noLB !.
+
+EOL
+  = "\r"? "\n"
+  / "\r"
+
+identifier
+  = id:identifier_name ?-> !in_array($id, array("null", "true", "false", "break", "case", "catch", "continue", "debugger", "default", "delete", "do", "else", "finally", "for", "function", "if", "instanceof", "in", "new", "return", "switch", "this", "throw", "try", "typeof", "var", "void", "while", "with", "abstract", "boolean", "byte", "char", "class", "const", "double", "enum", "export", "extends", "final", "float", "goto", "implements", "import", "interface", "int", "long", "native", "package", "private", "protected", "public", "short", "static", "super", "synchronized", "throws", "transient" , "volatile"))
+
+identifier_name
+  = [a-zA-Z_$] [a-zA-Z0-9_$]*
+
+identifier_start
+  = [a-zA-Z_$]
+
+identifier_part
+  = [a-zA-Z0-9_$]
+
+
+// MACROS
+
+list(expression, separator)
+  = first:expression rest:( separator next:expression -> $next
+                          )*
+    -> array_merge(array($first), $rest)
+
+left_associative(expression, op, ws)
+  = left:expression ( ws op:op ws right:expression { $left = array("binary", $op, $left, $right); }
+                    )*
+    -> $left

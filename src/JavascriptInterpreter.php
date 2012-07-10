@@ -1,0 +1,81 @@
+<?php
+/**
+ * Interface to Javascript
+ */
+class JavascriptInterpreter
+{
+	/** @var string */
+	private $code;
+
+	/** @var string */
+	private $compiled;
+
+	/** @var callback */
+	private $entryPoint;
+
+	/**
+	 * @param string
+	 */
+	public function __construct($code)
+	{
+		$this->code = $code;
+	}
+
+	/**
+	 * Compiles code and returns it
+	 * @return string
+	 */
+	public function compile()
+	{
+		if ($this->compiled === NULL) {
+			$parser = new JavascriptParser;
+			list($ok, $result, $error) = $parser->parse($this->code);
+
+			if (!$ok) {
+				throw new JavascriptException(
+					"Syntax error on {$error->line}:{$error->column}, expected " .
+					implode(', ', $error->expected)
+				);
+			}
+
+			$compiler = new JavascriptCompiler;
+			$this->compiled = $compiler->__invoke($result);
+		}
+
+		return $this->compiled;
+	}
+
+	/**
+	 * Runs the script, returns what script returns
+	 * @param array values from array will be added to global object
+	 * @return mixed
+	 */
+	public function run(array $vars = array())
+	{
+		$this->compile();
+
+		if (!class_exists('JS')) {
+			require_once __DIR__ . '/image.php';
+		}
+
+		if ($this->entryPoint === NULL) {
+			$this->entryPoint = eval($this->compiled);
+		}
+
+		$global = clone JS::$global; // FIXME: shallow copy
+
+		foreach ($vars as $k => $v) {
+			$global->properties[$k] = JS::fromNative($v);
+			$global->attributes[$k] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+		}
+
+		return JS::toNative(call_user_func($this->entryPoint, $global));
+	}
+}
+
+/**
+ * Javascript interpreter exception
+ */
+class JavascriptException extends Exception
+{
+}

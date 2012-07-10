@@ -1,0 +1,945 @@
+-init {
+	$self = (object) array(
+		'functions' => array(),
+		'prestatement' => array(),
+		'assigned' => array(),
+		'prefix' => uniqid(),
+		'varCounter' => 0,
+		'fnCounter' => 0,
+	);
+}
+
+-invoke(ast) {
+	$ret = WALK(array("program_", $ast));
+	return implode("\n", $self->functions) . "\n$ret";
+}
+
+program_(ast) {
+	$ret = array();
+	$fn = WALK(array("genfn_"));
+
+	$ret[] = 'function ' . $fn . '($global = NULL) {';
+	$ret[] = "if (!is_object(\$global)) {
+		\$global = (object) array(
+			'properties' => array(),
+			'attributes' => array(),
+			'getters' => array(),
+			'setters' => array(),
+			'prototype' => NULL,
+			'up' => NULL,
+		); }";
+	$ret[] = '$scope = $global;';
+	$code = WALK($ast);
+
+	if (!empty($self->prestatement)) {
+		$ret[] = implode("\n", $self->prestatement);
+	}
+
+	if (!empty($code)) {
+		$ret[] = $code;
+	}
+	$ret[] = ';';
+	$ret[] = 'return JS::$undefined;';
+	$ret[] = '}';
+	$ret[] = 'return ' . var_export($fn, TRUE) . ';';
+
+	return implode("\n", $ret) . "\n";
+}
+
+genvar_() -> '$x' . $self->varCounter++
+
+genfn_() -> '_' . $self->prefix . '_' . $self->fnCounter++
+
+varize_(identifier) -> '$_' . str_replace(array('$', '_'), array('_dlr_', '__'), $identifier)
+
+// STATEMENTS
+
+block(statements) {
+	$ret = array();
+	foreach ($statements as $statement) {
+		if ($statement === NULL) {
+			continue;
+		}
+
+		$s = WALK($statement);
+
+		if (!empty($s)) {
+			$s = trim($s);
+			if (substr($s, -1) !== ';') {
+				$s .= ';';
+			}
+			$ret[] = $s;
+		}
+	}
+
+	return implode("\n", $ret);
+}
+
+php_statement(parts) {
+	$ret = array();
+	$parts = WALKEACH($parts);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = implode('', $parts);
+	return implode("\n", $ret);
+}
+
+function(name, parameters_list, body) {
+	$fn = WALK(array('genfn_'));
+
+	$saved_prestatement = $self->prestatement;
+	$saved_assigned = $self->assigned;
+	$self->prestatement = array();
+	$self->assigned = array();
+
+	$ret = WALK(array('genvar_'));
+	$arguments = WALK(array('genvar_'));
+
+	$self->prestatement[] = 'if (isset($fn->boundThis)) { $leThis = $fn->boundThis; }';
+	$self->prestatement[] = 'if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }';
+
+	$self->prestatement[] = '$scope = clone JS::$emptyScope;';
+	$self->prestatement[] = '$scope->up = $fn->scope;';
+
+	if (!in_array('arguments', $parameters_list)) {
+		$self->prestatement[] = '$scope->properties[\'arguments\'] = clone JS::$argumentsTemplate;';
+		$self->prestatement[] = $arguments . ' =& $scope->properties[\'arguments\'];';
+		$self->prestatement[] = $arguments . '->properties[\'length\'] = count($args);';
+		$self->prestatement[] = 'foreach ($args as $i => $arg) {';
+		$self->prestatement[] = $arguments . '->properties[$i] = $args[$i];';
+		$self->prestatement[] = $arguments . '->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;';
+		$self->prestatement[] = '}';
+	}
+
+	foreach ($parameters_list as $i => $parameter) {
+		$self->prestatement[] = '$scope->properties[' . var_export($parameter, TRUE) . '] = ' .
+			'array_key_exists(' . $i . ', $args) ? $args[' . $i . '] : JS::$undefined;';
+	}
+
+	if (!empty($name) && !in_array($name, $parameters_list)) {
+		$self->assigned[$name] = WALK(array('varize_', $name));
+		$self->prestatement[] = '$scope->properties[' . var_export($name, TRUE) . '] = $fn;';
+		$self->prestatement[] = $self->assigned[$name] . ' =& $scope->properties[' . var_export($name, TRUE) . '];';
+	}
+
+	$body = WALK($body);
+	$self->functions[] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args) {',
+		implode("\n", $self->prestatement), $body, ';', 'return JS::$undefined;', '}'));
+	$self->prestatement = $saved_prestatement;
+	$self->assigned = $saved_assigned;
+
+	$var = WALK(array('genvar_'));
+	$self->prestatement[] = $var . ' = clone JS::$functionTemplate; ' .
+		$var . '->call = ' . var_export($fn, TRUE) . '; ' .
+		$var . '->parameters = ' . var_export($parameters_list, TRUE) . '; ' .
+		($name !== NULL ? $var . '->name = ' . var_export($name, TRUE) . '; ' : '') .
+		$var . '->scope = $scope; ' .
+		$var . '->properties[\'prototype\'] = clone JS::$objectTemplate; ' .
+		$var . '->attributes[\'prototype\'] = JS::WRITABLE; ' .
+		$var . '->properties[\'prototype\']->properties[\'constructor\'] = ' . $var . '; ' .
+		$var . '->properties[\'prototype\']->attributes[\'constructor\'] = JS::WRITABLE | JS::CONFIGURABLE; ' .
+		$var . '->properties[\'length\'] = ' . count($parameters_list) . '; ' .
+		$var . '->attributes[\'length\'] = 0;';
+	
+	return $var;
+}
+
+var(declarations_list) {
+	$ret = '';
+
+	foreach ($declarations_list as $declaration) {
+		list($varname, $expr) = $declaration;
+		$phpVarname = WALK(array('varize_', $varname));
+
+		if (!$expr) {
+			$expr = array('raw', 'JS::$undefined');
+		}
+
+		$expr = WALK($expr);
+
+		if (isset($self->assigned[$varname])) {
+			$self->prestatement[] = 'unset(' . $self->assigned[$varname] . ');';
+		}
+
+		$self->prestatement[] = '$scope->properties[' . var_export($varname, TRUE) . '] = ' .
+			$expr . '; ' . $phpVarname . ' =& $scope->properties[' . var_export($varname, TRUE) . '];';
+		$self->assigned[$varname] = $ret = $phpVarname;
+	}
+
+	return $ret;
+}
+
+if(cond_expr, statement, else_statement) {
+	$ret = array();
+
+	$cond_expr = WALK($cond_expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = 'if (JS::toBoolean(' . $cond_expr . ')) {';
+	$saved_assigned = $self->assigned;
+	$ret[] = WALK($statement) . ';';
+	$self->assigned = $saved_assigned;
+	$ret[] = '}';
+
+	if ($else_statement !== NULL) {
+		$ret[] = 'else {';
+		$saved_assigned = $self->assigned;
+		$ret[] = WALK($else_statement) . ';';
+		$self->assigned = $saved_assigned;
+		$ret[] = '}';
+	}
+
+	return implode("\n", $ret);
+}
+
+do(cond_expr, statement) {
+	$ret = array();
+
+	// does not need to save $self->assigned, everything is done at least once
+	$statement = WALK($statement);
+	$ret[] = 'do {';
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $statement . ';';
+
+	$cond_expr = WALK($cond_expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = '} while(' . $cond_expr . ');';
+
+	return implode("\n", $ret);
+}
+
+while(cond_expr, statement) {
+	$ret = array();
+
+	$ret[] = 'for (;;) {';
+
+	$cond = WALK($cond_expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = 'if (!JS::toBoolean(' . $cond . ')) { break; }';
+
+	$saved_assigned = $self->assigned;
+	$statement = WALK($statement);
+	$self->assigned = $saved_assigned;
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $statement . ';';
+
+	$ret[] = '}';
+
+	return implode("\n", $ret);
+}
+
+for_in(assignment_expr, in_expr, statement) {
+	$ret = array();
+	$tmp = WALK(array('genvar_'));
+
+	$in_expr = WALK($in_expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+
+	$assignment_expr = WALK($assignment_expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+
+	$ret[] = "for ($tmp = $in_expr; $tmp; $tmp = {$tmp}->prototype) {";
+
+	$ret[] = 'foreach (' . $tmp . '->attributes as $property => $attributes) {';
+	$ret[] = 'if (!($attributes & JS::ENUMERABLE)) { continue; }';
+
+	$ret[] = $assignment_expr . ' = $property;';
+
+	$saved_assigned = $self->assigned;
+	$statement = WALK($statement);
+	$self->assigned = $saved_assigned;
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $statement . ';';
+
+	$ret[] = '}';
+
+	$ret[] = '}';
+
+	return implode("\n", $ret);
+}
+
+for(init_expr, cond_expr, iter_expr, statement) {
+	$ret = array();
+	$counter = WALK(array('genvar_'));
+
+	$ret[] = 'for (' . $counter . ' = 0;; ++' . $counter . ') {';
+
+	if ($init_expr !== NULL) {
+		$ret[] = 'if (' . $counter . ' === 0) {';
+		WALK($init_expr);
+		$ret[] = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$ret[] = '}';
+	}
+
+	if ($iter_expr !== NULL) {
+		$ret[] = 'if (' . $counter .' !== 0) {';
+		$saved_assigned = $self->assigned;
+		WALK($iter_expr);
+		$self->assigned = $saved_assigned;
+		$ret[] = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$ret[] = '}';
+	}
+
+	if ($cond_expr !== NULL) {
+		$cond = WALK($cond_expr);
+		$ret[] = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$ret[] = 'if (!JS::toBoolean(' . $cond . ')) { break; }';
+	}
+
+	$saved_assigned = $self->assigned;
+	$statement = WALK($statement);
+	$self->assigned = $saved_assigned;
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $statement . ';';
+
+	$ret[] = '}';
+
+	return implode("\n", $ret);
+}
+
+continue(label) {
+	if ($label) {
+		throw new Exception('Labels not implemented.');
+	}
+
+	return 'continue;';
+}
+
+break(label) {
+	if ($label) {
+		throw new Exception('Labels not implemented.');
+	}
+
+	return 'break;';
+}
+
+return(expr) {
+	$ret = array();
+
+	$expr = WALK($expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = 'return ' . $expr . ';';
+
+	return implode("\n", $ret);
+}
+
+with(expr, statement) {
+	throw new Exception('with not implemented.');
+}
+
+labelled(label, statement) {
+	throw new Exception('Labels not implemented.');
+}
+
+switch(expr, clauses_list) {
+	// FIXME
+	$ret = array();
+
+	$expr = WALK($expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = 'switch (' . $expr . ') {';
+
+	$ret = array_merge($ret, WALKEACH($clauses_list));
+
+	$ret[] = '}';
+
+	return implode("\n", $ret);
+}
+
+case(expr, statement) {
+	// FIXME
+	$ret = array();
+	$ret[] = 'case ' . WALK($expr) . ':';
+	$saved_assigned = $self->assigned;
+	$statement = WALK($statement);
+	$self->assigned = $saved_assigned;
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $statement . ';';
+
+	return implode("\n", $ret);
+}
+
+default(statement) {
+	// FIXME
+	$ret = array();
+	$ret[] = 'default:';
+	$saved_assigned = $self->assigned;
+	$statement = WALK($statement);
+	$self->assigned = $saved_assigned;
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $statement . ';';
+	
+	return implode("\n", $ret);
+}
+
+throw(expr) {
+	$ret = array();
+	$expr = WALK($expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = 'throw new JSException(' . $expr . ');';
+
+	return implode("\n", $ret);
+}
+
+try(try_block, catch_var, catch_block, finally_block) {
+	$ret = array();
+	$finally = '';
+
+	if ($finally_block) {
+		$saved_assigned = $self->assigned;
+		$finally_block = WALK($finally_block);
+		$finally = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$finally .= "\n" . $finally_block . ';';
+		$self->assigned = $saved_assigned;
+	}
+
+	if (!empty($finally)) {
+		$ret[] = 'try {';
+	}
+
+	$ret[] = 'try {';
+	$saved_assigned = $self->assigned;
+	$try_block = WALK($try_block);
+	$self->assigned = $saved_assigned;
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$ret[] = $try_block . ';';
+	$ret[] = '}';
+	
+	if ($catch_block === NULL) {
+		$ret[] = 'catch (JSException $e) {}';
+
+	} else {
+		$saved_assigned = $self->assigned;
+		$catch_block = WALK($catch_block);
+		$self->assigned = $saved_assigned;
+		$ret[] = 'catch (JSException $e) {';
+		WALK(array('var', array(array($catch_var, array('raw', '$e->value'))))); // FIXME: leaks into current scope
+		$ret[] = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$ret[] = $catch_block . ';';
+		$ret[] = '}';
+	}
+
+	if (!empty($finally)) {
+		$ret[] = '$processingFinally = TRUE;';
+		$ret[] = $finally;
+		$ret[] = '} catch (Exception $e) {';
+		$ret[] = 'if (!$processingFinally) {';
+		$ret[] = $finally;
+		$ret[] = '}';
+		$ret[] = 'throw $e;';
+		$ret[] = '}';
+	}
+
+	return implode("\n", $ret);
+}
+
+discard(expr) {
+	WALK($expr);
+	$ret = $self->prestatement;
+	$self->prestatement = array();
+	return implode("\n", $ret);
+}
+
+
+// EXPRESSIONS
+
+exprs(exprs) {
+	foreach ($exprs as $expr) {
+		$last = WALK($expr);
+	}
+
+	return $last;
+}
+
+assignment(op, lhs_expr, rhs_expr) {
+	if ($lhs_expr[0] === 'identifier') {
+		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE));
+
+		$self->prestatement[] = 'if (isset($u' . substr($lhs, 2) . ')) {' .
+			'$global->properties[' . var_export($lhs_expr[1], TRUE) . '] = ' .
+			$lhs . '; ' . $lhs . ' =& $global->properties[' . var_export($lhs_expr[1], TRUE) . ']; }';
+
+	} else if ($lhs_expr[0] === 'index') {
+		list(,$base, $index) = $lhs_expr;
+		$base = WALK($base);
+		$index = WALK($index);
+
+		// TODO: setters
+
+		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE));
+
+		$self->prestatement[] = 'if (isset($u' . substr($lhs, 2) . ')) {' .
+			$base . '->properties[' . $index . '] = ' .
+			$lhs . '; ' . $lhs . ' =& ' . $base . '->properties[' . $index . ']; }';
+
+	} else {
+		$error = WALK(array('new',
+			array('identifier', 'ReferenceError'),
+			array(array('string', 'Invalid left-hand side in assignment.'))));
+		$self->prestatement[] = 'throw ' . $error . ';';
+		return '';
+	}
+
+	$rhs = WALK($rhs_expr);
+
+	if ($op !== '=') {
+		$rhs = WALK(array('binary', substr($op, 0, -1), array('raw', $lhs), array('raw', $rhs)));
+	}
+
+	$self->prestatement[] = $lhs . ' = ' . $rhs . ';';
+	return $lhs;
+}
+
+lookup_(base, id, up, assign) {
+	if (isset($self->assigned[$id])) {
+		return $self->assigned[$id];
+	}
+
+	if ($assign) {
+		$var = WALK(array('varize_', $id));
+		$self->assigned[$id] = $var;
+	} else {
+		$var = WALK(array('genvar_'));
+	}
+
+	if ($assign) {
+		$id = var_export($id, TRUE);
+	}
+
+	if ($base !== '$scope' && $base !== '$_TypeError' && $base !== '$_ReferenceError') {
+		$self->prestatement[] = 'if (' . $base . ' === JS::$undefined || ' . $base . ' === NULL) {';
+		$error = WALK(array('new',
+			array('identifier', 'TypeError'),
+			array(array('string', 'Cannot lookup property of undefined/null.'))));
+		$self->prestatement[] = 'throw ' . $error . ';';
+		$self->prestatement[] = '}';
+	}
+
+	$self->prestatement[] = 'for ($lookup = JS::toObject(' . $base .
+		'); $lookup && !(array_key_exists(' . $id . ', $lookup->properties) ||
+		array_key_exists(' . $id . ', $lookup->attributes)) &&
+		isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
+	
+	$self->prestatement[] = 'if (array_key_exists(' . $id . ', $lookup->properties)) { ' .
+		$var . ' =& $lookup->properties[' . $id . ']; }';
+	$self->prestatement[] = 'else if (array_key_exists(' . $id . ', $lookup->attributes) &&
+		$lookup->attributes[' . $id . '] & JS::HAS_GETTER) { ';
+	$self->prestatement[] =
+		$var . ' = ' . WALK(array('call_', '$lookup->getters[' . $id . ']', array(), '$lookup', FALSE)) . '; }';
+	$self->prestatement[] = 'else { ' . $var . ' = JS::$undefined; $u' . substr($var, 2) . ' = TRUE; }'; 
+
+	return $var;
+}
+
+call_(function, args, leThis, check) {
+	$call = WALK(array('genvar_'));
+	$ret = WALK(array('genvar_'));
+
+	if ($check) {
+		$self->prestatement[] = 'if (!(is_object(' . $function . ') && isset(' . $function . '->call))) { ';
+		$error = WALK(array('new',
+			array('identifier', 'TypeError'),
+			array(array('string', 'Trying to call what is not a function.'))));
+		$self->prestatement[] = 'throw ' . $error . ';';
+		$self->prestatement[] = '}';
+	}
+
+	$self->prestatement[] = $call . ' = ' . $function . '->call;';
+	$self->prestatement[] = $ret . ' = ' . $call . '($global, ' . $leThis . ', ' . $function .
+		', array(' . implode(', ', $args) . '));';
+
+	return $ret;
+}
+
+cond(cond_expr, iftrue_expr, iffalse_expr) {
+	$var = WALK(array('genvar_'));
+	$cond_expr = WALK($cond_expr);
+	$self->prestatement[] = 'if (JS::toBoolean(' . $cond_expr . ')) {';
+	$iftrue_expr = WALK($iftrue_expr);
+	$self->prestatement[] = '} else {';
+	$iffalse_expr = WALK($iffalse_expr);
+	$self->prestatement[] = '}';
+
+	return 'JS::toBoolean(' . $cond_expr . ') ? ' . $iftrue_expr . ' : ' . $iffalse_expr;
+}
+
+binary(op, left_expr, right_expr) {
+	switch ($op) {
+		case '*':
+		case '/':
+		case '%':
+		case '-':
+		case '<<':
+		case '>>':
+		case '&':
+		case '|':
+		case '^':
+			return 'JS::toNumber(' . WALK($left_expr) . ') ' . $op .
+				' JS::toNumber(' . WALK($right_expr) . ')';
+
+		case '+':
+			$l = WALK(array('genvar_'));
+			$r = WALK(array('genvar_'));
+			$left_expr = WALK($left_expr);
+			$right_expr = WALK($right_expr);
+
+			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
+			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
+
+			return 'is_string(' . $l . ') && is_string(' . $r . ') ? ' . $l . ' . ' . $r . ' : ' .
+				'JS::toNumber(' . $l . ') + JS::toNumber(' . $r . ')';
+
+			return 'JS::toNumber(' . WALK($left_expr) . ') ' . $op .
+				' ((int) JS::toNumber(' . WALK($right_expr) . '))';
+
+		case '<':
+		case '>':
+		case '<=':
+		case '>=':
+			$not = FALSE;
+			$l = WALK(array('genvar_'));
+			$r = WALK(array('genvar_'));
+			$result = WALK(array('genvar_'));
+			$left_expr = WALK($left_expr);
+			$right_expr = WALK($right_expr);
+
+			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
+			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
+
+			if ($op === '<') { // ok
+			} else if ($op === '>') {
+				$tmp = $r;
+				$r = $l;
+				$l = $tmp;
+
+			} else if ($op === '<=') {
+				$tmp = $r;
+				$r = $l;
+				$l = $tmp;
+				$not = TRUE;
+			} else if ($op === '>=') {
+				$not = TRUE;
+			}
+
+			$self->prestatement[] = $result . ' = ' . ($not ? '!' : '') .
+				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp($l, $r) < 0 : ' .
+				'JS::toNumber(' . $l . ') < JS::toNumber(' . $r . '));';
+
+			return $result;
+
+		case 'instanceof':
+			$ret = WALK(array('genvar_'));
+			$tmp = WALK(array('genvar_'));
+			$l = WALK($left_expr);
+			$r = WALK($right_expr);
+
+			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
+			$error = WALK(array('new',
+				array('identifier', 'TypeError'),
+				array(array('string', 'Right-hand side of instanceof operator is not an object.'))));
+			$self->prestatement[] = 'throw ' . $error . ';';
+			$self->prestatement[] = '}';
+
+			$self->prestatement[] = $ret . ' = FALSE;';
+			$self->prestatement[] =
+				"if (is_object($l) && $l !== JS::\$undefined) { " .
+					"for ($tmp = {$l}->prototype; $tmp && {$tmp}->prototype; $tmp = {$tmp}->prototype) { " .
+						"if ($tmp === {$r}->prototype) { $ret = TRUE; break; } " .
+					"} " .
+				"}";
+
+			return $ret;
+
+		case 'in':
+			$l = WALK($left_expr);
+			$r = WALK($right_expr);
+
+			$self->prestatement[] = $l . ' = JS::toString(' . $l . ');';
+			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
+			$error = WALK(array('new',
+				array('identifier', 'TypeError'),
+				array(array('string', 'Right-hand side of in operator is not an object.'))));
+			$self->prestatement[] = 'throw ' . $error . ';';
+			$self->prestatement[] = '}';
+			
+			return 'array_key_exists(' . $l . ', ' . $r . '->properties) ||
+				array_key_exists(' . $l . ', ' . $r . '->attributes)';
+
+		case '==':
+		case '!=':
+			$ret = WALK(array('genvar_'));
+			$l = WALK($left_expr);
+			$r = WALK($right_expr);
+
+			$self->prestatement[] = 'if (gettype(' . $l . ') === gettype(' . $r . ')) { ' .
+				$ret . ' = ' . $l . ' == ' . $r . '; }';
+			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . '); ' .
+				$r . ' = JS::toPrimitive(' . $r . '); ';
+			$self->prestatement[] = 'if (is_numeric(' . $l . ') || is_numeric(' . $r . ')) { ' .
+				$l . ' = JS::toNumber(' . $l . '); ' .
+				$r . ' = JS::toNumber(' . $r . '); }';
+			$self->prestatement[] = $ret . ' = ' . $l . $op . $r . '; }';
+
+			return $ret;
+
+		case '===':
+		case '!==':
+			$ret = WALK(array('genvar_'));
+			$l = WALK($left_expr);
+			$r = WALK($right_expr);
+
+			$self->prestatement[] = $ret . ' = ' . ($op === '!==' ? '!' : '') .
+				'(gettype(' . $l . ') === gettype(' . $r . ') && ' .
+				$l . ' == ' . $r . ');';
+
+			return $ret;
+
+		case '&&':
+			$ret = WALK(array('genvar_'));
+			$l = WALK($left_expr);
+
+			$self->prestatement[] = $ret . ' = ' . $l . ';';
+			$self->prestatement[] = 'if (JS::toBoolean(' . $ret . ')) {';
+			$r = WALK($right_expr);
+			$self->prestatement[] = $ret . ' = ' . $r . '; }';
+
+			return $ret;
+
+		case '||':
+			$ret = WALK(array('genvar_'));
+			$l = WALK($left_expr);
+
+			$self->prestatement[] = $ret . ' = ' . $l . ';';
+			$self->prestatement[] = 'if (!JS::toBoolean(' . $ret . ')) {';
+			$r = WALK($right_expr);
+			$self->prestatement[] = $ret . ' = ' . $r . '; }';
+
+			return $ret;
+
+		case '>>>':
+		default:
+			throw new Exception('Operator ' . $op . ' not implemented.');
+	}
+}
+
+delete(expr) {
+	$ret_var = WALK(array('genvar_'));
+
+	if ($expr[0] === 'identifier') {
+		$base = '$scope';
+		$index = var_export($expr[1], TRUE);
+
+	} else if ($expr[0] === 'index') {
+		list(,$base, $index) = $expr;
+		$base = WALK($base);
+		$index = WALK($index);
+
+	} else {
+		$error = WALK(array('new',
+			array('identifier', 'ReferenceError'),
+			array(array('string', 'Invalid delete expression.'))));
+		$self->prestatement[] = 'throw ' . $error . ';';
+	}
+
+	if (isset($base) && isset($index)) {
+		$self->prestatement[] = 'if (!array_key_exists(' . $index . ', ' . $base . '->properties)) { ' .
+			$ret_var . ' = TRUE; }';
+		$self->prestatement[] = 'else if (!array_key_exists(' . $index . ', ' . $base . '->attributes)) { ' .
+			'unset(' . $base . '->properties[' . $index . ']' .
+			($expr[0] === 'identifier' && isset($self->assigned[$expr[1]]) ? ', ' .
+				$self->assigned[$expr[1]] : '') . '); ' .
+			$ret_var . ' = TRUE; }';
+		$self->prestatement[] = 'else if (' . $base . '->attributes[' . $index . '] & JS::CONFIGURABLE) { ' .
+			'unset(' . $base . '->properties[' . $index . '], ' . $base . '->attributes[' . $index . ']' .
+			($expr[0] === 'identifier' && isset($self->assigned[$expr[1]]) ? ', ' .
+				$self->assigned[$expr[1]] : '') . '); ' .
+			$ret_var . ' = TRUE; }';
+		$self->prestatement[] = 'else { ' . $ret_var . ' = FALSE; }';
+
+		if ($expr[0] === 'identifier') {
+			unset($self->assigned[$expr[1]]);
+		}
+	}
+
+	return $ret_var;
+}
+
+void(expr) {
+	WALK($expr);
+	return 'JS::$undefined';
+}
+
+typeof(expr) {
+	$expr = WALK($expr);
+	$ret = WALK(array('genvar_'));
+	$self->prestatement[] = $ret . ' = ' . $expr . ';';
+	$self->prestatement[] = $ret . " = ({$ret} === JS::\$undefined ? 'undefined' : (" .
+		"is_int($ret) || is_float($ret) ? 'number' : (" .
+		"is_bool($ret) ? 'boolean' : (" .
+		"is_string($ret) ? 'string' : (" .
+		"is_object($ret) && isset({$ret}->call) ? 'function' : 'object')))));";
+	
+	return $ret;
+}
+
+preinc(expr) {
+	$expr = WALK($expr);
+	$ret = WALK(array('genvar_'));
+	$self->prestatement[] = $ret . ' = ++' . $expr . ';';
+	return $ret;
+}
+
+predec(expr) {
+	$expr = WALK($expr);
+	$ret = WALK(array('genvar_'));
+	$self->prestatement[] = $ret . ' = --' . $expr . ';';
+	return $ret;
+}
+
+positive(expr) -> '+JS::toNumber(' . WALK($expr) . ')'
+
+negative(expr) -> '-JS::toNumber(' . WALK($expr) . ')'
+
+inverse(expr) -> '~JS::toNumber(' . WALK($expr) . ')'
+
+not(expr) -> '!JS::toBoolean(' . WALK($expr) . ')'
+
+postinc(expr) {
+	$expr = WALK($expr);
+	$ret = WALK(array('genvar_'));
+	$self->prestatement[] = $ret . ' = ' . $expr . ';';
+	$self->prestatement[] = '++' . $expr . ';';
+	return $ret;
+}
+
+postdec(expr) {
+	$expr = WALK($expr);
+	$ret = WALK(array('genvar_'));
+	$self->prestatement[] = $ret . ' = ' . $expr . ';';
+	$self->prestatement[] = '--' . $expr . ';';
+	return $ret;
+}
+
+call(fn_expr, arguments) {
+	if ($fn_expr[0] === 'index') {
+		list(,$base, $index) = $fn_expr;
+		$base = WALK($base);
+		$index = WALK($index);
+		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE));
+
+		return WALK(array('call_', $fn, WALKEACH($arguments), $base, TRUE));
+
+	} else {
+		$fn = WALK($fn_expr);
+		return WALK(array('call_', $fn, WALKEACH($arguments), '$global', TRUE));
+	}
+}
+
+index(base, index_expr) {
+	$base = WALK($base);
+	$index = WALK($index_expr);
+
+	return WALK(array('lookup_', $base, $index, 'prototype', FALSE));
+}
+
+new(expr, arguments_exprs_list) {
+	$ret = WALK(array('genvar_'));
+	$tmp = WALK(array('genvar_'));
+
+	$constructor = WALK($expr);
+	$arguments = WALKEACH($arguments_exprs_list);
+
+	$self->prestatement[] = $ret . ' = clone JS::$objectTemplate;';
+	$self->prestatement[] = $tmp . ' = ' .
+		WALK(array('lookup_', $constructor, var_export('prototype', TRUE), 'prototype', FALSE)) . ';';
+	$self->prestatement[] = $ret . '->prototype = ' . $tmp . ';';
+
+	if ($expr[0] === 'identifier' && preg_match('~Error$~', $expr[1])) {
+		// FIXME: errors can't be checked - cycle: new -> call_ -> new -> ...
+		$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, FALSE)) . ';';
+	} else {
+		$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, TRUE)) . ';';
+	}
+	$self->prestatement[] = 'if (is_object(' . $tmp . ') && ' . $tmp . ' !== JS::$undefined) { ' .
+		$ret . ' = ' . $tmp . '; }';
+
+	return $ret;
+}
+
+this() -> '$leThis'
+
+null() -> var_export(NULL, TRUE)
+
+true() -> var_export(TRUE, TRUE)
+
+false() -> var_export(FALSE, TRUE)
+
+undefined() -> 'JS::$undefined'
+
+number(n) -> var_export($n, TRUE)
+
+string(s) -> var_export($s, TRUE)
+
+regexp(regexp, flags) {
+	return WALK(array('new',
+		array('identifier', 'RegExp'),
+		array(array('string', $regexp), array('string', $flags))));
+}
+
+identifier(identifier) -> WALK(array('lookup_', '$scope', $identifier, 'up', TRUE));
+
+array(elements_list) {
+	$ret = WALK(array('genvar_'));
+
+	$self->prestatement[] = $ret . ' = clone JS::$arrayTemplate;';
+	$self->prestatement[] = $ret . '->properties[\'length\'] = ' . count($elements_list) . ';';
+	$self->prestatement[] = $ret . '->attributes[\'length\'] = JS::WRITABLE;';
+
+	foreach ($elements_list as $i => $element) {
+		if ($element === NULL) { continue; }
+		$element = WALK($element);
+		$self->prestatement[] = $ret . '->properties[' . $i . '] = ' . $element . ';';
+		$self->prestatement[] = $ret . '->attributes[' . $i . '] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;';
+	}
+
+	return $ret;
+}
+
+object(properties_list) {
+	$ret = WALK(array('genvar_'));
+
+	$self->prestatement[] = $ret . ' = clone JS::$objectTemplate;';
+
+	foreach ($properties_list as $property) {
+		list($name, $value) = $property;
+		$name = var_export($name, TRUE);
+		$value = WALK($value);
+		$self->prestatement[] = $ret . '->properties[' . $name . '] = ' . $value . ';';
+		$self->prestatement[] = $ret . '->attributes[' . $name . '] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;';
+	}
+
+	return $ret;
+}
+
+php(parts) -> implode('', WALKEACH($parts))
+
+raw(code) -> $code

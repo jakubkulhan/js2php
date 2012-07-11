@@ -173,19 +173,21 @@ var(declarations_list) {
 		list($varname, $expr) = $declaration;
 		$phpVarname = WALK(array('varize_', $varname));
 
+		if (isset($self->assigned[$varname])) {
+			$self->prestatement[] = 'unset(' . $self->assigned[$varname] . ');';
+		}
+
+		$self->prestatement[] = '$scope->properties[' . var_export($varname, TRUE) . '] = JS::$undefined; ' .
+			$phpVarname . ' =& $scope->properties[' . var_export($varname, TRUE) . '];';
+		$self->assigned[$varname] = $ret = $phpVarname;
+
 		if (!$expr) {
 			$expr = array('raw', 'JS::$undefined');
 		}
 
 		$expr = WALK($expr);
 
-		if (isset($self->assigned[$varname])) {
-			$self->prestatement[] = 'unset(' . $self->assigned[$varname] . ');';
-		}
-
-		$self->prestatement[] = '$scope->properties[' . var_export($varname, TRUE) . '] = ' .
-			$expr . '; ' . $phpVarname . ' =& $scope->properties[' . var_export($varname, TRUE) . '];';
-		$self->assigned[$varname] = $ret = $phpVarname;
+		$self->prestatement[] = $phpVarname . ' = ' . $expr . ';';
 	}
 
 	return $ret;
@@ -197,7 +199,7 @@ if(cond_expr, statement, else_statement) {
 	$cond_expr = WALK($cond_expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'if (JS::toBoolean(' . $cond_expr . ')) {';
+	$ret[] = 'if (JS::toBoolean(' . $cond_expr . ', $global)) {';
 	$saved_assigned = $self->assigned;
 	$ret[] = WALK($statement) . ';';
 	$self->assigned = $saved_assigned;
@@ -240,7 +242,7 @@ while(cond_expr, statement) {
 	$cond = WALK($cond_expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'if (!JS::toBoolean(' . $cond . ')) { break; }';
+	$ret[] = 'if (!JS::toBoolean(' . $cond . ', $global)) { break; }';
 
 	$saved_assigned = $self->assigned;
 	$statement = WALK($statement);
@@ -315,7 +317,7 @@ for(init_expr, cond_expr, iter_expr, statement) {
 		$cond = WALK($cond_expr);
 		$ret[] = implode("\n", $self->prestatement);
 		$self->prestatement = array();
-		$ret[] = 'if (!JS::toBoolean(' . $cond . ')) { break; }';
+		$ret[] = 'if (!JS::toBoolean(' . $cond . ', $global)) { break; }';
 	}
 
 	$saved_assigned = $self->assigned;
@@ -493,6 +495,8 @@ exprs(exprs) {
 }
 
 assignment(op, lhs_expr, rhs_expr) {
+	$rhs = WALK($rhs_expr);
+
 	if ($lhs_expr[0] === 'identifier') {
 		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE));
 
@@ -511,7 +515,7 @@ assignment(op, lhs_expr, rhs_expr) {
 			$base = $tmp;
 		}
 
-		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE, FALSE));
 
@@ -526,8 +530,6 @@ assignment(op, lhs_expr, rhs_expr) {
 		WALK(array('ReferenceError_', 'Invalid left-hand side in assignment.'));
 		return '';
 	}
-
-	$rhs = WALK($rhs_expr);
 
 	if ($op !== '=') {
 		$rhs = WALK(array('binary', substr($op, 0, -1), array('raw', $lhs), array('raw', $rhs)));
@@ -546,6 +548,10 @@ assignment(op, lhs_expr, rhs_expr) {
 			' }';
 		$self->prestatement[] = 'else { ' . $ret . ' = JS::$undefined; }';
 		$self->prestatement[] = '}';
+
+		$self->prestatement[] = "if (isset({$base}->class) && {$base}->class === 'Array' && " .
+			"is_int($index) && $index >= {$base}->properties['length']) { " .
+			"{$base}->properties['length'] = $index + 1; }";
 
 		return $ret;
 
@@ -571,15 +577,17 @@ lookup_(base, id, up, assign, get) {
 		$id = var_export($id, TRUE);
 	}
 
+	$self->prestatement[] = 'unset(' . $var . ');';
+
 	if (!in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] = 'if (' . $base . ' === JS::$undefined || ' . $base . ' === NULL) {';
 		WALK(array('TypeError_', 'Cannot lookup property of undefined/null.'));
 		$self->prestatement[] = '}';
 	}
 
-	$self->prestatement[] = '$lookup = JS::toObject(' . $base . ');';
+	$self->prestatement[] = '$lookup = JS::toObject(' . $base . ', $global);';
 
-	if ($get) {
+	if ($get || in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] =
 			'for (; $lookup && !(array_key_exists(' . $id . ', $lookup->properties) ||
 			isset($lookup->attributes[' . $id . '])) &&
@@ -628,15 +636,28 @@ call_(function, args, leThis, check) {
 }
 
 cond(cond_expr, iftrue_expr, iffalse_expr) {
-	$var = WALK(array('genvar_'));
+	$ret = WALK(array('genvar_'));
 	$cond_expr = WALK($cond_expr);
-	$self->prestatement[] = 'if (JS::toBoolean(' . $cond_expr . ')) {';
+
+	$self->prestatement[] = 'if (JS::toBoolean(' . $cond_expr . ', $global)) {';
+
+	$saved_assigned = $self->assigned;
 	$iftrue_expr = WALK($iftrue_expr);
+	$self->assigned = $saved_assigned;
+
+	$self->prestatement[] = $ret . ' = ' . $iftrue_expr . ';';
+
 	$self->prestatement[] = '} else {';
+
+	$saved_assigned = $self->assigned;
 	$iffalse_expr = WALK($iffalse_expr);
+	$self->assigned = $saved_assigned;
+
+	$self->prestatement[] = $ret . ' = ' . $iffalse_expr . ';';
+
 	$self->prestatement[] = '}';
 
-	return 'JS::toBoolean(' . $cond_expr . ') ? ' . $iftrue_expr . ' : ' . $iffalse_expr;
+	return $ret;
 }
 
 binary(op, left_expr, right_expr) {
@@ -650,8 +671,8 @@ binary(op, left_expr, right_expr) {
 		case '&':
 		case '|':
 		case '^':
-			return 'JS::toNumber(' . WALK($left_expr) . ') ' . $op .
-				' JS::toNumber(' . WALK($right_expr) . ')';
+			return 'JS::toNumber(' . WALK($left_expr) . ', $global) ' . $op .
+				' JS::toNumber(' . WALK($right_expr) . ', $global)';
 
 		case '+':
 			$l = WALK(array('genvar_'));
@@ -659,12 +680,12 @@ binary(op, left_expr, right_expr) {
 			$left_expr = WALK($left_expr);
 			$right_expr = WALK($right_expr);
 
-			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
-			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
+			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ', $global);';
+			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ', $global);';
 
 			return 'is_string(' . $l . ') || is_string(' . $r . ') ' .
-				'? JS::toString(' . $l . ') . JS::toString(' . $r . ') ' .
-				': JS::toNumber(' . $l . ') + JS::toNumber(' . $r . ')';
+				'? JS::toString(' . $l . ', $global) . JS::toString(' . $r . ', $global) ' .
+				': JS::toNumber(' . $l . ', $global) + JS::toNumber(' . $r . ', $global)';
 
 		case '<':
 		case '>':
@@ -677,8 +698,8 @@ binary(op, left_expr, right_expr) {
 			$left_expr = WALK($left_expr);
 			$right_expr = WALK($right_expr);
 
-			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
-			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
+			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ', $global);';
+			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ', $global);';
 
 			if ($op === '<') { // ok
 			} else if ($op === '>') {
@@ -696,8 +717,8 @@ binary(op, left_expr, right_expr) {
 			}
 
 			$self->prestatement[] = $result . ' = ' . ($not ? '!' : '') .
-				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp($l, $r) < 0 : ' .
-				'JS::toNumber(' . $l . ') < JS::toNumber(' . $r . '));';
+				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp(' . $l . ', ' .  $r . ') < 0 : ' .
+				'JS::toNumber(' . $l . ', $global) < JS::toNumber(' . $r . ', $global));';
 
 			return $result;
 
@@ -727,7 +748,13 @@ binary(op, left_expr, right_expr) {
 			$l = WALK($left_expr);
 			$r = WALK($right_expr);
 
-			$self->prestatement[] = $l . ' = JS::toString(' . $l . ');';
+			if ($l[0] !== '$') {
+				$tmp = WALK(array('genvar_'));
+				$self->prestatement[] = $tmp . ' = ' . $l . ';';
+				$l = $tmp;
+			}
+
+			$self->prestatement[] = $l . ' = JS::toString(' . $l . ', $global);';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
 			WALK(array('TypeError_', 'Right-hand side of in operator is not an object.'));
 			$self->prestatement[] = '}';
@@ -749,13 +776,16 @@ binary(op, left_expr, right_expr) {
 			$r = $tmpR;
 
 			$self->prestatement[] = 'if (gettype(' . $l . ') === gettype(' . $r . ')) { ' .
-				$ret . ' = ' . $l . ' == ' . $r . '; }';
-			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . '); ' .
-				$r . ' = JS::toPrimitive(' . $r . '); ';
+				$ret . ' = ' . $l . $op . '=' . $r . '; }';
+			$self->prestatement[] = "else if ($l === JS::\$undefined && $r === NULL || " .
+				"$l === NULL && $r === JS::\$undefined) { $ret = " . ($op === '!=' ? 'FALSE' : 'TRUE') . "; }";
+			$self->prestatement[] = "else if ($l === NULL || $r === NULL) { $ret = " . ($op === '!=' ? 'TRUE' : 'FALSE') . "; }";
+			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . ', $global); ' .
+				$r . ' = JS::toPrimitive(' . $r . ', $global); ';
 			$self->prestatement[] = 'if (is_numeric(' . $l . ') || is_numeric(' . $r . ')) { ' .
-				$l . ' = JS::toNumber(' . $l . '); ' .
-				$r . ' = JS::toNumber(' . $r . '); }';
-			$self->prestatement[] = $ret . ' = ' . $l . $op . $r . '; }';
+				$l . ' = JS::toNumber(' . $l . ', $global); ' .
+				$r . ' = JS::toNumber(' . $r . ', $global); }';
+			$self->prestatement[] = $ret . ' = ' . $l . $op . '=' . $r . ';}';
 
 			return $ret;
 
@@ -776,7 +806,7 @@ binary(op, left_expr, right_expr) {
 			$l = WALK($left_expr);
 
 			$self->prestatement[] = $ret . ' = ' . $l . ';';
-			$self->prestatement[] = 'if (JS::toBoolean(' . $ret . ')) {';
+			$self->prestatement[] = 'if (JS::toBoolean(' . $ret . ', $global)) {';
 			$saved_assigned = $self->assigned;
 			$r = WALK($right_expr);
 			$self->assigned = $saved_assigned;
@@ -789,7 +819,7 @@ binary(op, left_expr, right_expr) {
 			$l = WALK($left_expr);
 
 			$self->prestatement[] = $ret . ' = ' . $l . ';';
-			$self->prestatement[] = 'if (!JS::toBoolean(' . $ret . ')) {';
+			$self->prestatement[] = 'if (!JS::toBoolean(' . $ret . ', $global)) {';
 			$saved_assigned = $self->assigned;
 			$r = WALK($right_expr);
 			$self->assigned = $saved_assigned;
@@ -873,13 +903,13 @@ predec(expr) {
 	return $ret;
 }
 
-positive(expr) -> '+JS::toNumber(' . WALK($expr) . ')'
+positive(expr) -> '+JS::toNumber(' . WALK($expr) . ', $global)'
 
-negative(expr) -> '-JS::toNumber(' . WALK($expr) . ')'
+negative(expr) -> '-JS::toNumber(' . WALK($expr) . ', $global)'
 
-inverse(expr) -> '~JS::toNumber(' . WALK($expr) . ')'
+inverse(expr) -> '~JS::toNumber(' . WALK($expr) . ', $global)'
 
-not(expr) -> '!JS::toBoolean(' . WALK($expr) . ')'
+not(expr) -> '!JS::toBoolean(' . WALK($expr) . ', $global)'
 
 postinc(expr) {
 	$expr = WALK($expr);
@@ -909,7 +939,7 @@ call(fn_expr, arguments) {
 			$base = $tmp;
 		}
 
-		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
 
@@ -932,7 +962,7 @@ index(base, index_expr) {
 		$base = $tmp;
 	}
 
-	$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+	$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 	return WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
 }

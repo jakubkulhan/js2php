@@ -30,6 +30,8 @@ assert(!Array.isArray({}), "Array.isArray(): 7");
 
 assert([1, 2, 3].toString() === "1,2,3", "Array.prototype.toString(): 1");
 assert([].toString() === "", "Array.prototype.toString(): 2");
+assert([1, 2, 3, undefined].toString() === "1,2,3,", "Array.prototype.toString(): 3");
+assert([1, 2, 3, [4]].toString() === "1,2,3,4", "Array.prototype.toString(): 4");
 
 
 var a = [];

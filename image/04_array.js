@@ -11,7 +11,7 @@ function Array() {
 	if (arguments.length === 1 && typeof arguments[0] === "number") {
 		var len = arguments[0];
 
-		if (@@ intval(`len) !== `len || `len < 0 @@) {
+		if (@@ (((string) intval(`len)) !== ((string) `len)) || `len < 0 @@) {
 			throw new RangeError("Array(): Given array length is not legal.");
 		}
 
@@ -21,7 +21,7 @@ function Array() {
 	}
 
 	for (var i = 0, l = arguments.length; i < l; ++i) {
-		array.push(arguments[i]);
+		array[i] = arguments[i];
 	}
 
 	return array;
@@ -70,6 +70,10 @@ Array.prototype.join = function (separator) {
 	separator = separator || ",";
 	var string = "";
 
+	if (this[0] === undefined || this[0] === null) {
+		return "";
+	}
+
 	for (var i = 0, l = this.length, item; i < l; ++i) {
 		if (i !== 0) {
 			string += separator;
@@ -77,7 +81,9 @@ Array.prototype.join = function (separator) {
 
 		item = this[i];
 
-		string += @@ JS::toString(`item) @@;
+		if (item !== undefined && item !== null) {
+			string += @@ JS::toString(`item, $global) @@;
+		}
 	}
 
 	return string;
@@ -88,33 +94,29 @@ Array.prototype.pop = function () {
 		return undefined;
 	}
 
-	var item = this[this.length - 1];
+	var item = this[this.length - 1], len = this.length;
 	delete this[this.length - 1];
-	--this.length;
+	this.length = len - 1;
 
 	return item;
 };
 
 Array.prototype.push = function (item) {
-	this[this.length++] = item;
-
-	if (arguments.length > 1) {
-		for (var i = 1, l = arguments.length; i < l; ++i) {
-			this.push(arguments[i]);
-		}
+	for (var i = 0, l = arguments.length; i < l; ++i) {
+		this[this.length] = arguments[i];
 	}
 
 	return this[this.length - 1];
 };
 
 Array.prototype.reverse = function () {
-	var newArray = [];
-
-	for (var i = this.length - 1; i >= 0; --i) {
-		newArray.push(this[i]);
+	for (var l = 0, r = this.length - 1; l < r; ++l, --r) {
+		var tmp = this[l];
+		this[l] = this[r];
+		this[r] = tmp;
 	}
 
-	return newArray;
+	return this;
 };
 
 Array.prototype.shift = function () {
@@ -122,16 +124,22 @@ Array.prototype.shift = function () {
 		return undefined;
 	}
 
-	var item = this[0];
+	var item = this[0], l = this.length;
 
-	for (var i = 0, l = --this.length; i < l; ++i) {
+	for (var i = 0; i < l; ++i) {
 		this[i] = this[i + 1];
 	}
+
+	this.length = l - 1;
 
 	return item;
 };
 
 Array.prototype.slice = function (start, end) {
+	if (start === undefined) {
+		start = 0;
+	}
+
 	if (start < 0) {
 		start = Math.max(this.length + start, 0);
 	}
@@ -154,12 +162,10 @@ Array.prototype.slice = function (start, end) {
 };
 
 Array.prototype.sort = function (compareFn) {
-	// FIXME: basic quicksort, implement in-place quicksort in PHP
-	
 	compareFn = compareFn || function (a, b) {
 		if (typeof a === "string" || typeof b === "string") {
-			a = @@ JS::toString(`a) @@;
-			b = @@ JS::toString(`b) @@;
+			a = @@ JS::toString(`a, $global) @@;
+			b = @@ JS::toString(`b, $global) @@;
 
 			if (a < b) {
 				return -1;
@@ -170,8 +176,8 @@ Array.prototype.sort = function (compareFn) {
 			}
 
 		} else if (typeof a === "number" || typeof b === "number") {
-			a = @@ JS::toNumber(`a) @@;
-			b = @@ JS::toNumber(`b) @@;
+			a = @@ JS::toNumber(`a, $global) @@;
+			b = @@ JS::toNumber(`b, $global) @@;
 
 			return a - b;
 		}
@@ -195,7 +201,13 @@ Array.prototype.sort = function (compareFn) {
 		}
 	}
 
-	return smaller.sort().concat([pivot], larger.sort());
+	var sorted = smaller.sort(compareFn).concat([pivot], larger.sort(compareFn));
+
+	for (var i = 0, l = sorted.length; i < l; ++i) {
+		this[i] = sorted[i];
+	}
+
+	return this;
 };
 
 Array.prototype.splice = function (start, deleteCount) {
@@ -232,18 +244,13 @@ Array.prototype.splice = function (start, deleteCount) {
 };
 
 Array.prototype.unshift = function (item) {
-	if (arguments.length > 1) {
-		for (var i = arguments.length - 1; i > 0; --i) {
-			this.unshift(arguments[i]);
-		}
-	}
-
 	for (var i = this.length - 1; i >= 0; --i) {
-		this[i + 1] = this[i];
+		this[i + arguments.length] = this[i];
 	}
 
-	this[0] = item;
-	++this.length;
+	for (var i = 0, l = arguments.length; i < l; ++i) {
+		this[i] = arguments[i];
+	}
 
 	return this.length;
 };
@@ -256,7 +263,7 @@ Array.prototype.indexOf = function (search, from) {
 	}
 
 	for (var i = from, l = this.length; i < l; ++i) {
-		if (this[i] == search) {
+		if (this[i] === search) {
 			return i;
 		}
 	}
@@ -370,12 +377,15 @@ Array.prototype.reduce = function (callbackFn) {
 		i = 0;
 
 	} else {
-		value = this[0];
-		i = 1;
+		for (i = 0; i < this.length && this[i] === undefined; ++i);
+		value = this[i];
+		i = i + 1;
 	}
 
 	for (var l = this.length; i < l; ++i) {
-		value = callbackFn(value, this[i], i, this);
+		if (this[i] !== undefined) {
+			value = callbackFn(value, this[i], i, this);
+		}
 	}
 
 	return value;
@@ -393,12 +403,15 @@ Array.prototype.reduceRight = function (callbackFn) {
 		i = this.length - 1;
 
 	} else {
-		value = this[this.length - 1];
-		i = this.length - 2;
+		for (i = this.length - 1; i >= 0 && this[i] === undefined; --i);
+		value = this[i];
+		i = i - 1;
 	}
 
 	for (; i >= 0; --i) {
-		value = callbackFn(value, this[i], i, this);
+		if (this[i] !== undefined) {
+			value = callbackFn(value, this[i], i, this);
+		}
 	}
 
 	return value;

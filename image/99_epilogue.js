@@ -52,12 +52,6 @@
 		JS::$numberTemplate = `n;
 		JS::$regexpTemplate = `r;
 
-		JS::$undefinedTemplate = clone `x;
-		JS::$undefinedTemplate->class = 'Undefined';
-
-		JS::$nullTemplate = clone `x;
-		JS::$nullTemplate->class = 'Null';
-
 		JS::$global = $global;
 	@@
 })();

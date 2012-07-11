@@ -12,7 +12,7 @@ function RegExp(pattern, flags) {
 	}
 
 	var r = {
-			source: @@ JS::toString(`pattern) @@,
+			source: @@ JS::toString(`pattern, $global) @@,
 			global: false,
 			ignoreCase: false,
 			multiline: false,
@@ -22,7 +22,7 @@ function RegExp(pattern, flags) {
 	@@ `r->class = 'RegExp'; @@
 	@@ `r->prototype = `RegExp->properties['prototype']; @@
 
-	r.source = @@ JS::toString(`pattern) @@;
+	r.source = @@ JS::toString(`pattern, $global) @@;
 
 	for (var i = 0, l = @@ strlen(`flags) @@, c; i < l; ++i) {
 		@@ `c = substr(`flags, `i, 1); @@
@@ -76,7 +76,7 @@ RegExp.prototype.exec = function (string) {
 
 	result = @@ preg_match(
 		'/' . `pattern . '/' . `flags,
-		JS::toString(`string),
+		JS::toString(`string, $global),
 		$matches,
 		PREG_OFFSET_CAPTURE,
 		`i
@@ -102,7 +102,7 @@ RegExp.prototype.exec = function (string) {
 	}
 
 	returnArray.index = @@ $matches[0][1] @@;
-	returnArray.input = @@ JS::toString(`string) @@;
+	returnArray.input = @@ JS::toString(`string, $global) @@;
 
 	return returnArray;
 };

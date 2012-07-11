@@ -1,6 +1,6 @@
 function String(value) {
 	if (this === @@ $global @@) {
-		return @@ JS::toString(`value) @@;
+		return @@ JS::toString(`value, $global) @@;
 	}
 
 	var s = {};
@@ -8,7 +8,7 @@ function String(value) {
 	@@ `s->prototype = `String->properties['prototype']; @@
 	@@ `s->class = 'String'; @@
 	@@ `s->extensible = true; @@
-	@@ `s->value = JS::toString(`value); @@
+	@@ `s->value = JS::toString(`value, $global); @@
 
 	return s;
 }
@@ -18,7 +18,7 @@ String.fromCharCode = function (c) {
 
 	for (var i = 0, l = arguments.length, arg; i < l; ++i) {
 		arg = arguments[i];
-		s += @@ chr(JS::toNumber(`arg)) @@;
+		s += @@ chr(JS::toNumber(`arg, $global)) @@;
 	}
 
 	return s;
@@ -66,7 +66,7 @@ String.prototype.indexOf = function (search, position) {
 	}
 
 	var offset = Math.min(Math.max(position, 0), @@ strlen($leThis->value) @@),
-		ret = @@ strpos($leThis->value, JS::toString(`search), `offset) @@;
+		ret = @@ strpos($leThis->value, JS::toString(`search, $global), `offset) @@;
 
 	if (ret === false) {
 		return -1;
@@ -81,7 +81,7 @@ String.prototype.lastIndexOf = function (search, position) {
 	}
 
 	var offset = Math.min(Math.max(position, 0), @@ strlen($leThis->value) @@),
-		ret = @@ strrpos($leThis->value, JS::toString(`search), `offset) @@;
+		ret = @@ strrpos($leThis->value, JS::toString(`search, $global), `offset) @@;
 	
 	if (ret === false) {
 		return -1;
@@ -91,7 +91,7 @@ String.prototype.lastIndexOf = function (search, position) {
 };
 
 String.prototype.localeCompare = function (that) {
-	return @@ $leThis->value === JS::toString(`that) @@;
+	return @@ $leThis->value === JS::toString(`that, $global) @@;
 };
 
 String.prototype.match = function (regexp) {
@@ -224,7 +224,7 @@ String.prototype.split = function (separator, limit) {
 	}
 
 	if (typeof separator === "string") {
-		separator = new RegExp(@@ preg_quote(JS::toString(`separator), '/') @@, 'g');
+		separator = new RegExp(@@ preg_quote(JS::toString(`separator, $global), '/') @@, 'g');
 	}
 
 	var returnArray = [], match, lastIndex = 0, index, thisString = @@ $leThis->value @@,

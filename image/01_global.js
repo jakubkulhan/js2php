@@ -8,7 +8,7 @@ function eval(x) {
 
 function parseInt(string, radix) {
 	radix = radix || 10;
-	return @@ intval(`string, JS::toNumber(`radix)) @@;
+	return @@ intval(`string, JS::toNumber(`radix, $global)) @@;
 }
 
 function parseFloat(string) {
@@ -16,11 +16,11 @@ function parseFloat(string) {
 }
 
 function isNaN(number) {
-	return @@ is_nan(JS::toNumber(`number)) @@;
+	return @@ is_nan(JS::toNumber(`number, $global)) @@;
 }
 
 function isFinite(number) {
-	return @@ is_finite(JS::toNumber(`number)) @@;
+	return @@ is_finite(JS::toNumber(`number, $global)) @@;
 }
 
 function decodeURI(encodedURI) {

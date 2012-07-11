@@ -475,19 +475,21 @@ protected function _9($declarations_list) { extract($this->_env, EXTR_REFS); $re
 		list($varname, $expr) = $declaration;
 		$phpVarname = $this->_walk(array('varize_', $varname));
 
+		if (isset($self->assigned[$varname])) {
+			$self->prestatement[] = 'unset(' . $self->assigned[$varname] . ');';
+		}
+
+		$self->prestatement[] = '$scope->properties[' . var_export($varname, TRUE) . '] = JS::$undefined; ' .
+			$phpVarname . ' =& $scope->properties[' . var_export($varname, TRUE) . '];';
+		$self->assigned[$varname] = $ret = $phpVarname;
+
 		if (!$expr) {
 			$expr = array('raw', 'JS::$undefined');
 		}
 
 		$expr = $this->_walk($expr);
 
-		if (isset($self->assigned[$varname])) {
-			$self->prestatement[] = 'unset(' . $self->assigned[$varname] . ');';
-		}
-
-		$self->prestatement[] = '$scope->properties[' . var_export($varname, TRUE) . '] = ' .
-			$expr . '; ' . $phpVarname . ' =& $scope->properties[' . var_export($varname, TRUE) . '];';
-		$self->assigned[$varname] = $ret = $phpVarname;
+		$self->prestatement[] = $phpVarname . ' = ' . $expr . ';';
 	}
 
 	return $ret;
@@ -498,7 +500,7 @@ protected function _10($cond_expr, $statement, $else_statement) { extract($this-
 	$cond_expr = $this->_walk($cond_expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'if (JS::toBoolean(' . $cond_expr . ')) {';
+	$ret[] = 'if (JS::toBoolean(' . $cond_expr . ', $global)) {';
 	$saved_assigned = $self->assigned;
 	$ret[] = $this->_walk($statement) . ';';
 	$self->assigned = $saved_assigned;
@@ -539,7 +541,7 @@ protected function _12($cond_expr, $statement) { extract($this->_env, EXTR_REFS)
 	$cond = $this->_walk($cond_expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'if (!JS::toBoolean(' . $cond . ')) { break; }';
+	$ret[] = 'if (!JS::toBoolean(' . $cond . ', $global)) { break; }';
 
 	$saved_assigned = $self->assigned;
 	$statement = $this->_walk($statement);
@@ -612,7 +614,7 @@ protected function _14($init_expr, $cond_expr, $iter_expr, $statement) { extract
 		$cond = $this->_walk($cond_expr);
 		$ret[] = implode("\n", $self->prestatement);
 		$self->prestatement = array();
-		$ret[] = 'if (!JS::toBoolean(' . $cond . ')) { break; }';
+		$ret[] = 'if (!JS::toBoolean(' . $cond . ', $global)) { break; }';
 	}
 
 	$saved_assigned = $self->assigned;
@@ -774,7 +776,9 @@ protected function _26($exprs) { extract($this->_env, EXTR_REFS); foreach ($expr
 	return $last;
 
 }
-protected function _27($op, $lhs_expr, $rhs_expr) { extract($this->_env, EXTR_REFS); if ($lhs_expr[0] === 'identifier') {
+protected function _27($op, $lhs_expr, $rhs_expr) { extract($this->_env, EXTR_REFS); $rhs = $this->_walk($rhs_expr);
+
+	if ($lhs_expr[0] === 'identifier') {
 		$lhs = $this->_walk(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE));
 
 		$self->prestatement[] = 'if (isset($U' . substr($lhs, 2) . ')) {' .
@@ -792,7 +796,7 @@ protected function _27($op, $lhs_expr, $rhs_expr) { extract($this->_env, EXTR_RE
 			$base = $tmp;
 		}
 
-		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 		$lhs = $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, FALSE));
 
@@ -807,8 +811,6 @@ protected function _27($op, $lhs_expr, $rhs_expr) { extract($this->_env, EXTR_RE
 		$this->_walk(array('ReferenceError_', 'Invalid left-hand side in assignment.'));
 		return '';
 	}
-
-	$rhs = $this->_walk($rhs_expr);
 
 	if ($op !== '=') {
 		$rhs = $this->_walk(array('binary', substr($op, 0, -1), array('raw', $lhs), array('raw', $rhs)));
@@ -827,6 +829,10 @@ protected function _27($op, $lhs_expr, $rhs_expr) { extract($this->_env, EXTR_RE
 			' }';
 		$self->prestatement[] = 'else { ' . $ret . ' = JS::$undefined; }';
 		$self->prestatement[] = '}';
+
+		$self->prestatement[] = "if (isset({$base}->class) && {$base}->class === 'Array' && " .
+			"is_int($index) && $index >= {$base}->properties['length']) { " .
+			"{$base}->properties['length'] = $index + 1; }";
 
 		return $ret;
 
@@ -851,15 +857,17 @@ protected function _28($base, $id, $up, $assign, $get) { extract($this->_env, EX
 		$id = var_export($id, TRUE);
 	}
 
+	$self->prestatement[] = 'unset(' . $var . ');';
+
 	if (!in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] = 'if (' . $base . ' === JS::$undefined || ' . $base . ' === NULL) {';
 		$this->_walk(array('TypeError_', 'Cannot lookup property of undefined/null.'));
 		$self->prestatement[] = '}';
 	}
 
-	$self->prestatement[] = '$lookup = JS::toObject(' . $base . ');';
+	$self->prestatement[] = '$lookup = JS::toObject(' . $base . ', $global);';
 
-	if ($get) {
+	if ($get || in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] =
 			'for (; $lookup && !(array_key_exists(' . $id . ', $lookup->properties) ||
 			isset($lookup->attributes[' . $id . '])) &&
@@ -906,15 +914,28 @@ protected function _29($function, $args, $leThis, $check) { extract($this->_env,
 	return $ret;
 
 }
-protected function _30($cond_expr, $iftrue_expr, $iffalse_expr) { extract($this->_env, EXTR_REFS); $var = $this->_walk(array('genvar_'));
+protected function _30($cond_expr, $iftrue_expr, $iffalse_expr) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
 	$cond_expr = $this->_walk($cond_expr);
-	$self->prestatement[] = 'if (JS::toBoolean(' . $cond_expr . ')) {';
+
+	$self->prestatement[] = 'if (JS::toBoolean(' . $cond_expr . ', $global)) {';
+
+	$saved_assigned = $self->assigned;
 	$iftrue_expr = $this->_walk($iftrue_expr);
+	$self->assigned = $saved_assigned;
+
+	$self->prestatement[] = $ret . ' = ' . $iftrue_expr . ';';
+
 	$self->prestatement[] = '} else {';
+
+	$saved_assigned = $self->assigned;
 	$iffalse_expr = $this->_walk($iffalse_expr);
+	$self->assigned = $saved_assigned;
+
+	$self->prestatement[] = $ret . ' = ' . $iffalse_expr . ';';
+
 	$self->prestatement[] = '}';
 
-	return 'JS::toBoolean(' . $cond_expr . ') ? ' . $iftrue_expr . ' : ' . $iffalse_expr;
+	return $ret;
 
 }
 protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR_REFS); switch ($op) {
@@ -927,8 +948,8 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 		case '&':
 		case '|':
 		case '^':
-			return 'JS::toNumber(' . $this->_walk($left_expr) . ') ' . $op .
-				' JS::toNumber(' . $this->_walk($right_expr) . ')';
+			return 'JS::toNumber(' . $this->_walk($left_expr) . ', $global) ' . $op .
+				' JS::toNumber(' . $this->_walk($right_expr) . ', $global)';
 
 		case '+':
 			$l = $this->_walk(array('genvar_'));
@@ -936,12 +957,12 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$left_expr = $this->_walk($left_expr);
 			$right_expr = $this->_walk($right_expr);
 
-			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
-			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
+			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ', $global);';
+			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ', $global);';
 
 			return 'is_string(' . $l . ') || is_string(' . $r . ') ' .
-				'? JS::toString(' . $l . ') . JS::toString(' . $r . ') ' .
-				': JS::toNumber(' . $l . ') + JS::toNumber(' . $r . ')';
+				'? JS::toString(' . $l . ', $global) . JS::toString(' . $r . ', $global) ' .
+				': JS::toNumber(' . $l . ', $global) + JS::toNumber(' . $r . ', $global)';
 
 		case '<':
 		case '>':
@@ -954,8 +975,8 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$left_expr = $this->_walk($left_expr);
 			$right_expr = $this->_walk($right_expr);
 
-			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
-			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
+			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ', $global);';
+			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ', $global);';
 
 			if ($op === '<') { // ok
 			} else if ($op === '>') {
@@ -973,8 +994,8 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			}
 
 			$self->prestatement[] = $result . ' = ' . ($not ? '!' : '') .
-				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp($l, $r) < 0 : ' .
-				'JS::toNumber(' . $l . ') < JS::toNumber(' . $r . '));';
+				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp(' . $l . ', ' .  $r . ') < 0 : ' .
+				'JS::toNumber(' . $l . ', $global) < JS::toNumber(' . $r . ', $global));';
 
 			return $result;
 
@@ -1004,7 +1025,13 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$l = $this->_walk($left_expr);
 			$r = $this->_walk($right_expr);
 
-			$self->prestatement[] = $l . ' = JS::toString(' . $l . ');';
+			if ($l[0] !== '$') {
+				$tmp = $this->_walk(array('genvar_'));
+				$self->prestatement[] = $tmp . ' = ' . $l . ';';
+				$l = $tmp;
+			}
+
+			$self->prestatement[] = $l . ' = JS::toString(' . $l . ', $global);';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
 			$this->_walk(array('TypeError_', 'Right-hand side of in operator is not an object.'));
 			$self->prestatement[] = '}';
@@ -1026,13 +1053,16 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$r = $tmpR;
 
 			$self->prestatement[] = 'if (gettype(' . $l . ') === gettype(' . $r . ')) { ' .
-				$ret . ' = ' . $l . ' == ' . $r . '; }';
-			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . '); ' .
-				$r . ' = JS::toPrimitive(' . $r . '); ';
+				$ret . ' = ' . $l . $op . '=' . $r . '; }';
+			$self->prestatement[] = "else if ($l === JS::\$undefined && $r === NULL || " .
+				"$l === NULL && $r === JS::\$undefined) { $ret = " . ($op === '!=' ? 'FALSE' : 'TRUE') . "; }";
+			$self->prestatement[] = "else if ($l === NULL || $r === NULL) { $ret = " . ($op === '!=' ? 'TRUE' : 'FALSE') . "; }";
+			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . ', $global); ' .
+				$r . ' = JS::toPrimitive(' . $r . ', $global); ';
 			$self->prestatement[] = 'if (is_numeric(' . $l . ') || is_numeric(' . $r . ')) { ' .
-				$l . ' = JS::toNumber(' . $l . '); ' .
-				$r . ' = JS::toNumber(' . $r . '); }';
-			$self->prestatement[] = $ret . ' = ' . $l . $op . $r . '; }';
+				$l . ' = JS::toNumber(' . $l . ', $global); ' .
+				$r . ' = JS::toNumber(' . $r . ', $global); }';
+			$self->prestatement[] = $ret . ' = ' . $l . $op . '=' . $r . ';}';
 
 			return $ret;
 
@@ -1053,7 +1083,7 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$l = $this->_walk($left_expr);
 
 			$self->prestatement[] = $ret . ' = ' . $l . ';';
-			$self->prestatement[] = 'if (JS::toBoolean(' . $ret . ')) {';
+			$self->prestatement[] = 'if (JS::toBoolean(' . $ret . ', $global)) {';
 			$saved_assigned = $self->assigned;
 			$r = $this->_walk($right_expr);
 			$self->assigned = $saved_assigned;
@@ -1066,7 +1096,7 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$l = $this->_walk($left_expr);
 
 			$self->prestatement[] = $ret . ' = ' . $l . ';';
-			$self->prestatement[] = 'if (!JS::toBoolean(' . $ret . ')) {';
+			$self->prestatement[] = 'if (!JS::toBoolean(' . $ret . ', $global)) {';
 			$saved_assigned = $self->assigned;
 			$r = $this->_walk($right_expr);
 			$self->assigned = $saved_assigned;
@@ -1145,13 +1175,13 @@ protected function _36($expr) { extract($this->_env, EXTR_REFS); $expr = $this->
 	return $ret;
 
 }
-protected function _37($expr) { extract($this->_env, EXTR_REFS); return '+JS::toNumber(' . $this->_walk($expr) . ')';
+protected function _37($expr) { extract($this->_env, EXTR_REFS); return '+JS::toNumber(' . $this->_walk($expr) . ', $global)';
 }
-protected function _38($expr) { extract($this->_env, EXTR_REFS); return '-JS::toNumber(' . $this->_walk($expr) . ')';
+protected function _38($expr) { extract($this->_env, EXTR_REFS); return '-JS::toNumber(' . $this->_walk($expr) . ', $global)';
 }
-protected function _39($expr) { extract($this->_env, EXTR_REFS); return '~JS::toNumber(' . $this->_walk($expr) . ')';
+protected function _39($expr) { extract($this->_env, EXTR_REFS); return '~JS::toNumber(' . $this->_walk($expr) . ', $global)';
 }
-protected function _40($expr) { extract($this->_env, EXTR_REFS); return '!JS::toBoolean(' . $this->_walk($expr) . ')';
+protected function _40($expr) { extract($this->_env, EXTR_REFS); return '!JS::toBoolean(' . $this->_walk($expr) . ', $global)';
 }
 protected function _41($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
@@ -1178,7 +1208,7 @@ protected function _43($fn_expr, $arguments) { extract($this->_env, EXTR_REFS); 
 			$base = $tmp;
 		}
 
-		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 		$fn = $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
 
@@ -1200,7 +1230,7 @@ protected function _44($base, $index_expr) { extract($this->_env, EXTR_REFS); $b
 		$base = $tmp;
 	}
 
-	$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+	$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 	return $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
 

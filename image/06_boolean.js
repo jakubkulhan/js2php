@@ -1,12 +1,12 @@
 function Boolean(value) {
 	if (this === @@ $global @@) {
-		return @@ JS::toBoolean(`value) @@;
+		return @@ JS::toBoolean(`value, $global) @@;
 	}
 
 	var b = {};
 	@@ `b->prototype = `Boolean->properties['prototype']; @@
 	@@ `b->class = 'Boolean'; @@
-	@@ `b->value = JS::toBoolean(`value); @@
+	@@ `b->value = JS::toBoolean(`value, $global); @@
 	@@ `b->extensible = TRUE; @@
 
 	return b;

@@ -9,43 +9,43 @@ var Math = {
 	SQRT2: 1.4142135623730951,
 
 	abs: function (x) {
-		return @@ abs(JS::toNumber(`x)) @@;
+		return @@ abs(JS::toNumber(`x, $global)) @@;
 	},
 
 	acos: function (x) {
-		return @@ acos(JS::toNumber(`x)) @@;
+		return @@ acos(JS::toNumber(`x, $global)) @@;
 	},
 
 	asin: function (x) {
-		return @@ asin(JS::toNumber(`x)) @@;
+		return @@ asin(JS::toNumber(`x, $global)) @@;
 	},
 
 	atan: function (x) {
-		return @@ atan(JS::toNumber(`x)) @@;
+		return @@ atan(JS::toNumber(`x, $global)) @@;
 	},
 
 	atan2: function (x) {
-		return @@ atan2(JS::toNumber(`x)) @@;
+		return @@ atan2(JS::toNumber(`x, $global)) @@;
 	},
 
 	ceil: function (x) {
-		return @@ ceil(JS::toNumber(`x)) @@;
+		return @@ ceil(JS::toNumber(`x, $global)) @@;
 	},
 
 	cos: function (x) {
-		return @@ cos(JS::toNumber(`x)) @@;
+		return @@ cos(JS::toNumber(`x, $global)) @@;
 	},
 
 	exp: function (x) {
-		return @@ exp(JS::toNumber(`x)) @@;
+		return @@ exp(JS::toNumber(`x, $global)) @@;
 	},
 
 	floor: function (x) {
-		return @@ floor(JS::toNumber(`x)) @@;
+		return @@ floor(JS::toNumber(`x, $global)) @@;
 	},
 
 	log: function (x) {
-		return @@ log(JS::toNumber(`x)) @@;
+		return @@ log(JS::toNumber(`x, $global)) @@;
 	},
 
 	max: function (a, b) {
@@ -77,7 +77,7 @@ var Math = {
 	},
 
 	pow: function (x, y) {
-		return @@ pow(JS::toNumber(`x), JS::toNumber(`y)) @@;
+		return @@ pow(JS::toNumber(`x, $global), JS::toNumber(`y, $global)) @@;
 	},
 
 	random: function () {
@@ -85,19 +85,19 @@ var Math = {
 	},
 
 	round: function (x) {
-		return @@ round(JS::toNumber(`x)) @@;
+		return @@ round(JS::toNumber(`x, $global)) @@;
 	},
 
 	sin: function (x) {
-		return @@ sin(JS::toNumber(`x)) @@;
+		return @@ sin(JS::toNumber(`x, $global)) @@;
 	},
 
 	sqrt: function (x) {
-		return @@ sqrt(JS::toNumber(`x)) @@;
+		return @@ sqrt(JS::toNumber(`x, $global)) @@;
 	},
 
 	tan: function (x) {
-		return @@ tan(JS::toNumber(`x)) @@;
+		return @@ tan(JS::toNumber(`x, $global)) @@;
 	}
 };
 

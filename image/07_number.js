@@ -1,12 +1,12 @@
 function Number(value) {
 	if (this === @@ $global @@) {
-		return @@ JS::toNumber(`value) @@;
+		return @@ JS::toNumber(`value, $global) @@;
 	}
 
 	var n = {};
 	@@ `n->prototype = `Number->properties['prototype']; @@
 	@@ `n->class = 'Number'; @@
-	@@ `n->value = JS::toNumber(`value); @@
+	@@ `n->value = JS::toNumber(`value, $global); @@
 	@@ `n->extensible = TRUE; @@
 
 	return n;
@@ -90,6 +90,6 @@ Number.prototype.toPrecision = function (precision) {
 		throw new RangeError("Number.prototype.toPrecision(): precision must be between 1 and 21");
 	}
 
-	return @@ preg_replace('/[.]?0+e/', 'e', sprintf('%.' . JS::toString(`precision) . 'g',
+	return @@ preg_replace('/[.]?0+e/', 'e', sprintf('%.' . JS::toString(`precision, $global) . 'g',
 		round($leThis->value, `precision - strlen((string) intval($leThis->value))))) @@;
 };

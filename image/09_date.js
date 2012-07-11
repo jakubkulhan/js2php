@@ -10,13 +10,13 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 
 	if (arguments.length === 1) {
 		var value = arguments[0];
-		value = @@ JS::toPrimitive(`value) @@;
+		value = @@ JS::toPrimitive(`value, $global) @@;
 
 		if (typeof value === "string") {
 			value = Date.parse(value);
 		}
 
-		@@ `d->value = JS::toNumber(`value) / 1000; @@
+		@@ `d->value = JS::toNumber(`value, $global) / 1000; @@
 
 	} else {
 		if (year >= 0 && year <= 99) {
@@ -130,7 +130,7 @@ Date.prototype.getTimezoneOffset = function () {
 };
 
 Date.prototype.setTime = function (time) {
-	@@ $leThis->value = JS::toNumber(`time); @@
+	@@ $leThis->value = JS::toNumber(`time, $global); @@
 	return @@ $leThis->value * 1000 @@;
 };
 

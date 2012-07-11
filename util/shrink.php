@@ -21,7 +21,7 @@ function shrink($input)
 			case T_ML_COMMENT:
 			case T_DOC_COMMENT:
 			case T_WHITESPACE:
-				$space = ' ';
+				$space = "\n";
 			break;
 
 			default:

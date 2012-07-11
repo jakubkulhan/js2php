@@ -388,8 +388,8 @@ php
 
 number
   = "0" [Xx] hex:[0-9a-fA-F]+ !identifier_start -> hexdec($hex)
-  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval($int . $frac . $exp)
-  / int:("0" / [1-9] [0-9]*) !identifier_start -> intval($int)
+  / int:("0" / [1-9] [0-9]*) ![.eE] !identifier_start -> intval($int)
+  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]+)? exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval($int . $frac . $exp)
   / "." frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval("0." . $frac . $exp)
 
 string
@@ -406,7 +406,7 @@ char
   / "\\v" -> "\v"
   / "\\\\" -> "\\"
   / "\\\"" -> '"'
-  / "\\'" -> "'"
+  / "\\" [']  -> "'"
   / "\\0" ![0-9] -> chr(0)
   / "\\x" a:[0-9a-fA-F] b:[0-9a-fA-F] -> chr(hexdec($a . $b))
   / "\\" EOL -> ""

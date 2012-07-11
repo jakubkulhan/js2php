@@ -3,7 +3,7 @@ function Object(value) {
 		return {};
 	}
 
-	return @@ JS::toObject(`value) @@;
+	return @@ JS::toObject(`value, $global) @@;
 }
 
 Object.getPrototypeOf = function (o) {
@@ -27,7 +27,7 @@ Object.getOwnPropertyDescriptor = function (o, p) {
 
 	if (@@ array_key_exists(`p, `o->properties) @@) {
 		desc.value = o[p];
-		desc.writable = @@ JS::toBoolean(`o->attributes[`p] & JS::WRITABLE) @@;
+		desc.writable = @@ JS::toBoolean(`o->attributes[`p] & JS::WRITABLE, $global) @@;
 
 	} else {
 		if (@@ `o->attributes[`p] & JS::HAS_GETTER @@) {
@@ -39,8 +39,8 @@ Object.getOwnPropertyDescriptor = function (o, p) {
 		}
 	}
 
-	desc.enumerable = @@ JS::toBoolean(`o->attributes[`p] & JS::ENUMERABLE) @@;
-	desc.configurable = @@ JS::toBoolean(`o->attributes[`p] & JS::CONFIGURABLE) @@;
+	desc.enumerable = @@ JS::toBoolean(`o->attributes[`p] & JS::ENUMERABLE, $global) @@;
+	desc.configurable = @@ JS::toBoolean(`o->attributes[`p] & JS::CONFIGURABLE, $global) @@;
 
 	return desc;
 };
@@ -89,7 +89,7 @@ Object.defineProperty = function (o, p, attributes) {
 	}
 
 	attributes = attributes || {};
-	p = @@ JS::toString(`p) @@;
+	p = @@ JS::toString(`p, $global) @@;
 
 	var value = attributes.value || undefined,
 		get = attributes.get || undefined,
@@ -254,8 +254,13 @@ Object.prototype.toString = function () {
 		return "[object Null]";
 
 	} else {
-		var o = @@ JS::toObject($leThis) @@;
-		return "[object " + @@ `o->class @@ + "]";
+		var o = @@ JS::toObject($leThis, $global) @@;
+
+		if (@@ !isset(`o->class) @@) {
+			return "[object]";
+		}
+
+		return @@ "[object " . `o->class . "]" @@;
 	}
 };
 
@@ -264,7 +269,7 @@ Object.prototype.toLocaleString = function () {
 };
 
 Object.prototype.valueOf = function () {
-	return @@ JS::toObject($leThis) @@;
+	return @@ JS::toObject($leThis, $global) @@;
 };
 
 Object.prototype.hasOwnProperty = function (p) {
@@ -289,5 +294,5 @@ Object.prototype.isPrototypeOf = function (v) {
 };
 
 Object.prototype.propertyIsEnumerable = function (p) {
-	return @@ JS::toBoolean(isset($leThis->attributes[`p]) && ($leThis->attributes[`p] & JS::ENUMERABLE)) @@;
+	return @@ JS::toBoolean(isset($leThis->attributes[`p]) && ($leThis->attributes[`p] & JS::ENUMERABLE), $global) @@;
 };

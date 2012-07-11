@@ -60,27 +60,60 @@ class JS
 	static $argumentsTemplate;
 	static $arrayTemplate;
 	static $regexpTemplate;
-	static $undefinedTemplate;
-	static $nullTemplate;
 
-	static function toPrimitive($v)
+	static function toPrimitive($v, $global)
 	{
 		if ($v === JS::$undefined || !is_object($v)) {
 			return $v;
-		} else if (isset($v->value)) { // FIXME
+		} else if (isset($v->value)) {
 			return $v->value;
 		} else {
-			return JS::$undefined; // FIXME
+			if (($f = JS::getProperty($v, 'toString')) !== NULL && isset($f->call)) {
+				$c = $f->call;
+				$r = $c($global, $v, $f, array());
+
+			} else if (($f = JS::getProperty($v, 'valueOf')) !== NULL && isset($f->call)) {
+				$c = $f->call;
+				$r = $c($global, $v, $f, array());
+			}
+
+			if (isset($r) && (!is_object($r) || $r === JS::$undefined)) {
+				return $r;
+			}
+
+			JS::throwTypeError($global, 'Cannot convert object to primitive.');
 		}
 	}
 
-	static function toBoolean($v)
+	static private function throwTypeError($global, $msg)
+	{
+		if (isset($global->properties['TypeError'])) {
+			$TypeError = $global->properties['TypeError'];
+			$c = $TypeError->call;
+			throw new JSException($c($global, JS::$undefined, $TypeError, array($msg)));
+		}
+
+		throw new JSException(JS::$undefined);
+	}
+
+	static private function getProperty($o, $p)
+	{
+		for (; $o && !array_key_exists($p, $o->properties); $o = $o->prototype);
+
+		if (!array_key_exists($p, $o->properties)) {
+			return NULL;
+		}
+
+		return $o->properties[$p];
+	}
+
+	static function toBoolean($v, $global)
 	{
 		return !($v === JS::$undefined || $v === NULL || $v === FALSE || $v === 0 || $v === 0.0 ||
 			(is_float($v) && is_nan($v)) || $v === '');
 	}
 
-	static function toNumber($v)
+	static function toNumber($v, $global)
 	{
 		if ($v === JS::$undefined) {
 			return NAN;
@@ -95,11 +128,11 @@ class JS
 			return ((string) intval($v)) === $v ? intval($v) : floatval($v);
 
 		} else {
-			return JS::toNumber(JS::toPrimitive($v));
+			return JS::toNumber(JS::toPrimitive($v, $global), $global);
 		}
 	}
 
-	static function toString($v)
+	static function toString($v, $global)
 	{
 		if ($v === JS::$undefined) {
 			return 'undefined';
@@ -128,24 +161,20 @@ class JS
 			return $v;
 
 		} else {
-			return JS::toString(JS::toPrimitive($v));
+			return JS::toString(JS::toPrimitive($v, $global), $global);
 		}
 	}
 
-	static function toObject($v)
+	static function toObject($v, $global)
 	{
 		if (is_object($v) && $v !== JS::$undefined) {
 			return $v;
 
-		} else if ($v === JS::$undefined) { // FIXME: violation of standard, should throw TypeError
-			$o = clone JS::$undefinedTemplate;
-			$o->value = JS::$undefined;
-			return $o;
+		} else if ($v === JS::$undefined) {
+			JS::throwTypeError($global, "Cannot convert undefined to object.");
 
-		} else if ($v === NULL) { // FIXME: violation of standard, should throw TypeError
-			$o = clone JS::$nullTemplate;
-			$o->value = NULL;
-			return $o;
+		} else if ($v === NULL) {
+			JS::throwTypeError($global, "Cannot convert null to object.");
 
 		} else if (is_bool($v)) {
 			$o = clone JS::$booleanTemplate;
@@ -256,7 +285,5 @@ JS::$stringTemplate = clone JS::$objectTemplate;
 JS::$argumentsTemplate = clone JS::$objectTemplate;
 JS::$arrayTemplate = clone JS::$objectTemplate;
 JS::$regexpTemplate = clone JS::$objectTemplate;
-JS::$undefinedTemplate = clone JS::$objectTemplate;
-JS::$nullTemplate = clone JS::$objectTemplate;
 
 @@

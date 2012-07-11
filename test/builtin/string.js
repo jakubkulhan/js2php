@@ -44,7 +44,6 @@ assert("abc".lastIndexOf("a", -2) === 0, "String.prototype.lastIndexOf(): 4");
 assert("aba".lastIndexOf("a") === 2, "String.prototype.lastIndexOf(): 5");
 assert("aba".lastIndexOf("a", 1) === 2, "String.prototype.lastIndexOf(): 6");
 
-
 assert("abcd".match(/bc/).index === 1, "String.prototype.match(): 1");
 assert("abcd".match(/ef/) === null, "String.prototype.match(): 2");
 assert("abab".match(/ab/g).length === 2, "String.prototype.match(): 3");
@@ -73,7 +72,6 @@ assert("abcd".slice(1, 3) === "bc", "String.prototype.slice(): 1");
 assert("abcd".slice(-3, -1) === "bc", "String.prototype.slice(): 2");
 assert("abcd".slice(-2) === "cd", "String.prototype.slice(): 3");
 
-
 var a = "abcd".split();
 assert(a.length === 1 && a[0] === "abcd", "String.prototype.split(): 1");
 a = "abcd".split("");
@@ -93,7 +91,6 @@ a = "a<b>c</b>e".split(/<(\/)?([^<>]+)>/);
 assert(a.length === 7 && a[0] === "a" && a[1] === undefined && a[2] === "b" && a[3] === "c" &&
 	a[4] === "/" && a[5] === "b" && a[6] === "e",
 	"String.prototype.split(): 7");
-
 
 assert("abcd".substring(1, 3) === "bc", "String.prototype.substring(): 1");
 assert("abcd".substring(-3, -1) === "bc", "String.prototype.substring(): 2");

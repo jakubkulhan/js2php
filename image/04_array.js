@@ -8,10 +8,10 @@ function Array() {
 
 	@@ `array->attributes['length'] = JS::WRITABLE; @@
 
-	if (arguments.length === 1 && typeof arguments[1] === "number") {
-		var len = arguments[1];
+	if (arguments.length === 1 && typeof arguments[0] === "number") {
+		var len = arguments[0];
 
-		if (@@ intval(`len) !== `len && `len < 0 @@) {
+		if (@@ intval(`len) !== `len || `len < 0 @@) {
 			throw new RangeError("Array(): Given array length is not legal.");
 		}
 
@@ -28,7 +28,7 @@ function Array() {
 }
 
 Array.isArray = function (arg) {
-	if (typeof arg !== "object") {
+	if (arg === null || typeof arg !== "object") {
 		return false;
 	}
 
@@ -47,9 +47,7 @@ Array.prototype.toString = function () {
 	return this.join();
 };
 
-Array.prototype.toLocaleString = function () {
-	return this.join();
-};
+Array.prototype.toLocaleString = Array.prototype.toString;
 
 Array.prototype.concat = function (item) {
 	var newArray = @@ clone $leThis @@;
@@ -70,7 +68,7 @@ Array.prototype.concat = function (item) {
 
 Array.prototype.join = function (separator) {
 	separator = separator || ",";
-	var string;
+	var string = "";
 
 	for (var i = 0, l = this.length, item; i < l; ++i) {
 		if (i !== 0) {
@@ -98,9 +96,12 @@ Array.prototype.pop = function () {
 };
 
 Array.prototype.push = function (item) {
-	for (var i = 0, l = arguments.length; i < l; ++i) {
-		this[this.length] = arguments[i];
-		++this.length;
+	this[this.length++] = item;
+
+	if (arguments.length > 1) {
+		for (var i = 1, l = arguments.length; i < l; ++i) {
+			this.push(arguments[i]);
+		}
 	}
 
 	return this[this.length - 1];
@@ -132,7 +133,7 @@ Array.prototype.shift = function () {
 
 Array.prototype.slice = function (start, end) {
 	if (start < 0) {
-		start = Math.max(length + start, 0);
+		start = Math.max(this.length + start, 0);
 	}
 
 	if (end === undefined) {
@@ -140,7 +141,7 @@ Array.prototype.slice = function (start, end) {
 	}
 
 	if (end < 0) {
-		end = length + end;
+		end = this.length + end;
 	}
 
 	var newArray = [];
@@ -154,12 +155,35 @@ Array.prototype.slice = function (start, end) {
 
 Array.prototype.sort = function (compareFn) {
 	// FIXME: basic quicksort, implement in-place quicksort in PHP
+	
+	compareFn = compareFn || function (a, b) {
+		if (typeof a === "string" || typeof b === "string") {
+			a = @@ JS::toString(`a) @@;
+			b = @@ JS::toString(`b) @@;
+
+			if (a < b) {
+				return -1;
+			} else if (a > b) {
+				return 1;
+			} else {
+				return 0;
+			}
+
+		} else if (typeof a === "number" || typeof b === "number") {
+			a = @@ JS::toNumber(`a) @@;
+			b = @@ JS::toNumber(`b) @@;
+
+			return a - b;
+		}
+
+		throw new TypeError("Unsortable values in array.");
+	};
 
 	if (this.length < 2) {
 		return this;
 	}
 
-	var pivot, smaller, larger;
+	var pivot, smaller = [], larger = [];
 
 	pivot = this[0];
 
@@ -175,62 +199,51 @@ Array.prototype.sort = function (compareFn) {
 };
 
 Array.prototype.splice = function (start, deleteCount) {
-	if (start < 0) {
-		start = Math.max(this.length + start, 0);
-	} else {
-		start = Math.min(start, this.length);
+	var i, l, item, returnArray = [];
+
+	@@ $A = array(); @@
+
+	for (i = 0, l = this.length, item; i < l; ++i) {
+		item = this[i];
+		@@ $A[] = `item; @@
+		delete this[i];
 	}
 
-	deleteCount = Math.min(Math.max(deleteCount, 0), this.length - start);
+	@@ $B = array(); @@
 
-	var replaceArray = Array.prototype.slice.call(arguments, 2),
-		returnArray = [],
-		i, l;
-
-	for (var k = 0; k < deleteCount; ++k) {
-		returnArray.push(this[start + k]);
+	for (i = 2, l = arguments.length; i < l; ++i) {
+		item = arguments[i];
+		@@ $B[] = `item; @@
 	}
 
-	if (replaceArray.length < deleteCount) {
-		for (k = start; k < (this.length - deleteCount); ++k) {
-			if (this.hasOwnProperty(k + deleteCount)) {
-				this[k + replaceArray.length] = this[k + deleteCount];
-			} else {
-				delete this[k + deleteCount];
-			}
-		}
+	@@ $C = array_splice($A, `start, `deleteCount, $B); @@
 
-		for (k = this.length; k > (this.length - deleteCount + replaceArray.length); --k) {
-			delete this[k - 1];
-		}
+	this.length = 0;
 
-	} else {
-		for (k = this.length - deleteCount; k > start; --k) {
-			if (this.hasOwnProperty(k + deleteCount - 1)) {
-				this[k + replaceArray.length - 1] = this[k + deleteCount - 1];
-			} else {
-				delete this[k + replaceArray.length - 1];
-			}
-		}
-	}
+	@@ foreach ($A as $V) { @@
+		this.push(@@ $V @@);
+	@@ } @@
 
-	for (k = start, i = 0, l = replaceArray.length; i < l; ++k, ++i) {
-		this[k] = replaceArray[i];
-	}
+	@@ foreach ($C as $I => $V) { @@
+		returnArray.push(@@ $V @@);
+	@@ } @@
 
 	return returnArray;
 };
 
 Array.prototype.unshift = function (item) {
-	for (var i = this.length - 1, l = arguments.length; i >= 0; --i) {
-		this[i + l] = this[i];
+	if (arguments.length > 1) {
+		for (var i = arguments.length - 1; i > 0; --i) {
+			this.unshift(arguments[i]);
+		}
 	}
 
-	for (i = 0; i < l; ++i) {
-		this[i] = arguments[i];
+	for (var i = this.length - 1; i >= 0; --i) {
+		this[i + 1] = this[i];
 	}
 
-	this.length += l;
+	this[0] = item;
+	++this.length;
 
 	return this.length;
 };
@@ -384,7 +397,7 @@ Array.prototype.reduceRight = function (callbackFn) {
 		i = this.length - 2;
 	}
 
-	for (; i >= 0; ++i) {
+	for (; i >= 0; --i) {
 		value = callbackFn(value, this[i], i, this);
 	}
 

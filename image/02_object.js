@@ -6,9 +6,6 @@ function Object(value) {
 	return @@ JS::toObject(`value) @@;
 }
 
-@@ `Object->class = "Object"; @@
-@@ `Object->extensible = TRUE; @@
-
 Object.getPrototypeOf = function (o) {
 	if (o === null || typeof o !== "object" && typeof o !== "function") {
 		throw new TypeError("Object.getPrototyeOf(): Cannot get prototype of non-object.");
@@ -22,14 +19,14 @@ Object.getOwnPropertyDescriptor = function (o, p) {
 		throw new TypeError("Object.getOwnPropertyDescriptor(): Cannot get property descriptor of non-object.");
 	}
 
-	if (!@@ array_key_exists(`o->properties, `p) || array_key_exists(`o->attributes, `p) @@) {
+	if (!(@@ array_key_exists(`p, `o->properties) || array_key_exists(`p, `o->attributes) @@)) {
 		return undefined;
 	}
 
 	var desc = {};
 
-	if (@@ array_key_exists(`o->properties, `p) @@) {
-		desc.value = o.p;
+	if (@@ array_key_exists(`p, `o->properties) @@) {
+		desc.value = o[p];
 		desc.writable = @@ JS::toBoolean(`o->attributes[`p] & JS::WRITABLE) @@;
 
 	} else {
@@ -53,10 +50,10 @@ Object.getOwnPropertyNames = function (o) {
 		throw new TypeError("Object.getOwnPropertyNames(): Cannot get property names of non-object.");
 	}
 
-	var names = [], name, i;
+	var names = [];
 
-	@@ foreach (array_unique(array_merge(array_keys(`o->properties), array_keys(`o->attributes))) as `i => `name) { @@
-		names[i] = name;
+	@@ foreach (array_unique(array_merge(array_keys(`o->properties), array_keys(`o->attributes))) as $i => $name) { @@
+		names.push(@@ $name @@);
 	@@ } @@
 
 	return names;
@@ -71,7 +68,9 @@ Object.create = function (o, properties) {
 
 	@@ `newObject->prototype = `o; @@
 
-	Object.defineProperties(newObject, properties);
+	if (@@ is_object(`properties) && `properties !== JS::$undefined @@) {
+		Object.defineProperties(newObject, properties);
+	}
 
 	return newObject;
 };
@@ -232,15 +231,11 @@ Object.keys = function (o) {
 		throw new TypeError("Object.keys(): Cannot return if extensible, non-object given.");
 	}
 
-	var keys = [], i = 0, property, attributes;
+	var keys = [];
 
-	@@ foreach (`o->attributes as `property => `attributes) { @@
-		if (attributes & @@ JS::ENUMERABLE @@) {
-			keys[i++] = property;
-		}
-	@@ } @@
-
-	@@ `keys->properties["length"] = `i - 1; @@
+	for (var k in o) {
+		keys.push(k);
+	}
 
 	return keys;
 };
@@ -273,7 +268,7 @@ Object.prototype.valueOf = function () {
 };
 
 Object.prototype.hasOwnProperty = function (p) {
-	return @@ array_key_exists(`p, $leThis->properties) || array_key_exists(`p, $leThis->attributes) @@;
+	return @@ array_key_exists(`p, $leThis->properties) || isset($leThis->attributes[`p]) @@;
 };
 
 Object.prototype.isPrototypeOf = function (v) {
@@ -282,8 +277,8 @@ Object.prototype.isPrototypeOf = function (v) {
 	}
 
 	@@
-		for ($v = $v->prototype; $v !== NULL; $v = $v->prototype) {
-			if ($v === $leThis) {
+		for (`v = `v->prototype; `v; `v = `v->prototype) {
+			if (`v === $leThis) {
 				return TRUE;
 			}
 		}
@@ -294,5 +289,5 @@ Object.prototype.isPrototypeOf = function (v) {
 };
 
 Object.prototype.propertyIsEnumerable = function (p) {
-	return @@ isset($leThis->attributes[`p]) && $leThis->attributes[`p] & JS::ENUMERABLE @@;
+	return @@ JS::toBoolean(isset($leThis->attributes[`p]) && ($leThis->attributes[`p] & JS::ENUMERABLE)) @@;
 };

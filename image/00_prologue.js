@@ -13,6 +13,19 @@ class JSException extends Exception
 	public function __construct($value)
 	{
 		$this->value = $value;
+
+		if (
+			is_object($this->value) &&
+			isset($this->value->class) &&
+			$this->value->class === "Error" &&
+			isset($this->value->properties['name']) &&
+			isset($this->value->properties['message']))
+		{
+			parent::__construct(
+				$this->value->properties['name'] . ': ' .
+				$this->value->properties['message']
+			);
+		}
 	}
 
 	public function getNativeValue()
@@ -79,7 +92,7 @@ class JS
 			return $v;
 
 		} else if (is_string($v)) {
-			return floatval($v);
+			return ((string) intval($v)) === $v ? intval($v) : floatval($v);
 
 		} else {
 			return JS::toNumber(JS::toPrimitive($v));
@@ -147,6 +160,8 @@ class JS
 		} else if (is_string($v)) {
 			$o = clone JS::$stringTemplate;
 			$o->value = $v;
+			$o->properties['length'] = strlen($v);
+			$o->attributes['length'] = 0;
 			return $o;
 		}
 	}
@@ -165,6 +180,8 @@ class JS
 				$array->properties[(string) $k] = JS::fromNative($v);
 				$array->attributes[(string) $k] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 			}
+
+			$array->properties['length'] = count($native);
 
 			return $array;
 
@@ -193,7 +210,13 @@ class JS
 			return NULL;
 
 		} else if (is_object($value) && isset($value->class) && $value->class === 'Array') {
-			return $value->properties;
+			$array = array();
+
+			for ($i = 0, $l = $value->properties['length']; $i < $l; ++$i) {
+				$array[$i] = $value->properties[$i];
+			}
+
+			return $array;
 
 		} else if (is_object($value)) {
 			$object = array();

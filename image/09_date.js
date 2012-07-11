@@ -9,14 +9,14 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 	@@ `d->extensible = TRUE; @@
 
 	if (arguments.length === 1) {
-		var value = arguments[1];
+		var value = arguments[0];
 		value = @@ JS::toPrimitive(`value) @@;
 
 		if (typeof value === "string") {
 			value = Date.parse(value);
 		}
 
-		@@ `d->value = JS::toNumber(`value); @@
+		@@ `d->value = JS::toNumber(`value) / 1000; @@
 
 	} else {
 		if (year >= 0 && year <= 99) {
@@ -29,14 +29,14 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 		seconds = seconds || 0;
 		ms = ms || 0;
 
-		@@ `d->value = mktime(`hours, `minutes, `seconds, `month, `date, `year) + ms / 1000; @@
+		@@ `d->value = mktime(`hours, `minutes, `seconds, `month, `date, `year) + `ms / 1000; @@
 	}
 
 	return d;
 }
 
 Date.parse = function (string) {
-	return @@ strtotime(`string) @@;
+	return @@ strtotime(`string) * 1000 @@;
 };
 
 Date.UTC = function (year, month, date, hours, minutes, seconds, ms) {
@@ -45,7 +45,7 @@ Date.UTC = function (year, month, date, hours, minutes, seconds, ms) {
 };
 
 Date.now = function () {
-	return new Date(@@ time() @@);
+	return new Date(@@ time() * 1000 @@);
 };
 
 Date.prototype = {};

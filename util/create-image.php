@@ -31,6 +31,8 @@ if (!$ok) {
 		' on ' . $error->line . ':' . $error->column . '.');
 }
 
+file_put_contents('/tmp/js2php.last.php', $php);
+
 $lines = explode("\n", $php);
 $declaredClasses = get_declared_classes();
 $definedFunctions = get_defined_functions();

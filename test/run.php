@@ -21,19 +21,83 @@ function compile($code)
 	return array(TRUE, $compiler->__invoke($result), NULL);
 }
 
-list($ok, $assert_code, $error) = compile('
-function assert(assertion) {
+list($ok, $assert_code, $error) = compile($code = '
+function assert(assertion, message) {
 	if (!assertion) {
-		@@ throw new AssertException; @@
+		if (message) {
+			@@ throw new AssertException(`message); @@
+		} else {
+			@@ throw new AssertException; @@
+		}
 	}
 }
 
 function dump() {
-	var x;
+	var dumper = function dumper(v, indent) {
+		indent = indent || "";
+		if (v === undefined) {
+			return { multiline: false, dump: "undefined" };
 
-	for (var i = 0, l = arguments.length; i < l; i = i + 1) {
-		x = arguments[i];
-		@@ var_dump(`x); @@
+		} else if (v === null || typeof v === "boolean" || typeof v === "number") {
+			return { multiline: false, dump: @@ json_encode(`v) @@ };
+
+		} else if (typeof v === "string") {
+			if (@@ strlen(`v) > 50 @@) {
+				return { multiline: true, dump: @@ str_replace("\\/", "/", json_encode(substr(`v, 0, 32) . "...")) @@ };
+			} else {
+				return { multiline: false, dump: @@ str_replace("\\/", "/", json_encode(`v)) @@ };
+			}
+
+		} else if (@@ isset(`v->call) @@) {
+			return { multiline: false,
+			         dump: "[function" + @@ (isset(`v->name) ? " " . `v->name : "") @@ + "]" };
+
+		} else {
+			var multiline = false, i, k, d, isArray = @@ `v->class === "Array" @@;
+
+			@@ $values = array(); @@
+
+			if (isArray) {
+				for (i = 0; i < v.length; ++i) {
+					if ((d = dumper(v[i], indent)).multiline) {
+						multiline = true;
+					}
+
+					d = d.dump;
+
+					@@ $values[] = `d; @@
+				}
+
+			} else {
+				for (k in v) {
+					if ((d = dumper(v[k], indent)).multiline) {
+						multiline = true;
+					}
+
+					d = d.dump;
+
+					@@ $values[] = (preg_match("~^[A-Za-z][A-Za-z0-9]*$~", `k) ? `k : json_encode(`k)) . ": " . `d; @@
+				}
+			}
+
+			if (@@ empty($values) @@) {
+				return { multiline: false, dump: isArray ? "[]" : "{}" };
+			}
+
+			if (@@ count($values) > 5 @@) {
+				multiline = true;
+			}
+
+			return { multiline: multiline,
+				dump: (isArray ? "[ " : "{ ") +
+					@@ implode(!`multiline ? ", " : ",\n" . `indent . "  ", $values) @@ +
+					(isArray ? " ]" : " }") };
+		}
+	};
+
+	for (var i = 0, l = arguments.length, arg; i < l; i = i + 1) {
+		arg = dumper(arguments[i]).dump;
+		@@ echo `arg . "\n"; @@
 	}
 }
 ');
@@ -42,7 +106,7 @@ if (!$ok) {
 	die('Cannot compile assert.');
 }
 
-$global = clone JS::$objectTemplate;
+$global = clone JS::$global;
 $global->up = NULL;
 call_user_func(eval($assert_code), $global);
 
@@ -53,7 +117,11 @@ if (!isset($_SERVER['argv'][1])) {
 }
 
 if (is_dir($dir)) {
-	$files = glob($dir . '/*.js');
+	$files = array_merge(
+		array_merge(
+			glob($dir . '/*.js'),
+			glob($dir . '/*/*.js')),
+		glob($dir . '/*/*/*.js'));
 } else {
 	$files = array($dir);
 }
@@ -76,7 +144,7 @@ foreach ($files as $file) {
 		continue;
 	}
 
-	$globalClone = clone $global;
+	$globalClone = $global;
 	$print_compiled = FALSE;
 
 	file_put_contents('/tmp/js2php.last.php', $code);
@@ -94,10 +162,14 @@ foreach ($files as $file) {
 
 	} catch (AssertException $e) {
 		$line = $e->getTrace();
-		$line = $line[1]['line'];
+		$line = $line[0]['line'];
 		echo "\n>>>\n";
-		echo ">>> $file: assert failed on {$line}\n";
-		echo ">>>\n\n";
+		echo ">>> $file: assert failed on {$line}";
+		if ($e->getMessage()) {
+			echo ": {$e->getMessage()}";
+		}
+		echo "\n>>>\n\n";
+		echo $e->getTraceAsString() . "\n\n";
 		++$failed_assert;
 		$print_compiled = TRUE;
 	}

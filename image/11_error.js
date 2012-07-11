@@ -51,36 +51,45 @@ Error.prototype.toString = function () {
 function RangeError(message) {
 	var e = new Error(message);
 	e.name = "RangeError";
+	@@ `e->prototype = `RangeError->properties['prototype']; @@
 	return e;
 }
+
+@@ `RangeError->properties['prototype']->prototype = `Error->properties['prototype']; @@
 
 function ReferenceError(message) {
 	var e = new Error(message);
 	e.name = "ReferenceError";
+	@@ `e->prototype = `ReferenceError->properties['prototype']; @@
 	return e;
 }
+
+@@ `ReferenceError->properties['prototype']->prototype = `Error->properties['prototype']; @@
 
 function SyntaxError(message) {
 	var e = new Error(message);
 	e.name = "SyntaxError";
+	@@ `e->prototype = `SyntaxError->properties['prototype']; @@
 	return e;
 }
+
+@@ `SyntaxError->properties['prototype']->prototype = `Error->properties['prototype']; @@
 
 function TypeError(message) {
 	var e = new Error(message);
 	e.name = "TypeError";
+	@@ `e->prototype = `TypeError->properties['prototype']; @@
 	return e;
 }
 
-function NativeError(message) {
-	var e = new Error(message);
-	e.name = "NativeError";
-	return e;
-}
+@@ `TypeError->properties['prototype']->prototype = `Error->properties['prototype']; @@
 
 // non-standard
 function NotImplementedError(message) {
 	var e = new Error(message);
 	e.name = "NotImplementedError";
+	@@ `e->prototype = `NotImplementedError->properties['prototype']; @@
 	return e;
 }
+
+@@ `NotImplementedError->properties['prototype']->prototype = `Error->properties['prototype']; @@

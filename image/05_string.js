@@ -4,6 +4,7 @@ function String(value) {
 	}
 
 	var s = {};
+
 	@@ `s->prototype = `String->properties['prototype']; @@
 	@@ `s->class = 'String'; @@
 	@@ `s->extensible = true; @@
@@ -60,9 +61,13 @@ String.prototype.concat = function (string) {
 };
 
 String.prototype.indexOf = function (search, position) {
+	if (position === undefined) {
+		position = 0;
+	}
+
 	var offset = Math.min(Math.max(position, 0), @@ strlen($leThis->value) @@),
 		ret = @@ strpos($leThis->value, JS::toString(`search), `offset) @@;
-	
+
 	if (ret === false) {
 		return -1;
 	}
@@ -71,6 +76,10 @@ String.prototype.indexOf = function (search, position) {
 };
 
 String.prototype.lastIndexOf = function (search, position) {
+	if (position === undefined) {
+		position = 0;
+	}
+
 	var offset = Math.min(Math.max(position, 0), @@ strlen($leThis->value) @@),
 		ret = @@ strrpos($leThis->value, JS::toString(`search), `offset) @@;
 	
@@ -86,7 +95,7 @@ String.prototype.localeCompare = function (that) {
 };
 
 String.prototype.match = function (regexp) {
-	if (!@@ is_object(`regexp) && isset(`regexp->class) && `regexp->class === 'RegExp' @@) {
+	if (!@@ (is_object(`regexp) && isset(`regexp->class) && `regexp->class === 'RegExp') @@) {
 		regexp = new RegExp(regexp);
 	}
 
@@ -121,13 +130,65 @@ String.prototype.match = function (regexp) {
 };
 
 String.prototype.replace = function (search, replace) {
-	// FIXME
-	throw new NotImplementedError("String.prototype.replace(): not implemented yet.");
+	if (typeof search === "string") {
+		search = new RegExp(@@ preg_quote(`search, '/') @@);
+	}
+
+	var match, index, lastIndex = 0,
+		thisString = @@ $leThis->value @@, newString = "", s;
+
+	while ((match = search.exec(thisString)) !== null) {
+		index = match.index;
+		newString += s = thisString.substring(lastIndex, index);
+		lastIndex = index + match[0].length;
+
+		if (typeof replace === "function") {
+			match.push(match.index);
+			match.push(match.input);
+			delete match.index;
+			delete match.input;
+
+			newString += s = String(replace.apply(undefined, match));
+
+		} else {
+			newString += replace.replace(/\$([$&]|[0-9]|[0-9][0-9])/g, function (_, c) {
+				if (c === "$") {
+					return "$";
+
+				} else if (c === "&") {
+					return match[0];
+				
+				} else {
+					return match[Number(c)];
+				}
+			});
+		}
+
+		if (!search.global) {
+			break;
+		}
+	}
+
+	newString += thisString.substring(lastIndex, thisString.length);
+
+	return newString;
 };
 
 String.prototype.search = function (search) {
-	// FIXME
-	throw new NotImplementedError("String.prototype.search(): not implemented yet.");
+	if (!@@ (is_object(`search) && isset(`search->class) && `search->class === 'RegExp') @@) {
+		search = new RegExp(search);
+	}
+
+	var savedLastIndex = search.lastIndex,
+		match = search.exec(@@ $leThis->value @@);
+	
+	search.lastIndexOf = savedLastIndex;
+
+	if (match) {
+		return match.index;
+	}
+
+	return -1;
 };
 
 String.prototype.slice = function (start, end) {
@@ -144,20 +205,62 @@ String.prototype.slice = function (start, end) {
 		end = Math.max(end + length, 0);
 	}
 
-	return @@ substr($leThis->value, `start, max(`end - `start, 0)) @@;
+	return @@ (string) substr($leThis->value, `start, max(`end - `start, 0)) @@;
 };
 
 String.prototype.split = function (separator, limit) {
-	if (@@ is_object(`separator) && isset(`separator->class) && `separator->class === 'RegExp' @@) {
-		// FIXME
-		throw new NotImplementedError("String.prototype.split() with regexp separator not implemented yet.");
+	if (separator === undefined) {
+		return [@@ $leThis->value @@];
 	}
 
-	if (limit !== undefined) {
-		return @@ explode(JS::toString(`separator), $leThis->value, JS::toNumber(`limit)) @@;
+	if (separator === "") {
+		var returnArray = [];
+
+		for (var i = 0, l = this.length; i < l; ++i) {
+			returnArray.push(@@ (string) substr($leThis->value, `i, 1) @@);
+		}
+
+		return returnArray;
 	}
 
-	return @@ explode(JS::toString(`separator), $leThis->value) @@;
+	if (typeof separator === "string") {
+		separator = new RegExp(@@ preg_quote(JS::toString(`separator), '/') @@, 'g');
+	}
+
+	var returnArray = [], match, lastIndex = 0, index, thisString = @@ $leThis->value @@,
+		savedLastIndex = separator.lastIndex, savedGlobal = separator.global;
+
+	separator.global = true;
+
+	if (limit === undefined) {
+		limit = Infinity;
+	}
+
+	while ((match = separator.exec(thisString)) && limit-- > 0 && lastIndex < this.length) {
+		if (match[0] === '' && match.index === lastIndex) {
+			returnArray.push(this.substring(lastIndex, lastIndex + 1));
+			++lastIndex;
+			++separator.lastIndex;
+
+		} else {
+			returnArray.push(this.substring(lastIndex, match.index));
+
+			for (var i = 1, l = match.length; i < l; ++i) {
+				returnArray.push(match[i]);
+			}
+
+			lastIndex = match.index + match[0].length;
+		}
+	}
+
+	if (lastIndex < this.length) {
+		returnArray.push(this.substring(lastIndex, this.length));
+	}
+
+	separator.global = savedGlobal;
+	separator.lastIndex = savedLastIndex;
+
+	return returnArray;
 };
 
 String.prototype.substring = function (start, end) {
@@ -180,7 +283,16 @@ String.prototype.substring = function (start, end) {
 
 	var from = Math.min(start, end), to = Math.max(start, end);
 
-	return @@ substr($leThis->value, `from, `to - `from) @@;
+	return @@ (string) substr($leThis->value, `from, `to - `from) @@;
+};
+
+// non-standard
+String.prototype.substr = function (start, length) {
+	if (length === undefined) {
+		return @@ substr($leThis->value, `start) @@;
+	}
+
+	return @@ (string) substr($leThis->value, `start, `length) @@;
 };
 
 String.prototype.toLowerCase = function () {

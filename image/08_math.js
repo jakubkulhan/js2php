@@ -50,6 +50,10 @@ var Math = {
 
 	max: function (a, b) {
 		for (var i = 0, l = arguments.length, max = -Infinity; i < l; ++i) {
+			if (isNaN(arguments[i])) {
+				return NaN;
+			}
+
 			if (arguments[i] > max) {
 				max = arguments[i];
 			}
@@ -60,8 +64,12 @@ var Math = {
 
 	min: function (a, b) {
 		for (var i = 0, l = arguments.length, min = +Infinity; i < l; ++i) {
+			if (isNaN(arguments[i])) {
+				return NaN;
+			}
+
 			if (arguments[i] < min) {
-				max = arguments[i];
+				min = arguments[i];
 			}
 		}
 
@@ -93,10 +101,4 @@ var Math = {
 	}
 };
 
-@@
-	`Math->class = "Math";
-	`Math->attributes = array_combine(
-		array_keys(`Math->attributes),
-		array_fill(0, count(`Math->attributes), 0)
-	);
-@@
+@@ `Math->class = "Math"; @@

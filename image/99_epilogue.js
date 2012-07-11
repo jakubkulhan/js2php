@@ -1,5 +1,24 @@
 (function () {
 	@@
+		foreach (array(
+				`Object, `Object->properties['prototype'],
+				`Function, `Function->properties['prototype'],
+				`Array, `Array->properties['prototype'],
+				`String, `String->properties['prototype'],
+				`Boolean, `Boolean->properties['prototype'],
+				`Number, `Number->properties['prototype'],
+				`Math,
+				`Date, `Date->properties['prototype'],
+				`RegExp, `RegExp->properties['prototype'],
+				`Error, `Error->properties['prototype'],
+				`JSON
+			) as $o)
+		{
+			foreach ($o->attributes as $k => $v) {
+				$o->attributes[$k] = $v & ~JS::ENUMERABLE;
+			}
+		}
+
 		JS::$objectTemplate = (object) array(
 			'properties' => array(),
 			'attributes' => array(),

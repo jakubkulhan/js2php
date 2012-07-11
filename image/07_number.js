@@ -1,8 +1,5 @@
 function Number(value) {
 	if (this === @@ $global @@) {
-		if (value === undefined) {
-			value = 0;
-		}
 		return @@ JS::toNumber(`value) @@;
 	}
 
@@ -29,6 +26,10 @@ Number.prototype = {};
 Number.prototype.constructor = Number;
 
 Number.prototype.toString = function (radix) {
+	if (@@ is_float($leThis->value) @@) {
+		return @@ (string) $leThis->value @@;
+	}
+
 	radix = radix || 10;
 
 	if (radix < 2 || radix > 36) {
@@ -44,15 +45,23 @@ Number.prototype.valueOf = function () {
 	return @@ $leThis->value @@;
 };
 
-Number.prototype.toFixed = function () {
+Number.prototype.toFixed = function (fractionDigits) {
 	if (@@ is_nan($leThis->value) @@) {
 		return "NaN";
+	}
+
+	if (fractionDigits !== undefined) {
+		return @@ sprintf('%.' . `fractionDigits . 'f', $leThis->value) @@;
+	}
+
+	if (fractionDigits === undefined && @@ is_int($leThis->value) @@) {
+		return @@ (string) $leThis->value @@;
 	}
 
 	return @@ sprintf('%f', $leThis->value) @@;
 };
 
-Number.prototype.toExponential = function () {
+Number.prototype.toExponential = function (fractionDigits) {
 	if (@@ is_nan($leThis->value) @@) {
 		return "NaN";
 	}
@@ -65,7 +74,11 @@ Number.prototype.toExponential = function () {
 		return "-Infinity";
 	}
 
-	return @@ sprintf('%e', $leThis->value) @@;
+	if (fractionDigits !== undefined) {
+		return @@ sprintf('%.' . `fractionDigits . 'e', $leThis->value) @@;
+	}
+
+	return @@ preg_replace('/[.]?0+e/', 'e', sprintf('%e', $leThis->value)) @@;
 };
 
 Number.prototype.toPrecision = function (precision) {
@@ -73,5 +86,10 @@ Number.prototype.toPrecision = function (precision) {
 		return this.toString();
 	}
 
-	return @@ sprintf('%' . JS::toString(precision) . 'e', $leThis->value) @@;
+	if (precision < 1 || precision > 21) {
+		throw new RangeError("Number.prototype.toPrecision(): precision must be between 1 and 21");
+	}
+
+	return @@ preg_replace('/[.]?0+e/', 'e', sprintf('%.' . JS::toString(`precision) . 'g',
+		round($leThis->value, `precision - strlen((string) intval($leThis->value))))) @@;
 };

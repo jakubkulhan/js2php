@@ -29,6 +29,12 @@ program_(ast) {
 			'up' => NULL,
 		); }";
 	$ret[] = '$scope = $global;';
+
+	if (!($ast[0] === "php_statement" || $ast[0] === "block" && $ast[1][0][0] === "php_statement")) {
+		WALK(array('lookup_', '$global', 'TypeError', 'up', TRUE, TRUE));
+		WALK(array('lookup_', '$global', 'ReferenceError', 'up', TRUE, TRUE));
+	}
+
 	$code = WALK($ast);
 
 	if (!empty($self->prestatement)) {
@@ -101,6 +107,9 @@ function(name, parameters_list, body) {
 	$self->prestatement[] = '$scope = clone JS::$emptyScope;';
 	$self->prestatement[] = '$scope->up = $fn->scope;';
 
+	WALK(array('lookup_', '$global', 'TypeError', 'up', TRUE, TRUE));
+	WALK(array('lookup_', '$global', 'ReferenceError', 'up', TRUE, TRUE));
+
 	if (!in_array('arguments', $parameters_list)) {
 		$self->prestatement[] = '$scope->properties[\'arguments\'] = clone JS::$argumentsTemplate;';
 		$self->prestatement[] = $arguments . ' =& $scope->properties[\'arguments\'];';
@@ -112,8 +121,11 @@ function(name, parameters_list, body) {
 	}
 
 	foreach ($parameters_list as $i => $parameter) {
+		$self->assigned[$parameter] = WALK(array('varize_', $parameter));
 		$self->prestatement[] = '$scope->properties[' . var_export($parameter, TRUE) . '] = ' .
 			'array_key_exists(' . $i . ', $args) ? $args[' . $i . '] : JS::$undefined;';
+		$self->prestatement[] = $self->assigned[$parameter] . ' =& $scope->properties[' .
+			var_export($parameter, TRUE) . '];';
 	}
 
 	if (!empty($name) && !in_array($name, $parameters_list)) {
@@ -472,9 +484,9 @@ exprs(exprs) {
 
 assignment(op, lhs_expr, rhs_expr) {
 	if ($lhs_expr[0] === 'identifier') {
-		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE));
+		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE));
 
-		$self->prestatement[] = 'if (isset($u' . substr($lhs, 2) . ')) {' .
+		$self->prestatement[] = 'if (isset($U' . substr($lhs, 2) . ')) {' .
 			'$global->properties[' . var_export($lhs_expr[1], TRUE) . '] = ' .
 			$lhs . '; ' . $lhs . ' =& $global->properties[' . var_export($lhs_expr[1], TRUE) . ']; }';
 
@@ -483,19 +495,28 @@ assignment(op, lhs_expr, rhs_expr) {
 		$base = WALK($base);
 		$index = WALK($index);
 
-		// TODO: setters
+		if ($base[0] !== '$') {
+			$tmp = WALK(array('genvar_'));
+			$self->prestatement[] = $tmp . ' = ' . $base . ';';
+			$base = $tmp;
+		}
 
-		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE));
+		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
 
-		$self->prestatement[] = 'if (isset($u' . substr($lhs, 2) . ')) {' .
+		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE, FALSE));
+
+		$self->prestatement[] = 'if (isset($U' . substr($lhs, 2) . ') && (!isset(' . 
+			$base . '->extensible) || ' . $base . '->extensible)) {' .
 			$base . '->properties[' . $index . '] = ' .
-			$lhs . '; ' . $lhs . ' =& ' . $base . '->properties[' . $index . ']; }';
+			$lhs . '; ' . $lhs . ' =& ' . $base . '->properties[' . $index . ']; ' .
+			$base . '->attributes[' . $index . '] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; ' .
+			'unset($U' . substr($lhs, 2) . '); $W' . substr($lhs, 2) . ' = TRUE; }';
 
 	} else {
-		$error = WALK(array('new',
+		$error = WALK(array('call',
 			array('identifier', 'ReferenceError'),
 			array(array('string', 'Invalid left-hand side in assignment.'))));
-		$self->prestatement[] = 'throw ' . $error . ';';
+		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
 		return '';
 	}
 
@@ -505,11 +526,29 @@ assignment(op, lhs_expr, rhs_expr) {
 		$rhs = WALK(array('binary', substr($op, 0, -1), array('raw', $lhs), array('raw', $rhs)));
 	}
 
-	$self->prestatement[] = $lhs . ' = ' . $rhs . ';';
-	return $lhs;
+	if ($lhs_expr[0] === 'index') {
+		$ret = WALK(array('genvar_'));
+
+		$self->prestatement[] = 'if (isset($S' . substr($lhs, 2) . ')) {';
+		$self->prestatement[] =
+			$ret . ' = ' . WALK(array('call_', '$S' . substr($lhs, 2), array($rhs), $base, FALSE)) . ';';
+		$self->prestatement[] = '} else {';
+		$self->prestatement[] = 'if (!isset($U' . substr($lhs, 2) . ')) {' .
+			$ret . ' = ' . $rhs . ';' .
+			'if ($W' . substr($lhs, 2) . ') { ' . $lhs . ' = ' . $rhs . '; } ' .
+			' }';
+		$self->prestatement[] = 'else { ' . $ret . ' = JS::$undefined; }';
+		$self->prestatement[] = '}';
+
+		return $ret;
+
+	} else {
+		$self->prestatement[] = $lhs . ' = ' . $rhs . ';';
+		return $lhs;
+	}
 }
 
-lookup_(base, id, up, assign) {
+lookup_(base, id, up, assign, get) {
 	if (isset($self->assigned[$id])) {
 		return $self->assigned[$id];
 	}
@@ -525,27 +564,44 @@ lookup_(base, id, up, assign) {
 		$id = var_export($id, TRUE);
 	}
 
-	if ($base !== '$scope' && $base !== '$_TypeError' && $base !== '$_ReferenceError') {
+	if (!in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] = 'if (' . $base . ' === JS::$undefined || ' . $base . ' === NULL) {';
-		$error = WALK(array('new',
+		$error = WALK(array('call',
 			array('identifier', 'TypeError'),
 			array(array('string', 'Cannot lookup property of undefined/null.'))));
-		$self->prestatement[] = 'throw ' . $error . ';';
+		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
 		$self->prestatement[] = '}';
 	}
 
-	$self->prestatement[] = 'for ($lookup = JS::toObject(' . $base .
-		'); $lookup && !(array_key_exists(' . $id . ', $lookup->properties) ||
-		array_key_exists(' . $id . ', $lookup->attributes)) &&
-		isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
+	$self->prestatement[] = '$lookup = JS::toObject(' . $base . ');';
+
+	if ($get) {
+		$self->prestatement[] =
+			'for (; $lookup && !(array_key_exists(' . $id . ', $lookup->properties) ||
+			isset($lookup->attributes[' . $id . '])) &&
+			isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
+	}
 	
 	$self->prestatement[] = 'if (array_key_exists(' . $id . ', $lookup->properties)) { ' .
-		$var . ' =& $lookup->properties[' . $id . ']; }';
-	$self->prestatement[] = 'else if (array_key_exists(' . $id . ', $lookup->attributes) &&
-		$lookup->attributes[' . $id . '] & JS::HAS_GETTER) { ';
-	$self->prestatement[] =
-		$var . ' = ' . WALK(array('call_', '$lookup->getters[' . $id . ']', array(), '$lookup', FALSE)) . '; }';
-	$self->prestatement[] = 'else { ' . $var . ' = JS::$undefined; $u' . substr($var, 2) . ' = TRUE; }'; 
+		$var . ' =& $lookup->properties[' . $id . ']; ' . 
+		(!$get ? ('$W' . substr($var, 2) . ' = !isset($lookup->attributes[' . $id . ']) || ' .
+			'($lookup->attributes[' . $id . '] & JS::WRITABLE !== 0);') : '') .
+		'}';
+	
+	if ($get) {
+		$self->prestatement[] = 'else if (isset($lookup->attributes[' . $id . ']) && ' .
+			'$lookup->attributes[' . $id . '] & JS::HAS_GETTER) { ';
+		$self->prestatement[] =
+			$var . ' = ' . WALK(array('call_', '$lookup->getters[' . $id . ']', array(), '$lookup', FALSE)) . '; }';
+
+	} else {
+		$self->prestatement[] = 'else if (isset($lookup->attributes[' . $id . ']) && ' .
+			'$lookup->attributes[' . $id . '] & JS::HAS_SETTER) { ' .
+				'$S' . substr($var, 2) . ' = $lookup->setters[' . $id . ']; ' .
+			'}';
+	}
+
+	$self->prestatement[] = 'else { ' . $var . ' = JS::$undefined; $U' . substr($var, 2) . ' = TRUE; }'; 
 
 	return $var;
 }
@@ -556,10 +612,10 @@ call_(function, args, leThis, check) {
 
 	if ($check) {
 		$self->prestatement[] = 'if (!(is_object(' . $function . ') && isset(' . $function . '->call))) { ';
-		$error = WALK(array('new',
+		$error = WALK(array('call',
 			array('identifier', 'TypeError'),
 			array(array('string', 'Trying to call what is not a function.'))));
-		$self->prestatement[] = 'throw ' . $error . ';';
+		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
 		$self->prestatement[] = '}';
 	}
 
@@ -653,17 +709,19 @@ binary(op, left_expr, right_expr) {
 			$r = WALK($right_expr);
 
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			$error = WALK(array('new',
+			$error = WALK(array('call',
 				array('identifier', 'TypeError'),
 				array(array('string', 'Right-hand side of instanceof operator is not an object.'))));
-			$self->prestatement[] = 'throw ' . $error . ';';
+			$self->prestatement[] = WALK(array('throw', array('raw', $error)));
 			$self->prestatement[] = '}';
+
+			$r = WALK(array('index', array('raw', $r), array('string', 'prototype')));
 
 			$self->prestatement[] = $ret . ' = FALSE;';
 			$self->prestatement[] =
 				"if (is_object($l) && $l !== JS::\$undefined) { " .
-					"for ($tmp = {$l}->prototype; $tmp && {$tmp}->prototype; $tmp = {$tmp}->prototype) { " .
-						"if ($tmp === {$r}->prototype) { $ret = TRUE; break; } " .
+					"for ($tmp = {$l}->prototype; $tmp; $tmp = {$tmp}->prototype) { " .
+						"if ($tmp === {$r}) { $ret = TRUE; break; } " .
 					"} " .
 				"}";
 
@@ -675,10 +733,10 @@ binary(op, left_expr, right_expr) {
 
 			$self->prestatement[] = $l . ' = JS::toString(' . $l . ');';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			$error = WALK(array('new',
+			$error = WALK(array('call',
 				array('identifier', 'TypeError'),
 				array(array('string', 'Right-hand side of in operator is not an object.'))));
-			$self->prestatement[] = 'throw ' . $error . ';';
+			$self->prestatement[] = WALK(array('throw', array('raw', $error)));
 			$self->prestatement[] = '}';
 			
 			return 'array_key_exists(' . $l . ', ' . $r . '->properties) ||
@@ -687,8 +745,15 @@ binary(op, left_expr, right_expr) {
 		case '==':
 		case '!=':
 			$ret = WALK(array('genvar_'));
+			$tmpL = WALK(array('genvar_'));
+			$tmpR = WALK(array('genvar_'));
 			$l = WALK($left_expr);
 			$r = WALK($right_expr);
+			
+			$self->prestatement[] = $tmpL . ' = ' . $l . ';';
+			$self->prestatement[] = $tmpR . ' = ' . $r . ';';
+			$l = $tmpL;
+			$r = $tmpR;
 
 			$self->prestatement[] = 'if (gettype(' . $l . ') === gettype(' . $r . ')) { ' .
 				$ret . ' = ' . $l . ' == ' . $r . '; }';
@@ -709,7 +774,7 @@ binary(op, left_expr, right_expr) {
 
 			$self->prestatement[] = $ret . ' = ' . ($op === '!==' ? '!' : '') .
 				'(gettype(' . $l . ') === gettype(' . $r . ') && ' .
-				$l . ' == ' . $r . ');';
+				$l . ' === ' . $r . ');';
 
 			return $ret;
 
@@ -719,7 +784,9 @@ binary(op, left_expr, right_expr) {
 
 			$self->prestatement[] = $ret . ' = ' . $l . ';';
 			$self->prestatement[] = 'if (JS::toBoolean(' . $ret . ')) {';
+			$saved_assigned = $self->assigned;
 			$r = WALK($right_expr);
+			$self->assigned = $saved_assigned;
 			$self->prestatement[] = $ret . ' = ' . $r . '; }';
 
 			return $ret;
@@ -730,7 +797,9 @@ binary(op, left_expr, right_expr) {
 
 			$self->prestatement[] = $ret . ' = ' . $l . ';';
 			$self->prestatement[] = 'if (!JS::toBoolean(' . $ret . ')) {';
+			$saved_assigned = $self->assigned;
 			$r = WALK($right_expr);
+			$self->assigned = $saved_assigned;
 			$self->prestatement[] = $ret . ' = ' . $r . '; }';
 
 			return $ret;
@@ -754,22 +823,21 @@ delete(expr) {
 		$index = WALK($index);
 
 	} else {
-		$error = WALK(array('new',
+		$error = WALK(array('call',
 			array('identifier', 'ReferenceError'),
 			array(array('string', 'Invalid delete expression.'))));
-		$self->prestatement[] = 'throw ' . $error . ';';
+		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
 	}
 
 	if (isset($base) && isset($index)) {
-		$self->prestatement[] = 'if (!array_key_exists(' . $index . ', ' . $base . '->properties)) { ' .
-			$ret_var . ' = TRUE; }';
-		$self->prestatement[] = 'else if (!array_key_exists(' . $index . ', ' . $base . '->attributes)) { ' .
+		$self->prestatement[] = 'if (!array_key_exists(' . $index . ', ' . $base . '->attributes)) { ' .
 			'unset(' . $base . '->properties[' . $index . ']' .
 			($expr[0] === 'identifier' && isset($self->assigned[$expr[1]]) ? ', ' .
 				$self->assigned[$expr[1]] : '') . '); ' .
 			$ret_var . ' = TRUE; }';
 		$self->prestatement[] = 'else if (' . $base . '->attributes[' . $index . '] & JS::CONFIGURABLE) { ' .
-			'unset(' . $base . '->properties[' . $index . '], ' . $base . '->attributes[' . $index . ']' .
+			'unset(' . $base . '->properties[' . $index . '], ' . $base . '->attributes[' . $index . '], ' .
+			$base . '->getters[' . $index . '], ' . $base . '->setters[' . $index . ']' .
 			($expr[0] === 'identifier' && isset($self->assigned[$expr[1]]) ? ', ' .
 				$self->assigned[$expr[1]] : '') . '); ' .
 			$ret_var . ' = TRUE; }';
@@ -844,13 +912,23 @@ call(fn_expr, arguments) {
 		list(,$base, $index) = $fn_expr;
 		$base = WALK($base);
 		$index = WALK($index);
-		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE));
+
+		if ($base[0] !== '$') {
+			$tmp = WALK(array('genvar_'));
+			$self->prestatement[] = $tmp . ' = ' . $base . ';';
+			$base = $tmp;
+		}
+
+		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+
+		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
 
 		return WALK(array('call_', $fn, WALKEACH($arguments), $base, TRUE));
 
 	} else {
+		$check = !($fn_expr[0] === 'identifier' && preg_match('~Error$~', $fn_expr[1]));
 		$fn = WALK($fn_expr);
-		return WALK(array('call_', $fn, WALKEACH($arguments), '$global', TRUE));
+		return WALK(array('call_', $fn, WALKEACH($arguments), '$global', $check));
 	}
 }
 
@@ -858,7 +936,15 @@ index(base, index_expr) {
 	$base = WALK($base);
 	$index = WALK($index_expr);
 
-	return WALK(array('lookup_', $base, $index, 'prototype', FALSE));
+	if ($base[0] !== '$') {
+		$tmp = WALK(array('genvar_'));
+		$self->prestatement[] = $tmp . ' = ' . $base . ';';
+		$base = $tmp;
+	}
+
+	$self->prestatement[] = $base . ' = JS::toObject(' . $base . ');';
+
+	return WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
 }
 
 new(expr, arguments_exprs_list) {
@@ -870,15 +956,10 @@ new(expr, arguments_exprs_list) {
 
 	$self->prestatement[] = $ret . ' = clone JS::$objectTemplate;';
 	$self->prestatement[] = $tmp . ' = ' .
-		WALK(array('lookup_', $constructor, var_export('prototype', TRUE), 'prototype', FALSE)) . ';';
+		WALK(array('lookup_', $constructor, var_export('prototype', TRUE), 'prototype', FALSE, TRUE)) . ';';
 	$self->prestatement[] = $ret . '->prototype = ' . $tmp . ';';
 
-	if ($expr[0] === 'identifier' && preg_match('~Error$~', $expr[1])) {
-		// FIXME: errors can't be checked - cycle: new -> call_ -> new -> ...
-		$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, FALSE)) . ';';
-	} else {
-		$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, TRUE)) . ';';
-	}
+	$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, TRUE)) . ';';
 	$self->prestatement[] = 'if (is_object(' . $tmp . ') && ' . $tmp . ' !== JS::$undefined) { ' .
 		$ret . ' = ' . $tmp . '; }';
 
@@ -905,7 +986,7 @@ regexp(regexp, flags) {
 		array(array('string', $regexp), array('string', $flags))));
 }
 
-identifier(identifier) -> WALK(array('lookup_', '$scope', $identifier, 'up', TRUE));
+identifier(identifier) -> WALK(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE));
 
 array(elements_list) {
 	$ret = WALK(array('genvar_'));
@@ -942,4 +1023,4 @@ object(properties_list) {
 
 php(parts) -> implode('', WALKEACH($parts))
 
-raw(code) -> $code
+raw(code) -> trim($code)

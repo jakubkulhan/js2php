@@ -43,6 +43,8 @@ var JSON = {
 			throw new NotImplementedError("JSON.stringify(): replacer and space arguments not supported.");
 		}
 
-		return @@ json_decode(JS::toNative(`value)) @@;
+		return @@ json_encode(JS::toNative(`value)) @@;
 	}
 };
+
+@@ `JSON->class = 'JSON'; @@

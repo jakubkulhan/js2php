@@ -59,6 +59,7 @@ Function.prototype.bind = function (thisArg) {
 		@@ $boundArgs[] = `arg; @@
 		--newFn.length;
 	}
+	@@ `newFn->boundArgs = $boundArgs; @@
 
 	return newFn;
 };

@@ -361,8 +361,9 @@ php
 
 number
   = "0" [Xx] hex:[0-9a-fA-F]+ !identifier_start -> hexdec($hex)
-  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]+)? exp:([eE] [+-]? [0-9]+)? !identifier_start -> intval($int . $frac . $exp)
-  / "." frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> intval("0." . $frac . $exp)
+  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval($int . $frac . $exp)
+  / int:("0" / [1-9] [0-9]*) !identifier_start -> intval($int)
+  / "." frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval("0." . $frac . $exp)
 
 string
   = ["] value:(!["] char)* ["] -> implode("", $value)
@@ -385,9 +386,9 @@ char
 
 regexp
   = "/" value:( "\\\\" -> "\\\\"
-              / "\\/" -> "/"
+              / "\\/" -> "\\/"
               / !"/" .
-			  )+
+              )+
 	"/" flags:identifier_part*
 	-> array("regexp", implode("", $value), implode("", $flags))
 

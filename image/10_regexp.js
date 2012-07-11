@@ -67,9 +67,6 @@ RegExp.prototype.exec = function (string) {
 
 	var pattern = this.source, flags = "", result;
 
-	if (this.global) {
-		flags += "g";
-	}
 	if (this.ignoreCase) {
 		flags += "i";
 	}
@@ -92,13 +89,20 @@ RegExp.prototype.exec = function (string) {
 
 	var returnArray = [];
 
-	@@ foreach ($matches as $match) { @@
-		returnArray.push(@@ $match[0] @@);
+	@@ foreach ($matches as $I => $match) { @@
+	 	@@ if ($match[0] === '' && $I !== 0) { @@
+			returnArray.push(undefined);
+		@@ } else { @@
+			returnArray.push(@@ $match[0] @@);
+		@@ } @@
 	@@ } @@
 
-	this.lastIndex = @@ $matches[0][1] + strlen($matches[0][0]) @@;
+	if (this.global) {
+		this.lastIndex = @@ $matches[0][1] + strlen($matches[0][0]) @@;
+	}
+
 	returnArray.index = @@ $matches[0][1] @@;
-	returnArray.input = string;
+	returnArray.input = @@ JS::toString(`string) @@;
 
 	return returnArray;
 };
@@ -108,5 +112,16 @@ RegExp.prototype.test = function (string) {
 };
 
 RegExp.prototype.toString = function () {
-	return "/" + this.source + "/" + this.flags;
+	var flags = "";
+
+	if (this.global) {
+		flags += "g";
+	}
+	if (this.ignoreCase) {
+		flags += "i";
+	}
+	if (this.multiline) {
+		flags += "m";
+	}
+	return "/" + this.source + "/" + flags;
 };

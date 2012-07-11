@@ -1,10 +1,37 @@
+-init {
+	$fns = array();
+	$fns_stack = array();
+}
+
 program
-  = __ statements:(statement / function_declaration)* !.
-    -> count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements))
+  = __ statements:( statement
+                  / f:function_declaration { $fns[] = $f; return NULL; }
+                  )* !.
+    {
+		if (isset($statements[0]) && $statements[0][0] === "php_statement") {
+			$statements = array_merge(array($statements[0]), $fns, array_slice($statements, 1));
+		} else {
+	        $statements = array_merge($fns, $statements);
+		}
+
+        return count($statements) === 0
+            ? NULL
+            : (count($statements) === 1 ? $statements[0] : array("block", $statements));
+    }
 
 function_body
-  = statements:(statement / function_declaration)*
-    -> count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements))
+  = ?{ $fns_stack[] = $fns; $fns = array(); return TRUE; }
+    statements:( statement
+               / f:function_declaration { $fns[] = $f; return NULL; }
+               )*
+    {
+        $statements = array_merge($fns, $statements);
+		$fns = array_pop($fns_stack);
+
+        return count($statements) === 0
+            ? NULL
+            : (count($statements) === 1 ? $statements[0] : array("block", $statements));
+    }
 
 function_declaration
   = "function" _ name:identifier

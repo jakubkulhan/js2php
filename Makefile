@@ -1,4 +1,4 @@
-all: src/JavascriptParser.php src/JavascriptCompiler.php src/image.php
+all: src/JavascriptParser.php src/JavascriptCompiler.php src/image.php binary
 
 src/JavascriptParser.php: src/JavascriptParser.phpeg
 	./util/phpeg src/JavascriptParser.phpeg

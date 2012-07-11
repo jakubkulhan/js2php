@@ -30,11 +30,6 @@ program_(ast) {
 		); }";
 	$ret[] = '$scope = $global;';
 
-	if (!($ast[0] === "php_statement" || $ast[0] === "block" && $ast[1][0][0] === "php_statement")) {
-		WALK(array('lookup_', '$global', 'TypeError', 'up', TRUE, TRUE));
-		WALK(array('lookup_', '$global', 'ReferenceError', 'up', TRUE, TRUE));
-	}
-
 	$code = WALK($ast);
 
 	if (!empty($self->prestatement)) {
@@ -57,6 +52,24 @@ genvar_() -> '$x' . $self->varCounter++
 genfn_() -> '_' . $self->prefix . '_' . $self->fnCounter++
 
 varize_(identifier) -> '$_' . str_replace(array('$', '_'), array('_dlr_', '__'), $identifier)
+
+TypeError_(msg) {
+	$saved_assigned = $self->assigned;
+	$error = WALK(array('call',
+		array('identifier', 'TypeError'),
+		array(array('string', $msg))));
+	$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+	$self->assigned = $saved_assigned;
+}
+
+ReferenceError_(msg) {
+	$saved_assigned = $self->assigned;
+	$error = WALK(array('call',
+		array('identifier', 'ReferenceError'),
+		array(array('string', $msg))));
+	$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+	$self->assigned = $saved_assigned;
+}
 
 // STATEMENTS
 
@@ -106,9 +119,6 @@ function(name, parameters_list, body) {
 
 	$self->prestatement[] = '$scope = clone JS::$emptyScope;';
 	$self->prestatement[] = '$scope->up = $fn->scope;';
-
-	WALK(array('lookup_', '$global', 'TypeError', 'up', TRUE, TRUE));
-	WALK(array('lookup_', '$global', 'ReferenceError', 'up', TRUE, TRUE));
 
 	if (!in_array('arguments', $parameters_list)) {
 		$self->prestatement[] = '$scope->properties[\'arguments\'] = clone JS::$argumentsTemplate;';
@@ -513,10 +523,7 @@ assignment(op, lhs_expr, rhs_expr) {
 			'unset($U' . substr($lhs, 2) . '); $W' . substr($lhs, 2) . ' = TRUE; }';
 
 	} else {
-		$error = WALK(array('call',
-			array('identifier', 'ReferenceError'),
-			array(array('string', 'Invalid left-hand side in assignment.'))));
-		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+		WALK(array('ReferenceError_', 'Invalid left-hand side in assignment.'));
 		return '';
 	}
 
@@ -566,10 +573,7 @@ lookup_(base, id, up, assign, get) {
 
 	if (!in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] = 'if (' . $base . ' === JS::$undefined || ' . $base . ' === NULL) {';
-		$error = WALK(array('call',
-			array('identifier', 'TypeError'),
-			array(array('string', 'Cannot lookup property of undefined/null.'))));
-		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+		WALK(array('TypeError_', 'Cannot lookup property of undefined/null.'));
 		$self->prestatement[] = '}';
 	}
 
@@ -612,10 +616,7 @@ call_(function, args, leThis, check) {
 
 	if ($check) {
 		$self->prestatement[] = 'if (!(is_object(' . $function . ') && isset(' . $function . '->call))) { ';
-		$error = WALK(array('call',
-			array('identifier', 'TypeError'),
-			array(array('string', 'Trying to call what is not a function.'))));
-		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+		WALK(array('TypeError_', 'Trying to call what is not a function.'));
 		$self->prestatement[] = '}';
 	}
 
@@ -709,10 +710,7 @@ binary(op, left_expr, right_expr) {
 			$r = WALK($right_expr);
 
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			$error = WALK(array('call',
-				array('identifier', 'TypeError'),
-				array(array('string', 'Right-hand side of instanceof operator is not an object.'))));
-			$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+			WALK(array('TypeError_', 'Right-hand side of instanceof operator is not an object.'));
 			$self->prestatement[] = '}';
 
 			$r = WALK(array('index', array('raw', $r), array('string', 'prototype')));
@@ -733,10 +731,7 @@ binary(op, left_expr, right_expr) {
 
 			$self->prestatement[] = $l . ' = JS::toString(' . $l . ');';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			$error = WALK(array('call',
-				array('identifier', 'TypeError'),
-				array(array('string', 'Right-hand side of in operator is not an object.'))));
-			$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+			WALK(array('TypeError_', 'Right-hand side of in operator is not an object.'));
 			$self->prestatement[] = '}';
 			
 			return 'array_key_exists(' . $l . ', ' . $r . '->properties) ||
@@ -823,10 +818,7 @@ delete(expr) {
 		$index = WALK($index);
 
 	} else {
-		$error = WALK(array('call',
-			array('identifier', 'ReferenceError'),
-			array(array('string', 'Invalid delete expression.'))));
-		$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+		WALK(array('ReferenceError_', 'Invalid delete expression.'));
 	}
 
 	if (isset($base) && isset($index)) {

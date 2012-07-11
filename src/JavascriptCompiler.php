@@ -939,11 +939,9 @@ protected function _31($op, $left_expr, $right_expr) { extract($this->_env, EXTR
 			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ');';
 			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ');';
 
-			return 'is_string(' . $l . ') && is_string(' . $r . ') ? ' . $l . ' . ' . $r . ' : ' .
-				'JS::toNumber(' . $l . ') + JS::toNumber(' . $r . ')';
-
-			return 'JS::toNumber(' . $this->_walk($left_expr) . ') ' . $op .
-				' ((int) JS::toNumber(' . $this->_walk($right_expr) . '))';
+			return 'is_string(' . $l . ') || is_string(' . $r . ') ' .
+				'? JS::toString(' . $l . ') . JS::toString(' . $r . ') ' .
+				': JS::toNumber(' . $l . ') + JS::toNumber(' . $r . ')';
 
 		case '<':
 		case '>':

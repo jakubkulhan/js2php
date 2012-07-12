@@ -10,11 +10,11 @@
 }
 
 -invoke(ast) {
-	$ret = WALK(array("program_", $ast));
+	$ret = WALK($ast);
 	return implode("\n", $self->functions) . "\n$ret";
 }
 
-program_(ast) {
+program(ast) {
 	$ret = array();
 	$fn = WALK(array("genfn_"));
 
@@ -53,21 +53,21 @@ genfn_() -> '_' . $self->prefix . '_' . $self->fnCounter++
 
 varize_(identifier) -> '$_' . str_replace(array('$', '_'), array('_dlr_', '__'), $identifier)
 
-TypeError_(msg) {
+TypeError_(msg, p, file) {
 	$saved_assigned = $self->assigned;
 	$error = WALK(array('call',
-		array('identifier', 'TypeError'),
-		array(array('string', $msg))));
-	$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+		array('identifier', 'TypeError', $p, $file),
+		array(array('string', $msg)), $p, $file));
+	$self->prestatement[] = WALK(array('throw', array('raw', $error), $p, $file));
 	$self->assigned = $saved_assigned;
 }
 
-ReferenceError_(msg) {
+ReferenceError_(msg, p, file) {
 	$saved_assigned = $self->assigned;
 	$error = WALK(array('call',
-		array('identifier', 'ReferenceError'),
-		array(array('string', $msg))));
-	$self->prestatement[] = WALK(array('throw', array('raw', $error)));
+		array('identifier', 'ReferenceError', $p, $file),
+		array(array('string', $msg)), $p, $file));
+	$self->prestatement[] = WALK(array('throw', array('raw', $error), $p, $file));
 	$self->assigned = $saved_assigned;
 }
 
@@ -103,7 +103,7 @@ php_statement(parts) {
 	return implode("\n", $ret);
 }
 
-function(name, parameters_list, body) {
+function(name, parameters_list, body, pStart, pEnd, file) {
 	$fn = WALK(array('genfn_'));
 
 	$saved_prestatement = $self->prestatement;
@@ -411,12 +411,13 @@ default(statement) {
 	return implode("\n", $ret);
 }
 
-throw(expr) {
+throw(expr, p, file) {
 	$ret = array();
 	$expr = WALK($expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'throw new JSException(' . $expr . ');';
+	$file = var_export($file, TRUE);
+	$ret[] = "throw new JSException($expr, {$p[0]}, {$p[1]}, $file);";
 
 	return implode("\n", $ret);
 }
@@ -494,11 +495,11 @@ exprs(exprs) {
 	return $last;
 }
 
-assignment(op, lhs_expr, rhs_expr) {
+assignment(op, lhs_expr, rhs_expr, p, file) {
 	$rhs = WALK($rhs_expr);
 
 	if ($lhs_expr[0] === 'identifier') {
-		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE));
+		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE, $p, $file));
 
 		$self->prestatement[] = 'if (isset($U' . substr($lhs, 2) . ')) {' .
 			'$global->properties[' . var_export($lhs_expr[1], TRUE) . '] = ' .
@@ -517,7 +518,7 @@ assignment(op, lhs_expr, rhs_expr) {
 
 		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
-		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE, FALSE));
+		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE, FALSE, $p, $file));
 
 		$self->prestatement[] = 'if (isset($U' . substr($lhs, 2) . ') && (!isset(' . 
 			$base . '->extensible) || ' . $base . '->extensible)) {' .
@@ -527,12 +528,12 @@ assignment(op, lhs_expr, rhs_expr) {
 			'unset($U' . substr($lhs, 2) . '); $W' . substr($lhs, 2) . ' = TRUE; }';
 
 	} else {
-		WALK(array('ReferenceError_', 'Invalid left-hand side in assignment.'));
+		WALK(array('ReferenceError_', 'Invalid left-hand side in assignment.', $p, $file));
 		return '';
 	}
 
 	if ($op !== '=') {
-		$rhs = WALK(array('binary', substr($op, 0, -1), array('raw', $lhs), array('raw', $rhs)));
+		$rhs = WALK(array('binary', substr($op, 0, -1), array('raw', $lhs), array('raw', $rhs), $p, $file));
 	}
 
 	if ($lhs_expr[0] === 'index') {
@@ -540,7 +541,7 @@ assignment(op, lhs_expr, rhs_expr) {
 
 		$self->prestatement[] = 'if (isset($S' . substr($lhs, 2) . ')) {';
 		$self->prestatement[] =
-			$ret . ' = ' . WALK(array('call_', '$S' . substr($lhs, 2), array($rhs), $base, FALSE)) . ';';
+			$ret . ' = ' . WALK(array('call_', '$S' . substr($lhs, 2), array($rhs), $base, FALSE, $p, $file)) . ';';
 		$self->prestatement[] = '} else {';
 		$self->prestatement[] = 'if (!isset($U' . substr($lhs, 2) . ')) {' .
 			$ret . ' = ' . $rhs . ';' .
@@ -561,7 +562,7 @@ assignment(op, lhs_expr, rhs_expr) {
 	}
 }
 
-lookup_(base, id, up, assign, get) {
+lookup_(base, id, up, assign, get, p, file) {
 	if (isset($self->assigned[$id])) {
 		return $self->assigned[$id];
 	}
@@ -577,11 +578,11 @@ lookup_(base, id, up, assign, get) {
 		$id = var_export($id, TRUE);
 	}
 
-	$self->prestatement[] = 'unset(' . $var . ');';
+	$self->prestatement[] = 'unset(' . $var . ', $lookup);';
 
 	if (!in_array($base, array('$scope', '$global'))) {
 		$self->prestatement[] = 'if (' . $base . ' === JS::$undefined || ' . $base . ' === NULL) {';
-		WALK(array('TypeError_', 'Cannot lookup property of undefined/null.'));
+		WALK(array('TypeError_', 'Cannot lookup property of undefined/null.', $p, $file));
 		$self->prestatement[] = '}';
 	}
 
@@ -604,7 +605,7 @@ lookup_(base, id, up, assign, get) {
 		$self->prestatement[] = 'else if (isset($lookup->attributes[' . $id . ']) && ' .
 			'$lookup->attributes[' . $id . '] & JS::HAS_GETTER) { ';
 		$self->prestatement[] =
-			$var . ' = ' . WALK(array('call_', '$lookup->getters[' . $id . ']', array(), '$lookup', FALSE)) . '; }';
+			$var . ' = ' . WALK(array('call_', '$lookup->getters[' . $id . ']', array(), '$lookup', FALSE, $p, $file)) . '; }';
 
 	} else {
 		$self->prestatement[] = 'else if (isset($lookup->attributes[' . $id . ']) && ' .
@@ -618,13 +619,13 @@ lookup_(base, id, up, assign, get) {
 	return $var;
 }
 
-call_(function, args, leThis, check) {
+call_(function, args, leThis, check, p, file) {
 	$call = WALK(array('genvar_'));
 	$ret = WALK(array('genvar_'));
 
 	if ($check) {
 		$self->prestatement[] = 'if (!(is_object(' . $function . ') && isset(' . $function . '->call))) { ';
-		WALK(array('TypeError_', 'Trying to call what is not a function.'));
+		WALK(array('TypeError_', 'Trying to call what is not a function.', $p, $file));
 		$self->prestatement[] = '}';
 	}
 
@@ -660,7 +661,7 @@ cond(cond_expr, iftrue_expr, iffalse_expr) {
 	return $ret;
 }
 
-binary(op, left_expr, right_expr) {
+binary(op, left_expr, right_expr, p, file) {
 	switch ($op) {
 		case '*':
 		case '/':
@@ -729,10 +730,10 @@ binary(op, left_expr, right_expr) {
 			$r = WALK($right_expr);
 
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			WALK(array('TypeError_', 'Right-hand side of instanceof operator is not an object.'));
+			WALK(array('TypeError_', 'Right-hand side of instanceof operator is not an object.', $p, $file));
 			$self->prestatement[] = '}';
 
-			$r = WALK(array('index', array('raw', $r), array('string', 'prototype')));
+			$r = WALK(array('index', array('raw', $r), array('string', 'prototype'), $p, $file));
 
 			$self->prestatement[] = $ret . ' = FALSE;';
 			$self->prestatement[] =
@@ -756,7 +757,7 @@ binary(op, left_expr, right_expr) {
 
 			$self->prestatement[] = $l . ' = JS::toString(' . $l . ', $global);';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			WALK(array('TypeError_', 'Right-hand side of in operator is not an object.'));
+			WALK(array('TypeError_', 'Right-hand side of in operator is not an object.', $p, $file));
 			$self->prestatement[] = '}';
 			
 			return 'array_key_exists(' . $l . ', ' . $r . '->properties) ||
@@ -833,7 +834,7 @@ binary(op, left_expr, right_expr) {
 	}
 }
 
-delete(expr) {
+delete(expr, p, file) {
 	$ret_var = WALK(array('genvar_'));
 
 	if ($expr[0] === 'identifier') {
@@ -846,7 +847,7 @@ delete(expr) {
 		$index = WALK($index);
 
 	} else {
-		WALK(array('ReferenceError_', 'Invalid delete expression.'));
+		WALK(array('ReferenceError_', 'Invalid delete expression.', $p, $file));
 	}
 
 	if (isset($base) && isset($index)) {
@@ -927,7 +928,7 @@ postdec(expr) {
 	return $ret;
 }
 
-call(fn_expr, arguments) {
+call(fn_expr, arguments, p, file) {
 	if ($fn_expr[0] === 'index') {
 		list(,$base, $index) = $fn_expr;
 		$base = WALK($base);
@@ -941,18 +942,18 @@ call(fn_expr, arguments) {
 
 		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
-		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
+		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE, $p, $file));
 
-		return WALK(array('call_', $fn, WALKEACH($arguments), $base, TRUE));
+		return WALK(array('call_', $fn, WALKEACH($arguments), $base, TRUE, $p, $file));
 
 	} else {
 		$check = !($fn_expr[0] === 'identifier' && preg_match('~Error$~', $fn_expr[1]));
 		$fn = WALK($fn_expr);
-		return WALK(array('call_', $fn, WALKEACH($arguments), '$global', $check));
+		return WALK(array('call_', $fn, WALKEACH($arguments), '$global', $check, $p, $file));
 	}
 }
 
-index(base, index_expr) {
+index(base, index_expr, p, file) {
 	$base = WALK($base);
 	$index = WALK($index_expr);
 
@@ -962,12 +963,10 @@ index(base, index_expr) {
 		$base = $tmp;
 	}
 
-	$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
-
-	return WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE));
+	return WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE, $p, $file));
 }
 
-new(expr, arguments_exprs_list) {
+new(expr, arguments_exprs_list, p, file) {
 	$ret = WALK(array('genvar_'));
 	$tmp = WALK(array('genvar_'));
 
@@ -976,10 +975,10 @@ new(expr, arguments_exprs_list) {
 
 	$self->prestatement[] = $ret . ' = clone JS::$objectTemplate;';
 	$self->prestatement[] = $tmp . ' = ' .
-		WALK(array('lookup_', $constructor, var_export('prototype', TRUE), 'prototype', FALSE, TRUE)) . ';';
+		WALK(array('lookup_', $constructor, var_export('prototype', TRUE), 'prototype', FALSE, TRUE, $p, $file)) . ';';
 	$self->prestatement[] = $ret . '->prototype = ' . $tmp . ';';
 
-	$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, TRUE)) . ';';
+	$self->prestatement[] = $tmp . ' = ' . WALK(array('call_', $constructor, $arguments, $ret, TRUE, $p, $file)) . ';';
 	$self->prestatement[] = 'if (is_object(' . $tmp . ') && ' . $tmp . ' !== JS::$undefined) { ' .
 		$ret . ' = ' . $tmp . '; }';
 
@@ -1000,13 +999,14 @@ number(n) -> var_export($n, TRUE)
 
 string(s) -> var_export($s, TRUE)
 
-regexp(regexp, flags) {
+regexp(regexp, flags, p, file) {
 	return WALK(array('new',
-		array('identifier', 'RegExp'),
-		array(array('string', $regexp), array('string', $flags))));
+		array('identifier', 'RegExp', $p, $file),
+		array(array('string', $regexp), array('string', $flags)),
+		$p, $file));
 }
 
-identifier(identifier) -> WALK(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE));
+identifier(identifier, p, file) -> WALK(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
 
 array(elements_list) {
 	$ret = WALK(array('genvar_'));

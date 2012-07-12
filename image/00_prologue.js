@@ -10,12 +10,11 @@ class JSException extends Exception
 {
 	public $value;
 
-	public function __construct($value)
+	public function __construct($value, $line = NULL, $column = NULL, $file = NULL)
 	{
 		$this->value = $value;
 
-		if (
-			is_object($this->value) &&
+		if (is_object($this->value) &&
 			isset($this->value->class) &&
 			$this->value->class === "Error" &&
 			isset($this->value->properties['name']) &&
@@ -23,7 +22,8 @@ class JSException extends Exception
 		{
 			parent::__construct(
 				$this->value->properties['name'] . ': ' .
-				$this->value->properties['message']
+				$this->value->properties['message'] . ' (' .
+				$file . '@' . $line . ':' . $column . ')'
 			);
 		}
 	}

@@ -26,6 +26,18 @@ Number.prototype = {};
 Number.prototype.constructor = Number;
 
 Number.prototype.toString = function (radix) {
+	if (isNaN(@@ $leThis->value @@)) {
+		return "NaN";
+	}
+
+	if (@@ $leThis->value === INF @@) {
+		return "Infinity";
+	}
+
+	if (@@ $leThis->value === -INF @@) {
+		return "-Infinity";
+	}
+
 	if (@@ is_float($leThis->value) @@) {
 		return @@ (string) $leThis->value @@;
 	}

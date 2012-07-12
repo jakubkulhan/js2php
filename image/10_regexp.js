@@ -38,6 +38,9 @@ function RegExp(pattern, flags) {
 		}
 	}
 
+	@@ foreach (`r->attributes as $a => $_) { `r->attributes[$a] = 0; } @@
+	@@ `r->attributes['lastIndex'] = JS::WRITABLE; @@
+
 	return r;
 }
 
@@ -54,6 +57,7 @@ RegExp.prototype = {
 RegExp.prototype.constructor = RegExp;
 
 RegExp.prototype.exec = function (string) {
+	string = @@ JS::toString(`string, $global) @@;
 	var length = string.length, i = this.lastIndex;
 
 	if (!this.global) {

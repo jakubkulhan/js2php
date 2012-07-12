@@ -242,7 +242,7 @@ class JS
 			$array = array();
 
 			for ($i = 0, $l = $value->properties['length']; $i < $l; ++$i) {
-				$array[$i] = $value->properties[$i];
+				$array[$i] = JS::toNative($value->properties[$i]);
 			}
 
 			return $array;

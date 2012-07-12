@@ -32,7 +32,7 @@ Array.isArray = function (arg) {
 		return false;
 	}
 
-	return @@ `arg->class === 'Array' @@;
+	return @@ isset(`arg->class) && `arg->class === 'Array' @@;
 };
 
 Array.prototype = {};
@@ -67,7 +67,10 @@ Array.prototype.concat = function (item) {
 };
 
 Array.prototype.join = function (separator) {
-	separator = separator || ",";
+	if (separator === undefined) {
+		separator = ",";
+	}
+
 	var string = "";
 
 	if (this[0] === undefined || this[0] === null) {

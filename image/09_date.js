@@ -8,7 +8,10 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 	@@ `d->class = 'Date'; @@
 	@@ `d->extensible = TRUE; @@
 
-	if (arguments.length === 1) {
+	if (arguments.length === 0) {
+		@@ `d->value = time(); @@
+
+	} else if (arguments.length === 1) {
 		var value = arguments[0];
 		value = @@ JS::toPrimitive(`value, $global) @@;
 
@@ -36,7 +39,13 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 }
 
 Date.parse = function (string) {
-	return @@ strtotime(`string) * 1000 @@;
+	var i = @@ strtotime(`string) @@;
+
+	if (i === false) {
+		return NaN;
+	}
+
+	return @@ `i * 1000 @@;
 };
 
 Date.UTC = function (year, month, date, hours, minutes, seconds, ms) {

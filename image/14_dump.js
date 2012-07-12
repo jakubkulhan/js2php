@@ -4,12 +4,15 @@ function dump() {
 		if (v === undefined) {
 			return { multiline: false, dump: "undefined" };
 
-		} else if (v === null || typeof v === "boolean" || typeof v === "number") {
+		} else if (v === null || typeof v === "boolean") {
 			return { multiline: false, dump: @@ json_encode(`v) @@ };
 
+		} else if (typeof v === "number") {
+			return { multiline: false, dump: v.toString() };
+
 		} else if (typeof v === "string") {
-			if (@@ strlen(`v) > 50 @@) {
-				return { multiline: true, dump: @@ str_replace("\\/", "/", json_encode(substr(`v, 0, 32) . "...")) @@ };
+			if (@@ strlen(`v) > 70 @@) {
+				return { multiline: true, dump: @@ str_replace("\\/", "/", json_encode(substr(`v, 0, 70))) . "..." @@ };
 			} else {
 				return { multiline: false, dump: @@ str_replace("\\/", "/", json_encode(`v)) @@ };
 			}
@@ -19,7 +22,7 @@ function dump() {
 			         dump: "[function" + @@ (isset(`v->name) ? " " . `v->name : "") @@ + "]" };
 
 		} else {
-			var multiline = false, i, k, d, isArray = @@ `v->class === "Array" @@;
+			var multiline = false, i, k, d, isArray = @@ isset(`v->class) && `v->class === "Array" @@;
 
 			@@ $values = array(); @@
 

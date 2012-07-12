@@ -228,7 +228,7 @@ Object.isExtensible = function (o) {
 
 Object.keys = function (o) {
 	if (o === null || typeof o !== "object" && typeof o !== "function") {
-		throw new TypeError("Object.keys(): Cannot return if extensible, non-object given.");
+		throw new TypeError("Object.keys(): Cannot return keys, non-object given.");
 	}
 
 	var keys = [];

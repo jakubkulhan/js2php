@@ -53,7 +53,7 @@ Function.prototype.bind = function (thisArg) {
 
 	@@ `newFn->boundThis = `thisArg; @@
 
-	@@ $boundArgs = array(); @@
+	@@ $boundArgs = isset(`newFn->boundArgs) ? `newFn->boundArgs : array(); @@
 	for (var i = 1, l = arguments.length, arg; i < l; ++i) {
 		arg = arguments[i];
 		@@ $boundArgs[] = `arg; @@

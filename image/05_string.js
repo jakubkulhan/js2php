@@ -230,7 +230,7 @@ String.prototype.split = function (separator, limit) {
 	var returnArray = [], match, lastIndex = 0, index, thisString = @@ $leThis->value @@,
 		savedLastIndex = separator.lastIndex, savedGlobal = separator.global;
 
-	separator.global = true;
+	@@ `separator->properties['global'] = TRUE; @@
 
 	if (limit === undefined) {
 		limit = Infinity;
@@ -257,7 +257,7 @@ String.prototype.split = function (separator, limit) {
 		returnArray.push(this.substring(lastIndex, this.length));
 	}
 
-	separator.global = savedGlobal;
+	@@ `separator->properties['global'] = `savedGlobal; @@
 	separator.lastIndex = savedLastIndex;
 
 	return returnArray;

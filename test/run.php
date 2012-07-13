@@ -22,15 +22,64 @@ function compile($code, $file = NULL)
 }
 
 list($ok, $assert_code, $error) = compile($code = '
-function assert(assertion, message) {
-	if (!assertion) {
-		if (message) {
-			@@ throw new AssertException(`message); @@
-		} else {
+(function (global) {
+	var assertionsCount;
+
+	function AssertionFailed(message) {
+		var e = new Error(message);
+		e.name = "AssertionFailed";
+		@@ `e->prototype = `AssertionFailed->properties["prototype"]; @@
+		return e;
+	}
+
+	@@ `AssertionFailed->properties["prototype"]->prototype = `Error->properties["prototype"]; @@
+
+	function assert(assertion, message) {
+		if (!assertion) {
+			throw new AssertionFailed(message);
+		}
+
+		++assertionsCount;
+	}
+
+	function assertEqual(a, b, message) {
+		if (a !== b) {
+			var neq = "<" + a + "> !== <" + b + ">";
+			if (message) {
+				throw new AssertionFailed(message + ", " + neq);
+			} else {
+				throw new AssertException(neq);
+			}
+		}
+
+		++assertionsCount;
+	}
+
+	function test(name, callback) {
+		try {
+			assertionsCount = 1;
+			callback();
+
+		} catch (e) {
+			if (!(e instanceof AssertionFailed)) {
+				throw e;
+			}
+
+			var s = ">>>\n>>> FILE: " + global.file + ", TEST: " + name +
+				"\n>>>\n>>>    assertion #" + assertionsCount + " failed: " + e.message +
+				"\n>>>\n";
+
+			@@ echo `s; @@
+
 			@@ throw new AssertException; @@
 		}
 	}
-}
+
+	global.AssertionFailed = AssertionFailed;
+	global.assert = assert;
+	global.assertEqual = assertEqual;
+	global.test = test;
+})(@@ $global @@);
 ');
 
 if (!$ok) {
@@ -76,7 +125,7 @@ foreach ($files as $file) {
 	}
 
 	$globalClone = $global;
-	$print_compiled = FALSE;
+	$globalClone->properties['file'] = $file;
 
 	file_put_contents('/tmp/js2php.last.php', $code);
 	
@@ -85,31 +134,15 @@ foreach ($files as $file) {
 		echo ">>> $file compiled badly\n";
 		echo ">>>\n\n";
 		++$failed_compiled;
-		$print_compiled = TRUE;
+		continue;
 	}
 
 	try {
 		$call($globalClone);
 
 	} catch (AssertException $e) {
-		$line = $e->getTrace();
-		$line = $line[0]['line'];
-		echo "\n>>>\n";
-		echo ">>> $file: assert failed on {$line}";
-		if ($e->getMessage()) {
-			echo ": {$e->getMessage()}";
-		}
-		echo "\n>>>\n\n";
-		echo $e->getTraceAsString() . "\n\n";
+		echo 'F';
 		++$failed_assert;
-		$print_compiled = TRUE;
-	}
-
-	if ($print_compiled) {
-		foreach (explode("\n", rtrim($code)) as $lineno => $line) {
-			printf("% 5d: %s\n", $lineno + 1, $line);
-		}
-		echo "\n\n";
 		continue;
 	}
 

@@ -1,7 +1,9 @@
-var ok = true, fail = true;
+test("php", function () {
+	var ok = true, fail = true;
 
-@@ `fail = FALSE; @@
+	@@ `fail = FALSE; @@
 
-assert(@@ TRUE @@);
-assert(@@ `ok @@);
-assert(!fail);
+	assert(@@ TRUE @@);
+	assert(@@ `ok @@);
+	assert(!fail);
+});

@@ -2,7 +2,8 @@
 	$self = (object) array(
 		'fns' => array(),
 		'fns_stack' => array(),
-		'file' => NULL
+		'file' => NULL,
+		'identifier_throw' => TRUE,
 	);
 }
 
@@ -307,9 +308,23 @@ multiplicative_expr
   = left_associative(unary_expr, ("*" / "/" / "%") !"=", __)
 
 unary_expr
-  = "delete" !identifier_part p:^ __ expr:unary_expr -> array("delete", $expr, array($p[0], $p[1] - 6), $self->file)
+  = "delete" !identifier_part p:^ __
+    r:( ?{ $self->identifier_throw = FALSE; return TRUE; }
+        expr:unary_expr
+        ?{ $self->identifier_throw = TRUE; return TRUE; }
+        -> array("delete", $expr, array($p[0], $p[1] - 6), $self->file)
+      / ?{ $self->identifier_throw = TRUE; return FALSE; }
+	  )
+	-> $r
   / "void" !identifier_part __ expr:unary_expr -> array("void", $expr)
-  / "typeof" !identifier_part __ expr:unary_expr -> array("typeof", $expr)
+  / "typeof" !identifier_part __
+    r:( ?{ $self->identifier_throw = FALSE; return TRUE; }
+        expr:unary_expr
+        ?{ $self->identifier_throw = TRUE; return TRUE; }
+        -> array("typeof", $expr)
+      / ?{ $self->identifier_throw = TRUE; return FALSE; }
+      )
+    -> $r
   / "++" __ expr:unary_expr -> array("preinc", $expr)
   / "--" __ expr:unary_expr -> array("predec", $expr)
   / "+" __ expr:unary_expr -> array("positive", $expr)
@@ -379,7 +394,7 @@ primary_expr
   / n:number -> array("number", $n)
   / s:string -> array("string", $s)
   / regexp
-  / id:identifier p:^ -> array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file)
+  / id:identifier p:^ -> array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file, $self->identifier_throw)
   / "[" __ a:assignment_expr? b:( __ "," __ e:assignment_expr -> $e
                                 / __ "," __ -> NULL
 								)*
@@ -391,7 +406,7 @@ primary_expr
   / "@@" parts:php "@@" -> array("php", $parts)
 
 php
-  = parts:( "`" id:identifier_name p:^ -> array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file)
+  = parts:( "`" id:identifier_name p:^ -> array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file, $self->identifier_throw)
           / code:(!"@@" !"`" .)+ -> array("raw", $code)
 		  )*
 	-> $parts
@@ -401,8 +416,8 @@ php
 
 number
   = "0" [Xx] hex:[0-9a-fA-F]+ !identifier_start -> hexdec($hex)
-  / int:("0" / [1-9] [0-9]*) ![.eE] !identifier_start -> intval($int)
-  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]+)? exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval($int . $frac . $exp)
+  / int:("0" / [1-9] [0-9]*) frac:("." [0-9]*)? exp:([eE] [+-]? [0-9]+)? !identifier_start
+    { $v = floatval($int . $frac . $exp); if (((string) $v) === intval($v)) { $v = intval($v); } return $v; }
   / "." frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval("0." . $frac . $exp)
 
 string

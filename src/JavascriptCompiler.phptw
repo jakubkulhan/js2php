@@ -6,6 +6,7 @@
 		'prefix' => uniqid(),
 		'varCounter' => 0,
 		'fnCounter' => 0,
+		'catch_return' => FALSE,
 	);
 }
 
@@ -58,7 +59,7 @@ varize_(identifier) -> '$_' . str_replace(array('$', '_'), array('_dlr_', '__'),
 TypeError_(msg, p, file) {
 	$saved_assigned = $self->assigned;
 	$error = WALK(array('call',
-		array('identifier', 'TypeError', $p, $file),
+		array('identifier', 'TypeError', $p, $file, FALSE),
 		array(array('string', $msg)), $p, $file));
 	$self->prestatement[] = WALK(array('throw', array('raw', $error), $p, $file));
 	$self->assigned = $saved_assigned;
@@ -67,7 +68,7 @@ TypeError_(msg, p, file) {
 ReferenceError_(msg, p, file) {
 	$saved_assigned = $self->assigned;
 	$error = WALK(array('call',
-		array('identifier', 'ReferenceError', $p, $file),
+		array('identifier', 'ReferenceError', $p, $file, FALSE),
 		array(array('string', $msg)), $p, $file));
 	$self->prestatement[] = WALK(array('throw', array('raw', $error), $p, $file));
 	$self->assigned = $saved_assigned;
@@ -174,6 +175,10 @@ var(declarations_list) {
 	foreach ($declarations_list as $declaration) {
 		list($varname, $expr) = $declaration;
 		$phpVarname = WALK(array('varize_', $varname));
+
+		if (isset($self->assigned[$varname]) && !$expr) {
+			continue;
+		}
 
 		if (!$expr) {
 			$expr = array('raw', 'JS::$undefined');
@@ -359,7 +364,12 @@ return(expr) {
 	$expr = WALK($expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'return ' . $expr . ';';
+
+	if ($self->catch_return) {
+		$ret[] = 'throw new JSCatchReturn;';
+	} else {
+		$ret[] = 'return ' . $expr . ';';
+	}
 
 	return implode("\n", $ret);
 }
@@ -428,7 +438,8 @@ throw(expr, p, file) {
 }
 
 try(try_block, catch_var, catch_block, finally_block) {
-	$ret = array();
+	$ret = array(implode("\n", $self->prestatement));
+	$self->prestatement = array();
 	$finally = '';
 
 	if ($finally_block) {
@@ -458,7 +469,9 @@ try(try_block, catch_var, catch_block, finally_block) {
 
 	} else {
 		$saved_assigned = $self->assigned;
+		$self->catch_return = !empty($finally);
 		$catch_block = WALK($catch_block);
+		$self->catch_return = FALSE;
 		$self->assigned = $saved_assigned;
 		$ret[] = 'catch (JSException $e) {';
 		WALK(array('var', array(array($catch_var, array('raw', '$e->value'))))); // FIXME: leaks into current scope
@@ -472,9 +485,10 @@ try(try_block, catch_var, catch_block, finally_block) {
 		$ret[] = '$processingFinally = TRUE;';
 		$ret[] = $finally;
 		$ret[] = '} catch (Exception $e) {';
-		$ret[] = 'if (!$processingFinally) {';
+		$ret[] = 'if (!isset($processingFinally)) {';
 		$ret[] = $finally;
 		$ret[] = '}';
+		$ret[] = 'if ($e instanceof JSCatchReturn) { return $e->value; }';
 		$ret[] = 'throw $e;';
 		$ret[] = '}';
 	}
@@ -680,13 +694,31 @@ binary(op, left_expr, right_expr, p, file) {
 		case '*':
 		case '%':
 		case '-':
+			return '(JS::toNumber(' . WALK($left_expr) . ', $global) ' . $op .
+				' JS::toNumber(' . WALK($right_expr) . ', $global))';
+
 		case '<<':
 		case '>>':
 		case '&':
 		case '|':
-		case '^':
-			return 'JS::toNumber(' . WALK($left_expr) . ', $global) ' . $op .
-				' JS::toNumber(' . WALK($right_expr) . ', $global)';
+			$l = WALK($left_expr);
+			$r = WALK($right_expr);
+
+			$tmpL = WALK(array('genvar_'));
+			$tmpR = WALK(array('genvar_'));
+			$ret = WALK(array('genvar_'));
+
+			$self->prestatement[] = "$tmpL = JS::toNumber($l, \$global);";
+			$self->prestatement[] = "$tmpR = JS::toNumber($r, \$global);";
+
+			$l = $tmpL;
+			$r = $tmpR;
+
+			$self->prestatement[] = "if (is_nan($l)) { $l = 0; }";
+			$self->prestatement[] = "if (is_nan($r)) { $r = 0; }";
+			$self->prestatement[] = "$ret = $l $op $r;";
+
+			return $ret;
 
 		case '+':
 			$l = WALK(array('genvar_'));
@@ -697,9 +729,9 @@ binary(op, left_expr, right_expr, p, file) {
 			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ', $global);';
 			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ', $global);';
 
-			return 'is_string(' . $l . ') || is_string(' . $r . ') ' .
+			return '(is_string(' . $l . ') || is_string(' . $r . ') ' .
 				'? JS::toString(' . $l . ', $global) . JS::toString(' . $r . ', $global) ' .
-				': JS::toNumber(' . $l . ', $global) + JS::toNumber(' . $r . ', $global)';
+				': JS::toNumber(' . $l . ', $global) + JS::toNumber(' . $r . ', $global))';
 
 		case '<':
 		case '>':
@@ -730,9 +762,13 @@ binary(op, left_expr, right_expr, p, file) {
 				$not = TRUE;
 			}
 
+			$tmpL = WALK(array('genvar_'));
+			$tmpR = WALK(array('genvar_'));
+
 			$self->prestatement[] = $result . ' = ' . ($not ? '!' : '') .
 				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp(' . $l . ', ' .  $r . ') < 0 : ' .
-				'JS::toNumber(' . $l . ', $global) < JS::toNumber(' . $r . ', $global));';
+				"(!is_nan($tmpL = JS::toNumber($l, \$global)) && !is_nan($tmpR = JS::toNumber($r, \$global)) && " .
+				"$tmpL < $tmpR));";
 
 			return $result;
 
@@ -742,8 +778,8 @@ binary(op, left_expr, right_expr, p, file) {
 			$l = WALK($left_expr);
 			$r = WALK($right_expr);
 
-			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			WALK(array('TypeError_', 'Right-hand side of instanceof operator is not an object.', $p, $file));
+			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined || !isset(' . $r . '->call)) {';
+			WALK(array('TypeError_', 'Right-hand side of instanceof operator is not a function.', $p, $file));
 			$self->prestatement[] = '}';
 
 			$r = WALK(array('index', array('raw', $r), array('string', 'prototype'), $p, $file));
@@ -751,7 +787,7 @@ binary(op, left_expr, right_expr, p, file) {
 			$self->prestatement[] = $ret . ' = FALSE;';
 			$self->prestatement[] =
 				"if (is_object($l) && $l !== JS::\$undefined) { " .
-					"for ($tmp = {$l}->prototype; $tmp; $tmp = {$tmp}->prototype) { " .
+					"for ($tmp = $l, $tmp = {$tmp}->prototype; $tmp; $tmp = {$tmp}->prototype) { " .
 						"if ($tmp === {$r}) { $ret = TRUE; break; } " .
 					"} " .
 				"}";
@@ -768,13 +804,19 @@ binary(op, left_expr, right_expr, p, file) {
 				$l = $tmp;
 			}
 
+			if ($r[0] !== '$') {
+				$tmp = WALK(array('genvar_'));
+				$self->prestatement[] = "$tmp = $r;";
+				$r = $tmp;
+			}
+
 			$self->prestatement[] = $l . ' = JS::toString(' . $l . ', $global);';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
 			WALK(array('TypeError_', 'Right-hand side of in operator is not an object.', $p, $file));
 			$self->prestatement[] = '}';
 			
-			return 'array_key_exists(' . $l . ', ' . $r . '->properties) ||
-				array_key_exists(' . $l . ', ' . $r . '->attributes)';
+			return '(array_key_exists(' . $l . ', ' . $r . '->properties) ||
+				array_key_exists(' . $l . ', ' . $r . '->attributes))';
 
 		case '==':
 		case '!=':
@@ -796,6 +838,8 @@ binary(op, left_expr, right_expr, p, file) {
 			$self->prestatement[] = "else if ($l === NULL || $r === NULL) { $ret = " . ($op === '!=' ? 'TRUE' : 'FALSE') . "; }";
 			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . ', $global); ' .
 				$r . ' = JS::toPrimitive(' . $r . ', $global); ';
+			$self->prestatement[] = "if (is_bool($l)) { $l = (int) $l; }";
+			$self->prestatement[] = "if (is_bool($r)) { $r = (int) $r; }";
 			$self->prestatement[] = 'if (is_numeric(' . $l . ') || is_numeric(' . $r . ')) { ' .
 				$l . ' = JS::toNumber(' . $l . ', $global); ' .
 				$r . ' = JS::toNumber(' . $r . ', $global); }';
@@ -843,6 +887,7 @@ binary(op, left_expr, right_expr, p, file) {
 			return $ret;
 
 		case '>>>':
+		case '^':
 		default:
 			throw new Exception('Operator ' . $op . ' not implemented.');
 	}
@@ -851,7 +896,11 @@ binary(op, left_expr, right_expr, p, file) {
 delete(expr, p, file) {
 	$ret_var = WALK(array('genvar_'));
 
-	if ($expr[0] === 'identifier') {
+	if ($expr[0] === 'call') {
+		WALK($expr);
+		return 'TRUE';
+
+	} else if ($expr[0] === 'identifier') {
 		$base = '$scope';
 		$index = var_export($expr[1], TRUE);
 
@@ -918,13 +967,13 @@ predec(expr) {
 	return $ret;
 }
 
-positive(expr) -> '+JS::toNumber(' . WALK($expr) . ', $global)'
+positive(expr) -> '(+JS::toNumber(' . WALK($expr) . ', $global))'
 
-negative(expr) -> '-1.0 * JS::toNumber(' . WALK($expr) . ', $global)'
+negative(expr) -> '(-1.0 * JS::toNumber(' . WALK($expr) . ', $global))'
 
-inverse(expr) -> '~JS::toNumber(' . WALK($expr) . ', $global)'
+inverse(expr) -> '(~JS::toNumber(' . WALK($expr) . ', $global))'
 
-not(expr) -> '!JS::toBoolean(' . WALK($expr) . ', $global)'
+not(expr) -> '(!JS::toBoolean(' . WALK($expr) . ', $global))'
 
 postinc(expr) {
 	$expr = WALK($expr);
@@ -1015,12 +1064,24 @@ string(s) -> var_export($s, TRUE)
 
 regexp(regexp, flags, p, file) {
 	return WALK(array('new',
-		array('identifier', 'RegExp', $p, $file),
+		array('identifier', 'RegExp', $p, $file, TRUE),
 		array(array('string', $regexp), array('string', $flags)),
 		$p, $file));
 }
 
-identifier(identifier, p, file) -> WALK(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
+identifier(identifier, p, file, throw) {
+	$assigned = isset($self->assigned[$identifier]);
+
+	$ret = WALK(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
+
+	if ($throw && !$assigned) {
+		$self->prestatement[] = "if ($ret === JS::\$undefined) {";
+		WALK(array('ReferenceError_', "$identifier is not defined", $p, $file));
+		$self->prestatement[] = "}";
+	}
+
+	return $ret;
+}
 
 array(elements_list) {
 	$ret = WALK(array('genvar_'));

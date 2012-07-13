@@ -34,8 +34,8 @@ class JSException extends Exception
 	}
 }
 
-// thrown when cannot convert from Javascript value to native et vice versa
-class JSSerializationException extends Exception
+// return fro try-catch-finally
+class JSCatchReturn extends Exception
 {
 }
 
@@ -223,9 +223,15 @@ class JS
 			}
 
 			return $object;
-		}
 
-		throw new JSSerializationException('Cannot convert value of type ' . gettype($native) . ' to JS.');
+		} else {
+			$object = clone JS::$objectTemplate;
+			$object->class = gettype($native);
+			$object->extensible = FALSE;
+			$object->value = $native;
+
+			return $object;
+		}
 	}
 
 	static function toNative($value)
@@ -247,7 +253,7 @@ class JS
 
 			return $array;
 
-		} else if (is_object($value)) {
+		} else {
 			$object = array();
 
 			foreach ($value->properties as $k => $v) {
@@ -256,8 +262,6 @@ class JS
 
 			return (object) $object;
 		}
-
-		throw new JSSerializationException('Cannot export value from JS.');
 	}
 }
 

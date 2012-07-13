@@ -50,7 +50,11 @@ Array.prototype.toString = function () {
 Array.prototype.toLocaleString = Array.prototype.toString;
 
 Array.prototype.concat = function (item) {
-	var newArray = @@ clone $leThis @@;
+	var newArray = [];
+
+	for (var i = 0, l = this.length; i < l; ++i) {
+		newArray.push(this[i]);
+	}
 
 	for (var i = 0, l = arguments.length; i < l; ++i) {
 		if (Array.isArray(arguments[i])) {
@@ -73,7 +77,7 @@ Array.prototype.join = function (separator) {
 
 	var string = "";
 
-	if (this[0] === undefined || this[0] === null) {
+	if (this.length < 1) {
 		return "";
 	}
 
@@ -109,7 +113,7 @@ Array.prototype.push = function (item) {
 		this[this.length] = arguments[i];
 	}
 
-	return this[this.length - 1];
+	return this.length;
 };
 
 Array.prototype.reverse = function () {
@@ -224,14 +228,18 @@ Array.prototype.splice = function (start, deleteCount) {
 		delete this[i];
 	}
 
-	@@ $B = array(); @@
+	if (deleteCount === undefined) {
+		@@ $C = array_splice($A, `start); @@
+	} else {
+		@@ $B = array(); @@
 
-	for (i = 2, l = arguments.length; i < l; ++i) {
-		item = arguments[i];
-		@@ $B[] = `item; @@
+		for (i = 2, l = arguments.length; i < l; ++i) {
+			item = arguments[i];
+			@@ $B[] = `item; @@
+		}
+
+		@@ $C = array_splice($A, `start, `deleteCount, $B); @@
 	}
-
-	@@ $C = array_splice($A, `start, `deleteCount, $B); @@
 
 	this.length = 0;
 

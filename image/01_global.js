@@ -7,12 +7,46 @@ function eval(x) {
 }
 
 function parseInt(string, radix) {
-	radix = radix || 10;
-	return @@ intval(`string, JS::toNumber(`radix, $global)) @@;
+	if (radix !== undefined && (radix < 2 || radix > 36)) {
+		return NaN;
+	}
+
+	if (radix !== undefined) {
+		return @@ intval(JS::toString(`string, $global), (int) JS::toNumber(`radix, $global)) @@;
+	}
+
+	string = @@ JS::toString(`string, $global) @@;
+
+	if (@@ empty(`string) @@) {
+		return NaN;
+	}
+
+	if (@@ `string[0] === '0' && isset(`string[1]) && (`string[1] === 'x' || `string[1] === 'X') @@) {
+		return parseInt(@@ substr(`string, 2) @@, 16);
+	}
+
+	if (@@ `string[0] === '0' && isset(`string[1]) @@) {
+		return @@ intval(`string, 8) @@;
+	}
+
+	var i = @@ intval(`string) @@;
+
+	if (@@ ((string) `i) !== `string @@) {
+		return NaN;
+	}
+
+	return i;
 }
 
 function parseFloat(string) {
-	return @@ floatval(`string) @@;
+	string = @@ ltrim(JS::toString(`string, $global)) @@;
+	var f = @@ floatval(`string) @@;
+
+	if (@@ empty(`string) || ((string) `f) === '0' && `string[0] !== '0' @@) {
+		return NaN;
+	}
+
+	return f;
 }
 
 function isNaN(number) {

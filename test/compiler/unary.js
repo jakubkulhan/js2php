@@ -1,29 +1,35 @@
-var the_answer_to_life_the_universe_and_everything = 42;
+test("unary", function () {
+	var theAnswerToLifeTheUniverseAndEverything = 42;
 
-assert(typeof undefined === "undefined");
-assert(typeof null === "object");
-assert(typeof true === "boolean");
-assert(typeof the_answer_to_life_the_universe_and_everything === "number");
-assert(typeof "foo" === "string");
-assert(typeof {} === "object");
-assert(typeof assert === "function");
+	assert(typeof undefined === "undefined");
+	assert(typeof null === "object");
+	assert(typeof true === "boolean");
+	assert(typeof theAnswerToLifeTheUniverseAndEverything === "number");
+	assert(typeof "foo" === "string");
+	assert(typeof {} === "object");
+	assert(typeof assert === "function");
 
-assert(void(the_answer_to_life_the_universe_and_everything) === undefined);
+	assert(void(theAnswerToLifeTheUniverseAndEverything) === undefined);
 
-assert(the_answer_to_life_the_universe_and_everything === 42);
-delete the_answer_to_life_the_universe_and_everything;
-assert(the_answer_to_life_the_universe_and_everything === undefined);
+	assert(theAnswerToLifeTheUniverseAndEverything === 42);
+	delete theAnswerToLifeTheUniverseAndEverything;
+	try {
+		assert(theAnswerToLifeTheUniverseAndEverything === undefined);
+	} catch (e) {
+		assert(e instanceof ReferenceError);
+	}
 
-var n = 5;
+	var n = 5;
 
-assert(++n === 6);
-assert(--n === 5);
-assert(n++ === 5);
-assert(n === 6);
-assert(n-- === 6);
-assert(n === 5);
+	assert(++n === 6);
+	assert(--n === 5);
+	assert(n++ === 5);
+	assert(n === 6);
+	assert(n-- === 6);
+	assert(n === 5);
 
-assert(+n === 5);
-assert(-n === -5);
-assert(!!n === true);
-assert(~0 === -1);
+	assert(+n === 5);
+	assert(-n === -5);
+	assert(!!n === true);
+	assert(~0 === -1);
+});

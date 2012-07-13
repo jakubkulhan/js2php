@@ -32,6 +32,7 @@ $self = (object) array(
 		'prefix' => uniqid(),
 		'varCounter' => 0,
 		'fnCounter' => 0,
+		'catch_return' => FALSE,
 	);
 
         $this->_env = get_defined_vars();
@@ -291,8 +292,8 @@ $self = (object) array(
             $ret = $this->_53($_0, $_1, $_2, $_3);
         break;
         case 'identifier':
-            list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_54($_0, $_1, $_2);
+            list($_, $_0, $_1, $_2, $_3) = $node;
+            $ret = $this->_54($_0, $_1, $_2, $_3);
         break;
         case 'array':
             list($_, $_0) = $node;
@@ -367,7 +368,7 @@ protected function _3($identifier) { extract($this->_env, EXTR_REFS); return '$_
 }
 protected function _4($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved_assigned = $self->assigned;
 	$error = $this->_walk(array('call',
-		array('identifier', 'TypeError', $p, $file),
+		array('identifier', 'TypeError', $p, $file, FALSE),
 		array(array('string', $msg)), $p, $file));
 	$self->prestatement[] = $this->_walk(array('throw', array('raw', $error), $p, $file));
 	$self->assigned = $saved_assigned;
@@ -375,7 +376,7 @@ protected function _4($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved
 }
 protected function _5($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved_assigned = $self->assigned;
 	$error = $this->_walk(array('call',
-		array('identifier', 'ReferenceError', $p, $file),
+		array('identifier', 'ReferenceError', $p, $file, FALSE),
 		array(array('string', $msg)), $p, $file));
 	$self->prestatement[] = $this->_walk(array('throw', array('raw', $error), $p, $file));
 	$self->assigned = $saved_assigned;
@@ -476,6 +477,10 @@ protected function _9($declarations_list) { extract($this->_env, EXTR_REFS); $re
 	foreach ($declarations_list as $declaration) {
 		list($varname, $expr) = $declaration;
 		$phpVarname = $this->_walk(array('varize_', $varname));
+
+		if (isset($self->assigned[$varname]) && !$expr) {
+			continue;
+		}
 
 		if (!$expr) {
 			$expr = array('raw', 'JS::$undefined');
@@ -653,7 +658,12 @@ protected function _17($expr) { extract($this->_env, EXTR_REFS); $ret = array();
 	$expr = $this->_walk($expr);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
-	$ret[] = 'return ' . $expr . ';';
+
+	if ($self->catch_return) {
+		$ret[] = 'throw new JSCatchReturn;';
+	} else {
+		$ret[] = 'return ' . $expr . ';';
+	}
 
 	return implode("\n", $ret);
 
@@ -715,7 +725,8 @@ protected function _23($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret
 	return implode("\n", $ret);
 
 }
-protected function _24($try_block, $catch_var, $catch_block, $finally_block) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _24($try_block, $catch_var, $catch_block, $finally_block) { extract($this->_env, EXTR_REFS); $ret = array(implode("\n", $self->prestatement));
+	$self->prestatement = array();
 	$finally = '';
 
 	if ($finally_block) {
@@ -745,7 +756,9 @@ protected function _24($try_block, $catch_var, $catch_block, $finally_block) { e
 
 	} else {
 		$saved_assigned = $self->assigned;
+		$self->catch_return = !empty($finally);
 		$catch_block = $this->_walk($catch_block);
+		$self->catch_return = FALSE;
 		$self->assigned = $saved_assigned;
 		$ret[] = 'catch (JSException $e) {';
 		$this->_walk(array('var', array(array($catch_var, array('raw', '$e->value'))))); // FIXME: leaks into current scope
@@ -759,9 +772,10 @@ protected function _24($try_block, $catch_var, $catch_block, $finally_block) { e
 		$ret[] = '$processingFinally = TRUE;';
 		$ret[] = $finally;
 		$ret[] = '} catch (Exception $e) {';
-		$ret[] = 'if (!$processingFinally) {';
+		$ret[] = 'if (!isset($processingFinally)) {';
 		$ret[] = $finally;
 		$ret[] = '}';
+		$ret[] = 'if ($e instanceof JSCatchReturn) { return $e->value; }';
 		$ret[] = 'throw $e;';
 		$ret[] = '}';
 	}
@@ -957,13 +971,31 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 		case '*':
 		case '%':
 		case '-':
+			return '(JS::toNumber(' . $this->_walk($left_expr) . ', $global) ' . $op .
+				' JS::toNumber(' . $this->_walk($right_expr) . ', $global))';
+
 		case '<<':
 		case '>>':
 		case '&':
 		case '|':
-		case '^':
-			return 'JS::toNumber(' . $this->_walk($left_expr) . ', $global) ' . $op .
-				' JS::toNumber(' . $this->_walk($right_expr) . ', $global)';
+			$l = $this->_walk($left_expr);
+			$r = $this->_walk($right_expr);
+
+			$tmpL = $this->_walk(array('genvar_'));
+			$tmpR = $this->_walk(array('genvar_'));
+			$ret = $this->_walk(array('genvar_'));
+
+			$self->prestatement[] = "$tmpL = JS::toNumber($l, \$global);";
+			$self->prestatement[] = "$tmpR = JS::toNumber($r, \$global);";
+
+			$l = $tmpL;
+			$r = $tmpR;
+
+			$self->prestatement[] = "if (is_nan($l)) { $l = 0; }";
+			$self->prestatement[] = "if (is_nan($r)) { $r = 0; }";
+			$self->prestatement[] = "$ret = $l $op $r;";
+
+			return $ret;
 
 		case '+':
 			$l = $this->_walk(array('genvar_'));
@@ -974,9 +1006,9 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 			$self->prestatement[] = $l . ' = JS::toPrimitive(' . $left_expr . ', $global);';
 			$self->prestatement[] = $r . ' = JS::toPrimitive(' . $right_expr . ', $global);';
 
-			return 'is_string(' . $l . ') || is_string(' . $r . ') ' .
+			return '(is_string(' . $l . ') || is_string(' . $r . ') ' .
 				'? JS::toString(' . $l . ', $global) . JS::toString(' . $r . ', $global) ' .
-				': JS::toNumber(' . $l . ', $global) + JS::toNumber(' . $r . ', $global)';
+				': JS::toNumber(' . $l . ', $global) + JS::toNumber(' . $r . ', $global))';
 
 		case '<':
 		case '>':
@@ -1007,9 +1039,13 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 				$not = TRUE;
 			}
 
+			$tmpL = $this->_walk(array('genvar_'));
+			$tmpR = $this->_walk(array('genvar_'));
+
 			$self->prestatement[] = $result . ' = ' . ($not ? '!' : '') .
 				'(is_string(' . $l . ') && is_string(' . $r . ') ? strcmp(' . $l . ', ' .  $r . ') < 0 : ' .
-				'JS::toNumber(' . $l . ', $global) < JS::toNumber(' . $r . ', $global));';
+				"(!is_nan($tmpL = JS::toNumber($l, \$global)) && !is_nan($tmpR = JS::toNumber($r, \$global)) && " .
+				"$tmpL < $tmpR));";
 
 			return $result;
 
@@ -1019,8 +1055,8 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 			$l = $this->_walk($left_expr);
 			$r = $this->_walk($right_expr);
 
-			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
-			$this->_walk(array('TypeError_', 'Right-hand side of instanceof operator is not an object.', $p, $file));
+			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined || !isset(' . $r . '->call)) {';
+			$this->_walk(array('TypeError_', 'Right-hand side of instanceof operator is not a function.', $p, $file));
 			$self->prestatement[] = '}';
 
 			$r = $this->_walk(array('index', array('raw', $r), array('string', 'prototype'), $p, $file));
@@ -1028,7 +1064,7 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 			$self->prestatement[] = $ret . ' = FALSE;';
 			$self->prestatement[] =
 				"if (is_object($l) && $l !== JS::\$undefined) { " .
-					"for ($tmp = {$l}->prototype; $tmp; $tmp = {$tmp}->prototype) { " .
+					"for ($tmp = $l, $tmp = {$tmp}->prototype; $tmp; $tmp = {$tmp}->prototype) { " .
 						"if ($tmp === {$r}) { $ret = TRUE; break; } " .
 					"} " .
 				"}";
@@ -1045,13 +1081,19 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 				$l = $tmp;
 			}
 
+			if ($r[0] !== '$') {
+				$tmp = $this->_walk(array('genvar_'));
+				$self->prestatement[] = "$tmp = $r;";
+				$r = $tmp;
+			}
+
 			$self->prestatement[] = $l . ' = JS::toString(' . $l . ', $global);';
 			$self->prestatement[] = 'if (!is_object(' . $r . ') || ' . $r . ' === JS::$undefined) {';
 			$this->_walk(array('TypeError_', 'Right-hand side of in operator is not an object.', $p, $file));
 			$self->prestatement[] = '}';
 			
-			return 'array_key_exists(' . $l . ', ' . $r . '->properties) ||
-				array_key_exists(' . $l . ', ' . $r . '->attributes)';
+			return '(array_key_exists(' . $l . ', ' . $r . '->properties) ||
+				array_key_exists(' . $l . ', ' . $r . '->attributes))';
 
 		case '==':
 		case '!=':
@@ -1073,6 +1115,8 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 			$self->prestatement[] = "else if ($l === NULL || $r === NULL) { $ret = " . ($op === '!=' ? 'TRUE' : 'FALSE') . "; }";
 			$self->prestatement[] = 'else { ' . $l . ' = JS::toPrimitive(' . $l . ', $global); ' .
 				$r . ' = JS::toPrimitive(' . $r . ', $global); ';
+			$self->prestatement[] = "if (is_bool($l)) { $l = (int) $l; }";
+			$self->prestatement[] = "if (is_bool($r)) { $r = (int) $r; }";
 			$self->prestatement[] = 'if (is_numeric(' . $l . ') || is_numeric(' . $r . ')) { ' .
 				$l . ' = JS::toNumber(' . $l . ', $global); ' .
 				$r . ' = JS::toNumber(' . $r . ', $global); }';
@@ -1120,6 +1164,7 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 			return $ret;
 
 		case '>>>':
+		case '^':
 		default:
 			throw new Exception('Operator ' . $op . ' not implemented.');
 	}
@@ -1127,7 +1172,11 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 }
 protected function _32($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret_var = $this->_walk(array('genvar_'));
 
-	if ($expr[0] === 'identifier') {
+	if ($expr[0] === 'call') {
+		$this->_walk($expr);
+		return 'TRUE';
+
+	} else if ($expr[0] === 'identifier') {
 		$base = '$scope';
 		$index = var_export($expr[1], TRUE);
 
@@ -1190,13 +1239,13 @@ protected function _36($expr) { extract($this->_env, EXTR_REFS); $expr = $this->
 	return $ret;
 
 }
-protected function _37($expr) { extract($this->_env, EXTR_REFS); return '+JS::toNumber(' . $this->_walk($expr) . ', $global)';
+protected function _37($expr) { extract($this->_env, EXTR_REFS); return '(+JS::toNumber(' . $this->_walk($expr) . ', $global))';
 }
-protected function _38($expr) { extract($this->_env, EXTR_REFS); return '-1.0 * JS::toNumber(' . $this->_walk($expr) . ', $global)';
+protected function _38($expr) { extract($this->_env, EXTR_REFS); return '(-1.0 * JS::toNumber(' . $this->_walk($expr) . ', $global))';
 }
-protected function _39($expr) { extract($this->_env, EXTR_REFS); return '~JS::toNumber(' . $this->_walk($expr) . ', $global)';
+protected function _39($expr) { extract($this->_env, EXTR_REFS); return '(~JS::toNumber(' . $this->_walk($expr) . ', $global))';
 }
-protected function _40($expr) { extract($this->_env, EXTR_REFS); return '!JS::toBoolean(' . $this->_walk($expr) . ', $global)';
+protected function _40($expr) { extract($this->_env, EXTR_REFS); return '(!JS::toBoolean(' . $this->_walk($expr) . ', $global))';
 }
 protected function _41($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
@@ -1281,12 +1330,23 @@ protected function _51($n) { extract($this->_env, EXTR_REFS); return var_export(
 protected function _52($s) { extract($this->_env, EXTR_REFS); return var_export($s, TRUE);
 }
 protected function _53($regexp, $flags, $p, $file) { extract($this->_env, EXTR_REFS); return $this->_walk(array('new',
-		array('identifier', 'RegExp', $p, $file),
+		array('identifier', 'RegExp', $p, $file, TRUE),
 		array(array('string', $regexp), array('string', $flags)),
 		$p, $file));
 
 }
-protected function _54($identifier, $p, $file) { extract($this->_env, EXTR_REFS); return $this->_walk(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));;
+protected function _54($identifier, $p, $file, $throw) { extract($this->_env, EXTR_REFS); $assigned = isset($self->assigned[$identifier]);
+
+	$ret = $this->_walk(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
+
+	if ($throw && !$assigned) {
+		$self->prestatement[] = "if ($ret === JS::\$undefined) {";
+		$this->_walk(array('ReferenceError_', "$identifier is not defined", $p, $file));
+		$self->prestatement[] = "}";
+	}
+
+	return $ret;
+
 }
 protected function _55($elements_list) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
 

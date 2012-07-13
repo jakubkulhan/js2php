@@ -1,19 +1,21 @@
-var ok = false;
+test("exception", function () {
+	var ok = false;
 
-try {
-	throw "foo";
-} catch (e) {
-	assert(e === "foo");
-} finally {
-	ok = true;
-}
+	try {
+		throw "foo";
+	} catch (e) {
+		assert(e === "foo");
+	} finally {
+		ok = true;
+	}
 
-assert(ok);
+	assert(ok);
 
-try {
-	ok = false;
-} finally {
-	ok = true;
-}
+	try {
+		ok = false;
+	} finally {
+		ok = true;
+	}
 
-assert(ok);
+	assert(ok);
+});

@@ -25,6 +25,13 @@ Function.prototype.toString = function () {
 Function.prototype.apply = function (thisArg, argArray) {
 	var fn = this, call = @@ `fn->call @@;
 
+	if (thisArg === undefined) {
+		thisArg = @@ $global @@;
+	} else {
+		thisArg = @@ JS::toObject(`thisArg, $global) @@;
+	}
+
+	argArray = argArray || [];
 	@@ $passArgs = array(); @@
 
 	for (var i = 0, l = argArray.length, arg; i < l; ++i) {
@@ -37,6 +44,12 @@ Function.prototype.apply = function (thisArg, argArray) {
 
 Function.prototype.call = function (thisArg) {
 	var fn = this, call = @@ `fn->call @@;
+
+	if (thisArg === undefined) {
+		thisArg = @@ $global @@;
+	} else {
+		thisArg = @@ JS::toObject(`thisArg, $global) @@;
+	}
 
 	@@ $passArgs = array(); @@
 

@@ -1,9 +1,11 @@
-var i = 0, j = 5;
+test("do", function () {
+	var i = 0, j = 5;
 
-do {
-	i++;
-	--j;
-} while (j);
+	do {
+		i++;
+		--j;
+	} while (j);
 
-assert(i === 5);
-assert(j === 0);
+	assert(i === 5);
+	assert(j === 0);
+});

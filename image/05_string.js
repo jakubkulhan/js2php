@@ -31,17 +31,29 @@ String.prototype = {};
 String.prototype.constructor = String;
 
 String.prototype.toString = function () {
+	if (@@ !isset($leThis->class) || $leThis->class !== 'String' @@) {
+		throw new TypeError("String.prototype.toString(): not generic");
+	}
+
 	return @@ $leThis->value @@;
 };
 
 String.prototype.valueOf = String.prototype.toString;
 
 String.prototype.charAt = function (pos) {
+	pos = @@ JS::toNumber(`pos, $global) @@;
+
+	if (pos < 0 || pos >= this.length) {
+		return "";
+	}
+
 	return @@ (string) substr($leThis->value, `pos, 1) @@;
 };
 
 String.prototype.charCodeAt = function (pos) {
-	if (pos < 0 || pos > @@ strlen($leThis->value) @@) {
+	pos = @@ JS::toNumber(`pos, $global) @@;
+
+	if (pos < 0 || pos >= this.length) {
 		return NaN;
 	}
 
@@ -193,6 +205,11 @@ String.prototype.search = function (search) {
 
 String.prototype.slice = function (start, end) {
 	var length = @@ strlen($leThis->value) @@;
+
+	if (start === undefined) {
+		start = 0;
+	}
+
 	if (end === undefined) {
 		end = length;
 	}
@@ -236,7 +253,7 @@ String.prototype.split = function (separator, limit) {
 		limit = Infinity;
 	}
 
-	while ((match = separator.exec(thisString)) && limit-- > 0 && lastIndex < this.length) {
+	while ((match = separator.exec(thisString)) && --limit > 0 && lastIndex < this.length) {
 		if (match[0] === '' && match.index === lastIndex) {
 			returnArray.push(this.substring(lastIndex, lastIndex + 1));
 			++lastIndex;
@@ -265,6 +282,10 @@ String.prototype.split = function (separator, limit) {
 
 String.prototype.substring = function (start, end) {
 	var length = @@ strlen($leThis->value) @@;
+
+	if (start === undefined) {
+		start = 0;
+	}
 
 	if (end === undefined) {
 		end = length;

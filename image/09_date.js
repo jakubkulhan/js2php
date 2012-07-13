@@ -8,10 +8,10 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 	@@ `d->class = 'Date'; @@
 	@@ `d->extensible = TRUE; @@
 
-	if (arguments.length === 0) {
+	if (year === undefined) {
 		@@ `d->value = time(); @@
 
-	} else if (arguments.length === 1) {
+	} else if (month === undefined) {
 		var value = arguments[0];
 		value = @@ JS::toPrimitive(`value, $global) @@;
 
@@ -49,8 +49,7 @@ Date.parse = function (string) {
 };
 
 Date.UTC = function (year, month, date, hours, minutes, seconds, ms) {
-	var d = new Date(year, month, date, hours, minutes, seconds, ms);
-	return @@ `d->value @@;
+	throw new NotImplementedError("UTC functions not implemented.");
 };
 
 Date.now = function () {
@@ -90,56 +89,64 @@ Date.prototype.getFullYear = function () {
 	return @@ (int) date('Y', $leThis->value) @@;
 };
 
-Date.prototype.getUTCFullYear = Date.prototype.getFullYear;
+Date.prototype.getUTCFullYear = function () {
+	throw new NotImplementedError("UTC functions not implemented.");
+};
+
+Date.prototype.getYear = function () {
+	return this.getFullYear() - 1900;
+};
+
+Date.prototype.getUTCYear = Date.prototype.getUTCFullYear;
 
 Date.prototype.getMonth = function () {
 	return @@ (int) date('n', $leThis->value) @@;
 };
 
-Date.prototype.getUTCMonth = Date.prototype.getMonth;
+Date.prototype.getUTCMonth = Date.prototype.getUTCFullYear;
 
 Date.prototype.getDate = function () {
 	return @@ (int) date('j', $leThis->value) @@;
 };
 
-Date.prototype.getUTCDate = Date.prototype.getDate;
+Date.prototype.getUTCDate = Date.prototype.getUTCFullYear;
 
 Date.prototype.getDay = function () {
 	return @@ (int) date('w', $leThis->value) @@;
 };
 
-Date.prototype.getUTCDay = Date.prototype.getDay;
+Date.prototype.getUTCDay = Date.prototype.getUTCFullYear;
 
 Date.prototype.getHours = function () {
 	return @@ (int) date('G', $leThis->value) @@;
 };
 
-Date.prototype.getUTCHours = Date.prototype.getHours;
+Date.prototype.getUTCHours = Date.prototype.getUTCFullYear;
 
 Date.prototype.getMinutes = function () {
 	return @@ (int) date('i', $leThis->value) @@;
 };
 
-Date.prototype.getUTCMinutes = Date.prototype.getMinutes;
+Date.prototype.getUTCMinutes = Date.prototype.getUTCFullYear;
 
 Date.prototype.getSeconds = function () {
 	return @@ (int) date('s', $leThis->value) @@;
 };
 
-Date.prototype.getUTCSeconds = Date.prototype.getSeconds;
+Date.prototype.getUTCSeconds = Date.prototype.getUTCFullYear;
 
 Date.prototype.getMilliseconds = function () {
 	return @@ (int) (($leThis->value - (int) $leThis->value) * 1000) @@;
 };
 
-Date.prototype.getUTCMilliseconds = Date.prototype.getMilliseconds;
+Date.prototype.getUTCMilliseconds = Date.prototype.getUTCFullYear;
 
 Date.prototype.getTimezoneOffset = function () {
 	return @@ date('Z', $leThis->value) / 60 @@;
 };
 
 Date.prototype.setTime = function (time) {
-	@@ $leThis->value = JS::toNumber(`time, $global); @@
+	@@ $leThis->value = JS::toNumber(`time / 1000, $global); @@
 	return @@ $leThis->value * 1000 @@;
 };
 
@@ -154,7 +161,7 @@ Date.prototype.setMilliseconds = function (ms) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCMilliseconds = Date.prototype.setMilliseconds;
+Date.prototype.setUTCMilliseconds = Date.prototype.getUTCFullYear;
 
 Date.prototype.setSeconds = function (seconds, ms) {
 	if (ms === undefined) {
@@ -171,7 +178,7 @@ Date.prototype.setSeconds = function (seconds, ms) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCSeconds = Date.prototype.setSeconds;
+Date.prototype.setUTCSeconds = Date.prototype.getUTCFullYear;
 
 Date.prototype.setMinutes = function (minutes, seconds, ms) {
 	if (seconds === undefined) {
@@ -192,7 +199,7 @@ Date.prototype.setMinutes = function (minutes, seconds, ms) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCMinutes = Date.prototype.setMinutes;
+Date.prototype.setUTCMinutes = Date.prototype.getUTCFullYear;
 
 Date.prototype.setHours = function (hours, minutes, seconds, ms) {
 	if (minutes === undefined) {
@@ -217,7 +224,7 @@ Date.prototype.setHours = function (hours, minutes, seconds, ms) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCHours = Date.prototype.setHours;
+Date.prototype.setUTCHours = Date.prototype.getUTCFullYear;
 
 Date.prototype.setDate = function (date) {
 	var newDate = new Date(
@@ -230,7 +237,7 @@ Date.prototype.setDate = function (date) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCDate = Date.prototype.setDate;
+Date.prototype.setUTCDate = Date.prototype.getUTCFullYear;
 
 Date.prototype.setMonth = function (month, date) {
 	if (date === undefined) {
@@ -247,7 +254,7 @@ Date.prototype.setMonth = function (month, date) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCMonth = Date.prototype.setMonth;
+Date.prototype.setUTCMonth = Date.prototype.getUTCFullYear;
 
 Date.prototype.setFullYear = function (year, month, date) {
 	if (month === undefined) {
@@ -268,9 +275,9 @@ Date.prototype.setFullYear = function (year, month, date) {
 	return @@ $leThis->value @@;
 };
 
-Date.prototype.setUTCFullYear = Date.prototype.setFullYear;
+Date.prototype.setUTCFullYear = Date.prototype.getUTCFullYear;
 
-Date.prototype.toUTCString = Date.prototype.toString;
+Date.prototype.toUTCString = Date.prototype.getUTCFullYear;
 
 Date.prototype.toISOString = function () {
 	return @@ date('Y-m-d', $leThis->value) .

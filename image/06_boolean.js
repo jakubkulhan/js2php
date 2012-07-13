@@ -19,6 +19,10 @@ Boolean.prototype = {};
 Boolean.prototype.constructor = Boolean;
 
 Boolean.prototype.toString = function () {
+	if (@@ !isset($leThis->class) || $leThis->class !== 'Boolean' @@) {
+		throw new TypeError("Boolean.prototype.toString(): not generic");
+	}
+
 	if (@@ $leThis->value @@) {
 		return "true";
 	}
@@ -27,5 +31,9 @@ Boolean.prototype.toString = function () {
 };
 
 Boolean.prototype.valueOf = function () {
+	if (@@ !isset($leThis->class) || $leThis->class !== 'Boolean' @@) {
+		throw new TypeError("Boolean.prototype.valueOf(): not generic");
+	}
+
 	return @@ $leThis->value @@;
 };

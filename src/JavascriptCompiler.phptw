@@ -3,7 +3,7 @@
 		'functions' => array(),
 		'prestatement' => array(),
 		'assigned' => array(),
-		'prefix' => uniqid(),
+		'prefix' => '',
 		'varCounter' => 0,
 		'fnCounter' => 0,
 		'catch_return' => FALSE,
@@ -11,11 +11,27 @@
 }
 
 -invoke(ast) {
+	$self->prefix = WALK(array('genprefix_', $ast));
 	$ret = WALK($ast);
 	return implode("\n", $self->functions) . "\n$ret";
 }
 
-program(ast) {
+genprefix_(ast) {
+	$ret = '';
+
+	if (is_array($ast)) {
+		foreach ($ast as $v) {
+			$ret .= WALK(array('genprefix_', $v));
+		}
+
+	} else {
+		$ret = (string) $ast;
+	}
+
+	return md5($ret);
+}
+
+program(ast, file) {
 	$ret = array();
 	$fn = WALK(array("genfn_"));
 
@@ -31,6 +47,7 @@ program(ast) {
 		); }";
 	$ret[] = "\$global->properties['global'] = \$global;";
 	$ret[] = "\$global->attributes['global'] = 0;";
+	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
 	$ret[] = '$scope = $global;';
 
 	$code = WALK($ast);
@@ -429,6 +446,19 @@ default(statement) {
 throw(expr, p, file) {
 	$ret = array();
 	$expr = WALK($expr);
+
+	if ($expr[0] !== '$') {
+		$tmp = WALK(array('genvar_'));
+		$self->prestatement[] = "$tmp = $expr;";
+		$expr = $tmp;
+	}
+
+	$self->prestatement[] = "if (isset({$expr}->class) && {$expr}->class === 'Error') {" .
+		"{$expr}->properties['file'] = " . var_export($file, TRUE) . ";" .
+		"{$expr}->properties['line'] = {$p[0]};" .
+		"{$expr}->properties['column'] = {$p[1]};" .
+		"{$expr}->attributer['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
+
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
 	$file = var_export($file, TRUE);
@@ -649,8 +679,10 @@ call_(function, args, leThis, check, p, file, constructor) {
 	}
 
 	$self->prestatement[] = $call . ' = ' . $function . '->call;';
+	$self->prestatement[] = "\$global->trace[++\$global->trace_sp] = array(" . var_export($file, TRUE) . ", {$p[0]}, {$p[1]});";
 	$self->prestatement[] = $ret . ' = ' . $call . '($global, ' . $leThis . ', ' . $function .
 		', array(' . implode(', ', $args) . '), ' . var_export($constructor, TRUE) . ');';
+	$self->prestatement[] = "unset(\$global->trace[\$global->trace_sp--]);";
 
 	return $ret;
 }

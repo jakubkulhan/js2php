@@ -29,7 +29,7 @@ $self = (object) array(
 		'functions' => array(),
 		'prestatement' => array(),
 		'assigned' => array(),
-		'prefix' => uniqid(),
+		'prefix' => '',
 		'varCounter' => 0,
 		'fnCounter' => 0,
 		'catch_return' => FALSE,
@@ -82,234 +82,238 @@ $self = (object) array(
         $ret = NULL;
 
         switch ($node[0]) {
-        case 'program':
+        case 'genprefix_':
             list($_, $_0) = $node;
             $ret = $this->_0($_0);
         break;
+        case 'program':
+            list($_, $_0, $_1) = $node;
+            $ret = $this->_1($_0, $_1);
+        break;
         case 'genvar_':
-            $ret = $this->_1();
+            $ret = $this->_2();
         break;
         case 'genfn_':
-            $ret = $this->_2();
+            $ret = $this->_3();
         break;
         case 'varize_':
             list($_, $_0) = $node;
-            $ret = $this->_3($_0);
+            $ret = $this->_4($_0);
         break;
         case 'TypeError_':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_4($_0, $_1, $_2);
+            $ret = $this->_5($_0, $_1, $_2);
         break;
         case 'ReferenceError_':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_5($_0, $_1, $_2);
+            $ret = $this->_6($_0, $_1, $_2);
         break;
         case 'block':
             list($_, $_0) = $node;
-            $ret = $this->_6($_0);
+            $ret = $this->_7($_0);
         break;
         case 'php_statement':
             list($_, $_0) = $node;
-            $ret = $this->_7($_0);
+            $ret = $this->_8($_0);
         break;
         case 'function':
             list($_, $_0, $_1, $_2, $_3, $_4, $_5) = $node;
-            $ret = $this->_8($_0, $_1, $_2, $_3, $_4, $_5);
+            $ret = $this->_9($_0, $_1, $_2, $_3, $_4, $_5);
         break;
         case 'var':
             list($_, $_0) = $node;
-            $ret = $this->_9($_0);
+            $ret = $this->_10($_0);
         break;
         case 'if':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_10($_0, $_1, $_2);
+            $ret = $this->_11($_0, $_1, $_2);
         break;
         case 'do':
             list($_, $_0, $_1) = $node;
-            $ret = $this->_11($_0, $_1);
+            $ret = $this->_12($_0, $_1);
         break;
         case 'while':
             list($_, $_0, $_1) = $node;
-            $ret = $this->_12($_0, $_1);
+            $ret = $this->_13($_0, $_1);
         break;
         case 'for_in':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_13($_0, $_1, $_2);
+            $ret = $this->_14($_0, $_1, $_2);
         break;
         case 'for':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_14($_0, $_1, $_2, $_3);
+            $ret = $this->_15($_0, $_1, $_2, $_3);
         break;
         case 'continue':
             list($_, $_0) = $node;
-            $ret = $this->_15($_0);
+            $ret = $this->_16($_0);
         break;
         case 'break':
             list($_, $_0) = $node;
-            $ret = $this->_16($_0);
+            $ret = $this->_17($_0);
         break;
         case 'return':
             list($_, $_0) = $node;
-            $ret = $this->_17($_0);
+            $ret = $this->_18($_0);
         break;
         case 'with':
             list($_, $_0, $_1) = $node;
-            $ret = $this->_18($_0, $_1);
+            $ret = $this->_19($_0, $_1);
         break;
         case 'labelled':
             list($_, $_0, $_1) = $node;
-            $ret = $this->_19($_0, $_1);
+            $ret = $this->_20($_0, $_1);
         break;
         case 'switch':
             list($_, $_0, $_1) = $node;
-            $ret = $this->_20($_0, $_1);
+            $ret = $this->_21($_0, $_1);
         break;
         case 'case':
             list($_, $_0, $_1) = $node;
-            $ret = $this->_21($_0, $_1);
+            $ret = $this->_22($_0, $_1);
         break;
         case 'default':
             list($_, $_0) = $node;
-            $ret = $this->_22($_0);
+            $ret = $this->_23($_0);
         break;
         case 'throw':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_23($_0, $_1, $_2);
+            $ret = $this->_24($_0, $_1, $_2);
         break;
         case 'try':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_24($_0, $_1, $_2, $_3);
+            $ret = $this->_25($_0, $_1, $_2, $_3);
         break;
         case 'discard':
             list($_, $_0) = $node;
-            $ret = $this->_25($_0);
+            $ret = $this->_26($_0);
         break;
         case 'exprs':
             list($_, $_0) = $node;
-            $ret = $this->_26($_0);
+            $ret = $this->_27($_0);
         break;
         case 'assignment':
             list($_, $_0, $_1, $_2, $_3, $_4) = $node;
-            $ret = $this->_27($_0, $_1, $_2, $_3, $_4);
+            $ret = $this->_28($_0, $_1, $_2, $_3, $_4);
         break;
         case 'lookup_':
             list($_, $_0, $_1, $_2, $_3, $_4, $_5, $_6) = $node;
-            $ret = $this->_28($_0, $_1, $_2, $_3, $_4, $_5, $_6);
+            $ret = $this->_29($_0, $_1, $_2, $_3, $_4, $_5, $_6);
         break;
         case 'call_':
             list($_, $_0, $_1, $_2, $_3, $_4, $_5, $_6) = $node;
-            $ret = $this->_29($_0, $_1, $_2, $_3, $_4, $_5, $_6);
+            $ret = $this->_30($_0, $_1, $_2, $_3, $_4, $_5, $_6);
         break;
         case 'cond':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_30($_0, $_1, $_2);
+            $ret = $this->_31($_0, $_1, $_2);
         break;
         case 'binary':
             list($_, $_0, $_1, $_2, $_3, $_4) = $node;
-            $ret = $this->_31($_0, $_1, $_2, $_3, $_4);
+            $ret = $this->_32($_0, $_1, $_2, $_3, $_4);
         break;
         case 'delete':
             list($_, $_0, $_1, $_2) = $node;
-            $ret = $this->_32($_0, $_1, $_2);
+            $ret = $this->_33($_0, $_1, $_2);
         break;
         case 'void':
             list($_, $_0) = $node;
-            $ret = $this->_33($_0);
+            $ret = $this->_34($_0);
         break;
         case 'typeof':
             list($_, $_0) = $node;
-            $ret = $this->_34($_0);
+            $ret = $this->_35($_0);
         break;
         case 'preinc':
             list($_, $_0) = $node;
-            $ret = $this->_35($_0);
+            $ret = $this->_36($_0);
         break;
         case 'predec':
             list($_, $_0) = $node;
-            $ret = $this->_36($_0);
+            $ret = $this->_37($_0);
         break;
         case 'positive':
             list($_, $_0) = $node;
-            $ret = $this->_37($_0);
+            $ret = $this->_38($_0);
         break;
         case 'negative':
             list($_, $_0) = $node;
-            $ret = $this->_38($_0);
+            $ret = $this->_39($_0);
         break;
         case 'inverse':
             list($_, $_0) = $node;
-            $ret = $this->_39($_0);
+            $ret = $this->_40($_0);
         break;
         case 'not':
             list($_, $_0) = $node;
-            $ret = $this->_40($_0);
+            $ret = $this->_41($_0);
         break;
         case 'postinc':
             list($_, $_0) = $node;
-            $ret = $this->_41($_0);
+            $ret = $this->_42($_0);
         break;
         case 'postdec':
             list($_, $_0) = $node;
-            $ret = $this->_42($_0);
+            $ret = $this->_43($_0);
         break;
         case 'call':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_43($_0, $_1, $_2, $_3);
+            $ret = $this->_44($_0, $_1, $_2, $_3);
         break;
         case 'index':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_44($_0, $_1, $_2, $_3);
+            $ret = $this->_45($_0, $_1, $_2, $_3);
         break;
         case 'new':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_45($_0, $_1, $_2, $_3);
+            $ret = $this->_46($_0, $_1, $_2, $_3);
         break;
         case 'this':
-            $ret = $this->_46();
-        break;
-        case 'null':
             $ret = $this->_47();
         break;
-        case 'true':
+        case 'null':
             $ret = $this->_48();
         break;
-        case 'false':
+        case 'true':
             $ret = $this->_49();
         break;
-        case 'undefined':
+        case 'false':
             $ret = $this->_50();
+        break;
+        case 'undefined':
+            $ret = $this->_51();
         break;
         case 'number':
             list($_, $_0) = $node;
-            $ret = $this->_51($_0);
+            $ret = $this->_52($_0);
         break;
         case 'string':
             list($_, $_0) = $node;
-            $ret = $this->_52($_0);
+            $ret = $this->_53($_0);
         break;
         case 'regexp':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_53($_0, $_1, $_2, $_3);
+            $ret = $this->_54($_0, $_1, $_2, $_3);
         break;
         case 'identifier':
             list($_, $_0, $_1, $_2, $_3) = $node;
-            $ret = $this->_54($_0, $_1, $_2, $_3);
+            $ret = $this->_55($_0, $_1, $_2, $_3);
         break;
         case 'array':
             list($_, $_0) = $node;
-            $ret = $this->_55($_0);
+            $ret = $this->_56($_0);
         break;
         case 'object':
             list($_, $_0) = $node;
-            $ret = $this->_56($_0);
+            $ret = $this->_57($_0);
         break;
         case 'php':
             list($_, $_0) = $node;
-            $ret = $this->_57($_0);
+            $ret = $this->_58($_0);
         break;
         case 'raw':
             list($_, $_0) = $node;
-            $ret = $this->_58($_0);
+            $ret = $this->_59($_0);
         break;
         }
 
@@ -321,12 +325,27 @@ $self = (object) array(
     {
         /*$this->_init();*/
         extract($this->_env, EXTR_REFS);
-        $ret = $this->_walk($ast);
+        $self->prefix = $this->_walk(array('genprefix_', $ast));
+        	$ret = $this->_walk($ast);
         	return implode("\n", $self->functions) . "\n$ret";
 
     }
 
-protected function _0($ast) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _0($ast) { extract($this->_env, EXTR_REFS); $ret = '';
+
+	if (is_array($ast)) {
+		foreach ($ast as $v) {
+			$ret .= $this->_walk(array('genprefix_', $v));
+		}
+
+	} else {
+		$ret = (string) $ast;
+	}
+
+	return md5($ret);
+
+}
+protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $ret = array();
 	$fn = $this->_walk(array("genfn_"));
 
 	$ret[] = 'function ' . $fn . '($global = NULL) {';
@@ -341,6 +360,7 @@ protected function _0($ast) { extract($this->_env, EXTR_REFS); $ret = array();
 		); }";
 	$ret[] = "\$global->properties['global'] = \$global;";
 	$ret[] = "\$global->attributes['global'] = 0;";
+	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
 	$ret[] = '$scope = $global;';
 
 	$code = $this->_walk($ast);
@@ -360,13 +380,13 @@ protected function _0($ast) { extract($this->_env, EXTR_REFS); $ret = array();
 	return implode("\n", $ret) . "\n";
 
 }
-protected function _1() { extract($this->_env, EXTR_REFS); return '$x' . $self->varCounter++;
+protected function _2() { extract($this->_env, EXTR_REFS); return '$x' . $self->varCounter++;
 }
-protected function _2() { extract($this->_env, EXTR_REFS); return '_' . $self->prefix . '_' . $self->fnCounter++;
+protected function _3() { extract($this->_env, EXTR_REFS); return '_' . $self->prefix . '_' . $self->fnCounter++;
 }
-protected function _3($identifier) { extract($this->_env, EXTR_REFS); return '$_' . str_replace(array('$', '_'), array('_dlr_', '__'), $identifier);
+protected function _4($identifier) { extract($this->_env, EXTR_REFS); return '$_' . str_replace(array('$', '_'), array('_dlr_', '__'), $identifier);
 }
-protected function _4($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved_assigned = $self->assigned;
+protected function _5($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved_assigned = $self->assigned;
 	$error = $this->_walk(array('call',
 		array('identifier', 'TypeError', $p, $file, FALSE),
 		array(array('string', $msg)), $p, $file));
@@ -374,7 +394,7 @@ protected function _4($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved
 	$self->assigned = $saved_assigned;
 
 }
-protected function _5($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved_assigned = $self->assigned;
+protected function _6($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved_assigned = $self->assigned;
 	$error = $this->_walk(array('call',
 		array('identifier', 'ReferenceError', $p, $file, FALSE),
 		array(array('string', $msg)), $p, $file));
@@ -382,7 +402,7 @@ protected function _5($msg, $p, $file) { extract($this->_env, EXTR_REFS); $saved
 	$self->assigned = $saved_assigned;
 
 }
-protected function _6($statements) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _7($statements) { extract($this->_env, EXTR_REFS); $ret = array();
 	foreach ($statements as $statement) {
 		if ($statement === NULL) {
 			continue;
@@ -402,7 +422,7 @@ protected function _6($statements) { extract($this->_env, EXTR_REFS); $ret = arr
 	return implode("\n", $ret);
 
 }
-protected function _7($parts) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _8($parts) { extract($this->_env, EXTR_REFS); $ret = array();
 	$parts = $this->_walkeach($parts);
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
@@ -410,7 +430,7 @@ protected function _7($parts) { extract($this->_env, EXTR_REFS); $ret = array();
 	return implode("\n", $ret);
 
 }
-protected function _8($name, $parameters_list, $body, $pStart, $pEnd, $file) { extract($this->_env, EXTR_REFS); $fn = $this->_walk(array('genfn_'));
+protected function _9($name, $parameters_list, $body, $pStart, $pEnd, $file) { extract($this->_env, EXTR_REFS); $fn = $this->_walk(array('genfn_'));
 
 	$saved_prestatement = $self->prestatement;
 	$saved_assigned = $self->assigned;
@@ -472,7 +492,7 @@ protected function _8($name, $parameters_list, $body, $pStart, $pEnd, $file) { e
 	return $var;
 
 }
-protected function _9($declarations_list) { extract($this->_env, EXTR_REFS); $ret = '';
+protected function _10($declarations_list) { extract($this->_env, EXTR_REFS); $ret = '';
 
 	foreach ($declarations_list as $declaration) {
 		list($varname, $expr) = $declaration;
@@ -502,7 +522,7 @@ protected function _9($declarations_list) { extract($this->_env, EXTR_REFS); $re
 	return $ret;
 
 }
-protected function _10($cond_expr, $statement, $else_statement) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _11($cond_expr, $statement, $else_statement) { extract($this->_env, EXTR_REFS); $ret = array();
 
 	$cond_expr = $this->_walk($cond_expr);
 	$ret[] = implode("\n", $self->prestatement);
@@ -524,7 +544,7 @@ protected function _10($cond_expr, $statement, $else_statement) { extract($this-
 	return implode("\n", $ret);
 
 }
-protected function _11($cond_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _12($cond_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
 
 	// does not need to save $self->assigned, everything is done at least once
 	$statement = $this->_walk($statement);
@@ -541,7 +561,7 @@ protected function _11($cond_expr, $statement) { extract($this->_env, EXTR_REFS)
 	return implode("\n", $ret);
 
 }
-protected function _12($cond_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _13($cond_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
 
 	$ret[] = 'for (;;) {';
 
@@ -562,7 +582,7 @@ protected function _12($cond_expr, $statement) { extract($this->_env, EXTR_REFS)
 	return implode("\n", $ret);
 
 }
-protected function _13($assignment_expr, $in_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _14($assignment_expr, $in_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
 	$tmp = $this->_walk(array('genvar_'));
 
 	$in_expr = $this->_walk($in_expr);
@@ -597,7 +617,7 @@ protected function _13($assignment_expr, $in_expr, $statement) { extract($this->
 	return implode("\n", $ret);
 
 }
-protected function _14($init_expr, $cond_expr, $iter_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _15($init_expr, $cond_expr, $iter_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
 	$counter = $this->_walk(array('genvar_'));
 
 	$ret[] = 'for (' . $counter . ' = 0;; ++' . $counter . ') {';
@@ -639,21 +659,21 @@ protected function _14($init_expr, $cond_expr, $iter_expr, $statement) { extract
 	return implode("\n", $ret);
 
 }
-protected function _15($label) { extract($this->_env, EXTR_REFS); if ($label) {
+protected function _16($label) { extract($this->_env, EXTR_REFS); if ($label) {
 		throw new Exception('Labels not implemented.');
 	}
 
 	return 'continue;';
 
 }
-protected function _16($label) { extract($this->_env, EXTR_REFS); if ($label) {
+protected function _17($label) { extract($this->_env, EXTR_REFS); if ($label) {
 		throw new Exception('Labels not implemented.');
 	}
 
 	return 'break;';
 
 }
-protected function _17($expr) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _18($expr) { extract($this->_env, EXTR_REFS); $ret = array();
 
 	$expr = $this->_walk($expr);
 	$ret[] = implode("\n", $self->prestatement);
@@ -668,13 +688,13 @@ protected function _17($expr) { extract($this->_env, EXTR_REFS); $ret = array();
 	return implode("\n", $ret);
 
 }
-protected function _18($expr, $statement) { extract($this->_env, EXTR_REFS); throw new Exception('with not implemented.');
+protected function _19($expr, $statement) { extract($this->_env, EXTR_REFS); throw new Exception('with not implemented.');
 
 }
-protected function _19($label, $statement) { extract($this->_env, EXTR_REFS); throw new Exception('Labels not implemented.');
+protected function _20($label, $statement) { extract($this->_env, EXTR_REFS); throw new Exception('Labels not implemented.');
 
 }
-protected function _20($expr, $clauses_list) { extract($this->_env, EXTR_REFS); // FIXME
+protected function _21($expr, $clauses_list) { extract($this->_env, EXTR_REFS); // FIXME
 	$ret = array();
 
 	$expr = $this->_walk($expr);
@@ -689,7 +709,7 @@ protected function _20($expr, $clauses_list) { extract($this->_env, EXTR_REFS); 
 	return implode("\n", $ret);
 
 }
-protected function _21($expr, $statement) { extract($this->_env, EXTR_REFS); // FIXME
+protected function _22($expr, $statement) { extract($this->_env, EXTR_REFS); // FIXME
 	$ret = array();
 	$ret[] = 'case ' . $this->_walk($expr) . ':';
 	$saved_assigned = $self->assigned;
@@ -702,7 +722,7 @@ protected function _21($expr, $statement) { extract($this->_env, EXTR_REFS); // 
 	return implode("\n", $ret);
 
 }
-protected function _22($statement) { extract($this->_env, EXTR_REFS); // FIXME
+protected function _23($statement) { extract($this->_env, EXTR_REFS); // FIXME
 	$ret = array();
 	$ret[] = 'default:';
 	$saved_assigned = $self->assigned;
@@ -715,8 +735,21 @@ protected function _22($statement) { extract($this->_env, EXTR_REFS); // FIXME
 	return implode("\n", $ret);
 
 }
-protected function _23($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _24($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret = array();
 	$expr = $this->_walk($expr);
+
+	if ($expr[0] !== '$') {
+		$tmp = $this->_walk(array('genvar_'));
+		$self->prestatement[] = "$tmp = $expr;";
+		$expr = $tmp;
+	}
+
+	$self->prestatement[] = "if (isset({$expr}->class) && {$expr}->class === 'Error') {" .
+		"{$expr}->properties['file'] = " . var_export($file, TRUE) . ";" .
+		"{$expr}->properties['line'] = {$p[0]};" .
+		"{$expr}->properties['column'] = {$p[1]};" .
+		"{$expr}->attributer['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
+
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();
 	$file = var_export($file, TRUE);
@@ -725,7 +758,7 @@ protected function _23($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret
 	return implode("\n", $ret);
 
 }
-protected function _24($try_block, $catch_var, $catch_block, $finally_block) { extract($this->_env, EXTR_REFS); $ret = array(implode("\n", $self->prestatement));
+protected function _25($try_block, $catch_var, $catch_block, $finally_block) { extract($this->_env, EXTR_REFS); $ret = array(implode("\n", $self->prestatement));
 	$self->prestatement = array();
 	$finally = '';
 
@@ -783,20 +816,20 @@ protected function _24($try_block, $catch_var, $catch_block, $finally_block) { e
 	return implode("\n", $ret);
 
 }
-protected function _25($expr) { extract($this->_env, EXTR_REFS); $this->_walk($expr);
+protected function _26($expr) { extract($this->_env, EXTR_REFS); $this->_walk($expr);
 	$ret = $self->prestatement;
 	$self->prestatement = array();
 	return implode("\n", $ret);
 
 }
-protected function _26($exprs) { extract($this->_env, EXTR_REFS); foreach ($exprs as $expr) {
+protected function _27($exprs) { extract($this->_env, EXTR_REFS); foreach ($exprs as $expr) {
 		$last = $this->_walk($expr);
 	}
 
 	return $last;
 
 }
-protected function _27($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_env, EXTR_REFS); $rhs = $this->_walk($rhs_expr);
+protected function _28($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_env, EXTR_REFS); $rhs = $this->_walk($rhs_expr);
 
 	if ($lhs_expr[0] === 'identifier') {
 		$lhs = $this->_walk(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE, $p, $file));
@@ -862,7 +895,7 @@ protected function _27($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_e
 	}
 
 }
-protected function _28($base, $id, $up, $assign, $get, $p, $file) { extract($this->_env, EXTR_REFS); if (isset($self->assigned[$id])) {
+protected function _29($base, $id, $up, $assign, $get, $p, $file) { extract($this->_env, EXTR_REFS); if (isset($self->assigned[$id])) {
 		return $self->assigned[$id];
 	}
 
@@ -918,7 +951,7 @@ protected function _28($base, $id, $up, $assign, $get, $p, $file) { extract($thi
 	return $var;
 
 }
-protected function _29($function, $args, $leThis, $check, $p, $file, $constructor) { extract($this->_env, EXTR_REFS); $call = $this->_walk(array('genvar_'));
+protected function _30($function, $args, $leThis, $check, $p, $file, $constructor) { extract($this->_env, EXTR_REFS); $call = $this->_walk(array('genvar_'));
 	$ret = $this->_walk(array('genvar_'));
 
 	if ($check) {
@@ -928,13 +961,15 @@ protected function _29($function, $args, $leThis, $check, $p, $file, $constructo
 	}
 
 	$self->prestatement[] = $call . ' = ' . $function . '->call;';
+	$self->prestatement[] = "\$global->trace[++\$global->trace_sp] = array(" . var_export($file, TRUE) . ", {$p[0]}, {$p[1]});";
 	$self->prestatement[] = $ret . ' = ' . $call . '($global, ' . $leThis . ', ' . $function .
 		', array(' . implode(', ', $args) . '), ' . var_export($constructor, TRUE) . ');';
+	$self->prestatement[] = "unset(\$global->trace[\$global->trace_sp--]);";
 
 	return $ret;
 
 }
-protected function _30($cond_expr, $iftrue_expr, $iffalse_expr) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
+protected function _31($cond_expr, $iftrue_expr, $iffalse_expr) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
 	$cond_expr = $this->_walk($cond_expr);
 
 	$self->prestatement[] = 'if (JS::toBoolean(' . $cond_expr . ', $global)) {';
@@ -958,7 +993,7 @@ protected function _30($cond_expr, $iftrue_expr, $iffalse_expr) { extract($this-
 	return $ret;
 
 }
-protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this->_env, EXTR_REFS); switch ($op) {
+protected function _32($op, $left_expr, $right_expr, $p, $file) { extract($this->_env, EXTR_REFS); switch ($op) {
 		case '/':
 			$ret = $this->_walk(array('genvar_'));
 			$l = $this->_walk($left_expr);
@@ -1170,7 +1205,7 @@ protected function _31($op, $left_expr, $right_expr, $p, $file) { extract($this-
 	}
 
 }
-protected function _32($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret_var = $this->_walk(array('genvar_'));
+protected function _33($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret_var = $this->_walk(array('genvar_'));
 
 	if ($expr[0] === 'call') {
 		$this->_walk($expr);
@@ -1211,11 +1246,11 @@ protected function _32($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret
 	return $ret_var;
 
 }
-protected function _33($expr) { extract($this->_env, EXTR_REFS); $this->_walk($expr);
+protected function _34($expr) { extract($this->_env, EXTR_REFS); $this->_walk($expr);
 	return 'JS::$undefined';
 
 }
-protected function _34($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _35($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';
 	$self->prestatement[] = $ret . " = ({$ret} === JS::\$undefined ? 'undefined' : (" .
@@ -1227,41 +1262,41 @@ protected function _34($expr) { extract($this->_env, EXTR_REFS); $expr = $this->
 	return $ret;
 
 }
-protected function _35($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _36($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ++' . $expr . ';';
 	return $ret;
 
 }
-protected function _36($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _37($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = --' . $expr . ';';
 	return $ret;
 
 }
-protected function _37($expr) { extract($this->_env, EXTR_REFS); return '(+JS::toNumber(' . $this->_walk($expr) . ', $global))';
+protected function _38($expr) { extract($this->_env, EXTR_REFS); return '(+JS::toNumber(' . $this->_walk($expr) . ', $global))';
 }
-protected function _38($expr) { extract($this->_env, EXTR_REFS); return '(-1.0 * JS::toNumber(' . $this->_walk($expr) . ', $global))';
+protected function _39($expr) { extract($this->_env, EXTR_REFS); return '(-1.0 * JS::toNumber(' . $this->_walk($expr) . ', $global))';
 }
-protected function _39($expr) { extract($this->_env, EXTR_REFS); return '(~JS::toNumber(' . $this->_walk($expr) . ', $global))';
+protected function _40($expr) { extract($this->_env, EXTR_REFS); return '(~JS::toNumber(' . $this->_walk($expr) . ', $global))';
 }
-protected function _40($expr) { extract($this->_env, EXTR_REFS); return '(!JS::toBoolean(' . $this->_walk($expr) . ', $global))';
+protected function _41($expr) { extract($this->_env, EXTR_REFS); return '(!JS::toBoolean(' . $this->_walk($expr) . ', $global))';
 }
-protected function _41($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _42($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';
 	$self->prestatement[] = '++' . $expr . ';';
 	return $ret;
 
 }
-protected function _42($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _43($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';
 	$self->prestatement[] = '--' . $expr . ';';
 	return $ret;
 
 }
-protected function _43($fn_expr, $arguments, $p, $file) { extract($this->_env, EXTR_REFS); if ($fn_expr[0] === 'index') {
+protected function _44($fn_expr, $arguments, $p, $file) { extract($this->_env, EXTR_REFS); if ($fn_expr[0] === 'index') {
 		list(,$base, $index) = $fn_expr;
 		$base = $this->_walk($base);
 		$index = $this->_walk($index);
@@ -1280,7 +1315,7 @@ protected function _43($fn_expr, $arguments, $p, $file) { extract($this->_env, E
 	}
 
 }
-protected function _44($base, $index_expr, $p, $file) { extract($this->_env, EXTR_REFS); $base = $this->_walk($base);
+protected function _45($base, $index_expr, $p, $file) { extract($this->_env, EXTR_REFS); $base = $this->_walk($base);
 	$index = $this->_walk($index_expr);
 
 	if ($base[0] !== '$') {
@@ -1292,7 +1327,7 @@ protected function _44($base, $index_expr, $p, $file) { extract($this->_env, EXT
 	return $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, TRUE, $p, $file));
 
 }
-protected function _45($expr, $arguments_exprs_list, $p, $file) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
+protected function _46($expr, $arguments_exprs_list, $p, $file) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
 	$tmp = $this->_walk(array('genvar_'));
 
 	$constructor = $this->_walk($expr);
@@ -1310,27 +1345,27 @@ protected function _45($expr, $arguments_exprs_list, $p, $file) { extract($this-
 	return $ret;
 
 }
-protected function _46() { extract($this->_env, EXTR_REFS); return '$leThis';
+protected function _47() { extract($this->_env, EXTR_REFS); return '$leThis';
 }
-protected function _47() { extract($this->_env, EXTR_REFS); return var_export(NULL, TRUE);
+protected function _48() { extract($this->_env, EXTR_REFS); return var_export(NULL, TRUE);
 }
-protected function _48() { extract($this->_env, EXTR_REFS); return var_export(TRUE, TRUE);
+protected function _49() { extract($this->_env, EXTR_REFS); return var_export(TRUE, TRUE);
 }
-protected function _49() { extract($this->_env, EXTR_REFS); return var_export(FALSE, TRUE);
+protected function _50() { extract($this->_env, EXTR_REFS); return var_export(FALSE, TRUE);
 }
-protected function _50() { extract($this->_env, EXTR_REFS); return 'JS::$undefined';
+protected function _51() { extract($this->_env, EXTR_REFS); return 'JS::$undefined';
 }
-protected function _51($n) { extract($this->_env, EXTR_REFS); return var_export($n, TRUE);
+protected function _52($n) { extract($this->_env, EXTR_REFS); return var_export($n, TRUE);
 }
-protected function _52($s) { extract($this->_env, EXTR_REFS); return var_export($s, TRUE);
+protected function _53($s) { extract($this->_env, EXTR_REFS); return var_export($s, TRUE);
 }
-protected function _53($regexp, $flags, $p, $file) { extract($this->_env, EXTR_REFS); return $this->_walk(array('new',
+protected function _54($regexp, $flags, $p, $file) { extract($this->_env, EXTR_REFS); return $this->_walk(array('new',
 		array('identifier', 'RegExp', $p, $file, TRUE),
 		array(array('string', $regexp), array('string', $flags)),
 		$p, $file));
 
 }
-protected function _54($identifier, $p, $file, $throw) { extract($this->_env, EXTR_REFS); $assigned = isset($self->assigned[$identifier]);
+protected function _55($identifier, $p, $file, $throw) { extract($this->_env, EXTR_REFS); $assigned = isset($self->assigned[$identifier]);
 
 	$ret = $this->_walk(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
 
@@ -1343,7 +1378,7 @@ protected function _54($identifier, $p, $file, $throw) { extract($this->_env, EX
 	return $ret;
 
 }
-protected function _55($elements_list) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
+protected function _56($elements_list) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
 
 	$self->prestatement[] = $ret . ' = clone JS::$arrayTemplate;';
 	$self->prestatement[] = $ret . '->properties[\'length\'] = ' . count($elements_list) . ';';
@@ -1359,7 +1394,7 @@ protected function _55($elements_list) { extract($this->_env, EXTR_REFS); $ret =
 	return $ret;
 
 }
-protected function _56($properties_list) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
+protected function _57($properties_list) { extract($this->_env, EXTR_REFS); $ret = $this->_walk(array('genvar_'));
 
 	$self->prestatement[] = $ret . ' = clone JS::$objectTemplate;';
 
@@ -1374,9 +1409,9 @@ protected function _56($properties_list) { extract($this->_env, EXTR_REFS); $ret
 	return $ret;
 
 }
-protected function _57($parts) { extract($this->_env, EXTR_REFS); return implode('', $this->_walkeach($parts));
+protected function _58($parts) { extract($this->_env, EXTR_REFS); return implode('', $this->_walkeach($parts));
 }
-protected function _58($code) { extract($this->_env, EXTR_REFS); return trim($code);
+protected function _59($code) { extract($this->_env, EXTR_REFS); return trim($code);
 }
 
 }

@@ -4,10 +4,10 @@ require_once __DIR__ . '/../src/JavascriptParser.php';
 require_once __DIR__ . '/../src/JavascriptCompiler.php';
 require_once __DIR__ . '/shrink.php';
 
-function compile($code)
+function compile($code, $file = NULL)
 {
 	$parser = new JavascriptParser;
-	list($ok, $result, $error) = $parser->parse($code);
+	list($ok, $result, $error) = $parser->__invoke($code, $file);
 
 	if (!$ok) {
 		return array(FALSE, NULL, $error);
@@ -23,7 +23,7 @@ foreach (glob(__DIR__ . '/../image/*.js') as $file) {
 	$code .= file_get_contents($file);
 }
 
-list($ok, $php, $error) = compile($code);
+list($ok, $php, $error) = compile($code, '<image>');
 
 if (!$ok) {
 	die('Parse error: expected ' .

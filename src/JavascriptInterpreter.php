@@ -7,6 +7,9 @@ class JavascriptInterpreter
 	/** @var string */
 	private $code;
 
+	/** @var string|NULL */
+	private $file;
+
 	/** @var string */
 	private $compiled;
 
@@ -16,9 +19,10 @@ class JavascriptInterpreter
 	/**
 	 * @param string
 	 */
-	public function __construct($code)
+	public function __construct($code, $file = NULL)
 	{
 		$this->code = $code;
+		$this->file = $file;
 	}
 
 	/**
@@ -29,11 +33,12 @@ class JavascriptInterpreter
 	{
 		if ($this->compiled === NULL) {
 			$parser = new JavascriptParser;
-			list($ok, $result, $error) = $parser->parse($this->code);
+			list($ok, $result, $error) = $parser->__invoke($this->code, $this->file);
 
 			if (!$ok) {
 				throw new JavascriptException(
-					"Syntax error on {$error->line}:{$error->column}, expected " .
+					"Syntax error " . ($this->file !== NULL ? " in {$this->file} " : "") .
+					"on {$error->line}:{$error->column}, expected " .
 					implode(', ', $error->expected)
 				);
 			}

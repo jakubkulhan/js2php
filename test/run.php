@@ -48,7 +48,7 @@ list($ok, $assert_code, $error) = compile($code = '
 			if (message) {
 				throw new AssertionFailed(message + ", " + neq);
 			} else {
-				throw new AssertException(neq);
+				throw new AssertionFailed(neq);
 			}
 		}
 

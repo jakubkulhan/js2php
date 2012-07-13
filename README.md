@@ -75,7 +75,7 @@ like this:
 			'f' => JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE,
 			'one' => JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE,
 			'hello' => JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE,
-			'theAnswer' => JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE,
+			'theAnswer' => JS::HAS_GETTER | JS::HAS_SETTER,
 		),
 
 		'getters' => array(
@@ -92,7 +92,7 @@ like this:
 Functions are objects too. They are different only that they have `call` property.
 
 Eeach function declaration and expression results in new PHP function in compiled
-code. Compiled functions are named `_<random string>_<counter>`. They have 4
+code. Compiled functions are named `_<hash of AST>_<counter>`. They have 4
 parameters: reference to global object, reference to this, reference to function
 itself, and array of arguments. Also for each Javascript function is created new
 function object.

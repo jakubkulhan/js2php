@@ -65,7 +65,7 @@ list($ok, $assert_code, $error) = compile($code = '
 				throw e;
 			}
 
-			var s = ">>>\n>>> FILE: " + global.file + ", TEST: " + name +
+			var s = "\n>>>\n>>> FILE: " + global.file + ", TEST: " + name +
 				"\n>>>\n>>>    assertion #" + assertionsCount + " failed: " + e.message +
 				"\n>>>\n";
 

@@ -997,17 +997,12 @@ call(fn_expr, arguments, p, file) {
 		$base = WALK($base);
 		$index = WALK($index);
 
-		if ($base[0] !== '$') {
-			$tmp = WALK(array('genvar_'));
-			$self->prestatement[] = $tmp . ' = ' . $base . ';';
-			$base = $tmp;
-		}
+		$tmp = WALK(array('genvar_'));
+		$self->prestatement[] = $tmp . ' = JS::toObject(' . $base . ', $global);';
 
-		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
+		$fn = WALK(array('lookup_', $tmp, $index, 'prototype', FALSE, TRUE, $p, $file));
 
-		$fn = WALK(array('lookup_', $base, $index, 'prototype', FALSE, TRUE, $p, $file));
-
-		return WALK(array('call_', $fn, WALKEACH($arguments), $base, TRUE, $p, $file, FALSE));
+		return WALK(array('call_', $fn, WALKEACH($arguments), $tmp, TRUE, $p, $file, FALSE));
 
 	} else {
 		$check = !($fn_expr[0] === 'identifier' && preg_match('~Error$~', $fn_expr[1]));
@@ -1075,7 +1070,7 @@ identifier(identifier, p, file, throw) {
 	$ret = WALK(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
 
 	if ($throw && !$assigned) {
-		$self->prestatement[] = "if ($ret === JS::\$undefined) {";
+		$self->prestatement[] = "if (isset(\$U" . substr($ret, 2) . ")) {";
 		WALK(array('ReferenceError_', "$identifier is not defined", $p, $file));
 		$self->prestatement[] = "}";
 	}

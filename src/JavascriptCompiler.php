@@ -1266,17 +1266,12 @@ protected function _43($fn_expr, $arguments, $p, $file) { extract($this->_env, E
 		$base = $this->_walk($base);
 		$index = $this->_walk($index);
 
-		if ($base[0] !== '$') {
-			$tmp = $this->_walk(array('genvar_'));
-			$self->prestatement[] = $tmp . ' = ' . $base . ';';
-			$base = $tmp;
-		}
+		$tmp = $this->_walk(array('genvar_'));
+		$self->prestatement[] = $tmp . ' = JS::toObject(' . $base . ', $global);';
 
-		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
+		$fn = $this->_walk(array('lookup_', $tmp, $index, 'prototype', FALSE, TRUE, $p, $file));
 
-		$fn = $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, TRUE, $p, $file));
-
-		return $this->_walk(array('call_', $fn, $this->_walkeach($arguments), $base, TRUE, $p, $file, FALSE));
+		return $this->_walk(array('call_', $fn, $this->_walkeach($arguments), $tmp, TRUE, $p, $file, FALSE));
 
 	} else {
 		$check = !($fn_expr[0] === 'identifier' && preg_match('~Error$~', $fn_expr[1]));
@@ -1340,7 +1335,7 @@ protected function _54($identifier, $p, $file, $throw) { extract($this->_env, EX
 	$ret = $this->_walk(array('lookup_', '$scope', $identifier, 'up', TRUE, TRUE, $p, $file));
 
 	if ($throw && !$assigned) {
-		$self->prestatement[] = "if ($ret === JS::\$undefined) {";
+		$self->prestatement[] = "if (isset(\$U" . substr($ret, 2) . ")) {";
 		$this->_walk(array('ReferenceError_', "$identifier is not defined", $p, $file));
 		$self->prestatement[] = "}";
 	}

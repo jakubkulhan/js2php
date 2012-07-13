@@ -1,7 +1,5 @@
 # js2php
 
-WARNING: highly experimental
-
 js2php uses [PHPEG](http://github.com/jakubkulhan/phpeg) to parse Javascript and then translates
 resulting AST to PHP code as closely as possible.
 

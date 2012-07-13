@@ -366,6 +366,7 @@ protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $ret = arr
 	$ret[] = "\$global->attributes['global'] = 0;";
 	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
 	$ret[] = '$scope = $global;';
+	$ret[] = '$leThis = $global;';
 
 	$code = $this->_walk($ast);
 
@@ -754,7 +755,7 @@ protected function _24($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret
 		"{$expr}->properties['file'] = " . $this->_walk($file) . ";" .
 		"{$expr}->properties['line'] = " . $this->_walk($p[0]) . ";" .
 		"{$expr}->properties['column'] = " . $this->_walk($p[1]) . ";" .
-		"{$expr}->attributer['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
+		"{$expr}->attributes['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
 
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();

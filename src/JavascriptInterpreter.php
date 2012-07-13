@@ -67,7 +67,7 @@ class JavascriptInterpreter
 			$this->entryPoint = eval($this->compiled);
 		}
 
-		$global = clone JS::$global; // FIXME: shallow copy
+		$global = JS::$global; // FIXME: no copy
 
 		foreach ($vars as $k => $v) {
 			$global->properties[$k] = JS::fromNative($v);

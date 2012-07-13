@@ -53,6 +53,7 @@ program(ast, file) {
 	$ret[] = "\$global->attributes['global'] = 0;";
 	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
 	$ret[] = '$scope = $global;';
+	$ret[] = '$leThis = $global;';
 
 	$code = WALK($ast);
 
@@ -463,7 +464,7 @@ throw(expr, p, file) {
 		"{$expr}->properties['file'] = " . WALK($file) . ";" .
 		"{$expr}->properties['line'] = " . WALK($p[0]) . ";" .
 		"{$expr}->properties['column'] = " . WALK($p[1]) . ";" .
-		"{$expr}->attributer['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
+		"{$expr}->attributes['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
 
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();

@@ -7539,7 +7539,7 @@ class JavascriptParser {
     private function _5() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("var", array(array($name, array("function", $name, (array) $parameters, $body, array($pStart[0], $pStart[1] - 8), array($pEnd[0], $pEnd[1] - 1), $self->file))));
+        return array("var", array(array($name, array("function", $name, (array) $parameters, $body, array(array('number', $pStart[0]), array('number', $pStart[1] - 8)), array(array('number', $pEnd[0]), array('number', $pEnd[1] - 1)), array('string', $self->file)))));
     
     }
     private function _6() {
@@ -7557,7 +7557,7 @@ class JavascriptParser {
     private function _8() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("function", $name, (array) $parameters, $body, array($pStart[0], $pStart[1] - 8), array($pEnd[0], $pEnd[1] - 1), $self->file);
+        return array("function", $name, (array) $parameters, $body, array(array('number', $pStart[0]), array('number', $pStart[1] - 8)), array(array('number', $pEnd[0]), array('number', $pEnd[1] - 1)), array('string', $self->file));
     
     }
     private function _9() {
@@ -7829,7 +7829,7 @@ class JavascriptParser {
     private function _50() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("throw", $expr, array($p[0], $p[1] - 5), $self->file);
+        return array("throw", $expr, array(array('number', $p[0]), array('number', $p[1] - 5)), array('string', $self->file));
     
     }
     private function _51() {
@@ -7901,7 +7901,7 @@ class JavascriptParser {
     private function _62() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("assignment", $op, $lhs, $rhs, array($p[0], $p[1] - strlen($op)), $self->file);
+        return array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file));
     
     }
     private function _63() {
@@ -7913,7 +7913,7 @@ class JavascriptParser {
     private function _64() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("assignment", $op, $lhs, $rhs, array($p[0], $p[1] - strlen($op)), $self->file);
+        return array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file));
     
     }
     private function _65() {
@@ -7943,7 +7943,7 @@ class JavascriptParser {
     private function _69() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _70() {
@@ -7967,7 +7967,7 @@ class JavascriptParser {
     private function _73() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _74() {
@@ -7991,7 +7991,7 @@ class JavascriptParser {
     private function _77() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _78() {
@@ -8015,7 +8015,7 @@ class JavascriptParser {
     private function _81() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _82() {
@@ -8039,7 +8039,7 @@ class JavascriptParser {
     private function _85() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _86() {
@@ -8063,7 +8063,7 @@ class JavascriptParser {
     private function _89() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _90() {
@@ -8087,7 +8087,7 @@ class JavascriptParser {
     private function _93() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _94() {
@@ -8111,7 +8111,7 @@ class JavascriptParser {
     private function _97() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _98() {
@@ -8135,7 +8135,7 @@ class JavascriptParser {
     private function _101() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _102() {
@@ -8159,7 +8159,7 @@ class JavascriptParser {
     private function _105() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _106() {
@@ -8183,7 +8183,7 @@ class JavascriptParser {
     private function _109() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _110() {
@@ -8207,7 +8207,7 @@ class JavascriptParser {
     private function _113() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _114() {
@@ -8231,7 +8231,7 @@ class JavascriptParser {
     private function _117() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _118() {
@@ -8255,7 +8255,7 @@ class JavascriptParser {
     private function _121() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _122() {
@@ -8279,7 +8279,7 @@ class JavascriptParser {
     private function _125() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _126() {
@@ -8303,7 +8303,7 @@ class JavascriptParser {
     private function _129() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _130() {
@@ -8327,7 +8327,7 @@ class JavascriptParser {
     private function _133() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _134() {
@@ -8339,7 +8339,7 @@ class JavascriptParser {
     private function _135() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("delete", $expr, array($p[0], $p[1] - 6), $self->file);
+        return array("delete", $expr, array(array('number', $p[0]), array('number', $p[1] - 6)), array('string', $self->file));
     
     }
     private function _136() {
@@ -8459,31 +8459,31 @@ class JavascriptParser {
     private function _154() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("call", $name, $arguments[0], $arguments[1], $self->file);
+        return array("call", $name, $arguments[0], $arguments[1], array('string', $self->file));
     
     }
     private function _155() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("call", NULL, $arguments[0], $arguments[1], $self->file);
+        return array("call", NULL, $arguments[0], $arguments[1], array('string', $self->file));
     
     }
     private function _156() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("index", NULL, $expr, array($p[0], $p[1] - 1), $self->file);
+        return array("index", NULL, $expr, array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
     private function _157() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("index", NULL, array("string", $id), array($p[0], $p[1] - 1), $self->file);
+        return array("index", NULL, array("string", $id), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
     private function _158() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array((array) $arguments, array($p[0], $p[1] - 1));
+        return array((array) $arguments, array(array('number', $p[0]), array('number', $p[1] - 1)));
     
     }
     private function _159() {
@@ -8519,7 +8519,7 @@ class JavascriptParser {
     private function _164() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("new", $expr, array(), array($p[0], $p[1] - 3), $self->file);
+        return array("new", $expr, array(), array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file));
     
     }
     private function _165() {
@@ -8537,19 +8537,19 @@ class JavascriptParser {
     private function _166() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("new", $e, $a, array($p[0], $p[1] - 3), $self->file);
+        return array("new", $e, $a, array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file));
     
     }
     private function _167() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("index", NULL, $e, array($p[0], $p[1] - 1), $self->file);
+        return array("index", NULL, $e, array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
     private function _168() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("index", NULL, array("string", $id), array($p[0], $p[1] - 1), $self->file);
+        return array("index", NULL, array("string", $id), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
     private function _169() {
@@ -8597,7 +8597,7 @@ class JavascriptParser {
     private function _176() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file, $self->identifier_throw);
+        return array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw);
     
     }
     private function _177() {
@@ -8669,7 +8669,7 @@ class JavascriptParser {
     private function _188() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file, $self->identifier_throw);
+        return array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw);
     
     }
     private function _189() {
@@ -8783,7 +8783,7 @@ class JavascriptParser {
     private function _207() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("regexp", implode("", $value), implode("", $flags), array($p[0], $p[1] - 1), $self->file);
+        return array("regexp", implode("", $value), implode("", $flags), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
     private function _208() {

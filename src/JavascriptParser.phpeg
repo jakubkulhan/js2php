@@ -48,14 +48,14 @@ function_declaration
   = "function" pStart:^ _ name:identifier
     __ "(" __ parameters:list(identifier, __ "," __)? __ ")" __
     "{" __ body:function_body __ "}" pEnd:^  __
-	-> array("var", array(array($name, array("function", $name, (array) $parameters, $body, array($pStart[0], $pStart[1] - 8), array($pEnd[0], $pEnd[1] - 1), $self->file))))
+	-> array("var", array(array($name, array("function", $name, (array) $parameters, $body, array(array('number', $pStart[0]), array('number', $pStart[1] - 8)), array(array('number', $pEnd[0]), array('number', $pEnd[1] - 1)), array('string', $self->file)))))
 
 function_expr
   = "function" pStart:^ name:( _ i:identifier -> $i
                              )?
 	__ "(" __ parameters:list(identifier, __ "," __)? __ ")" __
     "{" __ body:function_body __ "}" pEnd:^
-	-> array("function", $name, (array) $parameters, $body, array($pStart[0], $pStart[1] - 8), array($pEnd[0], $pEnd[1] - 1), $self->file)
+	-> array("function", $name, (array) $parameters, $body, array(array('number', $pStart[0]), array('number', $pStart[1] - 8)), array(array('number', $pEnd[0]), array('number', $pEnd[1] - 1)), array('string', $self->file))
 
 statement
   = ( block
@@ -204,7 +204,7 @@ throw_statement
   = "throw" !identifier_part p:^ __noLB expr:( EOSnoLB -> NULL
                                              / expr EOS
                                              )
-    -> array("throw", $expr, array($p[0], $p[1] - 5), $self->file)
+    -> array("throw", $expr, array(array('number', $p[0]), array('number', $p[1] - 5)), array('string', $self->file))
 
 try_statement
   = "try" __ try_block:block __
@@ -235,14 +235,14 @@ expr_no_in
 
 assignment_expr
   = lhs:left_hand_side_expr __ op:assignment_operator p:^ __ rhs:assignment_expr
-    -> array("assignment", $op, $lhs, $rhs, array($p[0], $p[1] - strlen($op)), $self->file)
+    -> array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file))
   / cond:logical_or_expr __ "?" __ iftrue:assignment_expr __ ":" __ iffalse:assignment_expr
     -> array("cond", $cond, $iftrue, $iffalse)
   / logical_or_expr
 
 assignment_expr_no_in
   = lhs:left_hand_side_expr __ op:assignment_operator p:^ __ rhs:assignment_expr_no_in
-    -> array("assignment", $op, $lhs, $rhs, array($p[0], $p[1] - strlen($op)), $self->file)
+    -> array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file))
   / cond:logical_or_expr_no_in __ "?" __ iftrue:assignment_expr_no_in __ ":" __ iffalse:assignment_expr_no_in
     -> array("cond", $cond, $iftrue, $iffalse)
   / logical_or_expr_no_in
@@ -312,7 +312,7 @@ unary_expr
     r:( ?{ $self->identifier_throw = FALSE; return TRUE; }
         expr:unary_expr
         ?{ $self->identifier_throw = TRUE; return TRUE; }
-        -> array("delete", $expr, array($p[0], $p[1] - 6), $self->file)
+        -> array("delete", $expr, array(array('number', $p[0]), array('number', $p[1] - 6)), array('string', $self->file))
       / ?{ $self->identifier_throw = TRUE; return FALSE; }
 	  )
 	-> $r
@@ -343,11 +343,11 @@ left_hand_side_expr
   / new_expr
 
 call_expr
-  = base:( name:member_expr __ arguments:arguments -> array("call", $name, $arguments[0], $arguments[1], $self->file)
+  = base:( name:member_expr __ arguments:arguments -> array("call", $name, $arguments[0], $arguments[1], array('string', $self->file))
          )
-    arguments_or_accessors:( __ arguments:arguments -> array("call", NULL, $arguments[0], $arguments[1], $self->file)
-                           / __ "[" p:^ __ expr:expr __ "]" -> array("index", NULL, $expr, array($p[0], $p[1] - 1), $self->file)
-                           / __ "." p:^ __ id:identifier_name -> array("index", NULL, array("string", $id), array($p[0], $p[1] - 1), $self->file)
+    arguments_or_accessors:( __ arguments:arguments -> array("call", NULL, $arguments[0], $arguments[1], array('string', $self->file))
+                           / __ "[" p:^ __ expr:expr __ "]" -> array("index", NULL, $expr, array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file))
+                           / __ "." p:^ __ id:identifier_name -> array("index", NULL, array("string", $id), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file))
 						   )*
 	{
 		foreach ($arguments_or_accessors as $new_base) {
@@ -359,22 +359,22 @@ call_expr
 	}
 
 arguments
-  = "(" p:^ __ arguments:list(assignment_expr, __ "," __)? __ ")" -> array((array) $arguments, array($p[0], $p[1] - 1))
+  = "(" p:^ __ arguments:list(assignment_expr, __ "," __)? __ ")" -> array((array) $arguments, array(array('number', $p[0]), array('number', $p[1] - 1)))
 
 arguments_no_p
   = "(" __ arguments:list(assignment_expr, __ "," __)? __ ")" -> (array) $arguments
 
 new_expr
   = member_expr
-  / "new" !identifier_part p:^ __ expr:new_expr -> array("new", $expr, array(), array($p[0], $p[1] - 3), $self->file)
+  / "new" !identifier_part p:^ __ expr:new_expr -> array("new", $expr, array(), array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file))
 
 member_expr
   = base:( primary_expr
-         / "new" !identifier_part p:^ __ e:member_expr __ a:arguments_no_p -> array("new", $e, $a, array($p[0], $p[1] - 3), $self->file)
+         / "new" !identifier_part p:^ __ e:member_expr __ a:arguments_no_p -> array("new", $e, $a, array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file))
          / function_expr
          )
-    accessors:( __ "[" p:^ __ e:expr __ "]" -> array("index", NULL, $e, array($p[0], $p[1] - 1), $self->file)
-              / __ "." p:^ __ id:identifier_name -> array("index", NULL, array("string", $id), array($p[0], $p[1] - 1), $self->file)
+    accessors:( __ "[" p:^ __ e:expr __ "]" -> array("index", NULL, $e, array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file))
+              / __ "." p:^ __ id:identifier_name -> array("index", NULL, array("string", $id), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file))
               )*
     {
 		foreach ($accessors as $new_base) {
@@ -394,7 +394,7 @@ primary_expr
   / n:number -> array("number", $n)
   / s:string -> array("string", $s)
   / regexp
-  / id:identifier p:^ -> array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file, $self->identifier_throw)
+  / id:identifier p:^ -> array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw)
   / "[" __ a:assignment_expr? b:( __ "," __ e:assignment_expr -> $e
                                 / __ "," __ -> NULL
 								)*
@@ -406,7 +406,7 @@ primary_expr
   / "@@" parts:php "@@" -> array("php", $parts)
 
 php
-  = parts:( "`" id:identifier_name p:^ -> array("identifier", $id, array($p[0], $p[1] - strlen($id)), $self->file, $self->identifier_throw)
+  = parts:( "`" id:identifier_name p:^ -> array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw)
           / code:(!"@@" !"`" .)+ -> array("raw", $code)
 		  )*
 	-> $parts
@@ -445,7 +445,7 @@ regexp
                   / !"/" .
                   )+
 	"/" flags:identifier_part*
-	-> array("regexp", implode("", $value), implode("", $flags), array($p[0], $p[1] - 1), $self->file)
+	-> array("regexp", implode("", $value), implode("", $flags), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file))
 
 
 // BASE PARTS
@@ -505,7 +505,7 @@ list(expression, separator)
 left_associative(expression, op, ws)
   = left:expression ( ws op:op ws ( ?-> $op !== "instanceof" && $op !== "in"
                                     right:expression { $left = array("binary", $op, $left, $right, NULL, NULL); }
-                                  / p:^ right:expression { $left = array("binary", $op, $left, $right, array($p[0], $p[1] - strlen($op)), $self->file); }
+                                  / p:^ right:expression { $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); }
                                   )
                     )*
     -> $left

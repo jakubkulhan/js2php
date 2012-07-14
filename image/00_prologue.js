@@ -61,6 +61,12 @@ class JS
 	static $arrayTemplate;
 	static $regexpTemplate;
 
+	/** @var array class => wrapped object template */
+	static $wrappedObjectTemplates = array();
+
+	/** @var array object hash => object */
+	static $wrappedObjects = array();
+
 	static function toPrimitive($v, $global)
 	{
 		if ($v === JS::$undefined || !is_object($v)) {
@@ -202,35 +208,105 @@ class JS
 		{
 			return $native;
 
-		} else if (is_array($native)) {
-			$array = clone JS::$arrayTemplate;
+		} else if ($native instanceof JSUndefined) {
+			return JS::$undefined;
+
+		} else if (is_array($native) || is_object($native) && $native instanceof stdClass) {
+			$ret = is_array($native) ? clone JS::$arrayTemplate : clone JS::$objectTemplate;
 
 			foreach ($native as $k => $v) {
-				$array->properties[(string) $k] = JS::fromNative($v);
-				$array->attributes[(string) $k] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+				$ret->properties[(string) $k] = JS::fromNative($v);
+				$ret->attributes[(string) $k] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 			}
 
-			$array->properties['length'] = count($native);
+			if (is_array($native)) {
+				$ret->properties['length'] = count($native);
+			}
 
-			return $array;
+			return $ret;
 
 		} else if (is_object($native)) {
-			$object = clone JS::$objectTemplate;
-
-			foreach ($native as $k => $v) {
-				$object->properties[(string) $k] = JS::fromNative($v);
-				$object->attributes[(string) $k] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+			if (isset(JS::$wrappedObjects[spl_object_hash($native)])) {
+				return JS::$wrappedObjects[spl_object_hash($native)];
 			}
 
-			return $object;
+			if (!isset(JS::$wrappedObjectTemplates[get_class($native)])) {
+
+				$wrappedObjectTemplate = clone JS::$objectTemplate;
+				$reflection = new ReflectionClass($native);
+
+				$wrappedObjectTemplate->class = $reflection->getName();
+
+				foreach ($reflection->getMethods() as $method) {
+					if ($method->isAbstract() || $method->isConstructor() || $method->isDestructor() ||
+						$method->isProtected() || $method->isPrivate() || $method->isStatic())
+					{
+						continue;
+					}
+
+					$name = $method->getName();
+
+					$wrappedObjectTemplate->properties[$name] = clone JS::$functionTemplate;
+					$wrappedObjectTemplate->attributes[$name] = 0;
+					$wrappedObjectTemplate->properties[$name]->call = 'JSWrappedMethod';
+					$wrappedObjectTemplate->properties[$name]->name = $name;
+					$wrappedObjectTemplate->properties[$name]->parameters = array();
+
+					foreach ($method->getParameters() as $p) {
+						$wrappedObjectTemplate->properties[$name]->parameters[] = $p->getName();
+					}
+
+					$wrappedObjectTemplate->properties[$name]->properties['prototype'] =
+						clone JS::$objectTemplate;
+					$wrappedObjectTemplate->properties[$name]->attributes['prototype'] = 0;
+					$wrappedObjectTemplate->properties[$name]->properties['prototype']->properties['contructor'] =
+						$wrappedObjectTemplate;
+					$wrappedObjectTemplate->properties[$name]->properties['prototype']->attributes['contructor'] =
+						JS::WRITABLE | JS::CONFIGURABLE;
+					$wrappedObjectTemplate->properties[$name]->properties['length'] =
+						$method->getNumberOfParameters();
+					$wrappedObjectTemplate->properties[$name]->attributes['length'] = 0;
+
+					if ((strncmp($name, 'get', 3) === 0 && $method->getNumberOfParameters() === 0 ||
+						strncmp($name, 'set', 3) === 0 && $method->getNumberOfParameters() === 1) &&
+						strlen($name) > 3)
+					{
+						$pname = strtolower(substr($name, 3, 1)) . (string) substr($name, 4);
+
+						if (!isset($wrappedObjectTemplate->attributes[$pname])) {
+							$wrappedObjectTemplate->attributes[$pname] = 0;
+						}
+
+						$wrappedObjectTemplate->attributes[$pname] |=
+							$name[0] === 'g' ? JS::HAS_GETTER : JS::HAS_SETTER;
+
+						if ($name[0] === 'g') {
+							$wrappedObjectTemplate->getters[$pname] =
+								$wrappedObjectTemplate->properties[$name];
+
+						} else {
+							$wrappedObjectTemplate->setters[$pname] = 
+								$wrappedObjectTemplate->properties[$name];
+						}
+					}
+				}
+
+				JS::$wrappedObjectTemplates[get_class($native)] = $wrappedObjectTemplate;
+			}
+
+			$wrapped = clone JS::$wrappedObjectTemplates[get_class($native)];
+			$wrapped->native = $native;
+
+			JS::$wrappedObjects[spl_object_hash($native)] = $wrapped;
+
+			return $wrapped;
 
 		} else {
-			$object = clone JS::$objectTemplate;
-			$object->class = gettype($native);
-			$object->extensible = FALSE;
-			$object->value = $native;
+			$ret = clone JS::$objectTemplate;
+			$ret->class = 'Native';
+			$ret->native = $native;
 
-			return $object;
+			return $ret;
 		}
 	}
 
@@ -241,10 +317,10 @@ class JS
 		{
 			return $value;
 
-		} else if (is_object($value) && $value === JS::$undefined) {
+		} else if ($value === JS::$undefined) {
 			return NULL;
 
-		} else if (is_object($value) && isset($value->class) && $value->class === 'Array') {
+		} else if (isset($value->class) && $value->class === 'Array') {
 			$array = array();
 
 			for ($i = 0, $l = $value->properties['length']; $i < $l; ++$i) {
@@ -253,16 +329,36 @@ class JS
 
 			return $array;
 
+		} else if (isset($value->native)) {
+			return $value->native;
+
 		} else {
 			$object = array();
 
-			foreach ($value->properties as $k => $v) {
-				$object[$k] = JS::toNative($v);
+			for (; $value; $value = $value->prototype) {
+				foreach ($value->properties as $k => $v) {
+					if (!isset($value->attributes[$k]) || $value->attributes[$k] & JS::ENUMERABLE) {
+						$object[$k] = JS::toNative($v);
+					}
+				}
 			}
 
 			return (object) $object;
 		}
 	}
+}
+
+function JSWrappedMethod($global, $leThis, $fn, array $args)
+{
+	$nativeArgs = array();
+
+	foreach ($args as $arg) {
+		$nativeArgs[] = JS::toNative($arg);
+	}
+
+	$ret = call_user_func_array(array($leThis->native, $fn->name), $nativeArgs);
+
+	return JS::fromNative($ret);
 }
 
 JS::$undefined = new JSUndefined;

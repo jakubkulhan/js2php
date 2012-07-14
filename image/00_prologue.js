@@ -348,17 +348,45 @@ class JS
 	}
 }
 
+function JSWrappedFunction($global, $leThis, $fn, array $args)
+{
+	$nativeArgs = array();
+
+	foreach ($args as $arg) {
+		if ($arg === JS::$undefined) { break; }
+		$nativeArgs[] = JS::toNative($arg);
+	}
+
+	return JS::fromNative(call_user_func_array($fn->name, $nativeArgs));
+}
+
+function JSWrappedConstructor($global, $leThis, $fn, array $args)
+{
+	$nativeArgs = array();
+
+	foreach ($args as $arg) {
+		if ($arg === JS::$undefined) { break; }
+		$nativeArgs[] = JS::toNative($arg);
+	}
+
+	if (count($fn->parameters)) {
+		$reflection = new ReflectionClass($fn->name);
+		return JS::fromNative($reflection->newInstanceArgs($nativeArgs));
+	}
+	
+	return JS::fromNative(new $cls);
+}
+
 function JSWrappedMethod($global, $leThis, $fn, array $args)
 {
 	$nativeArgs = array();
 
 	foreach ($args as $arg) {
+		if ($arg === JS::$undefined) { break; }
 		$nativeArgs[] = JS::toNative($arg);
 	}
 
-	$ret = call_user_func_array(array($leThis->native, $fn->name), $nativeArgs);
-
-	return JS::fromNative($ret);
+	return JS::fromNative(call_user_func_array(array($leThis->native, $fn->name), $nativeArgs));
 }
 
 JS::$undefined = new JSUndefined;

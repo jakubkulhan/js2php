@@ -10,6 +10,11 @@ test("JS::fromNative()", function () {
 	assert(Array.isArray(a));
 	assertEqual(a.toString(), "1,2,3");
 
+	var o = @@ JS::fromNative(array("hello" => "JS")) @@;
+	assert(!Array.isArray(o));
+	assertEqual(o.toString(), "[object Object]");
+	assertEqual(o.hello, "JS");
+
 	var o = @@ JS::fromNative((object) array("hello" => "JS")) @@;
 	assertEqual(Object(o), o);
 	assertEqual(o.hello, "JS");

@@ -212,14 +212,18 @@ class JS
 			return JS::$undefined;
 
 		} else if (is_array($native) || is_object($native) && $native instanceof stdClass) {
-			$ret = is_array($native) ? clone JS::$arrayTemplate : clone JS::$objectTemplate;
+			$isArray = is_array($native) &&
+				(!count($native) ||
+				range(0, count($native) - 1) === array_keys($native));
 
-			foreach ($native as $k => $v) {
+			$ret = $isArray ? clone JS::$arrayTemplate : clone JS::$objectTemplate;
+
+			foreach ((array) $native as $k => $v) {
 				$ret->properties[(string) $k] = JS::fromNative($v);
 				$ret->attributes[(string) $k] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 			}
 
-			if (is_array($native)) {
+			if ($isArray) {
 				$ret->properties['length'] = count($native);
 			}
 

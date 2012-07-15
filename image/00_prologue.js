@@ -250,10 +250,14 @@ class JS
 
 					$name = $method->getName();
 
+					if ($name === '__toString') {
+						$name = 'toString';
+					}
+
 					$wrappedObjectTemplate->properties[$name] = clone JS::$functionTemplate;
 					$wrappedObjectTemplate->attributes[$name] = 0;
 					$wrappedObjectTemplate->properties[$name]->call = 'JSWrappedMethod';
-					$wrappedObjectTemplate->properties[$name]->name = $name;
+					$wrappedObjectTemplate->properties[$name]->name = $method->getName();
 					$wrappedObjectTemplate->properties[$name]->parameters = array();
 
 					foreach ($method->getParameters() as $p) {
@@ -300,6 +304,7 @@ class JS
 
 			$wrapped = clone JS::$wrappedObjectTemplates[get_class($native)];
 			$wrapped->native = $native;
+			$wrapped->extensible = FALSE;
 
 			JS::$wrappedObjects[spl_object_hash($native)] = $wrapped;
 
@@ -308,6 +313,7 @@ class JS
 		} else {
 			$ret = clone JS::$objectTemplate;
 			$ret->class = 'Native';
+			$ret->extensible = FALSE;
 			$ret->native = $native;
 
 			return $ret;

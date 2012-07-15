@@ -19,6 +19,7 @@ test("JS::fromNative()", function () {
 	assertEqual(Object(o), o);
 	assertEqual(o.hello, "JS");
 
+
 	var ok;
 
 	@@
@@ -35,6 +36,11 @@ test("JS::fromNative()", function () {
 			{
 				$this->foo = $foo;
 				return $this;
+			}
+
+			public function __toString()
+			{
+				return "hello, world!";
 			}
 		}
 
@@ -66,21 +72,30 @@ test("JS::fromNative()", function () {
 
 	var o = @@ JS::fromNative(new JSFromNativeTest) @@;
 
-	assertEqual(Object.getOwnPropertyNames(o).sort().toString(), 'doSomething,foo,getFoo,setFoo');
+	assertEqual(Object.getOwnPropertyNames(o).sort().toString(), 'doSomething,foo,getFoo,setFoo,toString');
 	assertEqual(o.getFoo(), null);
 	assertEqual(o.setFoo("bar"), o);
 	assertEqual(o.getFoo(), "bar");
 	assertEqual(o.foo, "bar");
 	o.foo = "FOO!!!";
 	assertEqual(o.foo, "FOO!!!");
+	assertEqual(o.toString(), "hello, world!");
+	assertEqual("" + o, "hello, world!");
 
 	ok = false;
 	assertEqual(@@ JSFromNativeTest::$ok @@, false);
 	o.doSomething();
 	assert(ok);
 
+	o.newProperty = "new";
+	assertEqual(o.newProperty, undefined);
+
+
 	var o = @@ JS::fromNative(stream_context_create()) @@;
 	assertEqual(o.toString(), "[object Native]");
+
+	o.newProperty = "new";
+	assertEqual(o.newProperty, undefined);
 });
 
 test("JS::toNative()", function () {

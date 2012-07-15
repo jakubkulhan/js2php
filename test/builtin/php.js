@@ -4,6 +4,8 @@ test("PHP.fn()", function () {
 	assertEqual(typeof substr, "function");
 	assertEqual(substr("fooo!", 1), "ooo!");
 	assertEqual(substr("fooo!", 1, 1), "o");
+
+	assertEqual(substr, PHP.fn("substr"));
 });
 
 test("PHP.cls()", function () {
@@ -16,4 +18,6 @@ test("PHP.cls()", function () {
 	assertEqual(o.name, "ReflectionClass");
 	assertEqual(o.constructor.name, "__construct");
 	assertEqual(o.constructor.numberOfParameters, 1);
+
+	assertEqual(ReflectionClass, PHP.cls("ReflectionClass"));
 });

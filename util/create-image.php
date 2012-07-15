@@ -1,19 +1,19 @@
 #!/usr/bin/php
 <?php
-require_once __DIR__ . '/../src/JavascriptParser.php';
-require_once __DIR__ . '/../src/JavascriptCompiler.php';
+require_once __DIR__ . '/../src/JSParser.php';
+require_once __DIR__ . '/../src/JSCompiler.php';
 require_once __DIR__ . '/shrink.php';
 
 function compile($code, $file = NULL)
 {
-	$parser = new JavascriptParser;
+	$parser = new JSParser;
 	list($ok, $result, $error) = $parser->__invoke($code, $file);
 
 	if (!$ok) {
 		return array(FALSE, NULL, $error);
 	}
 
-	$compiler = new JavascriptCompiler;
+	$compiler = new JSCompiler;
 	return array(TRUE, $compiler->__invoke($result), NULL);
 }
 

@@ -1,5 +1,5 @@
 <?php
-class JavascriptCompiler
+class JSCompiler
 {
     private $_stack = array();
     private $_env;

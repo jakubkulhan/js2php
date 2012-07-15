@@ -3,7 +3,7 @@
 js2php uses [PHPEG](http://github.com/jakubkulhan/phpeg) to parse Javascript and then translates
 resulting AST to PHP code as closely as possible.
 
-## `JavascriptInterpreter`
+## `JSInterpreter`
 
 Interface to js2php.
 
@@ -21,7 +21,7 @@ include `src/image.php` first if you want to run compiled code yourself.
 Compiles Javascript code and then runs it. If `$vars` argument is supplied, variables
 from `$vars` are added to the global object of script.
 
-    $interpreter = new JavascriptInterpreter('   return "hello, " + who + "!";   ');
+    $interpreter = new JSInterpreter('   return "hello, " + who + "!";   ');
     
     echo $interpreter->run(array('who' => 'world')); // prints: hello, world!
 
@@ -121,16 +121,16 @@ function object.
 		// ...
 	}
 
-Code returned by `JavascriptCompiler->__invoke($ast)` is a string that consists of
+Code returned by `JSCompiler->__invoke($ast)` is a string that consists of
 generated function declarations joined together followed by `return "_a123456789_0";`,
 thus returning a function name of global code. The string does not start with PHP
 open tag and so it can be directly fed to `eval()`. To evaluate contents of
-Javascript file `foo.js`, `JavascriptInterpreter` basicly does:
+Javascript file `foo.js`, `JSInterpreter` basicly does:
 
-	$parser = new JavascriptParser;
+	$parser = new JSParser;
 	list(,$ast) = $parser(file_get_contents("foo.js"), "foo.js");
 
-	$compiler = new JavascriptCompiler;
+	$compiler = new JSCompiler;
 	$code = $compiler($ast);
 
 	$entryPoint = eval($code);

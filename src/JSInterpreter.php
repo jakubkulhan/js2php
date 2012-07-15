@@ -2,7 +2,7 @@
 /**
  * Interface to Javascript
  */
-class JavascriptInterpreter
+class JSInterpreter
 {
 	/** @var string */
 	private $code;
@@ -32,7 +32,7 @@ class JavascriptInterpreter
 	public function compile()
 	{
 		if ($this->compiled === NULL) {
-			$parser = new JavascriptParser;
+			$parser = new JSParser;
 			list($ok, $result, $error) = $parser->__invoke($this->code, $this->file);
 
 			if (!$ok) {
@@ -43,7 +43,7 @@ class JavascriptInterpreter
 				);
 			}
 
-			$compiler = new JavascriptCompiler;
+			$compiler = new JSCompiler;
 			$this->compiled = $compiler->__invoke($result);
 		}
 

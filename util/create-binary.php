@@ -19,7 +19,7 @@ if (isset($argv[1])) {
 	$file = $argv[1];
 }
 
-$interpreter = new JavascriptInterpreter(file_get_contents($file), $file);
+$interpreter = new JSInterpreter(file_get_contents($file), $file);
 $interpreter->run();
 
 END;

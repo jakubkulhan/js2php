@@ -40,15 +40,15 @@ program(ast, file) {
 	$fn = WALK(array("genfn_"));
 
 	$ret[] = 'function ' . $fn . '($global = NULL) {';
-	$ret[] = "if (!is_object(\$global)) {
-		\$global = (object) array(
-			'properties' => array(),
-			'attributes' => array(),
-			'getters' => array(),
-			'setters' => array(),
-			'prototype' => NULL,
-			'up' => NULL,
-		); }";
+	$ret[] = "if (!is_object(\$global)) {" .
+		"\$global = (object) array(" .
+			"'properties' => array()," .
+			"'attributes' => array()," .
+			"'getters' => array()," .
+			"'setters' => array()," .
+			"'prototype' => NULL," .
+			"'up' => NULL," .
+		"); }";
 	$ret[] = "\$global->properties['global'] = \$global;";
 	$ret[] = "\$global->attributes['global'] = 0;";
 	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
@@ -668,9 +668,9 @@ lookup_(base, id, up, assign, get, p, file) {
 
 		if ($get || !$throw) {
 			$self->prestatement[] =
-				'for (; $lookup && !(array_key_exists($id, $lookup->properties) ||
-				isset($lookup->attributes[$id])) &&
-				isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
+				'for (; $lookup && !(array_key_exists($id, $lookup->properties) || ' .
+				'isset($lookup->attributes[$id])) && ' .
+				'isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
 		}
 
 		$self->prestatement[] = 'if (array_key_exists($id, $lookup->properties)) { ' .
@@ -894,8 +894,8 @@ binary(op, left_expr, right_expr, p, file) {
 			WALK(array('TypeError_', 'Right-hand side of in operator is not an object.', $p, $file));
 			$self->prestatement[] = '}';
 			
-			return '(array_key_exists(' . $l . ', ' . $r . '->properties) ||
-				array_key_exists(' . $l . ', ' . $r . '->attributes))';
+			return '(array_key_exists(' . $l . ', ' . $r . '->properties) || ' .
+				'array_key_exists(' . $l . ', ' . $r . '->attributes))';
 
 		case '==':
 		case '!=':

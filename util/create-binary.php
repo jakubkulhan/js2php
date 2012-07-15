@@ -2,10 +2,10 @@
 <?php
 require_once __DIR__ . '/shrink.php';
 
-$code = '<?php ';
+$code = "<?php\n";
 
 foreach (glob(__DIR__ . '/../src/*.php') as $file) {
-	$code .= substr(file_get_contents($file), 5); // remove <?php
+	$code .= ltrim(substr(file_get_contents($file), 5)); // remove <?php
 }
 
 $code .= <<<'END'

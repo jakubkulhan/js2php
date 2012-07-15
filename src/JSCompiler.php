@@ -353,15 +353,15 @@ protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $ret = arr
 	$fn = $this->_walk(array("genfn_"));
 
 	$ret[] = 'function ' . $fn . '($global = NULL) {';
-	$ret[] = "if (!is_object(\$global)) {
-		\$global = (object) array(
-			'properties' => array(),
-			'attributes' => array(),
-			'getters' => array(),
-			'setters' => array(),
-			'prototype' => NULL,
-			'up' => NULL,
-		); }";
+	$ret[] = "if (!is_object(\$global)) {" .
+		"\$global = (object) array(" .
+			"'properties' => array()," .
+			"'attributes' => array()," .
+			"'getters' => array()," .
+			"'setters' => array()," .
+			"'prototype' => NULL," .
+			"'up' => NULL," .
+		"); }";
 	$ret[] = "\$global->properties['global'] = \$global;";
 	$ret[] = "\$global->attributes['global'] = 0;";
 	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
@@ -951,9 +951,9 @@ protected function _29($base, $id, $up, $assign, $get, $p, $file) { extract($thi
 
 		if ($get || !$throw) {
 			$self->prestatement[] =
-				'for (; $lookup && !(array_key_exists($id, $lookup->properties) ||
-				isset($lookup->attributes[$id])) &&
-				isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
+				'for (; $lookup && !(array_key_exists($id, $lookup->properties) || ' .
+				'isset($lookup->attributes[$id])) && ' .
+				'isset($lookup->' . $up . '); $lookup = $lookup->' . $up . ');';
 		}
 
 		$self->prestatement[] = 'if (array_key_exists($id, $lookup->properties)) { ' .
@@ -1174,8 +1174,8 @@ protected function _32($op, $left_expr, $right_expr, $p, $file) { extract($this-
 			$this->_walk(array('TypeError_', 'Right-hand side of in operator is not an object.', $p, $file));
 			$self->prestatement[] = '}';
 			
-			return '(array_key_exists(' . $l . ', ' . $r . '->properties) ||
-				array_key_exists(' . $l . ', ' . $r . '->attributes))';
+			return '(array_key_exists(' . $l . ', ' . $r . '->properties) || ' .
+				'array_key_exists(' . $l . ', ' . $r . '->attributes))';
 
 		case '==':
 		case '!=':

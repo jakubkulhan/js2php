@@ -1,7 +1,5 @@
 #!/usr/bin/php
 <?php
-require_once __DIR__ . '/../src/JSParser.php';
-require_once __DIR__ . '/../src/JSCompiler.php';
 require_once __DIR__ . '/../src/image.php';
 
 class AssertException extends Exception

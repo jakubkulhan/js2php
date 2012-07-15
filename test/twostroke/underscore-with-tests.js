@@ -2163,7 +2163,7 @@ window = @@ $global @@;
   });
   
   test("utility: template", function() {
-	// skipped because creating functions via Function constructor not implemented
+	// skipped because with not implemented
 	/*
     var basicTemplate = _.template("<%= thing %> is gettin' on my noives!");
     var result = basicTemplate({thing : 'This'});

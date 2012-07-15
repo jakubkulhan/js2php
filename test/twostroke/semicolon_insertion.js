@@ -1,4 +1,4 @@
-// eval not implemented, semiconol insertion not fully functional
+// semiconol insertion not fully functional
 /*
 test("return is a restricted production", function() {
     assertEqual(undefined, (function() {

@@ -51,9 +51,5 @@
 		JS::$booleanTemplate = `b;
 		JS::$numberTemplate = `n;
 		JS::$regexpTemplate = `r;
-
-		JS::$global = $global;
-		JS::$global->class = 'Global';
-		JS::$global->extensible = TRUE;
 	@@
 })();

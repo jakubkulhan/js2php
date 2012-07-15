@@ -4,8 +4,8 @@ require_once __DIR__ . '/shrink.php';
 
 $code = "<?php\n";
 
-foreach (glob(__DIR__ . '/../src/*.php') as $file) {
-	$code .= ltrim(substr(file_get_contents($file), 5)); // remove <?php
+foreach (array('image', 'JSInterpreter') as $file) {
+	$code .= ltrim(substr(file_get_contents(__DIR__ . "/../src/$file.php"), 5)); // remove <?php
 }
 
 $code .= <<<'END'

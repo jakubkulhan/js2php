@@ -1,5 +1,38 @@
 function Function() {
-	throw new NotImplementedError("Creating function via Function constructor is not implemented.");
+	var args = [], body = "", fn;
+
+	if (arguments.length) {
+		for (var i = 0; i < arguments.length - 1; ++i) {
+			args.push(arguments[i]);
+		}
+
+		body = arguments[arguments.length - 1];
+	}
+
+	args = args.join();
+	fn = "return function(" + args + "){" + body + "};";
+
+	@@
+		$parser = new JSParser;
+
+		list($ok, $ast, $error) = $parser->__invoke(JS::toString(`fn, $global), '<Function>');
+
+		if (!$ok) { @@
+			throw new SyntaxError("Function(): syntax error at " +
+				@@ $error->line @@ + ":" + @@ $error->column @@ +
+				", expected " + @@ implode(', ', $error->expected) @@);
+		@@ }
+
+		$compiler = new JSCompiler;
+		$code = $compiler->__invoke($ast);
+
+		$entryPoint = eval($code);
+		$fn = $entryPoint();
+
+		$fn->scope = $global->scope[$global->scope_sp - 1];
+
+		return $fn;
+	@@
 }
 
 @@ `Function->class = 'Function'; @@

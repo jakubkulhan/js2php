@@ -70,8 +70,6 @@ test("instanceof", function() {
     }
 });
 
-// not implemented
-/*
 test("function constructor", function() {
     var f = new Function("return 123;");
     assertEqual(123, f());
@@ -89,4 +87,3 @@ test("function constructor comma separated arguments", function() {
     var f = new Function("a,b", "c,d", "return a + b + c + d;");
     assertEqual(10, f(1,2,3,4));
 });
-*/

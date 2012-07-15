@@ -229,12 +229,12 @@ $self = (object) array(
             $ret = $this->_35($_0);
         break;
         case 'preinc':
-            list($_, $_0) = $node;
-            $ret = $this->_36($_0);
+            list($_, $_0, $_1, $_2) = $node;
+            $ret = $this->_36($_0, $_1, $_2);
         break;
         case 'predec':
-            list($_, $_0) = $node;
-            $ret = $this->_37($_0);
+            list($_, $_0, $_1, $_2) = $node;
+            $ret = $this->_37($_0, $_1, $_2);
         break;
         case 'positive':
             list($_, $_0) = $node;
@@ -253,12 +253,12 @@ $self = (object) array(
             $ret = $this->_41($_0);
         break;
         case 'postinc':
-            list($_, $_0) = $node;
-            $ret = $this->_42($_0);
+            list($_, $_0, $_1, $_2) = $node;
+            $ret = $this->_42($_0, $_1, $_2);
         break;
         case 'postdec':
-            list($_, $_0) = $node;
-            $ret = $this->_43($_0);
+            list($_, $_0, $_1, $_2) = $node;
+            $ret = $this->_43($_0, $_1, $_2);
         break;
         case 'call':
             list($_, $_0, $_1, $_2, $_3) = $node;
@@ -330,6 +330,12 @@ $self = (object) array(
         /*$this->_init();*/
         extract($this->_env, EXTR_REFS);
         $self->prefix = $this->_walk(array('genprefix_', $ast));
+        
+        	// this code has been already compiled
+        	if (function_exists("_{$self->prefix}_0")) {
+        		return "return '_{$self->prefix}_0';";
+        	}
+        
         	$ret = $this->_walk($ast);
         	return implode("\n", $self->functions) . "\n$ret";
 
@@ -352,20 +358,28 @@ protected function _0($ast) { extract($this->_env, EXTR_REFS); $ret = '';
 protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $ret = array();
 	$fn = $this->_walk(array("genfn_"));
 
-	$ret[] = 'function ' . $fn . '($global = NULL) {';
+	$ret[] = 'function ' . $fn . '($global = NULL, $scope = NULL) {';
 	$ret[] = "if (!is_object(\$global)) {" .
-		"\$global = (object) array(" .
-			"'properties' => array()," .
-			"'attributes' => array()," .
-			"'getters' => array()," .
-			"'setters' => array()," .
-			"'prototype' => NULL," .
-			"'up' => NULL," .
-		"); }";
-	$ret[] = "\$global->properties['global'] = \$global;";
-	$ret[] = "\$global->attributes['global'] = 0;";
-	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
-	$ret[] = '$scope = $global;';
+			"\$global = (object) array(" .
+				"'properties' => array()," .
+				"'attributes' => array()," .
+				"'getters' => array()," .
+				"'setters' => array()," .
+				"'prototype' => NULL," .
+				"'up' => NULL," .
+			");" .
+			"\$set_scope = TRUE;" .
+			"\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;" .
+		"}";
+
+	$ret[] = "if (\$scope === NULL) {" .
+			"\$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => \$global);" .
+			"\$scope->properties['global'] = \$global;" .
+			"\$scope->properties['__filename'] = " . var_export($file, TRUE) . ";" .
+			"\$scope->properties['__dirname'] = " . var_export(dirname($file), TRUE) . ";" .
+		"}";
+
+	$ret[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
 	$ret[] = '$leThis = $global;';
 
 	$code = $this->_walk($ast);
@@ -475,6 +489,8 @@ protected function _9($name, $parameters_list, $body, $pStart, $pEnd, $file) { e
 		$self->prestatement[] = '$scope->properties[' . var_export($name, TRUE) . '] = $fn;';
 		$self->prestatement[] = $self->assigned[$name] . ' =& $scope->properties[' . var_export($name, TRUE) . '];';
 	}
+
+	$self->prestatement[] = '$global->scope[++$global->scope_sp] = $scope;';
 
 	$body = $this->_walk($body);
 	$self->functions[] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args, $constructor = FALSE) {',
@@ -1011,7 +1027,7 @@ protected function _30($function, $args, $leThis, $check, $p, $file, $constructo
 	$self->prestatement[] = "\$global->trace[++\$global->trace_sp] = array(" . $this->_walk($file) . ", " . $this->_walk($p[0]) . ", " . $this->_walk($p[1]) . ");";
 	$self->prestatement[] = $ret . ' = ' . $call . '($global, ' . $leThis . ', ' . $function .
 		', array(' . implode(', ', $args) . '), ' . var_export($constructor, TRUE) . ');';
-	$self->prestatement[] = "unset(\$global->trace[\$global->trace_sp--]);";
+	$self->prestatement[] = "unset(\$global->trace[\$global->trace_sp--], \$global->scope[\$global->scope_sp--]);";
 
 	return $ret;
 
@@ -1309,13 +1325,23 @@ protected function _35($expr) { extract($this->_env, EXTR_REFS); $expr = $this->
 	return $ret;
 
 }
-protected function _36($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _36($expr, $p, $file) { extract($this->_env, EXTR_REFS); if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		$this->_walk(array('ReferenceError_', 'Invalid left-hand side in preincrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
+	$expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ++' . $expr . ';';
 	return $ret;
 
 }
-protected function _37($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _37($expr, $p, $file) { extract($this->_env, EXTR_REFS); if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		$this->_walk(array('ReferenceError_', 'Invalid left-hand side in predecrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
+	$expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = --' . $expr . ';';
 	return $ret;
@@ -1329,14 +1355,24 @@ protected function _40($expr) { extract($this->_env, EXTR_REFS); return '(~JS::t
 }
 protected function _41($expr) { extract($this->_env, EXTR_REFS); return '(!JS::toBoolean(' . $this->_walk($expr) . ', $global))';
 }
-protected function _42($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _42($expr, $p, $file) { extract($this->_env, EXTR_REFS); if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		$this->_walk(array('ReferenceError_', 'Invalid left-hand side in postincrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
+	$expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';
 	$self->prestatement[] = '++' . $expr . ';';
 	return $ret;
 
 }
-protected function _43($expr) { extract($this->_env, EXTR_REFS); $expr = $this->_walk($expr);
+protected function _43($expr, $p, $file) { extract($this->_env, EXTR_REFS); if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		$this->_walk(array('ReferenceError_', 'Invalid left-hand side in postdecrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
+	$expr = $this->_walk($expr);
 	$ret = $this->_walk(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';
 	$self->prestatement[] = '--' . $expr . ';';

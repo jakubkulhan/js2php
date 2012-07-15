@@ -16,6 +16,12 @@
 
 -invoke(ast) {
 	$self->prefix = WALK(array('genprefix_', $ast));
+
+	// this code has been already compiled
+	if (function_exists("_{$self->prefix}_0")) {
+		return "return '_{$self->prefix}_0';";
+	}
+
 	$ret = WALK($ast);
 	return implode("\n", $self->functions) . "\n$ret";
 }
@@ -39,20 +45,28 @@ program(ast, file) {
 	$ret = array();
 	$fn = WALK(array("genfn_"));
 
-	$ret[] = 'function ' . $fn . '($global = NULL) {';
+	$ret[] = 'function ' . $fn . '($global = NULL, $scope = NULL) {';
 	$ret[] = "if (!is_object(\$global)) {" .
-		"\$global = (object) array(" .
-			"'properties' => array()," .
-			"'attributes' => array()," .
-			"'getters' => array()," .
-			"'setters' => array()," .
-			"'prototype' => NULL," .
-			"'up' => NULL," .
-		"); }";
-	$ret[] = "\$global->properties['global'] = \$global;";
-	$ret[] = "\$global->attributes['global'] = 0;";
-	$ret[] = "\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;";
-	$ret[] = '$scope = $global;';
+			"\$global = (object) array(" .
+				"'properties' => array()," .
+				"'attributes' => array()," .
+				"'getters' => array()," .
+				"'setters' => array()," .
+				"'prototype' => NULL," .
+				"'up' => NULL," .
+			");" .
+			"\$set_scope = TRUE;" .
+			"\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;" .
+		"}";
+
+	$ret[] = "if (\$scope === NULL) {" .
+			"\$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => \$global);" .
+			"\$scope->properties['global'] = \$global;" .
+			"\$scope->properties['__filename'] = " . var_export($file, TRUE) . ";" .
+			"\$scope->properties['__dirname'] = " . var_export(dirname($file), TRUE) . ";" .
+		"}";
+
+	$ret[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
 	$ret[] = '$leThis = $global;';
 
 	$code = WALK($ast);
@@ -169,6 +183,8 @@ function(name, parameters_list, body, pStart, pEnd, file) {
 		$self->prestatement[] = '$scope->properties[' . var_export($name, TRUE) . '] = $fn;';
 		$self->prestatement[] = $self->assigned[$name] . ' =& $scope->properties[' . var_export($name, TRUE) . '];';
 	}
+
+	$self->prestatement[] = '$global->scope[++$global->scope_sp] = $scope;';
 
 	$body = WALK($body);
 	$self->functions[] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args, $constructor = FALSE) {',
@@ -729,7 +745,7 @@ call_(function, args, leThis, check, p, file, constructor) {
 	$self->prestatement[] = "\$global->trace[++\$global->trace_sp] = array(" . WALK($file) . ", " . WALK($p[0]) . ", " . WALK($p[1]) . ");";
 	$self->prestatement[] = $ret . ' = ' . $call . '($global, ' . $leThis . ', ' . $function .
 		', array(' . implode(', ', $args) . '), ' . var_export($constructor, TRUE) . ');';
-	$self->prestatement[] = "unset(\$global->trace[\$global->trace_sp--]);";
+	$self->prestatement[] = "unset(\$global->trace[\$global->trace_sp--], \$global->scope[\$global->scope_sp--]);";
 
 	return $ret;
 }
@@ -1032,14 +1048,24 @@ typeof(expr) {
 	return $ret;
 }
 
-preinc(expr) {
+preinc(expr, p, file) {
+	if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		WALK(array('ReferenceError_', 'Invalid left-hand side in preincrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
 	$expr = WALK($expr);
 	$ret = WALK(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ++' . $expr . ';';
 	return $ret;
 }
 
-predec(expr) {
+predec(expr, p, file) {
+	if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		WALK(array('ReferenceError_', 'Invalid left-hand side in predecrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
 	$expr = WALK($expr);
 	$ret = WALK(array('genvar_'));
 	$self->prestatement[] = $ret . ' = --' . $expr . ';';
@@ -1054,7 +1080,12 @@ inverse(expr) -> '(~JS::toNumber(' . WALK($expr) . ', $global))'
 
 not(expr) -> '(!JS::toBoolean(' . WALK($expr) . ', $global))'
 
-postinc(expr) {
+postinc(expr, p, file) {
+	if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		WALK(array('ReferenceError_', 'Invalid left-hand side in postincrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
 	$expr = WALK($expr);
 	$ret = WALK(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';
@@ -1062,7 +1093,12 @@ postinc(expr) {
 	return $ret;
 }
 
-postdec(expr) {
+postdec(expr, p, file) {
+	if ($expr[0] !== 'identifier' && $expr[0] !== 'index') {
+		WALK(array('ReferenceError_', 'Invalid left-hand side in postdecrement.', $p, $file));
+		return 'JS::$undefined';
+	}
+
 	$expr = WALK($expr);
 	$ret = WALK(array('genvar_'));
 	$self->prestatement[] = $ret . ' = ' . $expr . ';';

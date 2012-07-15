@@ -3,7 +3,22 @@ var Infinity = @@ INF @@;
 var undefined = @@ JS::$undefined @@;
 
 function eval(x) {
-	throw new NotImplementedError("eval(): not implemented.");
+	@@
+		$parser = new JSParser;
+
+		list($ok, $ast, $error) = $parser->__invoke(JS::toString(`x, $global), '<eval>');
+
+		if (!$ok) { @@
+			throw new SyntaxError("eval(): syntax error at " +
+				@@ $error->line @@ + ":" + @@ $error->column @@ +
+				", expected " + @@ implode(', ', $error->expected) @@);
+		@@ }
+
+		$compiler = new JSCompiler;
+		$code = $compiler->__invoke($ast);
+		$entryPoint = eval($code);
+		return $entryPoint($global, $global->scope[$global->scope_sp - 1]);
+	@@
 }
 
 function parseInt(string, radix) {

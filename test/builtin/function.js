@@ -1,3 +1,30 @@
+test("Function()", function () {
+	var F = new Function();
+	assertEqual(F(), undefined);
+
+	var n = 1, F = new Function("n++");
+	F();
+	assertEqual(n, 2, "function does not get current scope");
+
+	var F = new Function("a", "b", "c", "return a + b + c;");
+	assert(isNaN(F()));
+	assertEqual(F("a"), "aundefinedundefined");
+	assertEqual(F("a", "b"), "abundefined");
+	assertEqual(F("a", "b", "c"), "abc");
+
+	var F = new Function("a,b,c", "return a + b + c;");
+	assert(isNaN(F()));
+	assertEqual(F("a"), "aundefinedundefined");
+	assertEqual(F("a", "b"), "abundefined");
+	assertEqual(F("a", "b", "c"), "abc");
+
+	var F = new Function("a,b", "c", "return a + b + c;");
+	assert(isNaN(F()));
+	assertEqual(F("a"), "aundefinedundefined");
+	assertEqual(F("a", "b"), "abundefined");
+	assertEqual(F("a", "b", "c"), "abc");
+});
+
 function F(that, msg) {
 	assert(this === that, msg);
 }

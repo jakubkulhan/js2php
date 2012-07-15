@@ -325,8 +325,8 @@ unary_expr
       / ?{ $self->identifier_throw = TRUE; return FALSE; }
       )
     -> $r
-  / "++" __ expr:unary_expr -> array("preinc", $expr)
-  / "--" __ expr:unary_expr -> array("predec", $expr)
+  / "++" __ p:^ expr:unary_expr -> array("preinc", $expr, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file))
+  / "--" __ p:^ expr:unary_expr -> array("predec", $expr, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file))
   / "+" __ expr:unary_expr -> array("positive", $expr)
   / "-" __ expr:unary_expr -> array("negative", $expr)
   / "~" __ expr:unary_expr -> array("inverse", $expr)
@@ -334,8 +334,8 @@ unary_expr
   / postfix_expr
 
 postfix_expr
-  = lhs:left_hand_side_expr __noLB "++" -> array("postinc", $lhs)
-  / lhs:left_hand_side_expr __noLB "--" -> array("postdec", $lhs)
+  = lhs:left_hand_side_expr __noLB "++" p:^ -> array("postinc", $lhs, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file))
+  / lhs:left_hand_side_expr __noLB "--" p:^ -> array("postdec", $lhs, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file))
   / left_hand_side_expr
 
 left_hand_side_expr

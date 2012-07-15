@@ -1,4 +1,4 @@
-test("NaN, Infinity, undefined, parseInt, parseFloat, isNaN, isFinite", function () {
+test("NaN, Infinity, undefined, parseInt(), parseFloat(), isNaN(), isFinite()", function () {
 	assert(@@ is_nan(`NaN) @@, "NaN is not NaN");
 
 	assert(@@ is_infinite(`Infinity) @@, "Infinity is finite");
@@ -16,4 +16,12 @@ test("NaN, Infinity, undefined, parseInt, parseFloat, isNaN, isFinite", function
 
 	assert(isFinite(5));
 	assert(!isFinite(Infinity));
+});
+
+test("eval()", function() {
+	assertEqual(eval(" return 42; "), 42);
+
+	var ok = false;
+	assertEqual(eval("ok = true;"), undefined);
+	assert(ok, "eval(): cannot change variables from enclosing scope");
 });

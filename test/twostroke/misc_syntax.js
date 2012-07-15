@@ -71,14 +71,12 @@ test("combo-assignment-arithmetic on index", function() {
     assertEqual(3, x["a"]);
 });
 
-// eval not implemented
-/*
 test("assignment non-lval throws", function() {
     try {
         eval("hi() = 123");
         assert(false, "didn't throw");
     } catch(e) {
-        assert(e instanceof SyntaxError);
+        assert(e instanceof ReferenceError);
     }
 });
 
@@ -87,10 +85,9 @@ test("combo-assignment-arithmetic on non-lval throws", function() {
         eval("hi() += 123");
         assert(false, "didn't throw");
     } catch(e) {
-        assert(e instanceof SyntaxError);
+        assert(e instanceof ReferenceError);
     }
 });
-*/
 
 test("post-increment", function() {
     var i = 0;
@@ -116,23 +113,20 @@ test("pre-increment", function() {
     assertEqual(3, o.x);
 });
 
-// eval not implemented
-/*
 test("post/pre increment on non-lval throws", function() {
     try {
         eval("hi()++;");
         assert(false, "didn't throw");
     } catch(e) {
-        assert(e instanceof SyntaxError);
+        assert(e instanceof ReferenceError);
     }
     try {
         eval("++hi();");
         assert(false, "didn't throw");
     } catch(e) {
-        assert(e instanceof SyntaxError);
+        assert(e instanceof ReferenceError);
     }
 });
-*/
 
 test("calling", function() {
     var x = { a: function() { return this; } };

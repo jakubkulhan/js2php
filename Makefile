@@ -22,4 +22,10 @@ binary: src/JSParser.php src/JSCompiler.php src/image.php
 	./util/create-binary.php > bin/js2php-interpreter
 	chmod +x bin/js2php-interpreter
 
-.PHONY: test binary clean
+everything:
+	make clean
+	make
+	make binary
+	make test
+
+.PHONY: test binary clean everything

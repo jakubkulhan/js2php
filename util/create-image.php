@@ -43,6 +43,10 @@ $f();
 
 $image = "<?php\n";
 
+foreach (array('JSParser', 'JSCompiler') as $file) {
+	$image .= ltrim(substr(file_get_contents(__DIR__ . "/../src/$file.php"), 5)); // remove <?php
+}
+
 foreach (array_diff(get_declared_classes(), $declaredClasses) as $class) {
 	$reflection = new ReflectionClass($class);
 	$image .= implode("\n", array_slice(

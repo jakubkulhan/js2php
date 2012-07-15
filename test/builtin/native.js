@@ -89,6 +89,7 @@ test("JS::fromNative()", function () {
 
 	o.newProperty = "new";
 	assertEqual(o.newProperty, undefined);
+	assert(Object.isFrozen(o));
 
 
 	var o = @@ JS::fromNative(stream_context_create()) @@;
@@ -96,6 +97,7 @@ test("JS::fromNative()", function () {
 
 	o.newProperty = "new";
 	assertEqual(o.newProperty, undefined);
+	assert(Object.isFrozen(o));
 });
 
 test("JS::toNative()", function () {

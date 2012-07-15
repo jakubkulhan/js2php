@@ -220,6 +220,9 @@ objects get converted to arrays. PHP wrapped objects and resources are unwrapped
 Other objects are converted to `stdClass` objects, all enumerables properties are
 exported.
 
+From Javascript, you can access PHP functions and classes through `PHP.fn()`,
+respectively `PHP.cls()`. See `test/builtin/php.js` for examples.
+
 ## License
 
 The MIT license

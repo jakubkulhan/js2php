@@ -210,6 +210,28 @@ properties on Javascript object and `__toString` method is renamed to `toString`
 
 	dump("" + o); // hello, world!
 
+If PHP object is invokable (i.e. has mehod `__invoke`), instead of creating new object,
+new function is created. Still other methods get added to the function object.
+
+	@@
+		class SayHello
+		{
+			public function __invoke($who) { return "Hello, $who!"; }
+			public function bar() { return "bar"; }
+		}
+	@@
+
+	var f = @@ JS::fromNative(new SayHello) @@;
+
+	dump(typeof f); // function
+	dump(f("world")); // Hello, world!
+	dump(f.bar()); // bar
+
+	var o = { f: f };
+
+	// this is bound to native object
+	dump(o.f("O")); // Hello, O!
+
 Resources are converted to objects of class `Native`. Neither wrapped PHP objects,
 nor resource objects are extensible. All properties are not configurable, too.
 

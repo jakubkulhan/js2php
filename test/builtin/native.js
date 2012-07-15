@@ -67,12 +67,20 @@ test("JS::fromNative()", function () {
 			}
 		}
 
+		class JSFromNativeTestInvokable
+		{
+			public function __invoke($who)
+			{
+				return "hello, $who!";
+			}
+		}
+
 		JSFromNativeTest::$ok =& `ok;
 	@@
 
 	var o = @@ JS::fromNative(new JSFromNativeTest) @@;
 
-	assertEqual(Object.getOwnPropertyNames(o).sort().toString(), 'doSomething,foo,getFoo,setFoo,toString');
+	assertEqual(Object.getOwnPropertyNames(o).sort().toString(), "doSomething,foo,getFoo,setFoo,toString");
 	assertEqual(o.getFoo(), null);
 	assertEqual(o.setFoo("bar"), o);
 	assertEqual(o.getFoo(), "bar");
@@ -80,6 +88,7 @@ test("JS::fromNative()", function () {
 	o.foo = "FOO!!!";
 	assertEqual(o.foo, "FOO!!!");
 	assertEqual(o.toString(), "hello, world!");
+	assertEqual(Object.prototype.toString.call(o), "[object JSFromNativeTest]");
 	assertEqual("" + o, "hello, world!");
 
 	ok = false;
@@ -90,6 +99,13 @@ test("JS::fromNative()", function () {
 	o.newProperty = "new";
 	assertEqual(o.newProperty, undefined);
 	assert(Object.isFrozen(o));
+
+	var f = @@ JS::fromNative(new JSFromNativeTestInvokable) @@;
+
+	assertEqual(typeof f, "function");
+	assertEqual(f.__invoke, undefined);
+	assertEqual(f("world"), "hello, world!");
+	assertEqual(Object.prototype.toString.call(f), "[object JSFromNativeTestInvokable]");
 
 
 	var o = @@ JS::fromNative(stream_context_create()) @@;

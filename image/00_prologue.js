@@ -236,14 +236,37 @@ class JS
 
 			if (!isset(JS::$wrappedObjectTemplates[get_class($native)])) {
 
-				$wrappedObjectTemplate = clone JS::$objectTemplate;
 				$reflection = new ReflectionClass($native);
+
+				if (!$reflection->hasMethod('__invoke')) {
+					$wrappedObjectTemplate = clone JS::$objectTemplate;
+
+				} else {
+					$wrappedObjectTemplate = clone JS::$functionTemplate;
+					$invoke = $reflection->getMethod('__invoke');
+					$wrappedObjectTemplate->call = 'JSWrappedObject';
+					$wrappedObjectTemplate->parameters = array();
+
+					foreach($invoke->getParameters() as $p) {
+						$wrappedObjectTemplate->parameters[] = $p->getName();
+					}
+
+					$wrappedObjectTemplate->properties['prototype'] = clone JS::$objectTemplate;
+					$wrappedObjectTemplate->attributes['prototype'] = 0;
+					$wrappedObjectTemplate->properties['prototype']->properties['contructor'] =
+						$wrappedObjectTemplate;
+					$wrappedObjectTemplate->properties['prototype']->attributes['contructor'] =
+						JS::WRITABLE | JS::CONFIGURABLE;
+					$wrappedObjectTemplate->properties['length'] = count($wrappedObjectTemplate->parameters);
+					$wrappedObjectTemplate->attributes['length'] = 0;
+				}
 
 				$wrappedObjectTemplate->class = $reflection->getName();
 
 				foreach ($reflection->getMethods() as $method) {
 					if ($method->isAbstract() || $method->isConstructor() || $method->isDestructor() ||
-						$method->isProtected() || $method->isPrivate() || $method->isStatic())
+						$method->isProtected() || $method->isPrivate() || $method->isStatic() ||
+						$method->getName() === '__invoke')
 					{
 						continue;
 					}
@@ -268,11 +291,11 @@ class JS
 						clone JS::$objectTemplate;
 					$wrappedObjectTemplate->properties[$name]->attributes['prototype'] = 0;
 					$wrappedObjectTemplate->properties[$name]->properties['prototype']->properties['contructor'] =
-						$wrappedObjectTemplate;
+						$wrappedObjectTemplate->properties[$name];
 					$wrappedObjectTemplate->properties[$name]->properties['prototype']->attributes['contructor'] =
 						JS::WRITABLE | JS::CONFIGURABLE;
 					$wrappedObjectTemplate->properties[$name]->properties['length'] =
-						$method->getNumberOfParameters();
+						count($wrappedObjectTemplate->properties[$name]->parameters);
 					$wrappedObjectTemplate->properties[$name]->attributes['length'] = 0;
 
 					if ((strncmp($name, 'get', 3) === 0 && $method->getNumberOfParameters() === 0 ||
@@ -397,6 +420,18 @@ function JSWrappedMethod($global, $leThis, $fn, array $args)
 	}
 
 	return JS::fromNative(call_user_func_array(array($leThis->native, $fn->name), $nativeArgs));
+}
+
+function JSWrappedObject($global, $leThis, $fn, array $args)
+{
+	$nativeArgs = array();
+
+	foreach ($args as $arg) {
+		if ($arg === JS::$undefined) { break; }
+		$nativeArgs[] = JS::toNative($arg);
+	}
+
+	return JS::fromNative(call_user_func_array($fn->native, $nativeArgs));
 }
 
 JS::$undefined = new JSUndefined;

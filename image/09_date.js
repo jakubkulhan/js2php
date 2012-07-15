@@ -13,7 +13,19 @@ function Date(year, month, date, hours, minutes, seconds, ms) {
 
 	} else if (month === undefined) {
 		var value = arguments[0];
-		value = @@ JS::toPrimitive(`value, $global) @@;
+		if (typeof value === "object" && value !== null) {
+			if (typeof value.valueOf === "function") {
+				value = value.valueOf();
+
+			} else if (typeof value.toString === "function") {
+				value = value.toString();
+
+			} else {
+				throw new TypeError("Date(): cannot get value of object argument given");
+			}
+		} else {
+			value = @@ JS::toPrimitive(`value, $global) @@;
+		}
 
 		if (typeof value === "string") {
 			value = Date.parse(value);

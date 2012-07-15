@@ -855,6 +855,9 @@ protected function _28($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_e
 			$base = $tmp;
 		}
 
+		$self->prestatement[] = "if ($base === JS::\$undefined || $base === NULL) {";
+		$this->_walk(array('TypeError_', 'Cannot assign property of undefined/null.', $p, $file));
+		$self->prestatement[] = "}";
 		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 		$lhs = $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, FALSE, $p, $file));
@@ -1335,6 +1338,10 @@ protected function _44($fn_expr, $arguments, $p, $file) { extract($this->_env, E
 		$index = $this->_walk($index);
 
 		$tmp = $this->_walk(array('genvar_'));
+
+		$self->prestatement[] = "if ($base === JS::\$undefined || $base === NULL) {";
+		$this->_walk(array('TypeError_', 'Cannot call function on undefined/null.', $p, $file));
+		$self->prestatement[] = "}";
 		$self->prestatement[] = $tmp . ' = JS::toObject(' . $base . ', $global);';
 
 		$fn = $this->_walk(array('lookup_', $tmp, $index, 'prototype', FALSE, TRUE, $p, $file));

@@ -571,6 +571,9 @@ assignment(op, lhs_expr, rhs_expr, p, file) {
 			$base = $tmp;
 		}
 
+		$self->prestatement[] = "if ($base === JS::\$undefined || $base === NULL) {";
+		WALK(array('TypeError_', 'Cannot assign property of undefined/null.', $p, $file));
+		$self->prestatement[] = "}";
 		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
 		$lhs = WALK(array('lookup_', $base, $index, 'prototype', FALSE, FALSE, $p, $file));
@@ -1063,6 +1066,10 @@ call(fn_expr, arguments, p, file) {
 		$index = WALK($index);
 
 		$tmp = WALK(array('genvar_'));
+
+		$self->prestatement[] = "if ($base === JS::\$undefined || $base === NULL) {";
+		WALK(array('TypeError_', 'Cannot call function on undefined/null.', $p, $file));
+		$self->prestatement[] = "}";
 		$self->prestatement[] = $tmp . ' = JS::toObject(' . $base . ', $global);';
 
 		$fn = WALK(array('lookup_', $tmp, $index, 'prototype', FALSE, TRUE, $p, $file));

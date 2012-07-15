@@ -269,6 +269,10 @@ Object.prototype.toLocaleString = function () {
 };
 
 Object.prototype.valueOf = function () {
+	if (this === undefined || this === null) {
+		throw new TypeError("Object.prototype.valueOf(): this is undefined or null");
+	}
+
 	return @@ JS::toObject($leThis, $global) @@;
 };
 

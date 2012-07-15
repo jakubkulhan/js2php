@@ -27,7 +27,7 @@ Function.prototype.apply = function (thisArg, argArray) {
 
 	if (thisArg === undefined) {
 		thisArg = @@ $global @@;
-	} else if (typeof thisArg !== "object") {
+	} else if (typeof thisArg !== "object" && typeof thisArg !== "function") {
 		thisArg = @@ JS::toObject(`thisArg, $global) @@;
 	}
 
@@ -47,7 +47,7 @@ Function.prototype.call = function (thisArg) {
 
 	if (thisArg === undefined) {
 		thisArg = @@ $global @@;
-	} else if (typeof thisArg !== "object") {
+	} else if (typeof thisArg !== "object" && typeof thisArg !== "function") {
 		thisArg = @@ JS::toObject(`thisArg, $global) @@;
 	}
 

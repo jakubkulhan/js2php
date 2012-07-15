@@ -18,4 +18,17 @@ test("exception", function () {
 	}
 
 	assert(ok);
+
+	ok = false;
+	try {
+		@@ throw new Exception('foo'); @@
+
+	} catch (e) {
+		assert(!(e instanceof Error));
+		assertEqual(Object.prototype.toString.call(e), "[object Exception]");
+		assertEqual(e.message, "foo");
+		ok = true;
+	}
+
+	assert(ok);
 });

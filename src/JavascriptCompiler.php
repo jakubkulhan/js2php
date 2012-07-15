@@ -805,6 +805,17 @@ protected function _25($try_block, $catch_var, $catch_block, $finally_block) { e
 		$self->prestatement = array();
 		$ret[] = $catch_block . ';';
 		$ret[] = '}';
+		$ret[] = 'catch (Exception $e) {';
+		$e = $this->_walk(array('var', array(array($catch_var, array('raw', 'JS::fromNative($e)'))))); // FIXME: leaks into current scope
+		$ret[] = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$ret[] = "if (!isset({$e}->properties['name'])) {" .
+			"{$e}->properties['name'] = {$e}->class;" .
+			"{$e}->attributes['name'] = 0; }";
+		$ret[] = implode("\n", $self->prestatement);
+		$self->prestatement = array();
+		$ret[] = $catch_block . ';';
+		$ret[] = '}';
 	}
 
 	if (!empty($finally)) {

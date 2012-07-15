@@ -121,6 +121,22 @@ function object.
 		// ...
 	}
 
+Code returned by `JavascriptCompiler->__invoke($ast)` is a string that consists of
+generated function declarations joined together followed by `return "_a123456789_0";`,
+thus returning a function name of global code. The string does not start with PHP
+open tag and so it can be directly fed to `eval()`. To evaluate contents of
+Javascript file `foo.js`, `JavascriptInterpreter` basicly does:
+
+	$parser = new JavascriptParser;
+	list(,$ast) = $parser(file_get_contents("foo.js"), "foo.js");
+
+	$compiler = new JavascriptCompiler;
+	$code = $compiler($ast);
+
+	$entryPoint = eval($code);
+
+	$entryPoint(JS::$global);
+
 ## Extensions to Javascript syntax
 
 To be able to more easily interoperate with PHP, js2php added to Javascript syntax
@@ -136,6 +152,73 @@ PHP statement and expression. Both are delimited by `@@`.
 The image (`src/image.php`) is an pre-compiled Javascript code from `image/`
 directory. Sources in `image/` initialise runtime environment - create Javascript
 built-in objects etc.
+
+## PHP interoperability
+
+js2php can very well interoperate with PHP, `JS::fromNative()` and `JS::toNative()`
+are here to help. Native language is PHP, host language is Javascript
+`JS::fromNative()` can translate any value from PHP world to Javascript. Null,
+boolean, integer, float, and string types are left as they are. Arrays with numerical
+indexes and empty arrays are converted to Javascript `Array` objects. Other arrays and `stdClass`
+objects get converted to `Object` objects as if created by object literal.
+
+For objects are created their Javascript counterparts. But only public object methods
+get imported. Also for methods starting with `get` and `set` are created accessor
+properties on Javascript object and `__toString` method is renamed to `toString`.
+
+	Javascript:
+	@@
+		class Foo
+		{
+			public $propertyFoo;
+			protected $propertyBar;
+			private $secret = "my secret";
+
+			static function doSomething() { ... }
+
+			public function __construct() {}
+
+			public function getSecret() { return $this->secret; }
+			public function setSecret($newSecret) { $this->secret = $newSecret; return $this; }
+
+			protected function getPropertyBar() { ... }
+
+			private function doSomethingNobodyElseCanDo() { ... }
+
+			public function __toString() { return "FOO!!!"; }
+		}
+	@@
+
+	var o = @@ JS::fromNative(new Foo) @@;
+
+	dump(typeof o.propertyFoo); // undefined
+	dump(typeof o.propertyBar); // undefined
+
+	dump(typeof o.secret); // string
+	dump(o.secret); // my secret
+
+	o.secret = "new secret";
+	dump(o.secret); // new secret
+
+	dump(o.setSecret("another secret").toString()); // [object Foo]
+	dump(o.getSecret()); // another secret
+
+	dump(typeof o.doSomething); // undefined
+	dump(typeof o.__construct); // undefined
+	dump(typeof o.getPropertyBar); // undefined
+	dump(typeof o.doSomethingNobodyElseCanDo); // undefined
+
+	dump("" + o); // hello, world!
+
+Resources are converted to objects of class `Native`. Neither wrapped PHP objects,
+nor resource objects are extensible. All properties are not configurable, too.
+
+`JS::toNative()` takes Javascript value and converts to PHP. Undefined is converted
+to NULL. So running `JS::fromNative(JS::toNative(JS::$undefined))` is NULL, not
+undefined again. Booleans, ints, floats and strings are left as they are. `Array`
+objects get converted to arrays. PHP wrapped objects and resources are unwrapped.
+Other objects are converted to `stdClass` objects, all enumerables properties are
+exported.
 
 ## License
 

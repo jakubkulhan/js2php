@@ -123,7 +123,7 @@ object is created.
 		// ...
 	}
 
-Code returned by `JSCompiler->__invoke($ast)` is a string that consists of
+Code returned by `JSCompiler->__invoke($ast, $force = NULL)` is a string that consists of
 generated function declarations joined together followed by `return "_a123456789_0";`,
 thus returning a function name of global code. The string does not start with PHP
 open tag and so it can be directly fed to `eval()`. To evaluate contents of
@@ -138,6 +138,11 @@ Javascript file `foo.js`:
 	$entryPoint = eval($code);
 
 	$entryPoint(JS::$global);
+
+`JSCompiler->__invoke()` makes hash of given AST and if main function of the tree `_<hash>_0`
+already exists (`function_exists()`), JSCompiler won't compile AST again, it will just return
+`return '_<hash>_0';`. If you want to even though get the code, just pass `TRUE` as
+the second argument.
 
 ## Extensions to Javascript syntax
 

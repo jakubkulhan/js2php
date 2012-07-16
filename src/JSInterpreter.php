@@ -36,7 +36,7 @@ class JSInterpreter
 			list($ok, $result, $error) = $parser->__invoke($this->code, $this->file);
 
 			if (!$ok) {
-				throw new JavascriptException(
+				throw new Exception(
 					"Syntax error " . ($this->file !== NULL ? " in {$this->file} " : "") .
 					"on {$error->line}:{$error->column}, expected " .
 					implode(', ', $error->expected)
@@ -76,11 +76,4 @@ class JSInterpreter
 
 		return JS::toNative(call_user_func($this->entryPoint, $global));
 	}
-}
-
-/**
- * Javascript interpreter exception
- */
-class JavascriptException extends Exception
-{
 }

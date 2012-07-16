@@ -7,19 +7,21 @@ resulting AST to PHP code as closely as possible.
 
 Interface to js2php.
 
-### `__construct($code)`
+### `__construct($code, $file = NULL)`
 
-Creates new instance with given `$code`.
+Creates new instance with given `$code`. Optional `$file` parameter tells compiler
+from which Javascript file the code is.
 
 ### `compile()`
 
 Returns compiled PHP code. Compiled code can't be run without *image*, be sure to
-include `src/image.php` first if you want to run compiled code yourself.
+include `src/image.php` first if you want to run compiled code yourself. Throw
+`Exception` if parsing failed.
 
 ### `run(array $vars = array())`
 
-Compiles Javascript code and then runs it. If `$vars` argument is supplied, variables
-from `$vars` are added to the global object of script.
+Compiles Javascript code using `compile()` and then runs it. If `$vars` argument
+is supplied, variables from `$vars` are added to the global object of script.
 
     $interpreter = new JSInterpreter('   return "hello, " + who + "!";   ');
     
@@ -28,14 +30,14 @@ from `$vars` are added to the global object of script.
 ## Compiled code
 
 Javascript has six types: undefined, null, boolean, string, number, and object.
-Null, boolean, string and number values are represented as PHP null, boolean, string
+Null, boolean, string and number values are represented as PHP null, boolean, string,
 and number values. There is no undefined equivalent in PHP, so undefined is
 represented by instance of `JSUndefined` class (declared in `image/00_prologue.js`).
 
 Javascript objects are lists of properties. There are two types of properties - data
 properties, and accessor properties. A data property is simple mapping from key to
 value. An accessor property is accessed by calling getter and setter. Every property
-also has some attributes. In PHP objects are represented by instances of `stdClass`
+also has attributes. Javascript objects are represented by instances of `stdClass`
 like this:
 
 	Javascript:
@@ -92,8 +94,8 @@ Functions are objects too. They are different only that they have `call` propert
 Eeach function declaration and expression results in new PHP function in compiled
 code. Compiled functions are named `_<hash of AST>_<counter>`. They have 4
 parameters: reference to global object, reference to this, reference to function
-itself, and array of arguments. Also for each Javascript function is created new
-function object.
+itself, and array of arguments. Also for each Javascript function a new function
+object is created.
 
 	Javascript:
 
@@ -106,7 +108,7 @@ function object.
 	// sayHello
 	function _a123456789_1($global, $leThis, $fn, $args) { ... }
 
-	// global code is also compiled into an function; its names always end with "_0"
+	// global code is also compiled into an function; its name always ends with "_0"
 	function _a123456789_0($global) 
 	{
 		// ...
@@ -125,7 +127,7 @@ Code returned by `JSCompiler->__invoke($ast)` is a string that consists of
 generated function declarations joined together followed by `return "_a123456789_0";`,
 thus returning a function name of global code. The string does not start with PHP
 open tag and so it can be directly fed to `eval()`. To evaluate contents of
-Javascript file `foo.js`, `JSInterpreter` basicly does:
+Javascript file `foo.js`:
 
 	$parser = new JSParser;
 	list(,$ast) = $parser(file_get_contents("foo.js"), "foo.js");
@@ -156,15 +158,15 @@ built-in objects etc.
 ## PHP interoperability
 
 js2php can very well interoperate with PHP, `JS::fromNative()` and `JS::toNative()`
-are here to help. Native language is PHP, host language is Javascript
+are here to help. In js2php vocabulary native language is PHP, host language is Javascript.
 `JS::fromNative()` can translate any value from PHP world to Javascript. Null,
 boolean, integer, float, and string types are left as they are. Arrays with numerical
 indexes and empty arrays are converted to Javascript `Array` objects. Other arrays and `stdClass`
 objects get converted to `Object` objects as if created by object literal.
 
-For objects are created their Javascript counterparts. But only public object methods
-get imported. Also for methods starting with `get` and `set` are created accessor
-properties on Javascript object and `__toString` method is renamed to `toString`.
+For other PHP objects their Javascript counterparts are created. Only public object methods
+get imported. Also for methods starting with `get` and `set` are created accessor properties.
+`__toString` method is renamed to `toString`.
 
 	Javascript:
 	@@
@@ -208,7 +210,7 @@ properties on Javascript object and `__toString` method is renamed to `toString`
 	dump(typeof o.getPropertyBar); // undefined
 	dump(typeof o.doSomethingNobodyElseCanDo); // undefined
 
-	dump("" + o); // hello, world!
+	dump("" + o); // FOO!!!
 
 If PHP object is invokable (i.e. has mehod `__invoke`), instead of creating new object,
 new function is created. Still other methods get added to the function object.

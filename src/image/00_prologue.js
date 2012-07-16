@@ -406,7 +406,9 @@ function JSWrappedConstructor($global, $leThis, $fn, array $args)
 		$reflection = new ReflectionClass($fn->name);
 		return JS::fromNative($reflection->newInstanceArgs($nativeArgs));
 	}
-	
+
+	$cls = $fn->name;
+
 	return JS::fromNative(new $cls);
 }
 

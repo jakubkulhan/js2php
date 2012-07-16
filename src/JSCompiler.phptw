@@ -15,10 +15,20 @@
 }
 
 -invoke(ast) {
+	// if optional second argument is true, code generation will be forced,
+	// even if this AST has been already compiled
+
+	$self->functions = $self->prestatement = $self->assigned = array();
 	$self->prefix = WALK(array('genprefix_', $ast));
+	$self->varCounter = $self->fnCounter = 0;
+	$self->catch_return = FALSE;
+	$self->lookups = array(
+		TRUE => array(TRUE => array(), FALSE => array()),
+		FALSE => array(TRUE => array(), FALSE => array()),
+	);
 
 	// this code has been already compiled
-	if (function_exists("_{$self->prefix}_0")) {
+	if (function_exists("_{$self->prefix}_0") && (func_num_args() < 2 || !func_get_arg(1))) {
 		return "return '_{$self->prefix}_0';";
 	}
 

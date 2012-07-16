@@ -34,7 +34,7 @@ function RegExp(pattern, flags) {
 		} else if (c === 'm') {
 			r.multiline = true;
 		} else {
-			throw new SyntaxError("RegExp(): Unknow regexp flag " + f.charAt(i) + ".");
+			throw new SyntaxError("RegExp(): Unknow regexp flag " + c + ".");
 		}
 	}
 

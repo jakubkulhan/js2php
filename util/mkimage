@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
-require_once __DIR__ . '/../src/JSParser.php';
-require_once __DIR__ . '/../src/JSCompiler.php';
+require_once __DIR__ . '/../build/JSParser.php';
+require_once __DIR__ . '/../build/JSCompiler.php';
 require_once __DIR__ . '/shrink.php';
 
 function compile($code, $file = NULL)
@@ -19,7 +19,7 @@ function compile($code, $file = NULL)
 
 $code = '';
 
-foreach (glob(__DIR__ . '/../image/*.js') as $file) {
+foreach (glob(__DIR__ . '/../src/image/*.js') as $file) {
 	$code .= file_get_contents($file);
 }
 
@@ -44,7 +44,7 @@ $f();
 $image = "<?php\n";
 
 foreach (array('JSParser', 'JSCompiler') as $file) {
-	$image .= ltrim(substr(file_get_contents(__DIR__ . "/../src/$file.php"), 5)); // remove <?php
+	$image .= ltrim(substr(file_get_contents(__DIR__ . "/../build/$file.php"), 5)); // remove <?php
 }
 
 foreach (array_diff(get_declared_classes(), $declaredClasses) as $class) {

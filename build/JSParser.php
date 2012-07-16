@@ -22,7 +22,10 @@ class JSParser {
     
     public function __invoke($string, $file) {
     foreach ($this->_environments as $_env) { extract($_env, EXTR_OVERWRITE | EXTR_REFS); }
-        $self->file = $file;
+        $self->fns = $self->fns_stack = array();
+        	$self->file = $file;
+        	$self->identifier_throw = TRUE;
+        
         	return $this->parse($string);
     }
     

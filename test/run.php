@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-require_once __DIR__ . '/../src/image.php';
+require_once __DIR__ . '/../build/image.php';
 
 class AssertException extends Exception
 {

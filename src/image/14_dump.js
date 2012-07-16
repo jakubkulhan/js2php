@@ -28,7 +28,7 @@ function dump() {
 
 			if (isArray) {
 				for (i = 0; i < v.length; ++i) {
-					if ((d = dumper(v[i], indent)).multiline) {
+					if ((d = dumper(v[i], indent + "  ")).multiline) {
 						multiline = true;
 					}
 
@@ -39,7 +39,7 @@ function dump() {
 
 			} else {
 				for (k in v) {
-					if ((d = dumper(v[k], indent)).multiline) {
+					if ((d = dumper(v[k], indent + "  ")).multiline) {
 						multiline = true;
 					}
 

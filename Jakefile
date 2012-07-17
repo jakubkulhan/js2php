@@ -32,8 +32,74 @@ task("build:image", "build image.php from src/image/*.js",
 	"build:parser", "build:compiler",
 	result(buildDir + "/image.php"),
 	srcDir + "/image/*.js",
+	__filename,
 	function () {
-		run(utilDir + "/mkimage > " + buildDir + "/image.php");
+		@@ require_once `utilDir . "/shrink.php"; @@
+
+		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(),
+			code = "<?php\n" +
+				"require_once " + PHP.fn("var_export")(utilDir + "/shrink.php", true) + ";\n" +
+				"$global = (object) array('properties' => array(), 'attributes' => array(), " +
+				"'getters' => array(), 'setters' => array(), 'prototype' => NULL, 'up' => NULL, " +
+				"'trace' => array());\n" +
+				"$lines = explode(\"\\n\", file_get_contents(__FILE__));\n" +
+				"echo \"<?php\\n\";\n",
+			mains = "";
+
+		PHP.fn("glob")(srcDir + "/image/*.js").forEach(function (f) {
+			var ast = parse(PHP.fn("file_get_contents")(f), { file: "<image>/" + PHP.fn("basename")(f) });
+
+			if (!ast[0]) {
+				fail("syntax error in " + f + "@" + ast[2].line + ":" + ast[2].column +
+					", expected " + ast[2].expected.join(", "));
+			}
+
+			var compiled = compile(ast[1], { force: true, generate: "object" });
+
+			for (var k in compiled.functions) {
+				code += compiled.functions[k] + "\n";
+
+				if (k !== compiled.main) {
+					code += "echo " + PHP.fn("var_export")(
+						PHP.fn("shrink")("<?php " + compiled.functions[k]).substring(6),
+						true) +
+						", \"\\n\";\n";
+				}
+			}
+
+			mains += compiled.main + "($global, $global);\n";
+		});
+
+		code += "$classes = get_declared_classes();\n" +
+			"$functions = get_defined_functions(); $functions = $functions['user'];\n";
+		code += mains;
+
+		[ buildDir + "/JSParser.php", buildDir + "/JSCompiler.php" ].forEach(function (f) {
+			code += "echo " + PHP.fn("var_export")(
+				PHP.fn("ltrim")(PHP.fn("shrink")(PHP.fn("file_get_contents")(f)).substring(5)),
+				true) + ", \"\\n\";\n";
+		});
+
+		code += "foreach (array_diff(get_declared_classes(), $classes) as $class) {" +
+			"$r = new ReflectionClass($class); echo ltrim(substr(shrink('<?php ' . implode(\"\\n\", array_slice($lines, " +
+			"$r->getStartLine() - 1, $r->getEndLine() - $r->getStartLine() + 1))), 6)) . \"\\n\"; }\n";
+
+		code += "$newFunctions = get_defined_functions(); $newFunctions = $newFunctions['user'];\n";
+		code += "foreach (array_diff($newFunctions, $functions) as $fn) {" +
+			"$r = new ReflectionFunction($fn); echo ltrim(substr(shrink('<?php ' . implode(\"\\n\", array_slice($lines, " +
+			"$r->getStartLine() - 1, $r->getEndLine() - $r->getStartLine() + 1))), 6)) . \"\\n\"; }\n";
+
+		code += "$r = new ReflectionClass('JS');\n" +
+			"echo 'foreach (unserialize(' . var_export(serialize($r->getStaticProperties()), TRUE)  . ') " +
+			"as $k => $v) {JS::$$k = $v;}', \"\\n\";\n";
+
+		PHP.fn("file_put_contents")(buildDir + "/mkimage.php", code);
+
+		run("php -l " + buildDir + "/mkimage.php");
+		run("php " + buildDir + "/mkimage.php > " + buildDir + "/newimage.php");
+		run("php -l " + buildDir + "/newimage.php");
+		run("mv " + buildDir + "/newimage.php " + buildDir + "/image.php");
+		run("rm " + buildDir + "/mkimage.php");
 	});
 
 task("build:binary", "build interpreter",

@@ -381,8 +381,8 @@ If a task produces files as a result, it can depend on other files:
 	shell:
 
 	$ ./util/jake build
-	compile /home/jakub/src/foo.js /home/jakub/build/foo.php
-	compile /home/jakub/src/bar.js /home/jakub/build/bar.php
+	[ compile /home/jakub/src/foo.js /home/jakub/build/foo.php ]
+	[ compile /home/jakub/src/bar.js /home/jakub/build/bar.php ]
 
 If a task proces files and has set result files, it is not run when the result files are
 newer (within the meaning of `filemtime()`) than the dependant.

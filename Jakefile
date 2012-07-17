@@ -47,6 +47,18 @@ task("build:image", "build image.php from src/image/*.js",
 			mains = "";
 
 		PHP.fn("glob")(srcDir + "/image/*.js").forEach(function (f) {
+			var fileCode = "", fileMain, buildFile = buildDir + "/" + PHP.fn("basename")(f, ".js");
+
+			if (PHP.fn("file_exists")(buildFile + ".php") &&
+				PHP.fn("filemtime")(buildFile + ".php") > PHP.fn("filemtime")(f))
+			{
+				code += PHP.fn("file_get_contents")(buildFile + ".php");
+				mains += PHP.fn("file_get_contents")(buildFile + ".main.php");
+				return;
+			}
+
+			puts("[ COMPILING " + f + " ]");
+
 			var ast = parse(PHP.fn("file_get_contents")(f), { file: "<image>/" + PHP.fn("basename")(f) });
 
 			if (!ast[0]) {
@@ -57,17 +69,21 @@ task("build:image", "build image.php from src/image/*.js",
 			var compiled = compile(ast[1], { force: true, generate: "object" });
 
 			for (var k in compiled.functions) {
-				code += compiled.functions[k] + "\n";
+				fileCode += compiled.functions[k] + "\n";
 
 				if (k !== compiled.main) {
-					code += "echo " + PHP.fn("var_export")(
+					fileCode += "echo " + PHP.fn("var_export")(
 						PHP.fn("shrink")("<?php " + compiled.functions[k]).substring(6),
 						true) +
 						", \"\\n\";\n";
 				}
 			}
 
-			mains += compiled.main + "($global, $global);\n";
+			code += fileCode;
+			mains += fileMain = compiled.main + "($global, $global);\n";
+
+			PHP.fn("file_put_contents")(buildFile + ".php", fileCode);
+			PHP.fn("file_put_contents")(buildFile + ".main.php", fileMain);
 		});
 
 		code += "$classes = get_declared_classes();\n" +

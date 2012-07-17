@@ -39,7 +39,7 @@ function result(file) {
 function run(cmd) {
 	var ret;
 	cmd = Array.prototype.join.call(arguments, " ");
-	puts(cmd);
+	puts("[ " + cmd + " ]");
 	@@ passthru(`cmd, `ret); @@
 
 	if (ret !== 0) {
@@ -166,5 +166,6 @@ function displayTasks(jakefilePath) {
 global.task = task;
 global.run = run;
 global.fail = fail;
+global.puts = puts;
 global.result = result;
 global.jake = { runTask: runTask, displayTasks: displayTasks };

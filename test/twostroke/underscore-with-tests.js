@@ -2163,8 +2163,6 @@ window = @@ $global @@;
   });
   
   test("utility: template", function() {
-	// skipped because with not implemented
-	/*
     var basicTemplate = _.template("<%= thing %> is gettin' on my noives!");
     var result = basicTemplate({thing : 'This'});
     equals(result, "This is gettin' on my noives!", 'can do basic attribute interpolation');
@@ -2244,7 +2242,6 @@ window = @@ $global @@;
 
     var mustache = _.template("Hello {{planet}}!");
     equals(mustache({planet : "World"}), "Hello World!", "can mimic mustache.js");
-	*/
   });
   
 

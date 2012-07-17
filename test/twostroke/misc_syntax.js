@@ -18,8 +18,6 @@ test("do while and continue", function() {
     assert(true);
 });
 
-// not implemented
-/*
 test("with", function() {
     var b = 0;
     var x = { a: 1 };
@@ -35,7 +33,6 @@ test("with", function() {
     assertEqual("undefined", typeof x.b);
     assertEqual(3, b);
 });
-*/
 
 test("default in switch", function() {
     switch(1) {
@@ -141,8 +138,7 @@ test("calling", function() {
 });
 
 test("delete", function() {	
-	window = @@ $scope @@;
-    window.x = 123;
+    global.x = 123;
     var y = { a:1, b:2, c:3 };
     var z = [1,2,3,4];
 
@@ -154,10 +150,9 @@ test("delete", function() {
     delete y.b;
     assertEqual("undefined", typeof y.b);
     
-	// not implemented
-    //assertEqual("number", typeof y.c);
-    //with(y) delete c;
-    //assertEqual("undefined", typeof y.c);
+    assertEqual("number", typeof y.c);
+    with(y) delete c;
+    assertEqual("undefined", typeof y.c);
 
     assert("1,2,3,4" == z);
     delete z[2];

@@ -142,8 +142,8 @@ String.prototype.match = function (regexp) {
 };
 
 String.prototype.replace = function (search, replace) {
-	if (typeof search === "string") {
-		search = new RegExp(@@ preg_quote(`search, '/') @@);
+	if (@@ !is_object(`search) || !isset(`search->class) || `search->class !== 'RegExp' @@) {
+		search = new RegExp(@@ preg_quote(JS::toString(`search, $global), '/') @@);
 	}
 
 	var match, index, lastIndex = 0,

@@ -163,7 +163,13 @@ while_statement
     -> array("while", $cond, $statement)
 
 for_in_statement
-  = "for" __ "(" __ lhs:left_hand_side_expr __ "in" !identifier_part __ in_expr:expr __ ")" __
+  = "for" __ "(" __ lhs:( ?{ $self->identifier_throw = FALSE; return TRUE; }
+                          l:left_hand_side_expr
+                          ?{ $self->identifier_throw = TRUE; return TRUE; }
+                          -> $l
+                        / ?{ $self->identifier_throw = TRUE; return FALSE; }
+                        )
+    __ "in" !identifier_part __ in_expr:expr __ ")" __
     statement:statement
 	-> array("for_in", $lhs, $in_expr, $statement)
   / "for" __ "(" __ "var" !identifier_part __ declarations:list(variable_declaration_no_in, __ "," __)
@@ -197,8 +203,8 @@ return_statement
     -> array("return", $expr)
 
 with_statement
-  = "with" __ "(" __ expr:expr __ ")" __ statement:statement
-    -> array("with", $expr, $statement)
+  = "with" __ p:^ "(" __ expr:expr __ ")" __ statement:statement
+    -> array("with", $expr, $statement, array(array('number', $p[0]), array('number', $p[1] - 4)), array('string', $self->file))
 
 labelled_statement
   = label:identifier __ ":" __ statement:statement

@@ -72,7 +72,7 @@ class JSParser {
         L25: $_stack[++$_stack_sp] = $_b;
         L26: $_stack[++$_stack_sp] = NULL;
         L27: $_stack[++$_stack_sp] = 29;
-        L28: goto L7003;
+        L28: goto L7033;
         L29: $_stack[$_stack_sp] = $_value;
         L30: if ($_fail) { goto L61; }
         L31: $_stack[++$_stack_sp] = $_p;
@@ -200,19 +200,19 @@ class JSParser {
         L153: $_env["pStart"] = $_value;
         L154: if ($_fail) { goto L261; }
         L155: $_stack[++$_stack_sp] = 157;
-        L156: goto L6901;
+        L156: goto L6931;
         L157: if ($_fail) { goto L261; }
         L158: $_stack[++$_stack_sp] = 160;
-        L159: goto L7337;
+        L159: goto L7367;
         L160: $_env["name"] = $_value;
         L161: if ($_fail) { goto L261; }
         L162: $_stack[++$_stack_sp] = 164;
-        L163: goto L7003;
+        L163: goto L7033;
         L164: if ($_fail) { goto L261; }
         L165: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
         L166: if ($_fail) { goto L261; }
         L167: $_stack[++$_stack_sp] = 169;
-        L168: goto L7003;
+        L168: goto L7033;
         L169: if ($_fail) { goto L261; }
         L170: $_stack[++$_stack_sp] = $_p;
         L171: $_stack[++$_stack_sp] = $_env;
@@ -223,7 +223,7 @@ class JSParser {
         L176: $_stack[++$_stack_sp] = $_env;
         L177: $_env = array();
         L178: $_stack[++$_stack_sp] = 180;
-        L179: goto L7337;
+        L179: goto L7367;
         L180: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L181: $_env["first"] = $_value;
         L182: $_stack[$_stack_sp] = $_value;
@@ -237,13 +237,13 @@ class JSParser {
         L190: $_env = array();
         L191: $_stack[++$_stack_sp] = NULL;
         L192: $_stack[++$_stack_sp] = 194;
-        L193: goto L7003;
+        L193: goto L7033;
         L194: $_stack[$_stack_sp] = $_value;
         L195: if ($_fail) { goto L200; }
         L196: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
         L197: if ($_fail) { goto L200; }
         L198: $_stack[++$_stack_sp] = 200;
-        L199: goto L7003;
+        L199: goto L7033;
         L200: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L201: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L202: $_stack[$_stack_sp] = $_value;
@@ -251,7 +251,7 @@ class JSParser {
         L204: $_stack[++$_stack_sp] = $_env;
         L205: $_env = array();
         L206: $_stack[++$_stack_sp] = 208;
-        L207: goto L7337;
+        L207: goto L7367;
         L208: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L209: $_env["next"] = $_value;
         L210: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -279,24 +279,24 @@ class JSParser {
         L232: $_env["parameters"] = $_value;
         L233: if ($_fail) { goto L261; }
         L234: $_stack[++$_stack_sp] = 236;
-        L235: goto L7003;
+        L235: goto L7033;
         L236: if ($_fail) { goto L261; }
         L237: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
         L238: if ($_fail) { goto L261; }
         L239: $_stack[++$_stack_sp] = 241;
-        L240: goto L7003;
+        L240: goto L7033;
         L241: if ($_fail) { goto L261; }
         L242: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "{") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"{"', $_expected)) { $_expected[] = '"{"'; } } }
         L243: if ($_fail) { goto L261; }
         L244: $_stack[++$_stack_sp] = 246;
-        L245: goto L7003;
+        L245: goto L7033;
         L246: if ($_fail) { goto L261; }
         L247: $_stack[++$_stack_sp] = 249;
         L248: goto L75;
         L249: $_env["body"] = $_value;
         L250: if ($_fail) { goto L261; }
         L251: $_stack[++$_stack_sp] = 253;
-        L252: goto L7003;
+        L252: goto L7033;
         L253: if ($_fail) { goto L261; }
         L254: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
         L255: if ($_fail) { goto L261; }
@@ -304,7 +304,7 @@ class JSParser {
         L257: $_env["pEnd"] = $_value;
         L258: if ($_fail) { goto L261; }
         L259: $_stack[++$_stack_sp] = 261;
-        L260: goto L7003;
+        L260: goto L7033;
         L261: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L262: if ($_fail) { goto L264; }
         L263: $_value = $this->_5($_env);
@@ -345,11 +345,11 @@ class JSParser {
         L298: $_stack[++$_stack_sp] = $_b;
         L299: $_stack[++$_stack_sp] = NULL;
         L300: $_stack[++$_stack_sp] = 302;
-        L301: goto L6901;
+        L301: goto L6931;
         L302: $_stack[$_stack_sp] = $_value;
         L303: if ($_fail) { goto L307; }
         L304: $_stack[++$_stack_sp] = 306;
-        L305: goto L7337;
+        L305: goto L7367;
         L306: $_env["i"] = $_value;
         L307: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L308: if ($_fail) { goto L310; }
@@ -363,12 +363,12 @@ class JSParser {
         L316: $_env["name"] = $_value;
         L317: if ($_fail) { goto L414; }
         L318: $_stack[++$_stack_sp] = 320;
-        L319: goto L7003;
+        L319: goto L7033;
         L320: if ($_fail) { goto L414; }
         L321: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
         L322: if ($_fail) { goto L414; }
         L323: $_stack[++$_stack_sp] = 325;
-        L324: goto L7003;
+        L324: goto L7033;
         L325: if ($_fail) { goto L414; }
         L326: $_stack[++$_stack_sp] = $_p;
         L327: $_stack[++$_stack_sp] = $_env;
@@ -379,7 +379,7 @@ class JSParser {
         L332: $_stack[++$_stack_sp] = $_env;
         L333: $_env = array();
         L334: $_stack[++$_stack_sp] = 336;
-        L335: goto L7337;
+        L335: goto L7367;
         L336: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L337: $_env["first"] = $_value;
         L338: $_stack[$_stack_sp] = $_value;
@@ -393,13 +393,13 @@ class JSParser {
         L346: $_env = array();
         L347: $_stack[++$_stack_sp] = NULL;
         L348: $_stack[++$_stack_sp] = 350;
-        L349: goto L7003;
+        L349: goto L7033;
         L350: $_stack[$_stack_sp] = $_value;
         L351: if ($_fail) { goto L356; }
         L352: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
         L353: if ($_fail) { goto L356; }
         L354: $_stack[++$_stack_sp] = 356;
-        L355: goto L7003;
+        L355: goto L7033;
         L356: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L357: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L358: $_stack[$_stack_sp] = $_value;
@@ -407,7 +407,7 @@ class JSParser {
         L360: $_stack[++$_stack_sp] = $_env;
         L361: $_env = array();
         L362: $_stack[++$_stack_sp] = 364;
-        L363: goto L7337;
+        L363: goto L7367;
         L364: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L365: $_env["next"] = $_value;
         L366: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -435,24 +435,24 @@ class JSParser {
         L388: $_env["parameters"] = $_value;
         L389: if ($_fail) { goto L414; }
         L390: $_stack[++$_stack_sp] = 392;
-        L391: goto L7003;
+        L391: goto L7033;
         L392: if ($_fail) { goto L414; }
         L393: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
         L394: if ($_fail) { goto L414; }
         L395: $_stack[++$_stack_sp] = 397;
-        L396: goto L7003;
+        L396: goto L7033;
         L397: if ($_fail) { goto L414; }
         L398: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "{") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"{"', $_expected)) { $_expected[] = '"{"'; } } }
         L399: if ($_fail) { goto L414; }
         L400: $_stack[++$_stack_sp] = 402;
-        L401: goto L7003;
+        L401: goto L7033;
         L402: if ($_fail) { goto L414; }
         L403: $_stack[++$_stack_sp] = 405;
         L404: goto L75;
         L405: $_env["body"] = $_value;
         L406: if ($_fail) { goto L414; }
         L407: $_stack[++$_stack_sp] = 409;
-        L408: goto L7003;
+        L408: goto L7033;
         L409: if ($_fail) { goto L414; }
         L410: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
         L411: if ($_fail) { goto L414; }
@@ -471,7 +471,7 @@ class JSParser {
         L424: $_b[2] = $_p;
         L425: $_cache[$_a] = $_b;
         L426: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L427: if ($_a !== 5724) return array(FALSE, NULL, 3); goto L5724;
+        L427: if ($_a !== 5754) return array(FALSE, NULL, 3); goto L5754;
         L428: $_stack[++$_stack_sp] = "4@";
         L429: $_stack[$_stack_sp] .= $_p;
         L430: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L437; }
@@ -491,7 +491,7 @@ class JSParser {
         L444: if (!$_fail) { goto L504; }
         L445: $_p = $_stack[$_stack_sp];
         L446: $_stack[++$_stack_sp] = 448;
-        L447: goto L2354;
+        L447: goto L2384;
         L448: if (!$_fail) { goto L504; }
         L449: $_p = $_stack[$_stack_sp];
         L450: $_stack[++$_stack_sp] = 452;
@@ -515,44 +515,44 @@ class JSParser {
         L468: if (!$_fail) { goto L504; }
         L469: $_p = $_stack[$_stack_sp];
         L470: $_stack[++$_stack_sp] = 472;
-        L471: goto L1608;
+        L471: goto L1635;
         L472: if (!$_fail) { goto L504; }
         L473: $_p = $_stack[$_stack_sp];
         L474: $_stack[++$_stack_sp] = 476;
-        L475: goto L1675;
+        L475: goto L1702;
         L476: if (!$_fail) { goto L504; }
         L477: $_p = $_stack[$_stack_sp];
         L478: $_stack[++$_stack_sp] = 480;
-        L479: goto L1742;
+        L479: goto L1769;
         L480: if (!$_fail) { goto L504; }
         L481: $_p = $_stack[$_stack_sp];
         L482: $_stack[++$_stack_sp] = 484;
-        L483: goto L1804;
+        L483: goto L1831;
         L484: if (!$_fail) { goto L504; }
         L485: $_p = $_stack[$_stack_sp];
         L486: $_stack[++$_stack_sp] = 488;
-        L487: goto L1859;
+        L487: goto L1889;
         L488: if (!$_fail) { goto L504; }
         L489: $_p = $_stack[$_stack_sp];
         L490: $_stack[++$_stack_sp] = 492;
-        L491: goto L1904;
+        L491: goto L1934;
         L492: if (!$_fail) { goto L504; }
         L493: $_p = $_stack[$_stack_sp];
         L494: $_stack[++$_stack_sp] = 496;
-        L495: goto L2131;
+        L495: goto L2161;
         L496: if (!$_fail) { goto L504; }
         L497: $_p = $_stack[$_stack_sp];
         L498: $_stack[++$_stack_sp] = 500;
-        L499: goto L2196;
+        L499: goto L2226;
         L500: if (!$_fail) { goto L504; }
         L501: $_p = $_stack[$_stack_sp];
         L502: $_stack[++$_stack_sp] = 504;
-        L503: goto L2322;
+        L503: goto L2352;
         L504: unset($_stack[$_stack_sp--]);
         L505: $_stack[$_stack_sp] = $_value;
         L506: if ($_fail) { goto L509; }
         L507: $_stack[++$_stack_sp] = 509;
-        L508: goto L7003;
+        L508: goto L7033;
         L509: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L510: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L511: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -563,7 +563,7 @@ class JSParser {
         L516: $_b[2] = $_p;
         L517: $_cache[$_a] = $_b;
         L518: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L519: if ($_a === 36) { goto L36; } else if ($_a === 100) { goto L100; } else if ($_a === 551) { goto L551; } else if ($_a === 571) { goto L571; } else if ($_a === 974) { goto L974; } else if ($_a === 991) { goto L991; } else if ($_a === 1084) { goto L1084; } else if ($_a === 1161) { goto L1161; } else if ($_a === 1236) { goto L1236; } else if ($_a === 1356) { goto L1356; } else if ($_a === 1455) { goto L1455; } else if ($_a === 1592) { goto L1592; } else if ($_a === 1844) { goto L1844; } else if ($_a === 1889) { goto L1889; } else if ($_a === 2054) { goto L2054; } else if ($_a === 2109) { goto L2109; } else { return array(FALSE, NULL, 4); }
+        L519: if ($_a === 36) { goto L36; } else if ($_a === 100) { goto L100; } else if ($_a === 551) { goto L551; } else if ($_a === 571) { goto L571; } else if ($_a === 974) { goto L974; } else if ($_a === 991) { goto L991; } else if ($_a === 1084) { goto L1084; } else if ($_a === 1161) { goto L1161; } else if ($_a === 1263) { goto L1263; } else if ($_a === 1383) { goto L1383; } else if ($_a === 1482) { goto L1482; } else if ($_a === 1619) { goto L1619; } else if ($_a === 1874) { goto L1874; } else if ($_a === 1919) { goto L1919; } else if ($_a === 2084) { goto L2084; } else if ($_a === 2139) { goto L2139; } else { return array(FALSE, NULL, 4); }
         L520: $_stack[++$_stack_sp] = "5@";
         L521: $_stack[$_stack_sp] .= $_p;
         L522: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L529; }
@@ -583,7 +583,7 @@ class JSParser {
         L536: $_stack[$_stack_sp] = $_value;
         L537: if ($_fail) { goto L601; }
         L538: $_stack[++$_stack_sp] = 540;
-        L539: goto L7003;
+        L539: goto L7033;
         L540: if ($_fail) { goto L601; }
         L541: $_stack[++$_stack_sp] = $_p;
         L542: $_stack[++$_stack_sp] = $_env;
@@ -607,7 +607,7 @@ class JSParser {
         L560: $_stack[++$_stack_sp] = $_env;
         L561: $_env = array();
         L562: $_stack[++$_stack_sp] = 564;
-        L563: goto L7003;
+        L563: goto L7033;
         L564: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L565: $_stack[$_stack_sp] = $_value;
         L566: if ($_fail) { goto L573; }
@@ -642,7 +642,7 @@ class JSParser {
         L595: $_env["statements"] = $_value;
         L596: if ($_fail) { goto L601; }
         L597: $_stack[++$_stack_sp] = 599;
-        L598: goto L7003;
+        L598: goto L7033;
         L599: if ($_fail) { goto L601; }
         L600: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
         L601: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -658,7 +658,7 @@ class JSParser {
         L611: $_b[2] = $_p;
         L612: $_cache[$_a] = $_b;
         L613: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L614: if ($_a === 444) { goto L444; } else if ($_a === 2220) { goto L2220; } else if ($_a === 2249) { goto L2249; } else if ($_a === 2266) { goto L2266; } else if ($_a === 2294) { goto L2294; } else if ($_a === 2306) { goto L2306; } else { return array(FALSE, NULL, 5); }
+        L614: if ($_a === 444) { goto L444; } else if ($_a === 2250) { goto L2250; } else if ($_a === 2279) { goto L2279; } else if ($_a === 2296) { goto L2296; } else if ($_a === 2324) { goto L2324; } else if ($_a === 2336) { goto L2336; } else { return array(FALSE, NULL, 5); }
         L615: $_stack[++$_stack_sp] = "6@";
         L616: $_stack[$_stack_sp] .= $_p;
         L617: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L624; }
@@ -678,7 +678,7 @@ class JSParser {
         L631: $_stack[$_stack_sp] = $_value;
         L632: if ($_fail) { goto L696; }
         L633: $_stack[++$_stack_sp] = 635;
-        L634: goto L6901;
+        L634: goto L6931;
         L635: if ($_fail) { goto L696; }
         L636: $_stack[++$_stack_sp] = $_env;
         L637: $_env = array();
@@ -702,13 +702,13 @@ class JSParser {
         L655: $_env = array();
         L656: $_stack[++$_stack_sp] = NULL;
         L657: $_stack[++$_stack_sp] = 659;
-        L658: goto L7003;
+        L658: goto L7033;
         L659: $_stack[$_stack_sp] = $_value;
         L660: if ($_fail) { goto L665; }
         L661: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
         L662: if ($_fail) { goto L665; }
         L663: $_stack[++$_stack_sp] = 665;
-        L664: goto L7003;
+        L664: goto L7033;
         L665: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L666: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L667: $_stack[$_stack_sp] = $_value;
@@ -739,7 +739,7 @@ class JSParser {
         L692: $_env["declarations"] = $_value;
         L693: if ($_fail) { goto L696; }
         L694: $_stack[++$_stack_sp] = 696;
-        L695: goto L7165;
+        L695: goto L7195;
         L696: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L697: if ($_fail) { goto L699; }
         L698: $_value = $this->_15($_env);
@@ -770,7 +770,7 @@ class JSParser {
         L723: $_stack[++$_stack_sp] = $_b;
         L724: $_stack[++$_stack_sp] = NULL;
         L725: $_stack[++$_stack_sp] = 727;
-        L726: goto L7337;
+        L726: goto L7367;
         L727: $_env["name"] = $_value;
         L728: $_stack[$_stack_sp] = $_value;
         L729: if ($_fail) { goto L765; }
@@ -780,7 +780,7 @@ class JSParser {
         L733: $_stack[++$_stack_sp] = $_b;
         L734: $_stack[++$_stack_sp] = NULL;
         L735: $_stack[++$_stack_sp] = 737;
-        L736: goto L7003;
+        L736: goto L7033;
         L737: $_stack[$_stack_sp] = $_value;
         L738: if ($_fail) { goto L753; }
         L739: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
@@ -792,10 +792,10 @@ class JSParser {
         L745: $_fail = !$_fail;
         L746: if ($_fail) { goto L753; }
         L747: $_stack[++$_stack_sp] = 749;
-        L748: goto L7003;
+        L748: goto L7033;
         L749: if ($_fail) { goto L753; }
         L750: $_stack[++$_stack_sp] = 752;
-        L751: goto L2559;
+        L751: goto L2589;
         L752: $_env["e"] = $_value;
         L753: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L754: if ($_fail) { goto L756; }
@@ -839,7 +839,7 @@ class JSParser {
         L792: $_stack[++$_stack_sp] = $_b;
         L793: $_stack[++$_stack_sp] = NULL;
         L794: $_stack[++$_stack_sp] = 796;
-        L795: goto L7337;
+        L795: goto L7367;
         L796: $_env["name"] = $_value;
         L797: $_stack[$_stack_sp] = $_value;
         L798: if ($_fail) { goto L834; }
@@ -849,7 +849,7 @@ class JSParser {
         L802: $_stack[++$_stack_sp] = $_b;
         L803: $_stack[++$_stack_sp] = NULL;
         L804: $_stack[++$_stack_sp] = 806;
-        L805: goto L7003;
+        L805: goto L7033;
         L806: $_stack[$_stack_sp] = $_value;
         L807: if ($_fail) { goto L822; }
         L808: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
@@ -861,10 +861,10 @@ class JSParser {
         L814: $_fail = !$_fail;
         L815: if ($_fail) { goto L822; }
         L816: $_stack[++$_stack_sp] = 818;
-        L817: goto L7003;
+        L817: goto L7033;
         L818: if ($_fail) { goto L822; }
         L819: $_stack[++$_stack_sp] = 821;
-        L820: goto L2652;
+        L820: goto L2682;
         L821: $_env["e"] = $_value;
         L822: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L823: if ($_fail) { goto L825; }
@@ -891,7 +891,7 @@ class JSParser {
         L844: $_b[2] = $_p;
         L845: $_cache[$_a] = $_b;
         L846: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L847: if ($_a === 1278) { goto L1278; } else if ($_a === 1306) { goto L1306; } else if ($_a === 1497) { goto L1497; } else if ($_a === 1525) { goto L1525; } else { return array(FALSE, NULL, 8); }
+        L847: if ($_a === 1305) { goto L1305; } else if ($_a === 1333) { goto L1333; } else if ($_a === 1524) { goto L1524; } else if ($_a === 1552) { goto L1552; } else { return array(FALSE, NULL, 8); }
         L848: $_stack[++$_stack_sp] = "9@";
         L849: $_stack[$_stack_sp] .= $_p;
         L850: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L857; }
@@ -946,7 +946,7 @@ class JSParser {
         L899: if ($_fail) { goto L907; }
         L900: $_stack[++$_stack_sp] = $_p;
         L901: $_stack[++$_stack_sp] = 903;
-        L902: goto L7431;
+        L902: goto L7461;
         L903: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L904: $_value = NULL;
         L905: $_fail = !$_fail;
@@ -958,12 +958,12 @@ class JSParser {
         L911: $_fail = !$_fail;
         L912: if ($_fail) { goto L920; }
         L913: $_stack[++$_stack_sp] = 915;
-        L914: goto L2391;
+        L914: goto L2421;
         L915: $_env["e"] = $_value;
         L916: $_stack[$_stack_sp] = $_value;
         L917: if ($_fail) { goto L920; }
         L918: $_stack[++$_stack_sp] = 920;
-        L919: goto L7165;
+        L919: goto L7195;
         L920: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L921: if ($_fail) { goto L923; }
         L922: $_value = $this->_23($_env);
@@ -997,24 +997,24 @@ class JSParser {
         L950: $_stack[$_stack_sp] = $_value;
         L951: if ($_fail) { goto L1002; }
         L952: $_stack[++$_stack_sp] = 954;
-        L953: goto L7003;
+        L953: goto L7033;
         L954: if ($_fail) { goto L1002; }
         L955: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
         L956: if ($_fail) { goto L1002; }
         L957: $_stack[++$_stack_sp] = 959;
-        L958: goto L7003;
+        L958: goto L7033;
         L959: if ($_fail) { goto L1002; }
         L960: $_stack[++$_stack_sp] = 962;
-        L961: goto L2391;
+        L961: goto L2421;
         L962: $_env["cond"] = $_value;
         L963: if ($_fail) { goto L1002; }
         L964: $_stack[++$_stack_sp] = 966;
-        L965: goto L7003;
+        L965: goto L7033;
         L966: if ($_fail) { goto L1002; }
         L967: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
         L968: if ($_fail) { goto L1002; }
         L969: $_stack[++$_stack_sp] = 971;
-        L970: goto L7003;
+        L970: goto L7033;
         L971: if ($_fail) { goto L1002; }
         L972: $_stack[++$_stack_sp] = 974;
         L973: goto L428;
@@ -1025,13 +1025,13 @@ class JSParser {
         L978: $_stack[++$_stack_sp] = $_b;
         L979: $_stack[++$_stack_sp] = NULL;
         L980: $_stack[++$_stack_sp] = 982;
-        L981: goto L7003;
+        L981: goto L7033;
         L982: $_stack[$_stack_sp] = $_value;
         L983: if ($_fail) { goto L992; }
         L984: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "else") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"else"', $_expected)) { $_expected[] = '"else"'; } } }
         L985: if ($_fail) { goto L992; }
         L986: $_stack[++$_stack_sp] = 988;
-        L987: goto L7003;
+        L987: goto L7033;
         L988: if ($_fail) { goto L992; }
         L989: $_stack[++$_stack_sp] = 991;
         L990: goto L428;
@@ -1086,7 +1086,7 @@ class JSParser {
         L1039: if (!$_fail) { goto L1043; }
         L1040: $_p = $_stack[$_stack_sp];
         L1041: $_stack[++$_stack_sp] = 1043;
-        L1042: goto L1372;
+        L1042: goto L1399;
         L1043: unset($_stack[$_stack_sp--]);
         L1044: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L1045: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -1118,37 +1118,37 @@ class JSParser {
         L1071: if ($_fail) { goto L1107; }
         L1072: $_stack[++$_stack_sp] = $_p;
         L1073: $_stack[++$_stack_sp] = 1075;
-        L1074: goto L7431;
+        L1074: goto L7461;
         L1075: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L1076: $_value = NULL;
         L1077: $_fail = !$_fail;
         L1078: if ($_fail) { goto L1107; }
         L1079: $_stack[++$_stack_sp] = 1081;
-        L1080: goto L7003;
+        L1080: goto L7033;
         L1081: if ($_fail) { goto L1107; }
         L1082: $_stack[++$_stack_sp] = 1084;
         L1083: goto L428;
         L1084: $_env["statement"] = $_value;
         L1085: if ($_fail) { goto L1107; }
         L1086: $_stack[++$_stack_sp] = 1088;
-        L1087: goto L7003;
+        L1087: goto L7033;
         L1088: if ($_fail) { goto L1107; }
         L1089: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "while") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"while"', $_expected)) { $_expected[] = '"while"'; } } }
         L1090: if ($_fail) { goto L1107; }
         L1091: $_stack[++$_stack_sp] = 1093;
-        L1092: goto L7003;
+        L1092: goto L7033;
         L1093: if ($_fail) { goto L1107; }
         L1094: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
         L1095: if ($_fail) { goto L1107; }
         L1096: $_stack[++$_stack_sp] = 1098;
-        L1097: goto L7003;
+        L1097: goto L7033;
         L1098: if ($_fail) { goto L1107; }
         L1099: $_stack[++$_stack_sp] = 1101;
-        L1100: goto L2391;
+        L1100: goto L2421;
         L1101: $_env["cond"] = $_value;
         L1102: if ($_fail) { goto L1107; }
         L1103: $_stack[++$_stack_sp] = 1105;
-        L1104: goto L7003;
+        L1104: goto L7033;
         L1105: if ($_fail) { goto L1107; }
         L1106: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
         L1107: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -1184,24 +1184,24 @@ class JSParser {
         L1137: $_stack[$_stack_sp] = $_value;
         L1138: if ($_fail) { goto L1162; }
         L1139: $_stack[++$_stack_sp] = 1141;
-        L1140: goto L7003;
+        L1140: goto L7033;
         L1141: if ($_fail) { goto L1162; }
         L1142: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
         L1143: if ($_fail) { goto L1162; }
         L1144: $_stack[++$_stack_sp] = 1146;
-        L1145: goto L7003;
+        L1145: goto L7033;
         L1146: if ($_fail) { goto L1162; }
         L1147: $_stack[++$_stack_sp] = 1149;
-        L1148: goto L2391;
+        L1148: goto L2421;
         L1149: $_env["cond"] = $_value;
         L1150: if ($_fail) { goto L1162; }
         L1151: $_stack[++$_stack_sp] = 1153;
-        L1152: goto L7003;
+        L1152: goto L7033;
         L1153: if ($_fail) { goto L1162; }
         L1154: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
         L1155: if ($_fail) { goto L1162; }
         L1156: $_stack[++$_stack_sp] = 1158;
-        L1157: goto L7003;
+        L1157: goto L7033;
         L1158: if ($_fail) { goto L1162; }
         L1159: $_stack[++$_stack_sp] = 1161;
         L1160: goto L428;
@@ -1228,7 +1228,7 @@ class JSParser {
         L1181: $_fail = $_b[0];
         L1182: $_value = $_b[1];
         L1183: $_p = $_b[2];
-        L1184: goto L1370;
+        L1184: goto L1397;
         L1185: $_stack[++$_stack_sp] = $_env;
         L1186: $_env = array();
         L1187: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
@@ -1238,4076 +1238,4076 @@ class JSParser {
         L1191: $_stack[++$_stack_sp] = NULL;
         L1192: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
         L1193: $_stack[$_stack_sp] = $_value;
-        L1194: if ($_fail) { goto L1237; }
+        L1194: if ($_fail) { goto L1264; }
         L1195: $_stack[++$_stack_sp] = 1197;
-        L1196: goto L7003;
-        L1197: if ($_fail) { goto L1237; }
+        L1196: goto L7033;
+        L1197: if ($_fail) { goto L1264; }
         L1198: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L1199: if ($_fail) { goto L1237; }
+        L1199: if ($_fail) { goto L1264; }
         L1200: $_stack[++$_stack_sp] = 1202;
-        L1201: goto L7003;
-        L1202: if ($_fail) { goto L1237; }
-        L1203: $_stack[++$_stack_sp] = 1205;
-        L1204: goto L5245;
-        L1205: $_env["lhs"] = $_value;
-        L1206: if ($_fail) { goto L1237; }
-        L1207: $_stack[++$_stack_sp] = 1209;
-        L1208: goto L7003;
-        L1209: if ($_fail) { goto L1237; }
-        L1210: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "in") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"in"', $_expected)) { $_expected[] = '"in"'; } } }
-        L1211: if ($_fail) { goto L1237; }
-        L1212: $_stack[++$_stack_sp] = $_p;
-        L1213: $_stack[++$_stack_sp] = 1215;
-        L1214: goto L7431;
-        L1215: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1216: $_value = NULL;
-        L1217: $_fail = !$_fail;
-        L1218: if ($_fail) { goto L1237; }
-        L1219: $_stack[++$_stack_sp] = 1221;
-        L1220: goto L7003;
-        L1221: if ($_fail) { goto L1237; }
-        L1222: $_stack[++$_stack_sp] = 1224;
-        L1223: goto L2391;
-        L1224: $_env["in_expr"] = $_value;
-        L1225: if ($_fail) { goto L1237; }
-        L1226: $_stack[++$_stack_sp] = 1228;
-        L1227: goto L7003;
-        L1228: if ($_fail) { goto L1237; }
-        L1229: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L1230: if ($_fail) { goto L1237; }
-        L1231: $_stack[++$_stack_sp] = 1233;
-        L1232: goto L7003;
-        L1233: if ($_fail) { goto L1237; }
+        L1201: goto L7033;
+        L1202: if ($_fail) { goto L1264; }
+        L1203: $_stack[++$_stack_sp] = $_p;
+        L1204: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1205: $_stack[++$_stack_sp] = $_b;
+        L1206: $_stack[++$_stack_sp] = NULL;
+        L1207: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L1208: $_value = $this->_30($_env);
+        L1209: $_fail = !$_value;
+        L1210: $_value = NULL;
+        L1211: if ($_fail) { goto L1221; }
+        L1212: $_stack[++$_stack_sp] = 1214;
+        L1213: goto L5275;
+        L1214: $_env["l"] = $_value;
+        L1215: $_stack[$_stack_sp] = $_value;
+        L1216: if ($_fail) { goto L1221; }
+        L1217: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L1218: $_value = $this->_31($_env);
+        L1219: $_fail = !$_value;
+        L1220: $_value = NULL;
+        L1221: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1222: if ($_fail) { goto L1224; }
+        L1223: $_value = $this->_29($_env);
+        L1224: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1225: if (!$_fail) { goto L1231; }
+        L1226: $_p = $_stack[$_stack_sp];
+        L1227: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L1228: $_value = $this->_32($_env);
+        L1229: $_fail = !$_value;
+        L1230: $_value = NULL;
+        L1231: unset($_stack[$_stack_sp--]);
+        L1232: $_env["lhs"] = $_value;
+        L1233: if ($_fail) { goto L1264; }
         L1234: $_stack[++$_stack_sp] = 1236;
-        L1235: goto L428;
-        L1236: $_env["statement"] = $_value;
-        L1237: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1238: if ($_fail) { goto L1240; }
-        L1239: $_value = $this->_28($_env);
-        L1240: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1241: if (!$_fail) { goto L1361; }
-        L1242: $_p = $_stack[$_stack_sp];
-        L1243: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1244: $_stack[++$_stack_sp] = $_b;
-        L1245: $_stack[++$_stack_sp] = NULL;
-        L1246: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
-        L1247: $_stack[$_stack_sp] = $_value;
-        L1248: if ($_fail) { goto L1357; }
+        L1235: goto L7033;
+        L1236: if ($_fail) { goto L1264; }
+        L1237: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "in") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"in"', $_expected)) { $_expected[] = '"in"'; } } }
+        L1238: if ($_fail) { goto L1264; }
+        L1239: $_stack[++$_stack_sp] = $_p;
+        L1240: $_stack[++$_stack_sp] = 1242;
+        L1241: goto L7461;
+        L1242: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1243: $_value = NULL;
+        L1244: $_fail = !$_fail;
+        L1245: if ($_fail) { goto L1264; }
+        L1246: $_stack[++$_stack_sp] = 1248;
+        L1247: goto L7033;
+        L1248: if ($_fail) { goto L1264; }
         L1249: $_stack[++$_stack_sp] = 1251;
-        L1250: goto L7003;
-        L1251: if ($_fail) { goto L1357; }
-        L1252: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L1253: if ($_fail) { goto L1357; }
-        L1254: $_stack[++$_stack_sp] = 1256;
-        L1255: goto L7003;
-        L1256: if ($_fail) { goto L1357; }
-        L1257: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "var") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"var"', $_expected)) { $_expected[] = '"var"'; } } }
-        L1258: if ($_fail) { goto L1357; }
-        L1259: $_stack[++$_stack_sp] = $_p;
-        L1260: $_stack[++$_stack_sp] = 1262;
-        L1261: goto L7431;
-        L1262: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1263: $_value = NULL;
-        L1264: $_fail = !$_fail;
-        L1265: if ($_fail) { goto L1357; }
-        L1266: $_stack[++$_stack_sp] = 1268;
-        L1267: goto L7003;
-        L1268: if ($_fail) { goto L1357; }
-        L1269: $_stack[++$_stack_sp] = $_env;
-        L1270: $_env = array();
-        L1271: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1272: $_stack[++$_stack_sp] = $_b;
-        L1273: $_stack[++$_stack_sp] = NULL;
-        L1274: $_stack[++$_stack_sp] = $_env;
-        L1275: $_env = array();
+        L1250: goto L2421;
+        L1251: $_env["in_expr"] = $_value;
+        L1252: if ($_fail) { goto L1264; }
+        L1253: $_stack[++$_stack_sp] = 1255;
+        L1254: goto L7033;
+        L1255: if ($_fail) { goto L1264; }
+        L1256: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L1257: if ($_fail) { goto L1264; }
+        L1258: $_stack[++$_stack_sp] = 1260;
+        L1259: goto L7033;
+        L1260: if ($_fail) { goto L1264; }
+        L1261: $_stack[++$_stack_sp] = 1263;
+        L1262: goto L428;
+        L1263: $_env["statement"] = $_value;
+        L1264: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1265: if ($_fail) { goto L1267; }
+        L1266: $_value = $this->_28($_env);
+        L1267: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1268: if (!$_fail) { goto L1388; }
+        L1269: $_p = $_stack[$_stack_sp];
+        L1270: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1271: $_stack[++$_stack_sp] = $_b;
+        L1272: $_stack[++$_stack_sp] = NULL;
+        L1273: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
+        L1274: $_stack[$_stack_sp] = $_value;
+        L1275: if ($_fail) { goto L1384; }
         L1276: $_stack[++$_stack_sp] = 1278;
-        L1277: goto L779;
-        L1278: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1279: $_env["first"] = $_value;
-        L1280: $_stack[$_stack_sp] = $_value;
-        L1281: if ($_fail) { goto L1320; }
-        L1282: $_stack[++$_stack_sp] = $_p;
-        L1283: $_stack[++$_stack_sp] = array();
-        L1284: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1285: $_stack[++$_stack_sp] = $_b;
-        L1286: $_stack[++$_stack_sp] = NULL;
-        L1287: $_stack[++$_stack_sp] = $_env;
-        L1288: $_env = array();
-        L1289: $_stack[++$_stack_sp] = NULL;
-        L1290: $_stack[++$_stack_sp] = 1292;
-        L1291: goto L7003;
-        L1292: $_stack[$_stack_sp] = $_value;
-        L1293: if ($_fail) { goto L1298; }
-        L1294: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L1295: if ($_fail) { goto L1298; }
-        L1296: $_stack[++$_stack_sp] = 1298;
-        L1297: goto L7003;
-        L1298: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1299: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1300: $_stack[$_stack_sp] = $_value;
-        L1301: if ($_fail) { goto L1308; }
-        L1302: $_stack[++$_stack_sp] = $_env;
-        L1303: $_env = array();
-        L1304: $_stack[++$_stack_sp] = 1306;
-        L1305: goto L779;
-        L1306: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1307: $_env["next"] = $_value;
-        L1308: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1309: if ($_fail) { goto L1311; }
-        L1310: $_value = $this->_31($_env);
-        L1311: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1312: if ($_fail) { goto L1316; }
-        L1313: $_stack[$_stack_sp][] = $_value;
-        L1314: $_stack[$_stack_sp - 1] = $_p;
-        L1315: goto L1284;
-        L1316: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1317: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1318: $_fail = false;
-        L1319: $_env["rest"] = $_value;
-        L1320: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1321: if ($_fail) { goto L1323; }
-        L1322: $_value = $this->_30($_env);
-        L1323: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1324: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1325: $_env["declarations"] = $_value;
-        L1326: if ($_fail) { goto L1357; }
-        L1327: $_stack[++$_stack_sp] = 1329;
-        L1328: goto L7003;
-        L1329: if ($_fail) { goto L1357; }
-        L1330: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "in") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"in"', $_expected)) { $_expected[] = '"in"'; } } }
-        L1331: if ($_fail) { goto L1357; }
-        L1332: $_stack[++$_stack_sp] = $_p;
-        L1333: $_stack[++$_stack_sp] = 1335;
-        L1334: goto L7431;
-        L1335: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1336: $_value = NULL;
-        L1337: $_fail = !$_fail;
-        L1338: if ($_fail) { goto L1357; }
-        L1339: $_stack[++$_stack_sp] = 1341;
-        L1340: goto L7003;
-        L1341: if ($_fail) { goto L1357; }
-        L1342: $_stack[++$_stack_sp] = 1344;
-        L1343: goto L2391;
-        L1344: $_env["in_expr"] = $_value;
-        L1345: if ($_fail) { goto L1357; }
-        L1346: $_stack[++$_stack_sp] = 1348;
-        L1347: goto L7003;
-        L1348: if ($_fail) { goto L1357; }
-        L1349: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L1350: if ($_fail) { goto L1357; }
-        L1351: $_stack[++$_stack_sp] = 1353;
-        L1352: goto L7003;
-        L1353: if ($_fail) { goto L1357; }
+        L1277: goto L7033;
+        L1278: if ($_fail) { goto L1384; }
+        L1279: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L1280: if ($_fail) { goto L1384; }
+        L1281: $_stack[++$_stack_sp] = 1283;
+        L1282: goto L7033;
+        L1283: if ($_fail) { goto L1384; }
+        L1284: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "var") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"var"', $_expected)) { $_expected[] = '"var"'; } } }
+        L1285: if ($_fail) { goto L1384; }
+        L1286: $_stack[++$_stack_sp] = $_p;
+        L1287: $_stack[++$_stack_sp] = 1289;
+        L1288: goto L7461;
+        L1289: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1290: $_value = NULL;
+        L1291: $_fail = !$_fail;
+        L1292: if ($_fail) { goto L1384; }
+        L1293: $_stack[++$_stack_sp] = 1295;
+        L1294: goto L7033;
+        L1295: if ($_fail) { goto L1384; }
+        L1296: $_stack[++$_stack_sp] = $_env;
+        L1297: $_env = array();
+        L1298: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1299: $_stack[++$_stack_sp] = $_b;
+        L1300: $_stack[++$_stack_sp] = NULL;
+        L1301: $_stack[++$_stack_sp] = $_env;
+        L1302: $_env = array();
+        L1303: $_stack[++$_stack_sp] = 1305;
+        L1304: goto L779;
+        L1305: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1306: $_env["first"] = $_value;
+        L1307: $_stack[$_stack_sp] = $_value;
+        L1308: if ($_fail) { goto L1347; }
+        L1309: $_stack[++$_stack_sp] = $_p;
+        L1310: $_stack[++$_stack_sp] = array();
+        L1311: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1312: $_stack[++$_stack_sp] = $_b;
+        L1313: $_stack[++$_stack_sp] = NULL;
+        L1314: $_stack[++$_stack_sp] = $_env;
+        L1315: $_env = array();
+        L1316: $_stack[++$_stack_sp] = NULL;
+        L1317: $_stack[++$_stack_sp] = 1319;
+        L1318: goto L7033;
+        L1319: $_stack[$_stack_sp] = $_value;
+        L1320: if ($_fail) { goto L1325; }
+        L1321: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L1322: if ($_fail) { goto L1325; }
+        L1323: $_stack[++$_stack_sp] = 1325;
+        L1324: goto L7033;
+        L1325: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1326: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1327: $_stack[$_stack_sp] = $_value;
+        L1328: if ($_fail) { goto L1335; }
+        L1329: $_stack[++$_stack_sp] = $_env;
+        L1330: $_env = array();
+        L1331: $_stack[++$_stack_sp] = 1333;
+        L1332: goto L779;
+        L1333: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1334: $_env["next"] = $_value;
+        L1335: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1336: if ($_fail) { goto L1338; }
+        L1337: $_value = $this->_35($_env);
+        L1338: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1339: if ($_fail) { goto L1343; }
+        L1340: $_stack[$_stack_sp][] = $_value;
+        L1341: $_stack[$_stack_sp - 1] = $_p;
+        L1342: goto L1311;
+        L1343: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1344: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1345: $_fail = false;
+        L1346: $_env["rest"] = $_value;
+        L1347: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1348: if ($_fail) { goto L1350; }
+        L1349: $_value = $this->_34($_env);
+        L1350: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1351: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1352: $_env["declarations"] = $_value;
+        L1353: if ($_fail) { goto L1384; }
         L1354: $_stack[++$_stack_sp] = 1356;
-        L1355: goto L428;
-        L1356: $_env["statement"] = $_value;
-        L1357: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1358: if ($_fail) { goto L1360; }
-        L1359: $_value = $this->_29($_env);
-        L1360: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1361: unset($_stack[$_stack_sp--]);
-        L1362: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1363: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1364: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1365: $_b = array();
-        L1366: $_b[0] = $_fail;
-        L1367: $_b[1] = $_value;
-        L1368: $_b[2] = $_p;
-        L1369: $_cache[$_a] = $_b;
-        L1370: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1371: if ($_a !== 1039) return array(FALSE, NULL, 15); goto L1039;
-        L1372: $_stack[++$_stack_sp] = "16@";
-        L1373: $_stack[$_stack_sp] .= $_p;
-        L1374: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1381; }
-        L1375: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1376: $_b = $_cache[$_a];
-        L1377: $_fail = $_b[0];
-        L1378: $_value = $_b[1];
-        L1379: $_p = $_b[2];
-        L1380: goto L1606;
-        L1381: $_stack[++$_stack_sp] = $_env;
-        L1382: $_env = array();
-        L1383: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1384: $_stack[++$_stack_sp] = $_p;
-        L1385: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1386: $_stack[++$_stack_sp] = $_b;
-        L1387: $_stack[++$_stack_sp] = NULL;
-        L1388: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
-        L1389: $_stack[$_stack_sp] = $_value;
-        L1390: if ($_fail) { goto L1456; }
-        L1391: $_stack[++$_stack_sp] = 1393;
-        L1392: goto L7003;
-        L1393: if ($_fail) { goto L1456; }
-        L1394: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L1395: if ($_fail) { goto L1456; }
-        L1396: $_stack[++$_stack_sp] = 1398;
-        L1397: goto L7003;
-        L1398: if ($_fail) { goto L1456; }
-        L1399: $_stack[++$_stack_sp] = $_p;
-        L1400: $_stack[++$_stack_sp] = 1402;
-        L1401: goto L2475;
+        L1355: goto L7033;
+        L1356: if ($_fail) { goto L1384; }
+        L1357: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "in") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"in"', $_expected)) { $_expected[] = '"in"'; } } }
+        L1358: if ($_fail) { goto L1384; }
+        L1359: $_stack[++$_stack_sp] = $_p;
+        L1360: $_stack[++$_stack_sp] = 1362;
+        L1361: goto L7461;
+        L1362: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1363: $_value = NULL;
+        L1364: $_fail = !$_fail;
+        L1365: if ($_fail) { goto L1384; }
+        L1366: $_stack[++$_stack_sp] = 1368;
+        L1367: goto L7033;
+        L1368: if ($_fail) { goto L1384; }
+        L1369: $_stack[++$_stack_sp] = 1371;
+        L1370: goto L2421;
+        L1371: $_env["in_expr"] = $_value;
+        L1372: if ($_fail) { goto L1384; }
+        L1373: $_stack[++$_stack_sp] = 1375;
+        L1374: goto L7033;
+        L1375: if ($_fail) { goto L1384; }
+        L1376: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L1377: if ($_fail) { goto L1384; }
+        L1378: $_stack[++$_stack_sp] = 1380;
+        L1379: goto L7033;
+        L1380: if ($_fail) { goto L1384; }
+        L1381: $_stack[++$_stack_sp] = 1383;
+        L1382: goto L428;
+        L1383: $_env["statement"] = $_value;
+        L1384: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1385: if ($_fail) { goto L1387; }
+        L1386: $_value = $this->_33($_env);
+        L1387: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1388: unset($_stack[$_stack_sp--]);
+        L1389: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1390: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1391: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1392: $_b = array();
+        L1393: $_b[0] = $_fail;
+        L1394: $_b[1] = $_value;
+        L1395: $_b[2] = $_p;
+        L1396: $_cache[$_a] = $_b;
+        L1397: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1398: if ($_a !== 1039) return array(FALSE, NULL, 15); goto L1039;
+        L1399: $_stack[++$_stack_sp] = "16@";
+        L1400: $_stack[$_stack_sp] .= $_p;
+        L1401: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1408; }
         L1402: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1403: if (!$_fail) { goto L1407; }
-        L1404: $_fail = false;
-        L1405: $_value = NULL;
-        L1406: $_p = $_a;
-        L1407: $_env["init"] = $_value;
-        L1408: if ($_fail) { goto L1456; }
-        L1409: $_stack[++$_stack_sp] = 1411;
-        L1410: goto L7003;
-        L1411: if ($_fail) { goto L1456; }
-        L1412: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
-        L1413: if ($_fail) { goto L1456; }
-        L1414: $_stack[++$_stack_sp] = 1416;
-        L1415: goto L7003;
-        L1416: if ($_fail) { goto L1456; }
-        L1417: $_stack[++$_stack_sp] = $_p;
+        L1403: $_b = $_cache[$_a];
+        L1404: $_fail = $_b[0];
+        L1405: $_value = $_b[1];
+        L1406: $_p = $_b[2];
+        L1407: goto L1633;
+        L1408: $_stack[++$_stack_sp] = $_env;
+        L1409: $_env = array();
+        L1410: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1411: $_stack[++$_stack_sp] = $_p;
+        L1412: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1413: $_stack[++$_stack_sp] = $_b;
+        L1414: $_stack[++$_stack_sp] = NULL;
+        L1415: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
+        L1416: $_stack[$_stack_sp] = $_value;
+        L1417: if ($_fail) { goto L1483; }
         L1418: $_stack[++$_stack_sp] = 1420;
-        L1419: goto L2391;
-        L1420: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1421: if (!$_fail) { goto L1425; }
-        L1422: $_fail = false;
-        L1423: $_value = NULL;
-        L1424: $_p = $_a;
-        L1425: $_env["cond"] = $_value;
-        L1426: if ($_fail) { goto L1456; }
+        L1419: goto L7033;
+        L1420: if ($_fail) { goto L1483; }
+        L1421: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L1422: if ($_fail) { goto L1483; }
+        L1423: $_stack[++$_stack_sp] = 1425;
+        L1424: goto L7033;
+        L1425: if ($_fail) { goto L1483; }
+        L1426: $_stack[++$_stack_sp] = $_p;
         L1427: $_stack[++$_stack_sp] = 1429;
-        L1428: goto L7003;
-        L1429: if ($_fail) { goto L1456; }
-        L1430: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
-        L1431: if ($_fail) { goto L1456; }
-        L1432: $_stack[++$_stack_sp] = 1434;
-        L1433: goto L7003;
-        L1434: if ($_fail) { goto L1456; }
-        L1435: $_stack[++$_stack_sp] = $_p;
+        L1428: goto L2505;
+        L1429: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1430: if (!$_fail) { goto L1434; }
+        L1431: $_fail = false;
+        L1432: $_value = NULL;
+        L1433: $_p = $_a;
+        L1434: $_env["init"] = $_value;
+        L1435: if ($_fail) { goto L1483; }
         L1436: $_stack[++$_stack_sp] = 1438;
-        L1437: goto L2391;
-        L1438: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1439: if (!$_fail) { goto L1443; }
-        L1440: $_fail = false;
-        L1441: $_value = NULL;
-        L1442: $_p = $_a;
-        L1443: $_env["iter"] = $_value;
-        L1444: if ($_fail) { goto L1456; }
+        L1437: goto L7033;
+        L1438: if ($_fail) { goto L1483; }
+        L1439: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
+        L1440: if ($_fail) { goto L1483; }
+        L1441: $_stack[++$_stack_sp] = 1443;
+        L1442: goto L7033;
+        L1443: if ($_fail) { goto L1483; }
+        L1444: $_stack[++$_stack_sp] = $_p;
         L1445: $_stack[++$_stack_sp] = 1447;
-        L1446: goto L7003;
-        L1447: if ($_fail) { goto L1456; }
-        L1448: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L1449: if ($_fail) { goto L1456; }
-        L1450: $_stack[++$_stack_sp] = 1452;
-        L1451: goto L7003;
-        L1452: if ($_fail) { goto L1456; }
-        L1453: $_stack[++$_stack_sp] = 1455;
-        L1454: goto L428;
-        L1455: $_env["statement"] = $_value;
-        L1456: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1457: if ($_fail) { goto L1459; }
-        L1458: $_value = $this->_32($_env);
-        L1459: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1460: if (!$_fail) { goto L1597; }
-        L1461: $_p = $_stack[$_stack_sp];
-        L1462: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1463: $_stack[++$_stack_sp] = $_b;
-        L1464: $_stack[++$_stack_sp] = NULL;
-        L1465: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
-        L1466: $_stack[$_stack_sp] = $_value;
-        L1467: if ($_fail) { goto L1593; }
-        L1468: $_stack[++$_stack_sp] = 1470;
-        L1469: goto L7003;
-        L1470: if ($_fail) { goto L1593; }
-        L1471: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L1472: if ($_fail) { goto L1593; }
-        L1473: $_stack[++$_stack_sp] = 1475;
-        L1474: goto L7003;
-        L1475: if ($_fail) { goto L1593; }
-        L1476: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "var") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"var"', $_expected)) { $_expected[] = '"var"'; } } }
-        L1477: if ($_fail) { goto L1593; }
-        L1478: $_stack[++$_stack_sp] = $_p;
-        L1479: $_stack[++$_stack_sp] = 1481;
-        L1480: goto L7431;
-        L1481: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1482: $_value = NULL;
-        L1483: $_fail = !$_fail;
-        L1484: if ($_fail) { goto L1593; }
-        L1485: $_stack[++$_stack_sp] = 1487;
-        L1486: goto L7003;
-        L1487: if ($_fail) { goto L1593; }
-        L1488: $_stack[++$_stack_sp] = $_env;
-        L1489: $_env = array();
-        L1490: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1491: $_stack[++$_stack_sp] = $_b;
-        L1492: $_stack[++$_stack_sp] = NULL;
-        L1493: $_stack[++$_stack_sp] = $_env;
-        L1494: $_env = array();
+        L1446: goto L2421;
+        L1447: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1448: if (!$_fail) { goto L1452; }
+        L1449: $_fail = false;
+        L1450: $_value = NULL;
+        L1451: $_p = $_a;
+        L1452: $_env["cond"] = $_value;
+        L1453: if ($_fail) { goto L1483; }
+        L1454: $_stack[++$_stack_sp] = 1456;
+        L1455: goto L7033;
+        L1456: if ($_fail) { goto L1483; }
+        L1457: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
+        L1458: if ($_fail) { goto L1483; }
+        L1459: $_stack[++$_stack_sp] = 1461;
+        L1460: goto L7033;
+        L1461: if ($_fail) { goto L1483; }
+        L1462: $_stack[++$_stack_sp] = $_p;
+        L1463: $_stack[++$_stack_sp] = 1465;
+        L1464: goto L2421;
+        L1465: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1466: if (!$_fail) { goto L1470; }
+        L1467: $_fail = false;
+        L1468: $_value = NULL;
+        L1469: $_p = $_a;
+        L1470: $_env["iter"] = $_value;
+        L1471: if ($_fail) { goto L1483; }
+        L1472: $_stack[++$_stack_sp] = 1474;
+        L1473: goto L7033;
+        L1474: if ($_fail) { goto L1483; }
+        L1475: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L1476: if ($_fail) { goto L1483; }
+        L1477: $_stack[++$_stack_sp] = 1479;
+        L1478: goto L7033;
+        L1479: if ($_fail) { goto L1483; }
+        L1480: $_stack[++$_stack_sp] = 1482;
+        L1481: goto L428;
+        L1482: $_env["statement"] = $_value;
+        L1483: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1484: if ($_fail) { goto L1486; }
+        L1485: $_value = $this->_36($_env);
+        L1486: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1487: if (!$_fail) { goto L1624; }
+        L1488: $_p = $_stack[$_stack_sp];
+        L1489: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1490: $_stack[++$_stack_sp] = $_b;
+        L1491: $_stack[++$_stack_sp] = NULL;
+        L1492: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "for") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"for"', $_expected)) { $_expected[] = '"for"'; } } }
+        L1493: $_stack[$_stack_sp] = $_value;
+        L1494: if ($_fail) { goto L1620; }
         L1495: $_stack[++$_stack_sp] = 1497;
-        L1496: goto L779;
-        L1497: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1498: $_env["first"] = $_value;
-        L1499: $_stack[$_stack_sp] = $_value;
-        L1500: if ($_fail) { goto L1539; }
-        L1501: $_stack[++$_stack_sp] = $_p;
-        L1502: $_stack[++$_stack_sp] = array();
-        L1503: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1504: $_stack[++$_stack_sp] = $_b;
-        L1505: $_stack[++$_stack_sp] = NULL;
-        L1506: $_stack[++$_stack_sp] = $_env;
-        L1507: $_env = array();
-        L1508: $_stack[++$_stack_sp] = NULL;
-        L1509: $_stack[++$_stack_sp] = 1511;
-        L1510: goto L7003;
-        L1511: $_stack[$_stack_sp] = $_value;
-        L1512: if ($_fail) { goto L1517; }
-        L1513: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L1514: if ($_fail) { goto L1517; }
-        L1515: $_stack[++$_stack_sp] = 1517;
-        L1516: goto L7003;
-        L1517: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1518: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1519: $_stack[$_stack_sp] = $_value;
-        L1520: if ($_fail) { goto L1527; }
-        L1521: $_stack[++$_stack_sp] = $_env;
-        L1522: $_env = array();
-        L1523: $_stack[++$_stack_sp] = 1525;
-        L1524: goto L779;
-        L1525: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1526: $_env["next"] = $_value;
-        L1527: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1528: if ($_fail) { goto L1530; }
-        L1529: $_value = $this->_35($_env);
-        L1530: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1531: if ($_fail) { goto L1535; }
-        L1532: $_stack[$_stack_sp][] = $_value;
-        L1533: $_stack[$_stack_sp - 1] = $_p;
-        L1534: goto L1503;
-        L1535: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1536: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1537: $_fail = false;
-        L1538: $_env["rest"] = $_value;
-        L1539: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1540: if ($_fail) { goto L1542; }
-        L1541: $_value = $this->_34($_env);
-        L1542: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1543: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1544: $_env["declarations"] = $_value;
-        L1545: if ($_fail) { goto L1593; }
-        L1546: $_stack[++$_stack_sp] = 1548;
-        L1547: goto L7003;
-        L1548: if ($_fail) { goto L1593; }
-        L1549: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
-        L1550: if ($_fail) { goto L1593; }
-        L1551: $_stack[++$_stack_sp] = 1553;
-        L1552: goto L7003;
-        L1553: if ($_fail) { goto L1593; }
-        L1554: $_stack[++$_stack_sp] = $_p;
-        L1555: $_stack[++$_stack_sp] = 1557;
-        L1556: goto L2391;
-        L1557: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1558: if (!$_fail) { goto L1562; }
-        L1559: $_fail = false;
-        L1560: $_value = NULL;
-        L1561: $_p = $_a;
-        L1562: $_env["cond"] = $_value;
-        L1563: if ($_fail) { goto L1593; }
-        L1564: $_stack[++$_stack_sp] = 1566;
-        L1565: goto L7003;
-        L1566: if ($_fail) { goto L1593; }
-        L1567: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
-        L1568: if ($_fail) { goto L1593; }
-        L1569: $_stack[++$_stack_sp] = 1571;
-        L1570: goto L7003;
-        L1571: if ($_fail) { goto L1593; }
-        L1572: $_stack[++$_stack_sp] = $_p;
+        L1496: goto L7033;
+        L1497: if ($_fail) { goto L1620; }
+        L1498: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L1499: if ($_fail) { goto L1620; }
+        L1500: $_stack[++$_stack_sp] = 1502;
+        L1501: goto L7033;
+        L1502: if ($_fail) { goto L1620; }
+        L1503: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "var") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"var"', $_expected)) { $_expected[] = '"var"'; } } }
+        L1504: if ($_fail) { goto L1620; }
+        L1505: $_stack[++$_stack_sp] = $_p;
+        L1506: $_stack[++$_stack_sp] = 1508;
+        L1507: goto L7461;
+        L1508: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1509: $_value = NULL;
+        L1510: $_fail = !$_fail;
+        L1511: if ($_fail) { goto L1620; }
+        L1512: $_stack[++$_stack_sp] = 1514;
+        L1513: goto L7033;
+        L1514: if ($_fail) { goto L1620; }
+        L1515: $_stack[++$_stack_sp] = $_env;
+        L1516: $_env = array();
+        L1517: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1518: $_stack[++$_stack_sp] = $_b;
+        L1519: $_stack[++$_stack_sp] = NULL;
+        L1520: $_stack[++$_stack_sp] = $_env;
+        L1521: $_env = array();
+        L1522: $_stack[++$_stack_sp] = 1524;
+        L1523: goto L779;
+        L1524: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1525: $_env["first"] = $_value;
+        L1526: $_stack[$_stack_sp] = $_value;
+        L1527: if ($_fail) { goto L1566; }
+        L1528: $_stack[++$_stack_sp] = $_p;
+        L1529: $_stack[++$_stack_sp] = array();
+        L1530: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1531: $_stack[++$_stack_sp] = $_b;
+        L1532: $_stack[++$_stack_sp] = NULL;
+        L1533: $_stack[++$_stack_sp] = $_env;
+        L1534: $_env = array();
+        L1535: $_stack[++$_stack_sp] = NULL;
+        L1536: $_stack[++$_stack_sp] = 1538;
+        L1537: goto L7033;
+        L1538: $_stack[$_stack_sp] = $_value;
+        L1539: if ($_fail) { goto L1544; }
+        L1540: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L1541: if ($_fail) { goto L1544; }
+        L1542: $_stack[++$_stack_sp] = 1544;
+        L1543: goto L7033;
+        L1544: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1545: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1546: $_stack[$_stack_sp] = $_value;
+        L1547: if ($_fail) { goto L1554; }
+        L1548: $_stack[++$_stack_sp] = $_env;
+        L1549: $_env = array();
+        L1550: $_stack[++$_stack_sp] = 1552;
+        L1551: goto L779;
+        L1552: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1553: $_env["next"] = $_value;
+        L1554: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1555: if ($_fail) { goto L1557; }
+        L1556: $_value = $this->_39($_env);
+        L1557: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1558: if ($_fail) { goto L1562; }
+        L1559: $_stack[$_stack_sp][] = $_value;
+        L1560: $_stack[$_stack_sp - 1] = $_p;
+        L1561: goto L1530;
+        L1562: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1563: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1564: $_fail = false;
+        L1565: $_env["rest"] = $_value;
+        L1566: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1567: if ($_fail) { goto L1569; }
+        L1568: $_value = $this->_38($_env);
+        L1569: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1570: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1571: $_env["declarations"] = $_value;
+        L1572: if ($_fail) { goto L1620; }
         L1573: $_stack[++$_stack_sp] = 1575;
-        L1574: goto L2391;
-        L1575: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1576: if (!$_fail) { goto L1580; }
-        L1577: $_fail = false;
-        L1578: $_value = NULL;
-        L1579: $_p = $_a;
-        L1580: $_env["iter"] = $_value;
-        L1581: if ($_fail) { goto L1593; }
+        L1574: goto L7033;
+        L1575: if ($_fail) { goto L1620; }
+        L1576: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
+        L1577: if ($_fail) { goto L1620; }
+        L1578: $_stack[++$_stack_sp] = 1580;
+        L1579: goto L7033;
+        L1580: if ($_fail) { goto L1620; }
+        L1581: $_stack[++$_stack_sp] = $_p;
         L1582: $_stack[++$_stack_sp] = 1584;
-        L1583: goto L7003;
-        L1584: if ($_fail) { goto L1593; }
-        L1585: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L1586: if ($_fail) { goto L1593; }
-        L1587: $_stack[++$_stack_sp] = 1589;
-        L1588: goto L7003;
-        L1589: if ($_fail) { goto L1593; }
-        L1590: $_stack[++$_stack_sp] = 1592;
-        L1591: goto L428;
-        L1592: $_env["statement"] = $_value;
-        L1593: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1594: if ($_fail) { goto L1596; }
-        L1595: $_value = $this->_33($_env);
-        L1596: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1597: unset($_stack[$_stack_sp--]);
-        L1598: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1599: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1600: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1601: $_b = array();
-        L1602: $_b[0] = $_fail;
-        L1603: $_b[1] = $_value;
-        L1604: $_b[2] = $_p;
-        L1605: $_cache[$_a] = $_b;
-        L1606: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1607: if ($_a !== 1043) return array(FALSE, NULL, 16); goto L1043;
-        L1608: $_stack[++$_stack_sp] = "17@";
-        L1609: $_stack[$_stack_sp] .= $_p;
-        L1610: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1617; }
-        L1611: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1612: $_b = $_cache[$_a];
-        L1613: $_fail = $_b[0];
-        L1614: $_value = $_b[1];
-        L1615: $_p = $_b[2];
-        L1616: goto L1673;
-        L1617: $_stack[++$_stack_sp] = $_env;
-        L1618: $_env = array();
-        L1619: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1620: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1621: $_stack[++$_stack_sp] = $_b;
-        L1622: $_stack[++$_stack_sp] = NULL;
-        L1623: $_fail = TRUE; if (($_a = substr($_s, $_p, 8)) === "continue") { $_fail = FALSE; $_value = $_a; $_p += 8; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"continue"', $_expected)) { $_expected[] = '"continue"'; } } }
-        L1624: $_stack[$_stack_sp] = $_value;
-        L1625: if ($_fail) { goto L1661; }
-        L1626: $_stack[++$_stack_sp] = $_p;
-        L1627: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1628: $_stack[++$_stack_sp] = $_b;
-        L1629: $_stack[++$_stack_sp] = NULL;
-        L1630: $_stack[++$_stack_sp] = 1632;
-        L1631: goto L7033;
-        L1632: $_stack[$_stack_sp] = $_value;
-        L1633: if ($_fail) { goto L1640; }
-        L1634: $_stack[++$_stack_sp] = 1636;
-        L1635: goto L7337;
-        L1636: $_env["l"] = $_value;
-        L1637: if ($_fail) { goto L1640; }
-        L1638: $_stack[++$_stack_sp] = 1640;
-        L1639: goto L7165;
-        L1640: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1641: if ($_fail) { goto L1643; }
-        L1642: $_value = $this->_37($_env);
-        L1643: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1644: if (!$_fail) { goto L1659; }
-        L1645: $_p = $_stack[$_stack_sp];
-        L1646: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1647: $_stack[++$_stack_sp] = $_b;
-        L1648: $_stack[++$_stack_sp] = NULL;
-        L1649: $_stack[++$_stack_sp] = 1651;
-        L1650: goto L7135;
+        L1583: goto L2421;
+        L1584: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1585: if (!$_fail) { goto L1589; }
+        L1586: $_fail = false;
+        L1587: $_value = NULL;
+        L1588: $_p = $_a;
+        L1589: $_env["cond"] = $_value;
+        L1590: if ($_fail) { goto L1620; }
+        L1591: $_stack[++$_stack_sp] = 1593;
+        L1592: goto L7033;
+        L1593: if ($_fail) { goto L1620; }
+        L1594: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
+        L1595: if ($_fail) { goto L1620; }
+        L1596: $_stack[++$_stack_sp] = 1598;
+        L1597: goto L7033;
+        L1598: if ($_fail) { goto L1620; }
+        L1599: $_stack[++$_stack_sp] = $_p;
+        L1600: $_stack[++$_stack_sp] = 1602;
+        L1601: goto L2421;
+        L1602: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1603: if (!$_fail) { goto L1607; }
+        L1604: $_fail = false;
+        L1605: $_value = NULL;
+        L1606: $_p = $_a;
+        L1607: $_env["iter"] = $_value;
+        L1608: if ($_fail) { goto L1620; }
+        L1609: $_stack[++$_stack_sp] = 1611;
+        L1610: goto L7033;
+        L1611: if ($_fail) { goto L1620; }
+        L1612: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L1613: if ($_fail) { goto L1620; }
+        L1614: $_stack[++$_stack_sp] = 1616;
+        L1615: goto L7033;
+        L1616: if ($_fail) { goto L1620; }
+        L1617: $_stack[++$_stack_sp] = 1619;
+        L1618: goto L428;
+        L1619: $_env["statement"] = $_value;
+        L1620: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1621: if ($_fail) { goto L1623; }
+        L1622: $_value = $this->_37($_env);
+        L1623: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1624: unset($_stack[$_stack_sp--]);
+        L1625: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1626: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1627: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1628: $_b = array();
+        L1629: $_b[0] = $_fail;
+        L1630: $_b[1] = $_value;
+        L1631: $_b[2] = $_p;
+        L1632: $_cache[$_a] = $_b;
+        L1633: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1634: if ($_a !== 1043) return array(FALSE, NULL, 16); goto L1043;
+        L1635: $_stack[++$_stack_sp] = "17@";
+        L1636: $_stack[$_stack_sp] .= $_p;
+        L1637: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1644; }
+        L1638: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1639: $_b = $_cache[$_a];
+        L1640: $_fail = $_b[0];
+        L1641: $_value = $_b[1];
+        L1642: $_p = $_b[2];
+        L1643: goto L1700;
+        L1644: $_stack[++$_stack_sp] = $_env;
+        L1645: $_env = array();
+        L1646: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1647: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1648: $_stack[++$_stack_sp] = $_b;
+        L1649: $_stack[++$_stack_sp] = NULL;
+        L1650: $_fail = TRUE; if (($_a = substr($_s, $_p, 8)) === "continue") { $_fail = FALSE; $_value = $_a; $_p += 8; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"continue"', $_expected)) { $_expected[] = '"continue"'; } } }
         L1651: $_stack[$_stack_sp] = $_value;
-        L1652: if ($_fail) { goto L1655; }
-        L1653: $_stack[++$_stack_sp] = 1655;
-        L1654: goto L7231;
-        L1655: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1656: if ($_fail) { goto L1658; }
-        L1657: $_value = $this->_38($_env);
-        L1658: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1659: unset($_stack[$_stack_sp--]);
-        L1660: $_env["label"] = $_value;
-        L1661: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1662: if ($_fail) { goto L1664; }
-        L1663: $_value = $this->_36($_env);
-        L1664: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1665: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1666: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1667: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1668: $_b = array();
-        L1669: $_b[0] = $_fail;
-        L1670: $_b[1] = $_value;
-        L1671: $_b[2] = $_p;
-        L1672: $_cache[$_a] = $_b;
-        L1673: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1674: if ($_a !== 472) return array(FALSE, NULL, 17); goto L472;
-        L1675: $_stack[++$_stack_sp] = "18@";
-        L1676: $_stack[$_stack_sp] .= $_p;
-        L1677: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1684; }
-        L1678: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1679: $_b = $_cache[$_a];
-        L1680: $_fail = $_b[0];
-        L1681: $_value = $_b[1];
-        L1682: $_p = $_b[2];
-        L1683: goto L1740;
-        L1684: $_stack[++$_stack_sp] = $_env;
-        L1685: $_env = array();
-        L1686: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1687: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1688: $_stack[++$_stack_sp] = $_b;
-        L1689: $_stack[++$_stack_sp] = NULL;
-        L1690: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "break") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"break"', $_expected)) { $_expected[] = '"break"'; } } }
-        L1691: $_stack[$_stack_sp] = $_value;
-        L1692: if ($_fail) { goto L1728; }
-        L1693: $_stack[++$_stack_sp] = $_p;
-        L1694: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1695: $_stack[++$_stack_sp] = $_b;
-        L1696: $_stack[++$_stack_sp] = NULL;
-        L1697: $_stack[++$_stack_sp] = 1699;
-        L1698: goto L7033;
-        L1699: $_stack[$_stack_sp] = $_value;
-        L1700: if ($_fail) { goto L1707; }
-        L1701: $_stack[++$_stack_sp] = 1703;
-        L1702: goto L7337;
-        L1703: $_env["l"] = $_value;
-        L1704: if ($_fail) { goto L1707; }
-        L1705: $_stack[++$_stack_sp] = 1707;
-        L1706: goto L7165;
-        L1707: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1708: if ($_fail) { goto L1710; }
-        L1709: $_value = $this->_40($_env);
-        L1710: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1711: if (!$_fail) { goto L1726; }
-        L1712: $_p = $_stack[$_stack_sp];
-        L1713: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1714: $_stack[++$_stack_sp] = $_b;
-        L1715: $_stack[++$_stack_sp] = NULL;
-        L1716: $_stack[++$_stack_sp] = 1718;
-        L1717: goto L7135;
+        L1652: if ($_fail) { goto L1688; }
+        L1653: $_stack[++$_stack_sp] = $_p;
+        L1654: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1655: $_stack[++$_stack_sp] = $_b;
+        L1656: $_stack[++$_stack_sp] = NULL;
+        L1657: $_stack[++$_stack_sp] = 1659;
+        L1658: goto L7063;
+        L1659: $_stack[$_stack_sp] = $_value;
+        L1660: if ($_fail) { goto L1667; }
+        L1661: $_stack[++$_stack_sp] = 1663;
+        L1662: goto L7367;
+        L1663: $_env["l"] = $_value;
+        L1664: if ($_fail) { goto L1667; }
+        L1665: $_stack[++$_stack_sp] = 1667;
+        L1666: goto L7195;
+        L1667: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1668: if ($_fail) { goto L1670; }
+        L1669: $_value = $this->_41($_env);
+        L1670: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1671: if (!$_fail) { goto L1686; }
+        L1672: $_p = $_stack[$_stack_sp];
+        L1673: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1674: $_stack[++$_stack_sp] = $_b;
+        L1675: $_stack[++$_stack_sp] = NULL;
+        L1676: $_stack[++$_stack_sp] = 1678;
+        L1677: goto L7165;
+        L1678: $_stack[$_stack_sp] = $_value;
+        L1679: if ($_fail) { goto L1682; }
+        L1680: $_stack[++$_stack_sp] = 1682;
+        L1681: goto L7261;
+        L1682: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1683: if ($_fail) { goto L1685; }
+        L1684: $_value = $this->_42($_env);
+        L1685: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1686: unset($_stack[$_stack_sp--]);
+        L1687: $_env["label"] = $_value;
+        L1688: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1689: if ($_fail) { goto L1691; }
+        L1690: $_value = $this->_40($_env);
+        L1691: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1692: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1693: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1694: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1695: $_b = array();
+        L1696: $_b[0] = $_fail;
+        L1697: $_b[1] = $_value;
+        L1698: $_b[2] = $_p;
+        L1699: $_cache[$_a] = $_b;
+        L1700: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1701: if ($_a !== 472) return array(FALSE, NULL, 17); goto L472;
+        L1702: $_stack[++$_stack_sp] = "18@";
+        L1703: $_stack[$_stack_sp] .= $_p;
+        L1704: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1711; }
+        L1705: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1706: $_b = $_cache[$_a];
+        L1707: $_fail = $_b[0];
+        L1708: $_value = $_b[1];
+        L1709: $_p = $_b[2];
+        L1710: goto L1767;
+        L1711: $_stack[++$_stack_sp] = $_env;
+        L1712: $_env = array();
+        L1713: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1714: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1715: $_stack[++$_stack_sp] = $_b;
+        L1716: $_stack[++$_stack_sp] = NULL;
+        L1717: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "break") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"break"', $_expected)) { $_expected[] = '"break"'; } } }
         L1718: $_stack[$_stack_sp] = $_value;
-        L1719: if ($_fail) { goto L1722; }
-        L1720: $_stack[++$_stack_sp] = 1722;
-        L1721: goto L7231;
-        L1722: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1723: if ($_fail) { goto L1725; }
-        L1724: $_value = $this->_41($_env);
-        L1725: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1726: unset($_stack[$_stack_sp--]);
-        L1727: $_env["label"] = $_value;
-        L1728: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1729: if ($_fail) { goto L1731; }
-        L1730: $_value = $this->_39($_env);
-        L1731: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1732: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1733: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1734: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1735: $_b = array();
-        L1736: $_b[0] = $_fail;
-        L1737: $_b[1] = $_value;
-        L1738: $_b[2] = $_p;
-        L1739: $_cache[$_a] = $_b;
-        L1740: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1741: if ($_a !== 476) return array(FALSE, NULL, 18); goto L476;
-        L1742: $_stack[++$_stack_sp] = "19@";
-        L1743: $_stack[$_stack_sp] .= $_p;
-        L1744: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1751; }
-        L1745: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1746: $_b = $_cache[$_a];
-        L1747: $_fail = $_b[0];
-        L1748: $_value = $_b[1];
-        L1749: $_p = $_b[2];
-        L1750: goto L1802;
-        L1751: $_stack[++$_stack_sp] = $_env;
-        L1752: $_env = array();
-        L1753: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1754: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1755: $_stack[++$_stack_sp] = $_b;
-        L1756: $_stack[++$_stack_sp] = NULL;
-        L1757: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "return") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"return"', $_expected)) { $_expected[] = '"return"'; } } }
-        L1758: $_stack[$_stack_sp] = $_value;
-        L1759: if ($_fail) { goto L1790; }
-        L1760: $_stack[++$_stack_sp] = $_p;
-        L1761: $_stack[++$_stack_sp] = 1763;
-        L1762: goto L7431;
-        L1763: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1764: $_value = NULL;
-        L1765: $_fail = !$_fail;
-        L1766: if ($_fail) { goto L1790; }
-        L1767: $_stack[++$_stack_sp] = 1769;
-        L1768: goto L7135;
-        L1769: if ($_fail) { goto L1790; }
-        L1770: $_stack[++$_stack_sp] = $_p;
-        L1771: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1772: $_stack[++$_stack_sp] = $_b;
-        L1773: $_stack[++$_stack_sp] = 1775;
-        L1774: goto L7231;
-        L1775: if ($_fail) { goto L1777; }
-        L1776: $_value = $this->_43($_env);
-        L1777: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1778: if (!$_fail) { goto L1788; }
-        L1779: $_p = $_stack[$_stack_sp];
-        L1780: $_stack[++$_stack_sp] = NULL;
-        L1781: $_stack[++$_stack_sp] = 1783;
-        L1782: goto L2391;
-        L1783: $_stack[$_stack_sp] = $_value;
-        L1784: if ($_fail) { goto L1787; }
-        L1785: $_stack[++$_stack_sp] = 1787;
-        L1786: goto L7165;
-        L1787: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1788: unset($_stack[$_stack_sp--]);
-        L1789: $_env["expr"] = $_value;
-        L1790: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1791: if ($_fail) { goto L1793; }
-        L1792: $_value = $this->_42($_env);
-        L1793: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1794: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1795: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1796: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1797: $_b = array();
-        L1798: $_b[0] = $_fail;
-        L1799: $_b[1] = $_value;
-        L1800: $_b[2] = $_p;
-        L1801: $_cache[$_a] = $_b;
-        L1802: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1803: if ($_a !== 480) return array(FALSE, NULL, 19); goto L480;
-        L1804: $_stack[++$_stack_sp] = "20@";
-        L1805: $_stack[$_stack_sp] .= $_p;
-        L1806: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1813; }
-        L1807: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1808: $_b = $_cache[$_a];
-        L1809: $_fail = $_b[0];
-        L1810: $_value = $_b[1];
-        L1811: $_p = $_b[2];
-        L1812: goto L1857;
-        L1813: $_stack[++$_stack_sp] = $_env;
-        L1814: $_env = array();
-        L1815: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1816: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1817: $_stack[++$_stack_sp] = $_b;
-        L1818: $_stack[++$_stack_sp] = NULL;
-        L1819: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "with") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"with"', $_expected)) { $_expected[] = '"with"'; } } }
-        L1820: $_stack[$_stack_sp] = $_value;
-        L1821: if ($_fail) { goto L1845; }
-        L1822: $_stack[++$_stack_sp] = 1824;
-        L1823: goto L7003;
-        L1824: if ($_fail) { goto L1845; }
-        L1825: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L1826: if ($_fail) { goto L1845; }
-        L1827: $_stack[++$_stack_sp] = 1829;
-        L1828: goto L7003;
-        L1829: if ($_fail) { goto L1845; }
-        L1830: $_stack[++$_stack_sp] = 1832;
-        L1831: goto L2391;
-        L1832: $_env["expr"] = $_value;
-        L1833: if ($_fail) { goto L1845; }
-        L1834: $_stack[++$_stack_sp] = 1836;
-        L1835: goto L7003;
-        L1836: if ($_fail) { goto L1845; }
-        L1837: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L1838: if ($_fail) { goto L1845; }
-        L1839: $_stack[++$_stack_sp] = 1841;
-        L1840: goto L7003;
-        L1841: if ($_fail) { goto L1845; }
-        L1842: $_stack[++$_stack_sp] = 1844;
-        L1843: goto L428;
-        L1844: $_env["statement"] = $_value;
-        L1845: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1846: if ($_fail) { goto L1848; }
-        L1847: $_value = $this->_44($_env);
-        L1848: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1849: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1850: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1851: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1852: $_b = array();
-        L1853: $_b[0] = $_fail;
-        L1854: $_b[1] = $_value;
-        L1855: $_b[2] = $_p;
-        L1856: $_cache[$_a] = $_b;
-        L1857: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1858: if ($_a !== 484) return array(FALSE, NULL, 20); goto L484;
-        L1859: $_stack[++$_stack_sp] = "21@";
-        L1860: $_stack[$_stack_sp] .= $_p;
-        L1861: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1868; }
-        L1862: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1863: $_b = $_cache[$_a];
-        L1864: $_fail = $_b[0];
-        L1865: $_value = $_b[1];
-        L1866: $_p = $_b[2];
-        L1867: goto L1902;
-        L1868: $_stack[++$_stack_sp] = $_env;
-        L1869: $_env = array();
-        L1870: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1871: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1872: $_stack[++$_stack_sp] = $_b;
-        L1873: $_stack[++$_stack_sp] = NULL;
-        L1874: $_stack[++$_stack_sp] = 1876;
-        L1875: goto L7337;
-        L1876: $_env["label"] = $_value;
-        L1877: $_stack[$_stack_sp] = $_value;
-        L1878: if ($_fail) { goto L1890; }
-        L1879: $_stack[++$_stack_sp] = 1881;
-        L1880: goto L7003;
-        L1881: if ($_fail) { goto L1890; }
-        L1882: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L1883: if ($_fail) { goto L1890; }
-        L1884: $_stack[++$_stack_sp] = 1886;
-        L1885: goto L7003;
-        L1886: if ($_fail) { goto L1890; }
-        L1887: $_stack[++$_stack_sp] = 1889;
-        L1888: goto L428;
-        L1889: $_env["statement"] = $_value;
-        L1890: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1891: if ($_fail) { goto L1893; }
-        L1892: $_value = $this->_45($_env);
-        L1893: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1894: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1895: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1896: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1897: $_b = array();
-        L1898: $_b[0] = $_fail;
-        L1899: $_b[1] = $_value;
-        L1900: $_b[2] = $_p;
-        L1901: $_cache[$_a] = $_b;
-        L1902: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1903: if ($_a !== 488) return array(FALSE, NULL, 21); goto L488;
-        L1904: $_stack[++$_stack_sp] = "22@";
-        L1905: $_stack[$_stack_sp] .= $_p;
-        L1906: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1913; }
-        L1907: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1908: $_b = $_cache[$_a];
-        L1909: $_fail = $_b[0];
-        L1910: $_value = $_b[1];
-        L1911: $_p = $_b[2];
-        L1912: goto L2005;
-        L1913: $_stack[++$_stack_sp] = $_env;
-        L1914: $_env = array();
-        L1915: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L1916: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1917: $_stack[++$_stack_sp] = $_b;
-        L1918: $_stack[++$_stack_sp] = NULL;
-        L1919: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "switch") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"switch"', $_expected)) { $_expected[] = '"switch"'; } } }
-        L1920: $_stack[$_stack_sp] = $_value;
-        L1921: if ($_fail) { goto L1993; }
-        L1922: $_stack[++$_stack_sp] = 1924;
-        L1923: goto L7003;
-        L1924: if ($_fail) { goto L1993; }
-        L1925: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L1926: if ($_fail) { goto L1993; }
-        L1927: $_stack[++$_stack_sp] = 1929;
-        L1928: goto L7003;
-        L1929: if ($_fail) { goto L1993; }
-        L1930: $_stack[++$_stack_sp] = 1932;
-        L1931: goto L2391;
-        L1932: $_env["expr"] = $_value;
-        L1933: if ($_fail) { goto L1993; }
-        L1934: $_stack[++$_stack_sp] = 1936;
-        L1935: goto L7003;
-        L1936: if ($_fail) { goto L1993; }
-        L1937: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L1938: if ($_fail) { goto L1993; }
-        L1939: $_stack[++$_stack_sp] = 1941;
-        L1940: goto L7003;
-        L1941: if ($_fail) { goto L1993; }
-        L1942: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "{") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"{"', $_expected)) { $_expected[] = '"{"'; } } }
-        L1943: if ($_fail) { goto L1993; }
-        L1944: $_stack[++$_stack_sp] = $_p;
-        L1945: $_stack[++$_stack_sp] = array();
-        L1946: $_stack[++$_stack_sp] = 1948;
-        L1947: goto L2007;
-        L1948: if ($_fail) { goto L1952; }
-        L1949: $_stack[$_stack_sp][] = $_value;
-        L1950: $_stack[$_stack_sp - 1] = $_p;
-        L1951: goto L1946;
-        L1952: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1953: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1954: $_fail = false;
-        L1955: $_env["case_clauses"] = $_value;
-        L1956: if ($_fail) { goto L1993; }
-        L1957: $_stack[++$_stack_sp] = $_p;
-        L1958: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L1959: $_stack[++$_stack_sp] = $_b;
-        L1960: $_stack[++$_stack_sp] = NULL;
-        L1961: $_stack[++$_stack_sp] = 1963;
-        L1962: goto L2076;
-        L1963: $_env["default"] = $_value;
-        L1964: $_stack[$_stack_sp] = $_value;
-        L1965: if ($_fail) { goto L1978; }
-        L1966: $_stack[++$_stack_sp] = $_p;
-        L1967: $_stack[++$_stack_sp] = array();
-        L1968: $_stack[++$_stack_sp] = 1970;
-        L1969: goto L2007;
-        L1970: if ($_fail) { goto L1974; }
-        L1971: $_stack[$_stack_sp][] = $_value;
-        L1972: $_stack[$_stack_sp - 1] = $_p;
-        L1973: goto L1968;
-        L1974: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1975: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1976: $_fail = false;
-        L1977: $_env["clauses"] = $_value;
-        L1978: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1979: if ($_fail) { goto L1981; }
-        L1980: $_value = $this->_47($_env);
-        L1981: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1982: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1983: if (!$_fail) { goto L1987; }
+        L1719: if ($_fail) { goto L1755; }
+        L1720: $_stack[++$_stack_sp] = $_p;
+        L1721: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1722: $_stack[++$_stack_sp] = $_b;
+        L1723: $_stack[++$_stack_sp] = NULL;
+        L1724: $_stack[++$_stack_sp] = 1726;
+        L1725: goto L7063;
+        L1726: $_stack[$_stack_sp] = $_value;
+        L1727: if ($_fail) { goto L1734; }
+        L1728: $_stack[++$_stack_sp] = 1730;
+        L1729: goto L7367;
+        L1730: $_env["l"] = $_value;
+        L1731: if ($_fail) { goto L1734; }
+        L1732: $_stack[++$_stack_sp] = 1734;
+        L1733: goto L7195;
+        L1734: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1735: if ($_fail) { goto L1737; }
+        L1736: $_value = $this->_44($_env);
+        L1737: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1738: if (!$_fail) { goto L1753; }
+        L1739: $_p = $_stack[$_stack_sp];
+        L1740: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1741: $_stack[++$_stack_sp] = $_b;
+        L1742: $_stack[++$_stack_sp] = NULL;
+        L1743: $_stack[++$_stack_sp] = 1745;
+        L1744: goto L7165;
+        L1745: $_stack[$_stack_sp] = $_value;
+        L1746: if ($_fail) { goto L1749; }
+        L1747: $_stack[++$_stack_sp] = 1749;
+        L1748: goto L7261;
+        L1749: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1750: if ($_fail) { goto L1752; }
+        L1751: $_value = $this->_45($_env);
+        L1752: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1753: unset($_stack[$_stack_sp--]);
+        L1754: $_env["label"] = $_value;
+        L1755: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1756: if ($_fail) { goto L1758; }
+        L1757: $_value = $this->_43($_env);
+        L1758: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1759: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1760: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1761: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1762: $_b = array();
+        L1763: $_b[0] = $_fail;
+        L1764: $_b[1] = $_value;
+        L1765: $_b[2] = $_p;
+        L1766: $_cache[$_a] = $_b;
+        L1767: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1768: if ($_a !== 476) return array(FALSE, NULL, 18); goto L476;
+        L1769: $_stack[++$_stack_sp] = "19@";
+        L1770: $_stack[$_stack_sp] .= $_p;
+        L1771: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1778; }
+        L1772: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1773: $_b = $_cache[$_a];
+        L1774: $_fail = $_b[0];
+        L1775: $_value = $_b[1];
+        L1776: $_p = $_b[2];
+        L1777: goto L1829;
+        L1778: $_stack[++$_stack_sp] = $_env;
+        L1779: $_env = array();
+        L1780: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1781: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1782: $_stack[++$_stack_sp] = $_b;
+        L1783: $_stack[++$_stack_sp] = NULL;
+        L1784: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "return") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"return"', $_expected)) { $_expected[] = '"return"'; } } }
+        L1785: $_stack[$_stack_sp] = $_value;
+        L1786: if ($_fail) { goto L1817; }
+        L1787: $_stack[++$_stack_sp] = $_p;
+        L1788: $_stack[++$_stack_sp] = 1790;
+        L1789: goto L7461;
+        L1790: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1791: $_value = NULL;
+        L1792: $_fail = !$_fail;
+        L1793: if ($_fail) { goto L1817; }
+        L1794: $_stack[++$_stack_sp] = 1796;
+        L1795: goto L7165;
+        L1796: if ($_fail) { goto L1817; }
+        L1797: $_stack[++$_stack_sp] = $_p;
+        L1798: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1799: $_stack[++$_stack_sp] = $_b;
+        L1800: $_stack[++$_stack_sp] = 1802;
+        L1801: goto L7261;
+        L1802: if ($_fail) { goto L1804; }
+        L1803: $_value = $this->_47($_env);
+        L1804: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1805: if (!$_fail) { goto L1815; }
+        L1806: $_p = $_stack[$_stack_sp];
+        L1807: $_stack[++$_stack_sp] = NULL;
+        L1808: $_stack[++$_stack_sp] = 1810;
+        L1809: goto L2421;
+        L1810: $_stack[$_stack_sp] = $_value;
+        L1811: if ($_fail) { goto L1814; }
+        L1812: $_stack[++$_stack_sp] = 1814;
+        L1813: goto L7195;
+        L1814: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1815: unset($_stack[$_stack_sp--]);
+        L1816: $_env["expr"] = $_value;
+        L1817: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1818: if ($_fail) { goto L1820; }
+        L1819: $_value = $this->_46($_env);
+        L1820: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1821: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1822: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1823: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1824: $_b = array();
+        L1825: $_b[0] = $_fail;
+        L1826: $_b[1] = $_value;
+        L1827: $_b[2] = $_p;
+        L1828: $_cache[$_a] = $_b;
+        L1829: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1830: if ($_a !== 480) return array(FALSE, NULL, 19); goto L480;
+        L1831: $_stack[++$_stack_sp] = "20@";
+        L1832: $_stack[$_stack_sp] .= $_p;
+        L1833: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1840; }
+        L1834: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1835: $_b = $_cache[$_a];
+        L1836: $_fail = $_b[0];
+        L1837: $_value = $_b[1];
+        L1838: $_p = $_b[2];
+        L1839: goto L1887;
+        L1840: $_stack[++$_stack_sp] = $_env;
+        L1841: $_env = array();
+        L1842: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1843: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1844: $_stack[++$_stack_sp] = $_b;
+        L1845: $_stack[++$_stack_sp] = NULL;
+        L1846: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "with") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"with"', $_expected)) { $_expected[] = '"with"'; } } }
+        L1847: $_stack[$_stack_sp] = $_value;
+        L1848: if ($_fail) { goto L1875; }
+        L1849: $_stack[++$_stack_sp] = 1851;
+        L1850: goto L7033;
+        L1851: if ($_fail) { goto L1875; }
+        L1852: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L1853: $_env["p"] = $_value;
+        L1854: if ($_fail) { goto L1875; }
+        L1855: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L1856: if ($_fail) { goto L1875; }
+        L1857: $_stack[++$_stack_sp] = 1859;
+        L1858: goto L7033;
+        L1859: if ($_fail) { goto L1875; }
+        L1860: $_stack[++$_stack_sp] = 1862;
+        L1861: goto L2421;
+        L1862: $_env["expr"] = $_value;
+        L1863: if ($_fail) { goto L1875; }
+        L1864: $_stack[++$_stack_sp] = 1866;
+        L1865: goto L7033;
+        L1866: if ($_fail) { goto L1875; }
+        L1867: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L1868: if ($_fail) { goto L1875; }
+        L1869: $_stack[++$_stack_sp] = 1871;
+        L1870: goto L7033;
+        L1871: if ($_fail) { goto L1875; }
+        L1872: $_stack[++$_stack_sp] = 1874;
+        L1873: goto L428;
+        L1874: $_env["statement"] = $_value;
+        L1875: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1876: if ($_fail) { goto L1878; }
+        L1877: $_value = $this->_48($_env);
+        L1878: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1879: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1880: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1881: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1882: $_b = array();
+        L1883: $_b[0] = $_fail;
+        L1884: $_b[1] = $_value;
+        L1885: $_b[2] = $_p;
+        L1886: $_cache[$_a] = $_b;
+        L1887: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1888: if ($_a !== 484) return array(FALSE, NULL, 20); goto L484;
+        L1889: $_stack[++$_stack_sp] = "21@";
+        L1890: $_stack[$_stack_sp] .= $_p;
+        L1891: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1898; }
+        L1892: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1893: $_b = $_cache[$_a];
+        L1894: $_fail = $_b[0];
+        L1895: $_value = $_b[1];
+        L1896: $_p = $_b[2];
+        L1897: goto L1932;
+        L1898: $_stack[++$_stack_sp] = $_env;
+        L1899: $_env = array();
+        L1900: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1901: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1902: $_stack[++$_stack_sp] = $_b;
+        L1903: $_stack[++$_stack_sp] = NULL;
+        L1904: $_stack[++$_stack_sp] = 1906;
+        L1905: goto L7367;
+        L1906: $_env["label"] = $_value;
+        L1907: $_stack[$_stack_sp] = $_value;
+        L1908: if ($_fail) { goto L1920; }
+        L1909: $_stack[++$_stack_sp] = 1911;
+        L1910: goto L7033;
+        L1911: if ($_fail) { goto L1920; }
+        L1912: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L1913: if ($_fail) { goto L1920; }
+        L1914: $_stack[++$_stack_sp] = 1916;
+        L1915: goto L7033;
+        L1916: if ($_fail) { goto L1920; }
+        L1917: $_stack[++$_stack_sp] = 1919;
+        L1918: goto L428;
+        L1919: $_env["statement"] = $_value;
+        L1920: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1921: if ($_fail) { goto L1923; }
+        L1922: $_value = $this->_49($_env);
+        L1923: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1924: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L1925: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1926: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1927: $_b = array();
+        L1928: $_b[0] = $_fail;
+        L1929: $_b[1] = $_value;
+        L1930: $_b[2] = $_p;
+        L1931: $_cache[$_a] = $_b;
+        L1932: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1933: if ($_a !== 488) return array(FALSE, NULL, 21); goto L488;
+        L1934: $_stack[++$_stack_sp] = "22@";
+        L1935: $_stack[$_stack_sp] .= $_p;
+        L1936: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L1943; }
+        L1937: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1938: $_b = $_cache[$_a];
+        L1939: $_fail = $_b[0];
+        L1940: $_value = $_b[1];
+        L1941: $_p = $_b[2];
+        L1942: goto L2035;
+        L1943: $_stack[++$_stack_sp] = $_env;
+        L1944: $_env = array();
+        L1945: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L1946: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1947: $_stack[++$_stack_sp] = $_b;
+        L1948: $_stack[++$_stack_sp] = NULL;
+        L1949: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "switch") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"switch"', $_expected)) { $_expected[] = '"switch"'; } } }
+        L1950: $_stack[$_stack_sp] = $_value;
+        L1951: if ($_fail) { goto L2023; }
+        L1952: $_stack[++$_stack_sp] = 1954;
+        L1953: goto L7033;
+        L1954: if ($_fail) { goto L2023; }
+        L1955: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L1956: if ($_fail) { goto L2023; }
+        L1957: $_stack[++$_stack_sp] = 1959;
+        L1958: goto L7033;
+        L1959: if ($_fail) { goto L2023; }
+        L1960: $_stack[++$_stack_sp] = 1962;
+        L1961: goto L2421;
+        L1962: $_env["expr"] = $_value;
+        L1963: if ($_fail) { goto L2023; }
+        L1964: $_stack[++$_stack_sp] = 1966;
+        L1965: goto L7033;
+        L1966: if ($_fail) { goto L2023; }
+        L1967: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L1968: if ($_fail) { goto L2023; }
+        L1969: $_stack[++$_stack_sp] = 1971;
+        L1970: goto L7033;
+        L1971: if ($_fail) { goto L2023; }
+        L1972: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "{") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"{"', $_expected)) { $_expected[] = '"{"'; } } }
+        L1973: if ($_fail) { goto L2023; }
+        L1974: $_stack[++$_stack_sp] = $_p;
+        L1975: $_stack[++$_stack_sp] = array();
+        L1976: $_stack[++$_stack_sp] = 1978;
+        L1977: goto L2037;
+        L1978: if ($_fail) { goto L1982; }
+        L1979: $_stack[$_stack_sp][] = $_value;
+        L1980: $_stack[$_stack_sp - 1] = $_p;
+        L1981: goto L1976;
+        L1982: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L1983: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L1984: $_fail = false;
-        L1985: $_value = NULL;
-        L1986: $_p = $_a;
-        L1987: $_env["additional_clauses"] = $_value;
-        L1988: if ($_fail) { goto L1993; }
-        L1989: $_stack[++$_stack_sp] = 1991;
-        L1990: goto L7003;
-        L1991: if ($_fail) { goto L1993; }
-        L1992: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
-        L1993: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1994: if ($_fail) { goto L1996; }
-        L1995: $_value = $this->_46($_env);
-        L1996: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1997: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L1998: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L1999: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2000: $_b = array();
-        L2001: $_b[0] = $_fail;
-        L2002: $_b[1] = $_value;
-        L2003: $_b[2] = $_p;
-        L2004: $_cache[$_a] = $_b;
-        L2005: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2006: if ($_a !== 492) return array(FALSE, NULL, 22); goto L492;
-        L2007: $_stack[++$_stack_sp] = "23@";
-        L2008: $_stack[$_stack_sp] .= $_p;
-        L2009: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2016; }
-        L2010: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2011: $_b = $_cache[$_a];
-        L2012: $_fail = $_b[0];
-        L2013: $_value = $_b[1];
-        L2014: $_p = $_b[2];
-        L2015: goto L2074;
-        L2016: $_stack[++$_stack_sp] = $_env;
-        L2017: $_env = array();
-        L2018: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2019: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2020: $_stack[++$_stack_sp] = $_b;
-        L2021: $_stack[++$_stack_sp] = NULL;
-        L2022: $_stack[++$_stack_sp] = 2024;
-        L2023: goto L7003;
-        L2024: $_stack[$_stack_sp] = $_value;
-        L2025: if ($_fail) { goto L2062; }
-        L2026: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "case") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"case"', $_expected)) { $_expected[] = '"case"'; } } }
-        L2027: if ($_fail) { goto L2062; }
-        L2028: $_stack[++$_stack_sp] = $_p;
-        L2029: $_stack[++$_stack_sp] = 2031;
-        L2030: goto L7431;
-        L2031: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2032: $_value = NULL;
-        L2033: $_fail = !$_fail;
-        L2034: if ($_fail) { goto L2062; }
-        L2035: $_stack[++$_stack_sp] = 2037;
-        L2036: goto L7003;
-        L2037: if ($_fail) { goto L2062; }
-        L2038: $_stack[++$_stack_sp] = 2040;
-        L2039: goto L2391;
-        L2040: $_env["expr"] = $_value;
-        L2041: if ($_fail) { goto L2062; }
-        L2042: $_stack[++$_stack_sp] = 2044;
-        L2043: goto L7003;
-        L2044: if ($_fail) { goto L2062; }
-        L2045: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L2046: if ($_fail) { goto L2062; }
-        L2047: $_stack[++$_stack_sp] = 2049;
-        L2048: goto L7003;
-        L2049: if ($_fail) { goto L2062; }
-        L2050: $_stack[++$_stack_sp] = $_p;
-        L2051: $_stack[++$_stack_sp] = array();
+        L1985: $_env["case_clauses"] = $_value;
+        L1986: if ($_fail) { goto L2023; }
+        L1987: $_stack[++$_stack_sp] = $_p;
+        L1988: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L1989: $_stack[++$_stack_sp] = $_b;
+        L1990: $_stack[++$_stack_sp] = NULL;
+        L1991: $_stack[++$_stack_sp] = 1993;
+        L1992: goto L2106;
+        L1993: $_env["default"] = $_value;
+        L1994: $_stack[$_stack_sp] = $_value;
+        L1995: if ($_fail) { goto L2008; }
+        L1996: $_stack[++$_stack_sp] = $_p;
+        L1997: $_stack[++$_stack_sp] = array();
+        L1998: $_stack[++$_stack_sp] = 2000;
+        L1999: goto L2037;
+        L2000: if ($_fail) { goto L2004; }
+        L2001: $_stack[$_stack_sp][] = $_value;
+        L2002: $_stack[$_stack_sp - 1] = $_p;
+        L2003: goto L1998;
+        L2004: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2005: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2006: $_fail = false;
+        L2007: $_env["clauses"] = $_value;
+        L2008: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2009: if ($_fail) { goto L2011; }
+        L2010: $_value = $this->_51($_env);
+        L2011: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2012: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2013: if (!$_fail) { goto L2017; }
+        L2014: $_fail = false;
+        L2015: $_value = NULL;
+        L2016: $_p = $_a;
+        L2017: $_env["additional_clauses"] = $_value;
+        L2018: if ($_fail) { goto L2023; }
+        L2019: $_stack[++$_stack_sp] = 2021;
+        L2020: goto L7033;
+        L2021: if ($_fail) { goto L2023; }
+        L2022: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
+        L2023: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2024: if ($_fail) { goto L2026; }
+        L2025: $_value = $this->_50($_env);
+        L2026: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2027: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2028: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2029: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2030: $_b = array();
+        L2031: $_b[0] = $_fail;
+        L2032: $_b[1] = $_value;
+        L2033: $_b[2] = $_p;
+        L2034: $_cache[$_a] = $_b;
+        L2035: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2036: if ($_a !== 492) return array(FALSE, NULL, 22); goto L492;
+        L2037: $_stack[++$_stack_sp] = "23@";
+        L2038: $_stack[$_stack_sp] .= $_p;
+        L2039: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2046; }
+        L2040: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2041: $_b = $_cache[$_a];
+        L2042: $_fail = $_b[0];
+        L2043: $_value = $_b[1];
+        L2044: $_p = $_b[2];
+        L2045: goto L2104;
+        L2046: $_stack[++$_stack_sp] = $_env;
+        L2047: $_env = array();
+        L2048: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2049: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2050: $_stack[++$_stack_sp] = $_b;
+        L2051: $_stack[++$_stack_sp] = NULL;
         L2052: $_stack[++$_stack_sp] = 2054;
-        L2053: goto L428;
-        L2054: if ($_fail) { goto L2058; }
-        L2055: $_stack[$_stack_sp][] = $_value;
-        L2056: $_stack[$_stack_sp - 1] = $_p;
-        L2057: goto L2052;
-        L2058: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2059: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2060: $_fail = false;
-        L2061: $_env["statements"] = $_value;
-        L2062: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2063: if ($_fail) { goto L2065; }
-        L2064: $_value = $this->_48($_env);
-        L2065: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2066: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2067: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2068: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2069: $_b = array();
-        L2070: $_b[0] = $_fail;
-        L2071: $_b[1] = $_value;
-        L2072: $_b[2] = $_p;
-        L2073: $_cache[$_a] = $_b;
-        L2074: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2075: if ($_a === 1948) { goto L1948; } else if ($_a === 1970) { goto L1970; } else { return array(FALSE, NULL, 23); }
-        L2076: $_stack[++$_stack_sp] = "24@";
-        L2077: $_stack[$_stack_sp] .= $_p;
-        L2078: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2085; }
-        L2079: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2080: $_b = $_cache[$_a];
-        L2081: $_fail = $_b[0];
-        L2082: $_value = $_b[1];
-        L2083: $_p = $_b[2];
-        L2084: goto L2129;
-        L2085: $_stack[++$_stack_sp] = $_env;
-        L2086: $_env = array();
-        L2087: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2088: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2089: $_stack[++$_stack_sp] = $_b;
-        L2090: $_stack[++$_stack_sp] = NULL;
-        L2091: $_stack[++$_stack_sp] = 2093;
-        L2092: goto L7003;
-        L2093: $_stack[$_stack_sp] = $_value;
-        L2094: if ($_fail) { goto L2117; }
-        L2095: $_fail = TRUE; if (($_a = substr($_s, $_p, 7)) === "default") { $_fail = FALSE; $_value = $_a; $_p += 7; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"default"', $_expected)) { $_expected[] = '"default"'; } } }
-        L2096: if ($_fail) { goto L2117; }
-        L2097: $_stack[++$_stack_sp] = 2099;
-        L2098: goto L7003;
-        L2099: if ($_fail) { goto L2117; }
-        L2100: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L2101: if ($_fail) { goto L2117; }
-        L2102: $_stack[++$_stack_sp] = 2104;
-        L2103: goto L7003;
-        L2104: if ($_fail) { goto L2117; }
-        L2105: $_stack[++$_stack_sp] = $_p;
-        L2106: $_stack[++$_stack_sp] = array();
-        L2107: $_stack[++$_stack_sp] = 2109;
-        L2108: goto L428;
-        L2109: if ($_fail) { goto L2113; }
-        L2110: $_stack[$_stack_sp][] = $_value;
-        L2111: $_stack[$_stack_sp - 1] = $_p;
-        L2112: goto L2107;
-        L2113: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2114: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2115: $_fail = false;
-        L2116: $_env["statements"] = $_value;
-        L2117: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2118: if ($_fail) { goto L2120; }
-        L2119: $_value = $this->_49($_env);
-        L2120: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2121: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2122: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2123: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2124: $_b = array();
-        L2125: $_b[0] = $_fail;
-        L2126: $_b[1] = $_value;
-        L2127: $_b[2] = $_p;
-        L2128: $_cache[$_a] = $_b;
-        L2129: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2130: if ($_a !== 1963) return array(FALSE, NULL, 24); goto L1963;
-        L2131: $_stack[++$_stack_sp] = "25@";
-        L2132: $_stack[$_stack_sp] .= $_p;
-        L2133: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2140; }
-        L2134: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2135: $_b = $_cache[$_a];
-        L2136: $_fail = $_b[0];
-        L2137: $_value = $_b[1];
-        L2138: $_p = $_b[2];
-        L2139: goto L2194;
-        L2140: $_stack[++$_stack_sp] = $_env;
-        L2141: $_env = array();
-        L2142: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2143: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2144: $_stack[++$_stack_sp] = $_b;
-        L2145: $_stack[++$_stack_sp] = NULL;
-        L2146: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "throw") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"throw"', $_expected)) { $_expected[] = '"throw"'; } } }
-        L2147: $_stack[$_stack_sp] = $_value;
-        L2148: if ($_fail) { goto L2182; }
-        L2149: $_stack[++$_stack_sp] = $_p;
-        L2150: $_stack[++$_stack_sp] = 2152;
-        L2151: goto L7431;
-        L2152: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2153: $_value = NULL;
-        L2154: $_fail = !$_fail;
-        L2155: if ($_fail) { goto L2182; }
-        L2156: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L2157: $_env["p"] = $_value;
-        L2158: if ($_fail) { goto L2182; }
-        L2159: $_stack[++$_stack_sp] = 2161;
-        L2160: goto L7135;
-        L2161: if ($_fail) { goto L2182; }
-        L2162: $_stack[++$_stack_sp] = $_p;
-        L2163: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2164: $_stack[++$_stack_sp] = $_b;
-        L2165: $_stack[++$_stack_sp] = 2167;
-        L2166: goto L7231;
-        L2167: if ($_fail) { goto L2169; }
-        L2168: $_value = $this->_51($_env);
-        L2169: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2170: if (!$_fail) { goto L2180; }
-        L2171: $_p = $_stack[$_stack_sp];
-        L2172: $_stack[++$_stack_sp] = NULL;
-        L2173: $_stack[++$_stack_sp] = 2175;
-        L2174: goto L2391;
-        L2175: $_stack[$_stack_sp] = $_value;
-        L2176: if ($_fail) { goto L2179; }
-        L2177: $_stack[++$_stack_sp] = 2179;
-        L2178: goto L7165;
-        L2179: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2180: unset($_stack[$_stack_sp--]);
-        L2181: $_env["expr"] = $_value;
-        L2182: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2183: if ($_fail) { goto L2185; }
-        L2184: $_value = $this->_50($_env);
-        L2185: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2186: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2187: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2188: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2189: $_b = array();
-        L2190: $_b[0] = $_fail;
-        L2191: $_b[1] = $_value;
-        L2192: $_b[2] = $_p;
-        L2193: $_cache[$_a] = $_b;
-        L2194: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2195: if ($_a !== 496) return array(FALSE, NULL, 25); goto L496;
-        L2196: $_stack[++$_stack_sp] = "26@";
-        L2197: $_stack[$_stack_sp] .= $_p;
-        L2198: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2205; }
-        L2199: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2200: $_b = $_cache[$_a];
-        L2201: $_fail = $_b[0];
-        L2202: $_value = $_b[1];
-        L2203: $_p = $_b[2];
-        L2204: goto L2320;
-        L2205: $_stack[++$_stack_sp] = $_env;
-        L2206: $_env = array();
-        L2207: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2208: $_stack[++$_stack_sp] = $_p;
-        L2209: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2210: $_stack[++$_stack_sp] = $_b;
-        L2211: $_stack[++$_stack_sp] = NULL;
-        L2212: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "try") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"try"', $_expected)) { $_expected[] = '"try"'; } } }
-        L2213: $_stack[$_stack_sp] = $_value;
-        L2214: if ($_fail) { goto L2277; }
-        L2215: $_stack[++$_stack_sp] = 2217;
-        L2216: goto L7003;
-        L2217: if ($_fail) { goto L2277; }
-        L2218: $_stack[++$_stack_sp] = 2220;
-        L2219: goto L520;
-        L2220: $_env["try_block"] = $_value;
-        L2221: if ($_fail) { goto L2277; }
-        L2222: $_stack[++$_stack_sp] = 2224;
-        L2223: goto L7003;
-        L2224: if ($_fail) { goto L2277; }
-        L2225: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "catch") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"catch"', $_expected)) { $_expected[] = '"catch"'; } } }
-        L2226: if ($_fail) { goto L2277; }
-        L2227: $_stack[++$_stack_sp] = 2229;
-        L2228: goto L7003;
-        L2229: if ($_fail) { goto L2277; }
-        L2230: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L2231: if ($_fail) { goto L2277; }
-        L2232: $_stack[++$_stack_sp] = 2234;
-        L2233: goto L7003;
-        L2234: if ($_fail) { goto L2277; }
-        L2235: $_stack[++$_stack_sp] = 2237;
-        L2236: goto L7337;
-        L2237: $_env["catch_var"] = $_value;
-        L2238: if ($_fail) { goto L2277; }
-        L2239: $_stack[++$_stack_sp] = 2241;
-        L2240: goto L7003;
-        L2241: if ($_fail) { goto L2277; }
-        L2242: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L2243: if ($_fail) { goto L2277; }
-        L2244: $_stack[++$_stack_sp] = 2246;
-        L2245: goto L7003;
-        L2246: if ($_fail) { goto L2277; }
-        L2247: $_stack[++$_stack_sp] = 2249;
-        L2248: goto L520;
-        L2249: $_env["catch_block"] = $_value;
-        L2250: if ($_fail) { goto L2277; }
-        L2251: $_stack[++$_stack_sp] = 2253;
-        L2252: goto L7003;
-        L2253: if ($_fail) { goto L2277; }
-        L2254: $_stack[++$_stack_sp] = $_p;
-        L2255: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2256: $_stack[++$_stack_sp] = $_b;
-        L2257: $_stack[++$_stack_sp] = NULL;
-        L2258: $_fail = TRUE; if (($_a = substr($_s, $_p, 7)) === "finally") { $_fail = FALSE; $_value = $_a; $_p += 7; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"finally"', $_expected)) { $_expected[] = '"finally"'; } } }
-        L2259: $_stack[$_stack_sp] = $_value;
-        L2260: if ($_fail) { goto L2267; }
-        L2261: $_stack[++$_stack_sp] = 2263;
-        L2262: goto L7003;
-        L2263: if ($_fail) { goto L2267; }
-        L2264: $_stack[++$_stack_sp] = 2266;
-        L2265: goto L520;
-        L2266: $_env["finally_block"] = $_value;
-        L2267: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2268: if ($_fail) { goto L2270; }
-        L2269: $_value = $this->_53($_env);
-        L2270: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2271: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2272: if (!$_fail) { goto L2276; }
-        L2273: $_fail = false;
-        L2274: $_value = NULL;
-        L2275: $_p = $_a;
-        L2276: $_env["finally"] = $_value;
-        L2277: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2278: if ($_fail) { goto L2280; }
-        L2279: $_value = $this->_52($_env);
-        L2280: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2281: if (!$_fail) { goto L2311; }
-        L2282: $_p = $_stack[$_stack_sp];
-        L2283: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2284: $_stack[++$_stack_sp] = $_b;
-        L2285: $_stack[++$_stack_sp] = NULL;
-        L2286: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "try") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"try"', $_expected)) { $_expected[] = '"try"'; } } }
-        L2287: $_stack[$_stack_sp] = $_value;
-        L2288: if ($_fail) { goto L2307; }
-        L2289: $_stack[++$_stack_sp] = 2291;
-        L2290: goto L7003;
-        L2291: if ($_fail) { goto L2307; }
-        L2292: $_stack[++$_stack_sp] = 2294;
-        L2293: goto L520;
-        L2294: $_env["try_block"] = $_value;
-        L2295: if ($_fail) { goto L2307; }
-        L2296: $_stack[++$_stack_sp] = 2298;
-        L2297: goto L7003;
-        L2298: if ($_fail) { goto L2307; }
-        L2299: $_fail = TRUE; if (($_a = substr($_s, $_p, 7)) === "finally") { $_fail = FALSE; $_value = $_a; $_p += 7; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"finally"', $_expected)) { $_expected[] = '"finally"'; } } }
-        L2300: if ($_fail) { goto L2307; }
-        L2301: $_stack[++$_stack_sp] = 2303;
-        L2302: goto L7003;
-        L2303: if ($_fail) { goto L2307; }
-        L2304: $_stack[++$_stack_sp] = 2306;
-        L2305: goto L520;
-        L2306: $_env["finally_block"] = $_value;
+        L2053: goto L7033;
+        L2054: $_stack[$_stack_sp] = $_value;
+        L2055: if ($_fail) { goto L2092; }
+        L2056: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "case") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"case"', $_expected)) { $_expected[] = '"case"'; } } }
+        L2057: if ($_fail) { goto L2092; }
+        L2058: $_stack[++$_stack_sp] = $_p;
+        L2059: $_stack[++$_stack_sp] = 2061;
+        L2060: goto L7461;
+        L2061: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2062: $_value = NULL;
+        L2063: $_fail = !$_fail;
+        L2064: if ($_fail) { goto L2092; }
+        L2065: $_stack[++$_stack_sp] = 2067;
+        L2066: goto L7033;
+        L2067: if ($_fail) { goto L2092; }
+        L2068: $_stack[++$_stack_sp] = 2070;
+        L2069: goto L2421;
+        L2070: $_env["expr"] = $_value;
+        L2071: if ($_fail) { goto L2092; }
+        L2072: $_stack[++$_stack_sp] = 2074;
+        L2073: goto L7033;
+        L2074: if ($_fail) { goto L2092; }
+        L2075: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L2076: if ($_fail) { goto L2092; }
+        L2077: $_stack[++$_stack_sp] = 2079;
+        L2078: goto L7033;
+        L2079: if ($_fail) { goto L2092; }
+        L2080: $_stack[++$_stack_sp] = $_p;
+        L2081: $_stack[++$_stack_sp] = array();
+        L2082: $_stack[++$_stack_sp] = 2084;
+        L2083: goto L428;
+        L2084: if ($_fail) { goto L2088; }
+        L2085: $_stack[$_stack_sp][] = $_value;
+        L2086: $_stack[$_stack_sp - 1] = $_p;
+        L2087: goto L2082;
+        L2088: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2089: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2090: $_fail = false;
+        L2091: $_env["statements"] = $_value;
+        L2092: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2093: if ($_fail) { goto L2095; }
+        L2094: $_value = $this->_52($_env);
+        L2095: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2096: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2097: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2098: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2099: $_b = array();
+        L2100: $_b[0] = $_fail;
+        L2101: $_b[1] = $_value;
+        L2102: $_b[2] = $_p;
+        L2103: $_cache[$_a] = $_b;
+        L2104: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2105: if ($_a === 1978) { goto L1978; } else if ($_a === 2000) { goto L2000; } else { return array(FALSE, NULL, 23); }
+        L2106: $_stack[++$_stack_sp] = "24@";
+        L2107: $_stack[$_stack_sp] .= $_p;
+        L2108: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2115; }
+        L2109: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2110: $_b = $_cache[$_a];
+        L2111: $_fail = $_b[0];
+        L2112: $_value = $_b[1];
+        L2113: $_p = $_b[2];
+        L2114: goto L2159;
+        L2115: $_stack[++$_stack_sp] = $_env;
+        L2116: $_env = array();
+        L2117: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2118: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2119: $_stack[++$_stack_sp] = $_b;
+        L2120: $_stack[++$_stack_sp] = NULL;
+        L2121: $_stack[++$_stack_sp] = 2123;
+        L2122: goto L7033;
+        L2123: $_stack[$_stack_sp] = $_value;
+        L2124: if ($_fail) { goto L2147; }
+        L2125: $_fail = TRUE; if (($_a = substr($_s, $_p, 7)) === "default") { $_fail = FALSE; $_value = $_a; $_p += 7; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"default"', $_expected)) { $_expected[] = '"default"'; } } }
+        L2126: if ($_fail) { goto L2147; }
+        L2127: $_stack[++$_stack_sp] = 2129;
+        L2128: goto L7033;
+        L2129: if ($_fail) { goto L2147; }
+        L2130: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L2131: if ($_fail) { goto L2147; }
+        L2132: $_stack[++$_stack_sp] = 2134;
+        L2133: goto L7033;
+        L2134: if ($_fail) { goto L2147; }
+        L2135: $_stack[++$_stack_sp] = $_p;
+        L2136: $_stack[++$_stack_sp] = array();
+        L2137: $_stack[++$_stack_sp] = 2139;
+        L2138: goto L428;
+        L2139: if ($_fail) { goto L2143; }
+        L2140: $_stack[$_stack_sp][] = $_value;
+        L2141: $_stack[$_stack_sp - 1] = $_p;
+        L2142: goto L2137;
+        L2143: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2144: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2145: $_fail = false;
+        L2146: $_env["statements"] = $_value;
+        L2147: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2148: if ($_fail) { goto L2150; }
+        L2149: $_value = $this->_53($_env);
+        L2150: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2151: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2152: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2153: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2154: $_b = array();
+        L2155: $_b[0] = $_fail;
+        L2156: $_b[1] = $_value;
+        L2157: $_b[2] = $_p;
+        L2158: $_cache[$_a] = $_b;
+        L2159: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2160: if ($_a !== 1993) return array(FALSE, NULL, 24); goto L1993;
+        L2161: $_stack[++$_stack_sp] = "25@";
+        L2162: $_stack[$_stack_sp] .= $_p;
+        L2163: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2170; }
+        L2164: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2165: $_b = $_cache[$_a];
+        L2166: $_fail = $_b[0];
+        L2167: $_value = $_b[1];
+        L2168: $_p = $_b[2];
+        L2169: goto L2224;
+        L2170: $_stack[++$_stack_sp] = $_env;
+        L2171: $_env = array();
+        L2172: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2173: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2174: $_stack[++$_stack_sp] = $_b;
+        L2175: $_stack[++$_stack_sp] = NULL;
+        L2176: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "throw") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"throw"', $_expected)) { $_expected[] = '"throw"'; } } }
+        L2177: $_stack[$_stack_sp] = $_value;
+        L2178: if ($_fail) { goto L2212; }
+        L2179: $_stack[++$_stack_sp] = $_p;
+        L2180: $_stack[++$_stack_sp] = 2182;
+        L2181: goto L7461;
+        L2182: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2183: $_value = NULL;
+        L2184: $_fail = !$_fail;
+        L2185: if ($_fail) { goto L2212; }
+        L2186: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L2187: $_env["p"] = $_value;
+        L2188: if ($_fail) { goto L2212; }
+        L2189: $_stack[++$_stack_sp] = 2191;
+        L2190: goto L7165;
+        L2191: if ($_fail) { goto L2212; }
+        L2192: $_stack[++$_stack_sp] = $_p;
+        L2193: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2194: $_stack[++$_stack_sp] = $_b;
+        L2195: $_stack[++$_stack_sp] = 2197;
+        L2196: goto L7261;
+        L2197: if ($_fail) { goto L2199; }
+        L2198: $_value = $this->_55($_env);
+        L2199: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2200: if (!$_fail) { goto L2210; }
+        L2201: $_p = $_stack[$_stack_sp];
+        L2202: $_stack[++$_stack_sp] = NULL;
+        L2203: $_stack[++$_stack_sp] = 2205;
+        L2204: goto L2421;
+        L2205: $_stack[$_stack_sp] = $_value;
+        L2206: if ($_fail) { goto L2209; }
+        L2207: $_stack[++$_stack_sp] = 2209;
+        L2208: goto L7195;
+        L2209: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2210: unset($_stack[$_stack_sp--]);
+        L2211: $_env["expr"] = $_value;
+        L2212: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2213: if ($_fail) { goto L2215; }
+        L2214: $_value = $this->_54($_env);
+        L2215: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2216: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2217: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2218: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2219: $_b = array();
+        L2220: $_b[0] = $_fail;
+        L2221: $_b[1] = $_value;
+        L2222: $_b[2] = $_p;
+        L2223: $_cache[$_a] = $_b;
+        L2224: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2225: if ($_a !== 496) return array(FALSE, NULL, 25); goto L496;
+        L2226: $_stack[++$_stack_sp] = "26@";
+        L2227: $_stack[$_stack_sp] .= $_p;
+        L2228: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2235; }
+        L2229: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2230: $_b = $_cache[$_a];
+        L2231: $_fail = $_b[0];
+        L2232: $_value = $_b[1];
+        L2233: $_p = $_b[2];
+        L2234: goto L2350;
+        L2235: $_stack[++$_stack_sp] = $_env;
+        L2236: $_env = array();
+        L2237: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2238: $_stack[++$_stack_sp] = $_p;
+        L2239: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2240: $_stack[++$_stack_sp] = $_b;
+        L2241: $_stack[++$_stack_sp] = NULL;
+        L2242: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "try") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"try"', $_expected)) { $_expected[] = '"try"'; } } }
+        L2243: $_stack[$_stack_sp] = $_value;
+        L2244: if ($_fail) { goto L2307; }
+        L2245: $_stack[++$_stack_sp] = 2247;
+        L2246: goto L7033;
+        L2247: if ($_fail) { goto L2307; }
+        L2248: $_stack[++$_stack_sp] = 2250;
+        L2249: goto L520;
+        L2250: $_env["try_block"] = $_value;
+        L2251: if ($_fail) { goto L2307; }
+        L2252: $_stack[++$_stack_sp] = 2254;
+        L2253: goto L7033;
+        L2254: if ($_fail) { goto L2307; }
+        L2255: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "catch") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"catch"', $_expected)) { $_expected[] = '"catch"'; } } }
+        L2256: if ($_fail) { goto L2307; }
+        L2257: $_stack[++$_stack_sp] = 2259;
+        L2258: goto L7033;
+        L2259: if ($_fail) { goto L2307; }
+        L2260: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L2261: if ($_fail) { goto L2307; }
+        L2262: $_stack[++$_stack_sp] = 2264;
+        L2263: goto L7033;
+        L2264: if ($_fail) { goto L2307; }
+        L2265: $_stack[++$_stack_sp] = 2267;
+        L2266: goto L7367;
+        L2267: $_env["catch_var"] = $_value;
+        L2268: if ($_fail) { goto L2307; }
+        L2269: $_stack[++$_stack_sp] = 2271;
+        L2270: goto L7033;
+        L2271: if ($_fail) { goto L2307; }
+        L2272: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L2273: if ($_fail) { goto L2307; }
+        L2274: $_stack[++$_stack_sp] = 2276;
+        L2275: goto L7033;
+        L2276: if ($_fail) { goto L2307; }
+        L2277: $_stack[++$_stack_sp] = 2279;
+        L2278: goto L520;
+        L2279: $_env["catch_block"] = $_value;
+        L2280: if ($_fail) { goto L2307; }
+        L2281: $_stack[++$_stack_sp] = 2283;
+        L2282: goto L7033;
+        L2283: if ($_fail) { goto L2307; }
+        L2284: $_stack[++$_stack_sp] = $_p;
+        L2285: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2286: $_stack[++$_stack_sp] = $_b;
+        L2287: $_stack[++$_stack_sp] = NULL;
+        L2288: $_fail = TRUE; if (($_a = substr($_s, $_p, 7)) === "finally") { $_fail = FALSE; $_value = $_a; $_p += 7; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"finally"', $_expected)) { $_expected[] = '"finally"'; } } }
+        L2289: $_stack[$_stack_sp] = $_value;
+        L2290: if ($_fail) { goto L2297; }
+        L2291: $_stack[++$_stack_sp] = 2293;
+        L2292: goto L7033;
+        L2293: if ($_fail) { goto L2297; }
+        L2294: $_stack[++$_stack_sp] = 2296;
+        L2295: goto L520;
+        L2296: $_env["finally_block"] = $_value;
+        L2297: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2298: if ($_fail) { goto L2300; }
+        L2299: $_value = $this->_57($_env);
+        L2300: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2301: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2302: if (!$_fail) { goto L2306; }
+        L2303: $_fail = false;
+        L2304: $_value = NULL;
+        L2305: $_p = $_a;
+        L2306: $_env["finally"] = $_value;
         L2307: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L2308: if ($_fail) { goto L2310; }
-        L2309: $_value = $this->_54($_env);
+        L2309: $_value = $this->_56($_env);
         L2310: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2311: unset($_stack[$_stack_sp--]);
-        L2312: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2313: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2314: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2315: $_b = array();
-        L2316: $_b[0] = $_fail;
-        L2317: $_b[1] = $_value;
-        L2318: $_b[2] = $_p;
-        L2319: $_cache[$_a] = $_b;
-        L2320: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2321: if ($_a !== 500) return array(FALSE, NULL, 26); goto L500;
-        L2322: $_stack[++$_stack_sp] = "27@";
-        L2323: $_stack[$_stack_sp] .= $_p;
-        L2324: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2331; }
-        L2325: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2326: $_b = $_cache[$_a];
-        L2327: $_fail = $_b[0];
-        L2328: $_value = $_b[1];
-        L2329: $_p = $_b[2];
-        L2330: goto L2352;
-        L2331: $_stack[++$_stack_sp] = $_env;
-        L2332: $_env = array();
-        L2333: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2334: $_stack[++$_stack_sp] = NULL;
-        L2335: $_fail = TRUE; if (($_a = substr($_s, $_p, 8)) === "debugger") { $_fail = FALSE; $_value = $_a; $_p += 8; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"debugger"', $_expected)) { $_expected[] = '"debugger"'; } } }
-        L2336: $_stack[$_stack_sp] = $_value;
-        L2337: if ($_fail) { goto L2343; }
-        L2338: $_stack[++$_stack_sp] = 2340;
-        L2339: goto L7003;
-        L2340: if ($_fail) { goto L2343; }
-        L2341: $_stack[++$_stack_sp] = 2343;
-        L2342: goto L7165;
-        L2343: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2344: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2345: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2346: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2347: $_b = array();
-        L2348: $_b[0] = $_fail;
-        L2349: $_b[1] = $_value;
-        L2350: $_b[2] = $_p;
-        L2351: $_cache[$_a] = $_b;
-        L2352: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2353: if ($_a !== 504) return array(FALSE, NULL, 27); goto L504;
-        L2354: $_stack[++$_stack_sp] = "28@";
-        L2355: $_stack[$_stack_sp] .= $_p;
-        L2356: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2363; }
-        L2357: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2358: $_b = $_cache[$_a];
-        L2359: $_fail = $_b[0];
-        L2360: $_value = $_b[1];
-        L2361: $_p = $_b[2];
-        L2362: goto L2389;
-        L2363: $_stack[++$_stack_sp] = $_env;
-        L2364: $_env = array();
-        L2365: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2366: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2367: $_stack[++$_stack_sp] = $_b;
-        L2368: $_stack[++$_stack_sp] = NULL;
-        L2369: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
-        L2370: $_stack[$_stack_sp] = $_value;
-        L2371: if ($_fail) { goto L2377; }
-        L2372: $_stack[++$_stack_sp] = 2374;
-        L2373: goto L6225;
-        L2374: $_env["parts"] = $_value;
-        L2375: if ($_fail) { goto L2377; }
-        L2376: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
-        L2377: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2378: if ($_fail) { goto L2380; }
-        L2379: $_value = $this->_55($_env);
-        L2380: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2381: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2382: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2383: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2384: $_b = array();
-        L2385: $_b[0] = $_fail;
-        L2386: $_b[1] = $_value;
-        L2387: $_b[2] = $_p;
-        L2388: $_cache[$_a] = $_b;
-        L2389: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2390: if ($_a !== 448) return array(FALSE, NULL, 28); goto L448;
-        L2391: $_stack[++$_stack_sp] = "29@";
-        L2392: $_stack[$_stack_sp] .= $_p;
-        L2393: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2400; }
-        L2394: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2395: $_b = $_cache[$_a];
-        L2396: $_fail = $_b[0];
-        L2397: $_value = $_b[1];
-        L2398: $_p = $_b[2];
-        L2399: goto L2473;
-        L2400: $_stack[++$_stack_sp] = $_env;
-        L2401: $_env = array();
-        L2402: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2403: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2404: $_stack[++$_stack_sp] = $_b;
-        L2405: $_stack[++$_stack_sp] = $_env;
-        L2406: $_env = array();
-        L2407: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2408: $_stack[++$_stack_sp] = $_b;
-        L2409: $_stack[++$_stack_sp] = NULL;
-        L2410: $_stack[++$_stack_sp] = $_env;
-        L2411: $_env = array();
-        L2412: $_stack[++$_stack_sp] = 2414;
-        L2413: goto L2559;
-        L2414: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2415: $_env["first"] = $_value;
-        L2416: $_stack[$_stack_sp] = $_value;
-        L2417: if ($_fail) { goto L2456; }
-        L2418: $_stack[++$_stack_sp] = $_p;
-        L2419: $_stack[++$_stack_sp] = array();
-        L2420: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2421: $_stack[++$_stack_sp] = $_b;
-        L2422: $_stack[++$_stack_sp] = NULL;
-        L2423: $_stack[++$_stack_sp] = $_env;
-        L2424: $_env = array();
-        L2425: $_stack[++$_stack_sp] = NULL;
-        L2426: $_stack[++$_stack_sp] = 2428;
-        L2427: goto L7003;
-        L2428: $_stack[$_stack_sp] = $_value;
-        L2429: if ($_fail) { goto L2434; }
-        L2430: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L2431: if ($_fail) { goto L2434; }
-        L2432: $_stack[++$_stack_sp] = 2434;
-        L2433: goto L7003;
-        L2434: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2435: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2436: $_stack[$_stack_sp] = $_value;
-        L2437: if ($_fail) { goto L2444; }
-        L2438: $_stack[++$_stack_sp] = $_env;
-        L2439: $_env = array();
-        L2440: $_stack[++$_stack_sp] = 2442;
-        L2441: goto L2559;
-        L2442: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2443: $_env["next"] = $_value;
-        L2444: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2445: if ($_fail) { goto L2447; }
-        L2446: $_value = $this->_58($_env);
-        L2447: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2448: if ($_fail) { goto L2452; }
-        L2449: $_stack[$_stack_sp][] = $_value;
-        L2450: $_stack[$_stack_sp - 1] = $_p;
-        L2451: goto L2420;
-        L2452: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2453: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2454: $_fail = false;
-        L2455: $_env["rest"] = $_value;
-        L2456: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2457: if ($_fail) { goto L2459; }
-        L2458: $_value = $this->_57($_env);
-        L2459: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2460: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2461: $_env["exprs"] = $_value;
-        L2462: if ($_fail) { goto L2464; }
-        L2463: $_value = $this->_56($_env);
-        L2464: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2465: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2466: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2467: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2468: $_b = array();
-        L2469: $_b[0] = $_fail;
-        L2470: $_b[1] = $_value;
-        L2471: $_b[2] = $_p;
-        L2472: $_cache[$_a] = $_b;
-        L2473: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2474: if ($_a === 915) { goto L915; } else if ($_a === 962) { goto L962; } else if ($_a === 1101) { goto L1101; } else if ($_a === 1149) { goto L1149; } else if ($_a === 1224) { goto L1224; } else if ($_a === 1344) { goto L1344; } else if ($_a === 1420) { goto L1420; } else if ($_a === 1438) { goto L1438; } else if ($_a === 1557) { goto L1557; } else if ($_a === 1575) { goto L1575; } else if ($_a === 1783) { goto L1783; } else if ($_a === 1832) { goto L1832; } else if ($_a === 1932) { goto L1932; } else if ($_a === 2040) { goto L2040; } else if ($_a === 2175) { goto L2175; } else if ($_a === 5347) { goto L5347; } else if ($_a === 5748) { goto L5748; } else if ($_a === 6187) { goto L6187; } else { return array(FALSE, NULL, 29); }
-        L2475: $_stack[++$_stack_sp] = "30@";
-        L2476: $_stack[$_stack_sp] .= $_p;
-        L2477: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2484; }
-        L2478: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2479: $_b = $_cache[$_a];
-        L2480: $_fail = $_b[0];
-        L2481: $_value = $_b[1];
-        L2482: $_p = $_b[2];
-        L2483: goto L2557;
-        L2484: $_stack[++$_stack_sp] = $_env;
-        L2485: $_env = array();
-        L2486: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2487: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2488: $_stack[++$_stack_sp] = $_b;
-        L2489: $_stack[++$_stack_sp] = $_env;
-        L2490: $_env = array();
-        L2491: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2492: $_stack[++$_stack_sp] = $_b;
-        L2493: $_stack[++$_stack_sp] = NULL;
-        L2494: $_stack[++$_stack_sp] = $_env;
-        L2495: $_env = array();
-        L2496: $_stack[++$_stack_sp] = 2498;
-        L2497: goto L2652;
-        L2498: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2499: $_env["first"] = $_value;
-        L2500: $_stack[$_stack_sp] = $_value;
-        L2501: if ($_fail) { goto L2540; }
-        L2502: $_stack[++$_stack_sp] = $_p;
-        L2503: $_stack[++$_stack_sp] = array();
-        L2504: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2505: $_stack[++$_stack_sp] = $_b;
-        L2506: $_stack[++$_stack_sp] = NULL;
-        L2507: $_stack[++$_stack_sp] = $_env;
-        L2508: $_env = array();
-        L2509: $_stack[++$_stack_sp] = NULL;
-        L2510: $_stack[++$_stack_sp] = 2512;
-        L2511: goto L7003;
-        L2512: $_stack[$_stack_sp] = $_value;
-        L2513: if ($_fail) { goto L2518; }
-        L2514: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L2515: if ($_fail) { goto L2518; }
-        L2516: $_stack[++$_stack_sp] = 2518;
-        L2517: goto L7003;
-        L2518: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2519: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2520: $_stack[$_stack_sp] = $_value;
-        L2521: if ($_fail) { goto L2528; }
-        L2522: $_stack[++$_stack_sp] = $_env;
-        L2523: $_env = array();
-        L2524: $_stack[++$_stack_sp] = 2526;
-        L2525: goto L2652;
-        L2526: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2527: $_env["next"] = $_value;
-        L2528: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2529: if ($_fail) { goto L2531; }
-        L2530: $_value = $this->_61($_env);
-        L2531: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2532: if ($_fail) { goto L2536; }
-        L2533: $_stack[$_stack_sp][] = $_value;
-        L2534: $_stack[$_stack_sp - 1] = $_p;
-        L2535: goto L2504;
-        L2536: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2537: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2538: $_fail = false;
-        L2539: $_env["rest"] = $_value;
-        L2540: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2541: if ($_fail) { goto L2543; }
-        L2542: $_value = $this->_60($_env);
-        L2543: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2544: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2545: $_env["exprs"] = $_value;
-        L2546: if ($_fail) { goto L2548; }
-        L2547: $_value = $this->_59($_env);
-        L2548: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2549: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2550: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2551: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2552: $_b = array();
-        L2553: $_b[0] = $_fail;
-        L2554: $_b[1] = $_value;
-        L2555: $_b[2] = $_p;
-        L2556: $_cache[$_a] = $_b;
-        L2557: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2558: if ($_a !== 1402) return array(FALSE, NULL, 30); goto L1402;
-        L2559: $_stack[++$_stack_sp] = "31@";
-        L2560: $_stack[$_stack_sp] .= $_p;
-        L2561: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2568; }
-        L2562: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2563: $_b = $_cache[$_a];
-        L2564: $_fail = $_b[0];
-        L2565: $_value = $_b[1];
-        L2566: $_p = $_b[2];
-        L2567: goto L2650;
-        L2568: $_stack[++$_stack_sp] = $_env;
-        L2569: $_env = array();
-        L2570: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2571: $_stack[++$_stack_sp] = $_p;
-        L2572: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2573: $_stack[++$_stack_sp] = $_b;
-        L2574: $_stack[++$_stack_sp] = NULL;
-        L2575: $_stack[++$_stack_sp] = 2577;
-        L2576: goto L5245;
-        L2577: $_env["lhs"] = $_value;
-        L2578: $_stack[$_stack_sp] = $_value;
-        L2579: if ($_fail) { goto L2596; }
-        L2580: $_stack[++$_stack_sp] = 2582;
-        L2581: goto L7003;
-        L2582: if ($_fail) { goto L2596; }
-        L2583: $_stack[++$_stack_sp] = 2585;
-        L2584: goto L2745;
-        L2585: $_env["op"] = $_value;
-        L2586: if ($_fail) { goto L2596; }
-        L2587: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L2588: $_env["p"] = $_value;
-        L2589: if ($_fail) { goto L2596; }
-        L2590: $_stack[++$_stack_sp] = 2592;
-        L2591: goto L7003;
-        L2592: if ($_fail) { goto L2596; }
-        L2593: $_stack[++$_stack_sp] = 2595;
-        L2594: goto L2559;
-        L2595: $_env["rhs"] = $_value;
-        L2596: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2597: if ($_fail) { goto L2599; }
-        L2598: $_value = $this->_62($_env);
-        L2599: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2600: if (!$_fail) { goto L2641; }
-        L2601: $_p = $_stack[$_stack_sp];
+        L2311: if (!$_fail) { goto L2341; }
+        L2312: $_p = $_stack[$_stack_sp];
+        L2313: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2314: $_stack[++$_stack_sp] = $_b;
+        L2315: $_stack[++$_stack_sp] = NULL;
+        L2316: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "try") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"try"', $_expected)) { $_expected[] = '"try"'; } } }
+        L2317: $_stack[$_stack_sp] = $_value;
+        L2318: if ($_fail) { goto L2337; }
+        L2319: $_stack[++$_stack_sp] = 2321;
+        L2320: goto L7033;
+        L2321: if ($_fail) { goto L2337; }
+        L2322: $_stack[++$_stack_sp] = 2324;
+        L2323: goto L520;
+        L2324: $_env["try_block"] = $_value;
+        L2325: if ($_fail) { goto L2337; }
+        L2326: $_stack[++$_stack_sp] = 2328;
+        L2327: goto L7033;
+        L2328: if ($_fail) { goto L2337; }
+        L2329: $_fail = TRUE; if (($_a = substr($_s, $_p, 7)) === "finally") { $_fail = FALSE; $_value = $_a; $_p += 7; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"finally"', $_expected)) { $_expected[] = '"finally"'; } } }
+        L2330: if ($_fail) { goto L2337; }
+        L2331: $_stack[++$_stack_sp] = 2333;
+        L2332: goto L7033;
+        L2333: if ($_fail) { goto L2337; }
+        L2334: $_stack[++$_stack_sp] = 2336;
+        L2335: goto L520;
+        L2336: $_env["finally_block"] = $_value;
+        L2337: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2338: if ($_fail) { goto L2340; }
+        L2339: $_value = $this->_58($_env);
+        L2340: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2341: unset($_stack[$_stack_sp--]);
+        L2342: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2343: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2344: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2345: $_b = array();
+        L2346: $_b[0] = $_fail;
+        L2347: $_b[1] = $_value;
+        L2348: $_b[2] = $_p;
+        L2349: $_cache[$_a] = $_b;
+        L2350: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2351: if ($_a !== 500) return array(FALSE, NULL, 26); goto L500;
+        L2352: $_stack[++$_stack_sp] = "27@";
+        L2353: $_stack[$_stack_sp] .= $_p;
+        L2354: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2361; }
+        L2355: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2356: $_b = $_cache[$_a];
+        L2357: $_fail = $_b[0];
+        L2358: $_value = $_b[1];
+        L2359: $_p = $_b[2];
+        L2360: goto L2382;
+        L2361: $_stack[++$_stack_sp] = $_env;
+        L2362: $_env = array();
+        L2363: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2364: $_stack[++$_stack_sp] = NULL;
+        L2365: $_fail = TRUE; if (($_a = substr($_s, $_p, 8)) === "debugger") { $_fail = FALSE; $_value = $_a; $_p += 8; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"debugger"', $_expected)) { $_expected[] = '"debugger"'; } } }
+        L2366: $_stack[$_stack_sp] = $_value;
+        L2367: if ($_fail) { goto L2373; }
+        L2368: $_stack[++$_stack_sp] = 2370;
+        L2369: goto L7033;
+        L2370: if ($_fail) { goto L2373; }
+        L2371: $_stack[++$_stack_sp] = 2373;
+        L2372: goto L7195;
+        L2373: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2374: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2375: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2376: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2377: $_b = array();
+        L2378: $_b[0] = $_fail;
+        L2379: $_b[1] = $_value;
+        L2380: $_b[2] = $_p;
+        L2381: $_cache[$_a] = $_b;
+        L2382: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2383: if ($_a !== 504) return array(FALSE, NULL, 27); goto L504;
+        L2384: $_stack[++$_stack_sp] = "28@";
+        L2385: $_stack[$_stack_sp] .= $_p;
+        L2386: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2393; }
+        L2387: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2388: $_b = $_cache[$_a];
+        L2389: $_fail = $_b[0];
+        L2390: $_value = $_b[1];
+        L2391: $_p = $_b[2];
+        L2392: goto L2419;
+        L2393: $_stack[++$_stack_sp] = $_env;
+        L2394: $_env = array();
+        L2395: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2396: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2397: $_stack[++$_stack_sp] = $_b;
+        L2398: $_stack[++$_stack_sp] = NULL;
+        L2399: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
+        L2400: $_stack[$_stack_sp] = $_value;
+        L2401: if ($_fail) { goto L2407; }
+        L2402: $_stack[++$_stack_sp] = 2404;
+        L2403: goto L6255;
+        L2404: $_env["parts"] = $_value;
+        L2405: if ($_fail) { goto L2407; }
+        L2406: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
+        L2407: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2408: if ($_fail) { goto L2410; }
+        L2409: $_value = $this->_59($_env);
+        L2410: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2411: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2412: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2413: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2414: $_b = array();
+        L2415: $_b[0] = $_fail;
+        L2416: $_b[1] = $_value;
+        L2417: $_b[2] = $_p;
+        L2418: $_cache[$_a] = $_b;
+        L2419: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2420: if ($_a !== 448) return array(FALSE, NULL, 28); goto L448;
+        L2421: $_stack[++$_stack_sp] = "29@";
+        L2422: $_stack[$_stack_sp] .= $_p;
+        L2423: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2430; }
+        L2424: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2425: $_b = $_cache[$_a];
+        L2426: $_fail = $_b[0];
+        L2427: $_value = $_b[1];
+        L2428: $_p = $_b[2];
+        L2429: goto L2503;
+        L2430: $_stack[++$_stack_sp] = $_env;
+        L2431: $_env = array();
+        L2432: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2433: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2434: $_stack[++$_stack_sp] = $_b;
+        L2435: $_stack[++$_stack_sp] = $_env;
+        L2436: $_env = array();
+        L2437: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2438: $_stack[++$_stack_sp] = $_b;
+        L2439: $_stack[++$_stack_sp] = NULL;
+        L2440: $_stack[++$_stack_sp] = $_env;
+        L2441: $_env = array();
+        L2442: $_stack[++$_stack_sp] = 2444;
+        L2443: goto L2589;
+        L2444: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2445: $_env["first"] = $_value;
+        L2446: $_stack[$_stack_sp] = $_value;
+        L2447: if ($_fail) { goto L2486; }
+        L2448: $_stack[++$_stack_sp] = $_p;
+        L2449: $_stack[++$_stack_sp] = array();
+        L2450: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2451: $_stack[++$_stack_sp] = $_b;
+        L2452: $_stack[++$_stack_sp] = NULL;
+        L2453: $_stack[++$_stack_sp] = $_env;
+        L2454: $_env = array();
+        L2455: $_stack[++$_stack_sp] = NULL;
+        L2456: $_stack[++$_stack_sp] = 2458;
+        L2457: goto L7033;
+        L2458: $_stack[$_stack_sp] = $_value;
+        L2459: if ($_fail) { goto L2464; }
+        L2460: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L2461: if ($_fail) { goto L2464; }
+        L2462: $_stack[++$_stack_sp] = 2464;
+        L2463: goto L7033;
+        L2464: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2465: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2466: $_stack[$_stack_sp] = $_value;
+        L2467: if ($_fail) { goto L2474; }
+        L2468: $_stack[++$_stack_sp] = $_env;
+        L2469: $_env = array();
+        L2470: $_stack[++$_stack_sp] = 2472;
+        L2471: goto L2589;
+        L2472: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2473: $_env["next"] = $_value;
+        L2474: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2475: if ($_fail) { goto L2477; }
+        L2476: $_value = $this->_62($_env);
+        L2477: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2478: if ($_fail) { goto L2482; }
+        L2479: $_stack[$_stack_sp][] = $_value;
+        L2480: $_stack[$_stack_sp - 1] = $_p;
+        L2481: goto L2450;
+        L2482: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2483: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2484: $_fail = false;
+        L2485: $_env["rest"] = $_value;
+        L2486: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2487: if ($_fail) { goto L2489; }
+        L2488: $_value = $this->_61($_env);
+        L2489: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2490: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2491: $_env["exprs"] = $_value;
+        L2492: if ($_fail) { goto L2494; }
+        L2493: $_value = $this->_60($_env);
+        L2494: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2495: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2496: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2497: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2498: $_b = array();
+        L2499: $_b[0] = $_fail;
+        L2500: $_b[1] = $_value;
+        L2501: $_b[2] = $_p;
+        L2502: $_cache[$_a] = $_b;
+        L2503: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2504: if ($_a === 915) { goto L915; } else if ($_a === 962) { goto L962; } else if ($_a === 1101) { goto L1101; } else if ($_a === 1149) { goto L1149; } else if ($_a === 1251) { goto L1251; } else if ($_a === 1371) { goto L1371; } else if ($_a === 1447) { goto L1447; } else if ($_a === 1465) { goto L1465; } else if ($_a === 1584) { goto L1584; } else if ($_a === 1602) { goto L1602; } else if ($_a === 1810) { goto L1810; } else if ($_a === 1862) { goto L1862; } else if ($_a === 1962) { goto L1962; } else if ($_a === 2070) { goto L2070; } else if ($_a === 2205) { goto L2205; } else if ($_a === 5377) { goto L5377; } else if ($_a === 5778) { goto L5778; } else if ($_a === 6217) { goto L6217; } else { return array(FALSE, NULL, 29); }
+        L2505: $_stack[++$_stack_sp] = "30@";
+        L2506: $_stack[$_stack_sp] .= $_p;
+        L2507: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2514; }
+        L2508: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2509: $_b = $_cache[$_a];
+        L2510: $_fail = $_b[0];
+        L2511: $_value = $_b[1];
+        L2512: $_p = $_b[2];
+        L2513: goto L2587;
+        L2514: $_stack[++$_stack_sp] = $_env;
+        L2515: $_env = array();
+        L2516: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2517: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2518: $_stack[++$_stack_sp] = $_b;
+        L2519: $_stack[++$_stack_sp] = $_env;
+        L2520: $_env = array();
+        L2521: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2522: $_stack[++$_stack_sp] = $_b;
+        L2523: $_stack[++$_stack_sp] = NULL;
+        L2524: $_stack[++$_stack_sp] = $_env;
+        L2525: $_env = array();
+        L2526: $_stack[++$_stack_sp] = 2528;
+        L2527: goto L2682;
+        L2528: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2529: $_env["first"] = $_value;
+        L2530: $_stack[$_stack_sp] = $_value;
+        L2531: if ($_fail) { goto L2570; }
+        L2532: $_stack[++$_stack_sp] = $_p;
+        L2533: $_stack[++$_stack_sp] = array();
+        L2534: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2535: $_stack[++$_stack_sp] = $_b;
+        L2536: $_stack[++$_stack_sp] = NULL;
+        L2537: $_stack[++$_stack_sp] = $_env;
+        L2538: $_env = array();
+        L2539: $_stack[++$_stack_sp] = NULL;
+        L2540: $_stack[++$_stack_sp] = 2542;
+        L2541: goto L7033;
+        L2542: $_stack[$_stack_sp] = $_value;
+        L2543: if ($_fail) { goto L2548; }
+        L2544: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L2545: if ($_fail) { goto L2548; }
+        L2546: $_stack[++$_stack_sp] = 2548;
+        L2547: goto L7033;
+        L2548: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2549: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2550: $_stack[$_stack_sp] = $_value;
+        L2551: if ($_fail) { goto L2558; }
+        L2552: $_stack[++$_stack_sp] = $_env;
+        L2553: $_env = array();
+        L2554: $_stack[++$_stack_sp] = 2556;
+        L2555: goto L2682;
+        L2556: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2557: $_env["next"] = $_value;
+        L2558: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2559: if ($_fail) { goto L2561; }
+        L2560: $_value = $this->_65($_env);
+        L2561: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2562: if ($_fail) { goto L2566; }
+        L2563: $_stack[$_stack_sp][] = $_value;
+        L2564: $_stack[$_stack_sp - 1] = $_p;
+        L2565: goto L2534;
+        L2566: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2567: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2568: $_fail = false;
+        L2569: $_env["rest"] = $_value;
+        L2570: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2571: if ($_fail) { goto L2573; }
+        L2572: $_value = $this->_64($_env);
+        L2573: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2574: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2575: $_env["exprs"] = $_value;
+        L2576: if ($_fail) { goto L2578; }
+        L2577: $_value = $this->_63($_env);
+        L2578: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2579: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2580: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2581: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2582: $_b = array();
+        L2583: $_b[0] = $_fail;
+        L2584: $_b[1] = $_value;
+        L2585: $_b[2] = $_p;
+        L2586: $_cache[$_a] = $_b;
+        L2587: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2588: if ($_a !== 1429) return array(FALSE, NULL, 30); goto L1429;
+        L2589: $_stack[++$_stack_sp] = "31@";
+        L2590: $_stack[$_stack_sp] .= $_p;
+        L2591: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2598; }
+        L2592: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2593: $_b = $_cache[$_a];
+        L2594: $_fail = $_b[0];
+        L2595: $_value = $_b[1];
+        L2596: $_p = $_b[2];
+        L2597: goto L2680;
+        L2598: $_stack[++$_stack_sp] = $_env;
+        L2599: $_env = array();
+        L2600: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2601: $_stack[++$_stack_sp] = $_p;
         L2602: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
         L2603: $_stack[++$_stack_sp] = $_b;
         L2604: $_stack[++$_stack_sp] = NULL;
         L2605: $_stack[++$_stack_sp] = 2607;
-        L2606: goto L2813;
-        L2607: $_env["cond"] = $_value;
+        L2606: goto L5275;
+        L2607: $_env["lhs"] = $_value;
         L2608: $_stack[$_stack_sp] = $_value;
-        L2609: if ($_fail) { goto L2633; }
+        L2609: if ($_fail) { goto L2626; }
         L2610: $_stack[++$_stack_sp] = 2612;
-        L2611: goto L7003;
-        L2612: if ($_fail) { goto L2633; }
-        L2613: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "?") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"?"', $_expected)) { $_expected[] = '"?"'; } } }
-        L2614: if ($_fail) { goto L2633; }
-        L2615: $_stack[++$_stack_sp] = 2617;
-        L2616: goto L7003;
-        L2617: if ($_fail) { goto L2633; }
-        L2618: $_stack[++$_stack_sp] = 2620;
-        L2619: goto L2559;
-        L2620: $_env["iftrue"] = $_value;
-        L2621: if ($_fail) { goto L2633; }
-        L2622: $_stack[++$_stack_sp] = 2624;
-        L2623: goto L7003;
-        L2624: if ($_fail) { goto L2633; }
-        L2625: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L2626: if ($_fail) { goto L2633; }
-        L2627: $_stack[++$_stack_sp] = 2629;
-        L2628: goto L7003;
-        L2629: if ($_fail) { goto L2633; }
-        L2630: $_stack[++$_stack_sp] = 2632;
-        L2631: goto L2559;
-        L2632: $_env["iffalse"] = $_value;
-        L2633: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2634: if ($_fail) { goto L2636; }
-        L2635: $_value = $this->_63($_env);
-        L2636: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2637: if (!$_fail) { goto L2641; }
-        L2638: $_p = $_stack[$_stack_sp];
-        L2639: $_stack[++$_stack_sp] = 2641;
-        L2640: goto L2813;
-        L2641: unset($_stack[$_stack_sp--]);
-        L2642: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2643: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2644: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2645: $_b = array();
-        L2646: $_b[0] = $_fail;
-        L2647: $_b[1] = $_value;
-        L2648: $_b[2] = $_p;
-        L2649: $_cache[$_a] = $_b;
-        L2650: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2651: if ($_a === 752) { goto L752; } else if ($_a === 2414) { goto L2414; } else if ($_a === 2442) { goto L2442; } else if ($_a === 2595) { goto L2595; } else if ($_a === 2620) { goto L2620; } else if ($_a === 2632) { goto L2632; } else if ($_a === 5438) { goto L5438; } else if ($_a === 5466) { goto L5466; } else if ($_a === 5541) { goto L5541; } else if ($_a === 5569) { goto L5569; } else if ($_a === 5965) { goto L5965; } else if ($_a === 5989) { goto L5989; } else if ($_a === 6076) { goto L6076; } else if ($_a === 6135) { goto L6135; } else { return array(FALSE, NULL, 31); }
-        L2652: $_stack[++$_stack_sp] = "32@";
-        L2653: $_stack[$_stack_sp] .= $_p;
-        L2654: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2661; }
-        L2655: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2656: $_b = $_cache[$_a];
-        L2657: $_fail = $_b[0];
-        L2658: $_value = $_b[1];
-        L2659: $_p = $_b[2];
-        L2660: goto L2743;
-        L2661: $_stack[++$_stack_sp] = $_env;
-        L2662: $_env = array();
-        L2663: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2664: $_stack[++$_stack_sp] = $_p;
-        L2665: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2666: $_stack[++$_stack_sp] = $_b;
-        L2667: $_stack[++$_stack_sp] = NULL;
-        L2668: $_stack[++$_stack_sp] = 2670;
-        L2669: goto L5245;
-        L2670: $_env["lhs"] = $_value;
-        L2671: $_stack[$_stack_sp] = $_value;
-        L2672: if ($_fail) { goto L2689; }
-        L2673: $_stack[++$_stack_sp] = 2675;
-        L2674: goto L7003;
-        L2675: if ($_fail) { goto L2689; }
-        L2676: $_stack[++$_stack_sp] = 2678;
-        L2677: goto L2745;
-        L2678: $_env["op"] = $_value;
-        L2679: if ($_fail) { goto L2689; }
-        L2680: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L2681: $_env["p"] = $_value;
-        L2682: if ($_fail) { goto L2689; }
-        L2683: $_stack[++$_stack_sp] = 2685;
-        L2684: goto L7003;
-        L2685: if ($_fail) { goto L2689; }
-        L2686: $_stack[++$_stack_sp] = 2688;
-        L2687: goto L2652;
-        L2688: $_env["rhs"] = $_value;
-        L2689: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2690: if ($_fail) { goto L2692; }
-        L2691: $_value = $this->_64($_env);
-        L2692: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2693: if (!$_fail) { goto L2734; }
-        L2694: $_p = $_stack[$_stack_sp];
+        L2611: goto L7033;
+        L2612: if ($_fail) { goto L2626; }
+        L2613: $_stack[++$_stack_sp] = 2615;
+        L2614: goto L2775;
+        L2615: $_env["op"] = $_value;
+        L2616: if ($_fail) { goto L2626; }
+        L2617: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L2618: $_env["p"] = $_value;
+        L2619: if ($_fail) { goto L2626; }
+        L2620: $_stack[++$_stack_sp] = 2622;
+        L2621: goto L7033;
+        L2622: if ($_fail) { goto L2626; }
+        L2623: $_stack[++$_stack_sp] = 2625;
+        L2624: goto L2589;
+        L2625: $_env["rhs"] = $_value;
+        L2626: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2627: if ($_fail) { goto L2629; }
+        L2628: $_value = $this->_66($_env);
+        L2629: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2630: if (!$_fail) { goto L2671; }
+        L2631: $_p = $_stack[$_stack_sp];
+        L2632: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2633: $_stack[++$_stack_sp] = $_b;
+        L2634: $_stack[++$_stack_sp] = NULL;
+        L2635: $_stack[++$_stack_sp] = 2637;
+        L2636: goto L2843;
+        L2637: $_env["cond"] = $_value;
+        L2638: $_stack[$_stack_sp] = $_value;
+        L2639: if ($_fail) { goto L2663; }
+        L2640: $_stack[++$_stack_sp] = 2642;
+        L2641: goto L7033;
+        L2642: if ($_fail) { goto L2663; }
+        L2643: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "?") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"?"', $_expected)) { $_expected[] = '"?"'; } } }
+        L2644: if ($_fail) { goto L2663; }
+        L2645: $_stack[++$_stack_sp] = 2647;
+        L2646: goto L7033;
+        L2647: if ($_fail) { goto L2663; }
+        L2648: $_stack[++$_stack_sp] = 2650;
+        L2649: goto L2589;
+        L2650: $_env["iftrue"] = $_value;
+        L2651: if ($_fail) { goto L2663; }
+        L2652: $_stack[++$_stack_sp] = 2654;
+        L2653: goto L7033;
+        L2654: if ($_fail) { goto L2663; }
+        L2655: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L2656: if ($_fail) { goto L2663; }
+        L2657: $_stack[++$_stack_sp] = 2659;
+        L2658: goto L7033;
+        L2659: if ($_fail) { goto L2663; }
+        L2660: $_stack[++$_stack_sp] = 2662;
+        L2661: goto L2589;
+        L2662: $_env["iffalse"] = $_value;
+        L2663: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2664: if ($_fail) { goto L2666; }
+        L2665: $_value = $this->_67($_env);
+        L2666: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2667: if (!$_fail) { goto L2671; }
+        L2668: $_p = $_stack[$_stack_sp];
+        L2669: $_stack[++$_stack_sp] = 2671;
+        L2670: goto L2843;
+        L2671: unset($_stack[$_stack_sp--]);
+        L2672: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2673: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2674: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2675: $_b = array();
+        L2676: $_b[0] = $_fail;
+        L2677: $_b[1] = $_value;
+        L2678: $_b[2] = $_p;
+        L2679: $_cache[$_a] = $_b;
+        L2680: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2681: if ($_a === 752) { goto L752; } else if ($_a === 2444) { goto L2444; } else if ($_a === 2472) { goto L2472; } else if ($_a === 2625) { goto L2625; } else if ($_a === 2650) { goto L2650; } else if ($_a === 2662) { goto L2662; } else if ($_a === 5468) { goto L5468; } else if ($_a === 5496) { goto L5496; } else if ($_a === 5571) { goto L5571; } else if ($_a === 5599) { goto L5599; } else if ($_a === 5995) { goto L5995; } else if ($_a === 6019) { goto L6019; } else if ($_a === 6106) { goto L6106; } else if ($_a === 6165) { goto L6165; } else { return array(FALSE, NULL, 31); }
+        L2682: $_stack[++$_stack_sp] = "32@";
+        L2683: $_stack[$_stack_sp] .= $_p;
+        L2684: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2691; }
+        L2685: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2686: $_b = $_cache[$_a];
+        L2687: $_fail = $_b[0];
+        L2688: $_value = $_b[1];
+        L2689: $_p = $_b[2];
+        L2690: goto L2773;
+        L2691: $_stack[++$_stack_sp] = $_env;
+        L2692: $_env = array();
+        L2693: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2694: $_stack[++$_stack_sp] = $_p;
         L2695: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
         L2696: $_stack[++$_stack_sp] = $_b;
         L2697: $_stack[++$_stack_sp] = NULL;
         L2698: $_stack[++$_stack_sp] = 2700;
-        L2699: goto L2923;
-        L2700: $_env["cond"] = $_value;
+        L2699: goto L5275;
+        L2700: $_env["lhs"] = $_value;
         L2701: $_stack[$_stack_sp] = $_value;
-        L2702: if ($_fail) { goto L2726; }
+        L2702: if ($_fail) { goto L2719; }
         L2703: $_stack[++$_stack_sp] = 2705;
-        L2704: goto L7003;
-        L2705: if ($_fail) { goto L2726; }
-        L2706: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "?") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"?"', $_expected)) { $_expected[] = '"?"'; } } }
-        L2707: if ($_fail) { goto L2726; }
-        L2708: $_stack[++$_stack_sp] = 2710;
-        L2709: goto L7003;
-        L2710: if ($_fail) { goto L2726; }
-        L2711: $_stack[++$_stack_sp] = 2713;
-        L2712: goto L2652;
-        L2713: $_env["iftrue"] = $_value;
-        L2714: if ($_fail) { goto L2726; }
-        L2715: $_stack[++$_stack_sp] = 2717;
-        L2716: goto L7003;
-        L2717: if ($_fail) { goto L2726; }
-        L2718: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L2719: if ($_fail) { goto L2726; }
-        L2720: $_stack[++$_stack_sp] = 2722;
-        L2721: goto L7003;
-        L2722: if ($_fail) { goto L2726; }
-        L2723: $_stack[++$_stack_sp] = 2725;
-        L2724: goto L2652;
-        L2725: $_env["iffalse"] = $_value;
-        L2726: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2727: if ($_fail) { goto L2729; }
-        L2728: $_value = $this->_65($_env);
-        L2729: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2730: if (!$_fail) { goto L2734; }
-        L2731: $_p = $_stack[$_stack_sp];
-        L2732: $_stack[++$_stack_sp] = 2734;
-        L2733: goto L2923;
-        L2734: unset($_stack[$_stack_sp--]);
-        L2735: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2736: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2737: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2738: $_b = array();
-        L2739: $_b[0] = $_fail;
-        L2740: $_b[1] = $_value;
-        L2741: $_b[2] = $_p;
-        L2742: $_cache[$_a] = $_b;
-        L2743: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2744: if ($_a === 821) { goto L821; } else if ($_a === 2498) { goto L2498; } else if ($_a === 2526) { goto L2526; } else if ($_a === 2688) { goto L2688; } else if ($_a === 2713) { goto L2713; } else if ($_a === 2725) { goto L2725; } else { return array(FALSE, NULL, 32); }
-        L2745: $_stack[++$_stack_sp] = "33@";
-        L2746: $_stack[$_stack_sp] .= $_p;
-        L2747: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2754; }
-        L2748: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2749: $_b = $_cache[$_a];
-        L2750: $_fail = $_b[0];
-        L2751: $_value = $_b[1];
-        L2752: $_p = $_b[2];
-        L2753: goto L2811;
-        L2754: $_stack[++$_stack_sp] = $_env;
-        L2755: $_env = array();
-        L2756: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2757: $_stack[++$_stack_sp] = $_p;
-        L2758: $_stack[++$_stack_sp] = "";
-        L2759: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L2760: $_stack[$_stack_sp] .= $_value;
-        L2761: if ($_fail) { goto L2768; }
-        L2762: $_stack[++$_stack_sp] = $_p;
-        L2763: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L2764: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2765: $_value = NULL;
-        L2766: $_fail = !$_fail;
-        L2767: $_stack[$_stack_sp] .= $_value;
-        L2768: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2769: if (!$_fail) { goto L2802; }
-        L2770: $_p = $_stack[$_stack_sp];
-        L2771: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*="', $_expected)) { $_expected[] = '"*="'; } } }
-        L2772: if (!$_fail) { goto L2802; }
-        L2773: $_p = $_stack[$_stack_sp];
-        L2774: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "/=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/="', $_expected)) { $_expected[] = '"/="'; } } }
-        L2775: if (!$_fail) { goto L2802; }
-        L2776: $_p = $_stack[$_stack_sp];
-        L2777: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "%=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"%="', $_expected)) { $_expected[] = '"%="'; } } }
-        L2778: if (!$_fail) { goto L2802; }
-        L2779: $_p = $_stack[$_stack_sp];
-        L2780: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "+=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+="', $_expected)) { $_expected[] = '"+="'; } } }
-        L2781: if (!$_fail) { goto L2802; }
-        L2782: $_p = $_stack[$_stack_sp];
-        L2783: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "-=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-="', $_expected)) { $_expected[] = '"-="'; } } }
-        L2784: if (!$_fail) { goto L2802; }
-        L2785: $_p = $_stack[$_stack_sp];
-        L2786: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "<<=") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<<="', $_expected)) { $_expected[] = '"<<="'; } } }
-        L2787: if (!$_fail) { goto L2802; }
-        L2788: $_p = $_stack[$_stack_sp];
-        L2789: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === ">>=") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>="', $_expected)) { $_expected[] = '">>="'; } } }
-        L2790: if (!$_fail) { goto L2802; }
-        L2791: $_p = $_stack[$_stack_sp];
-        L2792: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === ">>>=") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>>="', $_expected)) { $_expected[] = '">>>="'; } } }
-        L2793: if (!$_fail) { goto L2802; }
-        L2794: $_p = $_stack[$_stack_sp];
-        L2795: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "&=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&="', $_expected)) { $_expected[] = '"&="'; } } }
-        L2796: if (!$_fail) { goto L2802; }
-        L2797: $_p = $_stack[$_stack_sp];
-        L2798: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "^=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"^="', $_expected)) { $_expected[] = '"^="'; } } }
-        L2799: if (!$_fail) { goto L2802; }
+        L2704: goto L7033;
+        L2705: if ($_fail) { goto L2719; }
+        L2706: $_stack[++$_stack_sp] = 2708;
+        L2707: goto L2775;
+        L2708: $_env["op"] = $_value;
+        L2709: if ($_fail) { goto L2719; }
+        L2710: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L2711: $_env["p"] = $_value;
+        L2712: if ($_fail) { goto L2719; }
+        L2713: $_stack[++$_stack_sp] = 2715;
+        L2714: goto L7033;
+        L2715: if ($_fail) { goto L2719; }
+        L2716: $_stack[++$_stack_sp] = 2718;
+        L2717: goto L2682;
+        L2718: $_env["rhs"] = $_value;
+        L2719: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2720: if ($_fail) { goto L2722; }
+        L2721: $_value = $this->_68($_env);
+        L2722: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2723: if (!$_fail) { goto L2764; }
+        L2724: $_p = $_stack[$_stack_sp];
+        L2725: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2726: $_stack[++$_stack_sp] = $_b;
+        L2727: $_stack[++$_stack_sp] = NULL;
+        L2728: $_stack[++$_stack_sp] = 2730;
+        L2729: goto L2953;
+        L2730: $_env["cond"] = $_value;
+        L2731: $_stack[$_stack_sp] = $_value;
+        L2732: if ($_fail) { goto L2756; }
+        L2733: $_stack[++$_stack_sp] = 2735;
+        L2734: goto L7033;
+        L2735: if ($_fail) { goto L2756; }
+        L2736: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "?") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"?"', $_expected)) { $_expected[] = '"?"'; } } }
+        L2737: if ($_fail) { goto L2756; }
+        L2738: $_stack[++$_stack_sp] = 2740;
+        L2739: goto L7033;
+        L2740: if ($_fail) { goto L2756; }
+        L2741: $_stack[++$_stack_sp] = 2743;
+        L2742: goto L2682;
+        L2743: $_env["iftrue"] = $_value;
+        L2744: if ($_fail) { goto L2756; }
+        L2745: $_stack[++$_stack_sp] = 2747;
+        L2746: goto L7033;
+        L2747: if ($_fail) { goto L2756; }
+        L2748: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L2749: if ($_fail) { goto L2756; }
+        L2750: $_stack[++$_stack_sp] = 2752;
+        L2751: goto L7033;
+        L2752: if ($_fail) { goto L2756; }
+        L2753: $_stack[++$_stack_sp] = 2755;
+        L2754: goto L2682;
+        L2755: $_env["iffalse"] = $_value;
+        L2756: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2757: if ($_fail) { goto L2759; }
+        L2758: $_value = $this->_69($_env);
+        L2759: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2760: if (!$_fail) { goto L2764; }
+        L2761: $_p = $_stack[$_stack_sp];
+        L2762: $_stack[++$_stack_sp] = 2764;
+        L2763: goto L2953;
+        L2764: unset($_stack[$_stack_sp--]);
+        L2765: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L2766: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2767: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2768: $_b = array();
+        L2769: $_b[0] = $_fail;
+        L2770: $_b[1] = $_value;
+        L2771: $_b[2] = $_p;
+        L2772: $_cache[$_a] = $_b;
+        L2773: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2774: if ($_a === 821) { goto L821; } else if ($_a === 2528) { goto L2528; } else if ($_a === 2556) { goto L2556; } else if ($_a === 2718) { goto L2718; } else if ($_a === 2743) { goto L2743; } else if ($_a === 2755) { goto L2755; } else { return array(FALSE, NULL, 32); }
+        L2775: $_stack[++$_stack_sp] = "33@";
+        L2776: $_stack[$_stack_sp] .= $_p;
+        L2777: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2784; }
+        L2778: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2779: $_b = $_cache[$_a];
+        L2780: $_fail = $_b[0];
+        L2781: $_value = $_b[1];
+        L2782: $_p = $_b[2];
+        L2783: goto L2841;
+        L2784: $_stack[++$_stack_sp] = $_env;
+        L2785: $_env = array();
+        L2786: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2787: $_stack[++$_stack_sp] = $_p;
+        L2788: $_stack[++$_stack_sp] = "";
+        L2789: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L2790: $_stack[$_stack_sp] .= $_value;
+        L2791: if ($_fail) { goto L2798; }
+        L2792: $_stack[++$_stack_sp] = $_p;
+        L2793: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L2794: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2795: $_value = NULL;
+        L2796: $_fail = !$_fail;
+        L2797: $_stack[$_stack_sp] .= $_value;
+        L2798: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2799: if (!$_fail) { goto L2832; }
         L2800: $_p = $_stack[$_stack_sp];
-        L2801: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "|=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"|="', $_expected)) { $_expected[] = '"|="'; } } }
-        L2802: unset($_stack[$_stack_sp--]);
-        L2803: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2804: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2805: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2806: $_b = array();
-        L2807: $_b[0] = $_fail;
-        L2808: $_b[1] = $_value;
-        L2809: $_b[2] = $_p;
-        L2810: $_cache[$_a] = $_b;
-        L2811: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2812: if ($_a === 2585) { goto L2585; } else if ($_a === 2678) { goto L2678; } else { return array(FALSE, NULL, 33); }
-        L2813: $_stack[++$_stack_sp] = "34@";
-        L2814: $_stack[$_stack_sp] .= $_p;
-        L2815: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2822; }
-        L2816: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2817: $_b = $_cache[$_a];
-        L2818: $_fail = $_b[0];
-        L2819: $_value = $_b[1];
-        L2820: $_p = $_b[2];
-        L2821: goto L2921;
-        L2822: $_stack[++$_stack_sp] = $_env;
-        L2823: $_env = array();
-        L2824: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2825: $_stack[++$_stack_sp] = $_env;
-        L2826: $_env = array();
-        L2827: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2828: $_stack[++$_stack_sp] = $_b;
-        L2829: $_stack[++$_stack_sp] = NULL;
-        L2830: $_stack[++$_stack_sp] = $_env;
-        L2831: $_env = array();
-        L2832: $_stack[++$_stack_sp] = 2834;
-        L2833: goto L3033;
+        L2801: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*="', $_expected)) { $_expected[] = '"*="'; } } }
+        L2802: if (!$_fail) { goto L2832; }
+        L2803: $_p = $_stack[$_stack_sp];
+        L2804: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "/=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/="', $_expected)) { $_expected[] = '"/="'; } } }
+        L2805: if (!$_fail) { goto L2832; }
+        L2806: $_p = $_stack[$_stack_sp];
+        L2807: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "%=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"%="', $_expected)) { $_expected[] = '"%="'; } } }
+        L2808: if (!$_fail) { goto L2832; }
+        L2809: $_p = $_stack[$_stack_sp];
+        L2810: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "+=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+="', $_expected)) { $_expected[] = '"+="'; } } }
+        L2811: if (!$_fail) { goto L2832; }
+        L2812: $_p = $_stack[$_stack_sp];
+        L2813: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "-=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-="', $_expected)) { $_expected[] = '"-="'; } } }
+        L2814: if (!$_fail) { goto L2832; }
+        L2815: $_p = $_stack[$_stack_sp];
+        L2816: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "<<=") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<<="', $_expected)) { $_expected[] = '"<<="'; } } }
+        L2817: if (!$_fail) { goto L2832; }
+        L2818: $_p = $_stack[$_stack_sp];
+        L2819: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === ">>=") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>="', $_expected)) { $_expected[] = '">>="'; } } }
+        L2820: if (!$_fail) { goto L2832; }
+        L2821: $_p = $_stack[$_stack_sp];
+        L2822: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === ">>>=") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>>="', $_expected)) { $_expected[] = '">>>="'; } } }
+        L2823: if (!$_fail) { goto L2832; }
+        L2824: $_p = $_stack[$_stack_sp];
+        L2825: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "&=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&="', $_expected)) { $_expected[] = '"&="'; } } }
+        L2826: if (!$_fail) { goto L2832; }
+        L2827: $_p = $_stack[$_stack_sp];
+        L2828: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "^=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"^="', $_expected)) { $_expected[] = '"^="'; } } }
+        L2829: if (!$_fail) { goto L2832; }
+        L2830: $_p = $_stack[$_stack_sp];
+        L2831: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "|=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"|="', $_expected)) { $_expected[] = '"|="'; } } }
+        L2832: unset($_stack[$_stack_sp--]);
+        L2833: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L2834: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2835: $_env["left"] = $_value;
-        L2836: $_stack[$_stack_sp] = $_value;
-        L2837: if ($_fail) { goto L2908; }
-        L2838: $_stack[++$_stack_sp] = $_p;
-        L2839: $_stack[++$_stack_sp] = array();
-        L2840: $_stack[++$_stack_sp] = NULL;
-        L2841: $_stack[++$_stack_sp] = $_env;
-        L2842: $_env = array();
-        L2843: $_stack[++$_stack_sp] = 2845;
-        L2844: goto L7003;
-        L2845: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2846: $_stack[$_stack_sp] = $_value;
-        L2847: if ($_fail) { goto L2900; }
-        L2848: $_stack[++$_stack_sp] = $_env;
-        L2849: $_env = array();
-        L2850: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "||") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"||"', $_expected)) { $_expected[] = '"||"'; } } }
-        L2851: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2852: $_env["op"] = $_value;
-        L2853: if ($_fail) { goto L2900; }
-        L2854: $_stack[++$_stack_sp] = $_env;
-        L2855: $_env = array();
-        L2856: $_stack[++$_stack_sp] = 2858;
-        L2857: goto L7003;
-        L2858: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2859: if ($_fail) { goto L2900; }
-        L2860: $_stack[++$_stack_sp] = $_p;
-        L2861: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2862: $_stack[++$_stack_sp] = $_b;
-        L2863: $_stack[++$_stack_sp] = NULL;
-        L2864: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L2865: $_value = $this->_68($_env);
-        L2866: $_fail = !$_value;
-        L2867: $_value = NULL;
-        L2868: if ($_fail) { goto L2876; }
-        L2869: $_stack[++$_stack_sp] = $_env;
-        L2870: $_env = array();
-        L2871: $_stack[++$_stack_sp] = 2873;
-        L2872: goto L3033;
-        L2873: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2874: $_env["right"] = $_value;
-        L2875: $_stack[$_stack_sp] = $_value;
-        L2876: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2877: if ($_fail) { goto L2879; }
-        L2878: $_value = $this->_67($_env);
-        L2879: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2880: if (!$_fail) { goto L2899; }
-        L2881: $_p = $_stack[$_stack_sp];
-        L2882: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2883: $_stack[++$_stack_sp] = $_b;
-        L2884: $_stack[++$_stack_sp] = NULL;
-        L2885: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L2886: $_env["p"] = $_value;
-        L2887: $_stack[$_stack_sp] = $_value;
-        L2888: if ($_fail) { goto L2895; }
-        L2889: $_stack[++$_stack_sp] = $_env;
-        L2890: $_env = array();
-        L2891: $_stack[++$_stack_sp] = 2893;
-        L2892: goto L3033;
-        L2893: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2894: $_env["right"] = $_value;
-        L2895: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2896: if ($_fail) { goto L2898; }
-        L2897: $_value = $this->_69($_env);
-        L2898: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2899: unset($_stack[$_stack_sp--]);
-        L2900: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2901: if ($_fail) { goto L2905; }
-        L2902: $_stack[$_stack_sp][] = $_value;
-        L2903: $_stack[$_stack_sp - 1] = $_p;
-        L2904: goto L2840;
-        L2905: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2906: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2907: $_fail = false;
-        L2908: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2909: if ($_fail) { goto L2911; }
-        L2910: $_value = $this->_66($_env);
-        L2911: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2912: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2913: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L2914: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2915: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2916: $_b = array();
-        L2917: $_b[0] = $_fail;
-        L2918: $_b[1] = $_value;
-        L2919: $_b[2] = $_p;
-        L2920: $_cache[$_a] = $_b;
-        L2921: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2922: if ($_a === 2607) { goto L2607; } else if ($_a === 2641) { goto L2641; } else { return array(FALSE, NULL, 34); }
-        L2923: $_stack[++$_stack_sp] = "35@";
-        L2924: $_stack[$_stack_sp] .= $_p;
-        L2925: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2932; }
-        L2926: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2927: $_b = $_cache[$_a];
-        L2928: $_fail = $_b[0];
-        L2929: $_value = $_b[1];
-        L2930: $_p = $_b[2];
-        L2931: goto L3031;
-        L2932: $_stack[++$_stack_sp] = $_env;
-        L2933: $_env = array();
-        L2934: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L2935: $_stack[++$_stack_sp] = $_env;
-        L2936: $_env = array();
-        L2937: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2938: $_stack[++$_stack_sp] = $_b;
-        L2939: $_stack[++$_stack_sp] = NULL;
-        L2940: $_stack[++$_stack_sp] = $_env;
-        L2941: $_env = array();
-        L2942: $_stack[++$_stack_sp] = 2944;
-        L2943: goto L3143;
+        L2835: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2836: $_b = array();
+        L2837: $_b[0] = $_fail;
+        L2838: $_b[1] = $_value;
+        L2839: $_b[2] = $_p;
+        L2840: $_cache[$_a] = $_b;
+        L2841: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2842: if ($_a === 2615) { goto L2615; } else if ($_a === 2708) { goto L2708; } else { return array(FALSE, NULL, 33); }
+        L2843: $_stack[++$_stack_sp] = "34@";
+        L2844: $_stack[$_stack_sp] .= $_p;
+        L2845: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2852; }
+        L2846: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2847: $_b = $_cache[$_a];
+        L2848: $_fail = $_b[0];
+        L2849: $_value = $_b[1];
+        L2850: $_p = $_b[2];
+        L2851: goto L2951;
+        L2852: $_stack[++$_stack_sp] = $_env;
+        L2853: $_env = array();
+        L2854: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2855: $_stack[++$_stack_sp] = $_env;
+        L2856: $_env = array();
+        L2857: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2858: $_stack[++$_stack_sp] = $_b;
+        L2859: $_stack[++$_stack_sp] = NULL;
+        L2860: $_stack[++$_stack_sp] = $_env;
+        L2861: $_env = array();
+        L2862: $_stack[++$_stack_sp] = 2864;
+        L2863: goto L3063;
+        L2864: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2865: $_env["left"] = $_value;
+        L2866: $_stack[$_stack_sp] = $_value;
+        L2867: if ($_fail) { goto L2938; }
+        L2868: $_stack[++$_stack_sp] = $_p;
+        L2869: $_stack[++$_stack_sp] = array();
+        L2870: $_stack[++$_stack_sp] = NULL;
+        L2871: $_stack[++$_stack_sp] = $_env;
+        L2872: $_env = array();
+        L2873: $_stack[++$_stack_sp] = 2875;
+        L2874: goto L7033;
+        L2875: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2876: $_stack[$_stack_sp] = $_value;
+        L2877: if ($_fail) { goto L2930; }
+        L2878: $_stack[++$_stack_sp] = $_env;
+        L2879: $_env = array();
+        L2880: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "||") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"||"', $_expected)) { $_expected[] = '"||"'; } } }
+        L2881: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2882: $_env["op"] = $_value;
+        L2883: if ($_fail) { goto L2930; }
+        L2884: $_stack[++$_stack_sp] = $_env;
+        L2885: $_env = array();
+        L2886: $_stack[++$_stack_sp] = 2888;
+        L2887: goto L7033;
+        L2888: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2889: if ($_fail) { goto L2930; }
+        L2890: $_stack[++$_stack_sp] = $_p;
+        L2891: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2892: $_stack[++$_stack_sp] = $_b;
+        L2893: $_stack[++$_stack_sp] = NULL;
+        L2894: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L2895: $_value = $this->_72($_env);
+        L2896: $_fail = !$_value;
+        L2897: $_value = NULL;
+        L2898: if ($_fail) { goto L2906; }
+        L2899: $_stack[++$_stack_sp] = $_env;
+        L2900: $_env = array();
+        L2901: $_stack[++$_stack_sp] = 2903;
+        L2902: goto L3063;
+        L2903: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2904: $_env["right"] = $_value;
+        L2905: $_stack[$_stack_sp] = $_value;
+        L2906: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2907: if ($_fail) { goto L2909; }
+        L2908: $_value = $this->_71($_env);
+        L2909: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2910: if (!$_fail) { goto L2929; }
+        L2911: $_p = $_stack[$_stack_sp];
+        L2912: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2913: $_stack[++$_stack_sp] = $_b;
+        L2914: $_stack[++$_stack_sp] = NULL;
+        L2915: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L2916: $_env["p"] = $_value;
+        L2917: $_stack[$_stack_sp] = $_value;
+        L2918: if ($_fail) { goto L2925; }
+        L2919: $_stack[++$_stack_sp] = $_env;
+        L2920: $_env = array();
+        L2921: $_stack[++$_stack_sp] = 2923;
+        L2922: goto L3063;
+        L2923: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2924: $_env["right"] = $_value;
+        L2925: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2926: if ($_fail) { goto L2928; }
+        L2927: $_value = $this->_73($_env);
+        L2928: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2929: unset($_stack[$_stack_sp--]);
+        L2930: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2931: if ($_fail) { goto L2935; }
+        L2932: $_stack[$_stack_sp][] = $_value;
+        L2933: $_stack[$_stack_sp - 1] = $_p;
+        L2934: goto L2870;
+        L2935: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2936: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2937: $_fail = false;
+        L2938: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2939: if ($_fail) { goto L2941; }
+        L2940: $_value = $this->_70($_env);
+        L2941: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2942: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2943: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L2944: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2945: $_env["left"] = $_value;
-        L2946: $_stack[$_stack_sp] = $_value;
-        L2947: if ($_fail) { goto L3018; }
-        L2948: $_stack[++$_stack_sp] = $_p;
-        L2949: $_stack[++$_stack_sp] = array();
-        L2950: $_stack[++$_stack_sp] = NULL;
-        L2951: $_stack[++$_stack_sp] = $_env;
-        L2952: $_env = array();
-        L2953: $_stack[++$_stack_sp] = 2955;
-        L2954: goto L7003;
-        L2955: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2956: $_stack[$_stack_sp] = $_value;
-        L2957: if ($_fail) { goto L3010; }
-        L2958: $_stack[++$_stack_sp] = $_env;
-        L2959: $_env = array();
-        L2960: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "||") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"||"', $_expected)) { $_expected[] = '"||"'; } } }
-        L2961: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2962: $_env["op"] = $_value;
-        L2963: if ($_fail) { goto L3010; }
-        L2964: $_stack[++$_stack_sp] = $_env;
-        L2965: $_env = array();
-        L2966: $_stack[++$_stack_sp] = 2968;
-        L2967: goto L7003;
-        L2968: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2969: if ($_fail) { goto L3010; }
-        L2970: $_stack[++$_stack_sp] = $_p;
-        L2971: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2972: $_stack[++$_stack_sp] = $_b;
-        L2973: $_stack[++$_stack_sp] = NULL;
-        L2974: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L2975: $_value = $this->_72($_env);
-        L2976: $_fail = !$_value;
-        L2977: $_value = NULL;
-        L2978: if ($_fail) { goto L2986; }
-        L2979: $_stack[++$_stack_sp] = $_env;
-        L2980: $_env = array();
-        L2981: $_stack[++$_stack_sp] = 2983;
-        L2982: goto L3143;
-        L2983: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2984: $_env["right"] = $_value;
-        L2985: $_stack[$_stack_sp] = $_value;
-        L2986: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2987: if ($_fail) { goto L2989; }
-        L2988: $_value = $this->_71($_env);
-        L2989: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L2990: if (!$_fail) { goto L3009; }
-        L2991: $_p = $_stack[$_stack_sp];
-        L2992: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L2993: $_stack[++$_stack_sp] = $_b;
-        L2994: $_stack[++$_stack_sp] = NULL;
-        L2995: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L2996: $_env["p"] = $_value;
-        L2997: $_stack[$_stack_sp] = $_value;
-        L2998: if ($_fail) { goto L3005; }
-        L2999: $_stack[++$_stack_sp] = $_env;
-        L3000: $_env = array();
-        L3001: $_stack[++$_stack_sp] = 3003;
-        L3002: goto L3143;
-        L3003: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3004: $_env["right"] = $_value;
-        L3005: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3006: if ($_fail) { goto L3008; }
-        L3007: $_value = $this->_73($_env);
-        L3008: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3009: unset($_stack[$_stack_sp--]);
-        L3010: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3011: if ($_fail) { goto L3015; }
-        L3012: $_stack[$_stack_sp][] = $_value;
-        L3013: $_stack[$_stack_sp - 1] = $_p;
-        L3014: goto L2950;
-        L3015: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3016: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3017: $_fail = false;
-        L3018: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3019: if ($_fail) { goto L3021; }
-        L3020: $_value = $this->_70($_env);
-        L3021: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3022: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3023: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3024: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3025: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3026: $_b = array();
-        L3027: $_b[0] = $_fail;
-        L3028: $_b[1] = $_value;
-        L3029: $_b[2] = $_p;
-        L3030: $_cache[$_a] = $_b;
-        L3031: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3032: if ($_a === 2700) { goto L2700; } else if ($_a === 2734) { goto L2734; } else { return array(FALSE, NULL, 35); }
-        L3033: $_stack[++$_stack_sp] = "36@";
-        L3034: $_stack[$_stack_sp] .= $_p;
-        L3035: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3042; }
-        L3036: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3037: $_b = $_cache[$_a];
-        L3038: $_fail = $_b[0];
-        L3039: $_value = $_b[1];
-        L3040: $_p = $_b[2];
-        L3041: goto L3141;
-        L3042: $_stack[++$_stack_sp] = $_env;
-        L3043: $_env = array();
-        L3044: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3045: $_stack[++$_stack_sp] = $_env;
-        L3046: $_env = array();
-        L3047: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3048: $_stack[++$_stack_sp] = $_b;
-        L3049: $_stack[++$_stack_sp] = NULL;
-        L3050: $_stack[++$_stack_sp] = $_env;
-        L3051: $_env = array();
-        L3052: $_stack[++$_stack_sp] = 3054;
-        L3053: goto L3253;
+        L2945: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2946: $_b = array();
+        L2947: $_b[0] = $_fail;
+        L2948: $_b[1] = $_value;
+        L2949: $_b[2] = $_p;
+        L2950: $_cache[$_a] = $_b;
+        L2951: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2952: if ($_a === 2637) { goto L2637; } else if ($_a === 2671) { goto L2671; } else { return array(FALSE, NULL, 34); }
+        L2953: $_stack[++$_stack_sp] = "35@";
+        L2954: $_stack[$_stack_sp] .= $_p;
+        L2955: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L2962; }
+        L2956: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2957: $_b = $_cache[$_a];
+        L2958: $_fail = $_b[0];
+        L2959: $_value = $_b[1];
+        L2960: $_p = $_b[2];
+        L2961: goto L3061;
+        L2962: $_stack[++$_stack_sp] = $_env;
+        L2963: $_env = array();
+        L2964: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L2965: $_stack[++$_stack_sp] = $_env;
+        L2966: $_env = array();
+        L2967: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L2968: $_stack[++$_stack_sp] = $_b;
+        L2969: $_stack[++$_stack_sp] = NULL;
+        L2970: $_stack[++$_stack_sp] = $_env;
+        L2971: $_env = array();
+        L2972: $_stack[++$_stack_sp] = 2974;
+        L2973: goto L3173;
+        L2974: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2975: $_env["left"] = $_value;
+        L2976: $_stack[$_stack_sp] = $_value;
+        L2977: if ($_fail) { goto L3048; }
+        L2978: $_stack[++$_stack_sp] = $_p;
+        L2979: $_stack[++$_stack_sp] = array();
+        L2980: $_stack[++$_stack_sp] = NULL;
+        L2981: $_stack[++$_stack_sp] = $_env;
+        L2982: $_env = array();
+        L2983: $_stack[++$_stack_sp] = 2985;
+        L2984: goto L7033;
+        L2985: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2986: $_stack[$_stack_sp] = $_value;
+        L2987: if ($_fail) { goto L3040; }
+        L2988: $_stack[++$_stack_sp] = $_env;
+        L2989: $_env = array();
+        L2990: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "||") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"||"', $_expected)) { $_expected[] = '"||"'; } } }
+        L2991: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2992: $_env["op"] = $_value;
+        L2993: if ($_fail) { goto L3040; }
+        L2994: $_stack[++$_stack_sp] = $_env;
+        L2995: $_env = array();
+        L2996: $_stack[++$_stack_sp] = 2998;
+        L2997: goto L7033;
+        L2998: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L2999: if ($_fail) { goto L3040; }
+        L3000: $_stack[++$_stack_sp] = $_p;
+        L3001: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3002: $_stack[++$_stack_sp] = $_b;
+        L3003: $_stack[++$_stack_sp] = NULL;
+        L3004: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3005: $_value = $this->_76($_env);
+        L3006: $_fail = !$_value;
+        L3007: $_value = NULL;
+        L3008: if ($_fail) { goto L3016; }
+        L3009: $_stack[++$_stack_sp] = $_env;
+        L3010: $_env = array();
+        L3011: $_stack[++$_stack_sp] = 3013;
+        L3012: goto L3173;
+        L3013: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3014: $_env["right"] = $_value;
+        L3015: $_stack[$_stack_sp] = $_value;
+        L3016: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3017: if ($_fail) { goto L3019; }
+        L3018: $_value = $this->_75($_env);
+        L3019: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3020: if (!$_fail) { goto L3039; }
+        L3021: $_p = $_stack[$_stack_sp];
+        L3022: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3023: $_stack[++$_stack_sp] = $_b;
+        L3024: $_stack[++$_stack_sp] = NULL;
+        L3025: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3026: $_env["p"] = $_value;
+        L3027: $_stack[$_stack_sp] = $_value;
+        L3028: if ($_fail) { goto L3035; }
+        L3029: $_stack[++$_stack_sp] = $_env;
+        L3030: $_env = array();
+        L3031: $_stack[++$_stack_sp] = 3033;
+        L3032: goto L3173;
+        L3033: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3034: $_env["right"] = $_value;
+        L3035: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3036: if ($_fail) { goto L3038; }
+        L3037: $_value = $this->_77($_env);
+        L3038: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3039: unset($_stack[$_stack_sp--]);
+        L3040: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3041: if ($_fail) { goto L3045; }
+        L3042: $_stack[$_stack_sp][] = $_value;
+        L3043: $_stack[$_stack_sp - 1] = $_p;
+        L3044: goto L2980;
+        L3045: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3046: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3047: $_fail = false;
+        L3048: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3049: if ($_fail) { goto L3051; }
+        L3050: $_value = $this->_74($_env);
+        L3051: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3052: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3053: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3054: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3055: $_env["left"] = $_value;
-        L3056: $_stack[$_stack_sp] = $_value;
-        L3057: if ($_fail) { goto L3128; }
-        L3058: $_stack[++$_stack_sp] = $_p;
-        L3059: $_stack[++$_stack_sp] = array();
-        L3060: $_stack[++$_stack_sp] = NULL;
-        L3061: $_stack[++$_stack_sp] = $_env;
-        L3062: $_env = array();
-        L3063: $_stack[++$_stack_sp] = 3065;
-        L3064: goto L7003;
-        L3065: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3066: $_stack[$_stack_sp] = $_value;
-        L3067: if ($_fail) { goto L3120; }
-        L3068: $_stack[++$_stack_sp] = $_env;
-        L3069: $_env = array();
-        L3070: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "&&") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&&"', $_expected)) { $_expected[] = '"&&"'; } } }
-        L3071: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3072: $_env["op"] = $_value;
-        L3073: if ($_fail) { goto L3120; }
-        L3074: $_stack[++$_stack_sp] = $_env;
-        L3075: $_env = array();
-        L3076: $_stack[++$_stack_sp] = 3078;
-        L3077: goto L7003;
-        L3078: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3079: if ($_fail) { goto L3120; }
-        L3080: $_stack[++$_stack_sp] = $_p;
-        L3081: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3082: $_stack[++$_stack_sp] = $_b;
-        L3083: $_stack[++$_stack_sp] = NULL;
-        L3084: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3085: $_value = $this->_76($_env);
-        L3086: $_fail = !$_value;
-        L3087: $_value = NULL;
-        L3088: if ($_fail) { goto L3096; }
-        L3089: $_stack[++$_stack_sp] = $_env;
-        L3090: $_env = array();
-        L3091: $_stack[++$_stack_sp] = 3093;
-        L3092: goto L3253;
-        L3093: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3094: $_env["right"] = $_value;
-        L3095: $_stack[$_stack_sp] = $_value;
-        L3096: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3097: if ($_fail) { goto L3099; }
-        L3098: $_value = $this->_75($_env);
-        L3099: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3100: if (!$_fail) { goto L3119; }
-        L3101: $_p = $_stack[$_stack_sp];
-        L3102: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3103: $_stack[++$_stack_sp] = $_b;
-        L3104: $_stack[++$_stack_sp] = NULL;
-        L3105: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3106: $_env["p"] = $_value;
-        L3107: $_stack[$_stack_sp] = $_value;
-        L3108: if ($_fail) { goto L3115; }
-        L3109: $_stack[++$_stack_sp] = $_env;
-        L3110: $_env = array();
-        L3111: $_stack[++$_stack_sp] = 3113;
-        L3112: goto L3253;
-        L3113: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3114: $_env["right"] = $_value;
-        L3115: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3116: if ($_fail) { goto L3118; }
-        L3117: $_value = $this->_77($_env);
-        L3118: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3119: unset($_stack[$_stack_sp--]);
-        L3120: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3121: if ($_fail) { goto L3125; }
-        L3122: $_stack[$_stack_sp][] = $_value;
-        L3123: $_stack[$_stack_sp - 1] = $_p;
-        L3124: goto L3060;
-        L3125: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3126: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3127: $_fail = false;
-        L3128: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3129: if ($_fail) { goto L3131; }
-        L3130: $_value = $this->_74($_env);
-        L3131: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3132: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3133: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3134: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3135: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3136: $_b = array();
-        L3137: $_b[0] = $_fail;
-        L3138: $_b[1] = $_value;
-        L3139: $_b[2] = $_p;
-        L3140: $_cache[$_a] = $_b;
-        L3141: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3142: if ($_a === 2834) { goto L2834; } else if ($_a === 2873) { goto L2873; } else if ($_a === 2893) { goto L2893; } else { return array(FALSE, NULL, 36); }
-        L3143: $_stack[++$_stack_sp] = "37@";
-        L3144: $_stack[$_stack_sp] .= $_p;
-        L3145: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3152; }
-        L3146: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3147: $_b = $_cache[$_a];
-        L3148: $_fail = $_b[0];
-        L3149: $_value = $_b[1];
-        L3150: $_p = $_b[2];
-        L3151: goto L3251;
-        L3152: $_stack[++$_stack_sp] = $_env;
-        L3153: $_env = array();
-        L3154: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3155: $_stack[++$_stack_sp] = $_env;
-        L3156: $_env = array();
-        L3157: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3158: $_stack[++$_stack_sp] = $_b;
-        L3159: $_stack[++$_stack_sp] = NULL;
-        L3160: $_stack[++$_stack_sp] = $_env;
-        L3161: $_env = array();
-        L3162: $_stack[++$_stack_sp] = 3164;
-        L3163: goto L3373;
+        L3055: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3056: $_b = array();
+        L3057: $_b[0] = $_fail;
+        L3058: $_b[1] = $_value;
+        L3059: $_b[2] = $_p;
+        L3060: $_cache[$_a] = $_b;
+        L3061: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3062: if ($_a === 2730) { goto L2730; } else if ($_a === 2764) { goto L2764; } else { return array(FALSE, NULL, 35); }
+        L3063: $_stack[++$_stack_sp] = "36@";
+        L3064: $_stack[$_stack_sp] .= $_p;
+        L3065: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3072; }
+        L3066: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3067: $_b = $_cache[$_a];
+        L3068: $_fail = $_b[0];
+        L3069: $_value = $_b[1];
+        L3070: $_p = $_b[2];
+        L3071: goto L3171;
+        L3072: $_stack[++$_stack_sp] = $_env;
+        L3073: $_env = array();
+        L3074: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3075: $_stack[++$_stack_sp] = $_env;
+        L3076: $_env = array();
+        L3077: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3078: $_stack[++$_stack_sp] = $_b;
+        L3079: $_stack[++$_stack_sp] = NULL;
+        L3080: $_stack[++$_stack_sp] = $_env;
+        L3081: $_env = array();
+        L3082: $_stack[++$_stack_sp] = 3084;
+        L3083: goto L3283;
+        L3084: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3085: $_env["left"] = $_value;
+        L3086: $_stack[$_stack_sp] = $_value;
+        L3087: if ($_fail) { goto L3158; }
+        L3088: $_stack[++$_stack_sp] = $_p;
+        L3089: $_stack[++$_stack_sp] = array();
+        L3090: $_stack[++$_stack_sp] = NULL;
+        L3091: $_stack[++$_stack_sp] = $_env;
+        L3092: $_env = array();
+        L3093: $_stack[++$_stack_sp] = 3095;
+        L3094: goto L7033;
+        L3095: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3096: $_stack[$_stack_sp] = $_value;
+        L3097: if ($_fail) { goto L3150; }
+        L3098: $_stack[++$_stack_sp] = $_env;
+        L3099: $_env = array();
+        L3100: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "&&") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&&"', $_expected)) { $_expected[] = '"&&"'; } } }
+        L3101: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3102: $_env["op"] = $_value;
+        L3103: if ($_fail) { goto L3150; }
+        L3104: $_stack[++$_stack_sp] = $_env;
+        L3105: $_env = array();
+        L3106: $_stack[++$_stack_sp] = 3108;
+        L3107: goto L7033;
+        L3108: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3109: if ($_fail) { goto L3150; }
+        L3110: $_stack[++$_stack_sp] = $_p;
+        L3111: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3112: $_stack[++$_stack_sp] = $_b;
+        L3113: $_stack[++$_stack_sp] = NULL;
+        L3114: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3115: $_value = $this->_80($_env);
+        L3116: $_fail = !$_value;
+        L3117: $_value = NULL;
+        L3118: if ($_fail) { goto L3126; }
+        L3119: $_stack[++$_stack_sp] = $_env;
+        L3120: $_env = array();
+        L3121: $_stack[++$_stack_sp] = 3123;
+        L3122: goto L3283;
+        L3123: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3124: $_env["right"] = $_value;
+        L3125: $_stack[$_stack_sp] = $_value;
+        L3126: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3127: if ($_fail) { goto L3129; }
+        L3128: $_value = $this->_79($_env);
+        L3129: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3130: if (!$_fail) { goto L3149; }
+        L3131: $_p = $_stack[$_stack_sp];
+        L3132: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3133: $_stack[++$_stack_sp] = $_b;
+        L3134: $_stack[++$_stack_sp] = NULL;
+        L3135: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3136: $_env["p"] = $_value;
+        L3137: $_stack[$_stack_sp] = $_value;
+        L3138: if ($_fail) { goto L3145; }
+        L3139: $_stack[++$_stack_sp] = $_env;
+        L3140: $_env = array();
+        L3141: $_stack[++$_stack_sp] = 3143;
+        L3142: goto L3283;
+        L3143: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3144: $_env["right"] = $_value;
+        L3145: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3146: if ($_fail) { goto L3148; }
+        L3147: $_value = $this->_81($_env);
+        L3148: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3149: unset($_stack[$_stack_sp--]);
+        L3150: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3151: if ($_fail) { goto L3155; }
+        L3152: $_stack[$_stack_sp][] = $_value;
+        L3153: $_stack[$_stack_sp - 1] = $_p;
+        L3154: goto L3090;
+        L3155: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3156: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3157: $_fail = false;
+        L3158: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3159: if ($_fail) { goto L3161; }
+        L3160: $_value = $this->_78($_env);
+        L3161: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3162: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3163: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3164: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3165: $_env["left"] = $_value;
-        L3166: $_stack[$_stack_sp] = $_value;
-        L3167: if ($_fail) { goto L3238; }
-        L3168: $_stack[++$_stack_sp] = $_p;
-        L3169: $_stack[++$_stack_sp] = array();
-        L3170: $_stack[++$_stack_sp] = NULL;
-        L3171: $_stack[++$_stack_sp] = $_env;
-        L3172: $_env = array();
-        L3173: $_stack[++$_stack_sp] = 3175;
-        L3174: goto L7003;
-        L3175: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3176: $_stack[$_stack_sp] = $_value;
-        L3177: if ($_fail) { goto L3230; }
-        L3178: $_stack[++$_stack_sp] = $_env;
-        L3179: $_env = array();
-        L3180: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "&&") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&&"', $_expected)) { $_expected[] = '"&&"'; } } }
-        L3181: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3182: $_env["op"] = $_value;
-        L3183: if ($_fail) { goto L3230; }
-        L3184: $_stack[++$_stack_sp] = $_env;
-        L3185: $_env = array();
-        L3186: $_stack[++$_stack_sp] = 3188;
-        L3187: goto L7003;
-        L3188: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3189: if ($_fail) { goto L3230; }
-        L3190: $_stack[++$_stack_sp] = $_p;
-        L3191: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3192: $_stack[++$_stack_sp] = $_b;
-        L3193: $_stack[++$_stack_sp] = NULL;
-        L3194: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3195: $_value = $this->_80($_env);
-        L3196: $_fail = !$_value;
-        L3197: $_value = NULL;
-        L3198: if ($_fail) { goto L3206; }
-        L3199: $_stack[++$_stack_sp] = $_env;
-        L3200: $_env = array();
-        L3201: $_stack[++$_stack_sp] = 3203;
-        L3202: goto L3373;
-        L3203: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3204: $_env["right"] = $_value;
-        L3205: $_stack[$_stack_sp] = $_value;
-        L3206: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3207: if ($_fail) { goto L3209; }
-        L3208: $_value = $this->_79($_env);
-        L3209: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3210: if (!$_fail) { goto L3229; }
-        L3211: $_p = $_stack[$_stack_sp];
-        L3212: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3213: $_stack[++$_stack_sp] = $_b;
-        L3214: $_stack[++$_stack_sp] = NULL;
-        L3215: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3216: $_env["p"] = $_value;
-        L3217: $_stack[$_stack_sp] = $_value;
-        L3218: if ($_fail) { goto L3225; }
-        L3219: $_stack[++$_stack_sp] = $_env;
-        L3220: $_env = array();
-        L3221: $_stack[++$_stack_sp] = 3223;
-        L3222: goto L3373;
-        L3223: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3224: $_env["right"] = $_value;
-        L3225: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3226: if ($_fail) { goto L3228; }
-        L3227: $_value = $this->_81($_env);
-        L3228: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3229: unset($_stack[$_stack_sp--]);
-        L3230: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3231: if ($_fail) { goto L3235; }
-        L3232: $_stack[$_stack_sp][] = $_value;
-        L3233: $_stack[$_stack_sp - 1] = $_p;
-        L3234: goto L3170;
-        L3235: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3236: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3237: $_fail = false;
-        L3238: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3239: if ($_fail) { goto L3241; }
-        L3240: $_value = $this->_78($_env);
-        L3241: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3242: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3243: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3244: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3245: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3246: $_b = array();
-        L3247: $_b[0] = $_fail;
-        L3248: $_b[1] = $_value;
-        L3249: $_b[2] = $_p;
-        L3250: $_cache[$_a] = $_b;
-        L3251: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3252: if ($_a === 2944) { goto L2944; } else if ($_a === 2983) { goto L2983; } else if ($_a === 3003) { goto L3003; } else { return array(FALSE, NULL, 37); }
-        L3253: $_stack[++$_stack_sp] = "38@";
-        L3254: $_stack[$_stack_sp] .= $_p;
-        L3255: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3262; }
-        L3256: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3257: $_b = $_cache[$_a];
-        L3258: $_fail = $_b[0];
-        L3259: $_value = $_b[1];
-        L3260: $_p = $_b[2];
-        L3261: goto L3371;
-        L3262: $_stack[++$_stack_sp] = $_env;
-        L3263: $_env = array();
-        L3264: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3265: $_stack[++$_stack_sp] = $_env;
-        L3266: $_env = array();
-        L3267: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3268: $_stack[++$_stack_sp] = $_b;
-        L3269: $_stack[++$_stack_sp] = NULL;
-        L3270: $_stack[++$_stack_sp] = $_env;
-        L3271: $_env = array();
-        L3272: $_stack[++$_stack_sp] = 3274;
-        L3273: goto L3493;
+        L3165: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3166: $_b = array();
+        L3167: $_b[0] = $_fail;
+        L3168: $_b[1] = $_value;
+        L3169: $_b[2] = $_p;
+        L3170: $_cache[$_a] = $_b;
+        L3171: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3172: if ($_a === 2864) { goto L2864; } else if ($_a === 2903) { goto L2903; } else if ($_a === 2923) { goto L2923; } else { return array(FALSE, NULL, 36); }
+        L3173: $_stack[++$_stack_sp] = "37@";
+        L3174: $_stack[$_stack_sp] .= $_p;
+        L3175: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3182; }
+        L3176: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3177: $_b = $_cache[$_a];
+        L3178: $_fail = $_b[0];
+        L3179: $_value = $_b[1];
+        L3180: $_p = $_b[2];
+        L3181: goto L3281;
+        L3182: $_stack[++$_stack_sp] = $_env;
+        L3183: $_env = array();
+        L3184: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3185: $_stack[++$_stack_sp] = $_env;
+        L3186: $_env = array();
+        L3187: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3188: $_stack[++$_stack_sp] = $_b;
+        L3189: $_stack[++$_stack_sp] = NULL;
+        L3190: $_stack[++$_stack_sp] = $_env;
+        L3191: $_env = array();
+        L3192: $_stack[++$_stack_sp] = 3194;
+        L3193: goto L3403;
+        L3194: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3195: $_env["left"] = $_value;
+        L3196: $_stack[$_stack_sp] = $_value;
+        L3197: if ($_fail) { goto L3268; }
+        L3198: $_stack[++$_stack_sp] = $_p;
+        L3199: $_stack[++$_stack_sp] = array();
+        L3200: $_stack[++$_stack_sp] = NULL;
+        L3201: $_stack[++$_stack_sp] = $_env;
+        L3202: $_env = array();
+        L3203: $_stack[++$_stack_sp] = 3205;
+        L3204: goto L7033;
+        L3205: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3206: $_stack[$_stack_sp] = $_value;
+        L3207: if ($_fail) { goto L3260; }
+        L3208: $_stack[++$_stack_sp] = $_env;
+        L3209: $_env = array();
+        L3210: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "&&") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&&"', $_expected)) { $_expected[] = '"&&"'; } } }
+        L3211: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3212: $_env["op"] = $_value;
+        L3213: if ($_fail) { goto L3260; }
+        L3214: $_stack[++$_stack_sp] = $_env;
+        L3215: $_env = array();
+        L3216: $_stack[++$_stack_sp] = 3218;
+        L3217: goto L7033;
+        L3218: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3219: if ($_fail) { goto L3260; }
+        L3220: $_stack[++$_stack_sp] = $_p;
+        L3221: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3222: $_stack[++$_stack_sp] = $_b;
+        L3223: $_stack[++$_stack_sp] = NULL;
+        L3224: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3225: $_value = $this->_84($_env);
+        L3226: $_fail = !$_value;
+        L3227: $_value = NULL;
+        L3228: if ($_fail) { goto L3236; }
+        L3229: $_stack[++$_stack_sp] = $_env;
+        L3230: $_env = array();
+        L3231: $_stack[++$_stack_sp] = 3233;
+        L3232: goto L3403;
+        L3233: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3234: $_env["right"] = $_value;
+        L3235: $_stack[$_stack_sp] = $_value;
+        L3236: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3237: if ($_fail) { goto L3239; }
+        L3238: $_value = $this->_83($_env);
+        L3239: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3240: if (!$_fail) { goto L3259; }
+        L3241: $_p = $_stack[$_stack_sp];
+        L3242: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3243: $_stack[++$_stack_sp] = $_b;
+        L3244: $_stack[++$_stack_sp] = NULL;
+        L3245: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3246: $_env["p"] = $_value;
+        L3247: $_stack[$_stack_sp] = $_value;
+        L3248: if ($_fail) { goto L3255; }
+        L3249: $_stack[++$_stack_sp] = $_env;
+        L3250: $_env = array();
+        L3251: $_stack[++$_stack_sp] = 3253;
+        L3252: goto L3403;
+        L3253: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3254: $_env["right"] = $_value;
+        L3255: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3256: if ($_fail) { goto L3258; }
+        L3257: $_value = $this->_85($_env);
+        L3258: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3259: unset($_stack[$_stack_sp--]);
+        L3260: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3261: if ($_fail) { goto L3265; }
+        L3262: $_stack[$_stack_sp][] = $_value;
+        L3263: $_stack[$_stack_sp - 1] = $_p;
+        L3264: goto L3200;
+        L3265: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3266: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3267: $_fail = false;
+        L3268: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3269: if ($_fail) { goto L3271; }
+        L3270: $_value = $this->_82($_env);
+        L3271: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3272: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3273: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3274: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3275: $_env["left"] = $_value;
-        L3276: $_stack[$_stack_sp] = $_value;
-        L3277: if ($_fail) { goto L3358; }
-        L3278: $_stack[++$_stack_sp] = $_p;
-        L3279: $_stack[++$_stack_sp] = array();
-        L3280: $_stack[++$_stack_sp] = NULL;
-        L3281: $_stack[++$_stack_sp] = $_env;
-        L3282: $_env = array();
-        L3283: $_stack[++$_stack_sp] = 3285;
-        L3284: goto L7003;
-        L3285: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3286: $_stack[$_stack_sp] = $_value;
-        L3287: if ($_fail) { goto L3350; }
-        L3288: $_stack[++$_stack_sp] = $_env;
-        L3289: $_env = array();
-        L3290: $_stack[++$_stack_sp] = "";
-        L3291: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "|") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"|"', $_expected)) { $_expected[] = '"|"'; } } }
-        L3292: $_stack[$_stack_sp] .= $_value;
-        L3293: if ($_fail) { goto L3300; }
-        L3294: $_stack[++$_stack_sp] = $_p;
-        L3295: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L3296: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3297: $_value = NULL;
-        L3298: $_fail = !$_fail;
-        L3299: $_stack[$_stack_sp] .= $_value;
-        L3300: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3301: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3302: $_env["op"] = $_value;
-        L3303: if ($_fail) { goto L3350; }
-        L3304: $_stack[++$_stack_sp] = $_env;
-        L3305: $_env = array();
-        L3306: $_stack[++$_stack_sp] = 3308;
-        L3307: goto L7003;
-        L3308: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3309: if ($_fail) { goto L3350; }
-        L3310: $_stack[++$_stack_sp] = $_p;
-        L3311: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3312: $_stack[++$_stack_sp] = $_b;
-        L3313: $_stack[++$_stack_sp] = NULL;
-        L3314: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3315: $_value = $this->_84($_env);
-        L3316: $_fail = !$_value;
-        L3317: $_value = NULL;
-        L3318: if ($_fail) { goto L3326; }
-        L3319: $_stack[++$_stack_sp] = $_env;
-        L3320: $_env = array();
-        L3321: $_stack[++$_stack_sp] = 3323;
-        L3322: goto L3493;
-        L3323: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3324: $_env["right"] = $_value;
-        L3325: $_stack[$_stack_sp] = $_value;
-        L3326: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3327: if ($_fail) { goto L3329; }
-        L3328: $_value = $this->_83($_env);
-        L3329: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3330: if (!$_fail) { goto L3349; }
-        L3331: $_p = $_stack[$_stack_sp];
-        L3332: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3333: $_stack[++$_stack_sp] = $_b;
-        L3334: $_stack[++$_stack_sp] = NULL;
-        L3335: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3336: $_env["p"] = $_value;
-        L3337: $_stack[$_stack_sp] = $_value;
-        L3338: if ($_fail) { goto L3345; }
-        L3339: $_stack[++$_stack_sp] = $_env;
-        L3340: $_env = array();
-        L3341: $_stack[++$_stack_sp] = 3343;
-        L3342: goto L3493;
-        L3343: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3344: $_env["right"] = $_value;
-        L3345: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3346: if ($_fail) { goto L3348; }
-        L3347: $_value = $this->_85($_env);
-        L3348: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3349: unset($_stack[$_stack_sp--]);
-        L3350: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3351: if ($_fail) { goto L3355; }
-        L3352: $_stack[$_stack_sp][] = $_value;
-        L3353: $_stack[$_stack_sp - 1] = $_p;
-        L3354: goto L3280;
-        L3355: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3356: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3357: $_fail = false;
-        L3358: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3359: if ($_fail) { goto L3361; }
-        L3360: $_value = $this->_82($_env);
-        L3361: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3362: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3363: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3364: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3365: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3366: $_b = array();
-        L3367: $_b[0] = $_fail;
-        L3368: $_b[1] = $_value;
-        L3369: $_b[2] = $_p;
-        L3370: $_cache[$_a] = $_b;
-        L3371: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3372: if ($_a === 3054) { goto L3054; } else if ($_a === 3093) { goto L3093; } else if ($_a === 3113) { goto L3113; } else { return array(FALSE, NULL, 38); }
-        L3373: $_stack[++$_stack_sp] = "39@";
-        L3374: $_stack[$_stack_sp] .= $_p;
-        L3375: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3382; }
-        L3376: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3377: $_b = $_cache[$_a];
-        L3378: $_fail = $_b[0];
-        L3379: $_value = $_b[1];
-        L3380: $_p = $_b[2];
-        L3381: goto L3491;
-        L3382: $_stack[++$_stack_sp] = $_env;
-        L3383: $_env = array();
-        L3384: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3385: $_stack[++$_stack_sp] = $_env;
-        L3386: $_env = array();
-        L3387: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3388: $_stack[++$_stack_sp] = $_b;
-        L3389: $_stack[++$_stack_sp] = NULL;
-        L3390: $_stack[++$_stack_sp] = $_env;
-        L3391: $_env = array();
-        L3392: $_stack[++$_stack_sp] = 3394;
-        L3393: goto L3613;
+        L3275: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3276: $_b = array();
+        L3277: $_b[0] = $_fail;
+        L3278: $_b[1] = $_value;
+        L3279: $_b[2] = $_p;
+        L3280: $_cache[$_a] = $_b;
+        L3281: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3282: if ($_a === 2974) { goto L2974; } else if ($_a === 3013) { goto L3013; } else if ($_a === 3033) { goto L3033; } else { return array(FALSE, NULL, 37); }
+        L3283: $_stack[++$_stack_sp] = "38@";
+        L3284: $_stack[$_stack_sp] .= $_p;
+        L3285: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3292; }
+        L3286: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3287: $_b = $_cache[$_a];
+        L3288: $_fail = $_b[0];
+        L3289: $_value = $_b[1];
+        L3290: $_p = $_b[2];
+        L3291: goto L3401;
+        L3292: $_stack[++$_stack_sp] = $_env;
+        L3293: $_env = array();
+        L3294: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3295: $_stack[++$_stack_sp] = $_env;
+        L3296: $_env = array();
+        L3297: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3298: $_stack[++$_stack_sp] = $_b;
+        L3299: $_stack[++$_stack_sp] = NULL;
+        L3300: $_stack[++$_stack_sp] = $_env;
+        L3301: $_env = array();
+        L3302: $_stack[++$_stack_sp] = 3304;
+        L3303: goto L3523;
+        L3304: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3305: $_env["left"] = $_value;
+        L3306: $_stack[$_stack_sp] = $_value;
+        L3307: if ($_fail) { goto L3388; }
+        L3308: $_stack[++$_stack_sp] = $_p;
+        L3309: $_stack[++$_stack_sp] = array();
+        L3310: $_stack[++$_stack_sp] = NULL;
+        L3311: $_stack[++$_stack_sp] = $_env;
+        L3312: $_env = array();
+        L3313: $_stack[++$_stack_sp] = 3315;
+        L3314: goto L7033;
+        L3315: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3316: $_stack[$_stack_sp] = $_value;
+        L3317: if ($_fail) { goto L3380; }
+        L3318: $_stack[++$_stack_sp] = $_env;
+        L3319: $_env = array();
+        L3320: $_stack[++$_stack_sp] = "";
+        L3321: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "|") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"|"', $_expected)) { $_expected[] = '"|"'; } } }
+        L3322: $_stack[$_stack_sp] .= $_value;
+        L3323: if ($_fail) { goto L3330; }
+        L3324: $_stack[++$_stack_sp] = $_p;
+        L3325: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L3326: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3327: $_value = NULL;
+        L3328: $_fail = !$_fail;
+        L3329: $_stack[$_stack_sp] .= $_value;
+        L3330: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3331: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3332: $_env["op"] = $_value;
+        L3333: if ($_fail) { goto L3380; }
+        L3334: $_stack[++$_stack_sp] = $_env;
+        L3335: $_env = array();
+        L3336: $_stack[++$_stack_sp] = 3338;
+        L3337: goto L7033;
+        L3338: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3339: if ($_fail) { goto L3380; }
+        L3340: $_stack[++$_stack_sp] = $_p;
+        L3341: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3342: $_stack[++$_stack_sp] = $_b;
+        L3343: $_stack[++$_stack_sp] = NULL;
+        L3344: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3345: $_value = $this->_88($_env);
+        L3346: $_fail = !$_value;
+        L3347: $_value = NULL;
+        L3348: if ($_fail) { goto L3356; }
+        L3349: $_stack[++$_stack_sp] = $_env;
+        L3350: $_env = array();
+        L3351: $_stack[++$_stack_sp] = 3353;
+        L3352: goto L3523;
+        L3353: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3354: $_env["right"] = $_value;
+        L3355: $_stack[$_stack_sp] = $_value;
+        L3356: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3357: if ($_fail) { goto L3359; }
+        L3358: $_value = $this->_87($_env);
+        L3359: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3360: if (!$_fail) { goto L3379; }
+        L3361: $_p = $_stack[$_stack_sp];
+        L3362: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3363: $_stack[++$_stack_sp] = $_b;
+        L3364: $_stack[++$_stack_sp] = NULL;
+        L3365: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3366: $_env["p"] = $_value;
+        L3367: $_stack[$_stack_sp] = $_value;
+        L3368: if ($_fail) { goto L3375; }
+        L3369: $_stack[++$_stack_sp] = $_env;
+        L3370: $_env = array();
+        L3371: $_stack[++$_stack_sp] = 3373;
+        L3372: goto L3523;
+        L3373: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3374: $_env["right"] = $_value;
+        L3375: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3376: if ($_fail) { goto L3378; }
+        L3377: $_value = $this->_89($_env);
+        L3378: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3379: unset($_stack[$_stack_sp--]);
+        L3380: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3381: if ($_fail) { goto L3385; }
+        L3382: $_stack[$_stack_sp][] = $_value;
+        L3383: $_stack[$_stack_sp - 1] = $_p;
+        L3384: goto L3310;
+        L3385: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3386: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3387: $_fail = false;
+        L3388: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3389: if ($_fail) { goto L3391; }
+        L3390: $_value = $this->_86($_env);
+        L3391: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3392: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3393: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3394: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3395: $_env["left"] = $_value;
-        L3396: $_stack[$_stack_sp] = $_value;
-        L3397: if ($_fail) { goto L3478; }
-        L3398: $_stack[++$_stack_sp] = $_p;
-        L3399: $_stack[++$_stack_sp] = array();
-        L3400: $_stack[++$_stack_sp] = NULL;
-        L3401: $_stack[++$_stack_sp] = $_env;
-        L3402: $_env = array();
-        L3403: $_stack[++$_stack_sp] = 3405;
-        L3404: goto L7003;
-        L3405: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3406: $_stack[$_stack_sp] = $_value;
-        L3407: if ($_fail) { goto L3470; }
-        L3408: $_stack[++$_stack_sp] = $_env;
-        L3409: $_env = array();
-        L3410: $_stack[++$_stack_sp] = "";
-        L3411: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "|") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"|"', $_expected)) { $_expected[] = '"|"'; } } }
-        L3412: $_stack[$_stack_sp] .= $_value;
-        L3413: if ($_fail) { goto L3420; }
-        L3414: $_stack[++$_stack_sp] = $_p;
-        L3415: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L3416: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3417: $_value = NULL;
-        L3418: $_fail = !$_fail;
-        L3419: $_stack[$_stack_sp] .= $_value;
-        L3420: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3421: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3422: $_env["op"] = $_value;
-        L3423: if ($_fail) { goto L3470; }
-        L3424: $_stack[++$_stack_sp] = $_env;
-        L3425: $_env = array();
-        L3426: $_stack[++$_stack_sp] = 3428;
-        L3427: goto L7003;
-        L3428: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3429: if ($_fail) { goto L3470; }
-        L3430: $_stack[++$_stack_sp] = $_p;
-        L3431: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3432: $_stack[++$_stack_sp] = $_b;
-        L3433: $_stack[++$_stack_sp] = NULL;
-        L3434: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3435: $_value = $this->_88($_env);
-        L3436: $_fail = !$_value;
-        L3437: $_value = NULL;
-        L3438: if ($_fail) { goto L3446; }
-        L3439: $_stack[++$_stack_sp] = $_env;
-        L3440: $_env = array();
-        L3441: $_stack[++$_stack_sp] = 3443;
-        L3442: goto L3613;
-        L3443: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3444: $_env["right"] = $_value;
-        L3445: $_stack[$_stack_sp] = $_value;
-        L3446: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3447: if ($_fail) { goto L3449; }
-        L3448: $_value = $this->_87($_env);
-        L3449: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3450: if (!$_fail) { goto L3469; }
-        L3451: $_p = $_stack[$_stack_sp];
-        L3452: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3453: $_stack[++$_stack_sp] = $_b;
-        L3454: $_stack[++$_stack_sp] = NULL;
-        L3455: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3456: $_env["p"] = $_value;
-        L3457: $_stack[$_stack_sp] = $_value;
-        L3458: if ($_fail) { goto L3465; }
-        L3459: $_stack[++$_stack_sp] = $_env;
-        L3460: $_env = array();
-        L3461: $_stack[++$_stack_sp] = 3463;
-        L3462: goto L3613;
-        L3463: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3464: $_env["right"] = $_value;
-        L3465: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3466: if ($_fail) { goto L3468; }
-        L3467: $_value = $this->_89($_env);
-        L3468: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3469: unset($_stack[$_stack_sp--]);
-        L3470: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3471: if ($_fail) { goto L3475; }
-        L3472: $_stack[$_stack_sp][] = $_value;
-        L3473: $_stack[$_stack_sp - 1] = $_p;
-        L3474: goto L3400;
-        L3475: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3476: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3477: $_fail = false;
-        L3478: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3479: if ($_fail) { goto L3481; }
-        L3480: $_value = $this->_86($_env);
-        L3481: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3482: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3483: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3484: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3485: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3486: $_b = array();
-        L3487: $_b[0] = $_fail;
-        L3488: $_b[1] = $_value;
-        L3489: $_b[2] = $_p;
-        L3490: $_cache[$_a] = $_b;
-        L3491: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3492: if ($_a === 3164) { goto L3164; } else if ($_a === 3203) { goto L3203; } else if ($_a === 3223) { goto L3223; } else { return array(FALSE, NULL, 39); }
-        L3493: $_stack[++$_stack_sp] = "40@";
-        L3494: $_stack[$_stack_sp] .= $_p;
-        L3495: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3502; }
-        L3496: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3497: $_b = $_cache[$_a];
-        L3498: $_fail = $_b[0];
-        L3499: $_value = $_b[1];
-        L3500: $_p = $_b[2];
-        L3501: goto L3611;
-        L3502: $_stack[++$_stack_sp] = $_env;
-        L3503: $_env = array();
-        L3504: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3505: $_stack[++$_stack_sp] = $_env;
-        L3506: $_env = array();
-        L3507: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3508: $_stack[++$_stack_sp] = $_b;
-        L3509: $_stack[++$_stack_sp] = NULL;
-        L3510: $_stack[++$_stack_sp] = $_env;
-        L3511: $_env = array();
-        L3512: $_stack[++$_stack_sp] = 3514;
-        L3513: goto L3733;
+        L3395: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3396: $_b = array();
+        L3397: $_b[0] = $_fail;
+        L3398: $_b[1] = $_value;
+        L3399: $_b[2] = $_p;
+        L3400: $_cache[$_a] = $_b;
+        L3401: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3402: if ($_a === 3084) { goto L3084; } else if ($_a === 3123) { goto L3123; } else if ($_a === 3143) { goto L3143; } else { return array(FALSE, NULL, 38); }
+        L3403: $_stack[++$_stack_sp] = "39@";
+        L3404: $_stack[$_stack_sp] .= $_p;
+        L3405: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3412; }
+        L3406: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3407: $_b = $_cache[$_a];
+        L3408: $_fail = $_b[0];
+        L3409: $_value = $_b[1];
+        L3410: $_p = $_b[2];
+        L3411: goto L3521;
+        L3412: $_stack[++$_stack_sp] = $_env;
+        L3413: $_env = array();
+        L3414: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3415: $_stack[++$_stack_sp] = $_env;
+        L3416: $_env = array();
+        L3417: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3418: $_stack[++$_stack_sp] = $_b;
+        L3419: $_stack[++$_stack_sp] = NULL;
+        L3420: $_stack[++$_stack_sp] = $_env;
+        L3421: $_env = array();
+        L3422: $_stack[++$_stack_sp] = 3424;
+        L3423: goto L3643;
+        L3424: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3425: $_env["left"] = $_value;
+        L3426: $_stack[$_stack_sp] = $_value;
+        L3427: if ($_fail) { goto L3508; }
+        L3428: $_stack[++$_stack_sp] = $_p;
+        L3429: $_stack[++$_stack_sp] = array();
+        L3430: $_stack[++$_stack_sp] = NULL;
+        L3431: $_stack[++$_stack_sp] = $_env;
+        L3432: $_env = array();
+        L3433: $_stack[++$_stack_sp] = 3435;
+        L3434: goto L7033;
+        L3435: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3436: $_stack[$_stack_sp] = $_value;
+        L3437: if ($_fail) { goto L3500; }
+        L3438: $_stack[++$_stack_sp] = $_env;
+        L3439: $_env = array();
+        L3440: $_stack[++$_stack_sp] = "";
+        L3441: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "|") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"|"', $_expected)) { $_expected[] = '"|"'; } } }
+        L3442: $_stack[$_stack_sp] .= $_value;
+        L3443: if ($_fail) { goto L3450; }
+        L3444: $_stack[++$_stack_sp] = $_p;
+        L3445: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L3446: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3447: $_value = NULL;
+        L3448: $_fail = !$_fail;
+        L3449: $_stack[$_stack_sp] .= $_value;
+        L3450: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3451: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3452: $_env["op"] = $_value;
+        L3453: if ($_fail) { goto L3500; }
+        L3454: $_stack[++$_stack_sp] = $_env;
+        L3455: $_env = array();
+        L3456: $_stack[++$_stack_sp] = 3458;
+        L3457: goto L7033;
+        L3458: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3459: if ($_fail) { goto L3500; }
+        L3460: $_stack[++$_stack_sp] = $_p;
+        L3461: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3462: $_stack[++$_stack_sp] = $_b;
+        L3463: $_stack[++$_stack_sp] = NULL;
+        L3464: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3465: $_value = $this->_92($_env);
+        L3466: $_fail = !$_value;
+        L3467: $_value = NULL;
+        L3468: if ($_fail) { goto L3476; }
+        L3469: $_stack[++$_stack_sp] = $_env;
+        L3470: $_env = array();
+        L3471: $_stack[++$_stack_sp] = 3473;
+        L3472: goto L3643;
+        L3473: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3474: $_env["right"] = $_value;
+        L3475: $_stack[$_stack_sp] = $_value;
+        L3476: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3477: if ($_fail) { goto L3479; }
+        L3478: $_value = $this->_91($_env);
+        L3479: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3480: if (!$_fail) { goto L3499; }
+        L3481: $_p = $_stack[$_stack_sp];
+        L3482: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3483: $_stack[++$_stack_sp] = $_b;
+        L3484: $_stack[++$_stack_sp] = NULL;
+        L3485: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3486: $_env["p"] = $_value;
+        L3487: $_stack[$_stack_sp] = $_value;
+        L3488: if ($_fail) { goto L3495; }
+        L3489: $_stack[++$_stack_sp] = $_env;
+        L3490: $_env = array();
+        L3491: $_stack[++$_stack_sp] = 3493;
+        L3492: goto L3643;
+        L3493: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3494: $_env["right"] = $_value;
+        L3495: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3496: if ($_fail) { goto L3498; }
+        L3497: $_value = $this->_93($_env);
+        L3498: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3499: unset($_stack[$_stack_sp--]);
+        L3500: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3501: if ($_fail) { goto L3505; }
+        L3502: $_stack[$_stack_sp][] = $_value;
+        L3503: $_stack[$_stack_sp - 1] = $_p;
+        L3504: goto L3430;
+        L3505: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3506: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3507: $_fail = false;
+        L3508: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3509: if ($_fail) { goto L3511; }
+        L3510: $_value = $this->_90($_env);
+        L3511: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3512: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3513: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3514: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3515: $_env["left"] = $_value;
-        L3516: $_stack[$_stack_sp] = $_value;
-        L3517: if ($_fail) { goto L3598; }
-        L3518: $_stack[++$_stack_sp] = $_p;
-        L3519: $_stack[++$_stack_sp] = array();
-        L3520: $_stack[++$_stack_sp] = NULL;
-        L3521: $_stack[++$_stack_sp] = $_env;
-        L3522: $_env = array();
-        L3523: $_stack[++$_stack_sp] = 3525;
-        L3524: goto L7003;
-        L3525: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3526: $_stack[$_stack_sp] = $_value;
-        L3527: if ($_fail) { goto L3590; }
-        L3528: $_stack[++$_stack_sp] = $_env;
-        L3529: $_env = array();
-        L3530: $_stack[++$_stack_sp] = "";
-        L3531: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "^") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"^"', $_expected)) { $_expected[] = '"^"'; } } }
-        L3532: $_stack[$_stack_sp] .= $_value;
-        L3533: if ($_fail) { goto L3540; }
-        L3534: $_stack[++$_stack_sp] = $_p;
-        L3535: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L3536: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3537: $_value = NULL;
-        L3538: $_fail = !$_fail;
-        L3539: $_stack[$_stack_sp] .= $_value;
-        L3540: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3541: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3542: $_env["op"] = $_value;
-        L3543: if ($_fail) { goto L3590; }
-        L3544: $_stack[++$_stack_sp] = $_env;
-        L3545: $_env = array();
-        L3546: $_stack[++$_stack_sp] = 3548;
-        L3547: goto L7003;
-        L3548: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3549: if ($_fail) { goto L3590; }
-        L3550: $_stack[++$_stack_sp] = $_p;
-        L3551: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3552: $_stack[++$_stack_sp] = $_b;
-        L3553: $_stack[++$_stack_sp] = NULL;
-        L3554: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3555: $_value = $this->_92($_env);
-        L3556: $_fail = !$_value;
-        L3557: $_value = NULL;
-        L3558: if ($_fail) { goto L3566; }
-        L3559: $_stack[++$_stack_sp] = $_env;
-        L3560: $_env = array();
-        L3561: $_stack[++$_stack_sp] = 3563;
-        L3562: goto L3733;
-        L3563: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3564: $_env["right"] = $_value;
-        L3565: $_stack[$_stack_sp] = $_value;
-        L3566: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3567: if ($_fail) { goto L3569; }
-        L3568: $_value = $this->_91($_env);
-        L3569: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3570: if (!$_fail) { goto L3589; }
-        L3571: $_p = $_stack[$_stack_sp];
-        L3572: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3573: $_stack[++$_stack_sp] = $_b;
-        L3574: $_stack[++$_stack_sp] = NULL;
-        L3575: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3576: $_env["p"] = $_value;
-        L3577: $_stack[$_stack_sp] = $_value;
-        L3578: if ($_fail) { goto L3585; }
-        L3579: $_stack[++$_stack_sp] = $_env;
-        L3580: $_env = array();
-        L3581: $_stack[++$_stack_sp] = 3583;
-        L3582: goto L3733;
-        L3583: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3584: $_env["right"] = $_value;
-        L3585: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3586: if ($_fail) { goto L3588; }
-        L3587: $_value = $this->_93($_env);
-        L3588: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3589: unset($_stack[$_stack_sp--]);
-        L3590: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3591: if ($_fail) { goto L3595; }
-        L3592: $_stack[$_stack_sp][] = $_value;
-        L3593: $_stack[$_stack_sp - 1] = $_p;
-        L3594: goto L3520;
-        L3595: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3596: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3597: $_fail = false;
-        L3598: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3599: if ($_fail) { goto L3601; }
-        L3600: $_value = $this->_90($_env);
-        L3601: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3602: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3603: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3604: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3605: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3606: $_b = array();
-        L3607: $_b[0] = $_fail;
-        L3608: $_b[1] = $_value;
-        L3609: $_b[2] = $_p;
-        L3610: $_cache[$_a] = $_b;
-        L3611: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3612: if ($_a === 3274) { goto L3274; } else if ($_a === 3323) { goto L3323; } else if ($_a === 3343) { goto L3343; } else { return array(FALSE, NULL, 40); }
-        L3613: $_stack[++$_stack_sp] = "41@";
-        L3614: $_stack[$_stack_sp] .= $_p;
-        L3615: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3622; }
-        L3616: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3617: $_b = $_cache[$_a];
-        L3618: $_fail = $_b[0];
-        L3619: $_value = $_b[1];
-        L3620: $_p = $_b[2];
-        L3621: goto L3731;
-        L3622: $_stack[++$_stack_sp] = $_env;
-        L3623: $_env = array();
-        L3624: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3625: $_stack[++$_stack_sp] = $_env;
-        L3626: $_env = array();
-        L3627: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3628: $_stack[++$_stack_sp] = $_b;
-        L3629: $_stack[++$_stack_sp] = NULL;
-        L3630: $_stack[++$_stack_sp] = $_env;
-        L3631: $_env = array();
-        L3632: $_stack[++$_stack_sp] = 3634;
-        L3633: goto L3853;
+        L3515: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3516: $_b = array();
+        L3517: $_b[0] = $_fail;
+        L3518: $_b[1] = $_value;
+        L3519: $_b[2] = $_p;
+        L3520: $_cache[$_a] = $_b;
+        L3521: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3522: if ($_a === 3194) { goto L3194; } else if ($_a === 3233) { goto L3233; } else if ($_a === 3253) { goto L3253; } else { return array(FALSE, NULL, 39); }
+        L3523: $_stack[++$_stack_sp] = "40@";
+        L3524: $_stack[$_stack_sp] .= $_p;
+        L3525: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3532; }
+        L3526: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3527: $_b = $_cache[$_a];
+        L3528: $_fail = $_b[0];
+        L3529: $_value = $_b[1];
+        L3530: $_p = $_b[2];
+        L3531: goto L3641;
+        L3532: $_stack[++$_stack_sp] = $_env;
+        L3533: $_env = array();
+        L3534: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3535: $_stack[++$_stack_sp] = $_env;
+        L3536: $_env = array();
+        L3537: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3538: $_stack[++$_stack_sp] = $_b;
+        L3539: $_stack[++$_stack_sp] = NULL;
+        L3540: $_stack[++$_stack_sp] = $_env;
+        L3541: $_env = array();
+        L3542: $_stack[++$_stack_sp] = 3544;
+        L3543: goto L3763;
+        L3544: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3545: $_env["left"] = $_value;
+        L3546: $_stack[$_stack_sp] = $_value;
+        L3547: if ($_fail) { goto L3628; }
+        L3548: $_stack[++$_stack_sp] = $_p;
+        L3549: $_stack[++$_stack_sp] = array();
+        L3550: $_stack[++$_stack_sp] = NULL;
+        L3551: $_stack[++$_stack_sp] = $_env;
+        L3552: $_env = array();
+        L3553: $_stack[++$_stack_sp] = 3555;
+        L3554: goto L7033;
+        L3555: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3556: $_stack[$_stack_sp] = $_value;
+        L3557: if ($_fail) { goto L3620; }
+        L3558: $_stack[++$_stack_sp] = $_env;
+        L3559: $_env = array();
+        L3560: $_stack[++$_stack_sp] = "";
+        L3561: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "^") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"^"', $_expected)) { $_expected[] = '"^"'; } } }
+        L3562: $_stack[$_stack_sp] .= $_value;
+        L3563: if ($_fail) { goto L3570; }
+        L3564: $_stack[++$_stack_sp] = $_p;
+        L3565: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L3566: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3567: $_value = NULL;
+        L3568: $_fail = !$_fail;
+        L3569: $_stack[$_stack_sp] .= $_value;
+        L3570: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3571: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3572: $_env["op"] = $_value;
+        L3573: if ($_fail) { goto L3620; }
+        L3574: $_stack[++$_stack_sp] = $_env;
+        L3575: $_env = array();
+        L3576: $_stack[++$_stack_sp] = 3578;
+        L3577: goto L7033;
+        L3578: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3579: if ($_fail) { goto L3620; }
+        L3580: $_stack[++$_stack_sp] = $_p;
+        L3581: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3582: $_stack[++$_stack_sp] = $_b;
+        L3583: $_stack[++$_stack_sp] = NULL;
+        L3584: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3585: $_value = $this->_96($_env);
+        L3586: $_fail = !$_value;
+        L3587: $_value = NULL;
+        L3588: if ($_fail) { goto L3596; }
+        L3589: $_stack[++$_stack_sp] = $_env;
+        L3590: $_env = array();
+        L3591: $_stack[++$_stack_sp] = 3593;
+        L3592: goto L3763;
+        L3593: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3594: $_env["right"] = $_value;
+        L3595: $_stack[$_stack_sp] = $_value;
+        L3596: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3597: if ($_fail) { goto L3599; }
+        L3598: $_value = $this->_95($_env);
+        L3599: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3600: if (!$_fail) { goto L3619; }
+        L3601: $_p = $_stack[$_stack_sp];
+        L3602: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3603: $_stack[++$_stack_sp] = $_b;
+        L3604: $_stack[++$_stack_sp] = NULL;
+        L3605: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3606: $_env["p"] = $_value;
+        L3607: $_stack[$_stack_sp] = $_value;
+        L3608: if ($_fail) { goto L3615; }
+        L3609: $_stack[++$_stack_sp] = $_env;
+        L3610: $_env = array();
+        L3611: $_stack[++$_stack_sp] = 3613;
+        L3612: goto L3763;
+        L3613: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3614: $_env["right"] = $_value;
+        L3615: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3616: if ($_fail) { goto L3618; }
+        L3617: $_value = $this->_97($_env);
+        L3618: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3619: unset($_stack[$_stack_sp--]);
+        L3620: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3621: if ($_fail) { goto L3625; }
+        L3622: $_stack[$_stack_sp][] = $_value;
+        L3623: $_stack[$_stack_sp - 1] = $_p;
+        L3624: goto L3550;
+        L3625: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3626: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3627: $_fail = false;
+        L3628: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3629: if ($_fail) { goto L3631; }
+        L3630: $_value = $this->_94($_env);
+        L3631: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3632: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3633: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3634: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3635: $_env["left"] = $_value;
-        L3636: $_stack[$_stack_sp] = $_value;
-        L3637: if ($_fail) { goto L3718; }
-        L3638: $_stack[++$_stack_sp] = $_p;
-        L3639: $_stack[++$_stack_sp] = array();
-        L3640: $_stack[++$_stack_sp] = NULL;
-        L3641: $_stack[++$_stack_sp] = $_env;
-        L3642: $_env = array();
-        L3643: $_stack[++$_stack_sp] = 3645;
-        L3644: goto L7003;
-        L3645: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3646: $_stack[$_stack_sp] = $_value;
-        L3647: if ($_fail) { goto L3710; }
-        L3648: $_stack[++$_stack_sp] = $_env;
-        L3649: $_env = array();
-        L3650: $_stack[++$_stack_sp] = "";
-        L3651: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "^") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"^"', $_expected)) { $_expected[] = '"^"'; } } }
-        L3652: $_stack[$_stack_sp] .= $_value;
-        L3653: if ($_fail) { goto L3660; }
-        L3654: $_stack[++$_stack_sp] = $_p;
-        L3655: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L3656: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3657: $_value = NULL;
-        L3658: $_fail = !$_fail;
-        L3659: $_stack[$_stack_sp] .= $_value;
-        L3660: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3661: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3662: $_env["op"] = $_value;
-        L3663: if ($_fail) { goto L3710; }
-        L3664: $_stack[++$_stack_sp] = $_env;
-        L3665: $_env = array();
-        L3666: $_stack[++$_stack_sp] = 3668;
-        L3667: goto L7003;
-        L3668: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3669: if ($_fail) { goto L3710; }
-        L3670: $_stack[++$_stack_sp] = $_p;
-        L3671: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3672: $_stack[++$_stack_sp] = $_b;
-        L3673: $_stack[++$_stack_sp] = NULL;
-        L3674: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3675: $_value = $this->_96($_env);
-        L3676: $_fail = !$_value;
-        L3677: $_value = NULL;
-        L3678: if ($_fail) { goto L3686; }
-        L3679: $_stack[++$_stack_sp] = $_env;
-        L3680: $_env = array();
-        L3681: $_stack[++$_stack_sp] = 3683;
-        L3682: goto L3853;
-        L3683: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3684: $_env["right"] = $_value;
-        L3685: $_stack[$_stack_sp] = $_value;
-        L3686: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3687: if ($_fail) { goto L3689; }
-        L3688: $_value = $this->_95($_env);
-        L3689: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3690: if (!$_fail) { goto L3709; }
-        L3691: $_p = $_stack[$_stack_sp];
-        L3692: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3693: $_stack[++$_stack_sp] = $_b;
-        L3694: $_stack[++$_stack_sp] = NULL;
-        L3695: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3696: $_env["p"] = $_value;
-        L3697: $_stack[$_stack_sp] = $_value;
-        L3698: if ($_fail) { goto L3705; }
-        L3699: $_stack[++$_stack_sp] = $_env;
-        L3700: $_env = array();
-        L3701: $_stack[++$_stack_sp] = 3703;
-        L3702: goto L3853;
-        L3703: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3704: $_env["right"] = $_value;
-        L3705: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3706: if ($_fail) { goto L3708; }
-        L3707: $_value = $this->_97($_env);
-        L3708: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3709: unset($_stack[$_stack_sp--]);
-        L3710: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3711: if ($_fail) { goto L3715; }
-        L3712: $_stack[$_stack_sp][] = $_value;
-        L3713: $_stack[$_stack_sp - 1] = $_p;
-        L3714: goto L3640;
-        L3715: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3716: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3717: $_fail = false;
-        L3718: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3719: if ($_fail) { goto L3721; }
-        L3720: $_value = $this->_94($_env);
-        L3721: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3722: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3723: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3724: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3725: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3726: $_b = array();
-        L3727: $_b[0] = $_fail;
-        L3728: $_b[1] = $_value;
-        L3729: $_b[2] = $_p;
-        L3730: $_cache[$_a] = $_b;
-        L3731: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3732: if ($_a === 3394) { goto L3394; } else if ($_a === 3443) { goto L3443; } else if ($_a === 3463) { goto L3463; } else { return array(FALSE, NULL, 41); }
-        L3733: $_stack[++$_stack_sp] = "42@";
-        L3734: $_stack[$_stack_sp] .= $_p;
-        L3735: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3742; }
-        L3736: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3737: $_b = $_cache[$_a];
-        L3738: $_fail = $_b[0];
-        L3739: $_value = $_b[1];
-        L3740: $_p = $_b[2];
-        L3741: goto L3851;
-        L3742: $_stack[++$_stack_sp] = $_env;
-        L3743: $_env = array();
-        L3744: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3745: $_stack[++$_stack_sp] = $_env;
-        L3746: $_env = array();
-        L3747: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3748: $_stack[++$_stack_sp] = $_b;
-        L3749: $_stack[++$_stack_sp] = NULL;
-        L3750: $_stack[++$_stack_sp] = $_env;
-        L3751: $_env = array();
-        L3752: $_stack[++$_stack_sp] = 3754;
-        L3753: goto L3973;
+        L3635: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3636: $_b = array();
+        L3637: $_b[0] = $_fail;
+        L3638: $_b[1] = $_value;
+        L3639: $_b[2] = $_p;
+        L3640: $_cache[$_a] = $_b;
+        L3641: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3642: if ($_a === 3304) { goto L3304; } else if ($_a === 3353) { goto L3353; } else if ($_a === 3373) { goto L3373; } else { return array(FALSE, NULL, 40); }
+        L3643: $_stack[++$_stack_sp] = "41@";
+        L3644: $_stack[$_stack_sp] .= $_p;
+        L3645: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3652; }
+        L3646: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3647: $_b = $_cache[$_a];
+        L3648: $_fail = $_b[0];
+        L3649: $_value = $_b[1];
+        L3650: $_p = $_b[2];
+        L3651: goto L3761;
+        L3652: $_stack[++$_stack_sp] = $_env;
+        L3653: $_env = array();
+        L3654: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3655: $_stack[++$_stack_sp] = $_env;
+        L3656: $_env = array();
+        L3657: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3658: $_stack[++$_stack_sp] = $_b;
+        L3659: $_stack[++$_stack_sp] = NULL;
+        L3660: $_stack[++$_stack_sp] = $_env;
+        L3661: $_env = array();
+        L3662: $_stack[++$_stack_sp] = 3664;
+        L3663: goto L3883;
+        L3664: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3665: $_env["left"] = $_value;
+        L3666: $_stack[$_stack_sp] = $_value;
+        L3667: if ($_fail) { goto L3748; }
+        L3668: $_stack[++$_stack_sp] = $_p;
+        L3669: $_stack[++$_stack_sp] = array();
+        L3670: $_stack[++$_stack_sp] = NULL;
+        L3671: $_stack[++$_stack_sp] = $_env;
+        L3672: $_env = array();
+        L3673: $_stack[++$_stack_sp] = 3675;
+        L3674: goto L7033;
+        L3675: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3676: $_stack[$_stack_sp] = $_value;
+        L3677: if ($_fail) { goto L3740; }
+        L3678: $_stack[++$_stack_sp] = $_env;
+        L3679: $_env = array();
+        L3680: $_stack[++$_stack_sp] = "";
+        L3681: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "^") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"^"', $_expected)) { $_expected[] = '"^"'; } } }
+        L3682: $_stack[$_stack_sp] .= $_value;
+        L3683: if ($_fail) { goto L3690; }
+        L3684: $_stack[++$_stack_sp] = $_p;
+        L3685: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L3686: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3687: $_value = NULL;
+        L3688: $_fail = !$_fail;
+        L3689: $_stack[$_stack_sp] .= $_value;
+        L3690: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3691: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3692: $_env["op"] = $_value;
+        L3693: if ($_fail) { goto L3740; }
+        L3694: $_stack[++$_stack_sp] = $_env;
+        L3695: $_env = array();
+        L3696: $_stack[++$_stack_sp] = 3698;
+        L3697: goto L7033;
+        L3698: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3699: if ($_fail) { goto L3740; }
+        L3700: $_stack[++$_stack_sp] = $_p;
+        L3701: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3702: $_stack[++$_stack_sp] = $_b;
+        L3703: $_stack[++$_stack_sp] = NULL;
+        L3704: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3705: $_value = $this->_100($_env);
+        L3706: $_fail = !$_value;
+        L3707: $_value = NULL;
+        L3708: if ($_fail) { goto L3716; }
+        L3709: $_stack[++$_stack_sp] = $_env;
+        L3710: $_env = array();
+        L3711: $_stack[++$_stack_sp] = 3713;
+        L3712: goto L3883;
+        L3713: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3714: $_env["right"] = $_value;
+        L3715: $_stack[$_stack_sp] = $_value;
+        L3716: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3717: if ($_fail) { goto L3719; }
+        L3718: $_value = $this->_99($_env);
+        L3719: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3720: if (!$_fail) { goto L3739; }
+        L3721: $_p = $_stack[$_stack_sp];
+        L3722: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3723: $_stack[++$_stack_sp] = $_b;
+        L3724: $_stack[++$_stack_sp] = NULL;
+        L3725: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3726: $_env["p"] = $_value;
+        L3727: $_stack[$_stack_sp] = $_value;
+        L3728: if ($_fail) { goto L3735; }
+        L3729: $_stack[++$_stack_sp] = $_env;
+        L3730: $_env = array();
+        L3731: $_stack[++$_stack_sp] = 3733;
+        L3732: goto L3883;
+        L3733: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3734: $_env["right"] = $_value;
+        L3735: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3736: if ($_fail) { goto L3738; }
+        L3737: $_value = $this->_101($_env);
+        L3738: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3739: unset($_stack[$_stack_sp--]);
+        L3740: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3741: if ($_fail) { goto L3745; }
+        L3742: $_stack[$_stack_sp][] = $_value;
+        L3743: $_stack[$_stack_sp - 1] = $_p;
+        L3744: goto L3670;
+        L3745: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3746: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3747: $_fail = false;
+        L3748: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3749: if ($_fail) { goto L3751; }
+        L3750: $_value = $this->_98($_env);
+        L3751: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3752: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3753: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3754: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3755: $_env["left"] = $_value;
-        L3756: $_stack[$_stack_sp] = $_value;
-        L3757: if ($_fail) { goto L3838; }
-        L3758: $_stack[++$_stack_sp] = $_p;
-        L3759: $_stack[++$_stack_sp] = array();
-        L3760: $_stack[++$_stack_sp] = NULL;
-        L3761: $_stack[++$_stack_sp] = $_env;
-        L3762: $_env = array();
-        L3763: $_stack[++$_stack_sp] = 3765;
-        L3764: goto L7003;
-        L3765: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3766: $_stack[$_stack_sp] = $_value;
-        L3767: if ($_fail) { goto L3830; }
-        L3768: $_stack[++$_stack_sp] = $_env;
-        L3769: $_env = array();
-        L3770: $_stack[++$_stack_sp] = "";
-        L3771: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "&") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&"', $_expected)) { $_expected[] = '"&"'; } } }
-        L3772: $_stack[$_stack_sp] .= $_value;
-        L3773: if ($_fail) { goto L3780; }
-        L3774: $_stack[++$_stack_sp] = $_p;
-        L3775: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L3776: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3777: $_value = NULL;
-        L3778: $_fail = !$_fail;
-        L3779: $_stack[$_stack_sp] .= $_value;
-        L3780: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3781: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3782: $_env["op"] = $_value;
-        L3783: if ($_fail) { goto L3830; }
-        L3784: $_stack[++$_stack_sp] = $_env;
-        L3785: $_env = array();
-        L3786: $_stack[++$_stack_sp] = 3788;
-        L3787: goto L7003;
-        L3788: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3789: if ($_fail) { goto L3830; }
-        L3790: $_stack[++$_stack_sp] = $_p;
-        L3791: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3792: $_stack[++$_stack_sp] = $_b;
-        L3793: $_stack[++$_stack_sp] = NULL;
-        L3794: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3795: $_value = $this->_100($_env);
-        L3796: $_fail = !$_value;
-        L3797: $_value = NULL;
-        L3798: if ($_fail) { goto L3806; }
-        L3799: $_stack[++$_stack_sp] = $_env;
-        L3800: $_env = array();
-        L3801: $_stack[++$_stack_sp] = 3803;
-        L3802: goto L3973;
-        L3803: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3804: $_env["right"] = $_value;
-        L3805: $_stack[$_stack_sp] = $_value;
-        L3806: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3807: if ($_fail) { goto L3809; }
-        L3808: $_value = $this->_99($_env);
-        L3809: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3810: if (!$_fail) { goto L3829; }
-        L3811: $_p = $_stack[$_stack_sp];
-        L3812: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3813: $_stack[++$_stack_sp] = $_b;
-        L3814: $_stack[++$_stack_sp] = NULL;
-        L3815: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3816: $_env["p"] = $_value;
-        L3817: $_stack[$_stack_sp] = $_value;
-        L3818: if ($_fail) { goto L3825; }
-        L3819: $_stack[++$_stack_sp] = $_env;
-        L3820: $_env = array();
-        L3821: $_stack[++$_stack_sp] = 3823;
-        L3822: goto L3973;
-        L3823: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3824: $_env["right"] = $_value;
-        L3825: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3826: if ($_fail) { goto L3828; }
-        L3827: $_value = $this->_101($_env);
-        L3828: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3829: unset($_stack[$_stack_sp--]);
-        L3830: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3831: if ($_fail) { goto L3835; }
-        L3832: $_stack[$_stack_sp][] = $_value;
-        L3833: $_stack[$_stack_sp - 1] = $_p;
-        L3834: goto L3760;
-        L3835: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3836: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3837: $_fail = false;
-        L3838: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3839: if ($_fail) { goto L3841; }
-        L3840: $_value = $this->_98($_env);
-        L3841: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3842: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3843: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3844: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3845: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3846: $_b = array();
-        L3847: $_b[0] = $_fail;
-        L3848: $_b[1] = $_value;
-        L3849: $_b[2] = $_p;
-        L3850: $_cache[$_a] = $_b;
-        L3851: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3852: if ($_a === 3514) { goto L3514; } else if ($_a === 3563) { goto L3563; } else if ($_a === 3583) { goto L3583; } else { return array(FALSE, NULL, 42); }
-        L3853: $_stack[++$_stack_sp] = "43@";
-        L3854: $_stack[$_stack_sp] .= $_p;
-        L3855: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3862; }
-        L3856: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3857: $_b = $_cache[$_a];
-        L3858: $_fail = $_b[0];
-        L3859: $_value = $_b[1];
-        L3860: $_p = $_b[2];
-        L3861: goto L3971;
-        L3862: $_stack[++$_stack_sp] = $_env;
-        L3863: $_env = array();
-        L3864: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3865: $_stack[++$_stack_sp] = $_env;
-        L3866: $_env = array();
-        L3867: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3868: $_stack[++$_stack_sp] = $_b;
-        L3869: $_stack[++$_stack_sp] = NULL;
-        L3870: $_stack[++$_stack_sp] = $_env;
-        L3871: $_env = array();
-        L3872: $_stack[++$_stack_sp] = 3874;
-        L3873: goto L4094;
+        L3755: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3756: $_b = array();
+        L3757: $_b[0] = $_fail;
+        L3758: $_b[1] = $_value;
+        L3759: $_b[2] = $_p;
+        L3760: $_cache[$_a] = $_b;
+        L3761: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3762: if ($_a === 3424) { goto L3424; } else if ($_a === 3473) { goto L3473; } else if ($_a === 3493) { goto L3493; } else { return array(FALSE, NULL, 41); }
+        L3763: $_stack[++$_stack_sp] = "42@";
+        L3764: $_stack[$_stack_sp] .= $_p;
+        L3765: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3772; }
+        L3766: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3767: $_b = $_cache[$_a];
+        L3768: $_fail = $_b[0];
+        L3769: $_value = $_b[1];
+        L3770: $_p = $_b[2];
+        L3771: goto L3881;
+        L3772: $_stack[++$_stack_sp] = $_env;
+        L3773: $_env = array();
+        L3774: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3775: $_stack[++$_stack_sp] = $_env;
+        L3776: $_env = array();
+        L3777: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3778: $_stack[++$_stack_sp] = $_b;
+        L3779: $_stack[++$_stack_sp] = NULL;
+        L3780: $_stack[++$_stack_sp] = $_env;
+        L3781: $_env = array();
+        L3782: $_stack[++$_stack_sp] = 3784;
+        L3783: goto L4003;
+        L3784: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3785: $_env["left"] = $_value;
+        L3786: $_stack[$_stack_sp] = $_value;
+        L3787: if ($_fail) { goto L3868; }
+        L3788: $_stack[++$_stack_sp] = $_p;
+        L3789: $_stack[++$_stack_sp] = array();
+        L3790: $_stack[++$_stack_sp] = NULL;
+        L3791: $_stack[++$_stack_sp] = $_env;
+        L3792: $_env = array();
+        L3793: $_stack[++$_stack_sp] = 3795;
+        L3794: goto L7033;
+        L3795: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3796: $_stack[$_stack_sp] = $_value;
+        L3797: if ($_fail) { goto L3860; }
+        L3798: $_stack[++$_stack_sp] = $_env;
+        L3799: $_env = array();
+        L3800: $_stack[++$_stack_sp] = "";
+        L3801: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "&") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&"', $_expected)) { $_expected[] = '"&"'; } } }
+        L3802: $_stack[$_stack_sp] .= $_value;
+        L3803: if ($_fail) { goto L3810; }
+        L3804: $_stack[++$_stack_sp] = $_p;
+        L3805: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L3806: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3807: $_value = NULL;
+        L3808: $_fail = !$_fail;
+        L3809: $_stack[$_stack_sp] .= $_value;
+        L3810: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3811: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3812: $_env["op"] = $_value;
+        L3813: if ($_fail) { goto L3860; }
+        L3814: $_stack[++$_stack_sp] = $_env;
+        L3815: $_env = array();
+        L3816: $_stack[++$_stack_sp] = 3818;
+        L3817: goto L7033;
+        L3818: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3819: if ($_fail) { goto L3860; }
+        L3820: $_stack[++$_stack_sp] = $_p;
+        L3821: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3822: $_stack[++$_stack_sp] = $_b;
+        L3823: $_stack[++$_stack_sp] = NULL;
+        L3824: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3825: $_value = $this->_104($_env);
+        L3826: $_fail = !$_value;
+        L3827: $_value = NULL;
+        L3828: if ($_fail) { goto L3836; }
+        L3829: $_stack[++$_stack_sp] = $_env;
+        L3830: $_env = array();
+        L3831: $_stack[++$_stack_sp] = 3833;
+        L3832: goto L4003;
+        L3833: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3834: $_env["right"] = $_value;
+        L3835: $_stack[$_stack_sp] = $_value;
+        L3836: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3837: if ($_fail) { goto L3839; }
+        L3838: $_value = $this->_103($_env);
+        L3839: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3840: if (!$_fail) { goto L3859; }
+        L3841: $_p = $_stack[$_stack_sp];
+        L3842: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3843: $_stack[++$_stack_sp] = $_b;
+        L3844: $_stack[++$_stack_sp] = NULL;
+        L3845: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3846: $_env["p"] = $_value;
+        L3847: $_stack[$_stack_sp] = $_value;
+        L3848: if ($_fail) { goto L3855; }
+        L3849: $_stack[++$_stack_sp] = $_env;
+        L3850: $_env = array();
+        L3851: $_stack[++$_stack_sp] = 3853;
+        L3852: goto L4003;
+        L3853: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3854: $_env["right"] = $_value;
+        L3855: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3856: if ($_fail) { goto L3858; }
+        L3857: $_value = $this->_105($_env);
+        L3858: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3859: unset($_stack[$_stack_sp--]);
+        L3860: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3861: if ($_fail) { goto L3865; }
+        L3862: $_stack[$_stack_sp][] = $_value;
+        L3863: $_stack[$_stack_sp - 1] = $_p;
+        L3864: goto L3790;
+        L3865: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3866: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3867: $_fail = false;
+        L3868: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3869: if ($_fail) { goto L3871; }
+        L3870: $_value = $this->_102($_env);
+        L3871: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3872: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3873: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3874: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3875: $_env["left"] = $_value;
-        L3876: $_stack[$_stack_sp] = $_value;
-        L3877: if ($_fail) { goto L3958; }
-        L3878: $_stack[++$_stack_sp] = $_p;
-        L3879: $_stack[++$_stack_sp] = array();
-        L3880: $_stack[++$_stack_sp] = NULL;
-        L3881: $_stack[++$_stack_sp] = $_env;
-        L3882: $_env = array();
-        L3883: $_stack[++$_stack_sp] = 3885;
-        L3884: goto L7003;
-        L3885: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3886: $_stack[$_stack_sp] = $_value;
-        L3887: if ($_fail) { goto L3950; }
-        L3888: $_stack[++$_stack_sp] = $_env;
-        L3889: $_env = array();
-        L3890: $_stack[++$_stack_sp] = "";
-        L3891: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "&") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&"', $_expected)) { $_expected[] = '"&"'; } } }
-        L3892: $_stack[$_stack_sp] .= $_value;
-        L3893: if ($_fail) { goto L3900; }
-        L3894: $_stack[++$_stack_sp] = $_p;
-        L3895: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L3896: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3897: $_value = NULL;
-        L3898: $_fail = !$_fail;
-        L3899: $_stack[$_stack_sp] .= $_value;
-        L3900: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3901: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3902: $_env["op"] = $_value;
-        L3903: if ($_fail) { goto L3950; }
-        L3904: $_stack[++$_stack_sp] = $_env;
-        L3905: $_env = array();
-        L3906: $_stack[++$_stack_sp] = 3908;
-        L3907: goto L7003;
-        L3908: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3909: if ($_fail) { goto L3950; }
-        L3910: $_stack[++$_stack_sp] = $_p;
-        L3911: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3912: $_stack[++$_stack_sp] = $_b;
-        L3913: $_stack[++$_stack_sp] = NULL;
-        L3914: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L3915: $_value = $this->_104($_env);
-        L3916: $_fail = !$_value;
-        L3917: $_value = NULL;
-        L3918: if ($_fail) { goto L3926; }
-        L3919: $_stack[++$_stack_sp] = $_env;
-        L3920: $_env = array();
-        L3921: $_stack[++$_stack_sp] = 3923;
-        L3922: goto L4094;
-        L3923: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3924: $_env["right"] = $_value;
-        L3925: $_stack[$_stack_sp] = $_value;
-        L3926: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3927: if ($_fail) { goto L3929; }
-        L3928: $_value = $this->_103($_env);
-        L3929: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3930: if (!$_fail) { goto L3949; }
-        L3931: $_p = $_stack[$_stack_sp];
-        L3932: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3933: $_stack[++$_stack_sp] = $_b;
-        L3934: $_stack[++$_stack_sp] = NULL;
-        L3935: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L3936: $_env["p"] = $_value;
-        L3937: $_stack[$_stack_sp] = $_value;
-        L3938: if ($_fail) { goto L3945; }
-        L3939: $_stack[++$_stack_sp] = $_env;
-        L3940: $_env = array();
-        L3941: $_stack[++$_stack_sp] = 3943;
-        L3942: goto L4094;
-        L3943: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3944: $_env["right"] = $_value;
-        L3945: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3946: if ($_fail) { goto L3948; }
-        L3947: $_value = $this->_105($_env);
-        L3948: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3949: unset($_stack[$_stack_sp--]);
-        L3950: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3951: if ($_fail) { goto L3955; }
-        L3952: $_stack[$_stack_sp][] = $_value;
-        L3953: $_stack[$_stack_sp - 1] = $_p;
-        L3954: goto L3880;
-        L3955: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3956: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3957: $_fail = false;
-        L3958: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3959: if ($_fail) { goto L3961; }
-        L3960: $_value = $this->_102($_env);
-        L3961: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3962: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3963: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L3964: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3965: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3966: $_b = array();
-        L3967: $_b[0] = $_fail;
-        L3968: $_b[1] = $_value;
-        L3969: $_b[2] = $_p;
-        L3970: $_cache[$_a] = $_b;
-        L3971: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3972: if ($_a === 3634) { goto L3634; } else if ($_a === 3683) { goto L3683; } else if ($_a === 3703) { goto L3703; } else { return array(FALSE, NULL, 43); }
-        L3973: $_stack[++$_stack_sp] = "44@";
-        L3974: $_stack[$_stack_sp] .= $_p;
-        L3975: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3982; }
-        L3976: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3977: $_b = $_cache[$_a];
-        L3978: $_fail = $_b[0];
-        L3979: $_value = $_b[1];
-        L3980: $_p = $_b[2];
-        L3981: goto L4092;
-        L3982: $_stack[++$_stack_sp] = $_env;
-        L3983: $_env = array();
-        L3984: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L3985: $_stack[++$_stack_sp] = $_env;
-        L3986: $_env = array();
-        L3987: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L3988: $_stack[++$_stack_sp] = $_b;
-        L3989: $_stack[++$_stack_sp] = NULL;
-        L3990: $_stack[++$_stack_sp] = $_env;
-        L3991: $_env = array();
-        L3992: $_stack[++$_stack_sp] = 3994;
-        L3993: goto L4215;
+        L3875: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3876: $_b = array();
+        L3877: $_b[0] = $_fail;
+        L3878: $_b[1] = $_value;
+        L3879: $_b[2] = $_p;
+        L3880: $_cache[$_a] = $_b;
+        L3881: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3882: if ($_a === 3544) { goto L3544; } else if ($_a === 3593) { goto L3593; } else if ($_a === 3613) { goto L3613; } else { return array(FALSE, NULL, 42); }
+        L3883: $_stack[++$_stack_sp] = "43@";
+        L3884: $_stack[$_stack_sp] .= $_p;
+        L3885: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L3892; }
+        L3886: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3887: $_b = $_cache[$_a];
+        L3888: $_fail = $_b[0];
+        L3889: $_value = $_b[1];
+        L3890: $_p = $_b[2];
+        L3891: goto L4001;
+        L3892: $_stack[++$_stack_sp] = $_env;
+        L3893: $_env = array();
+        L3894: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L3895: $_stack[++$_stack_sp] = $_env;
+        L3896: $_env = array();
+        L3897: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3898: $_stack[++$_stack_sp] = $_b;
+        L3899: $_stack[++$_stack_sp] = NULL;
+        L3900: $_stack[++$_stack_sp] = $_env;
+        L3901: $_env = array();
+        L3902: $_stack[++$_stack_sp] = 3904;
+        L3903: goto L4124;
+        L3904: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3905: $_env["left"] = $_value;
+        L3906: $_stack[$_stack_sp] = $_value;
+        L3907: if ($_fail) { goto L3988; }
+        L3908: $_stack[++$_stack_sp] = $_p;
+        L3909: $_stack[++$_stack_sp] = array();
+        L3910: $_stack[++$_stack_sp] = NULL;
+        L3911: $_stack[++$_stack_sp] = $_env;
+        L3912: $_env = array();
+        L3913: $_stack[++$_stack_sp] = 3915;
+        L3914: goto L7033;
+        L3915: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3916: $_stack[$_stack_sp] = $_value;
+        L3917: if ($_fail) { goto L3980; }
+        L3918: $_stack[++$_stack_sp] = $_env;
+        L3919: $_env = array();
+        L3920: $_stack[++$_stack_sp] = "";
+        L3921: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "&") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"&"', $_expected)) { $_expected[] = '"&"'; } } }
+        L3922: $_stack[$_stack_sp] .= $_value;
+        L3923: if ($_fail) { goto L3930; }
+        L3924: $_stack[++$_stack_sp] = $_p;
+        L3925: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L3926: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3927: $_value = NULL;
+        L3928: $_fail = !$_fail;
+        L3929: $_stack[$_stack_sp] .= $_value;
+        L3930: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3931: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3932: $_env["op"] = $_value;
+        L3933: if ($_fail) { goto L3980; }
+        L3934: $_stack[++$_stack_sp] = $_env;
+        L3935: $_env = array();
+        L3936: $_stack[++$_stack_sp] = 3938;
+        L3937: goto L7033;
+        L3938: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3939: if ($_fail) { goto L3980; }
+        L3940: $_stack[++$_stack_sp] = $_p;
+        L3941: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3942: $_stack[++$_stack_sp] = $_b;
+        L3943: $_stack[++$_stack_sp] = NULL;
+        L3944: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L3945: $_value = $this->_108($_env);
+        L3946: $_fail = !$_value;
+        L3947: $_value = NULL;
+        L3948: if ($_fail) { goto L3956; }
+        L3949: $_stack[++$_stack_sp] = $_env;
+        L3950: $_env = array();
+        L3951: $_stack[++$_stack_sp] = 3953;
+        L3952: goto L4124;
+        L3953: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3954: $_env["right"] = $_value;
+        L3955: $_stack[$_stack_sp] = $_value;
+        L3956: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3957: if ($_fail) { goto L3959; }
+        L3958: $_value = $this->_107($_env);
+        L3959: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3960: if (!$_fail) { goto L3979; }
+        L3961: $_p = $_stack[$_stack_sp];
+        L3962: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L3963: $_stack[++$_stack_sp] = $_b;
+        L3964: $_stack[++$_stack_sp] = NULL;
+        L3965: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L3966: $_env["p"] = $_value;
+        L3967: $_stack[$_stack_sp] = $_value;
+        L3968: if ($_fail) { goto L3975; }
+        L3969: $_stack[++$_stack_sp] = $_env;
+        L3970: $_env = array();
+        L3971: $_stack[++$_stack_sp] = 3973;
+        L3972: goto L4124;
+        L3973: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3974: $_env["right"] = $_value;
+        L3975: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3976: if ($_fail) { goto L3978; }
+        L3977: $_value = $this->_109($_env);
+        L3978: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3979: unset($_stack[$_stack_sp--]);
+        L3980: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3981: if ($_fail) { goto L3985; }
+        L3982: $_stack[$_stack_sp][] = $_value;
+        L3983: $_stack[$_stack_sp - 1] = $_p;
+        L3984: goto L3910;
+        L3985: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3986: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3987: $_fail = false;
+        L3988: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3989: if ($_fail) { goto L3991; }
+        L3990: $_value = $this->_106($_env);
+        L3991: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3992: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3993: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L3994: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L3995: $_env["left"] = $_value;
-        L3996: $_stack[$_stack_sp] = $_value;
-        L3997: if ($_fail) { goto L4079; }
-        L3998: $_stack[++$_stack_sp] = $_p;
-        L3999: $_stack[++$_stack_sp] = array();
-        L4000: $_stack[++$_stack_sp] = NULL;
-        L4001: $_stack[++$_stack_sp] = $_env;
-        L4002: $_env = array();
-        L4003: $_stack[++$_stack_sp] = 4005;
-        L4004: goto L7003;
-        L4005: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4006: $_stack[$_stack_sp] = $_value;
-        L4007: if ($_fail) { goto L4071; }
-        L4008: $_stack[++$_stack_sp] = $_env;
-        L4009: $_env = array();
-        L4010: $_stack[++$_stack_sp] = $_p;
-        L4011: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "===") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"==="', $_expected)) { $_expected[] = '"==="'; } } }
-        L4012: if (!$_fail) { goto L4021; }
-        L4013: $_p = $_stack[$_stack_sp];
-        L4014: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "!==") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!=="', $_expected)) { $_expected[] = '"!=="'; } } }
-        L4015: if (!$_fail) { goto L4021; }
-        L4016: $_p = $_stack[$_stack_sp];
-        L4017: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "==") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"=="', $_expected)) { $_expected[] = '"=="'; } } }
-        L4018: if (!$_fail) { goto L4021; }
-        L4019: $_p = $_stack[$_stack_sp];
-        L4020: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "!=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!="', $_expected)) { $_expected[] = '"!="'; } } }
-        L4021: unset($_stack[$_stack_sp--]);
-        L4022: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4023: $_env["op"] = $_value;
-        L4024: if ($_fail) { goto L4071; }
-        L4025: $_stack[++$_stack_sp] = $_env;
-        L4026: $_env = array();
-        L4027: $_stack[++$_stack_sp] = 4029;
-        L4028: goto L7003;
-        L4029: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4030: if ($_fail) { goto L4071; }
-        L4031: $_stack[++$_stack_sp] = $_p;
-        L4032: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4033: $_stack[++$_stack_sp] = $_b;
-        L4034: $_stack[++$_stack_sp] = NULL;
-        L4035: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4036: $_value = $this->_108($_env);
-        L4037: $_fail = !$_value;
-        L4038: $_value = NULL;
-        L4039: if ($_fail) { goto L4047; }
-        L4040: $_stack[++$_stack_sp] = $_env;
-        L4041: $_env = array();
-        L4042: $_stack[++$_stack_sp] = 4044;
-        L4043: goto L4215;
-        L4044: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4045: $_env["right"] = $_value;
-        L4046: $_stack[$_stack_sp] = $_value;
-        L4047: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4048: if ($_fail) { goto L4050; }
-        L4049: $_value = $this->_107($_env);
-        L4050: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4051: if (!$_fail) { goto L4070; }
-        L4052: $_p = $_stack[$_stack_sp];
-        L4053: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4054: $_stack[++$_stack_sp] = $_b;
-        L4055: $_stack[++$_stack_sp] = NULL;
-        L4056: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4057: $_env["p"] = $_value;
-        L4058: $_stack[$_stack_sp] = $_value;
-        L4059: if ($_fail) { goto L4066; }
-        L4060: $_stack[++$_stack_sp] = $_env;
-        L4061: $_env = array();
-        L4062: $_stack[++$_stack_sp] = 4064;
-        L4063: goto L4215;
-        L4064: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4065: $_env["right"] = $_value;
-        L4066: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4067: if ($_fail) { goto L4069; }
-        L4068: $_value = $this->_109($_env);
-        L4069: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4070: unset($_stack[$_stack_sp--]);
-        L4071: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4072: if ($_fail) { goto L4076; }
-        L4073: $_stack[$_stack_sp][] = $_value;
-        L4074: $_stack[$_stack_sp - 1] = $_p;
-        L4075: goto L4000;
-        L4076: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4077: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4078: $_fail = false;
-        L4079: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4080: if ($_fail) { goto L4082; }
-        L4081: $_value = $this->_106($_env);
-        L4082: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4083: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4084: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4085: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4086: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4087: $_b = array();
-        L4088: $_b[0] = $_fail;
-        L4089: $_b[1] = $_value;
-        L4090: $_b[2] = $_p;
-        L4091: $_cache[$_a] = $_b;
-        L4092: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4093: if ($_a === 3754) { goto L3754; } else if ($_a === 3803) { goto L3803; } else if ($_a === 3823) { goto L3823; } else { return array(FALSE, NULL, 44); }
-        L4094: $_stack[++$_stack_sp] = "45@";
-        L4095: $_stack[$_stack_sp] .= $_p;
-        L4096: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4103; }
-        L4097: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4098: $_b = $_cache[$_a];
-        L4099: $_fail = $_b[0];
-        L4100: $_value = $_b[1];
-        L4101: $_p = $_b[2];
-        L4102: goto L4213;
-        L4103: $_stack[++$_stack_sp] = $_env;
-        L4104: $_env = array();
-        L4105: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4106: $_stack[++$_stack_sp] = $_env;
-        L4107: $_env = array();
-        L4108: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4109: $_stack[++$_stack_sp] = $_b;
-        L4110: $_stack[++$_stack_sp] = NULL;
-        L4111: $_stack[++$_stack_sp] = $_env;
-        L4112: $_env = array();
-        L4113: $_stack[++$_stack_sp] = 4115;
-        L4114: goto L4326;
+        L3995: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L3996: $_b = array();
+        L3997: $_b[0] = $_fail;
+        L3998: $_b[1] = $_value;
+        L3999: $_b[2] = $_p;
+        L4000: $_cache[$_a] = $_b;
+        L4001: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4002: if ($_a === 3664) { goto L3664; } else if ($_a === 3713) { goto L3713; } else if ($_a === 3733) { goto L3733; } else { return array(FALSE, NULL, 43); }
+        L4003: $_stack[++$_stack_sp] = "44@";
+        L4004: $_stack[$_stack_sp] .= $_p;
+        L4005: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4012; }
+        L4006: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4007: $_b = $_cache[$_a];
+        L4008: $_fail = $_b[0];
+        L4009: $_value = $_b[1];
+        L4010: $_p = $_b[2];
+        L4011: goto L4122;
+        L4012: $_stack[++$_stack_sp] = $_env;
+        L4013: $_env = array();
+        L4014: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4015: $_stack[++$_stack_sp] = $_env;
+        L4016: $_env = array();
+        L4017: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4018: $_stack[++$_stack_sp] = $_b;
+        L4019: $_stack[++$_stack_sp] = NULL;
+        L4020: $_stack[++$_stack_sp] = $_env;
+        L4021: $_env = array();
+        L4022: $_stack[++$_stack_sp] = 4024;
+        L4023: goto L4245;
+        L4024: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4025: $_env["left"] = $_value;
+        L4026: $_stack[$_stack_sp] = $_value;
+        L4027: if ($_fail) { goto L4109; }
+        L4028: $_stack[++$_stack_sp] = $_p;
+        L4029: $_stack[++$_stack_sp] = array();
+        L4030: $_stack[++$_stack_sp] = NULL;
+        L4031: $_stack[++$_stack_sp] = $_env;
+        L4032: $_env = array();
+        L4033: $_stack[++$_stack_sp] = 4035;
+        L4034: goto L7033;
+        L4035: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4036: $_stack[$_stack_sp] = $_value;
+        L4037: if ($_fail) { goto L4101; }
+        L4038: $_stack[++$_stack_sp] = $_env;
+        L4039: $_env = array();
+        L4040: $_stack[++$_stack_sp] = $_p;
+        L4041: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "===") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"==="', $_expected)) { $_expected[] = '"==="'; } } }
+        L4042: if (!$_fail) { goto L4051; }
+        L4043: $_p = $_stack[$_stack_sp];
+        L4044: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "!==") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!=="', $_expected)) { $_expected[] = '"!=="'; } } }
+        L4045: if (!$_fail) { goto L4051; }
+        L4046: $_p = $_stack[$_stack_sp];
+        L4047: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "==") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"=="', $_expected)) { $_expected[] = '"=="'; } } }
+        L4048: if (!$_fail) { goto L4051; }
+        L4049: $_p = $_stack[$_stack_sp];
+        L4050: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "!=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!="', $_expected)) { $_expected[] = '"!="'; } } }
+        L4051: unset($_stack[$_stack_sp--]);
+        L4052: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4053: $_env["op"] = $_value;
+        L4054: if ($_fail) { goto L4101; }
+        L4055: $_stack[++$_stack_sp] = $_env;
+        L4056: $_env = array();
+        L4057: $_stack[++$_stack_sp] = 4059;
+        L4058: goto L7033;
+        L4059: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4060: if ($_fail) { goto L4101; }
+        L4061: $_stack[++$_stack_sp] = $_p;
+        L4062: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4063: $_stack[++$_stack_sp] = $_b;
+        L4064: $_stack[++$_stack_sp] = NULL;
+        L4065: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4066: $_value = $this->_112($_env);
+        L4067: $_fail = !$_value;
+        L4068: $_value = NULL;
+        L4069: if ($_fail) { goto L4077; }
+        L4070: $_stack[++$_stack_sp] = $_env;
+        L4071: $_env = array();
+        L4072: $_stack[++$_stack_sp] = 4074;
+        L4073: goto L4245;
+        L4074: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4075: $_env["right"] = $_value;
+        L4076: $_stack[$_stack_sp] = $_value;
+        L4077: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4078: if ($_fail) { goto L4080; }
+        L4079: $_value = $this->_111($_env);
+        L4080: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4081: if (!$_fail) { goto L4100; }
+        L4082: $_p = $_stack[$_stack_sp];
+        L4083: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4084: $_stack[++$_stack_sp] = $_b;
+        L4085: $_stack[++$_stack_sp] = NULL;
+        L4086: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4087: $_env["p"] = $_value;
+        L4088: $_stack[$_stack_sp] = $_value;
+        L4089: if ($_fail) { goto L4096; }
+        L4090: $_stack[++$_stack_sp] = $_env;
+        L4091: $_env = array();
+        L4092: $_stack[++$_stack_sp] = 4094;
+        L4093: goto L4245;
+        L4094: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4095: $_env["right"] = $_value;
+        L4096: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4097: if ($_fail) { goto L4099; }
+        L4098: $_value = $this->_113($_env);
+        L4099: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4100: unset($_stack[$_stack_sp--]);
+        L4101: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4102: if ($_fail) { goto L4106; }
+        L4103: $_stack[$_stack_sp][] = $_value;
+        L4104: $_stack[$_stack_sp - 1] = $_p;
+        L4105: goto L4030;
+        L4106: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4107: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4108: $_fail = false;
+        L4109: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4110: if ($_fail) { goto L4112; }
+        L4111: $_value = $this->_110($_env);
+        L4112: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4113: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4114: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L4115: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4116: $_env["left"] = $_value;
-        L4117: $_stack[$_stack_sp] = $_value;
-        L4118: if ($_fail) { goto L4200; }
-        L4119: $_stack[++$_stack_sp] = $_p;
-        L4120: $_stack[++$_stack_sp] = array();
-        L4121: $_stack[++$_stack_sp] = NULL;
-        L4122: $_stack[++$_stack_sp] = $_env;
-        L4123: $_env = array();
-        L4124: $_stack[++$_stack_sp] = 4126;
-        L4125: goto L7003;
-        L4126: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4127: $_stack[$_stack_sp] = $_value;
-        L4128: if ($_fail) { goto L4192; }
-        L4129: $_stack[++$_stack_sp] = $_env;
-        L4130: $_env = array();
-        L4131: $_stack[++$_stack_sp] = $_p;
-        L4132: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "===") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"==="', $_expected)) { $_expected[] = '"==="'; } } }
-        L4133: if (!$_fail) { goto L4142; }
-        L4134: $_p = $_stack[$_stack_sp];
-        L4135: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "!==") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!=="', $_expected)) { $_expected[] = '"!=="'; } } }
-        L4136: if (!$_fail) { goto L4142; }
-        L4137: $_p = $_stack[$_stack_sp];
-        L4138: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "==") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"=="', $_expected)) { $_expected[] = '"=="'; } } }
-        L4139: if (!$_fail) { goto L4142; }
-        L4140: $_p = $_stack[$_stack_sp];
-        L4141: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "!=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!="', $_expected)) { $_expected[] = '"!="'; } } }
-        L4142: unset($_stack[$_stack_sp--]);
-        L4143: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4144: $_env["op"] = $_value;
-        L4145: if ($_fail) { goto L4192; }
-        L4146: $_stack[++$_stack_sp] = $_env;
-        L4147: $_env = array();
-        L4148: $_stack[++$_stack_sp] = 4150;
-        L4149: goto L7003;
-        L4150: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4151: if ($_fail) { goto L4192; }
-        L4152: $_stack[++$_stack_sp] = $_p;
-        L4153: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4154: $_stack[++$_stack_sp] = $_b;
-        L4155: $_stack[++$_stack_sp] = NULL;
-        L4156: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4157: $_value = $this->_112($_env);
-        L4158: $_fail = !$_value;
-        L4159: $_value = NULL;
-        L4160: if ($_fail) { goto L4168; }
-        L4161: $_stack[++$_stack_sp] = $_env;
-        L4162: $_env = array();
-        L4163: $_stack[++$_stack_sp] = 4165;
-        L4164: goto L4326;
-        L4165: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4166: $_env["right"] = $_value;
-        L4167: $_stack[$_stack_sp] = $_value;
-        L4168: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4169: if ($_fail) { goto L4171; }
-        L4170: $_value = $this->_111($_env);
-        L4171: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4172: if (!$_fail) { goto L4191; }
-        L4173: $_p = $_stack[$_stack_sp];
-        L4174: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4175: $_stack[++$_stack_sp] = $_b;
-        L4176: $_stack[++$_stack_sp] = NULL;
-        L4177: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4178: $_env["p"] = $_value;
-        L4179: $_stack[$_stack_sp] = $_value;
-        L4180: if ($_fail) { goto L4187; }
-        L4181: $_stack[++$_stack_sp] = $_env;
-        L4182: $_env = array();
-        L4183: $_stack[++$_stack_sp] = 4185;
-        L4184: goto L4326;
-        L4185: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4186: $_env["right"] = $_value;
-        L4187: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4188: if ($_fail) { goto L4190; }
-        L4189: $_value = $this->_113($_env);
-        L4190: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4191: unset($_stack[$_stack_sp--]);
-        L4192: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4193: if ($_fail) { goto L4197; }
-        L4194: $_stack[$_stack_sp][] = $_value;
-        L4195: $_stack[$_stack_sp - 1] = $_p;
-        L4196: goto L4121;
-        L4197: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4198: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4199: $_fail = false;
-        L4200: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4201: if ($_fail) { goto L4203; }
-        L4202: $_value = $this->_110($_env);
-        L4203: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4204: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4205: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4206: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4207: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4208: $_b = array();
-        L4209: $_b[0] = $_fail;
-        L4210: $_b[1] = $_value;
-        L4211: $_b[2] = $_p;
-        L4212: $_cache[$_a] = $_b;
-        L4213: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4214: if ($_a === 3874) { goto L3874; } else if ($_a === 3923) { goto L3923; } else if ($_a === 3943) { goto L3943; } else { return array(FALSE, NULL, 45); }
-        L4215: $_stack[++$_stack_sp] = "46@";
-        L4216: $_stack[$_stack_sp] .= $_p;
-        L4217: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4224; }
-        L4218: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4219: $_b = $_cache[$_a];
-        L4220: $_fail = $_b[0];
-        L4221: $_value = $_b[1];
-        L4222: $_p = $_b[2];
-        L4223: goto L4324;
-        L4224: $_stack[++$_stack_sp] = $_env;
-        L4225: $_env = array();
-        L4226: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4227: $_stack[++$_stack_sp] = $_env;
-        L4228: $_env = array();
-        L4229: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4230: $_stack[++$_stack_sp] = $_b;
-        L4231: $_stack[++$_stack_sp] = NULL;
-        L4232: $_stack[++$_stack_sp] = $_env;
-        L4233: $_env = array();
-        L4234: $_stack[++$_stack_sp] = 4236;
-        L4235: goto L4514;
+        L4116: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4117: $_b = array();
+        L4118: $_b[0] = $_fail;
+        L4119: $_b[1] = $_value;
+        L4120: $_b[2] = $_p;
+        L4121: $_cache[$_a] = $_b;
+        L4122: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4123: if ($_a === 3784) { goto L3784; } else if ($_a === 3833) { goto L3833; } else if ($_a === 3853) { goto L3853; } else { return array(FALSE, NULL, 44); }
+        L4124: $_stack[++$_stack_sp] = "45@";
+        L4125: $_stack[$_stack_sp] .= $_p;
+        L4126: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4133; }
+        L4127: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4128: $_b = $_cache[$_a];
+        L4129: $_fail = $_b[0];
+        L4130: $_value = $_b[1];
+        L4131: $_p = $_b[2];
+        L4132: goto L4243;
+        L4133: $_stack[++$_stack_sp] = $_env;
+        L4134: $_env = array();
+        L4135: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4136: $_stack[++$_stack_sp] = $_env;
+        L4137: $_env = array();
+        L4138: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4139: $_stack[++$_stack_sp] = $_b;
+        L4140: $_stack[++$_stack_sp] = NULL;
+        L4141: $_stack[++$_stack_sp] = $_env;
+        L4142: $_env = array();
+        L4143: $_stack[++$_stack_sp] = 4145;
+        L4144: goto L4356;
+        L4145: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4146: $_env["left"] = $_value;
+        L4147: $_stack[$_stack_sp] = $_value;
+        L4148: if ($_fail) { goto L4230; }
+        L4149: $_stack[++$_stack_sp] = $_p;
+        L4150: $_stack[++$_stack_sp] = array();
+        L4151: $_stack[++$_stack_sp] = NULL;
+        L4152: $_stack[++$_stack_sp] = $_env;
+        L4153: $_env = array();
+        L4154: $_stack[++$_stack_sp] = 4156;
+        L4155: goto L7033;
+        L4156: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4157: $_stack[$_stack_sp] = $_value;
+        L4158: if ($_fail) { goto L4222; }
+        L4159: $_stack[++$_stack_sp] = $_env;
+        L4160: $_env = array();
+        L4161: $_stack[++$_stack_sp] = $_p;
+        L4162: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "===") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"==="', $_expected)) { $_expected[] = '"==="'; } } }
+        L4163: if (!$_fail) { goto L4172; }
+        L4164: $_p = $_stack[$_stack_sp];
+        L4165: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "!==") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!=="', $_expected)) { $_expected[] = '"!=="'; } } }
+        L4166: if (!$_fail) { goto L4172; }
+        L4167: $_p = $_stack[$_stack_sp];
+        L4168: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "==") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"=="', $_expected)) { $_expected[] = '"=="'; } } }
+        L4169: if (!$_fail) { goto L4172; }
+        L4170: $_p = $_stack[$_stack_sp];
+        L4171: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "!=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!="', $_expected)) { $_expected[] = '"!="'; } } }
+        L4172: unset($_stack[$_stack_sp--]);
+        L4173: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4174: $_env["op"] = $_value;
+        L4175: if ($_fail) { goto L4222; }
+        L4176: $_stack[++$_stack_sp] = $_env;
+        L4177: $_env = array();
+        L4178: $_stack[++$_stack_sp] = 4180;
+        L4179: goto L7033;
+        L4180: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4181: if ($_fail) { goto L4222; }
+        L4182: $_stack[++$_stack_sp] = $_p;
+        L4183: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4184: $_stack[++$_stack_sp] = $_b;
+        L4185: $_stack[++$_stack_sp] = NULL;
+        L4186: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4187: $_value = $this->_116($_env);
+        L4188: $_fail = !$_value;
+        L4189: $_value = NULL;
+        L4190: if ($_fail) { goto L4198; }
+        L4191: $_stack[++$_stack_sp] = $_env;
+        L4192: $_env = array();
+        L4193: $_stack[++$_stack_sp] = 4195;
+        L4194: goto L4356;
+        L4195: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4196: $_env["right"] = $_value;
+        L4197: $_stack[$_stack_sp] = $_value;
+        L4198: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4199: if ($_fail) { goto L4201; }
+        L4200: $_value = $this->_115($_env);
+        L4201: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4202: if (!$_fail) { goto L4221; }
+        L4203: $_p = $_stack[$_stack_sp];
+        L4204: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4205: $_stack[++$_stack_sp] = $_b;
+        L4206: $_stack[++$_stack_sp] = NULL;
+        L4207: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4208: $_env["p"] = $_value;
+        L4209: $_stack[$_stack_sp] = $_value;
+        L4210: if ($_fail) { goto L4217; }
+        L4211: $_stack[++$_stack_sp] = $_env;
+        L4212: $_env = array();
+        L4213: $_stack[++$_stack_sp] = 4215;
+        L4214: goto L4356;
+        L4215: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4216: $_env["right"] = $_value;
+        L4217: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4218: if ($_fail) { goto L4220; }
+        L4219: $_value = $this->_117($_env);
+        L4220: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4221: unset($_stack[$_stack_sp--]);
+        L4222: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4223: if ($_fail) { goto L4227; }
+        L4224: $_stack[$_stack_sp][] = $_value;
+        L4225: $_stack[$_stack_sp - 1] = $_p;
+        L4226: goto L4151;
+        L4227: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4228: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4229: $_fail = false;
+        L4230: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4231: if ($_fail) { goto L4233; }
+        L4232: $_value = $this->_114($_env);
+        L4233: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4234: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4235: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L4236: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4237: $_env["left"] = $_value;
-        L4238: $_stack[$_stack_sp] = $_value;
-        L4239: if ($_fail) { goto L4311; }
-        L4240: $_stack[++$_stack_sp] = $_p;
-        L4241: $_stack[++$_stack_sp] = array();
-        L4242: $_stack[++$_stack_sp] = NULL;
-        L4243: $_stack[++$_stack_sp] = $_env;
-        L4244: $_env = array();
-        L4245: $_stack[++$_stack_sp] = 4247;
-        L4246: goto L7003;
-        L4247: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4248: $_stack[$_stack_sp] = $_value;
-        L4249: if ($_fail) { goto L4303; }
-        L4250: $_stack[++$_stack_sp] = $_env;
-        L4251: $_env = array();
-        L4252: $_stack[++$_stack_sp] = 4254;
-        L4253: goto L4437;
-        L4254: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4255: $_env["op"] = $_value;
-        L4256: if ($_fail) { goto L4303; }
+        L4237: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4238: $_b = array();
+        L4239: $_b[0] = $_fail;
+        L4240: $_b[1] = $_value;
+        L4241: $_b[2] = $_p;
+        L4242: $_cache[$_a] = $_b;
+        L4243: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4244: if ($_a === 3904) { goto L3904; } else if ($_a === 3953) { goto L3953; } else if ($_a === 3973) { goto L3973; } else { return array(FALSE, NULL, 45); }
+        L4245: $_stack[++$_stack_sp] = "46@";
+        L4246: $_stack[$_stack_sp] .= $_p;
+        L4247: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4254; }
+        L4248: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4249: $_b = $_cache[$_a];
+        L4250: $_fail = $_b[0];
+        L4251: $_value = $_b[1];
+        L4252: $_p = $_b[2];
+        L4253: goto L4354;
+        L4254: $_stack[++$_stack_sp] = $_env;
+        L4255: $_env = array();
+        L4256: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
         L4257: $_stack[++$_stack_sp] = $_env;
         L4258: $_env = array();
-        L4259: $_stack[++$_stack_sp] = 4261;
-        L4260: goto L7003;
-        L4261: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4262: if ($_fail) { goto L4303; }
-        L4263: $_stack[++$_stack_sp] = $_p;
-        L4264: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4265: $_stack[++$_stack_sp] = $_b;
-        L4266: $_stack[++$_stack_sp] = NULL;
-        L4267: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4268: $_value = $this->_116($_env);
-        L4269: $_fail = !$_value;
-        L4270: $_value = NULL;
-        L4271: if ($_fail) { goto L4279; }
-        L4272: $_stack[++$_stack_sp] = $_env;
-        L4273: $_env = array();
-        L4274: $_stack[++$_stack_sp] = 4276;
-        L4275: goto L4514;
-        L4276: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4277: $_env["right"] = $_value;
+        L4259: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4260: $_stack[++$_stack_sp] = $_b;
+        L4261: $_stack[++$_stack_sp] = NULL;
+        L4262: $_stack[++$_stack_sp] = $_env;
+        L4263: $_env = array();
+        L4264: $_stack[++$_stack_sp] = 4266;
+        L4265: goto L4544;
+        L4266: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4267: $_env["left"] = $_value;
+        L4268: $_stack[$_stack_sp] = $_value;
+        L4269: if ($_fail) { goto L4341; }
+        L4270: $_stack[++$_stack_sp] = $_p;
+        L4271: $_stack[++$_stack_sp] = array();
+        L4272: $_stack[++$_stack_sp] = NULL;
+        L4273: $_stack[++$_stack_sp] = $_env;
+        L4274: $_env = array();
+        L4275: $_stack[++$_stack_sp] = 4277;
+        L4276: goto L7033;
+        L4277: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L4278: $_stack[$_stack_sp] = $_value;
-        L4279: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4280: if ($_fail) { goto L4282; }
-        L4281: $_value = $this->_115($_env);
-        L4282: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4283: if (!$_fail) { goto L4302; }
-        L4284: $_p = $_stack[$_stack_sp];
-        L4285: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4286: $_stack[++$_stack_sp] = $_b;
-        L4287: $_stack[++$_stack_sp] = NULL;
-        L4288: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4289: $_env["p"] = $_value;
-        L4290: $_stack[$_stack_sp] = $_value;
-        L4291: if ($_fail) { goto L4298; }
-        L4292: $_stack[++$_stack_sp] = $_env;
-        L4293: $_env = array();
-        L4294: $_stack[++$_stack_sp] = 4296;
-        L4295: goto L4514;
-        L4296: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4297: $_env["right"] = $_value;
-        L4298: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4299: if ($_fail) { goto L4301; }
-        L4300: $_value = $this->_117($_env);
-        L4301: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4302: unset($_stack[$_stack_sp--]);
-        L4303: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4304: if ($_fail) { goto L4308; }
-        L4305: $_stack[$_stack_sp][] = $_value;
-        L4306: $_stack[$_stack_sp - 1] = $_p;
-        L4307: goto L4242;
-        L4308: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4309: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4310: $_fail = false;
-        L4311: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4312: if ($_fail) { goto L4314; }
-        L4313: $_value = $this->_114($_env);
-        L4314: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4315: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4316: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4317: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4318: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4319: $_b = array();
-        L4320: $_b[0] = $_fail;
-        L4321: $_b[1] = $_value;
-        L4322: $_b[2] = $_p;
-        L4323: $_cache[$_a] = $_b;
-        L4324: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4325: if ($_a === 3994) { goto L3994; } else if ($_a === 4044) { goto L4044; } else if ($_a === 4064) { goto L4064; } else { return array(FALSE, NULL, 46); }
-        L4326: $_stack[++$_stack_sp] = "47@";
-        L4327: $_stack[$_stack_sp] .= $_p;
-        L4328: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4335; }
-        L4329: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4330: $_b = $_cache[$_a];
-        L4331: $_fail = $_b[0];
-        L4332: $_value = $_b[1];
-        L4333: $_p = $_b[2];
-        L4334: goto L4435;
-        L4335: $_stack[++$_stack_sp] = $_env;
-        L4336: $_env = array();
-        L4337: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4338: $_stack[++$_stack_sp] = $_env;
-        L4339: $_env = array();
-        L4340: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4341: $_stack[++$_stack_sp] = $_b;
-        L4342: $_stack[++$_stack_sp] = NULL;
-        L4343: $_stack[++$_stack_sp] = $_env;
-        L4344: $_env = array();
-        L4345: $_stack[++$_stack_sp] = 4347;
-        L4346: goto L4514;
+        L4279: if ($_fail) { goto L4333; }
+        L4280: $_stack[++$_stack_sp] = $_env;
+        L4281: $_env = array();
+        L4282: $_stack[++$_stack_sp] = 4284;
+        L4283: goto L4467;
+        L4284: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4285: $_env["op"] = $_value;
+        L4286: if ($_fail) { goto L4333; }
+        L4287: $_stack[++$_stack_sp] = $_env;
+        L4288: $_env = array();
+        L4289: $_stack[++$_stack_sp] = 4291;
+        L4290: goto L7033;
+        L4291: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4292: if ($_fail) { goto L4333; }
+        L4293: $_stack[++$_stack_sp] = $_p;
+        L4294: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4295: $_stack[++$_stack_sp] = $_b;
+        L4296: $_stack[++$_stack_sp] = NULL;
+        L4297: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4298: $_value = $this->_120($_env);
+        L4299: $_fail = !$_value;
+        L4300: $_value = NULL;
+        L4301: if ($_fail) { goto L4309; }
+        L4302: $_stack[++$_stack_sp] = $_env;
+        L4303: $_env = array();
+        L4304: $_stack[++$_stack_sp] = 4306;
+        L4305: goto L4544;
+        L4306: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4307: $_env["right"] = $_value;
+        L4308: $_stack[$_stack_sp] = $_value;
+        L4309: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4310: if ($_fail) { goto L4312; }
+        L4311: $_value = $this->_119($_env);
+        L4312: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4313: if (!$_fail) { goto L4332; }
+        L4314: $_p = $_stack[$_stack_sp];
+        L4315: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4316: $_stack[++$_stack_sp] = $_b;
+        L4317: $_stack[++$_stack_sp] = NULL;
+        L4318: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4319: $_env["p"] = $_value;
+        L4320: $_stack[$_stack_sp] = $_value;
+        L4321: if ($_fail) { goto L4328; }
+        L4322: $_stack[++$_stack_sp] = $_env;
+        L4323: $_env = array();
+        L4324: $_stack[++$_stack_sp] = 4326;
+        L4325: goto L4544;
+        L4326: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4327: $_env["right"] = $_value;
+        L4328: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4329: if ($_fail) { goto L4331; }
+        L4330: $_value = $this->_121($_env);
+        L4331: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4332: unset($_stack[$_stack_sp--]);
+        L4333: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4334: if ($_fail) { goto L4338; }
+        L4335: $_stack[$_stack_sp][] = $_value;
+        L4336: $_stack[$_stack_sp - 1] = $_p;
+        L4337: goto L4272;
+        L4338: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4339: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4340: $_fail = false;
+        L4341: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4342: if ($_fail) { goto L4344; }
+        L4343: $_value = $this->_118($_env);
+        L4344: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4345: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4346: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L4347: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4348: $_env["left"] = $_value;
-        L4349: $_stack[$_stack_sp] = $_value;
-        L4350: if ($_fail) { goto L4422; }
-        L4351: $_stack[++$_stack_sp] = $_p;
-        L4352: $_stack[++$_stack_sp] = array();
-        L4353: $_stack[++$_stack_sp] = NULL;
-        L4354: $_stack[++$_stack_sp] = $_env;
-        L4355: $_env = array();
-        L4356: $_stack[++$_stack_sp] = 4358;
-        L4357: goto L7003;
-        L4358: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4359: $_stack[$_stack_sp] = $_value;
-        L4360: if ($_fail) { goto L4414; }
-        L4361: $_stack[++$_stack_sp] = $_env;
-        L4362: $_env = array();
-        L4363: $_stack[++$_stack_sp] = 4365;
-        L4364: goto L4477;
-        L4365: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4366: $_env["op"] = $_value;
-        L4367: if ($_fail) { goto L4414; }
+        L4348: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4349: $_b = array();
+        L4350: $_b[0] = $_fail;
+        L4351: $_b[1] = $_value;
+        L4352: $_b[2] = $_p;
+        L4353: $_cache[$_a] = $_b;
+        L4354: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4355: if ($_a === 4024) { goto L4024; } else if ($_a === 4074) { goto L4074; } else if ($_a === 4094) { goto L4094; } else { return array(FALSE, NULL, 46); }
+        L4356: $_stack[++$_stack_sp] = "47@";
+        L4357: $_stack[$_stack_sp] .= $_p;
+        L4358: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4365; }
+        L4359: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4360: $_b = $_cache[$_a];
+        L4361: $_fail = $_b[0];
+        L4362: $_value = $_b[1];
+        L4363: $_p = $_b[2];
+        L4364: goto L4465;
+        L4365: $_stack[++$_stack_sp] = $_env;
+        L4366: $_env = array();
+        L4367: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
         L4368: $_stack[++$_stack_sp] = $_env;
         L4369: $_env = array();
-        L4370: $_stack[++$_stack_sp] = 4372;
-        L4371: goto L7003;
-        L4372: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4373: if ($_fail) { goto L4414; }
-        L4374: $_stack[++$_stack_sp] = $_p;
-        L4375: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4376: $_stack[++$_stack_sp] = $_b;
-        L4377: $_stack[++$_stack_sp] = NULL;
-        L4378: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4379: $_value = $this->_120($_env);
-        L4380: $_fail = !$_value;
-        L4381: $_value = NULL;
-        L4382: if ($_fail) { goto L4390; }
-        L4383: $_stack[++$_stack_sp] = $_env;
-        L4384: $_env = array();
-        L4385: $_stack[++$_stack_sp] = 4387;
-        L4386: goto L4514;
-        L4387: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4388: $_env["right"] = $_value;
+        L4370: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4371: $_stack[++$_stack_sp] = $_b;
+        L4372: $_stack[++$_stack_sp] = NULL;
+        L4373: $_stack[++$_stack_sp] = $_env;
+        L4374: $_env = array();
+        L4375: $_stack[++$_stack_sp] = 4377;
+        L4376: goto L4544;
+        L4377: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4378: $_env["left"] = $_value;
+        L4379: $_stack[$_stack_sp] = $_value;
+        L4380: if ($_fail) { goto L4452; }
+        L4381: $_stack[++$_stack_sp] = $_p;
+        L4382: $_stack[++$_stack_sp] = array();
+        L4383: $_stack[++$_stack_sp] = NULL;
+        L4384: $_stack[++$_stack_sp] = $_env;
+        L4385: $_env = array();
+        L4386: $_stack[++$_stack_sp] = 4388;
+        L4387: goto L7033;
+        L4388: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L4389: $_stack[$_stack_sp] = $_value;
-        L4390: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4391: if ($_fail) { goto L4393; }
-        L4392: $_value = $this->_119($_env);
-        L4393: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4394: if (!$_fail) { goto L4413; }
-        L4395: $_p = $_stack[$_stack_sp];
-        L4396: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4397: $_stack[++$_stack_sp] = $_b;
-        L4398: $_stack[++$_stack_sp] = NULL;
-        L4399: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4400: $_env["p"] = $_value;
-        L4401: $_stack[$_stack_sp] = $_value;
-        L4402: if ($_fail) { goto L4409; }
-        L4403: $_stack[++$_stack_sp] = $_env;
-        L4404: $_env = array();
-        L4405: $_stack[++$_stack_sp] = 4407;
-        L4406: goto L4514;
-        L4407: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4408: $_env["right"] = $_value;
-        L4409: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4410: if ($_fail) { goto L4412; }
-        L4411: $_value = $this->_121($_env);
-        L4412: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4413: unset($_stack[$_stack_sp--]);
-        L4414: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4415: if ($_fail) { goto L4419; }
-        L4416: $_stack[$_stack_sp][] = $_value;
-        L4417: $_stack[$_stack_sp - 1] = $_p;
-        L4418: goto L4353;
-        L4419: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4420: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4421: $_fail = false;
-        L4422: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4423: if ($_fail) { goto L4425; }
-        L4424: $_value = $this->_118($_env);
-        L4425: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4426: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4427: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4428: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4429: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4430: $_b = array();
-        L4431: $_b[0] = $_fail;
-        L4432: $_b[1] = $_value;
-        L4433: $_b[2] = $_p;
-        L4434: $_cache[$_a] = $_b;
-        L4435: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4436: if ($_a === 4115) { goto L4115; } else if ($_a === 4165) { goto L4165; } else if ($_a === 4185) { goto L4185; } else { return array(FALSE, NULL, 47); }
-        L4437: $_stack[++$_stack_sp] = "48@";
-        L4438: $_stack[$_stack_sp] .= $_p;
-        L4439: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4446; }
-        L4440: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4441: $_b = $_cache[$_a];
-        L4442: $_fail = $_b[0];
-        L4443: $_value = $_b[1];
-        L4444: $_p = $_b[2];
-        L4445: goto L4475;
-        L4446: $_stack[++$_stack_sp] = $_env;
-        L4447: $_env = array();
-        L4448: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4449: $_stack[++$_stack_sp] = $_p;
-        L4450: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "<=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<="', $_expected)) { $_expected[] = '"<="'; } } }
-        L4451: if (!$_fail) { goto L4466; }
-        L4452: $_p = $_stack[$_stack_sp];
-        L4453: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === ">=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">="', $_expected)) { $_expected[] = '">="'; } } }
-        L4454: if (!$_fail) { goto L4466; }
-        L4455: $_p = $_stack[$_stack_sp];
-        L4456: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "<") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<"', $_expected)) { $_expected[] = '"<"'; } } }
-        L4457: if (!$_fail) { goto L4466; }
-        L4458: $_p = $_stack[$_stack_sp];
-        L4459: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ">") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">"', $_expected)) { $_expected[] = '">"'; } } }
-        L4460: if (!$_fail) { goto L4466; }
-        L4461: $_p = $_stack[$_stack_sp];
-        L4462: $_fail = TRUE; if (($_a = substr($_s, $_p, 10)) === "instanceof") { $_fail = FALSE; $_value = $_a; $_p += 10; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"instanceof"', $_expected)) { $_expected[] = '"instanceof"'; } } }
-        L4463: if (!$_fail) { goto L4466; }
-        L4464: $_p = $_stack[$_stack_sp];
-        L4465: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "in") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"in"', $_expected)) { $_expected[] = '"in"'; } } }
-        L4466: unset($_stack[$_stack_sp--]);
-        L4467: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4468: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4469: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4470: $_b = array();
-        L4471: $_b[0] = $_fail;
-        L4472: $_b[1] = $_value;
-        L4473: $_b[2] = $_p;
-        L4474: $_cache[$_a] = $_b;
-        L4475: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4476: if ($_a !== 4254) return array(FALSE, NULL, 48); goto L4254;
-        L4477: $_stack[++$_stack_sp] = "49@";
-        L4478: $_stack[$_stack_sp] .= $_p;
-        L4479: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4486; }
-        L4480: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4481: $_b = $_cache[$_a];
-        L4482: $_fail = $_b[0];
-        L4483: $_value = $_b[1];
-        L4484: $_p = $_b[2];
-        L4485: goto L4512;
-        L4486: $_stack[++$_stack_sp] = $_env;
-        L4487: $_env = array();
-        L4488: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4489: $_stack[++$_stack_sp] = $_p;
-        L4490: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "<=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<="', $_expected)) { $_expected[] = '"<="'; } } }
-        L4491: if (!$_fail) { goto L4503; }
-        L4492: $_p = $_stack[$_stack_sp];
-        L4493: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === ">=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">="', $_expected)) { $_expected[] = '">="'; } } }
-        L4494: if (!$_fail) { goto L4503; }
-        L4495: $_p = $_stack[$_stack_sp];
-        L4496: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "<") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<"', $_expected)) { $_expected[] = '"<"'; } } }
-        L4497: if (!$_fail) { goto L4503; }
-        L4498: $_p = $_stack[$_stack_sp];
-        L4499: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ">") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">"', $_expected)) { $_expected[] = '">"'; } } }
-        L4500: if (!$_fail) { goto L4503; }
-        L4501: $_p = $_stack[$_stack_sp];
-        L4502: $_fail = TRUE; if (($_a = substr($_s, $_p, 10)) === "instanceof") { $_fail = FALSE; $_value = $_a; $_p += 10; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"instanceof"', $_expected)) { $_expected[] = '"instanceof"'; } } }
-        L4503: unset($_stack[$_stack_sp--]);
-        L4504: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4505: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4506: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4507: $_b = array();
-        L4508: $_b[0] = $_fail;
-        L4509: $_b[1] = $_value;
-        L4510: $_b[2] = $_p;
-        L4511: $_cache[$_a] = $_b;
-        L4512: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4513: if ($_a !== 4365) return array(FALSE, NULL, 49); goto L4365;
-        L4514: $_stack[++$_stack_sp] = "50@";
-        L4515: $_stack[$_stack_sp] .= $_p;
-        L4516: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4523; }
-        L4517: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4518: $_b = $_cache[$_a];
-        L4519: $_fail = $_b[0];
-        L4520: $_value = $_b[1];
-        L4521: $_p = $_b[2];
-        L4522: goto L4630;
-        L4523: $_stack[++$_stack_sp] = $_env;
-        L4524: $_env = array();
-        L4525: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4526: $_stack[++$_stack_sp] = $_env;
-        L4527: $_env = array();
-        L4528: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4529: $_stack[++$_stack_sp] = $_b;
-        L4530: $_stack[++$_stack_sp] = NULL;
-        L4531: $_stack[++$_stack_sp] = $_env;
-        L4532: $_env = array();
-        L4533: $_stack[++$_stack_sp] = 4535;
-        L4534: goto L4632;
+        L4390: if ($_fail) { goto L4444; }
+        L4391: $_stack[++$_stack_sp] = $_env;
+        L4392: $_env = array();
+        L4393: $_stack[++$_stack_sp] = 4395;
+        L4394: goto L4507;
+        L4395: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4396: $_env["op"] = $_value;
+        L4397: if ($_fail) { goto L4444; }
+        L4398: $_stack[++$_stack_sp] = $_env;
+        L4399: $_env = array();
+        L4400: $_stack[++$_stack_sp] = 4402;
+        L4401: goto L7033;
+        L4402: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4403: if ($_fail) { goto L4444; }
+        L4404: $_stack[++$_stack_sp] = $_p;
+        L4405: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4406: $_stack[++$_stack_sp] = $_b;
+        L4407: $_stack[++$_stack_sp] = NULL;
+        L4408: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4409: $_value = $this->_124($_env);
+        L4410: $_fail = !$_value;
+        L4411: $_value = NULL;
+        L4412: if ($_fail) { goto L4420; }
+        L4413: $_stack[++$_stack_sp] = $_env;
+        L4414: $_env = array();
+        L4415: $_stack[++$_stack_sp] = 4417;
+        L4416: goto L4544;
+        L4417: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4418: $_env["right"] = $_value;
+        L4419: $_stack[$_stack_sp] = $_value;
+        L4420: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4421: if ($_fail) { goto L4423; }
+        L4422: $_value = $this->_123($_env);
+        L4423: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4424: if (!$_fail) { goto L4443; }
+        L4425: $_p = $_stack[$_stack_sp];
+        L4426: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4427: $_stack[++$_stack_sp] = $_b;
+        L4428: $_stack[++$_stack_sp] = NULL;
+        L4429: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4430: $_env["p"] = $_value;
+        L4431: $_stack[$_stack_sp] = $_value;
+        L4432: if ($_fail) { goto L4439; }
+        L4433: $_stack[++$_stack_sp] = $_env;
+        L4434: $_env = array();
+        L4435: $_stack[++$_stack_sp] = 4437;
+        L4436: goto L4544;
+        L4437: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4438: $_env["right"] = $_value;
+        L4439: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4440: if ($_fail) { goto L4442; }
+        L4441: $_value = $this->_125($_env);
+        L4442: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4443: unset($_stack[$_stack_sp--]);
+        L4444: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4445: if ($_fail) { goto L4449; }
+        L4446: $_stack[$_stack_sp][] = $_value;
+        L4447: $_stack[$_stack_sp - 1] = $_p;
+        L4448: goto L4383;
+        L4449: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4450: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4451: $_fail = false;
+        L4452: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4453: if ($_fail) { goto L4455; }
+        L4454: $_value = $this->_122($_env);
+        L4455: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4456: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4457: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L4458: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4459: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4460: $_b = array();
+        L4461: $_b[0] = $_fail;
+        L4462: $_b[1] = $_value;
+        L4463: $_b[2] = $_p;
+        L4464: $_cache[$_a] = $_b;
+        L4465: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4466: if ($_a === 4145) { goto L4145; } else if ($_a === 4195) { goto L4195; } else if ($_a === 4215) { goto L4215; } else { return array(FALSE, NULL, 47); }
+        L4467: $_stack[++$_stack_sp] = "48@";
+        L4468: $_stack[$_stack_sp] .= $_p;
+        L4469: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4476; }
+        L4470: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4471: $_b = $_cache[$_a];
+        L4472: $_fail = $_b[0];
+        L4473: $_value = $_b[1];
+        L4474: $_p = $_b[2];
+        L4475: goto L4505;
+        L4476: $_stack[++$_stack_sp] = $_env;
+        L4477: $_env = array();
+        L4478: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4479: $_stack[++$_stack_sp] = $_p;
+        L4480: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "<=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<="', $_expected)) { $_expected[] = '"<="'; } } }
+        L4481: if (!$_fail) { goto L4496; }
+        L4482: $_p = $_stack[$_stack_sp];
+        L4483: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === ">=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">="', $_expected)) { $_expected[] = '">="'; } } }
+        L4484: if (!$_fail) { goto L4496; }
+        L4485: $_p = $_stack[$_stack_sp];
+        L4486: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "<") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<"', $_expected)) { $_expected[] = '"<"'; } } }
+        L4487: if (!$_fail) { goto L4496; }
+        L4488: $_p = $_stack[$_stack_sp];
+        L4489: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ">") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">"', $_expected)) { $_expected[] = '">"'; } } }
+        L4490: if (!$_fail) { goto L4496; }
+        L4491: $_p = $_stack[$_stack_sp];
+        L4492: $_fail = TRUE; if (($_a = substr($_s, $_p, 10)) === "instanceof") { $_fail = FALSE; $_value = $_a; $_p += 10; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"instanceof"', $_expected)) { $_expected[] = '"instanceof"'; } } }
+        L4493: if (!$_fail) { goto L4496; }
+        L4494: $_p = $_stack[$_stack_sp];
+        L4495: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "in") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"in"', $_expected)) { $_expected[] = '"in"'; } } }
+        L4496: unset($_stack[$_stack_sp--]);
+        L4497: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L4498: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4499: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4500: $_b = array();
+        L4501: $_b[0] = $_fail;
+        L4502: $_b[1] = $_value;
+        L4503: $_b[2] = $_p;
+        L4504: $_cache[$_a] = $_b;
+        L4505: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4506: if ($_a !== 4284) return array(FALSE, NULL, 48); goto L4284;
+        L4507: $_stack[++$_stack_sp] = "49@";
+        L4508: $_stack[$_stack_sp] .= $_p;
+        L4509: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4516; }
+        L4510: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4511: $_b = $_cache[$_a];
+        L4512: $_fail = $_b[0];
+        L4513: $_value = $_b[1];
+        L4514: $_p = $_b[2];
+        L4515: goto L4542;
+        L4516: $_stack[++$_stack_sp] = $_env;
+        L4517: $_env = array();
+        L4518: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4519: $_stack[++$_stack_sp] = $_p;
+        L4520: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "<=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<="', $_expected)) { $_expected[] = '"<="'; } } }
+        L4521: if (!$_fail) { goto L4533; }
+        L4522: $_p = $_stack[$_stack_sp];
+        L4523: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === ">=") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">="', $_expected)) { $_expected[] = '">="'; } } }
+        L4524: if (!$_fail) { goto L4533; }
+        L4525: $_p = $_stack[$_stack_sp];
+        L4526: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "<") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<"', $_expected)) { $_expected[] = '"<"'; } } }
+        L4527: if (!$_fail) { goto L4533; }
+        L4528: $_p = $_stack[$_stack_sp];
+        L4529: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ">") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">"', $_expected)) { $_expected[] = '">"'; } } }
+        L4530: if (!$_fail) { goto L4533; }
+        L4531: $_p = $_stack[$_stack_sp];
+        L4532: $_fail = TRUE; if (($_a = substr($_s, $_p, 10)) === "instanceof") { $_fail = FALSE; $_value = $_a; $_p += 10; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"instanceof"', $_expected)) { $_expected[] = '"instanceof"'; } } }
+        L4533: unset($_stack[$_stack_sp--]);
+        L4534: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L4535: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4536: $_env["left"] = $_value;
-        L4537: $_stack[$_stack_sp] = $_value;
-        L4538: if ($_fail) { goto L4617; }
-        L4539: $_stack[++$_stack_sp] = $_p;
-        L4540: $_stack[++$_stack_sp] = array();
-        L4541: $_stack[++$_stack_sp] = NULL;
-        L4542: $_stack[++$_stack_sp] = $_env;
-        L4543: $_env = array();
-        L4544: $_stack[++$_stack_sp] = 4546;
-        L4545: goto L7003;
-        L4546: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4547: $_stack[$_stack_sp] = $_value;
-        L4548: if ($_fail) { goto L4609; }
-        L4549: $_stack[++$_stack_sp] = $_env;
-        L4550: $_env = array();
-        L4551: $_stack[++$_stack_sp] = $_p;
-        L4552: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "<<") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<<"', $_expected)) { $_expected[] = '"<<"'; } } }
-        L4553: if (!$_fail) { goto L4559; }
-        L4554: $_p = $_stack[$_stack_sp];
-        L4555: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === ">>>") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>>"', $_expected)) { $_expected[] = '">>>"'; } } }
-        L4556: if (!$_fail) { goto L4559; }
-        L4557: $_p = $_stack[$_stack_sp];
-        L4558: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === ">>") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>"', $_expected)) { $_expected[] = '">>"'; } } }
-        L4559: unset($_stack[$_stack_sp--]);
-        L4560: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4561: $_env["op"] = $_value;
-        L4562: if ($_fail) { goto L4609; }
-        L4563: $_stack[++$_stack_sp] = $_env;
-        L4564: $_env = array();
-        L4565: $_stack[++$_stack_sp] = 4567;
-        L4566: goto L7003;
-        L4567: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4568: if ($_fail) { goto L4609; }
+        L4536: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4537: $_b = array();
+        L4538: $_b[0] = $_fail;
+        L4539: $_b[1] = $_value;
+        L4540: $_b[2] = $_p;
+        L4541: $_cache[$_a] = $_b;
+        L4542: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4543: if ($_a !== 4395) return array(FALSE, NULL, 49); goto L4395;
+        L4544: $_stack[++$_stack_sp] = "50@";
+        L4545: $_stack[$_stack_sp] .= $_p;
+        L4546: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4553; }
+        L4547: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4548: $_b = $_cache[$_a];
+        L4549: $_fail = $_b[0];
+        L4550: $_value = $_b[1];
+        L4551: $_p = $_b[2];
+        L4552: goto L4660;
+        L4553: $_stack[++$_stack_sp] = $_env;
+        L4554: $_env = array();
+        L4555: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4556: $_stack[++$_stack_sp] = $_env;
+        L4557: $_env = array();
+        L4558: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4559: $_stack[++$_stack_sp] = $_b;
+        L4560: $_stack[++$_stack_sp] = NULL;
+        L4561: $_stack[++$_stack_sp] = $_env;
+        L4562: $_env = array();
+        L4563: $_stack[++$_stack_sp] = 4565;
+        L4564: goto L4662;
+        L4565: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4566: $_env["left"] = $_value;
+        L4567: $_stack[$_stack_sp] = $_value;
+        L4568: if ($_fail) { goto L4647; }
         L4569: $_stack[++$_stack_sp] = $_p;
-        L4570: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4571: $_stack[++$_stack_sp] = $_b;
-        L4572: $_stack[++$_stack_sp] = NULL;
-        L4573: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4574: $_value = $this->_124($_env);
-        L4575: $_fail = !$_value;
-        L4576: $_value = NULL;
-        L4577: if ($_fail) { goto L4585; }
-        L4578: $_stack[++$_stack_sp] = $_env;
-        L4579: $_env = array();
-        L4580: $_stack[++$_stack_sp] = 4582;
-        L4581: goto L4632;
-        L4582: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4583: $_env["right"] = $_value;
-        L4584: $_stack[$_stack_sp] = $_value;
-        L4585: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4586: if ($_fail) { goto L4588; }
-        L4587: $_value = $this->_123($_env);
-        L4588: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4589: if (!$_fail) { goto L4608; }
-        L4590: $_p = $_stack[$_stack_sp];
-        L4591: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4592: $_stack[++$_stack_sp] = $_b;
-        L4593: $_stack[++$_stack_sp] = NULL;
-        L4594: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4595: $_env["p"] = $_value;
-        L4596: $_stack[$_stack_sp] = $_value;
-        L4597: if ($_fail) { goto L4604; }
-        L4598: $_stack[++$_stack_sp] = $_env;
-        L4599: $_env = array();
-        L4600: $_stack[++$_stack_sp] = 4602;
-        L4601: goto L4632;
-        L4602: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4603: $_env["right"] = $_value;
-        L4604: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4605: if ($_fail) { goto L4607; }
-        L4606: $_value = $this->_125($_env);
-        L4607: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4608: unset($_stack[$_stack_sp--]);
-        L4609: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4610: if ($_fail) { goto L4614; }
-        L4611: $_stack[$_stack_sp][] = $_value;
-        L4612: $_stack[$_stack_sp - 1] = $_p;
-        L4613: goto L4541;
-        L4614: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4615: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4616: $_fail = false;
-        L4617: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4618: if ($_fail) { goto L4620; }
-        L4619: $_value = $this->_122($_env);
-        L4620: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4621: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4622: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4623: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4624: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4625: $_b = array();
-        L4626: $_b[0] = $_fail;
-        L4627: $_b[1] = $_value;
-        L4628: $_b[2] = $_p;
-        L4629: $_cache[$_a] = $_b;
-        L4630: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4631: if ($_a === 4236) { goto L4236; } else if ($_a === 4276) { goto L4276; } else if ($_a === 4296) { goto L4296; } else if ($_a === 4347) { goto L4347; } else if ($_a === 4387) { goto L4387; } else if ($_a === 4407) { goto L4407; } else { return array(FALSE, NULL, 50); }
-        L4632: $_stack[++$_stack_sp] = "51@";
-        L4633: $_stack[$_stack_sp] .= $_p;
-        L4634: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4641; }
-        L4635: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4636: $_b = $_cache[$_a];
-        L4637: $_fail = $_b[0];
-        L4638: $_value = $_b[1];
-        L4639: $_p = $_b[2];
-        L4640: goto L4775;
-        L4641: $_stack[++$_stack_sp] = $_env;
-        L4642: $_env = array();
-        L4643: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4644: $_stack[++$_stack_sp] = $_env;
-        L4645: $_env = array();
-        L4646: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4647: $_stack[++$_stack_sp] = $_b;
-        L4648: $_stack[++$_stack_sp] = NULL;
-        L4649: $_stack[++$_stack_sp] = $_env;
-        L4650: $_env = array();
-        L4651: $_stack[++$_stack_sp] = 4653;
-        L4652: goto L4777;
+        L4570: $_stack[++$_stack_sp] = array();
+        L4571: $_stack[++$_stack_sp] = NULL;
+        L4572: $_stack[++$_stack_sp] = $_env;
+        L4573: $_env = array();
+        L4574: $_stack[++$_stack_sp] = 4576;
+        L4575: goto L7033;
+        L4576: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4577: $_stack[$_stack_sp] = $_value;
+        L4578: if ($_fail) { goto L4639; }
+        L4579: $_stack[++$_stack_sp] = $_env;
+        L4580: $_env = array();
+        L4581: $_stack[++$_stack_sp] = $_p;
+        L4582: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "<<") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"<<"', $_expected)) { $_expected[] = '"<<"'; } } }
+        L4583: if (!$_fail) { goto L4589; }
+        L4584: $_p = $_stack[$_stack_sp];
+        L4585: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === ">>>") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>>"', $_expected)) { $_expected[] = '">>>"'; } } }
+        L4586: if (!$_fail) { goto L4589; }
+        L4587: $_p = $_stack[$_stack_sp];
+        L4588: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === ">>") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('">>"', $_expected)) { $_expected[] = '">>"'; } } }
+        L4589: unset($_stack[$_stack_sp--]);
+        L4590: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4591: $_env["op"] = $_value;
+        L4592: if ($_fail) { goto L4639; }
+        L4593: $_stack[++$_stack_sp] = $_env;
+        L4594: $_env = array();
+        L4595: $_stack[++$_stack_sp] = 4597;
+        L4596: goto L7033;
+        L4597: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4598: if ($_fail) { goto L4639; }
+        L4599: $_stack[++$_stack_sp] = $_p;
+        L4600: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4601: $_stack[++$_stack_sp] = $_b;
+        L4602: $_stack[++$_stack_sp] = NULL;
+        L4603: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4604: $_value = $this->_128($_env);
+        L4605: $_fail = !$_value;
+        L4606: $_value = NULL;
+        L4607: if ($_fail) { goto L4615; }
+        L4608: $_stack[++$_stack_sp] = $_env;
+        L4609: $_env = array();
+        L4610: $_stack[++$_stack_sp] = 4612;
+        L4611: goto L4662;
+        L4612: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4613: $_env["right"] = $_value;
+        L4614: $_stack[$_stack_sp] = $_value;
+        L4615: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4616: if ($_fail) { goto L4618; }
+        L4617: $_value = $this->_127($_env);
+        L4618: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4619: if (!$_fail) { goto L4638; }
+        L4620: $_p = $_stack[$_stack_sp];
+        L4621: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4622: $_stack[++$_stack_sp] = $_b;
+        L4623: $_stack[++$_stack_sp] = NULL;
+        L4624: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4625: $_env["p"] = $_value;
+        L4626: $_stack[$_stack_sp] = $_value;
+        L4627: if ($_fail) { goto L4634; }
+        L4628: $_stack[++$_stack_sp] = $_env;
+        L4629: $_env = array();
+        L4630: $_stack[++$_stack_sp] = 4632;
+        L4631: goto L4662;
+        L4632: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4633: $_env["right"] = $_value;
+        L4634: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4635: if ($_fail) { goto L4637; }
+        L4636: $_value = $this->_129($_env);
+        L4637: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4638: unset($_stack[$_stack_sp--]);
+        L4639: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4640: if ($_fail) { goto L4644; }
+        L4641: $_stack[$_stack_sp][] = $_value;
+        L4642: $_stack[$_stack_sp - 1] = $_p;
+        L4643: goto L4571;
+        L4644: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4645: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4646: $_fail = false;
+        L4647: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4648: if ($_fail) { goto L4650; }
+        L4649: $_value = $this->_126($_env);
+        L4650: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4651: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4652: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L4653: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4654: $_env["left"] = $_value;
-        L4655: $_stack[$_stack_sp] = $_value;
-        L4656: if ($_fail) { goto L4762; }
-        L4657: $_stack[++$_stack_sp] = $_p;
-        L4658: $_stack[++$_stack_sp] = array();
-        L4659: $_stack[++$_stack_sp] = NULL;
-        L4660: $_stack[++$_stack_sp] = $_env;
-        L4661: $_env = array();
-        L4662: $_stack[++$_stack_sp] = 4664;
-        L4663: goto L7003;
-        L4664: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4665: $_stack[$_stack_sp] = $_value;
-        L4666: if ($_fail) { goto L4754; }
-        L4667: $_stack[++$_stack_sp] = $_env;
-        L4668: $_env = array();
-        L4669: $_stack[++$_stack_sp] = $_p;
-        L4670: $_stack[++$_stack_sp] = "";
-        L4671: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "+") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+"', $_expected)) { $_expected[] = '"+"'; } } }
-        L4672: $_stack[$_stack_sp] .= $_value;
-        L4673: if ($_fail) { goto L4685; }
-        L4674: $_stack[++$_stack_sp] = $_p;
-        L4675: $_stack[++$_stack_sp] = $_p;
-        L4676: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "+") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+"', $_expected)) { $_expected[] = '"+"'; } } }
-        L4677: if (!$_fail) { goto L4680; }
-        L4678: $_p = $_stack[$_stack_sp];
-        L4679: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L4680: unset($_stack[$_stack_sp--]);
-        L4681: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4682: $_value = NULL;
-        L4683: $_fail = !$_fail;
-        L4684: $_stack[$_stack_sp] .= $_value;
-        L4685: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4686: if (!$_fail) { goto L4704; }
-        L4687: $_p = $_stack[$_stack_sp];
-        L4688: $_stack[++$_stack_sp] = "";
-        L4689: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "-") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-"', $_expected)) { $_expected[] = '"-"'; } } }
-        L4690: $_stack[$_stack_sp] .= $_value;
-        L4691: if ($_fail) { goto L4703; }
-        L4692: $_stack[++$_stack_sp] = $_p;
-        L4693: $_stack[++$_stack_sp] = $_p;
-        L4694: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "-") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-"', $_expected)) { $_expected[] = '"-"'; } } }
-        L4695: if (!$_fail) { goto L4698; }
-        L4696: $_p = $_stack[$_stack_sp];
-        L4697: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L4698: unset($_stack[$_stack_sp--]);
-        L4699: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4700: $_value = NULL;
-        L4701: $_fail = !$_fail;
+        L4654: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4655: $_b = array();
+        L4656: $_b[0] = $_fail;
+        L4657: $_b[1] = $_value;
+        L4658: $_b[2] = $_p;
+        L4659: $_cache[$_a] = $_b;
+        L4660: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4661: if ($_a === 4266) { goto L4266; } else if ($_a === 4306) { goto L4306; } else if ($_a === 4326) { goto L4326; } else if ($_a === 4377) { goto L4377; } else if ($_a === 4417) { goto L4417; } else if ($_a === 4437) { goto L4437; } else { return array(FALSE, NULL, 50); }
+        L4662: $_stack[++$_stack_sp] = "51@";
+        L4663: $_stack[$_stack_sp] .= $_p;
+        L4664: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4671; }
+        L4665: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4666: $_b = $_cache[$_a];
+        L4667: $_fail = $_b[0];
+        L4668: $_value = $_b[1];
+        L4669: $_p = $_b[2];
+        L4670: goto L4805;
+        L4671: $_stack[++$_stack_sp] = $_env;
+        L4672: $_env = array();
+        L4673: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4674: $_stack[++$_stack_sp] = $_env;
+        L4675: $_env = array();
+        L4676: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4677: $_stack[++$_stack_sp] = $_b;
+        L4678: $_stack[++$_stack_sp] = NULL;
+        L4679: $_stack[++$_stack_sp] = $_env;
+        L4680: $_env = array();
+        L4681: $_stack[++$_stack_sp] = 4683;
+        L4682: goto L4807;
+        L4683: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4684: $_env["left"] = $_value;
+        L4685: $_stack[$_stack_sp] = $_value;
+        L4686: if ($_fail) { goto L4792; }
+        L4687: $_stack[++$_stack_sp] = $_p;
+        L4688: $_stack[++$_stack_sp] = array();
+        L4689: $_stack[++$_stack_sp] = NULL;
+        L4690: $_stack[++$_stack_sp] = $_env;
+        L4691: $_env = array();
+        L4692: $_stack[++$_stack_sp] = 4694;
+        L4693: goto L7033;
+        L4694: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4695: $_stack[$_stack_sp] = $_value;
+        L4696: if ($_fail) { goto L4784; }
+        L4697: $_stack[++$_stack_sp] = $_env;
+        L4698: $_env = array();
+        L4699: $_stack[++$_stack_sp] = $_p;
+        L4700: $_stack[++$_stack_sp] = "";
+        L4701: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "+") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+"', $_expected)) { $_expected[] = '"+"'; } } }
         L4702: $_stack[$_stack_sp] .= $_value;
-        L4703: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4704: unset($_stack[$_stack_sp--]);
-        L4705: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4706: $_env["op"] = $_value;
-        L4707: if ($_fail) { goto L4754; }
-        L4708: $_stack[++$_stack_sp] = $_env;
-        L4709: $_env = array();
-        L4710: $_stack[++$_stack_sp] = 4712;
-        L4711: goto L7003;
-        L4712: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4713: if ($_fail) { goto L4754; }
-        L4714: $_stack[++$_stack_sp] = $_p;
-        L4715: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4716: $_stack[++$_stack_sp] = $_b;
-        L4717: $_stack[++$_stack_sp] = NULL;
-        L4718: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4719: $_value = $this->_128($_env);
-        L4720: $_fail = !$_value;
-        L4721: $_value = NULL;
-        L4722: if ($_fail) { goto L4730; }
-        L4723: $_stack[++$_stack_sp] = $_env;
-        L4724: $_env = array();
-        L4725: $_stack[++$_stack_sp] = 4727;
-        L4726: goto L4777;
-        L4727: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4728: $_env["right"] = $_value;
-        L4729: $_stack[$_stack_sp] = $_value;
-        L4730: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4731: if ($_fail) { goto L4733; }
-        L4732: $_value = $this->_127($_env);
-        L4733: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4734: if (!$_fail) { goto L4753; }
-        L4735: $_p = $_stack[$_stack_sp];
-        L4736: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4737: $_stack[++$_stack_sp] = $_b;
-        L4738: $_stack[++$_stack_sp] = NULL;
-        L4739: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4740: $_env["p"] = $_value;
-        L4741: $_stack[$_stack_sp] = $_value;
-        L4742: if ($_fail) { goto L4749; }
-        L4743: $_stack[++$_stack_sp] = $_env;
-        L4744: $_env = array();
-        L4745: $_stack[++$_stack_sp] = 4747;
-        L4746: goto L4777;
-        L4747: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4748: $_env["right"] = $_value;
-        L4749: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4750: if ($_fail) { goto L4752; }
-        L4751: $_value = $this->_129($_env);
-        L4752: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4753: unset($_stack[$_stack_sp--]);
-        L4754: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4755: if ($_fail) { goto L4759; }
-        L4756: $_stack[$_stack_sp][] = $_value;
-        L4757: $_stack[$_stack_sp - 1] = $_p;
-        L4758: goto L4659;
-        L4759: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4760: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4761: $_fail = false;
-        L4762: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4763: if ($_fail) { goto L4765; }
-        L4764: $_value = $this->_126($_env);
-        L4765: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4766: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4767: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4768: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4769: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4770: $_b = array();
-        L4771: $_b[0] = $_fail;
-        L4772: $_b[1] = $_value;
-        L4773: $_b[2] = $_p;
-        L4774: $_cache[$_a] = $_b;
-        L4775: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4776: if ($_a === 4535) { goto L4535; } else if ($_a === 4582) { goto L4582; } else if ($_a === 4602) { goto L4602; } else { return array(FALSE, NULL, 51); }
-        L4777: $_stack[++$_stack_sp] = "52@";
-        L4778: $_stack[$_stack_sp] .= $_p;
-        L4779: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4786; }
-        L4780: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4781: $_b = $_cache[$_a];
-        L4782: $_fail = $_b[0];
-        L4783: $_value = $_b[1];
-        L4784: $_p = $_b[2];
-        L4785: goto L4903;
-        L4786: $_stack[++$_stack_sp] = $_env;
-        L4787: $_env = array();
-        L4788: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4789: $_stack[++$_stack_sp] = $_env;
-        L4790: $_env = array();
-        L4791: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4792: $_stack[++$_stack_sp] = $_b;
-        L4793: $_stack[++$_stack_sp] = NULL;
-        L4794: $_stack[++$_stack_sp] = $_env;
-        L4795: $_env = array();
-        L4796: $_stack[++$_stack_sp] = 4798;
-        L4797: goto L4905;
+        L4703: if ($_fail) { goto L4715; }
+        L4704: $_stack[++$_stack_sp] = $_p;
+        L4705: $_stack[++$_stack_sp] = $_p;
+        L4706: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "+") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+"', $_expected)) { $_expected[] = '"+"'; } } }
+        L4707: if (!$_fail) { goto L4710; }
+        L4708: $_p = $_stack[$_stack_sp];
+        L4709: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L4710: unset($_stack[$_stack_sp--]);
+        L4711: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4712: $_value = NULL;
+        L4713: $_fail = !$_fail;
+        L4714: $_stack[$_stack_sp] .= $_value;
+        L4715: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4716: if (!$_fail) { goto L4734; }
+        L4717: $_p = $_stack[$_stack_sp];
+        L4718: $_stack[++$_stack_sp] = "";
+        L4719: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "-") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-"', $_expected)) { $_expected[] = '"-"'; } } }
+        L4720: $_stack[$_stack_sp] .= $_value;
+        L4721: if ($_fail) { goto L4733; }
+        L4722: $_stack[++$_stack_sp] = $_p;
+        L4723: $_stack[++$_stack_sp] = $_p;
+        L4724: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "-") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-"', $_expected)) { $_expected[] = '"-"'; } } }
+        L4725: if (!$_fail) { goto L4728; }
+        L4726: $_p = $_stack[$_stack_sp];
+        L4727: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L4728: unset($_stack[$_stack_sp--]);
+        L4729: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4730: $_value = NULL;
+        L4731: $_fail = !$_fail;
+        L4732: $_stack[$_stack_sp] .= $_value;
+        L4733: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4734: unset($_stack[$_stack_sp--]);
+        L4735: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4736: $_env["op"] = $_value;
+        L4737: if ($_fail) { goto L4784; }
+        L4738: $_stack[++$_stack_sp] = $_env;
+        L4739: $_env = array();
+        L4740: $_stack[++$_stack_sp] = 4742;
+        L4741: goto L7033;
+        L4742: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4743: if ($_fail) { goto L4784; }
+        L4744: $_stack[++$_stack_sp] = $_p;
+        L4745: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4746: $_stack[++$_stack_sp] = $_b;
+        L4747: $_stack[++$_stack_sp] = NULL;
+        L4748: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4749: $_value = $this->_132($_env);
+        L4750: $_fail = !$_value;
+        L4751: $_value = NULL;
+        L4752: if ($_fail) { goto L4760; }
+        L4753: $_stack[++$_stack_sp] = $_env;
+        L4754: $_env = array();
+        L4755: $_stack[++$_stack_sp] = 4757;
+        L4756: goto L4807;
+        L4757: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4758: $_env["right"] = $_value;
+        L4759: $_stack[$_stack_sp] = $_value;
+        L4760: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4761: if ($_fail) { goto L4763; }
+        L4762: $_value = $this->_131($_env);
+        L4763: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4764: if (!$_fail) { goto L4783; }
+        L4765: $_p = $_stack[$_stack_sp];
+        L4766: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4767: $_stack[++$_stack_sp] = $_b;
+        L4768: $_stack[++$_stack_sp] = NULL;
+        L4769: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4770: $_env["p"] = $_value;
+        L4771: $_stack[$_stack_sp] = $_value;
+        L4772: if ($_fail) { goto L4779; }
+        L4773: $_stack[++$_stack_sp] = $_env;
+        L4774: $_env = array();
+        L4775: $_stack[++$_stack_sp] = 4777;
+        L4776: goto L4807;
+        L4777: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4778: $_env["right"] = $_value;
+        L4779: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4780: if ($_fail) { goto L4782; }
+        L4781: $_value = $this->_133($_env);
+        L4782: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4783: unset($_stack[$_stack_sp--]);
+        L4784: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4785: if ($_fail) { goto L4789; }
+        L4786: $_stack[$_stack_sp][] = $_value;
+        L4787: $_stack[$_stack_sp - 1] = $_p;
+        L4788: goto L4689;
+        L4789: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4790: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4791: $_fail = false;
+        L4792: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4793: if ($_fail) { goto L4795; }
+        L4794: $_value = $this->_130($_env);
+        L4795: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4796: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4797: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L4798: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4799: $_env["left"] = $_value;
-        L4800: $_stack[$_stack_sp] = $_value;
-        L4801: if ($_fail) { goto L4890; }
-        L4802: $_stack[++$_stack_sp] = $_p;
-        L4803: $_stack[++$_stack_sp] = array();
-        L4804: $_stack[++$_stack_sp] = NULL;
-        L4805: $_stack[++$_stack_sp] = $_env;
-        L4806: $_env = array();
-        L4807: $_stack[++$_stack_sp] = 4809;
-        L4808: goto L7003;
-        L4809: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4810: $_stack[$_stack_sp] = $_value;
-        L4811: if ($_fail) { goto L4882; }
-        L4812: $_stack[++$_stack_sp] = $_env;
-        L4813: $_env = array();
-        L4814: $_stack[++$_stack_sp] = "";
-        L4815: $_stack[++$_stack_sp] = $_p;
-        L4816: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "*") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*"', $_expected)) { $_expected[] = '"*"'; } } }
-        L4817: if (!$_fail) { goto L4823; }
-        L4818: $_p = $_stack[$_stack_sp];
-        L4819: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
-        L4820: if (!$_fail) { goto L4823; }
-        L4821: $_p = $_stack[$_stack_sp];
-        L4822: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "%") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"%"', $_expected)) { $_expected[] = '"%"'; } } }
-        L4823: unset($_stack[$_stack_sp--]);
-        L4824: $_stack[$_stack_sp] .= $_value;
-        L4825: if ($_fail) { goto L4832; }
-        L4826: $_stack[++$_stack_sp] = $_p;
-        L4827: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
-        L4828: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4829: $_value = NULL;
-        L4830: $_fail = !$_fail;
-        L4831: $_stack[$_stack_sp] .= $_value;
-        L4832: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4833: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4834: $_env["op"] = $_value;
-        L4835: if ($_fail) { goto L4882; }
-        L4836: $_stack[++$_stack_sp] = $_env;
-        L4837: $_env = array();
-        L4838: $_stack[++$_stack_sp] = 4840;
-        L4839: goto L7003;
-        L4840: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4841: if ($_fail) { goto L4882; }
-        L4842: $_stack[++$_stack_sp] = $_p;
-        L4843: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4844: $_stack[++$_stack_sp] = $_b;
-        L4845: $_stack[++$_stack_sp] = NULL;
-        L4846: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4847: $_value = $this->_132($_env);
-        L4848: $_fail = !$_value;
-        L4849: $_value = NULL;
-        L4850: if ($_fail) { goto L4858; }
-        L4851: $_stack[++$_stack_sp] = $_env;
-        L4852: $_env = array();
-        L4853: $_stack[++$_stack_sp] = 4855;
-        L4854: goto L4905;
-        L4855: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4856: $_env["right"] = $_value;
-        L4857: $_stack[$_stack_sp] = $_value;
-        L4858: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4859: if ($_fail) { goto L4861; }
-        L4860: $_value = $this->_131($_env);
-        L4861: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4862: if (!$_fail) { goto L4881; }
-        L4863: $_p = $_stack[$_stack_sp];
-        L4864: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4865: $_stack[++$_stack_sp] = $_b;
-        L4866: $_stack[++$_stack_sp] = NULL;
-        L4867: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4868: $_env["p"] = $_value;
-        L4869: $_stack[$_stack_sp] = $_value;
-        L4870: if ($_fail) { goto L4877; }
-        L4871: $_stack[++$_stack_sp] = $_env;
-        L4872: $_env = array();
-        L4873: $_stack[++$_stack_sp] = 4875;
-        L4874: goto L4905;
-        L4875: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4876: $_env["right"] = $_value;
-        L4877: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4878: if ($_fail) { goto L4880; }
-        L4879: $_value = $this->_133($_env);
-        L4880: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4881: unset($_stack[$_stack_sp--]);
-        L4882: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4883: if ($_fail) { goto L4887; }
-        L4884: $_stack[$_stack_sp][] = $_value;
-        L4885: $_stack[$_stack_sp - 1] = $_p;
-        L4886: goto L4804;
-        L4887: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4888: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4889: $_fail = false;
-        L4890: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4891: if ($_fail) { goto L4893; }
-        L4892: $_value = $this->_130($_env);
-        L4893: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4894: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4895: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L4896: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4897: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4898: $_b = array();
-        L4899: $_b[0] = $_fail;
-        L4900: $_b[1] = $_value;
-        L4901: $_b[2] = $_p;
-        L4902: $_cache[$_a] = $_b;
-        L4903: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4904: if ($_a === 4653) { goto L4653; } else if ($_a === 4727) { goto L4727; } else if ($_a === 4747) { goto L4747; } else { return array(FALSE, NULL, 52); }
-        L4905: $_stack[++$_stack_sp] = "53@";
-        L4906: $_stack[$_stack_sp] .= $_p;
-        L4907: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4914; }
-        L4908: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4909: $_b = $_cache[$_a];
-        L4910: $_fail = $_b[0];
-        L4911: $_value = $_b[1];
-        L4912: $_p = $_b[2];
-        L4913: goto L5175;
-        L4914: $_stack[++$_stack_sp] = $_env;
-        L4915: $_env = array();
-        L4916: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L4917: $_stack[++$_stack_sp] = $_p;
-        L4918: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4919: $_stack[++$_stack_sp] = $_b;
-        L4920: $_stack[++$_stack_sp] = NULL;
-        L4921: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "delete") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"delete"', $_expected)) { $_expected[] = '"delete"'; } } }
-        L4922: $_stack[$_stack_sp] = $_value;
-        L4923: if ($_fail) { goto L4967; }
-        L4924: $_stack[++$_stack_sp] = $_p;
-        L4925: $_stack[++$_stack_sp] = 4927;
-        L4926: goto L7431;
-        L4927: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4928: $_value = NULL;
-        L4929: $_fail = !$_fail;
-        L4930: if ($_fail) { goto L4967; }
-        L4931: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L4932: $_env["p"] = $_value;
-        L4933: if ($_fail) { goto L4967; }
-        L4934: $_stack[++$_stack_sp] = 4936;
-        L4935: goto L7003;
-        L4936: if ($_fail) { goto L4967; }
-        L4937: $_stack[++$_stack_sp] = $_p;
-        L4938: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4939: $_stack[++$_stack_sp] = $_b;
-        L4940: $_stack[++$_stack_sp] = NULL;
-        L4941: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4942: $_value = $this->_136($_env);
-        L4943: $_fail = !$_value;
-        L4944: $_value = NULL;
-        L4945: if ($_fail) { goto L4955; }
-        L4946: $_stack[++$_stack_sp] = 4948;
-        L4947: goto L4905;
-        L4948: $_env["expr"] = $_value;
-        L4949: $_stack[$_stack_sp] = $_value;
-        L4950: if ($_fail) { goto L4955; }
-        L4951: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4952: $_value = $this->_137($_env);
-        L4953: $_fail = !$_value;
-        L4954: $_value = NULL;
-        L4955: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4956: if ($_fail) { goto L4958; }
-        L4957: $_value = $this->_135($_env);
-        L4958: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4959: if (!$_fail) { goto L4965; }
-        L4960: $_p = $_stack[$_stack_sp];
-        L4961: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L4962: $_value = $this->_138($_env);
-        L4963: $_fail = !$_value;
-        L4964: $_value = NULL;
-        L4965: unset($_stack[$_stack_sp--]);
-        L4966: $_env["r"] = $_value;
-        L4967: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4968: if ($_fail) { goto L4970; }
-        L4969: $_value = $this->_134($_env);
-        L4970: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4971: if (!$_fail) { goto L5166; }
-        L4972: $_p = $_stack[$_stack_sp];
-        L4973: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4974: $_stack[++$_stack_sp] = $_b;
-        L4975: $_stack[++$_stack_sp] = NULL;
-        L4976: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "void") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"void"', $_expected)) { $_expected[] = '"void"'; } } }
-        L4977: $_stack[$_stack_sp] = $_value;
-        L4978: if ($_fail) { goto L4992; }
-        L4979: $_stack[++$_stack_sp] = $_p;
-        L4980: $_stack[++$_stack_sp] = 4982;
-        L4981: goto L7431;
-        L4982: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4983: $_value = NULL;
-        L4984: $_fail = !$_fail;
-        L4985: if ($_fail) { goto L4992; }
-        L4986: $_stack[++$_stack_sp] = 4988;
-        L4987: goto L7003;
-        L4988: if ($_fail) { goto L4992; }
-        L4989: $_stack[++$_stack_sp] = 4991;
-        L4990: goto L4905;
-        L4991: $_env["expr"] = $_value;
-        L4992: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4993: if ($_fail) { goto L4995; }
-        L4994: $_value = $this->_139($_env);
-        L4995: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L4996: if (!$_fail) { goto L5166; }
-        L4997: $_p = $_stack[$_stack_sp];
-        L4998: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L4999: $_stack[++$_stack_sp] = $_b;
-        L5000: $_stack[++$_stack_sp] = NULL;
-        L5001: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "typeof") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"typeof"', $_expected)) { $_expected[] = '"typeof"'; } } }
-        L5002: $_stack[$_stack_sp] = $_value;
-        L5003: if ($_fail) { goto L5044; }
-        L5004: $_stack[++$_stack_sp] = $_p;
-        L5005: $_stack[++$_stack_sp] = 5007;
-        L5006: goto L7431;
-        L5007: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5008: $_value = NULL;
-        L5009: $_fail = !$_fail;
-        L5010: if ($_fail) { goto L5044; }
-        L5011: $_stack[++$_stack_sp] = 5013;
-        L5012: goto L7003;
-        L5013: if ($_fail) { goto L5044; }
-        L5014: $_stack[++$_stack_sp] = $_p;
-        L5015: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5016: $_stack[++$_stack_sp] = $_b;
-        L5017: $_stack[++$_stack_sp] = NULL;
-        L5018: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L5019: $_value = $this->_142($_env);
-        L5020: $_fail = !$_value;
-        L5021: $_value = NULL;
-        L5022: if ($_fail) { goto L5032; }
-        L5023: $_stack[++$_stack_sp] = 5025;
-        L5024: goto L4905;
-        L5025: $_env["expr"] = $_value;
-        L5026: $_stack[$_stack_sp] = $_value;
-        L5027: if ($_fail) { goto L5032; }
-        L5028: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L5029: $_value = $this->_143($_env);
-        L5030: $_fail = !$_value;
-        L5031: $_value = NULL;
-        L5032: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5033: if ($_fail) { goto L5035; }
-        L5034: $_value = $this->_141($_env);
-        L5035: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5036: if (!$_fail) { goto L5042; }
-        L5037: $_p = $_stack[$_stack_sp];
-        L5038: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L5039: $_value = $this->_144($_env);
-        L5040: $_fail = !$_value;
-        L5041: $_value = NULL;
-        L5042: unset($_stack[$_stack_sp--]);
-        L5043: $_env["r"] = $_value;
-        L5044: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5045: if ($_fail) { goto L5047; }
-        L5046: $_value = $this->_140($_env);
-        L5047: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5048: if (!$_fail) { goto L5166; }
-        L5049: $_p = $_stack[$_stack_sp];
-        L5050: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5051: $_stack[++$_stack_sp] = $_b;
-        L5052: $_stack[++$_stack_sp] = NULL;
-        L5053: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "++") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"++"', $_expected)) { $_expected[] = '"++"'; } } }
-        L5054: $_stack[$_stack_sp] = $_value;
-        L5055: if ($_fail) { goto L5065; }
-        L5056: $_stack[++$_stack_sp] = 5058;
-        L5057: goto L7003;
-        L5058: if ($_fail) { goto L5065; }
-        L5059: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5060: $_env["p"] = $_value;
-        L5061: if ($_fail) { goto L5065; }
-        L5062: $_stack[++$_stack_sp] = 5064;
-        L5063: goto L4905;
-        L5064: $_env["expr"] = $_value;
-        L5065: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5066: if ($_fail) { goto L5068; }
-        L5067: $_value = $this->_145($_env);
-        L5068: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5069: if (!$_fail) { goto L5166; }
-        L5070: $_p = $_stack[$_stack_sp];
-        L5071: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5072: $_stack[++$_stack_sp] = $_b;
-        L5073: $_stack[++$_stack_sp] = NULL;
-        L5074: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "--") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"--"', $_expected)) { $_expected[] = '"--"'; } } }
-        L5075: $_stack[$_stack_sp] = $_value;
-        L5076: if ($_fail) { goto L5086; }
-        L5077: $_stack[++$_stack_sp] = 5079;
-        L5078: goto L7003;
-        L5079: if ($_fail) { goto L5086; }
-        L5080: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5081: $_env["p"] = $_value;
-        L5082: if ($_fail) { goto L5086; }
-        L5083: $_stack[++$_stack_sp] = 5085;
-        L5084: goto L4905;
-        L5085: $_env["expr"] = $_value;
-        L5086: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5087: if ($_fail) { goto L5089; }
-        L5088: $_value = $this->_146($_env);
-        L5089: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5090: if (!$_fail) { goto L5166; }
-        L5091: $_p = $_stack[$_stack_sp];
-        L5092: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5093: $_stack[++$_stack_sp] = $_b;
-        L5094: $_stack[++$_stack_sp] = NULL;
-        L5095: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "+") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+"', $_expected)) { $_expected[] = '"+"'; } } }
-        L5096: $_stack[$_stack_sp] = $_value;
-        L5097: if ($_fail) { goto L5104; }
-        L5098: $_stack[++$_stack_sp] = 5100;
-        L5099: goto L7003;
-        L5100: if ($_fail) { goto L5104; }
-        L5101: $_stack[++$_stack_sp] = 5103;
-        L5102: goto L4905;
-        L5103: $_env["expr"] = $_value;
-        L5104: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5105: if ($_fail) { goto L5107; }
-        L5106: $_value = $this->_147($_env);
-        L5107: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5108: if (!$_fail) { goto L5166; }
-        L5109: $_p = $_stack[$_stack_sp];
-        L5110: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5111: $_stack[++$_stack_sp] = $_b;
-        L5112: $_stack[++$_stack_sp] = NULL;
-        L5113: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "-") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-"', $_expected)) { $_expected[] = '"-"'; } } }
-        L5114: $_stack[$_stack_sp] = $_value;
-        L5115: if ($_fail) { goto L5122; }
-        L5116: $_stack[++$_stack_sp] = 5118;
-        L5117: goto L7003;
-        L5118: if ($_fail) { goto L5122; }
-        L5119: $_stack[++$_stack_sp] = 5121;
-        L5120: goto L4905;
-        L5121: $_env["expr"] = $_value;
-        L5122: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5123: if ($_fail) { goto L5125; }
-        L5124: $_value = $this->_148($_env);
-        L5125: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5126: if (!$_fail) { goto L5166; }
-        L5127: $_p = $_stack[$_stack_sp];
-        L5128: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5129: $_stack[++$_stack_sp] = $_b;
-        L5130: $_stack[++$_stack_sp] = NULL;
-        L5131: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "~") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"~"', $_expected)) { $_expected[] = '"~"'; } } }
-        L5132: $_stack[$_stack_sp] = $_value;
-        L5133: if ($_fail) { goto L5140; }
-        L5134: $_stack[++$_stack_sp] = 5136;
-        L5135: goto L7003;
-        L5136: if ($_fail) { goto L5140; }
-        L5137: $_stack[++$_stack_sp] = 5139;
-        L5138: goto L4905;
-        L5139: $_env["expr"] = $_value;
-        L5140: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5141: if ($_fail) { goto L5143; }
-        L5142: $_value = $this->_149($_env);
-        L5143: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5144: if (!$_fail) { goto L5166; }
-        L5145: $_p = $_stack[$_stack_sp];
-        L5146: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5147: $_stack[++$_stack_sp] = $_b;
-        L5148: $_stack[++$_stack_sp] = NULL;
-        L5149: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "!") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!"', $_expected)) { $_expected[] = '"!"'; } } }
-        L5150: $_stack[$_stack_sp] = $_value;
-        L5151: if ($_fail) { goto L5158; }
-        L5152: $_stack[++$_stack_sp] = 5154;
-        L5153: goto L7003;
-        L5154: if ($_fail) { goto L5158; }
-        L5155: $_stack[++$_stack_sp] = 5157;
-        L5156: goto L4905;
-        L5157: $_env["expr"] = $_value;
-        L5158: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5159: if ($_fail) { goto L5161; }
-        L5160: $_value = $this->_150($_env);
-        L5161: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5162: if (!$_fail) { goto L5166; }
-        L5163: $_p = $_stack[$_stack_sp];
+        L4799: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4800: $_b = array();
+        L4801: $_b[0] = $_fail;
+        L4802: $_b[1] = $_value;
+        L4803: $_b[2] = $_p;
+        L4804: $_cache[$_a] = $_b;
+        L4805: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4806: if ($_a === 4565) { goto L4565; } else if ($_a === 4612) { goto L4612; } else if ($_a === 4632) { goto L4632; } else { return array(FALSE, NULL, 51); }
+        L4807: $_stack[++$_stack_sp] = "52@";
+        L4808: $_stack[$_stack_sp] .= $_p;
+        L4809: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4816; }
+        L4810: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4811: $_b = $_cache[$_a];
+        L4812: $_fail = $_b[0];
+        L4813: $_value = $_b[1];
+        L4814: $_p = $_b[2];
+        L4815: goto L4933;
+        L4816: $_stack[++$_stack_sp] = $_env;
+        L4817: $_env = array();
+        L4818: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4819: $_stack[++$_stack_sp] = $_env;
+        L4820: $_env = array();
+        L4821: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4822: $_stack[++$_stack_sp] = $_b;
+        L4823: $_stack[++$_stack_sp] = NULL;
+        L4824: $_stack[++$_stack_sp] = $_env;
+        L4825: $_env = array();
+        L4826: $_stack[++$_stack_sp] = 4828;
+        L4827: goto L4935;
+        L4828: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4829: $_env["left"] = $_value;
+        L4830: $_stack[$_stack_sp] = $_value;
+        L4831: if ($_fail) { goto L4920; }
+        L4832: $_stack[++$_stack_sp] = $_p;
+        L4833: $_stack[++$_stack_sp] = array();
+        L4834: $_stack[++$_stack_sp] = NULL;
+        L4835: $_stack[++$_stack_sp] = $_env;
+        L4836: $_env = array();
+        L4837: $_stack[++$_stack_sp] = 4839;
+        L4838: goto L7033;
+        L4839: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4840: $_stack[$_stack_sp] = $_value;
+        L4841: if ($_fail) { goto L4912; }
+        L4842: $_stack[++$_stack_sp] = $_env;
+        L4843: $_env = array();
+        L4844: $_stack[++$_stack_sp] = "";
+        L4845: $_stack[++$_stack_sp] = $_p;
+        L4846: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "*") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*"', $_expected)) { $_expected[] = '"*"'; } } }
+        L4847: if (!$_fail) { goto L4853; }
+        L4848: $_p = $_stack[$_stack_sp];
+        L4849: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
+        L4850: if (!$_fail) { goto L4853; }
+        L4851: $_p = $_stack[$_stack_sp];
+        L4852: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "%") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"%"', $_expected)) { $_expected[] = '"%"'; } } }
+        L4853: unset($_stack[$_stack_sp--]);
+        L4854: $_stack[$_stack_sp] .= $_value;
+        L4855: if ($_fail) { goto L4862; }
+        L4856: $_stack[++$_stack_sp] = $_p;
+        L4857: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "=") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"="', $_expected)) { $_expected[] = '"="'; } } }
+        L4858: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4859: $_value = NULL;
+        L4860: $_fail = !$_fail;
+        L4861: $_stack[$_stack_sp] .= $_value;
+        L4862: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4863: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4864: $_env["op"] = $_value;
+        L4865: if ($_fail) { goto L4912; }
+        L4866: $_stack[++$_stack_sp] = $_env;
+        L4867: $_env = array();
+        L4868: $_stack[++$_stack_sp] = 4870;
+        L4869: goto L7033;
+        L4870: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4871: if ($_fail) { goto L4912; }
+        L4872: $_stack[++$_stack_sp] = $_p;
+        L4873: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4874: $_stack[++$_stack_sp] = $_b;
+        L4875: $_stack[++$_stack_sp] = NULL;
+        L4876: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4877: $_value = $this->_136($_env);
+        L4878: $_fail = !$_value;
+        L4879: $_value = NULL;
+        L4880: if ($_fail) { goto L4888; }
+        L4881: $_stack[++$_stack_sp] = $_env;
+        L4882: $_env = array();
+        L4883: $_stack[++$_stack_sp] = 4885;
+        L4884: goto L4935;
+        L4885: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4886: $_env["right"] = $_value;
+        L4887: $_stack[$_stack_sp] = $_value;
+        L4888: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4889: if ($_fail) { goto L4891; }
+        L4890: $_value = $this->_135($_env);
+        L4891: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4892: if (!$_fail) { goto L4911; }
+        L4893: $_p = $_stack[$_stack_sp];
+        L4894: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4895: $_stack[++$_stack_sp] = $_b;
+        L4896: $_stack[++$_stack_sp] = NULL;
+        L4897: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4898: $_env["p"] = $_value;
+        L4899: $_stack[$_stack_sp] = $_value;
+        L4900: if ($_fail) { goto L4907; }
+        L4901: $_stack[++$_stack_sp] = $_env;
+        L4902: $_env = array();
+        L4903: $_stack[++$_stack_sp] = 4905;
+        L4904: goto L4935;
+        L4905: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4906: $_env["right"] = $_value;
+        L4907: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4908: if ($_fail) { goto L4910; }
+        L4909: $_value = $this->_137($_env);
+        L4910: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4911: unset($_stack[$_stack_sp--]);
+        L4912: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4913: if ($_fail) { goto L4917; }
+        L4914: $_stack[$_stack_sp][] = $_value;
+        L4915: $_stack[$_stack_sp - 1] = $_p;
+        L4916: goto L4834;
+        L4917: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4918: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4919: $_fail = false;
+        L4920: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4921: if ($_fail) { goto L4923; }
+        L4922: $_value = $this->_134($_env);
+        L4923: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4924: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4925: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L4926: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4927: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4928: $_b = array();
+        L4929: $_b[0] = $_fail;
+        L4930: $_b[1] = $_value;
+        L4931: $_b[2] = $_p;
+        L4932: $_cache[$_a] = $_b;
+        L4933: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4934: if ($_a === 4683) { goto L4683; } else if ($_a === 4757) { goto L4757; } else if ($_a === 4777) { goto L4777; } else { return array(FALSE, NULL, 52); }
+        L4935: $_stack[++$_stack_sp] = "53@";
+        L4936: $_stack[$_stack_sp] .= $_p;
+        L4937: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L4944; }
+        L4938: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4939: $_b = $_cache[$_a];
+        L4940: $_fail = $_b[0];
+        L4941: $_value = $_b[1];
+        L4942: $_p = $_b[2];
+        L4943: goto L5205;
+        L4944: $_stack[++$_stack_sp] = $_env;
+        L4945: $_env = array();
+        L4946: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L4947: $_stack[++$_stack_sp] = $_p;
+        L4948: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4949: $_stack[++$_stack_sp] = $_b;
+        L4950: $_stack[++$_stack_sp] = NULL;
+        L4951: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "delete") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"delete"', $_expected)) { $_expected[] = '"delete"'; } } }
+        L4952: $_stack[$_stack_sp] = $_value;
+        L4953: if ($_fail) { goto L4997; }
+        L4954: $_stack[++$_stack_sp] = $_p;
+        L4955: $_stack[++$_stack_sp] = 4957;
+        L4956: goto L7461;
+        L4957: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4958: $_value = NULL;
+        L4959: $_fail = !$_fail;
+        L4960: if ($_fail) { goto L4997; }
+        L4961: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L4962: $_env["p"] = $_value;
+        L4963: if ($_fail) { goto L4997; }
+        L4964: $_stack[++$_stack_sp] = 4966;
+        L4965: goto L7033;
+        L4966: if ($_fail) { goto L4997; }
+        L4967: $_stack[++$_stack_sp] = $_p;
+        L4968: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L4969: $_stack[++$_stack_sp] = $_b;
+        L4970: $_stack[++$_stack_sp] = NULL;
+        L4971: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4972: $_value = $this->_140($_env);
+        L4973: $_fail = !$_value;
+        L4974: $_value = NULL;
+        L4975: if ($_fail) { goto L4985; }
+        L4976: $_stack[++$_stack_sp] = 4978;
+        L4977: goto L4935;
+        L4978: $_env["expr"] = $_value;
+        L4979: $_stack[$_stack_sp] = $_value;
+        L4980: if ($_fail) { goto L4985; }
+        L4981: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4982: $_value = $this->_141($_env);
+        L4983: $_fail = !$_value;
+        L4984: $_value = NULL;
+        L4985: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4986: if ($_fail) { goto L4988; }
+        L4987: $_value = $this->_139($_env);
+        L4988: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4989: if (!$_fail) { goto L4995; }
+        L4990: $_p = $_stack[$_stack_sp];
+        L4991: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L4992: $_value = $this->_142($_env);
+        L4993: $_fail = !$_value;
+        L4994: $_value = NULL;
+        L4995: unset($_stack[$_stack_sp--]);
+        L4996: $_env["r"] = $_value;
+        L4997: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L4998: if ($_fail) { goto L5000; }
+        L4999: $_value = $this->_138($_env);
+        L5000: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5001: if (!$_fail) { goto L5196; }
+        L5002: $_p = $_stack[$_stack_sp];
+        L5003: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5004: $_stack[++$_stack_sp] = $_b;
+        L5005: $_stack[++$_stack_sp] = NULL;
+        L5006: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "void") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"void"', $_expected)) { $_expected[] = '"void"'; } } }
+        L5007: $_stack[$_stack_sp] = $_value;
+        L5008: if ($_fail) { goto L5022; }
+        L5009: $_stack[++$_stack_sp] = $_p;
+        L5010: $_stack[++$_stack_sp] = 5012;
+        L5011: goto L7461;
+        L5012: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5013: $_value = NULL;
+        L5014: $_fail = !$_fail;
+        L5015: if ($_fail) { goto L5022; }
+        L5016: $_stack[++$_stack_sp] = 5018;
+        L5017: goto L7033;
+        L5018: if ($_fail) { goto L5022; }
+        L5019: $_stack[++$_stack_sp] = 5021;
+        L5020: goto L4935;
+        L5021: $_env["expr"] = $_value;
+        L5022: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5023: if ($_fail) { goto L5025; }
+        L5024: $_value = $this->_143($_env);
+        L5025: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5026: if (!$_fail) { goto L5196; }
+        L5027: $_p = $_stack[$_stack_sp];
+        L5028: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5029: $_stack[++$_stack_sp] = $_b;
+        L5030: $_stack[++$_stack_sp] = NULL;
+        L5031: $_fail = TRUE; if (($_a = substr($_s, $_p, 6)) === "typeof") { $_fail = FALSE; $_value = $_a; $_p += 6; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"typeof"', $_expected)) { $_expected[] = '"typeof"'; } } }
+        L5032: $_stack[$_stack_sp] = $_value;
+        L5033: if ($_fail) { goto L5074; }
+        L5034: $_stack[++$_stack_sp] = $_p;
+        L5035: $_stack[++$_stack_sp] = 5037;
+        L5036: goto L7461;
+        L5037: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5038: $_value = NULL;
+        L5039: $_fail = !$_fail;
+        L5040: if ($_fail) { goto L5074; }
+        L5041: $_stack[++$_stack_sp] = 5043;
+        L5042: goto L7033;
+        L5043: if ($_fail) { goto L5074; }
+        L5044: $_stack[++$_stack_sp] = $_p;
+        L5045: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5046: $_stack[++$_stack_sp] = $_b;
+        L5047: $_stack[++$_stack_sp] = NULL;
+        L5048: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L5049: $_value = $this->_146($_env);
+        L5050: $_fail = !$_value;
+        L5051: $_value = NULL;
+        L5052: if ($_fail) { goto L5062; }
+        L5053: $_stack[++$_stack_sp] = 5055;
+        L5054: goto L4935;
+        L5055: $_env["expr"] = $_value;
+        L5056: $_stack[$_stack_sp] = $_value;
+        L5057: if ($_fail) { goto L5062; }
+        L5058: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L5059: $_value = $this->_147($_env);
+        L5060: $_fail = !$_value;
+        L5061: $_value = NULL;
+        L5062: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5063: if ($_fail) { goto L5065; }
+        L5064: $_value = $this->_145($_env);
+        L5065: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5066: if (!$_fail) { goto L5072; }
+        L5067: $_p = $_stack[$_stack_sp];
+        L5068: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L5069: $_value = $this->_148($_env);
+        L5070: $_fail = !$_value;
+        L5071: $_value = NULL;
+        L5072: unset($_stack[$_stack_sp--]);
+        L5073: $_env["r"] = $_value;
+        L5074: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5075: if ($_fail) { goto L5077; }
+        L5076: $_value = $this->_144($_env);
+        L5077: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5078: if (!$_fail) { goto L5196; }
+        L5079: $_p = $_stack[$_stack_sp];
+        L5080: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5081: $_stack[++$_stack_sp] = $_b;
+        L5082: $_stack[++$_stack_sp] = NULL;
+        L5083: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "++") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"++"', $_expected)) { $_expected[] = '"++"'; } } }
+        L5084: $_stack[$_stack_sp] = $_value;
+        L5085: if ($_fail) { goto L5095; }
+        L5086: $_stack[++$_stack_sp] = 5088;
+        L5087: goto L7033;
+        L5088: if ($_fail) { goto L5095; }
+        L5089: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5090: $_env["p"] = $_value;
+        L5091: if ($_fail) { goto L5095; }
+        L5092: $_stack[++$_stack_sp] = 5094;
+        L5093: goto L4935;
+        L5094: $_env["expr"] = $_value;
+        L5095: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5096: if ($_fail) { goto L5098; }
+        L5097: $_value = $this->_149($_env);
+        L5098: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5099: if (!$_fail) { goto L5196; }
+        L5100: $_p = $_stack[$_stack_sp];
+        L5101: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5102: $_stack[++$_stack_sp] = $_b;
+        L5103: $_stack[++$_stack_sp] = NULL;
+        L5104: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "--") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"--"', $_expected)) { $_expected[] = '"--"'; } } }
+        L5105: $_stack[$_stack_sp] = $_value;
+        L5106: if ($_fail) { goto L5116; }
+        L5107: $_stack[++$_stack_sp] = 5109;
+        L5108: goto L7033;
+        L5109: if ($_fail) { goto L5116; }
+        L5110: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5111: $_env["p"] = $_value;
+        L5112: if ($_fail) { goto L5116; }
+        L5113: $_stack[++$_stack_sp] = 5115;
+        L5114: goto L4935;
+        L5115: $_env["expr"] = $_value;
+        L5116: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5117: if ($_fail) { goto L5119; }
+        L5118: $_value = $this->_150($_env);
+        L5119: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5120: if (!$_fail) { goto L5196; }
+        L5121: $_p = $_stack[$_stack_sp];
+        L5122: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5123: $_stack[++$_stack_sp] = $_b;
+        L5124: $_stack[++$_stack_sp] = NULL;
+        L5125: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "+") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"+"', $_expected)) { $_expected[] = '"+"'; } } }
+        L5126: $_stack[$_stack_sp] = $_value;
+        L5127: if ($_fail) { goto L5134; }
+        L5128: $_stack[++$_stack_sp] = 5130;
+        L5129: goto L7033;
+        L5130: if ($_fail) { goto L5134; }
+        L5131: $_stack[++$_stack_sp] = 5133;
+        L5132: goto L4935;
+        L5133: $_env["expr"] = $_value;
+        L5134: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5135: if ($_fail) { goto L5137; }
+        L5136: $_value = $this->_151($_env);
+        L5137: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5138: if (!$_fail) { goto L5196; }
+        L5139: $_p = $_stack[$_stack_sp];
+        L5140: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5141: $_stack[++$_stack_sp] = $_b;
+        L5142: $_stack[++$_stack_sp] = NULL;
+        L5143: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "-") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"-"', $_expected)) { $_expected[] = '"-"'; } } }
+        L5144: $_stack[$_stack_sp] = $_value;
+        L5145: if ($_fail) { goto L5152; }
+        L5146: $_stack[++$_stack_sp] = 5148;
+        L5147: goto L7033;
+        L5148: if ($_fail) { goto L5152; }
+        L5149: $_stack[++$_stack_sp] = 5151;
+        L5150: goto L4935;
+        L5151: $_env["expr"] = $_value;
+        L5152: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5153: if ($_fail) { goto L5155; }
+        L5154: $_value = $this->_152($_env);
+        L5155: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5156: if (!$_fail) { goto L5196; }
+        L5157: $_p = $_stack[$_stack_sp];
+        L5158: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5159: $_stack[++$_stack_sp] = $_b;
+        L5160: $_stack[++$_stack_sp] = NULL;
+        L5161: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "~") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"~"', $_expected)) { $_expected[] = '"~"'; } } }
+        L5162: $_stack[$_stack_sp] = $_value;
+        L5163: if ($_fail) { goto L5170; }
         L5164: $_stack[++$_stack_sp] = 5166;
-        L5165: goto L5177;
-        L5166: unset($_stack[$_stack_sp--]);
-        L5167: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L5168: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5169: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5170: $_b = array();
-        L5171: $_b[0] = $_fail;
-        L5172: $_b[1] = $_value;
-        L5173: $_b[2] = $_p;
-        L5174: $_cache[$_a] = $_b;
-        L5175: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5176: if ($_a === 4798) { goto L4798; } else if ($_a === 4855) { goto L4855; } else if ($_a === 4875) { goto L4875; } else if ($_a === 4948) { goto L4948; } else if ($_a === 4991) { goto L4991; } else if ($_a === 5025) { goto L5025; } else if ($_a === 5064) { goto L5064; } else if ($_a === 5085) { goto L5085; } else if ($_a === 5103) { goto L5103; } else if ($_a === 5121) { goto L5121; } else if ($_a === 5139) { goto L5139; } else if ($_a === 5157) { goto L5157; } else { return array(FALSE, NULL, 53); }
-        L5177: $_stack[++$_stack_sp] = "54@";
-        L5178: $_stack[$_stack_sp] .= $_p;
-        L5179: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5186; }
-        L5180: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5181: $_b = $_cache[$_a];
-        L5182: $_fail = $_b[0];
-        L5183: $_value = $_b[1];
-        L5184: $_p = $_b[2];
-        L5185: goto L5243;
-        L5186: $_stack[++$_stack_sp] = $_env;
-        L5187: $_env = array();
-        L5188: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5189: $_stack[++$_stack_sp] = $_p;
-        L5190: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5191: $_stack[++$_stack_sp] = $_b;
-        L5192: $_stack[++$_stack_sp] = NULL;
-        L5193: $_stack[++$_stack_sp] = 5195;
-        L5194: goto L5245;
-        L5195: $_env["lhs"] = $_value;
-        L5196: $_stack[$_stack_sp] = $_value;
-        L5197: if ($_fail) { goto L5205; }
-        L5198: $_stack[++$_stack_sp] = 5200;
-        L5199: goto L7135;
-        L5200: if ($_fail) { goto L5205; }
-        L5201: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "++") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"++"', $_expected)) { $_expected[] = '"++"'; } } }
-        L5202: if ($_fail) { goto L5205; }
-        L5203: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5204: $_env["p"] = $_value;
-        L5205: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5206: if ($_fail) { goto L5208; }
-        L5207: $_value = $this->_151($_env);
-        L5208: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5209: if (!$_fail) { goto L5234; }
-        L5210: $_p = $_stack[$_stack_sp];
-        L5211: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5212: $_stack[++$_stack_sp] = $_b;
-        L5213: $_stack[++$_stack_sp] = NULL;
-        L5214: $_stack[++$_stack_sp] = 5216;
-        L5215: goto L5245;
-        L5216: $_env["lhs"] = $_value;
-        L5217: $_stack[$_stack_sp] = $_value;
-        L5218: if ($_fail) { goto L5226; }
-        L5219: $_stack[++$_stack_sp] = 5221;
-        L5220: goto L7135;
-        L5221: if ($_fail) { goto L5226; }
-        L5222: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "--") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"--"', $_expected)) { $_expected[] = '"--"'; } } }
-        L5223: if ($_fail) { goto L5226; }
-        L5224: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5225: $_env["p"] = $_value;
-        L5226: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5227: if ($_fail) { goto L5229; }
-        L5228: $_value = $this->_152($_env);
-        L5229: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5230: if (!$_fail) { goto L5234; }
-        L5231: $_p = $_stack[$_stack_sp];
-        L5232: $_stack[++$_stack_sp] = 5234;
-        L5233: goto L5245;
-        L5234: unset($_stack[$_stack_sp--]);
-        L5235: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L5236: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5237: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5238: $_b = array();
-        L5239: $_b[0] = $_fail;
-        L5240: $_b[1] = $_value;
-        L5241: $_b[2] = $_p;
-        L5242: $_cache[$_a] = $_b;
-        L5243: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5244: if ($_a !== 5166) return array(FALSE, NULL, 54); goto L5166;
-        L5245: $_stack[++$_stack_sp] = "55@";
-        L5246: $_stack[$_stack_sp] .= $_p;
-        L5247: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5254; }
-        L5248: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5249: $_b = $_cache[$_a];
-        L5250: $_fail = $_b[0];
-        L5251: $_value = $_b[1];
-        L5252: $_p = $_b[2];
-        L5253: goto L5273;
-        L5254: $_stack[++$_stack_sp] = $_env;
-        L5255: $_env = array();
-        L5256: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5257: $_stack[++$_stack_sp] = $_p;
-        L5258: $_stack[++$_stack_sp] = 5260;
-        L5259: goto L5275;
+        L5165: goto L7033;
+        L5166: if ($_fail) { goto L5170; }
+        L5167: $_stack[++$_stack_sp] = 5169;
+        L5168: goto L4935;
+        L5169: $_env["expr"] = $_value;
+        L5170: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5171: if ($_fail) { goto L5173; }
+        L5172: $_value = $this->_153($_env);
+        L5173: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5174: if (!$_fail) { goto L5196; }
+        L5175: $_p = $_stack[$_stack_sp];
+        L5176: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5177: $_stack[++$_stack_sp] = $_b;
+        L5178: $_stack[++$_stack_sp] = NULL;
+        L5179: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "!") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"!"', $_expected)) { $_expected[] = '"!"'; } } }
+        L5180: $_stack[$_stack_sp] = $_value;
+        L5181: if ($_fail) { goto L5188; }
+        L5182: $_stack[++$_stack_sp] = 5184;
+        L5183: goto L7033;
+        L5184: if ($_fail) { goto L5188; }
+        L5185: $_stack[++$_stack_sp] = 5187;
+        L5186: goto L4935;
+        L5187: $_env["expr"] = $_value;
+        L5188: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5189: if ($_fail) { goto L5191; }
+        L5190: $_value = $this->_154($_env);
+        L5191: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5192: if (!$_fail) { goto L5196; }
+        L5193: $_p = $_stack[$_stack_sp];
+        L5194: $_stack[++$_stack_sp] = 5196;
+        L5195: goto L5207;
+        L5196: unset($_stack[$_stack_sp--]);
+        L5197: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5198: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5199: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5200: $_b = array();
+        L5201: $_b[0] = $_fail;
+        L5202: $_b[1] = $_value;
+        L5203: $_b[2] = $_p;
+        L5204: $_cache[$_a] = $_b;
+        L5205: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5206: if ($_a === 4828) { goto L4828; } else if ($_a === 4885) { goto L4885; } else if ($_a === 4905) { goto L4905; } else if ($_a === 4978) { goto L4978; } else if ($_a === 5021) { goto L5021; } else if ($_a === 5055) { goto L5055; } else if ($_a === 5094) { goto L5094; } else if ($_a === 5115) { goto L5115; } else if ($_a === 5133) { goto L5133; } else if ($_a === 5151) { goto L5151; } else if ($_a === 5169) { goto L5169; } else if ($_a === 5187) { goto L5187; } else { return array(FALSE, NULL, 53); }
+        L5207: $_stack[++$_stack_sp] = "54@";
+        L5208: $_stack[$_stack_sp] .= $_p;
+        L5209: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5216; }
+        L5210: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5211: $_b = $_cache[$_a];
+        L5212: $_fail = $_b[0];
+        L5213: $_value = $_b[1];
+        L5214: $_p = $_b[2];
+        L5215: goto L5273;
+        L5216: $_stack[++$_stack_sp] = $_env;
+        L5217: $_env = array();
+        L5218: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5219: $_stack[++$_stack_sp] = $_p;
+        L5220: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5221: $_stack[++$_stack_sp] = $_b;
+        L5222: $_stack[++$_stack_sp] = NULL;
+        L5223: $_stack[++$_stack_sp] = 5225;
+        L5224: goto L5275;
+        L5225: $_env["lhs"] = $_value;
+        L5226: $_stack[$_stack_sp] = $_value;
+        L5227: if ($_fail) { goto L5235; }
+        L5228: $_stack[++$_stack_sp] = 5230;
+        L5229: goto L7165;
+        L5230: if ($_fail) { goto L5235; }
+        L5231: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "++") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"++"', $_expected)) { $_expected[] = '"++"'; } } }
+        L5232: if ($_fail) { goto L5235; }
+        L5233: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5234: $_env["p"] = $_value;
+        L5235: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5236: if ($_fail) { goto L5238; }
+        L5237: $_value = $this->_155($_env);
+        L5238: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5239: if (!$_fail) { goto L5264; }
+        L5240: $_p = $_stack[$_stack_sp];
+        L5241: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5242: $_stack[++$_stack_sp] = $_b;
+        L5243: $_stack[++$_stack_sp] = NULL;
+        L5244: $_stack[++$_stack_sp] = 5246;
+        L5245: goto L5275;
+        L5246: $_env["lhs"] = $_value;
+        L5247: $_stack[$_stack_sp] = $_value;
+        L5248: if ($_fail) { goto L5256; }
+        L5249: $_stack[++$_stack_sp] = 5251;
+        L5250: goto L7165;
+        L5251: if ($_fail) { goto L5256; }
+        L5252: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "--") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"--"', $_expected)) { $_expected[] = '"--"'; } } }
+        L5253: if ($_fail) { goto L5256; }
+        L5254: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5255: $_env["p"] = $_value;
+        L5256: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5257: if ($_fail) { goto L5259; }
+        L5258: $_value = $this->_156($_env);
+        L5259: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L5260: if (!$_fail) { goto L5264; }
         L5261: $_p = $_stack[$_stack_sp];
         L5262: $_stack[++$_stack_sp] = 5264;
-        L5263: goto L5613;
+        L5263: goto L5275;
         L5264: unset($_stack[$_stack_sp--]);
         L5265: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L5266: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -5318,8 +5318,8 @@ class JSParser {
         L5271: $_b[2] = $_p;
         L5272: $_cache[$_a] = $_b;
         L5273: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5274: if ($_a === 1205) { goto L1205; } else if ($_a === 2577) { goto L2577; } else if ($_a === 2670) { goto L2670; } else if ($_a === 5195) { goto L5195; } else if ($_a === 5216) { goto L5216; } else if ($_a === 5234) { goto L5234; } else { return array(FALSE, NULL, 55); }
-        L5275: $_stack[++$_stack_sp] = "56@";
+        L5274: if ($_a !== 5196) return array(FALSE, NULL, 54); goto L5196;
+        L5275: $_stack[++$_stack_sp] = "55@";
         L5276: $_stack[$_stack_sp] .= $_p;
         L5277: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5284; }
         L5278: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -5327,1746 +5327,1746 @@ class JSParser {
         L5280: $_fail = $_b[0];
         L5281: $_value = $_b[1];
         L5282: $_p = $_b[2];
-        L5283: goto L5402;
+        L5283: goto L5303;
         L5284: $_stack[++$_stack_sp] = $_env;
         L5285: $_env = array();
         L5286: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5287: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5288: $_stack[++$_stack_sp] = $_b;
-        L5289: $_stack[++$_stack_sp] = NULL;
-        L5290: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5291: $_stack[++$_stack_sp] = $_b;
-        L5292: $_stack[++$_stack_sp] = NULL;
-        L5293: $_stack[++$_stack_sp] = 5295;
-        L5294: goto L5667;
-        L5295: $_env["name"] = $_value;
-        L5296: $_stack[$_stack_sp] = $_value;
-        L5297: if ($_fail) { goto L5304; }
-        L5298: $_stack[++$_stack_sp] = 5300;
-        L5299: goto L7003;
-        L5300: if ($_fail) { goto L5304; }
-        L5301: $_stack[++$_stack_sp] = 5303;
-        L5302: goto L5404;
-        L5303: $_env["arguments"] = $_value;
-        L5304: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5305: if ($_fail) { goto L5307; }
-        L5306: $_value = $this->_154($_env);
-        L5307: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5308: $_env["base"] = $_value;
-        L5309: $_stack[$_stack_sp] = $_value;
-        L5310: if ($_fail) { goto L5390; }
-        L5311: $_stack[++$_stack_sp] = $_p;
-        L5312: $_stack[++$_stack_sp] = array();
-        L5313: $_stack[++$_stack_sp] = $_p;
-        L5314: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5315: $_stack[++$_stack_sp] = $_b;
-        L5316: $_stack[++$_stack_sp] = NULL;
-        L5317: $_stack[++$_stack_sp] = 5319;
-        L5318: goto L7003;
-        L5319: $_stack[$_stack_sp] = $_value;
-        L5320: if ($_fail) { goto L5324; }
-        L5321: $_stack[++$_stack_sp] = 5323;
-        L5322: goto L5404;
-        L5323: $_env["arguments"] = $_value;
-        L5324: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5325: if ($_fail) { goto L5327; }
-        L5326: $_value = $this->_155($_env);
-        L5327: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5328: if (!$_fail) { goto L5381; }
-        L5329: $_p = $_stack[$_stack_sp];
-        L5330: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5331: $_stack[++$_stack_sp] = $_b;
-        L5332: $_stack[++$_stack_sp] = NULL;
-        L5333: $_stack[++$_stack_sp] = 5335;
-        L5334: goto L7003;
-        L5335: $_stack[$_stack_sp] = $_value;
-        L5336: if ($_fail) { goto L5353; }
-        L5337: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "[") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"["', $_expected)) { $_expected[] = '"["'; } } }
-        L5338: if ($_fail) { goto L5353; }
-        L5339: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5340: $_env["p"] = $_value;
-        L5341: if ($_fail) { goto L5353; }
-        L5342: $_stack[++$_stack_sp] = 5344;
-        L5343: goto L7003;
-        L5344: if ($_fail) { goto L5353; }
-        L5345: $_stack[++$_stack_sp] = 5347;
-        L5346: goto L2391;
-        L5347: $_env["expr"] = $_value;
-        L5348: if ($_fail) { goto L5353; }
-        L5349: $_stack[++$_stack_sp] = 5351;
-        L5350: goto L7003;
-        L5351: if ($_fail) { goto L5353; }
-        L5352: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "]") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"]"', $_expected)) { $_expected[] = '"]"'; } } }
-        L5353: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5354: if ($_fail) { goto L5356; }
-        L5355: $_value = $this->_156($_env);
-        L5356: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5357: if (!$_fail) { goto L5381; }
-        L5358: $_p = $_stack[$_stack_sp];
-        L5359: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5360: $_stack[++$_stack_sp] = $_b;
-        L5361: $_stack[++$_stack_sp] = NULL;
-        L5362: $_stack[++$_stack_sp] = 5364;
-        L5363: goto L7003;
-        L5364: $_stack[$_stack_sp] = $_value;
-        L5365: if ($_fail) { goto L5377; }
-        L5366: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
-        L5367: if ($_fail) { goto L5377; }
-        L5368: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5369: $_env["p"] = $_value;
-        L5370: if ($_fail) { goto L5377; }
-        L5371: $_stack[++$_stack_sp] = 5373;
-        L5372: goto L7003;
-        L5373: if ($_fail) { goto L5377; }
-        L5374: $_stack[++$_stack_sp] = 5376;
-        L5375: goto L7370;
-        L5376: $_env["id"] = $_value;
-        L5377: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5378: if ($_fail) { goto L5380; }
-        L5379: $_value = $this->_157($_env);
-        L5380: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5381: unset($_stack[$_stack_sp--]);
-        L5382: if ($_fail) { goto L5386; }
-        L5383: $_stack[$_stack_sp][] = $_value;
-        L5384: $_stack[$_stack_sp - 1] = $_p;
-        L5385: goto L5313;
-        L5386: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5387: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5388: $_fail = false;
-        L5389: $_env["arguments_or_accessors"] = $_value;
-        L5390: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5391: if ($_fail) { goto L5393; }
-        L5392: $_value = $this->_153($_env);
-        L5393: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5394: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L5395: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5396: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5397: $_b = array();
-        L5398: $_b[0] = $_fail;
-        L5399: $_b[1] = $_value;
-        L5400: $_b[2] = $_p;
-        L5401: $_cache[$_a] = $_b;
-        L5402: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5403: if ($_a !== 5260) return array(FALSE, NULL, 56); goto L5260;
-        L5404: $_stack[++$_stack_sp] = "57@";
-        L5405: $_stack[$_stack_sp] .= $_p;
-        L5406: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5413; }
-        L5407: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5408: $_b = $_cache[$_a];
-        L5409: $_fail = $_b[0];
-        L5410: $_value = $_b[1];
-        L5411: $_p = $_b[2];
-        L5412: goto L5508;
-        L5413: $_stack[++$_stack_sp] = $_env;
-        L5414: $_env = array();
-        L5415: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5416: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5417: $_stack[++$_stack_sp] = $_b;
-        L5418: $_stack[++$_stack_sp] = NULL;
-        L5419: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L5420: $_stack[$_stack_sp] = $_value;
-        L5421: if ($_fail) { goto L5496; }
-        L5422: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5423: $_env["p"] = $_value;
-        L5424: if ($_fail) { goto L5496; }
-        L5425: $_stack[++$_stack_sp] = 5427;
-        L5426: goto L7003;
-        L5427: if ($_fail) { goto L5496; }
-        L5428: $_stack[++$_stack_sp] = $_p;
-        L5429: $_stack[++$_stack_sp] = $_env;
-        L5430: $_env = array();
-        L5431: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5432: $_stack[++$_stack_sp] = $_b;
-        L5433: $_stack[++$_stack_sp] = NULL;
-        L5434: $_stack[++$_stack_sp] = $_env;
-        L5435: $_env = array();
-        L5436: $_stack[++$_stack_sp] = 5438;
-        L5437: goto L2559;
-        L5438: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5439: $_env["first"] = $_value;
-        L5440: $_stack[$_stack_sp] = $_value;
-        L5441: if ($_fail) { goto L5480; }
-        L5442: $_stack[++$_stack_sp] = $_p;
-        L5443: $_stack[++$_stack_sp] = array();
-        L5444: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5445: $_stack[++$_stack_sp] = $_b;
-        L5446: $_stack[++$_stack_sp] = NULL;
-        L5447: $_stack[++$_stack_sp] = $_env;
-        L5448: $_env = array();
-        L5449: $_stack[++$_stack_sp] = NULL;
-        L5450: $_stack[++$_stack_sp] = 5452;
-        L5451: goto L7003;
-        L5452: $_stack[$_stack_sp] = $_value;
-        L5453: if ($_fail) { goto L5458; }
-        L5454: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L5455: if ($_fail) { goto L5458; }
-        L5456: $_stack[++$_stack_sp] = 5458;
-        L5457: goto L7003;
-        L5458: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5459: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5460: $_stack[$_stack_sp] = $_value;
-        L5461: if ($_fail) { goto L5468; }
-        L5462: $_stack[++$_stack_sp] = $_env;
-        L5463: $_env = array();
-        L5464: $_stack[++$_stack_sp] = 5466;
-        L5465: goto L2559;
-        L5466: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5467: $_env["next"] = $_value;
-        L5468: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5469: if ($_fail) { goto L5471; }
-        L5470: $_value = $this->_160($_env);
-        L5471: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5472: if ($_fail) { goto L5476; }
-        L5473: $_stack[$_stack_sp][] = $_value;
-        L5474: $_stack[$_stack_sp - 1] = $_p;
-        L5475: goto L5444;
-        L5476: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5477: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5478: $_fail = false;
-        L5479: $_env["rest"] = $_value;
-        L5480: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5481: if ($_fail) { goto L5483; }
-        L5482: $_value = $this->_159($_env);
-        L5483: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5484: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5485: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5486: if (!$_fail) { goto L5490; }
-        L5487: $_fail = false;
-        L5488: $_value = NULL;
-        L5489: $_p = $_a;
-        L5490: $_env["arguments"] = $_value;
-        L5491: if ($_fail) { goto L5496; }
-        L5492: $_stack[++$_stack_sp] = 5494;
-        L5493: goto L7003;
-        L5494: if ($_fail) { goto L5496; }
-        L5495: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L5496: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5497: if ($_fail) { goto L5499; }
-        L5498: $_value = $this->_158($_env);
-        L5499: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5500: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5287: $_stack[++$_stack_sp] = $_p;
+        L5288: $_stack[++$_stack_sp] = 5290;
+        L5289: goto L5305;
+        L5290: if (!$_fail) { goto L5294; }
+        L5291: $_p = $_stack[$_stack_sp];
+        L5292: $_stack[++$_stack_sp] = 5294;
+        L5293: goto L5643;
+        L5294: unset($_stack[$_stack_sp--]);
+        L5295: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5296: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5297: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5298: $_b = array();
+        L5299: $_b[0] = $_fail;
+        L5300: $_b[1] = $_value;
+        L5301: $_b[2] = $_p;
+        L5302: $_cache[$_a] = $_b;
+        L5303: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5304: if ($_a === 1214) { goto L1214; } else if ($_a === 2607) { goto L2607; } else if ($_a === 2700) { goto L2700; } else if ($_a === 5225) { goto L5225; } else if ($_a === 5246) { goto L5246; } else if ($_a === 5264) { goto L5264; } else { return array(FALSE, NULL, 55); }
+        L5305: $_stack[++$_stack_sp] = "56@";
+        L5306: $_stack[$_stack_sp] .= $_p;
+        L5307: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5314; }
+        L5308: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5309: $_b = $_cache[$_a];
+        L5310: $_fail = $_b[0];
+        L5311: $_value = $_b[1];
+        L5312: $_p = $_b[2];
+        L5313: goto L5432;
+        L5314: $_stack[++$_stack_sp] = $_env;
+        L5315: $_env = array();
+        L5316: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5317: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5318: $_stack[++$_stack_sp] = $_b;
+        L5319: $_stack[++$_stack_sp] = NULL;
+        L5320: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5321: $_stack[++$_stack_sp] = $_b;
+        L5322: $_stack[++$_stack_sp] = NULL;
+        L5323: $_stack[++$_stack_sp] = 5325;
+        L5324: goto L5697;
+        L5325: $_env["name"] = $_value;
+        L5326: $_stack[$_stack_sp] = $_value;
+        L5327: if ($_fail) { goto L5334; }
+        L5328: $_stack[++$_stack_sp] = 5330;
+        L5329: goto L7033;
+        L5330: if ($_fail) { goto L5334; }
+        L5331: $_stack[++$_stack_sp] = 5333;
+        L5332: goto L5434;
+        L5333: $_env["arguments"] = $_value;
+        L5334: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5335: if ($_fail) { goto L5337; }
+        L5336: $_value = $this->_158($_env);
+        L5337: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5338: $_env["base"] = $_value;
+        L5339: $_stack[$_stack_sp] = $_value;
+        L5340: if ($_fail) { goto L5420; }
+        L5341: $_stack[++$_stack_sp] = $_p;
+        L5342: $_stack[++$_stack_sp] = array();
+        L5343: $_stack[++$_stack_sp] = $_p;
+        L5344: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5345: $_stack[++$_stack_sp] = $_b;
+        L5346: $_stack[++$_stack_sp] = NULL;
+        L5347: $_stack[++$_stack_sp] = 5349;
+        L5348: goto L7033;
+        L5349: $_stack[$_stack_sp] = $_value;
+        L5350: if ($_fail) { goto L5354; }
+        L5351: $_stack[++$_stack_sp] = 5353;
+        L5352: goto L5434;
+        L5353: $_env["arguments"] = $_value;
+        L5354: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5355: if ($_fail) { goto L5357; }
+        L5356: $_value = $this->_159($_env);
+        L5357: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5358: if (!$_fail) { goto L5411; }
+        L5359: $_p = $_stack[$_stack_sp];
+        L5360: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5361: $_stack[++$_stack_sp] = $_b;
+        L5362: $_stack[++$_stack_sp] = NULL;
+        L5363: $_stack[++$_stack_sp] = 5365;
+        L5364: goto L7033;
+        L5365: $_stack[$_stack_sp] = $_value;
+        L5366: if ($_fail) { goto L5383; }
+        L5367: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "[") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"["', $_expected)) { $_expected[] = '"["'; } } }
+        L5368: if ($_fail) { goto L5383; }
+        L5369: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5370: $_env["p"] = $_value;
+        L5371: if ($_fail) { goto L5383; }
+        L5372: $_stack[++$_stack_sp] = 5374;
+        L5373: goto L7033;
+        L5374: if ($_fail) { goto L5383; }
+        L5375: $_stack[++$_stack_sp] = 5377;
+        L5376: goto L2421;
+        L5377: $_env["expr"] = $_value;
+        L5378: if ($_fail) { goto L5383; }
+        L5379: $_stack[++$_stack_sp] = 5381;
+        L5380: goto L7033;
+        L5381: if ($_fail) { goto L5383; }
+        L5382: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "]") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"]"', $_expected)) { $_expected[] = '"]"'; } } }
+        L5383: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5384: if ($_fail) { goto L5386; }
+        L5385: $_value = $this->_160($_env);
+        L5386: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5387: if (!$_fail) { goto L5411; }
+        L5388: $_p = $_stack[$_stack_sp];
+        L5389: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5390: $_stack[++$_stack_sp] = $_b;
+        L5391: $_stack[++$_stack_sp] = NULL;
+        L5392: $_stack[++$_stack_sp] = 5394;
+        L5393: goto L7033;
+        L5394: $_stack[$_stack_sp] = $_value;
+        L5395: if ($_fail) { goto L5407; }
+        L5396: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
+        L5397: if ($_fail) { goto L5407; }
+        L5398: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5399: $_env["p"] = $_value;
+        L5400: if ($_fail) { goto L5407; }
+        L5401: $_stack[++$_stack_sp] = 5403;
+        L5402: goto L7033;
+        L5403: if ($_fail) { goto L5407; }
+        L5404: $_stack[++$_stack_sp] = 5406;
+        L5405: goto L7400;
+        L5406: $_env["id"] = $_value;
+        L5407: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5408: if ($_fail) { goto L5410; }
+        L5409: $_value = $this->_161($_env);
+        L5410: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5411: unset($_stack[$_stack_sp--]);
+        L5412: if ($_fail) { goto L5416; }
+        L5413: $_stack[$_stack_sp][] = $_value;
+        L5414: $_stack[$_stack_sp - 1] = $_p;
+        L5415: goto L5343;
+        L5416: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5417: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5418: $_fail = false;
+        L5419: $_env["arguments_or_accessors"] = $_value;
+        L5420: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5421: if ($_fail) { goto L5423; }
+        L5422: $_value = $this->_157($_env);
+        L5423: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5424: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5425: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5426: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5427: $_b = array();
+        L5428: $_b[0] = $_fail;
+        L5429: $_b[1] = $_value;
+        L5430: $_b[2] = $_p;
+        L5431: $_cache[$_a] = $_b;
+        L5432: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5433: if ($_a !== 5290) return array(FALSE, NULL, 56); goto L5290;
+        L5434: $_stack[++$_stack_sp] = "57@";
+        L5435: $_stack[$_stack_sp] .= $_p;
+        L5436: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5443; }
+        L5437: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5438: $_b = $_cache[$_a];
+        L5439: $_fail = $_b[0];
+        L5440: $_value = $_b[1];
+        L5441: $_p = $_b[2];
+        L5442: goto L5538;
+        L5443: $_stack[++$_stack_sp] = $_env;
+        L5444: $_env = array();
+        L5445: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5446: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5447: $_stack[++$_stack_sp] = $_b;
+        L5448: $_stack[++$_stack_sp] = NULL;
+        L5449: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L5450: $_stack[$_stack_sp] = $_value;
+        L5451: if ($_fail) { goto L5526; }
+        L5452: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5453: $_env["p"] = $_value;
+        L5454: if ($_fail) { goto L5526; }
+        L5455: $_stack[++$_stack_sp] = 5457;
+        L5456: goto L7033;
+        L5457: if ($_fail) { goto L5526; }
+        L5458: $_stack[++$_stack_sp] = $_p;
+        L5459: $_stack[++$_stack_sp] = $_env;
+        L5460: $_env = array();
+        L5461: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5462: $_stack[++$_stack_sp] = $_b;
+        L5463: $_stack[++$_stack_sp] = NULL;
+        L5464: $_stack[++$_stack_sp] = $_env;
+        L5465: $_env = array();
+        L5466: $_stack[++$_stack_sp] = 5468;
+        L5467: goto L2589;
+        L5468: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5469: $_env["first"] = $_value;
+        L5470: $_stack[$_stack_sp] = $_value;
+        L5471: if ($_fail) { goto L5510; }
+        L5472: $_stack[++$_stack_sp] = $_p;
+        L5473: $_stack[++$_stack_sp] = array();
+        L5474: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5475: $_stack[++$_stack_sp] = $_b;
+        L5476: $_stack[++$_stack_sp] = NULL;
+        L5477: $_stack[++$_stack_sp] = $_env;
+        L5478: $_env = array();
+        L5479: $_stack[++$_stack_sp] = NULL;
+        L5480: $_stack[++$_stack_sp] = 5482;
+        L5481: goto L7033;
+        L5482: $_stack[$_stack_sp] = $_value;
+        L5483: if ($_fail) { goto L5488; }
+        L5484: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L5485: if ($_fail) { goto L5488; }
+        L5486: $_stack[++$_stack_sp] = 5488;
+        L5487: goto L7033;
+        L5488: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5489: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5490: $_stack[$_stack_sp] = $_value;
+        L5491: if ($_fail) { goto L5498; }
+        L5492: $_stack[++$_stack_sp] = $_env;
+        L5493: $_env = array();
+        L5494: $_stack[++$_stack_sp] = 5496;
+        L5495: goto L2589;
+        L5496: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5497: $_env["next"] = $_value;
+        L5498: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5499: if ($_fail) { goto L5501; }
+        L5500: $_value = $this->_164($_env);
         L5501: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5502: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5503: $_b = array();
-        L5504: $_b[0] = $_fail;
-        L5505: $_b[1] = $_value;
-        L5506: $_b[2] = $_p;
-        L5507: $_cache[$_a] = $_b;
-        L5508: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5509: if ($_a === 5303) { goto L5303; } else if ($_a === 5323) { goto L5323; } else { return array(FALSE, NULL, 57); }
-        L5510: $_stack[++$_stack_sp] = "58@";
-        L5511: $_stack[$_stack_sp] .= $_p;
-        L5512: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5519; }
-        L5513: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5514: $_b = $_cache[$_a];
-        L5515: $_fail = $_b[0];
-        L5516: $_value = $_b[1];
-        L5517: $_p = $_b[2];
-        L5518: goto L5611;
-        L5519: $_stack[++$_stack_sp] = $_env;
-        L5520: $_env = array();
-        L5521: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5522: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5523: $_stack[++$_stack_sp] = $_b;
-        L5524: $_stack[++$_stack_sp] = NULL;
-        L5525: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L5526: $_stack[$_stack_sp] = $_value;
-        L5527: if ($_fail) { goto L5599; }
-        L5528: $_stack[++$_stack_sp] = 5530;
-        L5529: goto L7003;
-        L5530: if ($_fail) { goto L5599; }
-        L5531: $_stack[++$_stack_sp] = $_p;
-        L5532: $_stack[++$_stack_sp] = $_env;
-        L5533: $_env = array();
-        L5534: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5535: $_stack[++$_stack_sp] = $_b;
-        L5536: $_stack[++$_stack_sp] = NULL;
-        L5537: $_stack[++$_stack_sp] = $_env;
-        L5538: $_env = array();
-        L5539: $_stack[++$_stack_sp] = 5541;
-        L5540: goto L2559;
-        L5541: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5542: $_env["first"] = $_value;
-        L5543: $_stack[$_stack_sp] = $_value;
-        L5544: if ($_fail) { goto L5583; }
-        L5545: $_stack[++$_stack_sp] = $_p;
-        L5546: $_stack[++$_stack_sp] = array();
-        L5547: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5548: $_stack[++$_stack_sp] = $_b;
-        L5549: $_stack[++$_stack_sp] = NULL;
-        L5550: $_stack[++$_stack_sp] = $_env;
-        L5551: $_env = array();
-        L5552: $_stack[++$_stack_sp] = NULL;
-        L5553: $_stack[++$_stack_sp] = 5555;
-        L5554: goto L7003;
-        L5555: $_stack[$_stack_sp] = $_value;
-        L5556: if ($_fail) { goto L5561; }
-        L5557: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L5558: if ($_fail) { goto L5561; }
-        L5559: $_stack[++$_stack_sp] = 5561;
-        L5560: goto L7003;
-        L5561: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5562: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5563: $_stack[$_stack_sp] = $_value;
-        L5564: if ($_fail) { goto L5571; }
-        L5565: $_stack[++$_stack_sp] = $_env;
-        L5566: $_env = array();
-        L5567: $_stack[++$_stack_sp] = 5569;
-        L5568: goto L2559;
-        L5569: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5570: $_env["next"] = $_value;
-        L5571: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5572: if ($_fail) { goto L5574; }
-        L5573: $_value = $this->_163($_env);
-        L5574: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5575: if ($_fail) { goto L5579; }
-        L5576: $_stack[$_stack_sp][] = $_value;
-        L5577: $_stack[$_stack_sp - 1] = $_p;
-        L5578: goto L5547;
-        L5579: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5580: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5581: $_fail = false;
-        L5582: $_env["rest"] = $_value;
-        L5583: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5584: if ($_fail) { goto L5586; }
-        L5585: $_value = $this->_162($_env);
-        L5586: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5587: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5588: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5589: if (!$_fail) { goto L5593; }
-        L5590: $_fail = false;
-        L5591: $_value = NULL;
-        L5592: $_p = $_a;
-        L5593: $_env["arguments"] = $_value;
-        L5594: if ($_fail) { goto L5599; }
-        L5595: $_stack[++$_stack_sp] = 5597;
-        L5596: goto L7003;
-        L5597: if ($_fail) { goto L5599; }
-        L5598: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L5599: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5600: if ($_fail) { goto L5602; }
-        L5601: $_value = $this->_161($_env);
-        L5602: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5603: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5502: if ($_fail) { goto L5506; }
+        L5503: $_stack[$_stack_sp][] = $_value;
+        L5504: $_stack[$_stack_sp - 1] = $_p;
+        L5505: goto L5474;
+        L5506: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5507: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5508: $_fail = false;
+        L5509: $_env["rest"] = $_value;
+        L5510: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5511: if ($_fail) { goto L5513; }
+        L5512: $_value = $this->_163($_env);
+        L5513: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5514: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5515: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5516: if (!$_fail) { goto L5520; }
+        L5517: $_fail = false;
+        L5518: $_value = NULL;
+        L5519: $_p = $_a;
+        L5520: $_env["arguments"] = $_value;
+        L5521: if ($_fail) { goto L5526; }
+        L5522: $_stack[++$_stack_sp] = 5524;
+        L5523: goto L7033;
+        L5524: if ($_fail) { goto L5526; }
+        L5525: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L5526: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5527: if ($_fail) { goto L5529; }
+        L5528: $_value = $this->_162($_env);
+        L5529: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5530: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5531: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5532: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5533: $_b = array();
+        L5534: $_b[0] = $_fail;
+        L5535: $_b[1] = $_value;
+        L5536: $_b[2] = $_p;
+        L5537: $_cache[$_a] = $_b;
+        L5538: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5539: if ($_a === 5333) { goto L5333; } else if ($_a === 5353) { goto L5353; } else { return array(FALSE, NULL, 57); }
+        L5540: $_stack[++$_stack_sp] = "58@";
+        L5541: $_stack[$_stack_sp] .= $_p;
+        L5542: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5549; }
+        L5543: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5544: $_b = $_cache[$_a];
+        L5545: $_fail = $_b[0];
+        L5546: $_value = $_b[1];
+        L5547: $_p = $_b[2];
+        L5548: goto L5641;
+        L5549: $_stack[++$_stack_sp] = $_env;
+        L5550: $_env = array();
+        L5551: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5552: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5553: $_stack[++$_stack_sp] = $_b;
+        L5554: $_stack[++$_stack_sp] = NULL;
+        L5555: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L5556: $_stack[$_stack_sp] = $_value;
+        L5557: if ($_fail) { goto L5629; }
+        L5558: $_stack[++$_stack_sp] = 5560;
+        L5559: goto L7033;
+        L5560: if ($_fail) { goto L5629; }
+        L5561: $_stack[++$_stack_sp] = $_p;
+        L5562: $_stack[++$_stack_sp] = $_env;
+        L5563: $_env = array();
+        L5564: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5565: $_stack[++$_stack_sp] = $_b;
+        L5566: $_stack[++$_stack_sp] = NULL;
+        L5567: $_stack[++$_stack_sp] = $_env;
+        L5568: $_env = array();
+        L5569: $_stack[++$_stack_sp] = 5571;
+        L5570: goto L2589;
+        L5571: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5572: $_env["first"] = $_value;
+        L5573: $_stack[$_stack_sp] = $_value;
+        L5574: if ($_fail) { goto L5613; }
+        L5575: $_stack[++$_stack_sp] = $_p;
+        L5576: $_stack[++$_stack_sp] = array();
+        L5577: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5578: $_stack[++$_stack_sp] = $_b;
+        L5579: $_stack[++$_stack_sp] = NULL;
+        L5580: $_stack[++$_stack_sp] = $_env;
+        L5581: $_env = array();
+        L5582: $_stack[++$_stack_sp] = NULL;
+        L5583: $_stack[++$_stack_sp] = 5585;
+        L5584: goto L7033;
+        L5585: $_stack[$_stack_sp] = $_value;
+        L5586: if ($_fail) { goto L5591; }
+        L5587: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L5588: if ($_fail) { goto L5591; }
+        L5589: $_stack[++$_stack_sp] = 5591;
+        L5590: goto L7033;
+        L5591: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5592: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5593: $_stack[$_stack_sp] = $_value;
+        L5594: if ($_fail) { goto L5601; }
+        L5595: $_stack[++$_stack_sp] = $_env;
+        L5596: $_env = array();
+        L5597: $_stack[++$_stack_sp] = 5599;
+        L5598: goto L2589;
+        L5599: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5600: $_env["next"] = $_value;
+        L5601: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5602: if ($_fail) { goto L5604; }
+        L5603: $_value = $this->_167($_env);
         L5604: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5605: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5606: $_b = array();
-        L5607: $_b[0] = $_fail;
-        L5608: $_b[1] = $_value;
-        L5609: $_b[2] = $_p;
-        L5610: $_cache[$_a] = $_b;
-        L5611: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5612: if ($_a !== 5715) return array(FALSE, NULL, 58); goto L5715;
-        L5613: $_stack[++$_stack_sp] = "59@";
-        L5614: $_stack[$_stack_sp] .= $_p;
-        L5615: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5622; }
-        L5616: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5617: $_b = $_cache[$_a];
-        L5618: $_fail = $_b[0];
-        L5619: $_value = $_b[1];
-        L5620: $_p = $_b[2];
-        L5621: goto L5665;
-        L5622: $_stack[++$_stack_sp] = $_env;
-        L5623: $_env = array();
-        L5624: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5625: $_stack[++$_stack_sp] = $_p;
-        L5626: $_stack[++$_stack_sp] = 5628;
-        L5627: goto L5667;
-        L5628: if (!$_fail) { goto L5656; }
-        L5629: $_p = $_stack[$_stack_sp];
-        L5630: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5631: $_stack[++$_stack_sp] = $_b;
-        L5632: $_stack[++$_stack_sp] = NULL;
-        L5633: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "new") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"new"', $_expected)) { $_expected[] = '"new"'; } } }
-        L5634: $_stack[$_stack_sp] = $_value;
-        L5635: if ($_fail) { goto L5652; }
-        L5636: $_stack[++$_stack_sp] = $_p;
-        L5637: $_stack[++$_stack_sp] = 5639;
-        L5638: goto L7431;
-        L5639: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5640: $_value = NULL;
-        L5641: $_fail = !$_fail;
-        L5642: if ($_fail) { goto L5652; }
-        L5643: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5644: $_env["p"] = $_value;
-        L5645: if ($_fail) { goto L5652; }
-        L5646: $_stack[++$_stack_sp] = 5648;
-        L5647: goto L7003;
-        L5648: if ($_fail) { goto L5652; }
-        L5649: $_stack[++$_stack_sp] = 5651;
-        L5650: goto L5613;
-        L5651: $_env["expr"] = $_value;
-        L5652: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5653: if ($_fail) { goto L5655; }
-        L5654: $_value = $this->_164($_env);
-        L5655: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5656: unset($_stack[$_stack_sp--]);
-        L5657: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L5658: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5659: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5660: $_b = array();
-        L5661: $_b[0] = $_fail;
-        L5662: $_b[1] = $_value;
-        L5663: $_b[2] = $_p;
-        L5664: $_cache[$_a] = $_b;
-        L5665: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5666: if ($_a === 5264) { goto L5264; } else if ($_a === 5651) { goto L5651; } else { return array(FALSE, NULL, 59); }
-        L5667: $_stack[++$_stack_sp] = "60@";
-        L5668: $_stack[$_stack_sp] .= $_p;
-        L5669: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5676; }
-        L5670: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5671: $_b = $_cache[$_a];
-        L5672: $_fail = $_b[0];
-        L5673: $_value = $_b[1];
-        L5674: $_p = $_b[2];
-        L5675: goto L5803;
-        L5676: $_stack[++$_stack_sp] = $_env;
-        L5677: $_env = array();
-        L5678: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5679: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5680: $_stack[++$_stack_sp] = $_b;
-        L5681: $_stack[++$_stack_sp] = NULL;
-        L5682: $_stack[++$_stack_sp] = $_p;
-        L5683: $_stack[++$_stack_sp] = 5685;
-        L5684: goto L5805;
-        L5685: if (!$_fail) { goto L5724; }
-        L5686: $_p = $_stack[$_stack_sp];
-        L5687: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5688: $_stack[++$_stack_sp] = $_b;
-        L5689: $_stack[++$_stack_sp] = NULL;
-        L5690: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "new") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"new"', $_expected)) { $_expected[] = '"new"'; } } }
-        L5691: $_stack[$_stack_sp] = $_value;
-        L5692: if ($_fail) { goto L5716; }
-        L5693: $_stack[++$_stack_sp] = $_p;
-        L5694: $_stack[++$_stack_sp] = 5696;
-        L5695: goto L7431;
-        L5696: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5697: $_value = NULL;
-        L5698: $_fail = !$_fail;
-        L5699: if ($_fail) { goto L5716; }
-        L5700: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5701: $_env["p"] = $_value;
-        L5702: if ($_fail) { goto L5716; }
-        L5703: $_stack[++$_stack_sp] = 5705;
-        L5704: goto L7003;
-        L5705: if ($_fail) { goto L5716; }
-        L5706: $_stack[++$_stack_sp] = 5708;
-        L5707: goto L5667;
-        L5708: $_env["e"] = $_value;
-        L5709: if ($_fail) { goto L5716; }
-        L5710: $_stack[++$_stack_sp] = 5712;
-        L5711: goto L7003;
-        L5712: if ($_fail) { goto L5716; }
+        L5605: if ($_fail) { goto L5609; }
+        L5606: $_stack[$_stack_sp][] = $_value;
+        L5607: $_stack[$_stack_sp - 1] = $_p;
+        L5608: goto L5577;
+        L5609: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5610: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5611: $_fail = false;
+        L5612: $_env["rest"] = $_value;
+        L5613: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5614: if ($_fail) { goto L5616; }
+        L5615: $_value = $this->_166($_env);
+        L5616: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5617: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5618: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5619: if (!$_fail) { goto L5623; }
+        L5620: $_fail = false;
+        L5621: $_value = NULL;
+        L5622: $_p = $_a;
+        L5623: $_env["arguments"] = $_value;
+        L5624: if ($_fail) { goto L5629; }
+        L5625: $_stack[++$_stack_sp] = 5627;
+        L5626: goto L7033;
+        L5627: if ($_fail) { goto L5629; }
+        L5628: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L5629: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5630: if ($_fail) { goto L5632; }
+        L5631: $_value = $this->_165($_env);
+        L5632: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5633: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5634: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5635: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5636: $_b = array();
+        L5637: $_b[0] = $_fail;
+        L5638: $_b[1] = $_value;
+        L5639: $_b[2] = $_p;
+        L5640: $_cache[$_a] = $_b;
+        L5641: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5642: if ($_a !== 5745) return array(FALSE, NULL, 58); goto L5745;
+        L5643: $_stack[++$_stack_sp] = "59@";
+        L5644: $_stack[$_stack_sp] .= $_p;
+        L5645: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5652; }
+        L5646: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5647: $_b = $_cache[$_a];
+        L5648: $_fail = $_b[0];
+        L5649: $_value = $_b[1];
+        L5650: $_p = $_b[2];
+        L5651: goto L5695;
+        L5652: $_stack[++$_stack_sp] = $_env;
+        L5653: $_env = array();
+        L5654: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5655: $_stack[++$_stack_sp] = $_p;
+        L5656: $_stack[++$_stack_sp] = 5658;
+        L5657: goto L5697;
+        L5658: if (!$_fail) { goto L5686; }
+        L5659: $_p = $_stack[$_stack_sp];
+        L5660: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5661: $_stack[++$_stack_sp] = $_b;
+        L5662: $_stack[++$_stack_sp] = NULL;
+        L5663: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "new") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"new"', $_expected)) { $_expected[] = '"new"'; } } }
+        L5664: $_stack[$_stack_sp] = $_value;
+        L5665: if ($_fail) { goto L5682; }
+        L5666: $_stack[++$_stack_sp] = $_p;
+        L5667: $_stack[++$_stack_sp] = 5669;
+        L5668: goto L7461;
+        L5669: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5670: $_value = NULL;
+        L5671: $_fail = !$_fail;
+        L5672: if ($_fail) { goto L5682; }
+        L5673: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5674: $_env["p"] = $_value;
+        L5675: if ($_fail) { goto L5682; }
+        L5676: $_stack[++$_stack_sp] = 5678;
+        L5677: goto L7033;
+        L5678: if ($_fail) { goto L5682; }
+        L5679: $_stack[++$_stack_sp] = 5681;
+        L5680: goto L5643;
+        L5681: $_env["expr"] = $_value;
+        L5682: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5683: if ($_fail) { goto L5685; }
+        L5684: $_value = $this->_168($_env);
+        L5685: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5686: unset($_stack[$_stack_sp--]);
+        L5687: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5688: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5689: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5690: $_b = array();
+        L5691: $_b[0] = $_fail;
+        L5692: $_b[1] = $_value;
+        L5693: $_b[2] = $_p;
+        L5694: $_cache[$_a] = $_b;
+        L5695: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5696: if ($_a === 5294) { goto L5294; } else if ($_a === 5681) { goto L5681; } else { return array(FALSE, NULL, 59); }
+        L5697: $_stack[++$_stack_sp] = "60@";
+        L5698: $_stack[$_stack_sp] .= $_p;
+        L5699: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5706; }
+        L5700: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5701: $_b = $_cache[$_a];
+        L5702: $_fail = $_b[0];
+        L5703: $_value = $_b[1];
+        L5704: $_p = $_b[2];
+        L5705: goto L5833;
+        L5706: $_stack[++$_stack_sp] = $_env;
+        L5707: $_env = array();
+        L5708: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5709: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5710: $_stack[++$_stack_sp] = $_b;
+        L5711: $_stack[++$_stack_sp] = NULL;
+        L5712: $_stack[++$_stack_sp] = $_p;
         L5713: $_stack[++$_stack_sp] = 5715;
-        L5714: goto L5510;
-        L5715: $_env["a"] = $_value;
-        L5716: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5717: if ($_fail) { goto L5719; }
-        L5718: $_value = $this->_166($_env);
-        L5719: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5720: if (!$_fail) { goto L5724; }
-        L5721: $_p = $_stack[$_stack_sp];
-        L5722: $_stack[++$_stack_sp] = 5724;
-        L5723: goto L275;
-        L5724: unset($_stack[$_stack_sp--]);
-        L5725: $_env["base"] = $_value;
-        L5726: $_stack[$_stack_sp] = $_value;
-        L5727: if ($_fail) { goto L5791; }
-        L5728: $_stack[++$_stack_sp] = $_p;
-        L5729: $_stack[++$_stack_sp] = array();
-        L5730: $_stack[++$_stack_sp] = $_p;
-        L5731: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5732: $_stack[++$_stack_sp] = $_b;
-        L5733: $_stack[++$_stack_sp] = NULL;
-        L5734: $_stack[++$_stack_sp] = 5736;
-        L5735: goto L7003;
-        L5736: $_stack[$_stack_sp] = $_value;
-        L5737: if ($_fail) { goto L5754; }
-        L5738: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "[") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"["', $_expected)) { $_expected[] = '"["'; } } }
-        L5739: if ($_fail) { goto L5754; }
-        L5740: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5741: $_env["p"] = $_value;
-        L5742: if ($_fail) { goto L5754; }
+        L5714: goto L5835;
+        L5715: if (!$_fail) { goto L5754; }
+        L5716: $_p = $_stack[$_stack_sp];
+        L5717: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5718: $_stack[++$_stack_sp] = $_b;
+        L5719: $_stack[++$_stack_sp] = NULL;
+        L5720: $_fail = TRUE; if (($_a = substr($_s, $_p, 3)) === "new") { $_fail = FALSE; $_value = $_a; $_p += 3; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"new"', $_expected)) { $_expected[] = '"new"'; } } }
+        L5721: $_stack[$_stack_sp] = $_value;
+        L5722: if ($_fail) { goto L5746; }
+        L5723: $_stack[++$_stack_sp] = $_p;
+        L5724: $_stack[++$_stack_sp] = 5726;
+        L5725: goto L7461;
+        L5726: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5727: $_value = NULL;
+        L5728: $_fail = !$_fail;
+        L5729: if ($_fail) { goto L5746; }
+        L5730: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5731: $_env["p"] = $_value;
+        L5732: if ($_fail) { goto L5746; }
+        L5733: $_stack[++$_stack_sp] = 5735;
+        L5734: goto L7033;
+        L5735: if ($_fail) { goto L5746; }
+        L5736: $_stack[++$_stack_sp] = 5738;
+        L5737: goto L5697;
+        L5738: $_env["e"] = $_value;
+        L5739: if ($_fail) { goto L5746; }
+        L5740: $_stack[++$_stack_sp] = 5742;
+        L5741: goto L7033;
+        L5742: if ($_fail) { goto L5746; }
         L5743: $_stack[++$_stack_sp] = 5745;
-        L5744: goto L7003;
-        L5745: if ($_fail) { goto L5754; }
-        L5746: $_stack[++$_stack_sp] = 5748;
-        L5747: goto L2391;
-        L5748: $_env["e"] = $_value;
-        L5749: if ($_fail) { goto L5754; }
-        L5750: $_stack[++$_stack_sp] = 5752;
-        L5751: goto L7003;
-        L5752: if ($_fail) { goto L5754; }
-        L5753: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "]") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"]"', $_expected)) { $_expected[] = '"]"'; } } }
-        L5754: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5755: if ($_fail) { goto L5757; }
-        L5756: $_value = $this->_167($_env);
-        L5757: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5758: if (!$_fail) { goto L5782; }
-        L5759: $_p = $_stack[$_stack_sp];
-        L5760: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5761: $_stack[++$_stack_sp] = $_b;
-        L5762: $_stack[++$_stack_sp] = NULL;
-        L5763: $_stack[++$_stack_sp] = 5765;
-        L5764: goto L7003;
-        L5765: $_stack[$_stack_sp] = $_value;
-        L5766: if ($_fail) { goto L5778; }
-        L5767: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
-        L5768: if ($_fail) { goto L5778; }
-        L5769: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5770: $_env["p"] = $_value;
-        L5771: if ($_fail) { goto L5778; }
-        L5772: $_stack[++$_stack_sp] = 5774;
-        L5773: goto L7003;
-        L5774: if ($_fail) { goto L5778; }
-        L5775: $_stack[++$_stack_sp] = 5777;
-        L5776: goto L7370;
-        L5777: $_env["id"] = $_value;
-        L5778: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5779: if ($_fail) { goto L5781; }
-        L5780: $_value = $this->_168($_env);
-        L5781: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5782: unset($_stack[$_stack_sp--]);
-        L5783: if ($_fail) { goto L5787; }
-        L5784: $_stack[$_stack_sp][] = $_value;
-        L5785: $_stack[$_stack_sp - 1] = $_p;
-        L5786: goto L5730;
-        L5787: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5788: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5789: $_fail = false;
-        L5790: $_env["accessors"] = $_value;
-        L5791: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5792: if ($_fail) { goto L5794; }
-        L5793: $_value = $this->_165($_env);
-        L5794: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5795: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L5796: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5797: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5798: $_b = array();
-        L5799: $_b[0] = $_fail;
-        L5800: $_b[1] = $_value;
-        L5801: $_b[2] = $_p;
-        L5802: $_cache[$_a] = $_b;
-        L5803: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5804: if ($_a === 5295) { goto L5295; } else if ($_a === 5628) { goto L5628; } else if ($_a === 5708) { goto L5708; } else { return array(FALSE, NULL, 60); }
-        L5805: $_stack[++$_stack_sp] = "61@";
-        L5806: $_stack[$_stack_sp] .= $_p;
-        L5807: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5814; }
-        L5808: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5809: $_b = $_cache[$_a];
-        L5810: $_fail = $_b[0];
-        L5811: $_value = $_b[1];
-        L5812: $_p = $_b[2];
-        L5813: goto L6223;
-        L5814: $_stack[++$_stack_sp] = $_env;
-        L5815: $_env = array();
-        L5816: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L5817: $_stack[++$_stack_sp] = $_p;
-        L5818: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5819: $_stack[++$_stack_sp] = $_b;
-        L5820: $_stack[++$_stack_sp] = "";
-        L5821: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "this") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"this"', $_expected)) { $_expected[] = '"this"'; } } }
-        L5822: $_stack[$_stack_sp] .= $_value;
-        L5823: if ($_fail) { goto L5831; }
-        L5824: $_stack[++$_stack_sp] = $_p;
-        L5825: $_stack[++$_stack_sp] = 5827;
-        L5826: goto L7431;
-        L5827: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5828: $_value = NULL;
-        L5829: $_fail = !$_fail;
-        L5830: $_stack[$_stack_sp] .= $_value;
-        L5831: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5832: if ($_fail) { goto L5834; }
-        L5833: $_value = $this->_169($_env);
-        L5834: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5835: if (!$_fail) { goto L6214; }
-        L5836: $_p = $_stack[$_stack_sp];
-        L5837: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5838: $_stack[++$_stack_sp] = $_b;
-        L5839: $_stack[++$_stack_sp] = "";
-        L5840: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "null") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"null"', $_expected)) { $_expected[] = '"null"'; } } }
-        L5841: $_stack[$_stack_sp] .= $_value;
-        L5842: if ($_fail) { goto L5850; }
-        L5843: $_stack[++$_stack_sp] = $_p;
-        L5844: $_stack[++$_stack_sp] = 5846;
-        L5845: goto L7431;
-        L5846: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5847: $_value = NULL;
-        L5848: $_fail = !$_fail;
-        L5849: $_stack[$_stack_sp] .= $_value;
-        L5850: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5851: if ($_fail) { goto L5853; }
-        L5852: $_value = $this->_170($_env);
-        L5853: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5854: if (!$_fail) { goto L6214; }
-        L5855: $_p = $_stack[$_stack_sp];
-        L5856: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5857: $_stack[++$_stack_sp] = $_b;
-        L5858: $_stack[++$_stack_sp] = "";
-        L5859: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "true") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"true"', $_expected)) { $_expected[] = '"true"'; } } }
+        L5744: goto L5540;
+        L5745: $_env["a"] = $_value;
+        L5746: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5747: if ($_fail) { goto L5749; }
+        L5748: $_value = $this->_170($_env);
+        L5749: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5750: if (!$_fail) { goto L5754; }
+        L5751: $_p = $_stack[$_stack_sp];
+        L5752: $_stack[++$_stack_sp] = 5754;
+        L5753: goto L275;
+        L5754: unset($_stack[$_stack_sp--]);
+        L5755: $_env["base"] = $_value;
+        L5756: $_stack[$_stack_sp] = $_value;
+        L5757: if ($_fail) { goto L5821; }
+        L5758: $_stack[++$_stack_sp] = $_p;
+        L5759: $_stack[++$_stack_sp] = array();
+        L5760: $_stack[++$_stack_sp] = $_p;
+        L5761: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5762: $_stack[++$_stack_sp] = $_b;
+        L5763: $_stack[++$_stack_sp] = NULL;
+        L5764: $_stack[++$_stack_sp] = 5766;
+        L5765: goto L7033;
+        L5766: $_stack[$_stack_sp] = $_value;
+        L5767: if ($_fail) { goto L5784; }
+        L5768: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "[") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"["', $_expected)) { $_expected[] = '"["'; } } }
+        L5769: if ($_fail) { goto L5784; }
+        L5770: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5771: $_env["p"] = $_value;
+        L5772: if ($_fail) { goto L5784; }
+        L5773: $_stack[++$_stack_sp] = 5775;
+        L5774: goto L7033;
+        L5775: if ($_fail) { goto L5784; }
+        L5776: $_stack[++$_stack_sp] = 5778;
+        L5777: goto L2421;
+        L5778: $_env["e"] = $_value;
+        L5779: if ($_fail) { goto L5784; }
+        L5780: $_stack[++$_stack_sp] = 5782;
+        L5781: goto L7033;
+        L5782: if ($_fail) { goto L5784; }
+        L5783: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "]") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"]"', $_expected)) { $_expected[] = '"]"'; } } }
+        L5784: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5785: if ($_fail) { goto L5787; }
+        L5786: $_value = $this->_171($_env);
+        L5787: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5788: if (!$_fail) { goto L5812; }
+        L5789: $_p = $_stack[$_stack_sp];
+        L5790: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5791: $_stack[++$_stack_sp] = $_b;
+        L5792: $_stack[++$_stack_sp] = NULL;
+        L5793: $_stack[++$_stack_sp] = 5795;
+        L5794: goto L7033;
+        L5795: $_stack[$_stack_sp] = $_value;
+        L5796: if ($_fail) { goto L5808; }
+        L5797: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
+        L5798: if ($_fail) { goto L5808; }
+        L5799: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5800: $_env["p"] = $_value;
+        L5801: if ($_fail) { goto L5808; }
+        L5802: $_stack[++$_stack_sp] = 5804;
+        L5803: goto L7033;
+        L5804: if ($_fail) { goto L5808; }
+        L5805: $_stack[++$_stack_sp] = 5807;
+        L5806: goto L7400;
+        L5807: $_env["id"] = $_value;
+        L5808: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5809: if ($_fail) { goto L5811; }
+        L5810: $_value = $this->_172($_env);
+        L5811: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5812: unset($_stack[$_stack_sp--]);
+        L5813: if ($_fail) { goto L5817; }
+        L5814: $_stack[$_stack_sp][] = $_value;
+        L5815: $_stack[$_stack_sp - 1] = $_p;
+        L5816: goto L5760;
+        L5817: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5818: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5819: $_fail = false;
+        L5820: $_env["accessors"] = $_value;
+        L5821: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5822: if ($_fail) { goto L5824; }
+        L5823: $_value = $this->_169($_env);
+        L5824: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5825: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L5826: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5827: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5828: $_b = array();
+        L5829: $_b[0] = $_fail;
+        L5830: $_b[1] = $_value;
+        L5831: $_b[2] = $_p;
+        L5832: $_cache[$_a] = $_b;
+        L5833: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5834: if ($_a === 5325) { goto L5325; } else if ($_a === 5658) { goto L5658; } else if ($_a === 5738) { goto L5738; } else { return array(FALSE, NULL, 60); }
+        L5835: $_stack[++$_stack_sp] = "61@";
+        L5836: $_stack[$_stack_sp] .= $_p;
+        L5837: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L5844; }
+        L5838: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5839: $_b = $_cache[$_a];
+        L5840: $_fail = $_b[0];
+        L5841: $_value = $_b[1];
+        L5842: $_p = $_b[2];
+        L5843: goto L6253;
+        L5844: $_stack[++$_stack_sp] = $_env;
+        L5845: $_env = array();
+        L5846: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L5847: $_stack[++$_stack_sp] = $_p;
+        L5848: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5849: $_stack[++$_stack_sp] = $_b;
+        L5850: $_stack[++$_stack_sp] = "";
+        L5851: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "this") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"this"', $_expected)) { $_expected[] = '"this"'; } } }
+        L5852: $_stack[$_stack_sp] .= $_value;
+        L5853: if ($_fail) { goto L5861; }
+        L5854: $_stack[++$_stack_sp] = $_p;
+        L5855: $_stack[++$_stack_sp] = 5857;
+        L5856: goto L7461;
+        L5857: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5858: $_value = NULL;
+        L5859: $_fail = !$_fail;
         L5860: $_stack[$_stack_sp] .= $_value;
-        L5861: if ($_fail) { goto L5869; }
-        L5862: $_stack[++$_stack_sp] = $_p;
-        L5863: $_stack[++$_stack_sp] = 5865;
-        L5864: goto L7431;
-        L5865: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5866: $_value = NULL;
-        L5867: $_fail = !$_fail;
-        L5868: $_stack[$_stack_sp] .= $_value;
-        L5869: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5870: if ($_fail) { goto L5872; }
-        L5871: $_value = $this->_171($_env);
-        L5872: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5873: if (!$_fail) { goto L6214; }
-        L5874: $_p = $_stack[$_stack_sp];
-        L5875: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5876: $_stack[++$_stack_sp] = $_b;
-        L5877: $_stack[++$_stack_sp] = "";
-        L5878: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "false") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"false"', $_expected)) { $_expected[] = '"false"'; } } }
+        L5861: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5862: if ($_fail) { goto L5864; }
+        L5863: $_value = $this->_173($_env);
+        L5864: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5865: if (!$_fail) { goto L6244; }
+        L5866: $_p = $_stack[$_stack_sp];
+        L5867: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5868: $_stack[++$_stack_sp] = $_b;
+        L5869: $_stack[++$_stack_sp] = "";
+        L5870: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "null") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"null"', $_expected)) { $_expected[] = '"null"'; } } }
+        L5871: $_stack[$_stack_sp] .= $_value;
+        L5872: if ($_fail) { goto L5880; }
+        L5873: $_stack[++$_stack_sp] = $_p;
+        L5874: $_stack[++$_stack_sp] = 5876;
+        L5875: goto L7461;
+        L5876: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5877: $_value = NULL;
+        L5878: $_fail = !$_fail;
         L5879: $_stack[$_stack_sp] .= $_value;
-        L5880: if ($_fail) { goto L5888; }
-        L5881: $_stack[++$_stack_sp] = $_p;
-        L5882: $_stack[++$_stack_sp] = 5884;
-        L5883: goto L7431;
-        L5884: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5885: $_value = NULL;
-        L5886: $_fail = !$_fail;
-        L5887: $_stack[$_stack_sp] .= $_value;
-        L5888: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5889: if ($_fail) { goto L5891; }
-        L5890: $_value = $this->_172($_env);
-        L5891: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5892: if (!$_fail) { goto L6214; }
-        L5893: $_p = $_stack[$_stack_sp];
-        L5894: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5895: $_stack[++$_stack_sp] = $_b;
-        L5896: $_stack[++$_stack_sp] = "";
-        L5897: $_fail = TRUE; if (($_a = substr($_s, $_p, 9)) === "undefined") { $_fail = FALSE; $_value = $_a; $_p += 9; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"undefined"', $_expected)) { $_expected[] = '"undefined"'; } } }
+        L5880: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5881: if ($_fail) { goto L5883; }
+        L5882: $_value = $this->_174($_env);
+        L5883: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5884: if (!$_fail) { goto L6244; }
+        L5885: $_p = $_stack[$_stack_sp];
+        L5886: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5887: $_stack[++$_stack_sp] = $_b;
+        L5888: $_stack[++$_stack_sp] = "";
+        L5889: $_fail = TRUE; if (($_a = substr($_s, $_p, 4)) === "true") { $_fail = FALSE; $_value = $_a; $_p += 4; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"true"', $_expected)) { $_expected[] = '"true"'; } } }
+        L5890: $_stack[$_stack_sp] .= $_value;
+        L5891: if ($_fail) { goto L5899; }
+        L5892: $_stack[++$_stack_sp] = $_p;
+        L5893: $_stack[++$_stack_sp] = 5895;
+        L5894: goto L7461;
+        L5895: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5896: $_value = NULL;
+        L5897: $_fail = !$_fail;
         L5898: $_stack[$_stack_sp] .= $_value;
-        L5899: if ($_fail) { goto L5907; }
-        L5900: $_stack[++$_stack_sp] = $_p;
-        L5901: $_stack[++$_stack_sp] = 5903;
-        L5902: goto L7431;
-        L5903: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5904: $_value = NULL;
-        L5905: $_fail = !$_fail;
-        L5906: $_stack[$_stack_sp] .= $_value;
-        L5907: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5908: if ($_fail) { goto L5910; }
-        L5909: $_value = $this->_173($_env);
-        L5910: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5911: if (!$_fail) { goto L6214; }
-        L5912: $_p = $_stack[$_stack_sp];
-        L5913: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5914: $_stack[++$_stack_sp] = $_b;
-        L5915: $_stack[++$_stack_sp] = 5917;
-        L5916: goto L6319;
-        L5917: $_env["n"] = $_value;
-        L5918: if ($_fail) { goto L5920; }
-        L5919: $_value = $this->_174($_env);
-        L5920: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5921: if (!$_fail) { goto L6214; }
-        L5922: $_p = $_stack[$_stack_sp];
-        L5923: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5924: $_stack[++$_stack_sp] = $_b;
-        L5925: $_stack[++$_stack_sp] = 5927;
-        L5926: goto L6554;
-        L5927: $_env["s"] = $_value;
-        L5928: if ($_fail) { goto L5930; }
-        L5929: $_value = $this->_175($_env);
-        L5930: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5931: if (!$_fail) { goto L6214; }
-        L5932: $_p = $_stack[$_stack_sp];
-        L5933: $_stack[++$_stack_sp] = 5935;
-        L5934: goto L6808;
-        L5935: if (!$_fail) { goto L6214; }
-        L5936: $_p = $_stack[$_stack_sp];
-        L5937: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5938: $_stack[++$_stack_sp] = $_b;
-        L5939: $_stack[++$_stack_sp] = NULL;
-        L5940: $_stack[++$_stack_sp] = 5942;
-        L5941: goto L7337;
-        L5942: $_env["id"] = $_value;
-        L5943: $_stack[$_stack_sp] = $_value;
-        L5944: if ($_fail) { goto L5947; }
-        L5945: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L5946: $_env["p"] = $_value;
-        L5947: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5899: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5900: if ($_fail) { goto L5902; }
+        L5901: $_value = $this->_175($_env);
+        L5902: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5903: if (!$_fail) { goto L6244; }
+        L5904: $_p = $_stack[$_stack_sp];
+        L5905: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5906: $_stack[++$_stack_sp] = $_b;
+        L5907: $_stack[++$_stack_sp] = "";
+        L5908: $_fail = TRUE; if (($_a = substr($_s, $_p, 5)) === "false") { $_fail = FALSE; $_value = $_a; $_p += 5; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"false"', $_expected)) { $_expected[] = '"false"'; } } }
+        L5909: $_stack[$_stack_sp] .= $_value;
+        L5910: if ($_fail) { goto L5918; }
+        L5911: $_stack[++$_stack_sp] = $_p;
+        L5912: $_stack[++$_stack_sp] = 5914;
+        L5913: goto L7461;
+        L5914: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5915: $_value = NULL;
+        L5916: $_fail = !$_fail;
+        L5917: $_stack[$_stack_sp] .= $_value;
+        L5918: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5919: if ($_fail) { goto L5921; }
+        L5920: $_value = $this->_176($_env);
+        L5921: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5922: if (!$_fail) { goto L6244; }
+        L5923: $_p = $_stack[$_stack_sp];
+        L5924: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5925: $_stack[++$_stack_sp] = $_b;
+        L5926: $_stack[++$_stack_sp] = "";
+        L5927: $_fail = TRUE; if (($_a = substr($_s, $_p, 9)) === "undefined") { $_fail = FALSE; $_value = $_a; $_p += 9; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"undefined"', $_expected)) { $_expected[] = '"undefined"'; } } }
+        L5928: $_stack[$_stack_sp] .= $_value;
+        L5929: if ($_fail) { goto L5937; }
+        L5930: $_stack[++$_stack_sp] = $_p;
+        L5931: $_stack[++$_stack_sp] = 5933;
+        L5932: goto L7461;
+        L5933: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5934: $_value = NULL;
+        L5935: $_fail = !$_fail;
+        L5936: $_stack[$_stack_sp] .= $_value;
+        L5937: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5938: if ($_fail) { goto L5940; }
+        L5939: $_value = $this->_177($_env);
+        L5940: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5941: if (!$_fail) { goto L6244; }
+        L5942: $_p = $_stack[$_stack_sp];
+        L5943: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5944: $_stack[++$_stack_sp] = $_b;
+        L5945: $_stack[++$_stack_sp] = 5947;
+        L5946: goto L6349;
+        L5947: $_env["n"] = $_value;
         L5948: if ($_fail) { goto L5950; }
-        L5949: $_value = $this->_176($_env);
+        L5949: $_value = $this->_178($_env);
         L5950: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5951: if (!$_fail) { goto L6214; }
+        L5951: if (!$_fail) { goto L6244; }
         L5952: $_p = $_stack[$_stack_sp];
         L5953: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
         L5954: $_stack[++$_stack_sp] = $_b;
-        L5955: $_stack[++$_stack_sp] = NULL;
-        L5956: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "[") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"["', $_expected)) { $_expected[] = '"["'; } } }
-        L5957: $_stack[$_stack_sp] = $_value;
-        L5958: if ($_fail) { goto L6025; }
-        L5959: $_stack[++$_stack_sp] = 5961;
-        L5960: goto L7003;
-        L5961: if ($_fail) { goto L6025; }
-        L5962: $_stack[++$_stack_sp] = $_p;
+        L5955: $_stack[++$_stack_sp] = 5957;
+        L5956: goto L6584;
+        L5957: $_env["s"] = $_value;
+        L5958: if ($_fail) { goto L5960; }
+        L5959: $_value = $this->_179($_env);
+        L5960: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5961: if (!$_fail) { goto L6244; }
+        L5962: $_p = $_stack[$_stack_sp];
         L5963: $_stack[++$_stack_sp] = 5965;
-        L5964: goto L2559;
-        L5965: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5966: if (!$_fail) { goto L5970; }
-        L5967: $_fail = false;
-        L5968: $_value = NULL;
-        L5969: $_p = $_a;
-        L5970: $_env["a"] = $_value;
-        L5971: if ($_fail) { goto L6025; }
-        L5972: $_stack[++$_stack_sp] = $_p;
-        L5973: $_stack[++$_stack_sp] = array();
-        L5974: $_stack[++$_stack_sp] = $_p;
-        L5975: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5976: $_stack[++$_stack_sp] = $_b;
-        L5977: $_stack[++$_stack_sp] = NULL;
-        L5978: $_stack[++$_stack_sp] = 5980;
-        L5979: goto L7003;
-        L5980: $_stack[$_stack_sp] = $_value;
-        L5981: if ($_fail) { goto L5990; }
-        L5982: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L5983: if ($_fail) { goto L5990; }
-        L5984: $_stack[++$_stack_sp] = 5986;
-        L5985: goto L7003;
-        L5986: if ($_fail) { goto L5990; }
-        L5987: $_stack[++$_stack_sp] = 5989;
-        L5988: goto L2559;
-        L5989: $_env["e"] = $_value;
-        L5990: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5991: if ($_fail) { goto L5993; }
-        L5992: $_value = $this->_178($_env);
-        L5993: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L5994: if (!$_fail) { goto L6011; }
-        L5995: $_p = $_stack[$_stack_sp];
-        L5996: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L5997: $_stack[++$_stack_sp] = $_b;
-        L5998: $_stack[++$_stack_sp] = NULL;
-        L5999: $_stack[++$_stack_sp] = 6001;
-        L6000: goto L7003;
-        L6001: $_stack[$_stack_sp] = $_value;
-        L6002: if ($_fail) { goto L6007; }
-        L6003: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L6004: if ($_fail) { goto L6007; }
-        L6005: $_stack[++$_stack_sp] = 6007;
-        L6006: goto L7003;
-        L6007: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6008: if ($_fail) { goto L6010; }
-        L6009: $_value = $this->_179($_env);
-        L6010: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6011: unset($_stack[$_stack_sp--]);
-        L6012: if ($_fail) { goto L6016; }
-        L6013: $_stack[$_stack_sp][] = $_value;
-        L6014: $_stack[$_stack_sp - 1] = $_p;
-        L6015: goto L5974;
-        L6016: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6017: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6018: $_fail = false;
-        L6019: $_env["b"] = $_value;
-        L6020: if ($_fail) { goto L6025; }
-        L6021: $_stack[++$_stack_sp] = 6023;
-        L6022: goto L7003;
-        L6023: if ($_fail) { goto L6025; }
-        L6024: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "]") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"]"', $_expected)) { $_expected[] = '"]"'; } } }
-        L6025: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6026: if ($_fail) { goto L6028; }
-        L6027: $_value = $this->_177($_env);
-        L6028: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6029: if (!$_fail) { goto L6214; }
-        L6030: $_p = $_stack[$_stack_sp];
-        L6031: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6032: $_stack[++$_stack_sp] = $_b;
-        L6033: $_stack[++$_stack_sp] = NULL;
-        L6034: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "{") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"{"', $_expected)) { $_expected[] = '"{"'; } } }
-        L6035: $_stack[$_stack_sp] = $_value;
-        L6036: if ($_fail) { goto L6170; }
-        L6037: $_stack[++$_stack_sp] = 6039;
-        L6038: goto L7003;
-        L6039: if ($_fail) { goto L6170; }
-        L6040: $_stack[++$_stack_sp] = $_p;
-        L6041: $_stack[++$_stack_sp] = $_env;
-        L6042: $_env = array();
-        L6043: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6044: $_stack[++$_stack_sp] = $_b;
-        L6045: $_stack[++$_stack_sp] = NULL;
-        L6046: $_stack[++$_stack_sp] = $_env;
-        L6047: $_env = array();
-        L6048: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6049: $_stack[++$_stack_sp] = $_b;
-        L6050: $_stack[++$_stack_sp] = NULL;
-        L6051: $_stack[++$_stack_sp] = $_p;
-        L6052: $_stack[++$_stack_sp] = 6054;
-        L6053: goto L7370;
-        L6054: if (!$_fail) { goto L6062; }
-        L6055: $_p = $_stack[$_stack_sp];
-        L6056: $_stack[++$_stack_sp] = 6058;
-        L6057: goto L6554;
-        L6058: if (!$_fail) { goto L6062; }
-        L6059: $_p = $_stack[$_stack_sp];
-        L6060: $_stack[++$_stack_sp] = 6062;
-        L6061: goto L6319;
-        L6062: unset($_stack[$_stack_sp--]);
-        L6063: $_env["name"] = $_value;
-        L6064: $_stack[$_stack_sp] = $_value;
-        L6065: if ($_fail) { goto L6077; }
-        L6066: $_stack[++$_stack_sp] = 6068;
-        L6067: goto L7003;
-        L6068: if ($_fail) { goto L6077; }
-        L6069: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L6070: if ($_fail) { goto L6077; }
-        L6071: $_stack[++$_stack_sp] = 6073;
-        L6072: goto L7003;
-        L6073: if ($_fail) { goto L6077; }
-        L6074: $_stack[++$_stack_sp] = 6076;
-        L6075: goto L2559;
-        L6076: $_env["value"] = $_value;
-        L6077: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6078: if ($_fail) { goto L6080; }
-        L6079: $_value = $this->_182($_env);
-        L6080: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6081: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6082: $_env["first"] = $_value;
-        L6083: $_stack[$_stack_sp] = $_value;
-        L6084: if ($_fail) { goto L6154; }
-        L6085: $_stack[++$_stack_sp] = $_p;
-        L6086: $_stack[++$_stack_sp] = array();
-        L6087: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6088: $_stack[++$_stack_sp] = $_b;
-        L6089: $_stack[++$_stack_sp] = NULL;
-        L6090: $_stack[++$_stack_sp] = $_env;
-        L6091: $_env = array();
-        L6092: $_stack[++$_stack_sp] = NULL;
-        L6093: $_stack[++$_stack_sp] = 6095;
-        L6094: goto L7003;
-        L6095: $_stack[$_stack_sp] = $_value;
-        L6096: if ($_fail) { goto L6101; }
-        L6097: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
-        L6098: if ($_fail) { goto L6101; }
-        L6099: $_stack[++$_stack_sp] = 6101;
-        L6100: goto L7003;
-        L6101: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6102: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6103: $_stack[$_stack_sp] = $_value;
-        L6104: if ($_fail) { goto L6142; }
-        L6105: $_stack[++$_stack_sp] = $_env;
-        L6106: $_env = array();
-        L6107: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6108: $_stack[++$_stack_sp] = $_b;
-        L6109: $_stack[++$_stack_sp] = NULL;
-        L6110: $_stack[++$_stack_sp] = $_p;
-        L6111: $_stack[++$_stack_sp] = 6113;
-        L6112: goto L7370;
-        L6113: if (!$_fail) { goto L6121; }
-        L6114: $_p = $_stack[$_stack_sp];
-        L6115: $_stack[++$_stack_sp] = 6117;
-        L6116: goto L6554;
-        L6117: if (!$_fail) { goto L6121; }
-        L6118: $_p = $_stack[$_stack_sp];
-        L6119: $_stack[++$_stack_sp] = 6121;
-        L6120: goto L6319;
-        L6121: unset($_stack[$_stack_sp--]);
-        L6122: $_env["name"] = $_value;
-        L6123: $_stack[$_stack_sp] = $_value;
-        L6124: if ($_fail) { goto L6136; }
-        L6125: $_stack[++$_stack_sp] = 6127;
-        L6126: goto L7003;
-        L6127: if ($_fail) { goto L6136; }
-        L6128: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
-        L6129: if ($_fail) { goto L6136; }
-        L6130: $_stack[++$_stack_sp] = 6132;
-        L6131: goto L7003;
-        L6132: if ($_fail) { goto L6136; }
-        L6133: $_stack[++$_stack_sp] = 6135;
-        L6134: goto L2559;
-        L6135: $_env["value"] = $_value;
-        L6136: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6137: if ($_fail) { goto L6139; }
-        L6138: $_value = $this->_184($_env);
-        L6139: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6140: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6141: $_env["next"] = $_value;
-        L6142: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6143: if ($_fail) { goto L6145; }
-        L6144: $_value = $this->_183($_env);
-        L6145: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6146: if ($_fail) { goto L6150; }
-        L6147: $_stack[$_stack_sp][] = $_value;
-        L6148: $_stack[$_stack_sp - 1] = $_p;
-        L6149: goto L6087;
-        L6150: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6151: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6152: $_fail = false;
-        L6153: $_env["rest"] = $_value;
-        L6154: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6155: if ($_fail) { goto L6157; }
-        L6156: $_value = $this->_181($_env);
-        L6157: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6158: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6159: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6160: if (!$_fail) { goto L6164; }
-        L6161: $_fail = false;
-        L6162: $_value = NULL;
-        L6163: $_p = $_a;
-        L6164: $_env["o"] = $_value;
-        L6165: if ($_fail) { goto L6170; }
-        L6166: $_stack[++$_stack_sp] = 6168;
-        L6167: goto L7003;
-        L6168: if ($_fail) { goto L6170; }
-        L6169: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
-        L6170: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6171: if ($_fail) { goto L6173; }
-        L6172: $_value = $this->_180($_env);
-        L6173: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6174: if (!$_fail) { goto L6214; }
-        L6175: $_p = $_stack[$_stack_sp];
-        L6176: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6177: $_stack[++$_stack_sp] = $_b;
-        L6178: $_stack[++$_stack_sp] = NULL;
-        L6179: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
-        L6180: $_stack[$_stack_sp] = $_value;
-        L6181: if ($_fail) { goto L6193; }
-        L6182: $_stack[++$_stack_sp] = 6184;
-        L6183: goto L7003;
-        L6184: if ($_fail) { goto L6193; }
-        L6185: $_stack[++$_stack_sp] = 6187;
-        L6186: goto L2391;
-        L6187: $_env["e"] = $_value;
-        L6188: if ($_fail) { goto L6193; }
-        L6189: $_stack[++$_stack_sp] = 6191;
-        L6190: goto L7003;
-        L6191: if ($_fail) { goto L6193; }
-        L6192: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
-        L6193: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6194: if ($_fail) { goto L6196; }
-        L6195: $_value = $this->_185($_env);
-        L6196: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6197: if (!$_fail) { goto L6214; }
-        L6198: $_p = $_stack[$_stack_sp];
-        L6199: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6200: $_stack[++$_stack_sp] = $_b;
-        L6201: $_stack[++$_stack_sp] = NULL;
-        L6202: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
-        L6203: $_stack[$_stack_sp] = $_value;
-        L6204: if ($_fail) { goto L6210; }
-        L6205: $_stack[++$_stack_sp] = 6207;
-        L6206: goto L6225;
-        L6207: $_env["parts"] = $_value;
-        L6208: if ($_fail) { goto L6210; }
-        L6209: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
-        L6210: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6211: if ($_fail) { goto L6213; }
-        L6212: $_value = $this->_186($_env);
-        L6213: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6214: unset($_stack[$_stack_sp--]);
-        L6215: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6216: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6217: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6218: $_b = array();
-        L6219: $_b[0] = $_fail;
-        L6220: $_b[1] = $_value;
-        L6221: $_b[2] = $_p;
-        L6222: $_cache[$_a] = $_b;
-        L6223: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6224: if ($_a !== 5685) return array(FALSE, NULL, 61); goto L5685;
-        L6225: $_stack[++$_stack_sp] = "62@";
-        L6226: $_stack[$_stack_sp] .= $_p;
-        L6227: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6234; }
-        L6228: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6229: $_b = $_cache[$_a];
-        L6230: $_fail = $_b[0];
-        L6231: $_value = $_b[1];
-        L6232: $_p = $_b[2];
-        L6233: goto L6317;
-        L6234: $_stack[++$_stack_sp] = $_env;
-        L6235: $_env = array();
-        L6236: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L6237: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6238: $_stack[++$_stack_sp] = $_b;
-        L6239: $_stack[++$_stack_sp] = $_p;
-        L6240: $_stack[++$_stack_sp] = array();
-        L6241: $_stack[++$_stack_sp] = $_p;
-        L6242: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6243: $_stack[++$_stack_sp] = $_b;
-        L6244: $_stack[++$_stack_sp] = NULL;
-        L6245: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "`") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"`"', $_expected)) { $_expected[] = '"`"'; } } }
-        L6246: $_stack[$_stack_sp] = $_value;
-        L6247: if ($_fail) { goto L6254; }
-        L6248: $_stack[++$_stack_sp] = 6250;
-        L6249: goto L7370;
-        L6250: $_env["id"] = $_value;
-        L6251: if ($_fail) { goto L6254; }
-        L6252: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L6253: $_env["p"] = $_value;
-        L6254: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6255: if ($_fail) { goto L6257; }
-        L6256: $_value = $this->_188($_env);
-        L6257: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6258: if (!$_fail) { goto L6297; }
-        L6259: $_p = $_stack[$_stack_sp];
-        L6260: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6261: $_stack[++$_stack_sp] = $_b;
-        L6262: $_stack[++$_stack_sp] = $_p;
-        L6263: $_stack[++$_stack_sp] = "";
-        L6264: $_stack[++$_stack_sp] = true;
-        L6265: $_stack[++$_stack_sp] = "";
-        L6266: $_stack[++$_stack_sp] = $_p;
-        L6267: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
-        L6268: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6269: $_value = NULL;
-        L6270: $_fail = !$_fail;
-        L6271: $_stack[$_stack_sp] .= $_value;
-        L6272: if ($_fail) { goto L6282; }
-        L6273: $_stack[++$_stack_sp] = $_p;
-        L6274: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "`") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"`"', $_expected)) { $_expected[] = '"`"'; } } }
-        L6275: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6276: $_value = NULL;
-        L6277: $_fail = !$_fail;
-        L6278: $_stack[$_stack_sp] .= $_value;
-        L6279: if ($_fail) { goto L6282; }
-        L6280: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L6281: $_stack[$_stack_sp] .= $_value;
-        L6282: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6283: if ($_fail) { goto L6288; }
-        L6284: $_stack[$_stack_sp] = false;
-        L6285: $_stack[$_stack_sp - 1] .= $_value;
-        L6286: $_stack[$_stack_sp - 2] = $_p;
-        L6287: goto L6265;
-        L6288: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6289: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6290: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6291: if ($_a) { goto L6293; }
-        L6292: $_fail = false;
-        L6293: $_env["code"] = $_value;
-        L6294: if ($_fail) { goto L6296; }
-        L6295: $_value = $this->_189($_env);
-        L6296: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6297: unset($_stack[$_stack_sp--]);
-        L6298: if ($_fail) { goto L6302; }
-        L6299: $_stack[$_stack_sp][] = $_value;
-        L6300: $_stack[$_stack_sp - 1] = $_p;
-        L6301: goto L6241;
-        L6302: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6303: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6304: $_fail = false;
-        L6305: $_env["parts"] = $_value;
-        L6306: if ($_fail) { goto L6308; }
-        L6307: $_value = $this->_187($_env);
-        L6308: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6309: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6310: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6311: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6312: $_b = array();
-        L6313: $_b[0] = $_fail;
-        L6314: $_b[1] = $_value;
-        L6315: $_b[2] = $_p;
-        L6316: $_cache[$_a] = $_b;
-        L6317: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6318: if ($_a === 2374) { goto L2374; } else if ($_a === 6207) { goto L6207; } else { return array(FALSE, NULL, 62); }
-        L6319: $_stack[++$_stack_sp] = "63@";
-        L6320: $_stack[$_stack_sp] .= $_p;
-        L6321: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6328; }
-        L6322: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6323: $_b = $_cache[$_a];
-        L6324: $_fail = $_b[0];
-        L6325: $_value = $_b[1];
-        L6326: $_p = $_b[2];
-        L6327: goto L6552;
-        L6328: $_stack[++$_stack_sp] = $_env;
-        L6329: $_env = array();
-        L6330: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L6331: $_stack[++$_stack_sp] = $_p;
-        L6332: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6333: $_stack[++$_stack_sp] = $_b;
-        L6334: $_stack[++$_stack_sp] = NULL;
-        L6335: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "0") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"0"', $_expected)) { $_expected[] = '"0"'; } } }
-        L6336: $_stack[$_stack_sp] = $_value;
-        L6337: if ($_fail) { goto L6362; }
-        L6338: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 88) || ($_a === 120))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[Xx]', $_expected)) { $_expected[] = '[Xx]'; } } }
-        L6339: if ($_fail) { goto L6362; }
-        L6340: $_stack[++$_stack_sp] = $_p;
-        L6341: $_stack[++$_stack_sp] = "";
-        L6342: $_stack[++$_stack_sp] = true;
-        L6343: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57) || (97 <= $_a && $_a <= 102) || (65 <= $_a && $_a <= 70))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9a-fA-F]', $_expected)) { $_expected[] = '[0-9a-fA-F]'; } } }
-        L6344: if ($_fail) { goto L6349; }
-        L6345: $_stack[$_stack_sp] = false;
-        L6346: $_stack[$_stack_sp - 1] .= $_value;
-        L6347: $_stack[$_stack_sp - 2] = $_p;
-        L6348: goto L6343;
-        L6349: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6350: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6351: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6352: if ($_a) { goto L6354; }
-        L6353: $_fail = false;
-        L6354: $_env["hex"] = $_value;
-        L6355: if ($_fail) { goto L6362; }
-        L6356: $_stack[++$_stack_sp] = $_p;
-        L6357: $_stack[++$_stack_sp] = 6359;
-        L6358: goto L7408;
-        L6359: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6360: $_value = NULL;
-        L6361: $_fail = !$_fail;
-        L6362: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6363: if ($_fail) { goto L6365; }
-        L6364: $_value = $this->_190($_env);
-        L6365: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6366: if (!$_fail) { goto L6543; }
-        L6367: $_p = $_stack[$_stack_sp];
-        L6368: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6369: $_stack[++$_stack_sp] = $_b;
-        L6370: $_stack[++$_stack_sp] = NULL;
-        L6371: $_stack[++$_stack_sp] = $_p;
-        L6372: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "0") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"0"', $_expected)) { $_expected[] = '"0"'; } } }
-        L6373: if (!$_fail) { goto L6391; }
-        L6374: $_p = $_stack[$_stack_sp];
-        L6375: $_stack[++$_stack_sp] = "";
-        L6376: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((49 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[1-9]', $_expected)) { $_expected[] = '[1-9]'; } } }
-        L6377: $_stack[$_stack_sp] .= $_value;
-        L6378: if ($_fail) { goto L6390; }
-        L6379: $_stack[++$_stack_sp] = $_p;
-        L6380: $_stack[++$_stack_sp] = "";
-        L6381: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
-        L6382: if ($_fail) { goto L6386; }
-        L6383: $_stack[$_stack_sp] .= $_value;
-        L6384: $_stack[$_stack_sp - 1] = $_p;
-        L6385: goto L6381;
-        L6386: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6387: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6388: $_fail = false;
-        L6389: $_stack[$_stack_sp] .= $_value;
-        L6390: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6391: unset($_stack[$_stack_sp--]);
-        L6392: $_env["int"] = $_value;
-        L6393: $_stack[$_stack_sp] = $_value;
-        L6394: if ($_fail) { goto L6462; }
-        L6395: $_stack[++$_stack_sp] = $_p;
-        L6396: $_stack[++$_stack_sp] = "";
-        L6397: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
-        L6398: $_stack[$_stack_sp] .= $_value;
-        L6399: if ($_fail) { goto L6411; }
-        L6400: $_stack[++$_stack_sp] = $_p;
-        L6401: $_stack[++$_stack_sp] = "";
-        L6402: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
-        L6403: if ($_fail) { goto L6407; }
-        L6404: $_stack[$_stack_sp] .= $_value;
-        L6405: $_stack[$_stack_sp - 1] = $_p;
-        L6406: goto L6402;
-        L6407: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6408: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6409: $_fail = false;
-        L6410: $_stack[$_stack_sp] .= $_value;
-        L6411: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6412: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6413: if (!$_fail) { goto L6417; }
-        L6414: $_fail = false;
-        L6415: $_value = NULL;
-        L6416: $_p = $_a;
-        L6417: $_env["frac"] = $_value;
-        L6418: if ($_fail) { goto L6462; }
-        L6419: $_stack[++$_stack_sp] = $_p;
-        L6420: $_stack[++$_stack_sp] = "";
-        L6421: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 101) || ($_a === 69))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[eE]', $_expected)) { $_expected[] = '[eE]'; } } }
-        L6422: $_stack[$_stack_sp] .= $_value;
-        L6423: if ($_fail) { goto L6448; }
-        L6424: $_stack[++$_stack_sp] = $_p;
-        L6425: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 43) || ($_a === 45))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[+-]', $_expected)) { $_expected[] = '[+-]'; } } }
-        L6426: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6427: if (!$_fail) { goto L6431; }
-        L6428: $_fail = false;
-        L6429: $_value = NULL;
-        L6430: $_p = $_a;
-        L6431: $_stack[$_stack_sp] .= $_value;
-        L6432: if ($_fail) { goto L6448; }
-        L6433: $_stack[++$_stack_sp] = $_p;
-        L6434: $_stack[++$_stack_sp] = "";
-        L6435: $_stack[++$_stack_sp] = true;
-        L6436: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
-        L6437: if ($_fail) { goto L6442; }
-        L6438: $_stack[$_stack_sp] = false;
-        L6439: $_stack[$_stack_sp - 1] .= $_value;
-        L6440: $_stack[$_stack_sp - 2] = $_p;
-        L6441: goto L6436;
+        L5964: goto L6838;
+        L5965: if (!$_fail) { goto L6244; }
+        L5966: $_p = $_stack[$_stack_sp];
+        L5967: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5968: $_stack[++$_stack_sp] = $_b;
+        L5969: $_stack[++$_stack_sp] = NULL;
+        L5970: $_stack[++$_stack_sp] = 5972;
+        L5971: goto L7367;
+        L5972: $_env["id"] = $_value;
+        L5973: $_stack[$_stack_sp] = $_value;
+        L5974: if ($_fail) { goto L5977; }
+        L5975: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L5976: $_env["p"] = $_value;
+        L5977: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5978: if ($_fail) { goto L5980; }
+        L5979: $_value = $this->_180($_env);
+        L5980: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5981: if (!$_fail) { goto L6244; }
+        L5982: $_p = $_stack[$_stack_sp];
+        L5983: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L5984: $_stack[++$_stack_sp] = $_b;
+        L5985: $_stack[++$_stack_sp] = NULL;
+        L5986: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "[") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"["', $_expected)) { $_expected[] = '"["'; } } }
+        L5987: $_stack[$_stack_sp] = $_value;
+        L5988: if ($_fail) { goto L6055; }
+        L5989: $_stack[++$_stack_sp] = 5991;
+        L5990: goto L7033;
+        L5991: if ($_fail) { goto L6055; }
+        L5992: $_stack[++$_stack_sp] = $_p;
+        L5993: $_stack[++$_stack_sp] = 5995;
+        L5994: goto L2589;
+        L5995: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L5996: if (!$_fail) { goto L6000; }
+        L5997: $_fail = false;
+        L5998: $_value = NULL;
+        L5999: $_p = $_a;
+        L6000: $_env["a"] = $_value;
+        L6001: if ($_fail) { goto L6055; }
+        L6002: $_stack[++$_stack_sp] = $_p;
+        L6003: $_stack[++$_stack_sp] = array();
+        L6004: $_stack[++$_stack_sp] = $_p;
+        L6005: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6006: $_stack[++$_stack_sp] = $_b;
+        L6007: $_stack[++$_stack_sp] = NULL;
+        L6008: $_stack[++$_stack_sp] = 6010;
+        L6009: goto L7033;
+        L6010: $_stack[$_stack_sp] = $_value;
+        L6011: if ($_fail) { goto L6020; }
+        L6012: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L6013: if ($_fail) { goto L6020; }
+        L6014: $_stack[++$_stack_sp] = 6016;
+        L6015: goto L7033;
+        L6016: if ($_fail) { goto L6020; }
+        L6017: $_stack[++$_stack_sp] = 6019;
+        L6018: goto L2589;
+        L6019: $_env["e"] = $_value;
+        L6020: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6021: if ($_fail) { goto L6023; }
+        L6022: $_value = $this->_182($_env);
+        L6023: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6024: if (!$_fail) { goto L6041; }
+        L6025: $_p = $_stack[$_stack_sp];
+        L6026: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6027: $_stack[++$_stack_sp] = $_b;
+        L6028: $_stack[++$_stack_sp] = NULL;
+        L6029: $_stack[++$_stack_sp] = 6031;
+        L6030: goto L7033;
+        L6031: $_stack[$_stack_sp] = $_value;
+        L6032: if ($_fail) { goto L6037; }
+        L6033: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L6034: if ($_fail) { goto L6037; }
+        L6035: $_stack[++$_stack_sp] = 6037;
+        L6036: goto L7033;
+        L6037: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6038: if ($_fail) { goto L6040; }
+        L6039: $_value = $this->_183($_env);
+        L6040: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6041: unset($_stack[$_stack_sp--]);
+        L6042: if ($_fail) { goto L6046; }
+        L6043: $_stack[$_stack_sp][] = $_value;
+        L6044: $_stack[$_stack_sp - 1] = $_p;
+        L6045: goto L6004;
+        L6046: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6047: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6048: $_fail = false;
+        L6049: $_env["b"] = $_value;
+        L6050: if ($_fail) { goto L6055; }
+        L6051: $_stack[++$_stack_sp] = 6053;
+        L6052: goto L7033;
+        L6053: if ($_fail) { goto L6055; }
+        L6054: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "]") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"]"', $_expected)) { $_expected[] = '"]"'; } } }
+        L6055: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6056: if ($_fail) { goto L6058; }
+        L6057: $_value = $this->_181($_env);
+        L6058: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6059: if (!$_fail) { goto L6244; }
+        L6060: $_p = $_stack[$_stack_sp];
+        L6061: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6062: $_stack[++$_stack_sp] = $_b;
+        L6063: $_stack[++$_stack_sp] = NULL;
+        L6064: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "{") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"{"', $_expected)) { $_expected[] = '"{"'; } } }
+        L6065: $_stack[$_stack_sp] = $_value;
+        L6066: if ($_fail) { goto L6200; }
+        L6067: $_stack[++$_stack_sp] = 6069;
+        L6068: goto L7033;
+        L6069: if ($_fail) { goto L6200; }
+        L6070: $_stack[++$_stack_sp] = $_p;
+        L6071: $_stack[++$_stack_sp] = $_env;
+        L6072: $_env = array();
+        L6073: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6074: $_stack[++$_stack_sp] = $_b;
+        L6075: $_stack[++$_stack_sp] = NULL;
+        L6076: $_stack[++$_stack_sp] = $_env;
+        L6077: $_env = array();
+        L6078: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6079: $_stack[++$_stack_sp] = $_b;
+        L6080: $_stack[++$_stack_sp] = NULL;
+        L6081: $_stack[++$_stack_sp] = $_p;
+        L6082: $_stack[++$_stack_sp] = 6084;
+        L6083: goto L7400;
+        L6084: if (!$_fail) { goto L6092; }
+        L6085: $_p = $_stack[$_stack_sp];
+        L6086: $_stack[++$_stack_sp] = 6088;
+        L6087: goto L6584;
+        L6088: if (!$_fail) { goto L6092; }
+        L6089: $_p = $_stack[$_stack_sp];
+        L6090: $_stack[++$_stack_sp] = 6092;
+        L6091: goto L6349;
+        L6092: unset($_stack[$_stack_sp--]);
+        L6093: $_env["name"] = $_value;
+        L6094: $_stack[$_stack_sp] = $_value;
+        L6095: if ($_fail) { goto L6107; }
+        L6096: $_stack[++$_stack_sp] = 6098;
+        L6097: goto L7033;
+        L6098: if ($_fail) { goto L6107; }
+        L6099: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L6100: if ($_fail) { goto L6107; }
+        L6101: $_stack[++$_stack_sp] = 6103;
+        L6102: goto L7033;
+        L6103: if ($_fail) { goto L6107; }
+        L6104: $_stack[++$_stack_sp] = 6106;
+        L6105: goto L2589;
+        L6106: $_env["value"] = $_value;
+        L6107: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6108: if ($_fail) { goto L6110; }
+        L6109: $_value = $this->_186($_env);
+        L6110: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6111: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6112: $_env["first"] = $_value;
+        L6113: $_stack[$_stack_sp] = $_value;
+        L6114: if ($_fail) { goto L6184; }
+        L6115: $_stack[++$_stack_sp] = $_p;
+        L6116: $_stack[++$_stack_sp] = array();
+        L6117: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6118: $_stack[++$_stack_sp] = $_b;
+        L6119: $_stack[++$_stack_sp] = NULL;
+        L6120: $_stack[++$_stack_sp] = $_env;
+        L6121: $_env = array();
+        L6122: $_stack[++$_stack_sp] = NULL;
+        L6123: $_stack[++$_stack_sp] = 6125;
+        L6124: goto L7033;
+        L6125: $_stack[$_stack_sp] = $_value;
+        L6126: if ($_fail) { goto L6131; }
+        L6127: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ",") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('","', $_expected)) { $_expected[] = '","'; } } }
+        L6128: if ($_fail) { goto L6131; }
+        L6129: $_stack[++$_stack_sp] = 6131;
+        L6130: goto L7033;
+        L6131: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6132: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6133: $_stack[$_stack_sp] = $_value;
+        L6134: if ($_fail) { goto L6172; }
+        L6135: $_stack[++$_stack_sp] = $_env;
+        L6136: $_env = array();
+        L6137: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6138: $_stack[++$_stack_sp] = $_b;
+        L6139: $_stack[++$_stack_sp] = NULL;
+        L6140: $_stack[++$_stack_sp] = $_p;
+        L6141: $_stack[++$_stack_sp] = 6143;
+        L6142: goto L7400;
+        L6143: if (!$_fail) { goto L6151; }
+        L6144: $_p = $_stack[$_stack_sp];
+        L6145: $_stack[++$_stack_sp] = 6147;
+        L6146: goto L6584;
+        L6147: if (!$_fail) { goto L6151; }
+        L6148: $_p = $_stack[$_stack_sp];
+        L6149: $_stack[++$_stack_sp] = 6151;
+        L6150: goto L6349;
+        L6151: unset($_stack[$_stack_sp--]);
+        L6152: $_env["name"] = $_value;
+        L6153: $_stack[$_stack_sp] = $_value;
+        L6154: if ($_fail) { goto L6166; }
+        L6155: $_stack[++$_stack_sp] = 6157;
+        L6156: goto L7033;
+        L6157: if ($_fail) { goto L6166; }
+        L6158: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ":") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('":"', $_expected)) { $_expected[] = '":"'; } } }
+        L6159: if ($_fail) { goto L6166; }
+        L6160: $_stack[++$_stack_sp] = 6162;
+        L6161: goto L7033;
+        L6162: if ($_fail) { goto L6166; }
+        L6163: $_stack[++$_stack_sp] = 6165;
+        L6164: goto L2589;
+        L6165: $_env["value"] = $_value;
+        L6166: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6167: if ($_fail) { goto L6169; }
+        L6168: $_value = $this->_188($_env);
+        L6169: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6170: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6171: $_env["next"] = $_value;
+        L6172: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6173: if ($_fail) { goto L6175; }
+        L6174: $_value = $this->_187($_env);
+        L6175: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6176: if ($_fail) { goto L6180; }
+        L6177: $_stack[$_stack_sp][] = $_value;
+        L6178: $_stack[$_stack_sp - 1] = $_p;
+        L6179: goto L6117;
+        L6180: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6181: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6182: $_fail = false;
+        L6183: $_env["rest"] = $_value;
+        L6184: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6185: if ($_fail) { goto L6187; }
+        L6186: $_value = $this->_185($_env);
+        L6187: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6188: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6189: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6190: if (!$_fail) { goto L6194; }
+        L6191: $_fail = false;
+        L6192: $_value = NULL;
+        L6193: $_p = $_a;
+        L6194: $_env["o"] = $_value;
+        L6195: if ($_fail) { goto L6200; }
+        L6196: $_stack[++$_stack_sp] = 6198;
+        L6197: goto L7033;
+        L6198: if ($_fail) { goto L6200; }
+        L6199: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
+        L6200: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6201: if ($_fail) { goto L6203; }
+        L6202: $_value = $this->_184($_env);
+        L6203: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6204: if (!$_fail) { goto L6244; }
+        L6205: $_p = $_stack[$_stack_sp];
+        L6206: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6207: $_stack[++$_stack_sp] = $_b;
+        L6208: $_stack[++$_stack_sp] = NULL;
+        L6209: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "(") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"("', $_expected)) { $_expected[] = '"("'; } } }
+        L6210: $_stack[$_stack_sp] = $_value;
+        L6211: if ($_fail) { goto L6223; }
+        L6212: $_stack[++$_stack_sp] = 6214;
+        L6213: goto L7033;
+        L6214: if ($_fail) { goto L6223; }
+        L6215: $_stack[++$_stack_sp] = 6217;
+        L6216: goto L2421;
+        L6217: $_env["e"] = $_value;
+        L6218: if ($_fail) { goto L6223; }
+        L6219: $_stack[++$_stack_sp] = 6221;
+        L6220: goto L7033;
+        L6221: if ($_fail) { goto L6223; }
+        L6222: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ")") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('")"', $_expected)) { $_expected[] = '")"'; } } }
+        L6223: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6224: if ($_fail) { goto L6226; }
+        L6225: $_value = $this->_189($_env);
+        L6226: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6227: if (!$_fail) { goto L6244; }
+        L6228: $_p = $_stack[$_stack_sp];
+        L6229: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6230: $_stack[++$_stack_sp] = $_b;
+        L6231: $_stack[++$_stack_sp] = NULL;
+        L6232: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
+        L6233: $_stack[$_stack_sp] = $_value;
+        L6234: if ($_fail) { goto L6240; }
+        L6235: $_stack[++$_stack_sp] = 6237;
+        L6236: goto L6255;
+        L6237: $_env["parts"] = $_value;
+        L6238: if ($_fail) { goto L6240; }
+        L6239: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
+        L6240: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6241: if ($_fail) { goto L6243; }
+        L6242: $_value = $this->_190($_env);
+        L6243: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6244: unset($_stack[$_stack_sp--]);
+        L6245: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L6246: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6247: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6248: $_b = array();
+        L6249: $_b[0] = $_fail;
+        L6250: $_b[1] = $_value;
+        L6251: $_b[2] = $_p;
+        L6252: $_cache[$_a] = $_b;
+        L6253: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6254: if ($_a !== 5715) return array(FALSE, NULL, 61); goto L5715;
+        L6255: $_stack[++$_stack_sp] = "62@";
+        L6256: $_stack[$_stack_sp] .= $_p;
+        L6257: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6264; }
+        L6258: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6259: $_b = $_cache[$_a];
+        L6260: $_fail = $_b[0];
+        L6261: $_value = $_b[1];
+        L6262: $_p = $_b[2];
+        L6263: goto L6347;
+        L6264: $_stack[++$_stack_sp] = $_env;
+        L6265: $_env = array();
+        L6266: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L6267: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6268: $_stack[++$_stack_sp] = $_b;
+        L6269: $_stack[++$_stack_sp] = $_p;
+        L6270: $_stack[++$_stack_sp] = array();
+        L6271: $_stack[++$_stack_sp] = $_p;
+        L6272: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6273: $_stack[++$_stack_sp] = $_b;
+        L6274: $_stack[++$_stack_sp] = NULL;
+        L6275: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "`") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"`"', $_expected)) { $_expected[] = '"`"'; } } }
+        L6276: $_stack[$_stack_sp] = $_value;
+        L6277: if ($_fail) { goto L6284; }
+        L6278: $_stack[++$_stack_sp] = 6280;
+        L6279: goto L7400;
+        L6280: $_env["id"] = $_value;
+        L6281: if ($_fail) { goto L6284; }
+        L6282: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L6283: $_env["p"] = $_value;
+        L6284: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6285: if ($_fail) { goto L6287; }
+        L6286: $_value = $this->_192($_env);
+        L6287: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6288: if (!$_fail) { goto L6327; }
+        L6289: $_p = $_stack[$_stack_sp];
+        L6290: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6291: $_stack[++$_stack_sp] = $_b;
+        L6292: $_stack[++$_stack_sp] = $_p;
+        L6293: $_stack[++$_stack_sp] = "";
+        L6294: $_stack[++$_stack_sp] = true;
+        L6295: $_stack[++$_stack_sp] = "";
+        L6296: $_stack[++$_stack_sp] = $_p;
+        L6297: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "@@") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"@@"', $_expected)) { $_expected[] = '"@@"'; } } }
+        L6298: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6299: $_value = NULL;
+        L6300: $_fail = !$_fail;
+        L6301: $_stack[$_stack_sp] .= $_value;
+        L6302: if ($_fail) { goto L6312; }
+        L6303: $_stack[++$_stack_sp] = $_p;
+        L6304: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "`") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"`"', $_expected)) { $_expected[] = '"`"'; } } }
+        L6305: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6306: $_value = NULL;
+        L6307: $_fail = !$_fail;
+        L6308: $_stack[$_stack_sp] .= $_value;
+        L6309: if ($_fail) { goto L6312; }
+        L6310: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L6311: $_stack[$_stack_sp] .= $_value;
+        L6312: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6313: if ($_fail) { goto L6318; }
+        L6314: $_stack[$_stack_sp] = false;
+        L6315: $_stack[$_stack_sp - 1] .= $_value;
+        L6316: $_stack[$_stack_sp - 2] = $_p;
+        L6317: goto L6295;
+        L6318: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6319: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6320: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6321: if ($_a) { goto L6323; }
+        L6322: $_fail = false;
+        L6323: $_env["code"] = $_value;
+        L6324: if ($_fail) { goto L6326; }
+        L6325: $_value = $this->_193($_env);
+        L6326: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6327: unset($_stack[$_stack_sp--]);
+        L6328: if ($_fail) { goto L6332; }
+        L6329: $_stack[$_stack_sp][] = $_value;
+        L6330: $_stack[$_stack_sp - 1] = $_p;
+        L6331: goto L6271;
+        L6332: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6333: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6334: $_fail = false;
+        L6335: $_env["parts"] = $_value;
+        L6336: if ($_fail) { goto L6338; }
+        L6337: $_value = $this->_191($_env);
+        L6338: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6339: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L6340: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6341: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6342: $_b = array();
+        L6343: $_b[0] = $_fail;
+        L6344: $_b[1] = $_value;
+        L6345: $_b[2] = $_p;
+        L6346: $_cache[$_a] = $_b;
+        L6347: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6348: if ($_a === 2404) { goto L2404; } else if ($_a === 6237) { goto L6237; } else { return array(FALSE, NULL, 62); }
+        L6349: $_stack[++$_stack_sp] = "63@";
+        L6350: $_stack[$_stack_sp] .= $_p;
+        L6351: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6358; }
+        L6352: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6353: $_b = $_cache[$_a];
+        L6354: $_fail = $_b[0];
+        L6355: $_value = $_b[1];
+        L6356: $_p = $_b[2];
+        L6357: goto L6582;
+        L6358: $_stack[++$_stack_sp] = $_env;
+        L6359: $_env = array();
+        L6360: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L6361: $_stack[++$_stack_sp] = $_p;
+        L6362: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6363: $_stack[++$_stack_sp] = $_b;
+        L6364: $_stack[++$_stack_sp] = NULL;
+        L6365: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "0") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"0"', $_expected)) { $_expected[] = '"0"'; } } }
+        L6366: $_stack[$_stack_sp] = $_value;
+        L6367: if ($_fail) { goto L6392; }
+        L6368: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 88) || ($_a === 120))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[Xx]', $_expected)) { $_expected[] = '[Xx]'; } } }
+        L6369: if ($_fail) { goto L6392; }
+        L6370: $_stack[++$_stack_sp] = $_p;
+        L6371: $_stack[++$_stack_sp] = "";
+        L6372: $_stack[++$_stack_sp] = true;
+        L6373: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57) || (97 <= $_a && $_a <= 102) || (65 <= $_a && $_a <= 70))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9a-fA-F]', $_expected)) { $_expected[] = '[0-9a-fA-F]'; } } }
+        L6374: if ($_fail) { goto L6379; }
+        L6375: $_stack[$_stack_sp] = false;
+        L6376: $_stack[$_stack_sp - 1] .= $_value;
+        L6377: $_stack[$_stack_sp - 2] = $_p;
+        L6378: goto L6373;
+        L6379: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6380: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6381: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6382: if ($_a) { goto L6384; }
+        L6383: $_fail = false;
+        L6384: $_env["hex"] = $_value;
+        L6385: if ($_fail) { goto L6392; }
+        L6386: $_stack[++$_stack_sp] = $_p;
+        L6387: $_stack[++$_stack_sp] = 6389;
+        L6388: goto L7438;
+        L6389: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6390: $_value = NULL;
+        L6391: $_fail = !$_fail;
+        L6392: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6393: if ($_fail) { goto L6395; }
+        L6394: $_value = $this->_194($_env);
+        L6395: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6396: if (!$_fail) { goto L6573; }
+        L6397: $_p = $_stack[$_stack_sp];
+        L6398: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6399: $_stack[++$_stack_sp] = $_b;
+        L6400: $_stack[++$_stack_sp] = NULL;
+        L6401: $_stack[++$_stack_sp] = $_p;
+        L6402: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "0") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"0"', $_expected)) { $_expected[] = '"0"'; } } }
+        L6403: if (!$_fail) { goto L6421; }
+        L6404: $_p = $_stack[$_stack_sp];
+        L6405: $_stack[++$_stack_sp] = "";
+        L6406: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((49 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[1-9]', $_expected)) { $_expected[] = '[1-9]'; } } }
+        L6407: $_stack[$_stack_sp] .= $_value;
+        L6408: if ($_fail) { goto L6420; }
+        L6409: $_stack[++$_stack_sp] = $_p;
+        L6410: $_stack[++$_stack_sp] = "";
+        L6411: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
+        L6412: if ($_fail) { goto L6416; }
+        L6413: $_stack[$_stack_sp] .= $_value;
+        L6414: $_stack[$_stack_sp - 1] = $_p;
+        L6415: goto L6411;
+        L6416: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6417: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6418: $_fail = false;
+        L6419: $_stack[$_stack_sp] .= $_value;
+        L6420: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6421: unset($_stack[$_stack_sp--]);
+        L6422: $_env["int"] = $_value;
+        L6423: $_stack[$_stack_sp] = $_value;
+        L6424: if ($_fail) { goto L6492; }
+        L6425: $_stack[++$_stack_sp] = $_p;
+        L6426: $_stack[++$_stack_sp] = "";
+        L6427: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
+        L6428: $_stack[$_stack_sp] .= $_value;
+        L6429: if ($_fail) { goto L6441; }
+        L6430: $_stack[++$_stack_sp] = $_p;
+        L6431: $_stack[++$_stack_sp] = "";
+        L6432: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
+        L6433: if ($_fail) { goto L6437; }
+        L6434: $_stack[$_stack_sp] .= $_value;
+        L6435: $_stack[$_stack_sp - 1] = $_p;
+        L6436: goto L6432;
+        L6437: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6438: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6439: $_fail = false;
+        L6440: $_stack[$_stack_sp] .= $_value;
+        L6441: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L6442: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6443: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6444: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6445: if ($_a) { goto L6447; }
-        L6446: $_fail = false;
-        L6447: $_stack[$_stack_sp] .= $_value;
-        L6448: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6449: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6450: if (!$_fail) { goto L6454; }
-        L6451: $_fail = false;
-        L6452: $_value = NULL;
-        L6453: $_p = $_a;
-        L6454: $_env["exp"] = $_value;
-        L6455: if ($_fail) { goto L6462; }
-        L6456: $_stack[++$_stack_sp] = $_p;
-        L6457: $_stack[++$_stack_sp] = 6459;
-        L6458: goto L7408;
-        L6459: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6460: $_value = NULL;
-        L6461: $_fail = !$_fail;
-        L6462: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6463: if ($_fail) { goto L6465; }
-        L6464: $_value = $this->_191($_env);
-        L6465: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6466: if (!$_fail) { goto L6543; }
-        L6467: $_p = $_stack[$_stack_sp];
-        L6468: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6469: $_stack[++$_stack_sp] = $_b;
-        L6470: $_stack[++$_stack_sp] = NULL;
-        L6471: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
-        L6472: $_stack[$_stack_sp] = $_value;
-        L6473: if ($_fail) { goto L6539; }
-        L6474: $_stack[++$_stack_sp] = "";
-        L6475: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
-        L6476: $_stack[$_stack_sp] .= $_value;
-        L6477: if ($_fail) { goto L6493; }
-        L6478: $_stack[++$_stack_sp] = $_p;
-        L6479: $_stack[++$_stack_sp] = "";
-        L6480: $_stack[++$_stack_sp] = true;
-        L6481: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
-        L6482: if ($_fail) { goto L6487; }
-        L6483: $_stack[$_stack_sp] = false;
-        L6484: $_stack[$_stack_sp - 1] .= $_value;
-        L6485: $_stack[$_stack_sp - 2] = $_p;
-        L6486: goto L6481;
-        L6487: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6488: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6443: if (!$_fail) { goto L6447; }
+        L6444: $_fail = false;
+        L6445: $_value = NULL;
+        L6446: $_p = $_a;
+        L6447: $_env["frac"] = $_value;
+        L6448: if ($_fail) { goto L6492; }
+        L6449: $_stack[++$_stack_sp] = $_p;
+        L6450: $_stack[++$_stack_sp] = "";
+        L6451: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 101) || ($_a === 69))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[eE]', $_expected)) { $_expected[] = '[eE]'; } } }
+        L6452: $_stack[$_stack_sp] .= $_value;
+        L6453: if ($_fail) { goto L6478; }
+        L6454: $_stack[++$_stack_sp] = $_p;
+        L6455: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 43) || ($_a === 45))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[+-]', $_expected)) { $_expected[] = '[+-]'; } } }
+        L6456: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6457: if (!$_fail) { goto L6461; }
+        L6458: $_fail = false;
+        L6459: $_value = NULL;
+        L6460: $_p = $_a;
+        L6461: $_stack[$_stack_sp] .= $_value;
+        L6462: if ($_fail) { goto L6478; }
+        L6463: $_stack[++$_stack_sp] = $_p;
+        L6464: $_stack[++$_stack_sp] = "";
+        L6465: $_stack[++$_stack_sp] = true;
+        L6466: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
+        L6467: if ($_fail) { goto L6472; }
+        L6468: $_stack[$_stack_sp] = false;
+        L6469: $_stack[$_stack_sp - 1] .= $_value;
+        L6470: $_stack[$_stack_sp - 2] = $_p;
+        L6471: goto L6466;
+        L6472: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6473: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6474: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6475: if ($_a) { goto L6477; }
+        L6476: $_fail = false;
+        L6477: $_stack[$_stack_sp] .= $_value;
+        L6478: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6479: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6480: if (!$_fail) { goto L6484; }
+        L6481: $_fail = false;
+        L6482: $_value = NULL;
+        L6483: $_p = $_a;
+        L6484: $_env["exp"] = $_value;
+        L6485: if ($_fail) { goto L6492; }
+        L6486: $_stack[++$_stack_sp] = $_p;
+        L6487: $_stack[++$_stack_sp] = 6489;
+        L6488: goto L7438;
         L6489: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6490: if ($_a) { goto L6492; }
-        L6491: $_fail = false;
-        L6492: $_stack[$_stack_sp] .= $_value;
-        L6493: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6494: $_env["frac"] = $_value;
-        L6495: if ($_fail) { goto L6539; }
-        L6496: $_stack[++$_stack_sp] = $_p;
-        L6497: $_stack[++$_stack_sp] = "";
-        L6498: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 101) || ($_a === 69))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[eE]', $_expected)) { $_expected[] = '[eE]'; } } }
-        L6499: $_stack[$_stack_sp] .= $_value;
-        L6500: if ($_fail) { goto L6525; }
-        L6501: $_stack[++$_stack_sp] = $_p;
-        L6502: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 43) || ($_a === 45))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[+-]', $_expected)) { $_expected[] = '[+-]'; } } }
-        L6503: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6504: if (!$_fail) { goto L6508; }
-        L6505: $_fail = false;
-        L6506: $_value = NULL;
-        L6507: $_p = $_a;
-        L6508: $_stack[$_stack_sp] .= $_value;
-        L6509: if ($_fail) { goto L6525; }
-        L6510: $_stack[++$_stack_sp] = $_p;
-        L6511: $_stack[++$_stack_sp] = "";
-        L6512: $_stack[++$_stack_sp] = true;
-        L6513: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
-        L6514: if ($_fail) { goto L6519; }
-        L6515: $_stack[$_stack_sp] = false;
-        L6516: $_stack[$_stack_sp - 1] .= $_value;
-        L6517: $_stack[$_stack_sp - 2] = $_p;
-        L6518: goto L6513;
-        L6519: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6520: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6521: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6522: if ($_a) { goto L6524; }
-        L6523: $_fail = false;
-        L6524: $_stack[$_stack_sp] .= $_value;
-        L6525: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6526: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6527: if (!$_fail) { goto L6531; }
-        L6528: $_fail = false;
-        L6529: $_value = NULL;
-        L6530: $_p = $_a;
-        L6531: $_env["exp"] = $_value;
-        L6532: if ($_fail) { goto L6539; }
-        L6533: $_stack[++$_stack_sp] = $_p;
-        L6534: $_stack[++$_stack_sp] = 6536;
-        L6535: goto L7408;
-        L6536: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6537: $_value = NULL;
-        L6538: $_fail = !$_fail;
-        L6539: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6540: if ($_fail) { goto L6542; }
-        L6541: $_value = $this->_192($_env);
-        L6542: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6543: unset($_stack[$_stack_sp--]);
-        L6544: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6545: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6546: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6547: $_b = array();
-        L6548: $_b[0] = $_fail;
-        L6549: $_b[1] = $_value;
-        L6550: $_b[2] = $_p;
-        L6551: $_cache[$_a] = $_b;
-        L6552: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6553: if ($_a === 5917) { goto L5917; } else if ($_a === 6062) { goto L6062; } else if ($_a === 6121) { goto L6121; } else { return array(FALSE, NULL, 63); }
-        L6554: $_stack[++$_stack_sp] = "64@";
-        L6555: $_stack[$_stack_sp] .= $_p;
-        L6556: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6563; }
-        L6557: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6558: $_b = $_cache[$_a];
-        L6559: $_fail = $_b[0];
-        L6560: $_value = $_b[1];
-        L6561: $_p = $_b[2];
-        L6562: goto L6644;
-        L6563: $_stack[++$_stack_sp] = $_env;
-        L6564: $_env = array();
-        L6565: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L6566: $_stack[++$_stack_sp] = $_p;
-        L6567: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6568: $_stack[++$_stack_sp] = $_b;
-        L6569: $_stack[++$_stack_sp] = NULL;
-        L6570: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 34))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\"]', $_expected)) { $_expected[] = '[\\"]'; } } }
-        L6571: $_stack[$_stack_sp] = $_value;
-        L6572: if ($_fail) { goto L6596; }
-        L6573: $_stack[++$_stack_sp] = $_p;
-        L6574: $_stack[++$_stack_sp] = array();
-        L6575: $_stack[++$_stack_sp] = NULL;
-        L6576: $_stack[++$_stack_sp] = $_p;
-        L6577: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 34))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\"]', $_expected)) { $_expected[] = '[\\"]'; } } }
-        L6578: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6579: $_value = NULL;
-        L6580: $_fail = !$_fail;
-        L6581: if ($_fail) { goto L6585; }
-        L6582: $_stack[++$_stack_sp] = 6584;
-        L6583: goto L6646;
-        L6584: $_stack[$_stack_sp] = $_value;
-        L6585: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6586: if ($_fail) { goto L6590; }
-        L6587: $_stack[$_stack_sp][] = $_value;
-        L6588: $_stack[$_stack_sp - 1] = $_p;
-        L6589: goto L6575;
-        L6590: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6591: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6592: $_fail = false;
-        L6593: $_env["value"] = $_value;
-        L6594: if ($_fail) { goto L6596; }
-        L6595: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 34))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\"]', $_expected)) { $_expected[] = '[\\"]'; } } }
-        L6596: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6597: if ($_fail) { goto L6599; }
-        L6598: $_value = $this->_193($_env);
-        L6599: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6600: if (!$_fail) { goto L6635; }
-        L6601: $_p = $_stack[$_stack_sp];
-        L6602: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6603: $_stack[++$_stack_sp] = $_b;
-        L6604: $_stack[++$_stack_sp] = NULL;
-        L6605: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
-        L6606: $_stack[$_stack_sp] = $_value;
-        L6607: if ($_fail) { goto L6631; }
-        L6608: $_stack[++$_stack_sp] = $_p;
-        L6609: $_stack[++$_stack_sp] = array();
-        L6610: $_stack[++$_stack_sp] = NULL;
-        L6611: $_stack[++$_stack_sp] = $_p;
-        L6612: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
-        L6613: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6614: $_value = NULL;
-        L6615: $_fail = !$_fail;
+        L6490: $_value = NULL;
+        L6491: $_fail = !$_fail;
+        L6492: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6493: if ($_fail) { goto L6495; }
+        L6494: $_value = $this->_195($_env);
+        L6495: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6496: if (!$_fail) { goto L6573; }
+        L6497: $_p = $_stack[$_stack_sp];
+        L6498: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6499: $_stack[++$_stack_sp] = $_b;
+        L6500: $_stack[++$_stack_sp] = NULL;
+        L6501: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
+        L6502: $_stack[$_stack_sp] = $_value;
+        L6503: if ($_fail) { goto L6569; }
+        L6504: $_stack[++$_stack_sp] = "";
+        L6505: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ".") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"."', $_expected)) { $_expected[] = '"."'; } } }
+        L6506: $_stack[$_stack_sp] .= $_value;
+        L6507: if ($_fail) { goto L6523; }
+        L6508: $_stack[++$_stack_sp] = $_p;
+        L6509: $_stack[++$_stack_sp] = "";
+        L6510: $_stack[++$_stack_sp] = true;
+        L6511: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
+        L6512: if ($_fail) { goto L6517; }
+        L6513: $_stack[$_stack_sp] = false;
+        L6514: $_stack[$_stack_sp - 1] .= $_value;
+        L6515: $_stack[$_stack_sp - 2] = $_p;
+        L6516: goto L6511;
+        L6517: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6518: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6519: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6520: if ($_a) { goto L6522; }
+        L6521: $_fail = false;
+        L6522: $_stack[$_stack_sp] .= $_value;
+        L6523: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6524: $_env["frac"] = $_value;
+        L6525: if ($_fail) { goto L6569; }
+        L6526: $_stack[++$_stack_sp] = $_p;
+        L6527: $_stack[++$_stack_sp] = "";
+        L6528: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 101) || ($_a === 69))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[eE]', $_expected)) { $_expected[] = '[eE]'; } } }
+        L6529: $_stack[$_stack_sp] .= $_value;
+        L6530: if ($_fail) { goto L6555; }
+        L6531: $_stack[++$_stack_sp] = $_p;
+        L6532: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 43) || ($_a === 45))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[+-]', $_expected)) { $_expected[] = '[+-]'; } } }
+        L6533: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6534: if (!$_fail) { goto L6538; }
+        L6535: $_fail = false;
+        L6536: $_value = NULL;
+        L6537: $_p = $_a;
+        L6538: $_stack[$_stack_sp] .= $_value;
+        L6539: if ($_fail) { goto L6555; }
+        L6540: $_stack[++$_stack_sp] = $_p;
+        L6541: $_stack[++$_stack_sp] = "";
+        L6542: $_stack[++$_stack_sp] = true;
+        L6543: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
+        L6544: if ($_fail) { goto L6549; }
+        L6545: $_stack[$_stack_sp] = false;
+        L6546: $_stack[$_stack_sp - 1] .= $_value;
+        L6547: $_stack[$_stack_sp - 2] = $_p;
+        L6548: goto L6543;
+        L6549: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6550: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6551: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6552: if ($_a) { goto L6554; }
+        L6553: $_fail = false;
+        L6554: $_stack[$_stack_sp] .= $_value;
+        L6555: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6556: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6557: if (!$_fail) { goto L6561; }
+        L6558: $_fail = false;
+        L6559: $_value = NULL;
+        L6560: $_p = $_a;
+        L6561: $_env["exp"] = $_value;
+        L6562: if ($_fail) { goto L6569; }
+        L6563: $_stack[++$_stack_sp] = $_p;
+        L6564: $_stack[++$_stack_sp] = 6566;
+        L6565: goto L7438;
+        L6566: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6567: $_value = NULL;
+        L6568: $_fail = !$_fail;
+        L6569: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6570: if ($_fail) { goto L6572; }
+        L6571: $_value = $this->_196($_env);
+        L6572: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6573: unset($_stack[$_stack_sp--]);
+        L6574: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L6575: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6576: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6577: $_b = array();
+        L6578: $_b[0] = $_fail;
+        L6579: $_b[1] = $_value;
+        L6580: $_b[2] = $_p;
+        L6581: $_cache[$_a] = $_b;
+        L6582: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6583: if ($_a === 5947) { goto L5947; } else if ($_a === 6092) { goto L6092; } else if ($_a === 6151) { goto L6151; } else { return array(FALSE, NULL, 63); }
+        L6584: $_stack[++$_stack_sp] = "64@";
+        L6585: $_stack[$_stack_sp] .= $_p;
+        L6586: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6593; }
+        L6587: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6588: $_b = $_cache[$_a];
+        L6589: $_fail = $_b[0];
+        L6590: $_value = $_b[1];
+        L6591: $_p = $_b[2];
+        L6592: goto L6674;
+        L6593: $_stack[++$_stack_sp] = $_env;
+        L6594: $_env = array();
+        L6595: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L6596: $_stack[++$_stack_sp] = $_p;
+        L6597: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6598: $_stack[++$_stack_sp] = $_b;
+        L6599: $_stack[++$_stack_sp] = NULL;
+        L6600: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 34))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\"]', $_expected)) { $_expected[] = '[\\"]'; } } }
+        L6601: $_stack[$_stack_sp] = $_value;
+        L6602: if ($_fail) { goto L6626; }
+        L6603: $_stack[++$_stack_sp] = $_p;
+        L6604: $_stack[++$_stack_sp] = array();
+        L6605: $_stack[++$_stack_sp] = NULL;
+        L6606: $_stack[++$_stack_sp] = $_p;
+        L6607: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 34))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\"]', $_expected)) { $_expected[] = '[\\"]'; } } }
+        L6608: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6609: $_value = NULL;
+        L6610: $_fail = !$_fail;
+        L6611: if ($_fail) { goto L6615; }
+        L6612: $_stack[++$_stack_sp] = 6614;
+        L6613: goto L6676;
+        L6614: $_stack[$_stack_sp] = $_value;
+        L6615: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L6616: if ($_fail) { goto L6620; }
-        L6617: $_stack[++$_stack_sp] = 6619;
-        L6618: goto L6646;
-        L6619: $_stack[$_stack_sp] = $_value;
+        L6617: $_stack[$_stack_sp][] = $_value;
+        L6618: $_stack[$_stack_sp - 1] = $_p;
+        L6619: goto L6605;
         L6620: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6621: if ($_fail) { goto L6625; }
-        L6622: $_stack[$_stack_sp][] = $_value;
-        L6623: $_stack[$_stack_sp - 1] = $_p;
-        L6624: goto L6610;
-        L6625: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6626: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6627: $_fail = false;
-        L6628: $_env["value"] = $_value;
-        L6629: if ($_fail) { goto L6631; }
-        L6630: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
-        L6631: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6632: if ($_fail) { goto L6634; }
-        L6633: $_value = $this->_194($_env);
-        L6634: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6635: unset($_stack[$_stack_sp--]);
-        L6636: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6637: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6638: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6639: $_b = array();
-        L6640: $_b[0] = $_fail;
-        L6641: $_b[1] = $_value;
-        L6642: $_b[2] = $_p;
-        L6643: $_cache[$_a] = $_b;
-        L6644: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6645: if ($_a === 5927) { goto L5927; } else if ($_a === 6058) { goto L6058; } else if ($_a === 6117) { goto L6117; } else { return array(FALSE, NULL, 64); }
-        L6646: $_stack[++$_stack_sp] = "65@";
-        L6647: $_stack[$_stack_sp] .= $_p;
-        L6648: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6655; }
-        L6649: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6650: $_b = $_cache[$_a];
-        L6651: $_fail = $_b[0];
-        L6652: $_value = $_b[1];
-        L6653: $_p = $_b[2];
-        L6654: goto L6806;
-        L6655: $_stack[++$_stack_sp] = $_env;
-        L6656: $_env = array();
-        L6657: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L6658: $_stack[++$_stack_sp] = $_p;
-        L6659: $_stack[++$_stack_sp] = "";
-        L6660: $_stack[++$_stack_sp] = $_p;
-        L6661: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 92) || ($_a === 10) || ($_a === 13))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\\\\n\\r]', $_expected)) { $_expected[] = '[\\\\\\n\\r]'; } } }
-        L6662: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6663: $_value = NULL;
-        L6664: $_fail = !$_fail;
-        L6665: $_stack[$_stack_sp] .= $_value;
-        L6666: if ($_fail) { goto L6669; }
-        L6667: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L6668: $_stack[$_stack_sp] .= $_value;
-        L6669: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6670: if (!$_fail) { goto L6797; }
-        L6671: $_p = $_stack[$_stack_sp];
-        L6672: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6673: $_stack[++$_stack_sp] = $_b;
-        L6674: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\b") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\b"', $_expected)) { $_expected[] = '"\\\\b"'; } } }
-        L6675: if ($_fail) { goto L6677; }
-        L6676: $_value = $this->_195($_env);
-        L6677: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6678: if (!$_fail) { goto L6797; }
-        L6679: $_p = $_stack[$_stack_sp];
-        L6680: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6681: $_stack[++$_stack_sp] = $_b;
-        L6682: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\f") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\f"', $_expected)) { $_expected[] = '"\\\\f"'; } } }
-        L6683: if ($_fail) { goto L6685; }
-        L6684: $_value = $this->_196($_env);
-        L6685: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6686: if (!$_fail) { goto L6797; }
-        L6687: $_p = $_stack[$_stack_sp];
-        L6688: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6689: $_stack[++$_stack_sp] = $_b;
-        L6690: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\n") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\n"', $_expected)) { $_expected[] = '"\\\\n"'; } } }
-        L6691: if ($_fail) { goto L6693; }
-        L6692: $_value = $this->_197($_env);
-        L6693: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6694: if (!$_fail) { goto L6797; }
-        L6695: $_p = $_stack[$_stack_sp];
-        L6696: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6697: $_stack[++$_stack_sp] = $_b;
-        L6698: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\r") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\r"', $_expected)) { $_expected[] = '"\\\\r"'; } } }
-        L6699: if ($_fail) { goto L6701; }
-        L6700: $_value = $this->_198($_env);
-        L6701: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6702: if (!$_fail) { goto L6797; }
-        L6703: $_p = $_stack[$_stack_sp];
-        L6704: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6705: $_stack[++$_stack_sp] = $_b;
-        L6706: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\t") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\t"', $_expected)) { $_expected[] = '"\\\\t"'; } } }
-        L6707: if ($_fail) { goto L6709; }
-        L6708: $_value = $this->_199($_env);
-        L6709: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6710: if (!$_fail) { goto L6797; }
-        L6711: $_p = $_stack[$_stack_sp];
-        L6712: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6713: $_stack[++$_stack_sp] = $_b;
-        L6714: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\v") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\v"', $_expected)) { $_expected[] = '"\\\\v"'; } } }
-        L6715: if ($_fail) { goto L6717; }
-        L6716: $_value = $this->_200($_env);
-        L6717: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6718: if (!$_fail) { goto L6797; }
-        L6719: $_p = $_stack[$_stack_sp];
-        L6720: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6721: $_stack[++$_stack_sp] = $_b;
-        L6722: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\\\") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\\\\\"', $_expected)) { $_expected[] = '"\\\\\\\\"'; } } }
-        L6723: if ($_fail) { goto L6725; }
-        L6724: $_value = $this->_201($_env);
-        L6725: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6726: if (!$_fail) { goto L6797; }
-        L6727: $_p = $_stack[$_stack_sp];
-        L6728: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6729: $_stack[++$_stack_sp] = $_b;
-        L6730: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\\"") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\\\""', $_expected)) { $_expected[] = '"\\\\\\""'; } } }
-        L6731: if ($_fail) { goto L6733; }
-        L6732: $_value = $this->_202($_env);
-        L6733: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6734: if (!$_fail) { goto L6797; }
-        L6735: $_p = $_stack[$_stack_sp];
-        L6736: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6737: $_stack[++$_stack_sp] = $_b;
-        L6738: $_stack[++$_stack_sp] = "";
-        L6739: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\\") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\"', $_expected)) { $_expected[] = '"\\\\"'; } } }
-        L6740: $_stack[$_stack_sp] .= $_value;
-        L6741: if ($_fail) { goto L6744; }
-        L6742: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
-        L6743: $_stack[$_stack_sp] .= $_value;
-        L6744: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6621: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6622: $_fail = false;
+        L6623: $_env["value"] = $_value;
+        L6624: if ($_fail) { goto L6626; }
+        L6625: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 34))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\"]', $_expected)) { $_expected[] = '[\\"]'; } } }
+        L6626: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6627: if ($_fail) { goto L6629; }
+        L6628: $_value = $this->_197($_env);
+        L6629: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6630: if (!$_fail) { goto L6665; }
+        L6631: $_p = $_stack[$_stack_sp];
+        L6632: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6633: $_stack[++$_stack_sp] = $_b;
+        L6634: $_stack[++$_stack_sp] = NULL;
+        L6635: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
+        L6636: $_stack[$_stack_sp] = $_value;
+        L6637: if ($_fail) { goto L6661; }
+        L6638: $_stack[++$_stack_sp] = $_p;
+        L6639: $_stack[++$_stack_sp] = array();
+        L6640: $_stack[++$_stack_sp] = NULL;
+        L6641: $_stack[++$_stack_sp] = $_p;
+        L6642: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
+        L6643: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6644: $_value = NULL;
+        L6645: $_fail = !$_fail;
+        L6646: if ($_fail) { goto L6650; }
+        L6647: $_stack[++$_stack_sp] = 6649;
+        L6648: goto L6676;
+        L6649: $_stack[$_stack_sp] = $_value;
+        L6650: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6651: if ($_fail) { goto L6655; }
+        L6652: $_stack[$_stack_sp][] = $_value;
+        L6653: $_stack[$_stack_sp - 1] = $_p;
+        L6654: goto L6640;
+        L6655: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6656: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6657: $_fail = false;
+        L6658: $_env["value"] = $_value;
+        L6659: if ($_fail) { goto L6661; }
+        L6660: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
+        L6661: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6662: if ($_fail) { goto L6664; }
+        L6663: $_value = $this->_198($_env);
+        L6664: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6665: unset($_stack[$_stack_sp--]);
+        L6666: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L6667: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6668: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6669: $_b = array();
+        L6670: $_b[0] = $_fail;
+        L6671: $_b[1] = $_value;
+        L6672: $_b[2] = $_p;
+        L6673: $_cache[$_a] = $_b;
+        L6674: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6675: if ($_a === 5957) { goto L5957; } else if ($_a === 6088) { goto L6088; } else if ($_a === 6147) { goto L6147; } else { return array(FALSE, NULL, 64); }
+        L6676: $_stack[++$_stack_sp] = "65@";
+        L6677: $_stack[$_stack_sp] .= $_p;
+        L6678: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6685; }
+        L6679: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6680: $_b = $_cache[$_a];
+        L6681: $_fail = $_b[0];
+        L6682: $_value = $_b[1];
+        L6683: $_p = $_b[2];
+        L6684: goto L6836;
+        L6685: $_stack[++$_stack_sp] = $_env;
+        L6686: $_env = array();
+        L6687: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L6688: $_stack[++$_stack_sp] = $_p;
+        L6689: $_stack[++$_stack_sp] = "";
+        L6690: $_stack[++$_stack_sp] = $_p;
+        L6691: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 92) || ($_a === 10) || ($_a === 13))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\\\\n\\r]', $_expected)) { $_expected[] = '[\\\\\\n\\r]'; } } }
+        L6692: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6693: $_value = NULL;
+        L6694: $_fail = !$_fail;
+        L6695: $_stack[$_stack_sp] .= $_value;
+        L6696: if ($_fail) { goto L6699; }
+        L6697: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L6698: $_stack[$_stack_sp] .= $_value;
+        L6699: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6700: if (!$_fail) { goto L6827; }
+        L6701: $_p = $_stack[$_stack_sp];
+        L6702: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6703: $_stack[++$_stack_sp] = $_b;
+        L6704: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\b") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\b"', $_expected)) { $_expected[] = '"\\\\b"'; } } }
+        L6705: if ($_fail) { goto L6707; }
+        L6706: $_value = $this->_199($_env);
+        L6707: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6708: if (!$_fail) { goto L6827; }
+        L6709: $_p = $_stack[$_stack_sp];
+        L6710: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6711: $_stack[++$_stack_sp] = $_b;
+        L6712: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\f") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\f"', $_expected)) { $_expected[] = '"\\\\f"'; } } }
+        L6713: if ($_fail) { goto L6715; }
+        L6714: $_value = $this->_200($_env);
+        L6715: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6716: if (!$_fail) { goto L6827; }
+        L6717: $_p = $_stack[$_stack_sp];
+        L6718: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6719: $_stack[++$_stack_sp] = $_b;
+        L6720: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\n") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\n"', $_expected)) { $_expected[] = '"\\\\n"'; } } }
+        L6721: if ($_fail) { goto L6723; }
+        L6722: $_value = $this->_201($_env);
+        L6723: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6724: if (!$_fail) { goto L6827; }
+        L6725: $_p = $_stack[$_stack_sp];
+        L6726: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6727: $_stack[++$_stack_sp] = $_b;
+        L6728: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\r") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\r"', $_expected)) { $_expected[] = '"\\\\r"'; } } }
+        L6729: if ($_fail) { goto L6731; }
+        L6730: $_value = $this->_202($_env);
+        L6731: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6732: if (!$_fail) { goto L6827; }
+        L6733: $_p = $_stack[$_stack_sp];
+        L6734: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6735: $_stack[++$_stack_sp] = $_b;
+        L6736: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\t") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\t"', $_expected)) { $_expected[] = '"\\\\t"'; } } }
+        L6737: if ($_fail) { goto L6739; }
+        L6738: $_value = $this->_203($_env);
+        L6739: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6740: if (!$_fail) { goto L6827; }
+        L6741: $_p = $_stack[$_stack_sp];
+        L6742: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6743: $_stack[++$_stack_sp] = $_b;
+        L6744: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\v") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\v"', $_expected)) { $_expected[] = '"\\\\v"'; } } }
         L6745: if ($_fail) { goto L6747; }
-        L6746: $_value = $this->_203($_env);
+        L6746: $_value = $this->_204($_env);
         L6747: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6748: if (!$_fail) { goto L6797; }
+        L6748: if (!$_fail) { goto L6827; }
         L6749: $_p = $_stack[$_stack_sp];
         L6750: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
         L6751: $_stack[++$_stack_sp] = $_b;
-        L6752: $_stack[++$_stack_sp] = "";
-        L6753: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\0") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\0"', $_expected)) { $_expected[] = '"\\\\0"'; } } }
-        L6754: $_stack[$_stack_sp] .= $_value;
-        L6755: if ($_fail) { goto L6762; }
-        L6756: $_stack[++$_stack_sp] = $_p;
-        L6757: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
-        L6758: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6759: $_value = NULL;
-        L6760: $_fail = !$_fail;
-        L6761: $_stack[$_stack_sp] .= $_value;
-        L6762: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6763: if ($_fail) { goto L6765; }
-        L6764: $_value = $this->_204($_env);
-        L6765: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6766: if (!$_fail) { goto L6797; }
-        L6767: $_p = $_stack[$_stack_sp];
-        L6768: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6769: $_stack[++$_stack_sp] = $_b;
-        L6770: $_stack[++$_stack_sp] = NULL;
-        L6771: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\x") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\x"', $_expected)) { $_expected[] = '"\\\\x"'; } } }
-        L6772: $_stack[$_stack_sp] = $_value;
-        L6773: if ($_fail) { goto L6779; }
-        L6774: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57) || (97 <= $_a && $_a <= 102) || (65 <= $_a && $_a <= 70))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9a-fA-F]', $_expected)) { $_expected[] = '[0-9a-fA-F]'; } } }
-        L6775: $_env["a"] = $_value;
-        L6776: if ($_fail) { goto L6779; }
-        L6777: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57) || (97 <= $_a && $_a <= 102) || (65 <= $_a && $_a <= 70))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9a-fA-F]', $_expected)) { $_expected[] = '[0-9a-fA-F]'; } } }
-        L6778: $_env["b"] = $_value;
-        L6779: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6780: if ($_fail) { goto L6782; }
-        L6781: $_value = $this->_205($_env);
-        L6782: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6783: if (!$_fail) { goto L6797; }
-        L6784: $_p = $_stack[$_stack_sp];
-        L6785: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6786: $_stack[++$_stack_sp] = $_b;
-        L6787: $_stack[++$_stack_sp] = NULL;
-        L6788: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\\") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\"', $_expected)) { $_expected[] = '"\\\\"'; } } }
-        L6789: $_stack[$_stack_sp] = $_value;
-        L6790: if ($_fail) { goto L6793; }
-        L6791: $_stack[++$_stack_sp] = 6793;
-        L6792: goto L7297;
-        L6793: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6794: if ($_fail) { goto L6796; }
-        L6795: $_value = $this->_206($_env);
-        L6796: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6797: unset($_stack[$_stack_sp--]);
-        L6798: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6799: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6800: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6801: $_b = array();
-        L6802: $_b[0] = $_fail;
-        L6803: $_b[1] = $_value;
-        L6804: $_b[2] = $_p;
-        L6805: $_cache[$_a] = $_b;
-        L6806: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6807: if ($_a === 6584) { goto L6584; } else if ($_a === 6619) { goto L6619; } else { return array(FALSE, NULL, 65); }
-        L6808: $_stack[++$_stack_sp] = "66@";
-        L6809: $_stack[$_stack_sp] .= $_p;
-        L6810: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6817; }
-        L6811: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6812: $_b = $_cache[$_a];
-        L6813: $_fail = $_b[0];
-        L6814: $_value = $_b[1];
-        L6815: $_p = $_b[2];
-        L6816: goto L6899;
-        L6817: $_stack[++$_stack_sp] = $_env;
-        L6818: $_env = array();
-        L6819: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L6820: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6821: $_stack[++$_stack_sp] = $_b;
-        L6822: $_stack[++$_stack_sp] = NULL;
-        L6823: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
-        L6824: $_stack[$_stack_sp] = $_value;
-        L6825: if ($_fail) { goto L6887; }
-        L6826: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
-        L6827: $_env["p"] = $_value;
-        L6828: if ($_fail) { goto L6887; }
-        L6829: $_stack[++$_stack_sp] = $_p;
-        L6830: $_stack[++$_stack_sp] = array();
-        L6831: $_stack[++$_stack_sp] = true;
-        L6832: $_stack[++$_stack_sp] = $_p;
-        L6833: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6834: $_stack[++$_stack_sp] = $_b;
-        L6835: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\\\") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\\\\\"', $_expected)) { $_expected[] = '"\\\\\\\\"'; } } }
-        L6836: if ($_fail) { goto L6838; }
-        L6837: $_value = $this->_208($_env);
-        L6838: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6839: if (!$_fail) { goto L6860; }
-        L6840: $_p = $_stack[$_stack_sp];
-        L6841: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
-        L6842: $_stack[++$_stack_sp] = $_b;
-        L6843: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\/"', $_expected)) { $_expected[] = '"\\\\/"'; } } }
-        L6844: if ($_fail) { goto L6846; }
-        L6845: $_value = $this->_209($_env);
-        L6846: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6847: if (!$_fail) { goto L6860; }
-        L6848: $_p = $_stack[$_stack_sp];
-        L6849: $_stack[++$_stack_sp] = "";
-        L6850: $_stack[++$_stack_sp] = $_p;
-        L6851: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
-        L6852: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6853: $_value = NULL;
-        L6854: $_fail = !$_fail;
-        L6855: $_stack[$_stack_sp] .= $_value;
-        L6856: if ($_fail) { goto L6859; }
-        L6857: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L6858: $_stack[$_stack_sp] .= $_value;
-        L6859: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6860: unset($_stack[$_stack_sp--]);
-        L6861: if ($_fail) { goto L6866; }
-        L6862: $_stack[$_stack_sp] = false;
-        L6863: $_stack[$_stack_sp - 1][] = $_value;
-        L6864: $_stack[$_stack_sp - 2] = $_p;
-        L6865: goto L6832;
-        L6866: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6867: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6868: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6869: if ($_a) { goto L6871; }
-        L6870: $_fail = false;
-        L6871: $_env["value"] = $_value;
-        L6872: if ($_fail) { goto L6887; }
-        L6873: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
-        L6874: if ($_fail) { goto L6887; }
-        L6875: $_stack[++$_stack_sp] = $_p;
-        L6876: $_stack[++$_stack_sp] = array();
-        L6877: $_stack[++$_stack_sp] = 6879;
-        L6878: goto L7431;
-        L6879: if ($_fail) { goto L6883; }
-        L6880: $_stack[$_stack_sp][] = $_value;
-        L6881: $_stack[$_stack_sp - 1] = $_p;
-        L6882: goto L6877;
-        L6883: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6884: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6885: $_fail = false;
-        L6886: $_env["flags"] = $_value;
-        L6887: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6888: if ($_fail) { goto L6890; }
-        L6889: $_value = $this->_207($_env);
-        L6890: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6891: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6892: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6893: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6894: $_b = array();
-        L6895: $_b[0] = $_fail;
-        L6896: $_b[1] = $_value;
-        L6897: $_b[2] = $_p;
-        L6898: $_cache[$_a] = $_b;
-        L6899: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6900: if ($_a !== 5935) return array(FALSE, NULL, 66); goto L5935;
-        L6901: $_stack[++$_stack_sp] = "67@";
-        L6902: $_stack[$_stack_sp] .= $_p;
-        L6903: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6910; }
-        L6904: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6905: $_b = $_cache[$_a];
-        L6906: $_fail = $_b[0];
-        L6907: $_value = $_b[1];
-        L6908: $_p = $_b[2];
-        L6909: goto L7001;
-        L6910: $_stack[++$_stack_sp] = $_env;
-        L6911: $_env = array();
-        L6912: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L6913: $_stack[++$_stack_sp] = $_p;
-        L6914: $_stack[++$_stack_sp] = array();
-        L6915: $_stack[++$_stack_sp] = true;
-        L6916: $_stack[++$_stack_sp] = $_p;
-        L6917: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 32) || ($_a === 9))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[ \\t]', $_expected)) { $_expected[] = '[ \\t]'; } } }
-        L6918: if (!$_fail) { goto L6982; }
-        L6919: $_p = $_stack[$_stack_sp];
-        L6920: $_stack[++$_stack_sp] = 6922;
-        L6921: goto L7297;
-        L6922: if (!$_fail) { goto L6982; }
-        L6923: $_p = $_stack[$_stack_sp];
-        L6924: $_stack[++$_stack_sp] = "";
-        L6925: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "//") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"//"', $_expected)) { $_expected[] = '"//"'; } } }
-        L6926: $_stack[$_stack_sp] .= $_value;
-        L6927: if ($_fail) { goto L6950; }
-        L6928: $_stack[++$_stack_sp] = $_p;
-        L6929: $_stack[++$_stack_sp] = "";
-        L6930: $_stack[++$_stack_sp] = "";
-        L6931: $_stack[++$_stack_sp] = $_p;
-        L6932: $_stack[++$_stack_sp] = 6934;
-        L6933: goto L7297;
-        L6934: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6935: $_value = NULL;
-        L6936: $_fail = !$_fail;
-        L6937: $_stack[$_stack_sp] .= $_value;
-        L6938: if ($_fail) { goto L6941; }
-        L6939: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L6940: $_stack[$_stack_sp] .= $_value;
-        L6941: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6942: if ($_fail) { goto L6946; }
-        L6943: $_stack[$_stack_sp] .= $_value;
-        L6944: $_stack[$_stack_sp - 1] = $_p;
-        L6945: goto L6930;
-        L6946: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6947: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6948: $_fail = false;
-        L6949: $_stack[$_stack_sp] .= $_value;
-        L6950: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6951: if (!$_fail) { goto L6982; }
-        L6952: $_p = $_stack[$_stack_sp];
-        L6953: $_stack[++$_stack_sp] = "";
-        L6954: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "/*") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/*"', $_expected)) { $_expected[] = '"/*"'; } } }
-        L6955: $_stack[$_stack_sp] .= $_value;
-        L6956: if ($_fail) { goto L6981; }
-        L6957: $_stack[++$_stack_sp] = $_p;
-        L6958: $_stack[++$_stack_sp] = "";
+        L6752: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\\\") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\\\\\"', $_expected)) { $_expected[] = '"\\\\\\\\"'; } } }
+        L6753: if ($_fail) { goto L6755; }
+        L6754: $_value = $this->_205($_env);
+        L6755: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6756: if (!$_fail) { goto L6827; }
+        L6757: $_p = $_stack[$_stack_sp];
+        L6758: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6759: $_stack[++$_stack_sp] = $_b;
+        L6760: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\\"") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\\\""', $_expected)) { $_expected[] = '"\\\\\\""'; } } }
+        L6761: if ($_fail) { goto L6763; }
+        L6762: $_value = $this->_206($_env);
+        L6763: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6764: if (!$_fail) { goto L6827; }
+        L6765: $_p = $_stack[$_stack_sp];
+        L6766: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6767: $_stack[++$_stack_sp] = $_b;
+        L6768: $_stack[++$_stack_sp] = "";
+        L6769: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\\") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\"', $_expected)) { $_expected[] = '"\\\\"'; } } }
+        L6770: $_stack[$_stack_sp] .= $_value;
+        L6771: if ($_fail) { goto L6774; }
+        L6772: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 39))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[\\\']', $_expected)) { $_expected[] = '[\\\']'; } } }
+        L6773: $_stack[$_stack_sp] .= $_value;
+        L6774: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6775: if ($_fail) { goto L6777; }
+        L6776: $_value = $this->_207($_env);
+        L6777: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6778: if (!$_fail) { goto L6827; }
+        L6779: $_p = $_stack[$_stack_sp];
+        L6780: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6781: $_stack[++$_stack_sp] = $_b;
+        L6782: $_stack[++$_stack_sp] = "";
+        L6783: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\0") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\0"', $_expected)) { $_expected[] = '"\\\\0"'; } } }
+        L6784: $_stack[$_stack_sp] .= $_value;
+        L6785: if ($_fail) { goto L6792; }
+        L6786: $_stack[++$_stack_sp] = $_p;
+        L6787: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9]', $_expected)) { $_expected[] = '[0-9]'; } } }
+        L6788: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6789: $_value = NULL;
+        L6790: $_fail = !$_fail;
+        L6791: $_stack[$_stack_sp] .= $_value;
+        L6792: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6793: if ($_fail) { goto L6795; }
+        L6794: $_value = $this->_208($_env);
+        L6795: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6796: if (!$_fail) { goto L6827; }
+        L6797: $_p = $_stack[$_stack_sp];
+        L6798: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6799: $_stack[++$_stack_sp] = $_b;
+        L6800: $_stack[++$_stack_sp] = NULL;
+        L6801: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\x") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\x"', $_expected)) { $_expected[] = '"\\\\x"'; } } }
+        L6802: $_stack[$_stack_sp] = $_value;
+        L6803: if ($_fail) { goto L6809; }
+        L6804: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57) || (97 <= $_a && $_a <= 102) || (65 <= $_a && $_a <= 70))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9a-fA-F]', $_expected)) { $_expected[] = '[0-9a-fA-F]'; } } }
+        L6805: $_env["a"] = $_value;
+        L6806: if ($_fail) { goto L6809; }
+        L6807: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((48 <= $_a && $_a <= 57) || (97 <= $_a && $_a <= 102) || (65 <= $_a && $_a <= 70))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[0-9a-fA-F]', $_expected)) { $_expected[] = '[0-9a-fA-F]'; } } }
+        L6808: $_env["b"] = $_value;
+        L6809: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6810: if ($_fail) { goto L6812; }
+        L6811: $_value = $this->_209($_env);
+        L6812: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6813: if (!$_fail) { goto L6827; }
+        L6814: $_p = $_stack[$_stack_sp];
+        L6815: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6816: $_stack[++$_stack_sp] = $_b;
+        L6817: $_stack[++$_stack_sp] = NULL;
+        L6818: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\\") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\"', $_expected)) { $_expected[] = '"\\\\"'; } } }
+        L6819: $_stack[$_stack_sp] = $_value;
+        L6820: if ($_fail) { goto L6823; }
+        L6821: $_stack[++$_stack_sp] = 6823;
+        L6822: goto L7327;
+        L6823: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6824: if ($_fail) { goto L6826; }
+        L6825: $_value = $this->_210($_env);
+        L6826: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6827: unset($_stack[$_stack_sp--]);
+        L6828: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L6829: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6830: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6831: $_b = array();
+        L6832: $_b[0] = $_fail;
+        L6833: $_b[1] = $_value;
+        L6834: $_b[2] = $_p;
+        L6835: $_cache[$_a] = $_b;
+        L6836: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6837: if ($_a === 6614) { goto L6614; } else if ($_a === 6649) { goto L6649; } else { return array(FALSE, NULL, 65); }
+        L6838: $_stack[++$_stack_sp] = "66@";
+        L6839: $_stack[$_stack_sp] .= $_p;
+        L6840: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6847; }
+        L6841: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6842: $_b = $_cache[$_a];
+        L6843: $_fail = $_b[0];
+        L6844: $_value = $_b[1];
+        L6845: $_p = $_b[2];
+        L6846: goto L6929;
+        L6847: $_stack[++$_stack_sp] = $_env;
+        L6848: $_env = array();
+        L6849: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L6850: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6851: $_stack[++$_stack_sp] = $_b;
+        L6852: $_stack[++$_stack_sp] = NULL;
+        L6853: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
+        L6854: $_stack[$_stack_sp] = $_value;
+        L6855: if ($_fail) { goto L6917; }
+        L6856: $_a = str_replace(array("\r\n", "\r"), "\n", (string) substr($_s, 0, $_p)); $_b = 1; if (($_c = strrpos($_a, "\n")) !== FALSE) { $_b = substr_count($_a, "\n") + 1; $_a = (string) substr($_a, $_c + 1); } $_fail = FALSE; $_value = array($_b, strlen($_a) + 1);
+        L6857: $_env["p"] = $_value;
+        L6858: if ($_fail) { goto L6917; }
+        L6859: $_stack[++$_stack_sp] = $_p;
+        L6860: $_stack[++$_stack_sp] = array();
+        L6861: $_stack[++$_stack_sp] = true;
+        L6862: $_stack[++$_stack_sp] = $_p;
+        L6863: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6864: $_stack[++$_stack_sp] = $_b;
+        L6865: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\\\") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\\\\\"', $_expected)) { $_expected[] = '"\\\\\\\\"'; } } }
+        L6866: if ($_fail) { goto L6868; }
+        L6867: $_value = $this->_212($_env);
+        L6868: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6869: if (!$_fail) { goto L6890; }
+        L6870: $_p = $_stack[$_stack_sp];
+        L6871: $_b = array(); foreach ($_env as $_ref => $_) { $_b[$_ref] =& $_env[$_ref]; }
+        L6872: $_stack[++$_stack_sp] = $_b;
+        L6873: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "\\/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\\\/"', $_expected)) { $_expected[] = '"\\\\/"'; } } }
+        L6874: if ($_fail) { goto L6876; }
+        L6875: $_value = $this->_213($_env);
+        L6876: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6877: if (!$_fail) { goto L6890; }
+        L6878: $_p = $_stack[$_stack_sp];
+        L6879: $_stack[++$_stack_sp] = "";
+        L6880: $_stack[++$_stack_sp] = $_p;
+        L6881: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
+        L6882: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6883: $_value = NULL;
+        L6884: $_fail = !$_fail;
+        L6885: $_stack[$_stack_sp] .= $_value;
+        L6886: if ($_fail) { goto L6889; }
+        L6887: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L6888: $_stack[$_stack_sp] .= $_value;
+        L6889: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6890: unset($_stack[$_stack_sp--]);
+        L6891: if ($_fail) { goto L6896; }
+        L6892: $_stack[$_stack_sp] = false;
+        L6893: $_stack[$_stack_sp - 1][] = $_value;
+        L6894: $_stack[$_stack_sp - 2] = $_p;
+        L6895: goto L6862;
+        L6896: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6897: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6898: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6899: if ($_a) { goto L6901; }
+        L6900: $_fail = false;
+        L6901: $_env["value"] = $_value;
+        L6902: if ($_fail) { goto L6917; }
+        L6903: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "/") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/"', $_expected)) { $_expected[] = '"/"'; } } }
+        L6904: if ($_fail) { goto L6917; }
+        L6905: $_stack[++$_stack_sp] = $_p;
+        L6906: $_stack[++$_stack_sp] = array();
+        L6907: $_stack[++$_stack_sp] = 6909;
+        L6908: goto L7461;
+        L6909: if ($_fail) { goto L6913; }
+        L6910: $_stack[$_stack_sp][] = $_value;
+        L6911: $_stack[$_stack_sp - 1] = $_p;
+        L6912: goto L6907;
+        L6913: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6914: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6915: $_fail = false;
+        L6916: $_env["flags"] = $_value;
+        L6917: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6918: if ($_fail) { goto L6920; }
+        L6919: $_value = $this->_211($_env);
+        L6920: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6921: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L6922: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6923: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6924: $_b = array();
+        L6925: $_b[0] = $_fail;
+        L6926: $_b[1] = $_value;
+        L6927: $_b[2] = $_p;
+        L6928: $_cache[$_a] = $_b;
+        L6929: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6930: if ($_a !== 5965) return array(FALSE, NULL, 66); goto L5965;
+        L6931: $_stack[++$_stack_sp] = "67@";
+        L6932: $_stack[$_stack_sp] .= $_p;
+        L6933: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L6940; }
+        L6934: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6935: $_b = $_cache[$_a];
+        L6936: $_fail = $_b[0];
+        L6937: $_value = $_b[1];
+        L6938: $_p = $_b[2];
+        L6939: goto L7031;
+        L6940: $_stack[++$_stack_sp] = $_env;
+        L6941: $_env = array();
+        L6942: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L6943: $_stack[++$_stack_sp] = $_p;
+        L6944: $_stack[++$_stack_sp] = array();
+        L6945: $_stack[++$_stack_sp] = true;
+        L6946: $_stack[++$_stack_sp] = $_p;
+        L6947: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 32) || ($_a === 9))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[ \\t]', $_expected)) { $_expected[] = '[ \\t]'; } } }
+        L6948: if (!$_fail) { goto L7012; }
+        L6949: $_p = $_stack[$_stack_sp];
+        L6950: $_stack[++$_stack_sp] = 6952;
+        L6951: goto L7327;
+        L6952: if (!$_fail) { goto L7012; }
+        L6953: $_p = $_stack[$_stack_sp];
+        L6954: $_stack[++$_stack_sp] = "";
+        L6955: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "//") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"//"', $_expected)) { $_expected[] = '"//"'; } } }
+        L6956: $_stack[$_stack_sp] .= $_value;
+        L6957: if ($_fail) { goto L6980; }
+        L6958: $_stack[++$_stack_sp] = $_p;
         L6959: $_stack[++$_stack_sp] = "";
-        L6960: $_stack[++$_stack_sp] = $_p;
-        L6961: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
-        L6962: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6963: $_value = NULL;
-        L6964: $_fail = !$_fail;
-        L6965: $_stack[$_stack_sp] .= $_value;
-        L6966: if ($_fail) { goto L6969; }
-        L6967: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L6968: $_stack[$_stack_sp] .= $_value;
-        L6969: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6970: if ($_fail) { goto L6974; }
-        L6971: $_stack[$_stack_sp] .= $_value;
-        L6972: $_stack[$_stack_sp - 1] = $_p;
-        L6973: goto L6959;
-        L6974: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6975: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6976: $_fail = false;
-        L6977: $_stack[$_stack_sp] .= $_value;
-        L6978: if ($_fail) { goto L6981; }
-        L6979: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
-        L6980: $_stack[$_stack_sp] .= $_value;
-        L6981: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6982: unset($_stack[$_stack_sp--]);
-        L6983: if ($_fail) { goto L6988; }
-        L6984: $_stack[$_stack_sp] = false;
-        L6985: $_stack[$_stack_sp - 1][] = $_value;
-        L6986: $_stack[$_stack_sp - 2] = $_p;
-        L6987: goto L6916;
-        L6988: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6989: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6990: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6991: if ($_a) { goto L6993; }
-        L6992: $_fail = false;
-        L6993: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L6994: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6995: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L6996: $_b = array();
-        L6997: $_b[0] = $_fail;
-        L6998: $_b[1] = $_value;
-        L6999: $_b[2] = $_p;
-        L7000: $_cache[$_a] = $_b;
-        L7001: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7002: if ($_a === 157) { goto L157; } else if ($_a === 302) { goto L302; } else if ($_a === 635) { goto L635; } else if ($_a === 7018) { goto L7018; } else { return array(FALSE, NULL, 67); }
-        L7003: $_stack[++$_stack_sp] = "68@";
-        L7004: $_stack[$_stack_sp] .= $_p;
-        L7005: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7012; }
-        L7006: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7007: $_b = $_cache[$_a];
-        L7008: $_fail = $_b[0];
-        L7009: $_value = $_b[1];
-        L7010: $_p = $_b[2];
-        L7011: goto L7031;
-        L7012: $_stack[++$_stack_sp] = $_env;
-        L7013: $_env = array();
-        L7014: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7015: $_stack[++$_stack_sp] = $_p;
-        L7016: $_stack[++$_stack_sp] = 7018;
-        L7017: goto L6901;
+        L6960: $_stack[++$_stack_sp] = "";
+        L6961: $_stack[++$_stack_sp] = $_p;
+        L6962: $_stack[++$_stack_sp] = 6964;
+        L6963: goto L7327;
+        L6964: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6965: $_value = NULL;
+        L6966: $_fail = !$_fail;
+        L6967: $_stack[$_stack_sp] .= $_value;
+        L6968: if ($_fail) { goto L6971; }
+        L6969: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L6970: $_stack[$_stack_sp] .= $_value;
+        L6971: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6972: if ($_fail) { goto L6976; }
+        L6973: $_stack[$_stack_sp] .= $_value;
+        L6974: $_stack[$_stack_sp - 1] = $_p;
+        L6975: goto L6960;
+        L6976: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6977: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6978: $_fail = false;
+        L6979: $_stack[$_stack_sp] .= $_value;
+        L6980: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6981: if (!$_fail) { goto L7012; }
+        L6982: $_p = $_stack[$_stack_sp];
+        L6983: $_stack[++$_stack_sp] = "";
+        L6984: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "/*") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/*"', $_expected)) { $_expected[] = '"/*"'; } } }
+        L6985: $_stack[$_stack_sp] .= $_value;
+        L6986: if ($_fail) { goto L7011; }
+        L6987: $_stack[++$_stack_sp] = $_p;
+        L6988: $_stack[++$_stack_sp] = "";
+        L6989: $_stack[++$_stack_sp] = "";
+        L6990: $_stack[++$_stack_sp] = $_p;
+        L6991: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
+        L6992: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L6993: $_value = NULL;
+        L6994: $_fail = !$_fail;
+        L6995: $_stack[$_stack_sp] .= $_value;
+        L6996: if ($_fail) { goto L6999; }
+        L6997: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L6998: $_stack[$_stack_sp] .= $_value;
+        L6999: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7000: if ($_fail) { goto L7004; }
+        L7001: $_stack[$_stack_sp] .= $_value;
+        L7002: $_stack[$_stack_sp - 1] = $_p;
+        L7003: goto L6989;
+        L7004: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7005: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7006: $_fail = false;
+        L7007: $_stack[$_stack_sp] .= $_value;
+        L7008: if ($_fail) { goto L7011; }
+        L7009: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
+        L7010: $_stack[$_stack_sp] .= $_value;
+        L7011: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7012: unset($_stack[$_stack_sp--]);
+        L7013: if ($_fail) { goto L7018; }
+        L7014: $_stack[$_stack_sp] = false;
+        L7015: $_stack[$_stack_sp - 1][] = $_value;
+        L7016: $_stack[$_stack_sp - 2] = $_p;
+        L7017: goto L6946;
         L7018: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7019: if (!$_fail) { goto L7023; }
-        L7020: $_fail = false;
-        L7021: $_value = NULL;
-        L7022: $_p = $_a;
+        L7019: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7020: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7021: if ($_a) { goto L7023; }
+        L7022: $_fail = false;
         L7023: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L7024: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L7025: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -7076,8 +7076,8 @@ class JSParser {
         L7029: $_b[2] = $_p;
         L7030: $_cache[$_a] = $_b;
         L7031: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7032: if ($_a === 29) { goto L29; } else if ($_a === 164) { goto L164; } else if ($_a === 169) { goto L169; } else if ($_a === 194) { goto L194; } else if ($_a === 200) { goto L200; } else if ($_a === 236) { goto L236; } else if ($_a === 241) { goto L241; } else if ($_a === 246) { goto L246; } else if ($_a === 253) { goto L253; } else if ($_a === 261) { goto L261; } else if ($_a === 320) { goto L320; } else if ($_a === 325) { goto L325; } else if ($_a === 350) { goto L350; } else if ($_a === 356) { goto L356; } else if ($_a === 392) { goto L392; } else if ($_a === 397) { goto L397; } else if ($_a === 402) { goto L402; } else if ($_a === 409) { goto L409; } else if ($_a === 509) { goto L509; } else if ($_a === 540) { goto L540; } else if ($_a === 564) { goto L564; } else if ($_a === 599) { goto L599; } else if ($_a === 659) { goto L659; } else if ($_a === 665) { goto L665; } else if ($_a === 737) { goto L737; } else if ($_a === 749) { goto L749; } else if ($_a === 806) { goto L806; } else if ($_a === 818) { goto L818; } else if ($_a === 954) { goto L954; } else if ($_a === 959) { goto L959; } else if ($_a === 966) { goto L966; } else if ($_a === 971) { goto L971; } else if ($_a === 982) { goto L982; } else if ($_a === 988) { goto L988; } else if ($_a === 1081) { goto L1081; } else if ($_a === 1088) { goto L1088; } else if ($_a === 1093) { goto L1093; } else if ($_a === 1098) { goto L1098; } else if ($_a === 1105) { goto L1105; } else if ($_a === 1141) { goto L1141; } else if ($_a === 1146) { goto L1146; } else if ($_a === 1153) { goto L1153; } else if ($_a === 1158) { goto L1158; } else if ($_a === 1197) { goto L1197; } else if ($_a === 1202) { goto L1202; } else if ($_a === 1209) { goto L1209; } else if ($_a === 1221) { goto L1221; } else if ($_a === 1228) { goto L1228; } else if ($_a === 1233) { goto L1233; } else if ($_a === 1251) { goto L1251; } else if ($_a === 1256) { goto L1256; } else if ($_a === 1268) { goto L1268; } else if ($_a === 1292) { goto L1292; } else if ($_a === 1298) { goto L1298; } else if ($_a === 1329) { goto L1329; } else if ($_a === 1341) { goto L1341; } else if ($_a === 1348) { goto L1348; } else if ($_a === 1353) { goto L1353; } else if ($_a === 1393) { goto L1393; } else if ($_a === 1398) { goto L1398; } else if ($_a === 1411) { goto L1411; } else if ($_a === 1416) { goto L1416; } else if ($_a === 1429) { goto L1429; } else if ($_a === 1434) { goto L1434; } else if ($_a === 1447) { goto L1447; } else if ($_a === 1452) { goto L1452; } else if ($_a === 1470) { goto L1470; } else if ($_a === 1475) { goto L1475; } else if ($_a === 1487) { goto L1487; } else if ($_a === 1511) { goto L1511; } else if ($_a === 1517) { goto L1517; } else if ($_a === 1548) { goto L1548; } else if ($_a === 1553) { goto L1553; } else if ($_a === 1566) { goto L1566; } else if ($_a === 1571) { goto L1571; } else if ($_a === 1584) { goto L1584; } else if ($_a === 1589) { goto L1589; } else if ($_a === 1824) { goto L1824; } else if ($_a === 1829) { goto L1829; } else if ($_a === 1836) { goto L1836; } else if ($_a === 1841) { goto L1841; } else if ($_a === 1881) { goto L1881; } else if ($_a === 1886) { goto L1886; } else if ($_a === 1924) { goto L1924; } else if ($_a === 1929) { goto L1929; } else if ($_a === 1936) { goto L1936; } else if ($_a === 1941) { goto L1941; } else if ($_a === 1991) { goto L1991; } else if ($_a === 2024) { goto L2024; } else if ($_a === 2037) { goto L2037; } else if ($_a === 2044) { goto L2044; } else if ($_a === 2049) { goto L2049; } else if ($_a === 2093) { goto L2093; } else if ($_a === 2099) { goto L2099; } else if ($_a === 2104) { goto L2104; } else if ($_a === 2217) { goto L2217; } else if ($_a === 2224) { goto L2224; } else if ($_a === 2229) { goto L2229; } else if ($_a === 2234) { goto L2234; } else if ($_a === 2241) { goto L2241; } else if ($_a === 2246) { goto L2246; } else if ($_a === 2253) { goto L2253; } else if ($_a === 2263) { goto L2263; } else if ($_a === 2291) { goto L2291; } else if ($_a === 2298) { goto L2298; } else if ($_a === 2303) { goto L2303; } else if ($_a === 2340) { goto L2340; } else if ($_a === 2428) { goto L2428; } else if ($_a === 2434) { goto L2434; } else if ($_a === 2512) { goto L2512; } else if ($_a === 2518) { goto L2518; } else if ($_a === 2582) { goto L2582; } else if ($_a === 2592) { goto L2592; } else if ($_a === 2612) { goto L2612; } else if ($_a === 2617) { goto L2617; } else if ($_a === 2624) { goto L2624; } else if ($_a === 2629) { goto L2629; } else if ($_a === 2675) { goto L2675; } else if ($_a === 2685) { goto L2685; } else if ($_a === 2705) { goto L2705; } else if ($_a === 2710) { goto L2710; } else if ($_a === 2717) { goto L2717; } else if ($_a === 2722) { goto L2722; } else if ($_a === 2845) { goto L2845; } else if ($_a === 2858) { goto L2858; } else if ($_a === 2955) { goto L2955; } else if ($_a === 2968) { goto L2968; } else if ($_a === 3065) { goto L3065; } else if ($_a === 3078) { goto L3078; } else if ($_a === 3175) { goto L3175; } else if ($_a === 3188) { goto L3188; } else if ($_a === 3285) { goto L3285; } else if ($_a === 3308) { goto L3308; } else if ($_a === 3405) { goto L3405; } else if ($_a === 3428) { goto L3428; } else if ($_a === 3525) { goto L3525; } else if ($_a === 3548) { goto L3548; } else if ($_a === 3645) { goto L3645; } else if ($_a === 3668) { goto L3668; } else if ($_a === 3765) { goto L3765; } else if ($_a === 3788) { goto L3788; } else if ($_a === 3885) { goto L3885; } else if ($_a === 3908) { goto L3908; } else if ($_a === 4005) { goto L4005; } else if ($_a === 4029) { goto L4029; } else if ($_a === 4126) { goto L4126; } else if ($_a === 4150) { goto L4150; } else if ($_a === 4247) { goto L4247; } else if ($_a === 4261) { goto L4261; } else if ($_a === 4358) { goto L4358; } else if ($_a === 4372) { goto L4372; } else if ($_a === 4546) { goto L4546; } else if ($_a === 4567) { goto L4567; } else if ($_a === 4664) { goto L4664; } else if ($_a === 4712) { goto L4712; } else if ($_a === 4809) { goto L4809; } else if ($_a === 4840) { goto L4840; } else if ($_a === 4936) { goto L4936; } else if ($_a === 4988) { goto L4988; } else if ($_a === 5013) { goto L5013; } else if ($_a === 5058) { goto L5058; } else if ($_a === 5079) { goto L5079; } else if ($_a === 5100) { goto L5100; } else if ($_a === 5118) { goto L5118; } else if ($_a === 5136) { goto L5136; } else if ($_a === 5154) { goto L5154; } else if ($_a === 5300) { goto L5300; } else if ($_a === 5319) { goto L5319; } else if ($_a === 5335) { goto L5335; } else if ($_a === 5344) { goto L5344; } else if ($_a === 5351) { goto L5351; } else if ($_a === 5364) { goto L5364; } else if ($_a === 5373) { goto L5373; } else if ($_a === 5427) { goto L5427; } else if ($_a === 5452) { goto L5452; } else if ($_a === 5458) { goto L5458; } else if ($_a === 5494) { goto L5494; } else if ($_a === 5530) { goto L5530; } else if ($_a === 5555) { goto L5555; } else if ($_a === 5561) { goto L5561; } else if ($_a === 5597) { goto L5597; } else if ($_a === 5648) { goto L5648; } else if ($_a === 5705) { goto L5705; } else if ($_a === 5712) { goto L5712; } else if ($_a === 5736) { goto L5736; } else if ($_a === 5745) { goto L5745; } else if ($_a === 5752) { goto L5752; } else if ($_a === 5765) { goto L5765; } else if ($_a === 5774) { goto L5774; } else if ($_a === 5961) { goto L5961; } else if ($_a === 5980) { goto L5980; } else if ($_a === 5986) { goto L5986; } else if ($_a === 6001) { goto L6001; } else if ($_a === 6007) { goto L6007; } else if ($_a === 6023) { goto L6023; } else if ($_a === 6039) { goto L6039; } else if ($_a === 6068) { goto L6068; } else if ($_a === 6073) { goto L6073; } else if ($_a === 6095) { goto L6095; } else if ($_a === 6101) { goto L6101; } else if ($_a === 6127) { goto L6127; } else if ($_a === 6132) { goto L6132; } else if ($_a === 6168) { goto L6168; } else if ($_a === 6184) { goto L6184; } else if ($_a === 6191) { goto L6191; } else if ($_a === 7181) { goto L7181; } else if ($_a === 7212) { goto L7212; } else { return array(FALSE, NULL, 68); }
-        L7033: $_stack[++$_stack_sp] = "69@";
+        L7032: if ($_a === 157) { goto L157; } else if ($_a === 302) { goto L302; } else if ($_a === 635) { goto L635; } else if ($_a === 7048) { goto L7048; } else { return array(FALSE, NULL, 67); }
+        L7033: $_stack[++$_stack_sp] = "68@";
         L7034: $_stack[$_stack_sp] .= $_p;
         L7035: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7042; }
         L7036: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -7085,120 +7085,120 @@ class JSParser {
         L7038: $_fail = $_b[0];
         L7039: $_value = $_b[1];
         L7040: $_p = $_b[2];
-        L7041: goto L7133;
+        L7041: goto L7061;
         L7042: $_stack[++$_stack_sp] = $_env;
         L7043: $_env = array();
         L7044: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
         L7045: $_stack[++$_stack_sp] = $_p;
-        L7046: $_stack[++$_stack_sp] = "";
-        L7047: $_stack[++$_stack_sp] = $_p;
-        L7048: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 32) || ($_a === 9))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[ \\t]', $_expected)) { $_expected[] = '[ \\t]'; } } }
-        L7049: if (!$_fail) { goto L7117; }
-        L7050: $_p = $_stack[$_stack_sp];
-        L7051: $_stack[++$_stack_sp] = "";
-        L7052: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "//") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"//"', $_expected)) { $_expected[] = '"//"'; } } }
-        L7053: $_stack[$_stack_sp] .= $_value;
-        L7054: if ($_fail) { goto L7077; }
-        L7055: $_stack[++$_stack_sp] = $_p;
-        L7056: $_stack[++$_stack_sp] = "";
-        L7057: $_stack[++$_stack_sp] = "";
-        L7058: $_stack[++$_stack_sp] = $_p;
-        L7059: $_stack[++$_stack_sp] = 7061;
-        L7060: goto L7297;
-        L7061: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7062: $_value = NULL;
-        L7063: $_fail = !$_fail;
-        L7064: $_stack[$_stack_sp] .= $_value;
-        L7065: if ($_fail) { goto L7068; }
-        L7066: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L7067: $_stack[$_stack_sp] .= $_value;
-        L7068: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7069: if ($_fail) { goto L7073; }
-        L7070: $_stack[$_stack_sp] .= $_value;
-        L7071: $_stack[$_stack_sp - 1] = $_p;
-        L7072: goto L7057;
-        L7073: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7074: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7075: $_fail = false;
-        L7076: $_stack[$_stack_sp] .= $_value;
-        L7077: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7078: if (!$_fail) { goto L7117; }
-        L7079: $_p = $_stack[$_stack_sp];
-        L7080: $_stack[++$_stack_sp] = "";
-        L7081: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "/*") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/*"', $_expected)) { $_expected[] = '"/*"'; } } }
-        L7082: $_stack[$_stack_sp] .= $_value;
-        L7083: if ($_fail) { goto L7116; }
-        L7084: $_stack[++$_stack_sp] = $_p;
-        L7085: $_stack[++$_stack_sp] = "";
+        L7046: $_stack[++$_stack_sp] = 7048;
+        L7047: goto L6931;
+        L7048: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7049: if (!$_fail) { goto L7053; }
+        L7050: $_fail = false;
+        L7051: $_value = NULL;
+        L7052: $_p = $_a;
+        L7053: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7054: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7055: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7056: $_b = array();
+        L7057: $_b[0] = $_fail;
+        L7058: $_b[1] = $_value;
+        L7059: $_b[2] = $_p;
+        L7060: $_cache[$_a] = $_b;
+        L7061: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7062: if ($_a === 29) { goto L29; } else if ($_a === 164) { goto L164; } else if ($_a === 169) { goto L169; } else if ($_a === 194) { goto L194; } else if ($_a === 200) { goto L200; } else if ($_a === 236) { goto L236; } else if ($_a === 241) { goto L241; } else if ($_a === 246) { goto L246; } else if ($_a === 253) { goto L253; } else if ($_a === 261) { goto L261; } else if ($_a === 320) { goto L320; } else if ($_a === 325) { goto L325; } else if ($_a === 350) { goto L350; } else if ($_a === 356) { goto L356; } else if ($_a === 392) { goto L392; } else if ($_a === 397) { goto L397; } else if ($_a === 402) { goto L402; } else if ($_a === 409) { goto L409; } else if ($_a === 509) { goto L509; } else if ($_a === 540) { goto L540; } else if ($_a === 564) { goto L564; } else if ($_a === 599) { goto L599; } else if ($_a === 659) { goto L659; } else if ($_a === 665) { goto L665; } else if ($_a === 737) { goto L737; } else if ($_a === 749) { goto L749; } else if ($_a === 806) { goto L806; } else if ($_a === 818) { goto L818; } else if ($_a === 954) { goto L954; } else if ($_a === 959) { goto L959; } else if ($_a === 966) { goto L966; } else if ($_a === 971) { goto L971; } else if ($_a === 982) { goto L982; } else if ($_a === 988) { goto L988; } else if ($_a === 1081) { goto L1081; } else if ($_a === 1088) { goto L1088; } else if ($_a === 1093) { goto L1093; } else if ($_a === 1098) { goto L1098; } else if ($_a === 1105) { goto L1105; } else if ($_a === 1141) { goto L1141; } else if ($_a === 1146) { goto L1146; } else if ($_a === 1153) { goto L1153; } else if ($_a === 1158) { goto L1158; } else if ($_a === 1197) { goto L1197; } else if ($_a === 1202) { goto L1202; } else if ($_a === 1236) { goto L1236; } else if ($_a === 1248) { goto L1248; } else if ($_a === 1255) { goto L1255; } else if ($_a === 1260) { goto L1260; } else if ($_a === 1278) { goto L1278; } else if ($_a === 1283) { goto L1283; } else if ($_a === 1295) { goto L1295; } else if ($_a === 1319) { goto L1319; } else if ($_a === 1325) { goto L1325; } else if ($_a === 1356) { goto L1356; } else if ($_a === 1368) { goto L1368; } else if ($_a === 1375) { goto L1375; } else if ($_a === 1380) { goto L1380; } else if ($_a === 1420) { goto L1420; } else if ($_a === 1425) { goto L1425; } else if ($_a === 1438) { goto L1438; } else if ($_a === 1443) { goto L1443; } else if ($_a === 1456) { goto L1456; } else if ($_a === 1461) { goto L1461; } else if ($_a === 1474) { goto L1474; } else if ($_a === 1479) { goto L1479; } else if ($_a === 1497) { goto L1497; } else if ($_a === 1502) { goto L1502; } else if ($_a === 1514) { goto L1514; } else if ($_a === 1538) { goto L1538; } else if ($_a === 1544) { goto L1544; } else if ($_a === 1575) { goto L1575; } else if ($_a === 1580) { goto L1580; } else if ($_a === 1593) { goto L1593; } else if ($_a === 1598) { goto L1598; } else if ($_a === 1611) { goto L1611; } else if ($_a === 1616) { goto L1616; } else if ($_a === 1851) { goto L1851; } else if ($_a === 1859) { goto L1859; } else if ($_a === 1866) { goto L1866; } else if ($_a === 1871) { goto L1871; } else if ($_a === 1911) { goto L1911; } else if ($_a === 1916) { goto L1916; } else if ($_a === 1954) { goto L1954; } else if ($_a === 1959) { goto L1959; } else if ($_a === 1966) { goto L1966; } else if ($_a === 1971) { goto L1971; } else if ($_a === 2021) { goto L2021; } else if ($_a === 2054) { goto L2054; } else if ($_a === 2067) { goto L2067; } else if ($_a === 2074) { goto L2074; } else if ($_a === 2079) { goto L2079; } else if ($_a === 2123) { goto L2123; } else if ($_a === 2129) { goto L2129; } else if ($_a === 2134) { goto L2134; } else if ($_a === 2247) { goto L2247; } else if ($_a === 2254) { goto L2254; } else if ($_a === 2259) { goto L2259; } else if ($_a === 2264) { goto L2264; } else if ($_a === 2271) { goto L2271; } else if ($_a === 2276) { goto L2276; } else if ($_a === 2283) { goto L2283; } else if ($_a === 2293) { goto L2293; } else if ($_a === 2321) { goto L2321; } else if ($_a === 2328) { goto L2328; } else if ($_a === 2333) { goto L2333; } else if ($_a === 2370) { goto L2370; } else if ($_a === 2458) { goto L2458; } else if ($_a === 2464) { goto L2464; } else if ($_a === 2542) { goto L2542; } else if ($_a === 2548) { goto L2548; } else if ($_a === 2612) { goto L2612; } else if ($_a === 2622) { goto L2622; } else if ($_a === 2642) { goto L2642; } else if ($_a === 2647) { goto L2647; } else if ($_a === 2654) { goto L2654; } else if ($_a === 2659) { goto L2659; } else if ($_a === 2705) { goto L2705; } else if ($_a === 2715) { goto L2715; } else if ($_a === 2735) { goto L2735; } else if ($_a === 2740) { goto L2740; } else if ($_a === 2747) { goto L2747; } else if ($_a === 2752) { goto L2752; } else if ($_a === 2875) { goto L2875; } else if ($_a === 2888) { goto L2888; } else if ($_a === 2985) { goto L2985; } else if ($_a === 2998) { goto L2998; } else if ($_a === 3095) { goto L3095; } else if ($_a === 3108) { goto L3108; } else if ($_a === 3205) { goto L3205; } else if ($_a === 3218) { goto L3218; } else if ($_a === 3315) { goto L3315; } else if ($_a === 3338) { goto L3338; } else if ($_a === 3435) { goto L3435; } else if ($_a === 3458) { goto L3458; } else if ($_a === 3555) { goto L3555; } else if ($_a === 3578) { goto L3578; } else if ($_a === 3675) { goto L3675; } else if ($_a === 3698) { goto L3698; } else if ($_a === 3795) { goto L3795; } else if ($_a === 3818) { goto L3818; } else if ($_a === 3915) { goto L3915; } else if ($_a === 3938) { goto L3938; } else if ($_a === 4035) { goto L4035; } else if ($_a === 4059) { goto L4059; } else if ($_a === 4156) { goto L4156; } else if ($_a === 4180) { goto L4180; } else if ($_a === 4277) { goto L4277; } else if ($_a === 4291) { goto L4291; } else if ($_a === 4388) { goto L4388; } else if ($_a === 4402) { goto L4402; } else if ($_a === 4576) { goto L4576; } else if ($_a === 4597) { goto L4597; } else if ($_a === 4694) { goto L4694; } else if ($_a === 4742) { goto L4742; } else if ($_a === 4839) { goto L4839; } else if ($_a === 4870) { goto L4870; } else if ($_a === 4966) { goto L4966; } else if ($_a === 5018) { goto L5018; } else if ($_a === 5043) { goto L5043; } else if ($_a === 5088) { goto L5088; } else if ($_a === 5109) { goto L5109; } else if ($_a === 5130) { goto L5130; } else if ($_a === 5148) { goto L5148; } else if ($_a === 5166) { goto L5166; } else if ($_a === 5184) { goto L5184; } else if ($_a === 5330) { goto L5330; } else if ($_a === 5349) { goto L5349; } else if ($_a === 5365) { goto L5365; } else if ($_a === 5374) { goto L5374; } else if ($_a === 5381) { goto L5381; } else if ($_a === 5394) { goto L5394; } else if ($_a === 5403) { goto L5403; } else if ($_a === 5457) { goto L5457; } else if ($_a === 5482) { goto L5482; } else if ($_a === 5488) { goto L5488; } else if ($_a === 5524) { goto L5524; } else if ($_a === 5560) { goto L5560; } else if ($_a === 5585) { goto L5585; } else if ($_a === 5591) { goto L5591; } else if ($_a === 5627) { goto L5627; } else if ($_a === 5678) { goto L5678; } else if ($_a === 5735) { goto L5735; } else if ($_a === 5742) { goto L5742; } else if ($_a === 5766) { goto L5766; } else if ($_a === 5775) { goto L5775; } else if ($_a === 5782) { goto L5782; } else if ($_a === 5795) { goto L5795; } else if ($_a === 5804) { goto L5804; } else if ($_a === 5991) { goto L5991; } else if ($_a === 6010) { goto L6010; } else if ($_a === 6016) { goto L6016; } else if ($_a === 6031) { goto L6031; } else if ($_a === 6037) { goto L6037; } else if ($_a === 6053) { goto L6053; } else if ($_a === 6069) { goto L6069; } else if ($_a === 6098) { goto L6098; } else if ($_a === 6103) { goto L6103; } else if ($_a === 6125) { goto L6125; } else if ($_a === 6131) { goto L6131; } else if ($_a === 6157) { goto L6157; } else if ($_a === 6162) { goto L6162; } else if ($_a === 6198) { goto L6198; } else if ($_a === 6214) { goto L6214; } else if ($_a === 6221) { goto L6221; } else if ($_a === 7211) { goto L7211; } else if ($_a === 7242) { goto L7242; } else { return array(FALSE, NULL, 68); }
+        L7063: $_stack[++$_stack_sp] = "69@";
+        L7064: $_stack[$_stack_sp] .= $_p;
+        L7065: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7072; }
+        L7066: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7067: $_b = $_cache[$_a];
+        L7068: $_fail = $_b[0];
+        L7069: $_value = $_b[1];
+        L7070: $_p = $_b[2];
+        L7071: goto L7163;
+        L7072: $_stack[++$_stack_sp] = $_env;
+        L7073: $_env = array();
+        L7074: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7075: $_stack[++$_stack_sp] = $_p;
+        L7076: $_stack[++$_stack_sp] = "";
+        L7077: $_stack[++$_stack_sp] = $_p;
+        L7078: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && (($_a === 32) || ($_a === 9))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[ \\t]', $_expected)) { $_expected[] = '[ \\t]'; } } }
+        L7079: if (!$_fail) { goto L7147; }
+        L7080: $_p = $_stack[$_stack_sp];
+        L7081: $_stack[++$_stack_sp] = "";
+        L7082: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "//") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"//"', $_expected)) { $_expected[] = '"//"'; } } }
+        L7083: $_stack[$_stack_sp] .= $_value;
+        L7084: if ($_fail) { goto L7107; }
+        L7085: $_stack[++$_stack_sp] = $_p;
         L7086: $_stack[++$_stack_sp] = "";
-        L7087: $_stack[++$_stack_sp] = $_p;
-        L7088: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
-        L7089: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7090: $_value = NULL;
-        L7091: $_fail = !$_fail;
-        L7092: $_stack[$_stack_sp] .= $_value;
-        L7093: if ($_fail) { goto L7104; }
-        L7094: $_stack[++$_stack_sp] = $_p;
-        L7095: $_stack[++$_stack_sp] = 7097;
-        L7096: goto L7297;
-        L7097: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7098: $_value = NULL;
-        L7099: $_fail = !$_fail;
+        L7087: $_stack[++$_stack_sp] = "";
+        L7088: $_stack[++$_stack_sp] = $_p;
+        L7089: $_stack[++$_stack_sp] = 7091;
+        L7090: goto L7327;
+        L7091: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7092: $_value = NULL;
+        L7093: $_fail = !$_fail;
+        L7094: $_stack[$_stack_sp] .= $_value;
+        L7095: if ($_fail) { goto L7098; }
+        L7096: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L7097: $_stack[$_stack_sp] .= $_value;
+        L7098: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7099: if ($_fail) { goto L7103; }
         L7100: $_stack[$_stack_sp] .= $_value;
-        L7101: if ($_fail) { goto L7104; }
-        L7102: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L7103: $_stack[$_stack_sp] .= $_value;
-        L7104: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7105: if ($_fail) { goto L7109; }
+        L7101: $_stack[$_stack_sp - 1] = $_p;
+        L7102: goto L7087;
+        L7103: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7104: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7105: $_fail = false;
         L7106: $_stack[$_stack_sp] .= $_value;
-        L7107: $_stack[$_stack_sp - 1] = $_p;
-        L7108: goto L7086;
-        L7109: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7110: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7111: $_fail = false;
+        L7107: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7108: if (!$_fail) { goto L7147; }
+        L7109: $_p = $_stack[$_stack_sp];
+        L7110: $_stack[++$_stack_sp] = "";
+        L7111: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "/*") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"/*"', $_expected)) { $_expected[] = '"/*"'; } } }
         L7112: $_stack[$_stack_sp] .= $_value;
-        L7113: if ($_fail) { goto L7116; }
-        L7114: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
-        L7115: $_stack[$_stack_sp] .= $_value;
-        L7116: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7117: unset($_stack[$_stack_sp--]);
-        L7118: if ($_fail) { goto L7122; }
-        L7119: $_stack[$_stack_sp] .= $_value;
-        L7120: $_stack[$_stack_sp - 1] = $_p;
-        L7121: goto L7047;
-        L7122: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7123: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7124: $_fail = false;
-        L7125: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7126: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7127: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7128: $_b = array();
-        L7129: $_b[0] = $_fail;
-        L7130: $_b[1] = $_value;
-        L7131: $_b[2] = $_p;
-        L7132: $_cache[$_a] = $_b;
-        L7133: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7134: if ($_a === 1632) { goto L1632; } else if ($_a === 1699) { goto L1699; } else if ($_a === 7150) { goto L7150; } else { return array(FALSE, NULL, 69); }
-        L7135: $_stack[++$_stack_sp] = "70@";
-        L7136: $_stack[$_stack_sp] .= $_p;
-        L7137: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7144; }
-        L7138: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7139: $_b = $_cache[$_a];
-        L7140: $_fail = $_b[0];
-        L7141: $_value = $_b[1];
-        L7142: $_p = $_b[2];
-        L7143: goto L7163;
-        L7144: $_stack[++$_stack_sp] = $_env;
-        L7145: $_env = array();
-        L7146: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7147: $_stack[++$_stack_sp] = $_p;
-        L7148: $_stack[++$_stack_sp] = 7150;
-        L7149: goto L7033;
-        L7150: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7151: if (!$_fail) { goto L7155; }
-        L7152: $_fail = false;
-        L7153: $_value = NULL;
-        L7154: $_p = $_a;
+        L7113: if ($_fail) { goto L7146; }
+        L7114: $_stack[++$_stack_sp] = $_p;
+        L7115: $_stack[++$_stack_sp] = "";
+        L7116: $_stack[++$_stack_sp] = "";
+        L7117: $_stack[++$_stack_sp] = $_p;
+        L7118: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
+        L7119: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7120: $_value = NULL;
+        L7121: $_fail = !$_fail;
+        L7122: $_stack[$_stack_sp] .= $_value;
+        L7123: if ($_fail) { goto L7134; }
+        L7124: $_stack[++$_stack_sp] = $_p;
+        L7125: $_stack[++$_stack_sp] = 7127;
+        L7126: goto L7327;
+        L7127: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7128: $_value = NULL;
+        L7129: $_fail = !$_fail;
+        L7130: $_stack[$_stack_sp] .= $_value;
+        L7131: if ($_fail) { goto L7134; }
+        L7132: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L7133: $_stack[$_stack_sp] .= $_value;
+        L7134: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7135: if ($_fail) { goto L7139; }
+        L7136: $_stack[$_stack_sp] .= $_value;
+        L7137: $_stack[$_stack_sp - 1] = $_p;
+        L7138: goto L7116;
+        L7139: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7140: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7141: $_fail = false;
+        L7142: $_stack[$_stack_sp] .= $_value;
+        L7143: if ($_fail) { goto L7146; }
+        L7144: $_fail = TRUE; if (($_a = substr($_s, $_p, 2)) === "*/") { $_fail = FALSE; $_value = $_a; $_p += 2; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"*/"', $_expected)) { $_expected[] = '"*/"'; } } }
+        L7145: $_stack[$_stack_sp] .= $_value;
+        L7146: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7147: unset($_stack[$_stack_sp--]);
+        L7148: if ($_fail) { goto L7152; }
+        L7149: $_stack[$_stack_sp] .= $_value;
+        L7150: $_stack[$_stack_sp - 1] = $_p;
+        L7151: goto L7077;
+        L7152: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7153: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7154: $_fail = false;
         L7155: unset($this->_environment_stack[$this->_environment_stack_sp--]);
         L7156: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
         L7157: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -7208,8 +7208,8 @@ class JSParser {
         L7161: $_b[2] = $_p;
         L7162: $_cache[$_a] = $_b;
         L7163: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7164: if ($_a === 1651) { goto L1651; } else if ($_a === 1718) { goto L1718; } else if ($_a === 1769) { goto L1769; } else if ($_a === 2161) { goto L2161; } else if ($_a === 5200) { goto L5200; } else if ($_a === 5221) { goto L5221; } else if ($_a === 7190) { goto L7190; } else if ($_a === 7200) { goto L7200; } else if ($_a === 7247) { goto L7247; } else if ($_a === 7256) { goto L7256; } else if ($_a === 7266) { goto L7266; } else if ($_a === 7278) { goto L7278; } else { return array(FALSE, NULL, 70); }
-        L7165: $_stack[++$_stack_sp] = "71@";
+        L7164: if ($_a === 1659) { goto L1659; } else if ($_a === 1726) { goto L1726; } else if ($_a === 7180) { goto L7180; } else { return array(FALSE, NULL, 69); }
+        L7165: $_stack[++$_stack_sp] = "70@";
         L7166: $_stack[$_stack_sp] .= $_p;
         L7167: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7174; }
         L7168: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
@@ -7217,287 +7217,317 @@ class JSParser {
         L7170: $_fail = $_b[0];
         L7171: $_value = $_b[1];
         L7172: $_p = $_b[2];
-        L7173: goto L7229;
+        L7173: goto L7193;
         L7174: $_stack[++$_stack_sp] = $_env;
         L7175: $_env = array();
         L7176: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
         L7177: $_stack[++$_stack_sp] = $_p;
-        L7178: $_stack[++$_stack_sp] = NULL;
-        L7179: $_stack[++$_stack_sp] = 7181;
-        L7180: goto L7003;
-        L7181: $_stack[$_stack_sp] = $_value;
-        L7182: if ($_fail) { goto L7184; }
-        L7183: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
-        L7184: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7185: if (!$_fail) { goto L7220; }
-        L7186: $_p = $_stack[$_stack_sp];
-        L7187: $_stack[++$_stack_sp] = NULL;
-        L7188: $_stack[++$_stack_sp] = 7190;
-        L7189: goto L7135;
-        L7190: $_stack[$_stack_sp] = $_value;
-        L7191: if ($_fail) { goto L7194; }
-        L7192: $_stack[++$_stack_sp] = 7194;
-        L7193: goto L7297;
-        L7194: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7195: if (!$_fail) { goto L7220; }
-        L7196: $_p = $_stack[$_stack_sp];
-        L7197: $_stack[++$_stack_sp] = NULL;
-        L7198: $_stack[++$_stack_sp] = 7200;
-        L7199: goto L7135;
-        L7200: $_stack[$_stack_sp] = $_value;
-        L7201: if ($_fail) { goto L7206; }
-        L7202: $_stack[++$_stack_sp] = $_p;
-        L7203: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
-        L7204: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7205: $_value = NULL;
-        L7206: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7207: if (!$_fail) { goto L7220; }
-        L7208: $_p = $_stack[$_stack_sp];
-        L7209: $_stack[++$_stack_sp] = NULL;
-        L7210: $_stack[++$_stack_sp] = 7212;
-        L7211: goto L7003;
-        L7212: $_stack[$_stack_sp] = $_value;
-        L7213: if ($_fail) { goto L7219; }
-        L7214: $_stack[++$_stack_sp] = $_p;
-        L7215: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L7216: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7217: $_value = NULL;
-        L7218: $_fail = !$_fail;
-        L7219: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7220: unset($_stack[$_stack_sp--]);
-        L7221: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7222: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7223: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7224: $_b = array();
-        L7225: $_b[0] = $_fail;
-        L7226: $_b[1] = $_value;
-        L7227: $_b[2] = $_p;
-        L7228: $_cache[$_a] = $_b;
-        L7229: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7230: if ($_a === 696) { goto L696; } else if ($_a === 920) { goto L920; } else if ($_a === 1640) { goto L1640; } else if ($_a === 1707) { goto L1707; } else if ($_a === 1787) { goto L1787; } else if ($_a === 2179) { goto L2179; } else if ($_a === 2343) { goto L2343; } else { return array(FALSE, NULL, 71); }
-        L7231: $_stack[++$_stack_sp] = "72@";
-        L7232: $_stack[$_stack_sp] .= $_p;
-        L7233: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7240; }
-        L7234: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7235: $_b = $_cache[$_a];
-        L7236: $_fail = $_b[0];
-        L7237: $_value = $_b[1];
-        L7238: $_p = $_b[2];
-        L7239: goto L7295;
-        L7240: $_stack[++$_stack_sp] = $_env;
-        L7241: $_env = array();
-        L7242: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7243: $_stack[++$_stack_sp] = $_p;
-        L7244: $_stack[++$_stack_sp] = NULL;
-        L7245: $_stack[++$_stack_sp] = 7247;
-        L7246: goto L7135;
-        L7247: $_stack[$_stack_sp] = $_value;
-        L7248: if ($_fail) { goto L7250; }
-        L7249: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
-        L7250: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7251: if (!$_fail) { goto L7286; }
-        L7252: $_p = $_stack[$_stack_sp];
-        L7253: $_stack[++$_stack_sp] = NULL;
-        L7254: $_stack[++$_stack_sp] = 7256;
-        L7255: goto L7135;
-        L7256: $_stack[$_stack_sp] = $_value;
-        L7257: if ($_fail) { goto L7260; }
-        L7258: $_stack[++$_stack_sp] = 7260;
-        L7259: goto L7297;
-        L7260: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7261: if (!$_fail) { goto L7286; }
-        L7262: $_p = $_stack[$_stack_sp];
-        L7263: $_stack[++$_stack_sp] = NULL;
-        L7264: $_stack[++$_stack_sp] = 7266;
-        L7265: goto L7135;
-        L7266: $_stack[$_stack_sp] = $_value;
-        L7267: if ($_fail) { goto L7272; }
-        L7268: $_stack[++$_stack_sp] = $_p;
-        L7269: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
-        L7270: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7271: $_value = NULL;
-        L7272: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7273: if (!$_fail) { goto L7286; }
-        L7274: $_p = $_stack[$_stack_sp];
-        L7275: $_stack[++$_stack_sp] = NULL;
-        L7276: $_stack[++$_stack_sp] = 7278;
-        L7277: goto L7135;
-        L7278: $_stack[$_stack_sp] = $_value;
-        L7279: if ($_fail) { goto L7285; }
-        L7280: $_stack[++$_stack_sp] = $_p;
-        L7281: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
-        L7282: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7283: $_value = NULL;
-        L7284: $_fail = !$_fail;
-        L7285: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7286: unset($_stack[$_stack_sp--]);
-        L7287: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7288: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7289: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7290: $_b = array();
-        L7291: $_b[0] = $_fail;
-        L7292: $_b[1] = $_value;
-        L7293: $_b[2] = $_p;
-        L7294: $_cache[$_a] = $_b;
-        L7295: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7296: if ($_a === 1655) { goto L1655; } else if ($_a === 1722) { goto L1722; } else if ($_a === 1775) { goto L1775; } else if ($_a === 2167) { goto L2167; } else { return array(FALSE, NULL, 72); }
-        L7297: $_stack[++$_stack_sp] = "73@";
-        L7298: $_stack[$_stack_sp] .= $_p;
-        L7299: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7306; }
-        L7300: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7301: $_b = $_cache[$_a];
-        L7302: $_fail = $_b[0];
-        L7303: $_value = $_b[1];
-        L7304: $_p = $_b[2];
-        L7305: goto L7335;
-        L7306: $_stack[++$_stack_sp] = $_env;
-        L7307: $_env = array();
-        L7308: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7309: $_stack[++$_stack_sp] = $_p;
-        L7310: $_stack[++$_stack_sp] = "";
-        L7311: $_stack[++$_stack_sp] = $_p;
-        L7312: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\r") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\r"', $_expected)) { $_expected[] = '"\\r"'; } } }
-        L7313: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7314: if (!$_fail) { goto L7318; }
-        L7315: $_fail = false;
-        L7316: $_value = NULL;
-        L7317: $_p = $_a;
-        L7318: $_stack[$_stack_sp] .= $_value;
-        L7319: if ($_fail) { goto L7322; }
-        L7320: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\n") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\n"', $_expected)) { $_expected[] = '"\\n"'; } } }
-        L7321: $_stack[$_stack_sp] .= $_value;
-        L7322: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7323: if (!$_fail) { goto L7326; }
-        L7324: $_p = $_stack[$_stack_sp];
-        L7325: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\r") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\r"', $_expected)) { $_expected[] = '"\\r"'; } } }
-        L7326: unset($_stack[$_stack_sp--]);
-        L7327: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7328: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7329: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7330: $_b = array();
-        L7331: $_b[0] = $_fail;
-        L7332: $_b[1] = $_value;
-        L7333: $_b[2] = $_p;
-        L7334: $_cache[$_a] = $_b;
-        L7335: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7336: if ($_a === 6793) { goto L6793; } else if ($_a === 6922) { goto L6922; } else if ($_a === 6934) { goto L6934; } else if ($_a === 7061) { goto L7061; } else if ($_a === 7097) { goto L7097; } else if ($_a === 7194) { goto L7194; } else if ($_a === 7260) { goto L7260; } else { return array(FALSE, NULL, 73); }
-        L7337: $_stack[++$_stack_sp] = "74@";
-        L7338: $_stack[$_stack_sp] .= $_p;
-        L7339: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7346; }
-        L7340: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7341: $_b = $_cache[$_a];
-        L7342: $_fail = $_b[0];
-        L7343: $_value = $_b[1];
-        L7344: $_p = $_b[2];
-        L7345: goto L7368;
-        L7346: $_stack[++$_stack_sp] = $_env;
-        L7347: $_env = array();
-        L7348: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7349: $_stack[++$_stack_sp] = NULL;
-        L7350: $_stack[++$_stack_sp] = 7352;
-        L7351: goto L7370;
-        L7352: $_env["id"] = $_value;
-        L7353: $_stack[$_stack_sp] = $_value;
-        L7354: if ($_fail) { goto L7359; }
-        L7355: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
-        L7356: $_value = $this->_210($_env);
-        L7357: $_fail = !$_value;
-        L7358: $_value = NULL;
-        L7359: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7360: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7361: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7362: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7363: $_b = array();
-        L7364: $_b[0] = $_fail;
-        L7365: $_b[1] = $_value;
-        L7366: $_b[2] = $_p;
-        L7367: $_cache[$_a] = $_b;
-        L7368: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7369: if ($_a === 160) { goto L160; } else if ($_a === 180) { goto L180; } else if ($_a === 208) { goto L208; } else if ($_a === 306) { goto L306; } else if ($_a === 336) { goto L336; } else if ($_a === 364) { goto L364; } else if ($_a === 727) { goto L727; } else if ($_a === 796) { goto L796; } else if ($_a === 1636) { goto L1636; } else if ($_a === 1703) { goto L1703; } else if ($_a === 1876) { goto L1876; } else if ($_a === 2237) { goto L2237; } else if ($_a === 5942) { goto L5942; } else { return array(FALSE, NULL, 74); }
-        L7370: $_stack[++$_stack_sp] = "75@";
-        L7371: $_stack[$_stack_sp] .= $_p;
-        L7372: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7379; }
-        L7373: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7374: $_b = $_cache[$_a];
-        L7375: $_fail = $_b[0];
-        L7376: $_value = $_b[1];
-        L7377: $_p = $_b[2];
-        L7378: goto L7406;
-        L7379: $_stack[++$_stack_sp] = $_env;
-        L7380: $_env = array();
-        L7381: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7382: $_stack[++$_stack_sp] = "";
-        L7383: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z_$]', $_expected)) { $_expected[] = '[a-zA-Z_$]'; } } }
-        L7384: $_stack[$_stack_sp] .= $_value;
-        L7385: if ($_fail) { goto L7397; }
-        L7386: $_stack[++$_stack_sp] = $_p;
-        L7387: $_stack[++$_stack_sp] = "";
-        L7388: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || (48 <= $_a && $_a <= 57) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z0-9_$]', $_expected)) { $_expected[] = '[a-zA-Z0-9_$]'; } } }
-        L7389: if ($_fail) { goto L7393; }
-        L7390: $_stack[$_stack_sp] .= $_value;
-        L7391: $_stack[$_stack_sp - 1] = $_p;
-        L7392: goto L7388;
-        L7393: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7394: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7395: $_fail = false;
-        L7396: $_stack[$_stack_sp] .= $_value;
-        L7397: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7398: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7399: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7400: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7401: $_b = array();
-        L7402: $_b[0] = $_fail;
-        L7403: $_b[1] = $_value;
-        L7404: $_b[2] = $_p;
-        L7405: $_cache[$_a] = $_b;
-        L7406: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7407: if ($_a === 5376) { goto L5376; } else if ($_a === 5777) { goto L5777; } else if ($_a === 6054) { goto L6054; } else if ($_a === 6113) { goto L6113; } else if ($_a === 6250) { goto L6250; } else if ($_a === 7352) { goto L7352; } else { return array(FALSE, NULL, 75); }
-        L7408: $_stack[++$_stack_sp] = "76@";
-        L7409: $_stack[$_stack_sp] .= $_p;
-        L7410: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7417; }
-        L7411: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7412: $_b = $_cache[$_a];
-        L7413: $_fail = $_b[0];
-        L7414: $_value = $_b[1];
-        L7415: $_p = $_b[2];
-        L7416: goto L7429;
-        L7417: $_stack[++$_stack_sp] = $_env;
-        L7418: $_env = array();
-        L7419: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7420: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z_$]', $_expected)) { $_expected[] = '[a-zA-Z_$]'; } } }
-        L7421: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7422: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7423: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7424: $_b = array();
-        L7425: $_b[0] = $_fail;
-        L7426: $_b[1] = $_value;
-        L7427: $_b[2] = $_p;
-        L7428: $_cache[$_a] = $_b;
-        L7429: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7430: if ($_a === 6359) { goto L6359; } else if ($_a === 6459) { goto L6459; } else if ($_a === 6536) { goto L6536; } else { return array(FALSE, NULL, 76); }
-        L7431: $_stack[++$_stack_sp] = "77@";
-        L7432: $_stack[$_stack_sp] .= $_p;
-        L7433: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7440; }
-        L7434: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7435: $_b = $_cache[$_a];
-        L7436: $_fail = $_b[0];
-        L7437: $_value = $_b[1];
-        L7438: $_p = $_b[2];
-        L7439: goto L7452;
-        L7440: $_stack[++$_stack_sp] = $_env;
-        L7441: $_env = array();
-        L7442: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
-        L7443: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || (48 <= $_a && $_a <= 57) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z0-9_$]', $_expected)) { $_expected[] = '[a-zA-Z0-9_$]'; } } }
-        L7444: unset($this->_environment_stack[$this->_environment_stack_sp--]);
-        L7445: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7446: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7447: $_b = array();
-        L7448: $_b[0] = $_fail;
-        L7449: $_b[1] = $_value;
-        L7450: $_b[2] = $_p;
-        L7451: $_cache[$_a] = $_b;
-        L7452: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
-        L7453: if ($_a === 903) { goto L903; } else if ($_a === 1075) { goto L1075; } else if ($_a === 1215) { goto L1215; } else if ($_a === 1262) { goto L1262; } else if ($_a === 1335) { goto L1335; } else if ($_a === 1481) { goto L1481; } else if ($_a === 1763) { goto L1763; } else if ($_a === 2031) { goto L2031; } else if ($_a === 2152) { goto L2152; } else if ($_a === 4927) { goto L4927; } else if ($_a === 4982) { goto L4982; } else if ($_a === 5007) { goto L5007; } else if ($_a === 5639) { goto L5639; } else if ($_a === 5696) { goto L5696; } else if ($_a === 5827) { goto L5827; } else if ($_a === 5846) { goto L5846; } else if ($_a === 5865) { goto L5865; } else if ($_a === 5884) { goto L5884; } else if ($_a === 5903) { goto L5903; } else if ($_a === 6879) { goto L6879; } else { return array(FALSE, NULL, 77); }
+        L7178: $_stack[++$_stack_sp] = 7180;
+        L7179: goto L7063;
+        L7180: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7181: if (!$_fail) { goto L7185; }
+        L7182: $_fail = false;
+        L7183: $_value = NULL;
+        L7184: $_p = $_a;
+        L7185: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7186: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7187: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7188: $_b = array();
+        L7189: $_b[0] = $_fail;
+        L7190: $_b[1] = $_value;
+        L7191: $_b[2] = $_p;
+        L7192: $_cache[$_a] = $_b;
+        L7193: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7194: if ($_a === 1678) { goto L1678; } else if ($_a === 1745) { goto L1745; } else if ($_a === 1796) { goto L1796; } else if ($_a === 2191) { goto L2191; } else if ($_a === 5230) { goto L5230; } else if ($_a === 5251) { goto L5251; } else if ($_a === 7220) { goto L7220; } else if ($_a === 7230) { goto L7230; } else if ($_a === 7277) { goto L7277; } else if ($_a === 7286) { goto L7286; } else if ($_a === 7296) { goto L7296; } else if ($_a === 7308) { goto L7308; } else { return array(FALSE, NULL, 70); }
+        L7195: $_stack[++$_stack_sp] = "71@";
+        L7196: $_stack[$_stack_sp] .= $_p;
+        L7197: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7204; }
+        L7198: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7199: $_b = $_cache[$_a];
+        L7200: $_fail = $_b[0];
+        L7201: $_value = $_b[1];
+        L7202: $_p = $_b[2];
+        L7203: goto L7259;
+        L7204: $_stack[++$_stack_sp] = $_env;
+        L7205: $_env = array();
+        L7206: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7207: $_stack[++$_stack_sp] = $_p;
+        L7208: $_stack[++$_stack_sp] = NULL;
+        L7209: $_stack[++$_stack_sp] = 7211;
+        L7210: goto L7033;
+        L7211: $_stack[$_stack_sp] = $_value;
+        L7212: if ($_fail) { goto L7214; }
+        L7213: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
+        L7214: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7215: if (!$_fail) { goto L7250; }
+        L7216: $_p = $_stack[$_stack_sp];
+        L7217: $_stack[++$_stack_sp] = NULL;
+        L7218: $_stack[++$_stack_sp] = 7220;
+        L7219: goto L7165;
+        L7220: $_stack[$_stack_sp] = $_value;
+        L7221: if ($_fail) { goto L7224; }
+        L7222: $_stack[++$_stack_sp] = 7224;
+        L7223: goto L7327;
+        L7224: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7225: if (!$_fail) { goto L7250; }
+        L7226: $_p = $_stack[$_stack_sp];
+        L7227: $_stack[++$_stack_sp] = NULL;
+        L7228: $_stack[++$_stack_sp] = 7230;
+        L7229: goto L7165;
+        L7230: $_stack[$_stack_sp] = $_value;
+        L7231: if ($_fail) { goto L7236; }
+        L7232: $_stack[++$_stack_sp] = $_p;
+        L7233: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
+        L7234: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7235: $_value = NULL;
+        L7236: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7237: if (!$_fail) { goto L7250; }
+        L7238: $_p = $_stack[$_stack_sp];
+        L7239: $_stack[++$_stack_sp] = NULL;
+        L7240: $_stack[++$_stack_sp] = 7242;
+        L7241: goto L7033;
+        L7242: $_stack[$_stack_sp] = $_value;
+        L7243: if ($_fail) { goto L7249; }
+        L7244: $_stack[++$_stack_sp] = $_p;
+        L7245: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L7246: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7247: $_value = NULL;
+        L7248: $_fail = !$_fail;
+        L7249: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7250: unset($_stack[$_stack_sp--]);
+        L7251: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7252: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7253: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7254: $_b = array();
+        L7255: $_b[0] = $_fail;
+        L7256: $_b[1] = $_value;
+        L7257: $_b[2] = $_p;
+        L7258: $_cache[$_a] = $_b;
+        L7259: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7260: if ($_a === 696) { goto L696; } else if ($_a === 920) { goto L920; } else if ($_a === 1667) { goto L1667; } else if ($_a === 1734) { goto L1734; } else if ($_a === 1814) { goto L1814; } else if ($_a === 2209) { goto L2209; } else if ($_a === 2373) { goto L2373; } else { return array(FALSE, NULL, 71); }
+        L7261: $_stack[++$_stack_sp] = "72@";
+        L7262: $_stack[$_stack_sp] .= $_p;
+        L7263: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7270; }
+        L7264: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7265: $_b = $_cache[$_a];
+        L7266: $_fail = $_b[0];
+        L7267: $_value = $_b[1];
+        L7268: $_p = $_b[2];
+        L7269: goto L7325;
+        L7270: $_stack[++$_stack_sp] = $_env;
+        L7271: $_env = array();
+        L7272: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7273: $_stack[++$_stack_sp] = $_p;
+        L7274: $_stack[++$_stack_sp] = NULL;
+        L7275: $_stack[++$_stack_sp] = 7277;
+        L7276: goto L7165;
+        L7277: $_stack[$_stack_sp] = $_value;
+        L7278: if ($_fail) { goto L7280; }
+        L7279: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === ";") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('";"', $_expected)) { $_expected[] = '";"'; } } }
+        L7280: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7281: if (!$_fail) { goto L7316; }
+        L7282: $_p = $_stack[$_stack_sp];
+        L7283: $_stack[++$_stack_sp] = NULL;
+        L7284: $_stack[++$_stack_sp] = 7286;
+        L7285: goto L7165;
+        L7286: $_stack[$_stack_sp] = $_value;
+        L7287: if ($_fail) { goto L7290; }
+        L7288: $_stack[++$_stack_sp] = 7290;
+        L7289: goto L7327;
+        L7290: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7291: if (!$_fail) { goto L7316; }
+        L7292: $_p = $_stack[$_stack_sp];
+        L7293: $_stack[++$_stack_sp] = NULL;
+        L7294: $_stack[++$_stack_sp] = 7296;
+        L7295: goto L7165;
+        L7296: $_stack[$_stack_sp] = $_value;
+        L7297: if ($_fail) { goto L7302; }
+        L7298: $_stack[++$_stack_sp] = $_p;
+        L7299: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "}") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"}"', $_expected)) { $_expected[] = '"}"'; } } }
+        L7300: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7301: $_value = NULL;
+        L7302: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7303: if (!$_fail) { goto L7316; }
+        L7304: $_p = $_stack[$_stack_sp];
+        L7305: $_stack[++$_stack_sp] = NULL;
+        L7306: $_stack[++$_stack_sp] = 7308;
+        L7307: goto L7165;
+        L7308: $_stack[$_stack_sp] = $_value;
+        L7309: if ($_fail) { goto L7315; }
+        L7310: $_stack[++$_stack_sp] = $_p;
+        L7311: $_fail = TRUE; if (isset($_s[$_p])) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('any character', $_expected)) { $_expected[] = 'any character'; } } }
+        L7312: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7313: $_value = NULL;
+        L7314: $_fail = !$_fail;
+        L7315: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7316: unset($_stack[$_stack_sp--]);
+        L7317: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7318: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7319: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7320: $_b = array();
+        L7321: $_b[0] = $_fail;
+        L7322: $_b[1] = $_value;
+        L7323: $_b[2] = $_p;
+        L7324: $_cache[$_a] = $_b;
+        L7325: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7326: if ($_a === 1682) { goto L1682; } else if ($_a === 1749) { goto L1749; } else if ($_a === 1802) { goto L1802; } else if ($_a === 2197) { goto L2197; } else { return array(FALSE, NULL, 72); }
+        L7327: $_stack[++$_stack_sp] = "73@";
+        L7328: $_stack[$_stack_sp] .= $_p;
+        L7329: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7336; }
+        L7330: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7331: $_b = $_cache[$_a];
+        L7332: $_fail = $_b[0];
+        L7333: $_value = $_b[1];
+        L7334: $_p = $_b[2];
+        L7335: goto L7365;
+        L7336: $_stack[++$_stack_sp] = $_env;
+        L7337: $_env = array();
+        L7338: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7339: $_stack[++$_stack_sp] = $_p;
+        L7340: $_stack[++$_stack_sp] = "";
+        L7341: $_stack[++$_stack_sp] = $_p;
+        L7342: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\r") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\r"', $_expected)) { $_expected[] = '"\\r"'; } } }
+        L7343: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7344: if (!$_fail) { goto L7348; }
+        L7345: $_fail = false;
+        L7346: $_value = NULL;
+        L7347: $_p = $_a;
+        L7348: $_stack[$_stack_sp] .= $_value;
+        L7349: if ($_fail) { goto L7352; }
+        L7350: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\n") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\n"', $_expected)) { $_expected[] = '"\\n"'; } } }
+        L7351: $_stack[$_stack_sp] .= $_value;
+        L7352: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7353: if (!$_fail) { goto L7356; }
+        L7354: $_p = $_stack[$_stack_sp];
+        L7355: $_fail = TRUE; if (isset($_s[$_p]) && ($_a = $_s[$_p]) === "\r") { $_fail = FALSE; $_value = $_a; $_p += 1; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('"\\r"', $_expected)) { $_expected[] = '"\\r"'; } } }
+        L7356: unset($_stack[$_stack_sp--]);
+        L7357: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7358: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7359: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7360: $_b = array();
+        L7361: $_b[0] = $_fail;
+        L7362: $_b[1] = $_value;
+        L7363: $_b[2] = $_p;
+        L7364: $_cache[$_a] = $_b;
+        L7365: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7366: if ($_a === 6823) { goto L6823; } else if ($_a === 6952) { goto L6952; } else if ($_a === 6964) { goto L6964; } else if ($_a === 7091) { goto L7091; } else if ($_a === 7127) { goto L7127; } else if ($_a === 7224) { goto L7224; } else if ($_a === 7290) { goto L7290; } else { return array(FALSE, NULL, 73); }
+        L7367: $_stack[++$_stack_sp] = "74@";
+        L7368: $_stack[$_stack_sp] .= $_p;
+        L7369: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7376; }
+        L7370: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7371: $_b = $_cache[$_a];
+        L7372: $_fail = $_b[0];
+        L7373: $_value = $_b[1];
+        L7374: $_p = $_b[2];
+        L7375: goto L7398;
+        L7376: $_stack[++$_stack_sp] = $_env;
+        L7377: $_env = array();
+        L7378: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7379: $_stack[++$_stack_sp] = NULL;
+        L7380: $_stack[++$_stack_sp] = 7382;
+        L7381: goto L7400;
+        L7382: $_env["id"] = $_value;
+        L7383: $_stack[$_stack_sp] = $_value;
+        L7384: if ($_fail) { goto L7389; }
+        L7385: foreach ($_env as $_ref => $_) { $_env[$_ref] =& $_env[$_ref]; }
+        L7386: $_value = $this->_214($_env);
+        L7387: $_fail = !$_value;
+        L7388: $_value = NULL;
+        L7389: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7390: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7391: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7392: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7393: $_b = array();
+        L7394: $_b[0] = $_fail;
+        L7395: $_b[1] = $_value;
+        L7396: $_b[2] = $_p;
+        L7397: $_cache[$_a] = $_b;
+        L7398: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7399: if ($_a === 160) { goto L160; } else if ($_a === 180) { goto L180; } else if ($_a === 208) { goto L208; } else if ($_a === 306) { goto L306; } else if ($_a === 336) { goto L336; } else if ($_a === 364) { goto L364; } else if ($_a === 727) { goto L727; } else if ($_a === 796) { goto L796; } else if ($_a === 1663) { goto L1663; } else if ($_a === 1730) { goto L1730; } else if ($_a === 1906) { goto L1906; } else if ($_a === 2267) { goto L2267; } else if ($_a === 5972) { goto L5972; } else { return array(FALSE, NULL, 74); }
+        L7400: $_stack[++$_stack_sp] = "75@";
+        L7401: $_stack[$_stack_sp] .= $_p;
+        L7402: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7409; }
+        L7403: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7404: $_b = $_cache[$_a];
+        L7405: $_fail = $_b[0];
+        L7406: $_value = $_b[1];
+        L7407: $_p = $_b[2];
+        L7408: goto L7436;
+        L7409: $_stack[++$_stack_sp] = $_env;
+        L7410: $_env = array();
+        L7411: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7412: $_stack[++$_stack_sp] = "";
+        L7413: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z_$]', $_expected)) { $_expected[] = '[a-zA-Z_$]'; } } }
+        L7414: $_stack[$_stack_sp] .= $_value;
+        L7415: if ($_fail) { goto L7427; }
+        L7416: $_stack[++$_stack_sp] = $_p;
+        L7417: $_stack[++$_stack_sp] = "";
+        L7418: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || (48 <= $_a && $_a <= 57) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z0-9_$]', $_expected)) { $_expected[] = '[a-zA-Z0-9_$]'; } } }
+        L7419: if ($_fail) { goto L7423; }
+        L7420: $_stack[$_stack_sp] .= $_value;
+        L7421: $_stack[$_stack_sp - 1] = $_p;
+        L7422: goto L7418;
+        L7423: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7424: $_p = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7425: $_fail = false;
+        L7426: $_stack[$_stack_sp] .= $_value;
+        L7427: $_value = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7428: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7429: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7430: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7431: $_b = array();
+        L7432: $_b[0] = $_fail;
+        L7433: $_b[1] = $_value;
+        L7434: $_b[2] = $_p;
+        L7435: $_cache[$_a] = $_b;
+        L7436: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7437: if ($_a === 5406) { goto L5406; } else if ($_a === 5807) { goto L5807; } else if ($_a === 6084) { goto L6084; } else if ($_a === 6143) { goto L6143; } else if ($_a === 6280) { goto L6280; } else if ($_a === 7382) { goto L7382; } else { return array(FALSE, NULL, 75); }
+        L7438: $_stack[++$_stack_sp] = "76@";
+        L7439: $_stack[$_stack_sp] .= $_p;
+        L7440: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7447; }
+        L7441: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7442: $_b = $_cache[$_a];
+        L7443: $_fail = $_b[0];
+        L7444: $_value = $_b[1];
+        L7445: $_p = $_b[2];
+        L7446: goto L7459;
+        L7447: $_stack[++$_stack_sp] = $_env;
+        L7448: $_env = array();
+        L7449: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7450: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z_$]', $_expected)) { $_expected[] = '[a-zA-Z_$]'; } } }
+        L7451: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7452: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7453: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7454: $_b = array();
+        L7455: $_b[0] = $_fail;
+        L7456: $_b[1] = $_value;
+        L7457: $_b[2] = $_p;
+        L7458: $_cache[$_a] = $_b;
+        L7459: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7460: if ($_a === 6389) { goto L6389; } else if ($_a === 6489) { goto L6489; } else if ($_a === 6566) { goto L6566; } else { return array(FALSE, NULL, 76); }
+        L7461: $_stack[++$_stack_sp] = "77@";
+        L7462: $_stack[$_stack_sp] .= $_p;
+        L7463: if (!isset($_cache[$_stack[$_stack_sp]])) { goto L7470; }
+        L7464: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7465: $_b = $_cache[$_a];
+        L7466: $_fail = $_b[0];
+        L7467: $_value = $_b[1];
+        L7468: $_p = $_b[2];
+        L7469: goto L7482;
+        L7470: $_stack[++$_stack_sp] = $_env;
+        L7471: $_env = array();
+        L7472: $this->_environment_stack[++$this->_environment_stack_sp] = 0;
+        L7473: $_fail = TRUE; if (isset($_s[$_p]) && is_int($_a = ord($_s[$_p])) && ((97 <= $_a && $_a <= 122) || (65 <= $_a && $_a <= 90) || (48 <= $_a && $_a <= 57) || ($_a === 95) || ($_a === 36))) { $_fail = FALSE; $_value = $_s[$_p]; $_p++; } else { if ($_p >= $_maxp) { if ($_p > $_maxp) { $_maxp = $_p; $_expected = array(); } if (!in_array('[a-zA-Z0-9_$]', $_expected)) { $_expected[] = '[a-zA-Z0-9_$]'; } } }
+        L7474: unset($this->_environment_stack[$this->_environment_stack_sp--]);
+        L7475: $_env = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7476: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7477: $_b = array();
+        L7478: $_b[0] = $_fail;
+        L7479: $_b[1] = $_value;
+        L7480: $_b[2] = $_p;
+        L7481: $_cache[$_a] = $_b;
+        L7482: $_a = $_stack[$_stack_sp]; unset($_stack[$_stack_sp--]);
+        L7483: if ($_a === 903) { goto L903; } else if ($_a === 1075) { goto L1075; } else if ($_a === 1242) { goto L1242; } else if ($_a === 1289) { goto L1289; } else if ($_a === 1362) { goto L1362; } else if ($_a === 1508) { goto L1508; } else if ($_a === 1790) { goto L1790; } else if ($_a === 2061) { goto L2061; } else if ($_a === 2182) { goto L2182; } else if ($_a === 4957) { goto L4957; } else if ($_a === 5012) { goto L5012; } else if ($_a === 5037) { goto L5037; } else if ($_a === 5669) { goto L5669; } else if ($_a === 5726) { goto L5726; } else if ($_a === 5857) { goto L5857; } else if ($_a === 5876) { goto L5876; } else if ($_a === 5895) { goto L5895; } else if ($_a === 5914) { goto L5914; } else if ($_a === 5933) { goto L5933; } else if ($_a === 6909) { goto L6909; } else { return array(FALSE, NULL, 77); }
         Lend:
         list($ok, $result) = array(!$_fail, $_value);
         if (!$ok) {
@@ -7729,31 +7759,31 @@ class JSParser {
     private function _29() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("for_in", array("var", $declarations), $in_expr, $statement);
+        return $l;
     
     }
     private function _30() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($first), $rest);
+        $self->identifier_throw = FALSE; return TRUE; 
     
     }
     private function _31() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $next;
+        $self->identifier_throw = TRUE; return TRUE; 
     
     }
     private function _32() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("for", $init, $cond, $iter, $statement);
+        $self->identifier_throw = TRUE; return FALSE; 
     
     }
     private function _33() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("for", array("var", $declarations), $cond, $iter, $statement);
+        return array("for_in", array("var", $declarations), $in_expr, $statement);
     
     }
     private function _34() {
@@ -7771,205 +7801,205 @@ class JSParser {
     private function _36() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("continue", $label);
+        return array("for", $init, $cond, $iter, $statement);
     
     }
     private function _37() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $l;
+        return array("for", array("var", $declarations), $cond, $iter, $statement);
     
     }
     private function _38() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return NULL;
+        return array_merge(array($first), $rest);
     
     }
     private function _39() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("break", $label);
+        return $next;
     
     }
     private function _40() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $l;
+        return array("continue", $label);
     
     }
     private function _41() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return NULL;
+        return $l;
     
     }
     private function _42() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("return", $expr);
+        return NULL;
     
     }
     private function _43() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return NULL;
+        return array("break", $label);
     
     }
     private function _44() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("with", $expr, $statement);
+        return $l;
     
     }
     private function _45() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("labelled", $label, $statement);
+        return NULL;
     
     }
     private function _46() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("switch", $expr, array_merge($case_clauses, (array) $additional_clauses));
+        return array("return", $expr);
     
     }
     private function _47() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($default), $clauses);
+        return NULL;
     
     }
     private function _48() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("case", $expr, count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements)));
+        return array("with", $expr, $statement, array(array('number', $p[0]), array('number', $p[1] - 4)), array('string', $self->file));
     
     }
     private function _49() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("default", count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements)));
+        return array("labelled", $label, $statement);
     
     }
     private function _50() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("throw", $expr, array(array('number', $p[0]), array('number', $p[1] - 5)), array('string', $self->file));
+        return array("switch", $expr, array_merge($case_clauses, (array) $additional_clauses));
     
     }
     private function _51() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return NULL;
+        return array_merge(array($default), $clauses);
     
     }
     private function _52() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("try", $try_block, $catch_var, $catch_block, $finally);
+        return array("case", $expr, count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements)));
     
     }
     private function _53() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $finally_block;
+        return array("default", count($statements) === 0 ? NULL : (count($statements) === 1 ? $statements[0] : array("block", $statements)));
     
     }
     private function _54() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("try", $try_block, NULL, NULL, $finally_block);
+        return array("throw", $expr, array(array('number', $p[0]), array('number', $p[1] - 5)), array('string', $self->file));
     
     }
     private function _55() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("php_statement", $parts);
+        return NULL;
     
     }
     private function _56() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return count($exprs) > 1 ? array("exprs", $exprs) : $exprs[0];
+        return array("try", $try_block, $catch_var, $catch_block, $finally);
     
     }
     private function _57() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($first), $rest);
+        return $finally_block;
     
     }
     private function _58() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $next;
+        return array("try", $try_block, NULL, NULL, $finally_block);
     
     }
     private function _59() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return count($exprs) > 1 ? array("exprs", $exprs) : $exprs[0];
+        return array("php_statement", $parts);
     
     }
     private function _60() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($first), $rest);
+        return count($exprs) > 1 ? array("exprs", $exprs) : $exprs[0];
     
     }
     private function _61() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $next;
+        return array_merge(array($first), $rest);
     
     }
     private function _62() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file));
+        return $next;
     
     }
     private function _63() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("cond", $cond, $iftrue, $iffalse);
+        return count($exprs) > 1 ? array("exprs", $exprs) : $exprs[0];
     
     }
     private function _64() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file));
+        return array_merge(array($first), $rest);
     
     }
     private function _65() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("cond", $cond, $iftrue, $iffalse);
+        return $next;
     
     }
     private function _66() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $left;
+        return array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file));
     
     }
     private function _67() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, NULL, NULL); 
+        return array("cond", $cond, $iftrue, $iffalse);
     
     }
     private function _68() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $op !== "instanceof" && $op !== "in";
+        return array("assignment", $op, $lhs, $rhs, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file));
     
     }
     private function _69() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
+        return array("cond", $cond, $iftrue, $iffalse);
     
     }
     private function _70() {
@@ -8359,118 +8389,142 @@ class JSParser {
     private function _134() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $r;
+        return $left;
     
     }
     private function _135() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("delete", $expr, array(array('number', $p[0]), array('number', $p[1] - 6)), array('string', $self->file));
+        $left = array("binary", $op, $left, $right, NULL, NULL); 
     
     }
     private function _136() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $self->identifier_throw = FALSE; return TRUE; 
+        return $op !== "instanceof" && $op !== "in";
     
     }
     private function _137() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $self->identifier_throw = TRUE; return TRUE; 
+        $left = array("binary", $op, $left, $right, array(array('number', $p[0]), array('number', $p[1] - strlen($op))), array('string', $self->file)); 
     
     }
     private function _138() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $self->identifier_throw = TRUE; return FALSE; 
+        return $r;
     
     }
     private function _139() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("void", $expr);
+        return array("delete", $expr, array(array('number', $p[0]), array('number', $p[1] - 6)), array('string', $self->file));
     
     }
     private function _140() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $r;
+        $self->identifier_throw = FALSE; return TRUE; 
     
     }
     private function _141() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("typeof", $expr);
+        $self->identifier_throw = TRUE; return TRUE; 
     
     }
     private function _142() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $self->identifier_throw = FALSE; return TRUE; 
+        $self->identifier_throw = TRUE; return FALSE; 
     
     }
     private function _143() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $self->identifier_throw = TRUE; return TRUE; 
+        return array("void", $expr);
     
     }
     private function _144() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $self->identifier_throw = TRUE; return FALSE; 
+        return $r;
     
     }
     private function _145() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("preinc", $expr, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
+        return array("typeof", $expr);
     
     }
     private function _146() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("predec", $expr, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
+        $self->identifier_throw = FALSE; return TRUE; 
     
     }
     private function _147() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("positive", $expr);
+        $self->identifier_throw = TRUE; return TRUE; 
     
     }
     private function _148() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("negative", $expr);
+        $self->identifier_throw = TRUE; return FALSE; 
     
     }
     private function _149() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("inverse", $expr);
+        return array("preinc", $expr, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
     
     }
     private function _150() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("not", $expr);
+        return array("predec", $expr, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
     
     }
     private function _151() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("postinc", $lhs, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
+        return array("positive", $expr);
     
     }
     private function _152() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("postdec", $lhs, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
+        return array("negative", $expr);
     
     }
     private function _153() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array("inverse", $expr);
+    
+    }
+    private function _154() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array("not", $expr);
+    
+    }
+    private function _155() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array("postinc", $lhs, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
+    
+    }
+    private function _156() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array("postdec", $lhs, array(array('number', $p[0]), array('number', $p[1] - 2)), array('string', $self->file));
+    
+    }
+    private function _157() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         foreach ($arguments_or_accessors as $new_base) {
@@ -8482,73 +8536,73 @@ class JSParser {
         	
     
     }
-    private function _154() {
+    private function _158() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("call", $name, $arguments[0], $arguments[1], array('string', $self->file));
     
     }
-    private function _155() {
+    private function _159() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("call", NULL, $arguments[0], $arguments[1], array('string', $self->file));
     
     }
-    private function _156() {
+    private function _160() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("index", NULL, $expr, array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
-    private function _157() {
+    private function _161() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("index", NULL, array("string", $id), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
-    private function _158() {
+    private function _162() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array((array) $arguments, array(array('number', $p[0]), array('number', $p[1] - 1)));
     
     }
-    private function _159() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($first), $rest);
-    
-    }
-    private function _160() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $next;
-    
-    }
-    private function _161() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return (array) $arguments;
-    
-    }
-    private function _162() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($first), $rest);
-    
-    }
     private function _163() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $next;
+        return array_merge(array($first), $rest);
     
     }
     private function _164() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("new", $expr, array(), array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file));
+        return $next;
     
     }
     private function _165() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return (array) $arguments;
+    
+    }
+    private function _166() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array_merge(array($first), $rest);
+    
+    }
+    private function _167() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return $next;
+    
+    }
+    private function _168() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array("new", $expr, array(), array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file));
+    
+    }
+    private function _169() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         foreach ($accessors as $new_base) {
@@ -8560,271 +8614,271 @@ class JSParser {
         	
     
     }
-    private function _166() {
+    private function _170() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("new", $e, $a, array(array('number', $p[0]), array('number', $p[1] - 3)), array('string', $self->file));
     
     }
-    private function _167() {
+    private function _171() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("index", NULL, $e, array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
-    private function _168() {
+    private function _172() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("index", NULL, array("string", $id), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
     
     }
-    private function _169() {
+    private function _173() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("this");
     
     }
-    private function _170() {
+    private function _174() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("null");
     
     }
-    private function _171() {
+    private function _175() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("true");
     
     }
-    private function _172() {
+    private function _176() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("false");
     
     }
-    private function _173() {
+    private function _177() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("undefined");
     
     }
-    private function _174() {
+    private function _178() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("number", $n);
     
     }
-    private function _175() {
+    private function _179() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return array("string", $s);
     
     }
-    private function _176() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw);
-    
-    }
-    private function _177() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("array", !$a && empty($b) ? array() : array_merge(array($a), $b));
-    
-    }
-    private function _178() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $e;
-    
-    }
-    private function _179() {
-        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
-        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return NULL;
-    
-    }
     private function _180() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("object", (array) $o);
+        return array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw);
     
     }
     private function _181() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array_merge(array($first), $rest);
+        return array("array", !$a && empty($b) ? array() : array_merge(array($a), $b));
     
     }
     private function _182() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array((string) $name, $value);
+        return $e;
     
     }
     private function _183() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $next;
+        return NULL;
     
     }
     private function _184() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array((string) $name, $value);
+        return array("object", (array) $o);
     
     }
     private function _185() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $e;
+        return array_merge(array($first), $rest);
     
     }
     private function _186() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("php", $parts);
+        return array((string) $name, $value);
     
     }
     private function _187() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return $parts;
+        return $next;
     
     }
     private function _188() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw);
+        return array((string) $name, $value);
     
     }
     private function _189() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("raw", $code);
+        return $e;
     
     }
     private function _190() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return hexdec($hex);
+        return array("php", $parts);
     
     }
     private function _191() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        $v = floatval($int . $frac . $exp); if (((string) $v) === intval($v)) { $v = intval($v); } return $v; 
+        return $parts;
     
     }
     private function _192() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return floatval("0." . $frac . $exp);
+        return array("identifier", $id, array(array('number', $p[0]), array('number', $p[1] - strlen($id))), array('string', $self->file), $self->identifier_throw);
     
     }
     private function _193() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return implode("", $value);
+        return array("raw", $code);
     
     }
     private function _194() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return implode("", $value);
+        return hexdec($hex);
     
     }
     private function _195() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return chr(8);
+        $v = floatval($int . $frac . $exp); if (((string) $v) === intval($v)) { $v = intval($v); } return $v; 
     
     }
     private function _196() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\f";
+        return floatval("0." . $frac . $exp);
     
     }
     private function _197() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\n";
+        return implode("", $value);
     
     }
     private function _198() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\r";
+        return implode("", $value);
     
     }
     private function _199() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\t";
+        return chr(8);
     
     }
     private function _200() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\v";
+        return "\f";
     
     }
     private function _201() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\\";
+        return "\n";
     
     }
     private function _202() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return '"';
+        return "\r";
     
     }
     private function _203() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "'";
+        return "\t";
     
     }
     private function _204() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return chr(0);
+        return "\v";
     
     }
     private function _205() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return chr(hexdec($a . $b));
+        return "\\";
     
     }
     private function _206() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "";
+        return '"';
     
     }
     private function _207() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return array("regexp", implode("", $value), implode("", $flags), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
+        return "'";
     
     }
     private function _208() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\\\\";
+        return chr(0);
     
     }
     private function _209() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
-        return "\\/";
+        return chr(hexdec($a . $b));
     
     }
     private function _210() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return "";
+    
+    }
+    private function _211() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return array("regexp", implode("", $value), implode("", $flags), array(array('number', $p[0]), array('number', $p[1] - 1)), array('string', $self->file));
+    
+    }
+    private function _212() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return "\\\\";
+    
+    }
+    private function _213() {
+        extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
+        extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
+        return "\\/";
+    
+    }
+    private function _214() {
         extract($this->_environments[$this->_environment_stack[$this->_environment_stack_sp]], EXTR_OVERWRITE | EXTR_REFS);
         extract(func_get_arg(0), EXTR_OVERWRITE | EXTR_REFS);
         return !in_array($id, array("null", "true", "false", "break", "case", "catch", "continue", "debugger", "default", "delete", "do", "else", "finally", "for", "function", "if", "instanceof", "in", "new", "return", "switch", "this", "throw", "try", "typeof", "var", "void", "while", "with", "abstract", "boolean", "byte", "char", "class", "const", "double", "enum", "export", "extends", "final", "float", "goto", "implements", "import", "interface", "int", "long", "native", "package", "private", "protected", "public", "short", "static", "super", "synchronized", "throws", "transient" , "volatile"));

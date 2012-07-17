@@ -464,8 +464,39 @@ return(expr) {
 	return implode("\n", $ret);
 }
 
-with(expr, statement) {
-	throw new Exception('with not implemented.');
+with(expr, statement, p, file) {
+	$ret = array();
+
+	$expr = WALK($expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+
+	if ($expr[0] !== '$') {
+		$tmp = WALK(array('genvar_'));
+		$self->prestatement[] = "$tmp = $expr;";
+		$expr = $tmp;
+	}
+
+	$self->prestatement[] = "if ($expr === JS::\$undefined || $expr === NULL) {";
+	WALK(array('TypeError_', 'Supplied value has no properties.', $p, $file));
+	$self->prestatement[] = "}";
+
+	$self->prestatement[] = "{$expr}->up = \$scope; " .
+		"\$scope = clone JS::\$emptyScope; " .
+		"\$scope->up = {$expr};;";
+
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$self->assigned = array(); // flush assigned variables
+	$ret[] = WALK($statement);
+	$ret[] = '; foreach ($scope->properties as $k => $v) { $scope->up->up->properties[$k] = $v; }';
+	$tmp = WALK(array('genvar_'));
+	$ret[] = "$tmp = \$scope->up; " .
+		"\$scope = \$scope->up->up; " .
+		"unset({$tmp}->up);";
+	$self->assigned = array(); // flush assigned variables
+
+	return implode("\n", $ret);
 }
 
 labelled(label, statement) {
@@ -1055,8 +1086,11 @@ delete(expr, p, file) {
 		return 'TRUE';
 
 	} else if ($expr[0] === 'identifier') {
-		$base = '$scope';
+		$base = WALK(array('genvar_'));
 		$index = var_export($expr[1], TRUE);
+		$self->prestatement[] =
+			"for ($base = \$scope; $base && {$base}->up && !array_key_exists($index, " .
+			"{$base}->attributes) && !array_key_exists($index, {$base}->properties); $base = {$base}->up);";
 
 	} else if ($expr[0] === 'index') {
 		list(,$base, $index) = $expr;

@@ -161,8 +161,8 @@ $self = (object) array(
             $ret = $this->_18($_0);
         break;
         case 'with':
-            list($_, $_0, $_1) = $node;
-            $ret = $this->_19($_0, $_1);
+            list($_, $_0, $_1, $_2, $_3) = $node;
+            $ret = $this->_19($_0, $_1, $_2, $_3);
         break;
         case 'labelled':
             list($_, $_0, $_1) = $node;
@@ -748,7 +748,38 @@ protected function _18($expr) { extract($this->_env, EXTR_REFS); $ret = array();
 	return implode("\n", $ret);
 
 }
-protected function _19($expr, $statement) { extract($this->_env, EXTR_REFS); throw new Exception('with not implemented.');
+protected function _19($expr, $statement, $p, $file) { extract($this->_env, EXTR_REFS); $ret = array();
+
+	$expr = $this->_walk($expr);
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+
+	if ($expr[0] !== '$') {
+		$tmp = $this->_walk(array('genvar_'));
+		$self->prestatement[] = "$tmp = $expr;";
+		$expr = $tmp;
+	}
+
+	$self->prestatement[] = "if ($expr === JS::\$undefined || $expr === NULL) {";
+	$this->_walk(array('TypeError_', 'Supplied value has no properties.', $p, $file));
+	$self->prestatement[] = "}";
+
+	$self->prestatement[] = "{$expr}->up = \$scope; " .
+		"\$scope = clone JS::\$emptyScope; " .
+		"\$scope->up = {$expr};;";
+
+	$ret[] = implode("\n", $self->prestatement);
+	$self->prestatement = array();
+	$self->assigned = array(); // flush assigned variables
+	$ret[] = $this->_walk($statement);
+	$ret[] = '; foreach ($scope->properties as $k => $v) { $scope->up->up->properties[$k] = $v; }';
+	$tmp = $this->_walk(array('genvar_'));
+	$ret[] = "$tmp = \$scope->up; " .
+		"\$scope = \$scope->up->up; " .
+		"unset({$tmp}->up);";
+	$self->assigned = array(); // flush assigned variables
+
+	return implode("\n", $ret);
 
 }
 protected function _20($label, $statement) { extract($this->_env, EXTR_REFS); throw new Exception('Labels not implemented.');
@@ -1321,8 +1352,11 @@ protected function _33($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret
 		return 'TRUE';
 
 	} else if ($expr[0] === 'identifier') {
-		$base = '$scope';
+		$base = $this->_walk(array('genvar_'));
 		$index = var_export($expr[1], TRUE);
+		$self->prestatement[] =
+			"for ($base = \$scope; $base && {$base}->up && !array_key_exists($index, " .
+			"{$base}->attributes) && !array_key_exists($index, {$base}->properties); $base = {$base}->up);";
 
 	} else if ($expr[0] === 'index') {
 		list(,$base, $index) = $expr;

@@ -3,6 +3,17 @@
 js2php uses [PHPEG](http://github.com/jakubkulhan/phpeg) to parse Javascript and then translates
 resulting AST to PHP code as closely as possible.
 
+## Building
+
+PHP code in `build/` in repository should be always up-to-date with code `src/`. However
+if you make any changes to `src/` files, you have to run:
+
+	$ ./util/jake build
+
+To completely rebuild js2php, all its utilities and run tests:
+
+	$ ./util/jake all
+
 ## `JSInterpreter`
 
 Interface to js2php.
@@ -174,9 +185,9 @@ PHP statement and expression. Both are delimited by `@@`.
 
 ## The image
 
-The image (`src/image.php`) is an pre-compiled Javascript code from `image/`
-directory. Sources in `image/` initialise runtime environment - create Javascript
-built-in objects etc.
+The image (`build/image.php`) contains pre-compiled Javascript code from `src/image/`
+directory, `JSParser` and `JSCompiler` classes. Sources in `src/image/` initialise runtime
+environment - create Javascript built-in objects etc.
 
 ## PHP interoperability
 

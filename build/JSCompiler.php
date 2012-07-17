@@ -337,6 +337,7 @@ $self = (object) array(
         		TRUE => array(TRUE => array(), FALSE => array()),
         		FALSE => array(TRUE => array(), FALSE => array()),
         	);
+        	$self->loader = NULL;
         
         	$force = FALSE;
         	$generate = 'string';
@@ -348,6 +349,9 @@ $self = (object) array(
         
         			} else if ($k === 'generate') {
         				$generate = $v;
+        
+        			} else if ($k === 'loader') {
+        				$self->loader = $v;
         
         			} else {
         				throw new Exception("Unknown option $k.");
@@ -536,6 +540,7 @@ protected function _9($name, $parameters_list, $body, $pStart, $pEnd, $file) { e
 		$var . '->parameters = ' . var_export($parameters_list, TRUE) . '; ' .
 		($name !== NULL ? $var . '->name = ' . var_export($name, TRUE) . '; ' : '') .
 		$var . '->scope = $scope; ' .
+		($self->loader !== NULL ? $var . '->loaded = FALSE; ' : '') .
 		$var . '->properties[\'prototype\'] = clone JS::$objectTemplate; ' .
 		$var . '->attributes[\'prototype\'] = JS::WRITABLE; ' .
 		$var . '->properties[\'prototype\']->properties[\'constructor\'] = ' . $var . '; ' .
@@ -1057,6 +1062,11 @@ protected function _30($function, $args, $leThis, $check, $p, $file, $constructo
 		$self->prestatement[] = 'if (!(is_object(' . $function . ') && isset(' . $function . '->call))) { ';
 		$this->_walk(array('TypeError_', 'Trying to call what is not a function.', $p, $file));
 		$self->prestatement[] = '}';
+	}
+
+	if ($self->loader !== NULL) {
+		$self->prestatement[] = "if (isset({$function}->loaded) && !{$function}->loaded) { " .
+			"{$self->loader}({$function}, \$global); }";
 	}
 
 	$self->prestatement[] = $call . ' = ' . $function . '->call;';

@@ -32,6 +32,7 @@
 		JS::$functionTemplate = clone JS::$objectTemplate;
 		JS::$functionTemplate->prototype = `Function->properties['prototype'];
 		JS::$functionTemplate->class = 'Function';
+		JS::$functionTemplate->loaded = FALSE;
 
 		JS::$argumentsTemplate = clone JS::$objectTemplate;
 		JS::$argumentsTemplate->class = 'Arguments';

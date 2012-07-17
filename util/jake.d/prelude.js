@@ -157,6 +157,5 @@ global.task = task;
 global.run = run;
 global.fail = fail;
 global.runTask = runTask;
-global.puts = puts;
 global.result = result;
 global.displayTasks = displayTasks;

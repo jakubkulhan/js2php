@@ -79,7 +79,7 @@ class JSInterpreter
 	}
 }
 try {
-function prelude() {function _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $base, $id, $line, $column, $file) {
+function prelude() {function _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $base, $id, $line, $column, $file) {
 $W__tasks = $S__tasks = $U__tasks = NULL;
 $lookup = JS::toObject($base, $global);
 for (; $lookup && !(array_key_exists($id, $lookup->properties) || isset($lookup->attributes[$id])) && isset($lookup->up); $lookup = $lookup->up);
@@ -93,10 +93,10 @@ $___tasks = $x6; }
 else { $___tasks = JS::$undefined; $U__tasks = TRUE; }
 return array(&$___tasks, $W__tasks, $S__tasks, $U__tasks);
 }
-function _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $base, $id, $line, $column, $file) {
+function _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $base, $id, $line, $column, $file) {
 if ($base === JS::$undefined || $base === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x15 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', $line, $column, $file);
+$x15 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', $line, $column, $file);
 $_TypeError =& $x15[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x15;
 $x16 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array($file, $line, $column);
@@ -112,10 +112,10 @@ else if (isset($lookup->attributes[$id]) && $lookup->attributes[$id] & JS::HAS_S
 else { $x14 = JS::$undefined; $U14 = TRUE; }
 return array(&$x14, $W14, $S14, $U14);
 }
-function _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $base, $id, $line, $column, $file) {
+function _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $base, $id, $line, $column, $file) {
 if ($base === JS::$undefined || $base === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x27 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', $line, $column, $file);
+$x27 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', $line, $column, $file);
 $_TypeError =& $x27[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x27;
 $x28 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array($file, $line, $column);
@@ -137,7 +137,7 @@ $x26 = $x31; }
 else { $x26 = JS::$undefined; $U26 = TRUE; }
 return array(&$x26, $W26, $S26, $U26);
 }
-function _f0835ad0e40147b74c2b17106f21eb60_5($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_5($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -159,11 +159,11 @@ $x59 = ($x59 === JS::$undefined ? 'undefined' : (is_int($x59) || is_float($x59) 
 $x58 = (((gettype($x59) === gettype('object') && $x59 === 'object'))|| (((is_float($x59) || is_int($x59)) && (is_float('object') || is_int('object'))) && $x59 == 'object'));
 if (JS::toBoolean($x58, $global)) {
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x60 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 15, 4, '<jake>/prelude.js');
+$x60 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 15, 4, '<jake>/prelude.js');
 $___tasks =& $x60[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x60;
 if ($U__tasks) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x61 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 15, 4, '<jake>/prelude.js');
+$x61 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 15, 4, '<jake>/prelude.js');
 $_ReferenceError =& $x61[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x61;
 $x62 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 15, 4);
@@ -173,11 +173,11 @@ if (isset($x63->class) && $x63->class === 'Error') {$x63->properties['file'] = '
 throw new JSException($x63, 15, 4, '<jake>/prelude.js');
 }
 unset($_name, $Wname, $Sname, $Uname);
-$x64 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'name', 15, 11, '<jake>/prelude.js');
+$x64 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'name', 15, 11, '<jake>/prelude.js');
 $_name =& $x64[0]; list(,$Wname,$Sname,$Uname) = $x64;
 if ($Uname) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x65 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 15, 11, '<jake>/prelude.js');
+$x65 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 15, 11, '<jake>/prelude.js');
 $_ReferenceError =& $x65[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x65;
 $x66 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 15, 11);
@@ -187,14 +187,14 @@ if (isset($x67->class) && $x67->class === 'Error') {$x67->properties['file'] = '
 throw new JSException($x67, 15, 11, '<jake>/prelude.js');
 }
 unset($x68, $W68, $S68, $U68);
-$x69 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 15, 10, '<jake>/prelude.js');
+$x69 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 15, 10, '<jake>/prelude.js');
 $x68 =& $x69[0]; list(,$W68,$S68,$U68) = $x69;
 unset($x70, $W70, $S70, $U70);
-$x71 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x68, (string) 'results', 15, 16, '<jake>/prelude.js');
+$x71 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x68, (string) 'results', 15, 16, '<jake>/prelude.js');
 $x70 =& $x71[0]; list(,$W70,$S70,$U70) = $x71;
 if ($x70 === JS::$undefined || $x70 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x73 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 15, 29, '<jake>/prelude.js');
+$x73 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 15, 29, '<jake>/prelude.js');
 $_TypeError =& $x73[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x73;
 $x74 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 15, 29);
@@ -205,14 +205,14 @@ throw new JSException($x75, 15, 29, '<jake>/prelude.js');
 }
 $x72 = JS::toObject($x70, $global);
 unset($x76, $W76, $S76, $U76);
-$x77 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x72, (string) 'push', 15, 29, '<jake>/prelude.js');
+$x77 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x72, (string) 'push', 15, 29, '<jake>/prelude.js');
 $x76 =& $x77[0]; list(,$W76,$S76,$U76) = $x77;
 unset($x78, $W78, $S78, $U78);
-$x79 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_dep, (string) 'result', 15, 33, '<jake>/prelude.js');
+$x79 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_dep, (string) 'result', 15, 33, '<jake>/prelude.js');
 $x78 =& $x79[0]; list(,$W78,$S78,$U78) = $x79;
 if (!(is_object($x76) && isset($x76->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x82 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 15, 29, '<jake>/prelude.js');
+$x82 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 15, 29, '<jake>/prelude.js');
 $_TypeError =& $x82[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x82;
 $x83 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 15, 29);
@@ -228,11 +228,11 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 }
 else {
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x85 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 18, 4, '<jake>/prelude.js');
+$x85 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 18, 4, '<jake>/prelude.js');
 $___tasks =& $x85[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x85;
 if ($U__tasks) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x86 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 18, 4, '<jake>/prelude.js');
+$x86 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 18, 4, '<jake>/prelude.js');
 $_ReferenceError =& $x86[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x86;
 $x87 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 18, 4);
@@ -242,11 +242,11 @@ if (isset($x88->class) && $x88->class === 'Error') {$x88->properties['file'] = '
 throw new JSException($x88, 18, 4, '<jake>/prelude.js');
 }
 unset($_name, $Wname, $Sname, $Uname);
-$x89 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'name', 18, 11, '<jake>/prelude.js');
+$x89 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'name', 18, 11, '<jake>/prelude.js');
 $_name =& $x89[0]; list(,$Wname,$Sname,$Uname) = $x89;
 if ($Uname) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x90 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 18, 11, '<jake>/prelude.js');
+$x90 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 18, 11, '<jake>/prelude.js');
 $_ReferenceError =& $x90[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x90;
 $x91 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 18, 11);
@@ -256,14 +256,14 @@ if (isset($x92->class) && $x92->class === 'Error') {$x92->properties['file'] = '
 throw new JSException($x92, 18, 11, '<jake>/prelude.js');
 }
 unset($x93, $W93, $S93, $U93);
-$x94 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 18, 10, '<jake>/prelude.js');
+$x94 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 18, 10, '<jake>/prelude.js');
 $x93 =& $x94[0]; list(,$W93,$S93,$U93) = $x94;
 unset($x95, $W95, $S95, $U95);
-$x96 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x93, (string) 'actions', 18, 16, '<jake>/prelude.js');
+$x96 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x93, (string) 'actions', 18, 16, '<jake>/prelude.js');
 $x95 =& $x96[0]; list(,$W95,$S95,$U95) = $x96;
 if ($x95 === JS::$undefined || $x95 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x98 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 18, 29, '<jake>/prelude.js');
+$x98 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 18, 29, '<jake>/prelude.js');
 $_TypeError =& $x98[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x98;
 $x99 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 18, 29);
@@ -274,11 +274,11 @@ throw new JSException($x100, 18, 29, '<jake>/prelude.js');
 }
 $x97 = JS::toObject($x95, $global);
 unset($x101, $W101, $S101, $U101);
-$x102 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x97, (string) 'push', 18, 29, '<jake>/prelude.js');
+$x102 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x97, (string) 'push', 18, 29, '<jake>/prelude.js');
 $x101 =& $x102[0]; list(,$W101,$S101,$U101) = $x102;
 if (!(is_object($x101) && isset($x101->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x105 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 18, 29, '<jake>/prelude.js');
+$x105 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 18, 29, '<jake>/prelude.js');
 $_TypeError =& $x105[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x105;
 $x106 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 18, 29);
@@ -295,7 +295,7 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_1($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_1($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -338,11 +338,11 @@ $x4->attributes['length'] = JS::WRITABLE;
 $x2->properties['actions'] = $x4;
 $x2->attributes['actions'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x7 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 5, 2, '<jake>/prelude.js');
+$x7 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 5, 2, '<jake>/prelude.js');
 $___tasks =& $x7[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x7;
 if ($U__tasks) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x8 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 5, 2, '<jake>/prelude.js');
+$x8 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 5, 2, '<jake>/prelude.js');
 $_ReferenceError =& $x8[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x8;
 $x9 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 5, 2);
@@ -353,7 +353,7 @@ throw new JSException($x10, 5, 2, '<jake>/prelude.js');
 }
 if ($___tasks === JS::$undefined || $___tasks === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x11 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 5, 15, '<jake>/prelude.js');
+$x11 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 5, 15, '<jake>/prelude.js');
 $_TypeError =& $x11[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x11;
 $x12 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 5, 15);
@@ -364,7 +364,7 @@ throw new JSException($x13, 5, 15, '<jake>/prelude.js');
 }
 $___tasks = JS::toObject($___tasks, $global);
 unset($x14, $W14, $S14, $U14);
-$x18 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $___tasks, (string) $_name, 5, 15, '<jake>/prelude.js');
+$x18 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $___tasks, (string) $_name, 5, 15, '<jake>/prelude.js');
 $x14 =& $x18[0]; list(,$W14,$S14,$U14) = $x18;
 if ($U14 && (!isset($___tasks->extensible) || $___tasks->extensible)) {$___tasks->properties[$_name] = $x14; $x14 =& $___tasks->properties[$_name]; $___tasks->attributes[$_name] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U14 = FALSE; $W14 = TRUE; }
 if (isset($S14)) {
@@ -379,11 +379,11 @@ else { $x19 = JS::$undefined; }
 }
 if (isset($___tasks->class) && $___tasks->class === 'Array' &&  is_int($_name) && $_name >= $___tasks->properties['length']) { $___tasks->properties['length'] = $_name + 1; };
 unset($_Array, $WArray, $SArray, $UArray);
-$x22 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Array', 13, 2, '<jake>/prelude.js');
+$x22 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Array', 13, 2, '<jake>/prelude.js');
 $_Array =& $x22[0]; list(,$WArray,$SArray,$UArray) = $x22;
 if ($UArray) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x23 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 13, 2, '<jake>/prelude.js');
+$x23 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 13, 2, '<jake>/prelude.js');
 $_ReferenceError =& $x23[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x23;
 $x24 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 13, 2);
@@ -393,14 +393,14 @@ if (isset($x25->class) && $x25->class === 'Error') {$x25->properties['file'] = '
 throw new JSException($x25, 13, 2, '<jake>/prelude.js');
 }
 unset($x26, $W26, $S26, $U26);
-$x32 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Array, (string) 'prototype', 13, 7, '<jake>/prelude.js');
+$x32 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Array, (string) 'prototype', 13, 7, '<jake>/prelude.js');
 $x26 =& $x32[0]; list(,$W26,$S26,$U26) = $x32;
 unset($x33, $W33, $S33, $U33);
-$x34 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x26, (string) 'slice', 13, 17, '<jake>/prelude.js');
+$x34 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x26, (string) 'slice', 13, 17, '<jake>/prelude.js');
 $x33 =& $x34[0]; list(,$W33,$S33,$U33) = $x34;
 if ($x33 === JS::$undefined || $x33 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x36 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 13, 28, '<jake>/prelude.js');
+$x36 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 13, 28, '<jake>/prelude.js');
 $_TypeError =& $x36[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x36;
 $x37 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 13, 28);
@@ -411,14 +411,14 @@ throw new JSException($x38, 13, 28, '<jake>/prelude.js');
 }
 $x35 = JS::toObject($x33, $global);
 unset($x39, $W39, $S39, $U39);
-$x40 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x35, (string) 'call', 13, 28, '<jake>/prelude.js');
+$x40 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x35, (string) 'call', 13, 28, '<jake>/prelude.js');
 $x39 =& $x40[0]; list(,$W39,$S39,$U39) = $x40;
 unset($_arguments, $Warguments, $Sarguments, $Uarguments);
-$x41 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'arguments', 13, 29, '<jake>/prelude.js');
+$x41 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'arguments', 13, 29, '<jake>/prelude.js');
 $_arguments =& $x41[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x41;
 if ($Uarguments) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x42 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 13, 29, '<jake>/prelude.js');
+$x42 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 13, 29, '<jake>/prelude.js');
 $_ReferenceError =& $x42[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x42;
 $x43 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 13, 29);
@@ -429,7 +429,7 @@ throw new JSException($x44, 13, 29, '<jake>/prelude.js');
 }
 if (!(is_object($x39) && isset($x39->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x47 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 13, 28, '<jake>/prelude.js');
+$x47 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 13, 28, '<jake>/prelude.js');
 $_TypeError =& $x47[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x47;
 $x48 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 13, 28);
@@ -444,7 +444,7 @@ $x46 = $x45($global, $x35, $x39, array($_arguments, 2), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if ($x46 === JS::$undefined || $x46 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x51 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 13, 50, '<jake>/prelude.js');
+$x51 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 13, 50, '<jake>/prelude.js');
 $_TypeError =& $x51[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x51;
 $x52 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 13, 50);
@@ -455,14 +455,14 @@ throw new JSException($x53, 13, 50, '<jake>/prelude.js');
 }
 $x50 = JS::toObject($x46, $global);
 unset($x54, $W54, $S54, $U54);
-$x55 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x50, (string) 'forEach', 13, 50, '<jake>/prelude.js');
+$x55 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x50, (string) 'forEach', 13, 50, '<jake>/prelude.js');
 $x54 =& $x55[0]; list(,$W54,$S54,$U54) = $x55;
-$x108 = clone JS::$functionTemplate; $x108->call = '_f0835ad0e40147b74c2b17106f21eb60_5'; $x108->parameters = array (
+$x108 = clone JS::$functionTemplate; $x108->call = '_e1d02b440e29b3d14790f8d0c3439513_5'; $x108->parameters = array (
   0 => 'dep',
 ); $x108->scope = $scope; $x108->properties['prototype'] = clone JS::$objectTemplate; $x108->attributes['prototype'] = JS::WRITABLE; $x108->properties['prototype']->properties['constructor'] = $x108; $x108->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x108->properties['length'] = 1; $x108->attributes['length'] = 0;
 if (!(is_object($x54) && isset($x54->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x111 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 13, 50, '<jake>/prelude.js');
+$x111 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 13, 50, '<jake>/prelude.js');
 $_TypeError =& $x111[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x111;
 $x112 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 13, 50);
@@ -478,7 +478,7 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_6($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_6($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -499,7 +499,7 @@ $_result =& $scope->properties['result'];
 $global->scope[++$global->scope_sp] = $scope;
 if ($_file === JS::$undefined || $_file === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x119 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 24, 17, '<jake>/prelude.js');
+$x119 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 24, 17, '<jake>/prelude.js');
 $_TypeError =& $x119[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x119;
 $x120 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 24, 17);
@@ -510,11 +510,11 @@ throw new JSException($x121, 24, 17, '<jake>/prelude.js');
 }
 $x118 = JS::toObject($_file, $global);
 unset($x122, $W122, $S122, $U122);
-$x123 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x118, (string) 'charAt', 24, 17, '<jake>/prelude.js');
+$x123 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x118, (string) 'charAt', 24, 17, '<jake>/prelude.js');
 $x122 =& $x123[0]; list(,$W122,$S122,$U122) = $x123;
 if (!(is_object($x122) && isset($x122->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x126 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 24, 17, '<jake>/prelude.js');
+$x126 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 24, 17, '<jake>/prelude.js');
 $_TypeError =& $x126[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x126;
 $x127 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 24, 17);
@@ -530,11 +530,11 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 $x117 = !(((gettype($x125) === gettype('/') && $x125 === '/'))|| (((is_float($x125) || is_int($x125)) && (is_float('/') || is_int('/'))) && $x125 == '/'));
 if (JS::toBoolean($x117, $global)) {
 unset($_PHP, $WPHP, $SPHP, $UPHP);
-$x133 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'PHP', 25, 10, '<jake>/prelude.js');
+$x133 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'PHP', 25, 10, '<jake>/prelude.js');
 $_PHP =& $x133[0]; list(,$WPHP,$SPHP,$UPHP) = $x133;
 if ($UPHP) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x134 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 25, 10, '<jake>/prelude.js');
+$x134 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 25, 10, '<jake>/prelude.js');
 $_ReferenceError =& $x134[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x134;
 $x135 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 25, 10);
@@ -545,7 +545,7 @@ throw new JSException($x136, 25, 10, '<jake>/prelude.js');
 }
 if ($_PHP === JS::$undefined || $_PHP === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x138 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 25, 16, '<jake>/prelude.js');
+$x138 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 25, 16, '<jake>/prelude.js');
 $_TypeError =& $x138[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x138;
 $x139 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 25, 16);
@@ -556,11 +556,11 @@ throw new JSException($x140, 25, 16, '<jake>/prelude.js');
 }
 $x137 = JS::toObject($_PHP, $global);
 unset($x141, $W141, $S141, $U141);
-$x142 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x137, (string) 'fn', 25, 16, '<jake>/prelude.js');
+$x142 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x137, (string) 'fn', 25, 16, '<jake>/prelude.js');
 $x141 =& $x142[0]; list(,$W141,$S141,$U141) = $x142;
 if (!(is_object($x141) && isset($x141->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x145 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 25, 16, '<jake>/prelude.js');
+$x145 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 25, 16, '<jake>/prelude.js');
 $_TypeError =& $x145[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x145;
 $x146 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 25, 16);
@@ -575,7 +575,7 @@ $x144 = $x143($global, $x137, $x141, array('getcwd'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if (!(is_object($x144) && isset($x144->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x150 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 25, 26, '<jake>/prelude.js');
+$x150 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 25, 26, '<jake>/prelude.js');
 $_TypeError =& $x150[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x150;
 $x151 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 25, 26);
@@ -602,7 +602,7 @@ return $x153;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_7($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_7($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -625,11 +625,11 @@ $scope->properties['ret'] = JS::$undefined; $_ret =& $scope->properties['ret'];
 $Uret = FALSE;
 $_ret = JS::$undefined;
 unset($_Array, $WArray, $SArray, $UArray);
-$x157 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Array', 33, 8, '<jake>/prelude.js');
+$x157 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Array', 33, 8, '<jake>/prelude.js');
 $_Array =& $x157[0]; list(,$WArray,$SArray,$UArray) = $x157;
 if ($UArray) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x158 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 33, 8, '<jake>/prelude.js');
+$x158 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 33, 8, '<jake>/prelude.js');
 $_ReferenceError =& $x158[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x158;
 $x159 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 33, 8);
@@ -639,14 +639,14 @@ if (isset($x160->class) && $x160->class === 'Error') {$x160->properties['file'] 
 throw new JSException($x160, 33, 8, '<jake>/prelude.js');
 }
 unset($x161, $W161, $S161, $U161);
-$x162 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Array, (string) 'prototype', 33, 13, '<jake>/prelude.js');
+$x162 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Array, (string) 'prototype', 33, 13, '<jake>/prelude.js');
 $x161 =& $x162[0]; list(,$W161,$S161,$U161) = $x162;
 unset($x163, $W163, $S163, $U163);
-$x164 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x161, (string) 'join', 33, 23, '<jake>/prelude.js');
+$x164 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x161, (string) 'join', 33, 23, '<jake>/prelude.js');
 $x163 =& $x164[0]; list(,$W163,$S163,$U163) = $x164;
 if ($x163 === JS::$undefined || $x163 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x166 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 33, 33, '<jake>/prelude.js');
+$x166 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 33, 33, '<jake>/prelude.js');
 $_TypeError =& $x166[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x166;
 $x167 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 33, 33);
@@ -657,14 +657,14 @@ throw new JSException($x168, 33, 33, '<jake>/prelude.js');
 }
 $x165 = JS::toObject($x163, $global);
 unset($x169, $W169, $S169, $U169);
-$x170 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x165, (string) 'call', 33, 33, '<jake>/prelude.js');
+$x170 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x165, (string) 'call', 33, 33, '<jake>/prelude.js');
 $x169 =& $x170[0]; list(,$W169,$S169,$U169) = $x170;
 unset($_arguments, $Warguments, $Sarguments, $Uarguments);
-$x171 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'arguments', 33, 34, '<jake>/prelude.js');
+$x171 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'arguments', 33, 34, '<jake>/prelude.js');
 $_arguments =& $x171[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x171;
 if ($Uarguments) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x172 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 33, 34, '<jake>/prelude.js');
+$x172 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 33, 34, '<jake>/prelude.js');
 $_ReferenceError =& $x172[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x172;
 $x173 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 33, 34);
@@ -675,7 +675,7 @@ throw new JSException($x174, 33, 34, '<jake>/prelude.js');
 }
 if (!(is_object($x169) && isset($x169->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x177 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 33, 33, '<jake>/prelude.js');
+$x177 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 33, 33, '<jake>/prelude.js');
 $_TypeError =& $x177[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x177;
 $x178 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 33, 33);
@@ -691,11 +691,11 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if ($Ucmd) {$global->properties['cmd'] = $_cmd; $_cmd =& $global->properties['cmd']; }
 $_cmd = $x176;
 unset($_puts, $Wputs, $Sputs, $Uputs);
-$x180 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'puts', 34, 2, '<jake>/prelude.js');
+$x180 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'puts', 34, 2, '<jake>/prelude.js');
 $_puts =& $x180[0]; list(,$Wputs,$Sputs,$Uputs) = $x180;
 if ($Uputs) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x181 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 34, 2, '<jake>/prelude.js');
+$x181 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 34, 2, '<jake>/prelude.js');
 $_ReferenceError =& $x181[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x181;
 $x182 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 34, 2);
@@ -706,7 +706,7 @@ throw new JSException($x183, 34, 2, '<jake>/prelude.js');
 }
 if (!(is_object($_puts) && isset($_puts->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x186 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 34, 6, '<jake>/prelude.js');
+$x186 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 34, 6, '<jake>/prelude.js');
 $_TypeError =& $x186[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x186;
 $x187 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 34, 6);
@@ -723,11 +723,11 @@ passthru($_cmd,$_ret);
 $x189 = !(((gettype($_ret) === gettype(0) && $_ret === 0))|| (((is_float($_ret) || is_int($_ret)) && (is_float(0) || is_int(0))) && $_ret == 0));
 if (JS::toBoolean($x189, $global)) {
 unset($_Error, $WError, $SError, $UError);
-$x192 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Error', 38, 13, '<jake>/prelude.js');
+$x192 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Error', 38, 13, '<jake>/prelude.js');
 $_Error =& $x192[0]; list(,$WError,$SError,$UError) = $x192;
 if ($UError) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x193 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 38, 13, '<jake>/prelude.js');
+$x193 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 38, 13, '<jake>/prelude.js');
 $_ReferenceError =& $x193[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x193;
 $x194 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 38, 13);
@@ -742,13 +742,13 @@ $x196 = JS::toPrimitive((is_string($x198) || is_string($x199) ? JS::toString($x1
 $x197 = JS::toPrimitive(' failed', $global);
 $x190 = clone JS::$objectTemplate;
 unset($x200, $W200, $S200, $U200);
-$x201 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Error, (string) 'prototype', 38, 9, '<jake>/prelude.js');
+$x201 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Error, (string) 'prototype', 38, 9, '<jake>/prelude.js');
 $x200 =& $x201[0]; list(,$W200,$S200,$U200) = $x201;
 $x191 = $x200;
 $x190->prototype = $x191;
 if (!(is_object($_Error) && isset($_Error->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x204 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 38, 9, '<jake>/prelude.js');
+$x204 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 38, 9, '<jake>/prelude.js');
 $_TypeError =& $x204[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x204;
 $x205 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 38, 9);
@@ -769,7 +769,7 @@ throw new JSException($x190, 38, 3, '<jake>/prelude.js');;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_8($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_8($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -789,11 +789,11 @@ $scope->properties['fail'] = $fn;
 $_fail =& $scope->properties['fail'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Error, $WError, $SError, $UError);
-$x212 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Error', 43, 12, '<jake>/prelude.js');
+$x212 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Error', 43, 12, '<jake>/prelude.js');
 $_Error =& $x212[0]; list(,$WError,$SError,$UError) = $x212;
 if ($UError) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x213 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 43, 12, '<jake>/prelude.js');
+$x213 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 43, 12, '<jake>/prelude.js');
 $_ReferenceError =& $x213[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x213;
 $x214 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 43, 12);
@@ -804,13 +804,13 @@ throw new JSException($x215, 43, 12, '<jake>/prelude.js');
 }
 $x210 = clone JS::$objectTemplate;
 unset($x216, $W216, $S216, $U216);
-$x217 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Error, (string) 'prototype', 43, 8, '<jake>/prelude.js');
+$x217 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Error, (string) 'prototype', 43, 8, '<jake>/prelude.js');
 $x216 =& $x217[0]; list(,$W216,$S216,$U216) = $x217;
 $x211 = $x216;
 $x210->prototype = $x211;
 if (!(is_object($_Error) && isset($_Error->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x220 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 43, 8, '<jake>/prelude.js');
+$x220 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 43, 8, '<jake>/prelude.js');
 $_TypeError =& $x220[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x220;
 $x221 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 43, 8);
@@ -830,7 +830,7 @@ throw new JSException($x210, 43, 2, '<jake>/prelude.js');
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_9($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_9($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -850,21 +850,21 @@ $scope->properties['runTask'] = $fn;
 $_runTask =& $scope->properties['runTask'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x227 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 57, 13, '<jake>/prelude.js');
+$x227 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 57, 13, '<jake>/prelude.js');
 $___tasks =& $x227[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x227;
 unset($x228, $W228, $S228, $U228);
-$x229 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 57, 19, '<jake>/prelude.js');
+$x229 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 57, 19, '<jake>/prelude.js');
 $x228 =& $x229[0]; list(,$W228,$S228,$U228) = $x229;
 $x230 = $x228;
 $x230 = ($x230 === JS::$undefined ? 'undefined' : (is_int($x230) || is_float($x230) ? 'number' : (is_bool($x230) ? 'boolean' : (is_string($x230) ? 'string' : (is_object($x230) && isset($x230->call) ? 'function' : 'object')))));
 $x226 = (((gettype($x230) === gettype('undefined') && $x230 === 'undefined'))|| (((is_float($x230) || is_int($x230)) && (is_float('undefined') || is_int('undefined'))) && $x230 == 'undefined'));
 if (JS::toBoolean($x226, $global)) {
 unset($_Error, $WError, $SError, $UError);
-$x233 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Error', 58, 13, '<jake>/prelude.js');
+$x233 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Error', 58, 13, '<jake>/prelude.js');
 $_Error =& $x233[0]; list(,$WError,$SError,$UError) = $x233;
 if ($UError) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x234 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 58, 13, '<jake>/prelude.js');
+$x234 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 58, 13, '<jake>/prelude.js');
 $_ReferenceError =& $x234[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x234;
 $x235 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 58, 13);
@@ -877,13 +877,13 @@ $x237 = JS::toPrimitive('no task ', $global);
 $x238 = JS::toPrimitive($_name, $global);
 $x231 = clone JS::$objectTemplate;
 unset($x239, $W239, $S239, $U239);
-$x240 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Error, (string) 'prototype', 58, 9, '<jake>/prelude.js');
+$x240 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Error, (string) 'prototype', 58, 9, '<jake>/prelude.js');
 $x239 =& $x240[0]; list(,$W239,$S239,$U239) = $x240;
 $x232 = $x239;
 $x231->prototype = $x232;
 if (!(is_object($_Error) && isset($_Error->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x243 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 58, 9, '<jake>/prelude.js');
+$x243 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 58, 9, '<jake>/prelude.js');
 $_TypeError =& $x243[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x243;
 $x244 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 58, 9);
@@ -902,11 +902,11 @@ if (isset($x231->class) && $x231->class === 'Error') {$x231->properties['file'] 
 throw new JSException($x231, 58, 3, '<jake>/prelude.js');;
 };
 unset($_needRun, $WneedRun, $SneedRun, $UneedRun);
-$x246 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'needRun', 61, 7, '<jake>/prelude.js');
+$x246 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'needRun', 61, 7, '<jake>/prelude.js');
 $_needRun =& $x246[0]; list(,$WneedRun,$SneedRun,$UneedRun) = $x246;
 if ($UneedRun) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x247 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 61, 7, '<jake>/prelude.js');
+$x247 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 61, 7, '<jake>/prelude.js');
 $_ReferenceError =& $x247[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x247;
 $x248 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 61, 7);
@@ -917,7 +917,7 @@ throw new JSException($x249, 61, 7, '<jake>/prelude.js');
 }
 if (!(is_object($_needRun) && isset($_needRun->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x252 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 61, 14, '<jake>/prelude.js');
+$x252 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 61, 14, '<jake>/prelude.js');
 $_TypeError =& $x252[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x252;
 $x253 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 61, 14);
@@ -935,11 +935,11 @@ if (JS::toBoolean((!JS::toBoolean($x251, $global)), $global)) {
 return ;;
 };
 unset($___level, $W__level, $S__level, $U__level);
-$x256 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_level', 63, 6, '<jake>/prelude.js');
+$x256 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_level', 63, 6, '<jake>/prelude.js');
 $___level =& $x256[0]; list(,$W__level,$S__level,$U__level) = $x256;
 if ($U__level) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x257 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 63, 6, '<jake>/prelude.js');
+$x257 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 63, 6, '<jake>/prelude.js');
 $_ReferenceError =& $x257[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x257;
 $x258 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 63, 6);
@@ -953,11 +953,11 @@ $x260 = $___level;
 $x255 = !(((gettype($x260) === gettype(0) && $x260 === 0))|| (((is_float($x260) || is_int($x260)) && (is_float(0) || is_int(0))) && $x260 == 0));
 if (JS::toBoolean($x255, $global)) {
 unset($_puts, $Wputs, $Sputs, $Uputs);
-$x261 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'puts', 64, 3, '<jake>/prelude.js');
+$x261 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'puts', 64, 3, '<jake>/prelude.js');
 $_puts =& $x261[0]; list(,$Wputs,$Sputs,$Uputs) = $x261;
 if ($Uputs) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x262 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 64, 3, '<jake>/prelude.js');
+$x262 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 64, 3, '<jake>/prelude.js');
 $_ReferenceError =& $x262[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x262;
 $x263 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 64, 3);
@@ -968,7 +968,7 @@ throw new JSException($x264, 64, 3, '<jake>/prelude.js');
 }
 if ('=' === JS::$undefined || '=' === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x270 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 64, 17, '<jake>/prelude.js');
+$x270 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 64, 17, '<jake>/prelude.js');
 $_TypeError =& $x270[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x270;
 $x271 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 64, 17);
@@ -979,11 +979,11 @@ throw new JSException($x272, 64, 17, '<jake>/prelude.js');
 }
 $x269 = JS::toObject('=', $global);
 unset($x273, $W273, $S273, $U273);
-$x274 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x269, (string) 'times', 64, 17, '<jake>/prelude.js');
+$x274 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x269, (string) 'times', 64, 17, '<jake>/prelude.js');
 $x273 =& $x274[0]; list(,$W273,$S273,$U273) = $x274;
 if (!(is_object($x273) && isset($x273->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x277 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 64, 17, '<jake>/prelude.js');
+$x277 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 64, 17, '<jake>/prelude.js');
 $_TypeError =& $x277[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x277;
 $x278 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 64, 17);
@@ -1002,7 +1002,7 @@ $x265 = JS::toPrimitive((is_string($x267) || is_string($x268) ? JS::toString($x2
 $x266 = JS::toPrimitive($_name, $global);
 if (!(is_object($_puts) && isset($_puts->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x282 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 64, 7, '<jake>/prelude.js');
+$x282 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 64, 7, '<jake>/prelude.js');
 $_TypeError =& $x282[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x282;
 $x283 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 64, 7);
@@ -1017,11 +1017,11 @@ $x281 = $x280($global, $global, $_puts, array((is_string($x265) || is_string($x2
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);;
 };
 unset($x285, $W285, $S285, $U285);
-$x286 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 67, 8, '<jake>/prelude.js');
+$x286 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 67, 8, '<jake>/prelude.js');
 $x285 =& $x286[0]; list(,$W285,$S285,$U285) = $x286;
 if ($x285 === JS::$undefined || $x285 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x287 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 67, 23, '<jake>/prelude.js');
+$x287 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 67, 23, '<jake>/prelude.js');
 $_TypeError =& $x287[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x287;
 $x288 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 67, 23);
@@ -1032,7 +1032,7 @@ throw new JSException($x289, 67, 23, '<jake>/prelude.js');
 }
 $x285 = JS::toObject($x285, $global);
 unset($x290, $W290, $S290, $U290);
-$x291 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $x285, (string) 'running', 67, 23, '<jake>/prelude.js');
+$x291 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $x285, (string) 'running', 67, 23, '<jake>/prelude.js');
 $x290 =& $x291[0]; list(,$W290,$S290,$U290) = $x291;
 if ($U290 && (!isset($x285->extensible) || $x285->extensible)) {$x285->properties['running'] = $x290; $x290 =& $x285->properties['running']; $x285->attributes['running'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U290 = FALSE; $W290 = TRUE; }
 if (isset($S290)) {
@@ -1052,13 +1052,13 @@ $scope->properties['i'] = JS::$undefined; $_i =& $scope->properties['i'];
 $Ui = FALSE;
 $_i = 0;
 unset($x296, $W296, $S296, $U296);
-$x297 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 69, 28, '<jake>/prelude.js');
+$x297 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 69, 28, '<jake>/prelude.js');
 $x296 =& $x297[0]; list(,$W296,$S296,$U296) = $x297;
 unset($x298, $W298, $S298, $U298);
-$x299 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x296, (string) 'actions', 69, 34, '<jake>/prelude.js');
+$x299 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x296, (string) 'actions', 69, 34, '<jake>/prelude.js');
 $x298 =& $x299[0]; list(,$W298,$S298,$U298) = $x299;
 unset($x300, $W300, $S300, $U300);
-$x301 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x298, (string) 'length', 69, 42, '<jake>/prelude.js');
+$x301 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x298, (string) 'length', 69, 42, '<jake>/prelude.js');
 $x300 =& $x301[0]; list(,$W300,$S300,$U300) = $x301;
 $scope->properties['l'] = JS::$undefined; $_l =& $scope->properties['l'];
 $Ul = FALSE;
@@ -1076,13 +1076,13 @@ $x305 = (is_string($x303) && is_string($x304) ? strcmp($x303, $x304) < 0 : (!is_
 if (!JS::toBoolean($x305, $global)) { break; }
 
 unset($x308, $W308, $S308, $U308);
-$x309 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 70, 18, '<jake>/prelude.js');
+$x309 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 70, 18, '<jake>/prelude.js');
 $x308 =& $x309[0]; list(,$W308,$S308,$U308) = $x309;
 unset($x310, $W310, $S310, $U310);
-$x311 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x308, (string) 'actions', 70, 24, '<jake>/prelude.js');
+$x311 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x308, (string) 'actions', 70, 24, '<jake>/prelude.js');
 $x310 =& $x311[0]; list(,$W310,$S310,$U310) = $x311;
 unset($x312, $W312, $S312, $U312);
-$x313 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x310, (string) $_i, 70, 32, '<jake>/prelude.js');
+$x313 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x310, (string) $_i, 70, 32, '<jake>/prelude.js');
 $x312 =& $x313[0]; list(,$W312,$S312,$U312) = $x313;
 if ($Uaction) {$global->properties['action'] = $_action; $_action =& $global->properties['action']; }
 $_action = $x312;
@@ -1092,7 +1092,7 @@ $x314 = (((gettype($x315) === gettype('string') && $x315 === 'string'))|| (((is_
 if (JS::toBoolean($x314, $global)) {
 if ($_action === JS::$undefined || $_action === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x318 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 73, 21, '<jake>/prelude.js');
+$x318 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 73, 21, '<jake>/prelude.js');
 $_TypeError =& $x318[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x318;
 $x319 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 73, 21);
@@ -1103,11 +1103,11 @@ throw new JSException($x320, 73, 21, '<jake>/prelude.js');
 }
 $x317 = JS::toObject($_action, $global);
 unset($x321, $W321, $S321, $U321);
-$x322 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x317, (string) 'charAt', 73, 21, '<jake>/prelude.js');
+$x322 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x317, (string) 'charAt', 73, 21, '<jake>/prelude.js');
 $x321 =& $x322[0]; list(,$W321,$S321,$U321) = $x322;
 if (!(is_object($x321) && isset($x321->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x325 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 73, 21, '<jake>/prelude.js');
+$x325 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 73, 21, '<jake>/prelude.js');
 $_TypeError =& $x325[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x325;
 $x326 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 73, 21);
@@ -1124,7 +1124,7 @@ $x316 = !(((gettype($x324) === gettype('/') && $x324 === '/'))|| (((is_float($x3
 if (JS::toBoolean($x316, $global)) {
 if (!(is_object($_runTask) && isset($_runTask->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x330 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 73, 43, '<jake>/prelude.js');
+$x330 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 73, 43, '<jake>/prelude.js');
 $_TypeError =& $x330[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x330;
 $x331 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 73, 43);
@@ -1142,7 +1142,7 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 else {
 if (!(is_object($_action) && isset($_action->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x335 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 76, 10, '<jake>/prelude.js');
+$x335 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 76, 10, '<jake>/prelude.js');
 $_TypeError =& $x335[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x335;
 $x336 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 76, 10);
@@ -1158,11 +1158,11 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 };;
 };
 unset($x338, $W338, $S338, $U338);
-$x339 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 80, 8, '<jake>/prelude.js');
+$x339 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 80, 8, '<jake>/prelude.js');
 $x338 =& $x339[0]; list(,$W338,$S338,$U338) = $x339;
 if ($x338 === JS::$undefined || $x338 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x340 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 80, 23, '<jake>/prelude.js');
+$x340 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 80, 23, '<jake>/prelude.js');
 $_TypeError =& $x340[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x340;
 $x341 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 80, 23);
@@ -1173,7 +1173,7 @@ throw new JSException($x342, 80, 23, '<jake>/prelude.js');
 }
 $x338 = JS::toObject($x338, $global);
 unset($x343, $W343, $S343, $U343);
-$x344 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $x338, (string) 'running', 80, 23, '<jake>/prelude.js');
+$x344 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $x338, (string) 'running', 80, 23, '<jake>/prelude.js');
 $x343 =& $x344[0]; list(,$W343,$S343,$U343) = $x344;
 if ($U343 && (!isset($x338->extensible) || $x338->extensible)) {$x338->properties['running'] = $x343; $x343 =& $x338->properties['running']; $x338->attributes['running'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U343 = FALSE; $W343 = TRUE; }
 if (isset($S343)) {
@@ -1188,11 +1188,11 @@ else { $x345 = JS::$undefined; }
 }
 if (isset($x338->class) && $x338->class === 'Array' &&  is_int('running') && 'running' >= $x338->properties['length']) { $x338->properties['length'] = 'running' + 1; };
 unset($x348, $W348, $S348, $U348);
-$x349 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 81, 8, '<jake>/prelude.js');
+$x349 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 81, 8, '<jake>/prelude.js');
 $x348 =& $x349[0]; list(,$W348,$S348,$U348) = $x349;
 if ($x348 === JS::$undefined || $x348 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x350 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 81, 26, '<jake>/prelude.js');
+$x350 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 81, 26, '<jake>/prelude.js');
 $_TypeError =& $x350[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x350;
 $x351 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 81, 26);
@@ -1203,7 +1203,7 @@ throw new JSException($x352, 81, 26, '<jake>/prelude.js');
 }
 $x348 = JS::toObject($x348, $global);
 unset($x353, $W353, $S353, $U353);
-$x354 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $x348, (string) 'alreadyRun', 81, 26, '<jake>/prelude.js');
+$x354 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $x348, (string) 'alreadyRun', 81, 26, '<jake>/prelude.js');
 $x353 =& $x354[0]; list(,$W353,$S353,$U353) = $x354;
 if ($U353 && (!isset($x348->extensible) || $x348->extensible)) {$x348->properties['alreadyRun'] = $x353; $x353 =& $x348->properties['alreadyRun']; $x348->attributes['alreadyRun'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U353 = FALSE; $W353 = TRUE; }
 if (isset($S353)) {
@@ -1222,11 +1222,11 @@ $x359 = JS::toPrimitive(1, $global);
 $x360 = (is_string($x359) && is_string($x358) ? strcmp($x359, $x358) < 0 : (!is_nan($x361 = JS::toNumber($x359, $global)) && !is_nan($x362 = JS::toNumber($x358, $global)) && $x361 < $x362));
 if (JS::toBoolean($x360, $global)) {
 unset($_puts, $Wputs, $Sputs, $Uputs);
-$x363 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'puts', 84, 3, '<jake>/prelude.js');
+$x363 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'puts', 84, 3, '<jake>/prelude.js');
 $_puts =& $x363[0]; list(,$Wputs,$Sputs,$Uputs) = $x363;
 if ($Uputs) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x364 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 84, 3, '<jake>/prelude.js');
+$x364 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 84, 3, '<jake>/prelude.js');
 $_ReferenceError =& $x364[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x364;
 $x365 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 84, 3);
@@ -1237,7 +1237,7 @@ throw new JSException($x366, 84, 3, '<jake>/prelude.js');
 }
 if ('=' === JS::$undefined || '=' === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x370 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 84, 17, '<jake>/prelude.js');
+$x370 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 84, 17, '<jake>/prelude.js');
 $_TypeError =& $x370[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x370;
 $x371 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 84, 17);
@@ -1248,12 +1248,12 @@ throw new JSException($x372, 84, 17, '<jake>/prelude.js');
 }
 $x369 = JS::toObject('=', $global);
 unset($x373, $W373, $S373, $U373);
-$x374 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x369, (string) 'times', 84, 17, '<jake>/prelude.js');
+$x374 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x369, (string) 'times', 84, 17, '<jake>/prelude.js');
 $x373 =& $x374[0]; list(,$W373,$S373,$U373) = $x374;
 $x375 = --$___level;
 if (!(is_object($x373) && isset($x373->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x378 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 84, 17, '<jake>/prelude.js');
+$x378 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 84, 17, '<jake>/prelude.js');
 $_TypeError =& $x378[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x378;
 $x379 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 84, 17);
@@ -1270,7 +1270,7 @@ $x367 = JS::toPrimitive($x377, $global);
 $x368 = JS::toPrimitive('> ok', $global);
 if (!(is_object($_puts) && isset($_puts->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x383 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 84, 7, '<jake>/prelude.js');
+$x383 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 84, 7, '<jake>/prelude.js');
 $_TypeError =& $x383[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x383;
 $x384 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 84, 7);
@@ -1287,7 +1287,7 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_13($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_13($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -1305,11 +1305,11 @@ $_h =& $scope->properties['h'];
 $Uh = FALSE;
 $global->scope[++$global->scope_sp] = $scope;
 unset($_PHP, $WPHP, $SPHP, $UPHP);
-$x543 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'PHP', 113, 18, '<jake>/prelude.js');
+$x543 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'PHP', 113, 18, '<jake>/prelude.js');
 $_PHP =& $x543[0]; list(,$WPHP,$SPHP,$UPHP) = $x543;
 if ($UPHP) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x544 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 113, 18, '<jake>/prelude.js');
+$x544 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 113, 18, '<jake>/prelude.js');
 $_ReferenceError =& $x544[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x544;
 $x545 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 18);
@@ -1320,7 +1320,7 @@ throw new JSException($x546, 113, 18, '<jake>/prelude.js');
 }
 if ($_PHP === JS::$undefined || $_PHP === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x548 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 113, 24, '<jake>/prelude.js');
+$x548 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 113, 24, '<jake>/prelude.js');
 $_TypeError =& $x548[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x548;
 $x549 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 24);
@@ -1331,11 +1331,11 @@ throw new JSException($x550, 113, 24, '<jake>/prelude.js');
 }
 $x547 = JS::toObject($_PHP, $global);
 unset($x551, $W551, $S551, $U551);
-$x552 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x547, (string) 'fn', 113, 24, '<jake>/prelude.js');
+$x552 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x547, (string) 'fn', 113, 24, '<jake>/prelude.js');
 $x551 =& $x552[0]; list(,$W551,$S551,$U551) = $x552;
 if (!(is_object($x551) && isset($x551->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x555 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 113, 24, '<jake>/prelude.js');
+$x555 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 113, 24, '<jake>/prelude.js');
 $_TypeError =& $x555[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x555;
 $x556 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 24);
@@ -1349,11 +1349,11 @@ $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 24);
 $x554 = $x553($global, $x547, $x551, array('filemtime'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 unset($_f, $Wf, $Sf, $Uf);
-$x558 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'f', 113, 38, '<jake>/prelude.js');
+$x558 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'f', 113, 38, '<jake>/prelude.js');
 $_f =& $x558[0]; list(,$Wf,$Sf,$Uf) = $x558;
 if ($Uf) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x559 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 113, 38, '<jake>/prelude.js');
+$x559 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 113, 38, '<jake>/prelude.js');
 $_ReferenceError =& $x559[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x559;
 $x560 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 38);
@@ -1364,7 +1364,7 @@ throw new JSException($x561, 113, 38, '<jake>/prelude.js');
 }
 if (!(is_object($x554) && isset($x554->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x564 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 113, 37, '<jake>/prelude.js');
+$x564 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 113, 37, '<jake>/prelude.js');
 $_TypeError =& $x564[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x564;
 $x565 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 37);
@@ -1379,7 +1379,7 @@ $x563 = $x562($global, $global, $x554, array($_f), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if ($_PHP === JS::$undefined || $_PHP === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x568 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 113, 49, '<jake>/prelude.js');
+$x568 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 113, 49, '<jake>/prelude.js');
 $_TypeError =& $x568[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x568;
 $x569 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 49);
@@ -1390,11 +1390,11 @@ throw new JSException($x570, 113, 49, '<jake>/prelude.js');
 }
 $x567 = JS::toObject($_PHP, $global);
 unset($x571, $W571, $S571, $U571);
-$x572 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x567, (string) 'fn', 113, 49, '<jake>/prelude.js');
+$x572 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x567, (string) 'fn', 113, 49, '<jake>/prelude.js');
 $x571 =& $x572[0]; list(,$W571,$S571,$U571) = $x572;
 if (!(is_object($x571) && isset($x571->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x575 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 113, 49, '<jake>/prelude.js');
+$x575 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 113, 49, '<jake>/prelude.js');
 $_TypeError =& $x575[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x575;
 $x576 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 49);
@@ -1409,7 +1409,7 @@ $x574 = $x573($global, $x567, $x571, array('filemtime'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if (!(is_object($x574) && isset($x574->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x580 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 113, 62, '<jake>/prelude.js');
+$x580 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 113, 62, '<jake>/prelude.js');
 $_TypeError =& $x580[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x580;
 $x581 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 113, 62);
@@ -1429,7 +1429,7 @@ return $x542;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_12($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_12($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -1447,11 +1447,11 @@ $_g =& $scope->properties['g'];
 $Ug = FALSE;
 $global->scope[++$global->scope_sp] = $scope;
 unset($_PHP, $WPHP, $SPHP, $UPHP);
-$x508 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'PHP', 110, 13, '<jake>/prelude.js');
+$x508 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'PHP', 110, 13, '<jake>/prelude.js');
 $_PHP =& $x508[0]; list(,$WPHP,$SPHP,$UPHP) = $x508;
 if ($UPHP) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x509 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 110, 13, '<jake>/prelude.js');
+$x509 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 110, 13, '<jake>/prelude.js');
 $_ReferenceError =& $x509[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x509;
 $x510 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 110, 13);
@@ -1462,7 +1462,7 @@ throw new JSException($x511, 110, 13, '<jake>/prelude.js');
 }
 if ($_PHP === JS::$undefined || $_PHP === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x513 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 110, 19, '<jake>/prelude.js');
+$x513 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 110, 19, '<jake>/prelude.js');
 $_TypeError =& $x513[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x513;
 $x514 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 110, 19);
@@ -1473,11 +1473,11 @@ throw new JSException($x515, 110, 19, '<jake>/prelude.js');
 }
 $x512 = JS::toObject($_PHP, $global);
 unset($x516, $W516, $S516, $U516);
-$x517 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x512, (string) 'fn', 110, 19, '<jake>/prelude.js');
+$x517 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x512, (string) 'fn', 110, 19, '<jake>/prelude.js');
 $x516 =& $x517[0]; list(,$W516,$S516,$U516) = $x517;
 if (!(is_object($x516) && isset($x516->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x520 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 110, 19, '<jake>/prelude.js');
+$x520 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 110, 19, '<jake>/prelude.js');
 $_TypeError =& $x520[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x520;
 $x521 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 110, 19);
@@ -1492,7 +1492,7 @@ $x519 = $x518($global, $x512, $x516, array('glob'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if (!(is_object($x519) && isset($x519->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x525 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 110, 27, '<jake>/prelude.js');
+$x525 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 110, 27, '<jake>/prelude.js');
 $_TypeError =& $x525[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x525;
 $x526 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 110, 27);
@@ -1510,14 +1510,14 @@ $_g = $x524;
 $x529 = (!JS::toBoolean($_g, $global));
 if (!JS::toBoolean($x529, $global)) {
 unset($x530, $W530, $S530, $U530);
-$x531 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_g, (string) 'length', 112, 21, '<jake>/prelude.js');
+$x531 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_g, (string) 'length', 112, 21, '<jake>/prelude.js');
 $x530 =& $x531[0]; list(,$W530,$S530,$U530) = $x531;
 $x529 = (!JS::toBoolean($x530, $global)); }
 $x528 = $x529;
 if (!JS::toBoolean($x528, $global)) {
 if ($_g === JS::$undefined || $_g === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x533 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 112, 38, '<jake>/prelude.js');
+$x533 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 112, 38, '<jake>/prelude.js');
 $_TypeError =& $x533[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x533;
 $x534 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 112, 38);
@@ -1528,14 +1528,14 @@ throw new JSException($x535, 112, 38, '<jake>/prelude.js');
 }
 $x532 = JS::toObject($_g, $global);
 unset($x536, $W536, $S536, $U536);
-$x537 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x532, (string) 'some', 112, 38, '<jake>/prelude.js');
+$x537 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x532, (string) 'some', 112, 38, '<jake>/prelude.js');
 $x536 =& $x537[0]; list(,$W536,$S536,$U536) = $x537;
-$x585 = clone JS::$functionTemplate; $x585->call = '_f0835ad0e40147b74c2b17106f21eb60_13'; $x585->parameters = array (
+$x585 = clone JS::$functionTemplate; $x585->call = '_e1d02b440e29b3d14790f8d0c3439513_13'; $x585->parameters = array (
   0 => 'h',
 ); $x585->scope = $scope; $x585->properties['prototype'] = clone JS::$objectTemplate; $x585->attributes['prototype'] = JS::WRITABLE; $x585->properties['prototype']->properties['constructor'] = $x585; $x585->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x585->properties['length'] = 1; $x585->attributes['length'] = 0;
 if (!(is_object($x536) && isset($x536->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x588 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 112, 38, '<jake>/prelude.js');
+$x588 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 112, 38, '<jake>/prelude.js');
 $_TypeError =& $x588[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x588;
 $x589 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 112, 38);
@@ -1556,7 +1556,7 @@ return true;;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_11($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_11($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -1574,11 +1574,11 @@ $_f =& $scope->properties['f'];
 $Uf = FALSE;
 $global->scope[++$global->scope_sp] = $scope;
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x488 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 109, 11, '<jake>/prelude.js');
+$x488 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 109, 11, '<jake>/prelude.js');
 $___tasks =& $x488[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x488;
 if ($U__tasks) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x489 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 109, 11, '<jake>/prelude.js');
+$x489 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 109, 11, '<jake>/prelude.js');
 $_ReferenceError =& $x489[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x489;
 $x490 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 109, 11);
@@ -1588,11 +1588,11 @@ if (isset($x491->class) && $x491->class === 'Error') {$x491->properties['file'] 
 throw new JSException($x491, 109, 11, '<jake>/prelude.js');
 }
 unset($_name, $Wname, $Sname, $Uname);
-$x492 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'name', 109, 18, '<jake>/prelude.js');
+$x492 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'name', 109, 18, '<jake>/prelude.js');
 $_name =& $x492[0]; list(,$Wname,$Sname,$Uname) = $x492;
 if ($Uname) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x493 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 109, 18, '<jake>/prelude.js');
+$x493 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 109, 18, '<jake>/prelude.js');
 $_ReferenceError =& $x493[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x493;
 $x494 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 109, 18);
@@ -1602,14 +1602,14 @@ if (isset($x495->class) && $x495->class === 'Error') {$x495->properties['file'] 
 throw new JSException($x495, 109, 18, '<jake>/prelude.js');
 }
 unset($x496, $W496, $S496, $U496);
-$x497 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 109, 17, '<jake>/prelude.js');
+$x497 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 109, 17, '<jake>/prelude.js');
 $x496 =& $x497[0]; list(,$W496,$S496,$U496) = $x497;
 unset($x498, $W498, $S498, $U498);
-$x499 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x496, (string) 'results', 109, 23, '<jake>/prelude.js');
+$x499 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x496, (string) 'results', 109, 23, '<jake>/prelude.js');
 $x498 =& $x499[0]; list(,$W498,$S498,$U498) = $x499;
 if ($x498 === JS::$undefined || $x498 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x501 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 109, 36, '<jake>/prelude.js');
+$x501 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 109, 36, '<jake>/prelude.js');
 $_TypeError =& $x501[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x501;
 $x502 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 109, 36);
@@ -1620,14 +1620,14 @@ throw new JSException($x503, 109, 36, '<jake>/prelude.js');
 }
 $x500 = JS::toObject($x498, $global);
 unset($x504, $W504, $S504, $U504);
-$x505 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x500, (string) 'some', 109, 36, '<jake>/prelude.js');
+$x505 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x500, (string) 'some', 109, 36, '<jake>/prelude.js');
 $x504 =& $x505[0]; list(,$W504,$S504,$U504) = $x505;
-$x591 = clone JS::$functionTemplate; $x591->call = '_f0835ad0e40147b74c2b17106f21eb60_12'; $x591->parameters = array (
+$x591 = clone JS::$functionTemplate; $x591->call = '_e1d02b440e29b3d14790f8d0c3439513_12'; $x591->parameters = array (
   0 => 'g',
 ); $x591->scope = $scope; $x591->properties['prototype'] = clone JS::$objectTemplate; $x591->attributes['prototype'] = JS::WRITABLE; $x591->properties['prototype']->properties['constructor'] = $x591; $x591->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x591->properties['length'] = 1; $x591->attributes['length'] = 0;
 if (!(is_object($x504) && isset($x504->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x594 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 109, 36, '<jake>/prelude.js');
+$x594 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 109, 36, '<jake>/prelude.js');
 $_TypeError =& $x594[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x594;
 $x595 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 109, 36);
@@ -1647,7 +1647,7 @@ return true;;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_10($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_10($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -1679,7 +1679,7 @@ if ($UbeingSearched) {$global->properties['beingSearched'] = $_beingSearched; $_
 $_beingSearched = $x389;
 if ($_beingSearched === JS::$undefined || $_beingSearched === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x393 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 91, 27, '<jake>/prelude.js');
+$x393 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 91, 27, '<jake>/prelude.js');
 $_TypeError =& $x393[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x393;
 $x394 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 91, 27);
@@ -1690,11 +1690,11 @@ throw new JSException($x395, 91, 27, '<jake>/prelude.js');
 }
 $x392 = JS::toObject($_beingSearched, $global);
 unset($x396, $W396, $S396, $U396);
-$x397 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x392, (string) 'indexOf', 91, 27, '<jake>/prelude.js');
+$x397 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x392, (string) 'indexOf', 91, 27, '<jake>/prelude.js');
 $x396 =& $x397[0]; list(,$W396,$S396,$U396) = $x397;
 if (!(is_object($x396) && isset($x396->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x400 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 91, 27, '<jake>/prelude.js');
+$x400 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 91, 27, '<jake>/prelude.js');
 $_TypeError =& $x400[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x400;
 $x401 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 91, 27);
@@ -1713,11 +1713,11 @@ if (JS::toBoolean($x391, $global)) {
 return true;;
 };
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x404 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 95, 6, '<jake>/prelude.js');
+$x404 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 95, 6, '<jake>/prelude.js');
 $___tasks =& $x404[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x404;
 if ($U__tasks) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x405 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 95, 6, '<jake>/prelude.js');
+$x405 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 95, 6, '<jake>/prelude.js');
 $_ReferenceError =& $x405[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x405;
 $x406 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 95, 6);
@@ -1727,18 +1727,18 @@ if (isset($x407->class) && $x407->class === 'Error') {$x407->properties['file'] 
 throw new JSException($x407, 95, 6, '<jake>/prelude.js');
 }
 unset($x408, $W408, $S408, $U408);
-$x409 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 95, 12, '<jake>/prelude.js');
+$x409 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 95, 12, '<jake>/prelude.js');
 $x408 =& $x409[0]; list(,$W408,$S408,$U408) = $x409;
 unset($x410, $W410, $S410, $U410);
-$x411 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x408, (string) 'running', 95, 18, '<jake>/prelude.js');
+$x411 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x408, (string) 'running', 95, 18, '<jake>/prelude.js');
 $x410 =& $x411[0]; list(,$W410,$S410,$U410) = $x411;
 $x403 = $x410;
 if (!JS::toBoolean($x403, $global)) {
 unset($x412, $W412, $S412, $U412);
-$x413 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 95, 36, '<jake>/prelude.js');
+$x413 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 95, 36, '<jake>/prelude.js');
 $x412 =& $x413[0]; list(,$W412,$S412,$U412) = $x413;
 unset($x414, $W414, $S414, $U414);
-$x415 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x412, (string) 'alreadyRun', 95, 42, '<jake>/prelude.js');
+$x415 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x412, (string) 'alreadyRun', 95, 42, '<jake>/prelude.js');
 $x414 =& $x415[0]; list(,$W414,$S414,$U414) = $x415;
 $x403 = $x414; }
 if (JS::toBoolean($x403, $global)) {
@@ -1746,13 +1746,13 @@ if (JS::toBoolean($x403, $global)) {
 return false;;
 };
 unset($x419, $W419, $S419, $U419);
-$x420 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 99, 12, '<jake>/prelude.js');
+$x420 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 99, 12, '<jake>/prelude.js');
 $x419 =& $x420[0]; list(,$W419,$S419,$U419) = $x420;
 unset($x421, $W421, $S421, $U421);
-$x422 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x419, (string) 'results', 99, 18, '<jake>/prelude.js');
+$x422 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x419, (string) 'results', 99, 18, '<jake>/prelude.js');
 $x421 =& $x422[0]; list(,$W421,$S421,$U421) = $x422;
 unset($x423, $W423, $S423, $U423);
-$x424 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x421, (string) 'length', 99, 26, '<jake>/prelude.js');
+$x424 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x421, (string) 'length', 99, 26, '<jake>/prelude.js');
 $x423 =& $x424[0]; list(,$W423,$S423,$U423) = $x424;
 $x416 = JS::toPrimitive($x423, $global);
 $x417 = JS::toPrimitive(1, $global);
@@ -1767,13 +1767,13 @@ $scope->properties['i'] = JS::$undefined; $_i =& $scope->properties['i'];
 $Ui = FALSE;
 $_i = 0;
 unset($x428, $W428, $S428, $U428);
-$x429 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 103, 28, '<jake>/prelude.js');
+$x429 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 103, 28, '<jake>/prelude.js');
 $x428 =& $x429[0]; list(,$W428,$S428,$U428) = $x429;
 unset($x430, $W430, $S430, $U430);
-$x431 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x428, (string) 'actions', 103, 34, '<jake>/prelude.js');
+$x431 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x428, (string) 'actions', 103, 34, '<jake>/prelude.js');
 $x430 =& $x431[0]; list(,$W430,$S430,$U430) = $x431;
 unset($x432, $W432, $S432, $U432);
-$x433 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x430, (string) 'length', 103, 42, '<jake>/prelude.js');
+$x433 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x430, (string) 'length', 103, 42, '<jake>/prelude.js');
 $x432 =& $x433[0]; list(,$W432,$S432,$U432) = $x433;
 $scope->properties['l'] = JS::$undefined; $_l =& $scope->properties['l'];
 $Ul = FALSE;
@@ -1791,13 +1791,13 @@ $x437 = (is_string($x435) && is_string($x436) ? strcmp($x435, $x436) < 0 : (!is_
 if (!JS::toBoolean($x437, $global)) { break; }
 
 unset($x440, $W440, $S440, $U440);
-$x441 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 104, 18, '<jake>/prelude.js');
+$x441 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 104, 18, '<jake>/prelude.js');
 $x440 =& $x441[0]; list(,$W440,$S440,$U440) = $x441;
 unset($x442, $W442, $S442, $U442);
-$x443 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x440, (string) 'actions', 104, 24, '<jake>/prelude.js');
+$x443 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x440, (string) 'actions', 104, 24, '<jake>/prelude.js');
 $x442 =& $x443[0]; list(,$W442,$S442,$U442) = $x443;
 unset($x444, $W444, $S444, $U444);
-$x445 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x442, (string) $_i, 104, 32, '<jake>/prelude.js');
+$x445 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x442, (string) $_i, 104, 32, '<jake>/prelude.js');
 $x444 =& $x445[0]; list(,$W444,$S444,$U444) = $x445;
 if ($Uaction) {$global->properties['action'] = $_action; $_action =& $global->properties['action']; }
 $_action = $x444;
@@ -1807,7 +1807,7 @@ $x446 = (((gettype($x447) === gettype('string') && $x447 === 'string'))|| (((is_
 if (JS::toBoolean($x446, $global)) {
 if ($_action === JS::$undefined || $_action === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x450 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 107, 21, '<jake>/prelude.js');
+$x450 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 107, 21, '<jake>/prelude.js');
 $_TypeError =& $x450[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x450;
 $x451 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 107, 21);
@@ -1818,11 +1818,11 @@ throw new JSException($x452, 107, 21, '<jake>/prelude.js');
 }
 $x449 = JS::toObject($_action, $global);
 unset($x453, $W453, $S453, $U453);
-$x454 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x449, (string) 'charAt', 107, 21, '<jake>/prelude.js');
+$x454 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x449, (string) 'charAt', 107, 21, '<jake>/prelude.js');
 $x453 =& $x454[0]; list(,$W453,$S453,$U453) = $x454;
 if (!(is_object($x453) && isset($x453->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x457 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 107, 21, '<jake>/prelude.js');
+$x457 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 107, 21, '<jake>/prelude.js');
 $_TypeError =& $x457[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x457;
 $x458 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 107, 21);
@@ -1838,11 +1838,11 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 $x448 = (((gettype($x456) === gettype('/') && $x456 === '/'))|| (((is_float($x456) || is_int($x456)) && (is_float('/') || is_int('/'))) && $x456 == '/'));
 if (JS::toBoolean($x448, $global)) {
 unset($_PHP, $WPHP, $SPHP, $UPHP);
-$x460 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'PHP', 108, 9, '<jake>/prelude.js');
+$x460 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'PHP', 108, 9, '<jake>/prelude.js');
 $_PHP =& $x460[0]; list(,$WPHP,$SPHP,$UPHP) = $x460;
 if ($UPHP) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x461 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 108, 9, '<jake>/prelude.js');
+$x461 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 108, 9, '<jake>/prelude.js');
 $_ReferenceError =& $x461[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x461;
 $x462 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 108, 9);
@@ -1853,7 +1853,7 @@ throw new JSException($x463, 108, 9, '<jake>/prelude.js');
 }
 if ($_PHP === JS::$undefined || $_PHP === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x465 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 108, 15, '<jake>/prelude.js');
+$x465 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 108, 15, '<jake>/prelude.js');
 $_TypeError =& $x465[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x465;
 $x466 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 108, 15);
@@ -1864,11 +1864,11 @@ throw new JSException($x467, 108, 15, '<jake>/prelude.js');
 }
 $x464 = JS::toObject($_PHP, $global);
 unset($x468, $W468, $S468, $U468);
-$x469 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x464, (string) 'fn', 108, 15, '<jake>/prelude.js');
+$x469 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x464, (string) 'fn', 108, 15, '<jake>/prelude.js');
 $x468 =& $x469[0]; list(,$W468,$S468,$U468) = $x469;
 if (!(is_object($x468) && isset($x468->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x472 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 108, 15, '<jake>/prelude.js');
+$x472 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 108, 15, '<jake>/prelude.js');
 $_TypeError =& $x472[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x472;
 $x473 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 108, 15);
@@ -1883,7 +1883,7 @@ $x471 = $x470($global, $x464, $x468, array('glob'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if (!(is_object($x471) && isset($x471->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x477 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 108, 23, '<jake>/prelude.js');
+$x477 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 108, 23, '<jake>/prelude.js');
 $_TypeError =& $x477[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x477;
 $x478 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 108, 23);
@@ -1898,7 +1898,7 @@ $x476 = $x475($global, $global, $x471, array($_action), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if ($x476 === JS::$undefined || $x476 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x481 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 108, 36, '<jake>/prelude.js');
+$x481 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 108, 36, '<jake>/prelude.js');
 $_TypeError =& $x481[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x481;
 $x482 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 108, 36);
@@ -1909,14 +1909,14 @@ throw new JSException($x483, 108, 36, '<jake>/prelude.js');
 }
 $x480 = JS::toObject($x476, $global);
 unset($x484, $W484, $S484, $U484);
-$x485 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x480, (string) 'some', 108, 36, '<jake>/prelude.js');
+$x485 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x480, (string) 'some', 108, 36, '<jake>/prelude.js');
 $x484 =& $x485[0]; list(,$W484,$S484,$U484) = $x485;
-$x597 = clone JS::$functionTemplate; $x597->call = '_f0835ad0e40147b74c2b17106f21eb60_11'; $x597->parameters = array (
+$x597 = clone JS::$functionTemplate; $x597->call = '_e1d02b440e29b3d14790f8d0c3439513_11'; $x597->parameters = array (
   0 => 'f',
 ); $x597->scope = $scope; $x597->properties['prototype'] = clone JS::$objectTemplate; $x597->attributes['prototype'] = JS::WRITABLE; $x597->properties['prototype']->properties['constructor'] = $x597; $x597->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x597->properties['length'] = 1; $x597->attributes['length'] = 0;
 if (!(is_object($x484) && isset($x484->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x600 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 108, 36, '<jake>/prelude.js');
+$x600 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 108, 36, '<jake>/prelude.js');
 $_TypeError =& $x600[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x600;
 $x601 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 108, 36);
@@ -1937,7 +1937,7 @@ return true;;
 else {
 if ($_beingSearched === JS::$undefined || $_beingSearched === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x604 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 128, 45, '<jake>/prelude.js');
+$x604 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 128, 45, '<jake>/prelude.js');
 $_TypeError =& $x604[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x604;
 $x605 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 128, 45);
@@ -1948,11 +1948,11 @@ throw new JSException($x606, 128, 45, '<jake>/prelude.js');
 }
 $x603 = JS::toObject($_beingSearched, $global);
 unset($x607, $W607, $S607, $U607);
-$x608 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x603, (string) 'concat', 128, 45, '<jake>/prelude.js');
+$x608 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x603, (string) 'concat', 128, 45, '<jake>/prelude.js');
 $x607 =& $x608[0]; list(,$W607,$S607,$U607) = $x608;
 if (!(is_object($x607) && isset($x607->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x611 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 128, 45, '<jake>/prelude.js');
+$x611 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 128, 45, '<jake>/prelude.js');
 $_TypeError =& $x611[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x611;
 $x612 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 128, 45);
@@ -1967,7 +1967,7 @@ $x610 = $x609($global, $x603, $x607, array($_name), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if (!(is_object($_needRun) && isset($_needRun->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x616 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 128, 16, '<jake>/prelude.js');
+$x616 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 128, 16, '<jake>/prelude.js');
 $_TypeError =& $x616[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x616;
 $x617 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 128, 16);
@@ -1991,7 +1991,7 @@ return false;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_14($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_14($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -2008,11 +2008,11 @@ $scope->properties['puts'] = $fn;
 $_puts =& $scope->properties['puts'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Array, $WArray, $SArray, $UArray);
-$x622 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Array', 139, 13, '<jake>/prelude.js');
+$x622 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Array', 139, 13, '<jake>/prelude.js');
 $_Array =& $x622[0]; list(,$WArray,$SArray,$UArray) = $x622;
 if ($UArray) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x623 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 139, 13, '<jake>/prelude.js');
+$x623 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 139, 13, '<jake>/prelude.js');
 $_ReferenceError =& $x623[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x623;
 $x624 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 139, 13);
@@ -2022,14 +2022,14 @@ if (isset($x625->class) && $x625->class === 'Error') {$x625->properties['file'] 
 throw new JSException($x625, 139, 13, '<jake>/prelude.js');
 }
 unset($x626, $W626, $S626, $U626);
-$x627 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Array, (string) 'prototype', 139, 18, '<jake>/prelude.js');
+$x627 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Array, (string) 'prototype', 139, 18, '<jake>/prelude.js');
 $x626 =& $x627[0]; list(,$W626,$S626,$U626) = $x627;
 unset($x628, $W628, $S628, $U628);
-$x629 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x626, (string) 'join', 139, 28, '<jake>/prelude.js');
+$x629 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x626, (string) 'join', 139, 28, '<jake>/prelude.js');
 $x628 =& $x629[0]; list(,$W628,$S628,$U628) = $x629;
 if ($x628 === JS::$undefined || $x628 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x631 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 139, 38, '<jake>/prelude.js');
+$x631 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 139, 38, '<jake>/prelude.js');
 $_TypeError =& $x631[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x631;
 $x632 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 139, 38);
@@ -2040,14 +2040,14 @@ throw new JSException($x633, 139, 38, '<jake>/prelude.js');
 }
 $x630 = JS::toObject($x628, $global);
 unset($x634, $W634, $S634, $U634);
-$x635 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x630, (string) 'call', 139, 38, '<jake>/prelude.js');
+$x635 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x630, (string) 'call', 139, 38, '<jake>/prelude.js');
 $x634 =& $x635[0]; list(,$W634,$S634,$U634) = $x635;
 unset($_arguments, $Warguments, $Sarguments, $Uarguments);
-$x636 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'arguments', 139, 39, '<jake>/prelude.js');
+$x636 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'arguments', 139, 39, '<jake>/prelude.js');
 $_arguments =& $x636[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x636;
 if ($Uarguments) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x637 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 139, 39, '<jake>/prelude.js');
+$x637 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 139, 39, '<jake>/prelude.js');
 $_ReferenceError =& $x637[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x637;
 $x638 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 139, 39);
@@ -2058,7 +2058,7 @@ throw new JSException($x639, 139, 39, '<jake>/prelude.js');
 }
 if (!(is_object($x634) && isset($x634->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x642 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 139, 38, '<jake>/prelude.js');
+$x642 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 139, 38, '<jake>/prelude.js');
 $_TypeError =& $x642[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x642;
 $x643 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 139, 38);
@@ -2078,7 +2078,7 @@ echo$_line, "\n";
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_16($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_16($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -2096,13 +2096,13 @@ $_n =& $scope->properties['n'];
 $Un = FALSE;
 $global->scope[++$global->scope_sp] = $scope;
 unset($x675, $W675, $S675, $U675);
-$x676 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_n, (string) 'length', 144, 63, '<jake>/prelude.js');
+$x676 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_n, (string) 'length', 144, 63, '<jake>/prelude.js');
 $x675 =& $x676[0]; list(,$W675,$S675,$U675) = $x676;
 return $x675;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_15($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_15($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -2122,11 +2122,11 @@ $scope->properties['displayTasks'] = $fn;
 $_displayTasks =& $scope->properties['displayTasks'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Object, $WObject, $SObject, $UObject);
-$x648 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Object', 144, 16, '<jake>/prelude.js');
+$x648 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Object', 144, 16, '<jake>/prelude.js');
 $_Object =& $x648[0]; list(,$WObject,$SObject,$UObject) = $x648;
 if ($UObject) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x649 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 144, 16, '<jake>/prelude.js');
+$x649 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 144, 16, '<jake>/prelude.js');
 $_ReferenceError =& $x649[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x649;
 $x650 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 16);
@@ -2137,7 +2137,7 @@ throw new JSException($x651, 144, 16, '<jake>/prelude.js');
 }
 if ($_Object === JS::$undefined || $_Object === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x653 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 144, 27, '<jake>/prelude.js');
+$x653 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 144, 27, '<jake>/prelude.js');
 $_TypeError =& $x653[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x653;
 $x654 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 27);
@@ -2148,14 +2148,14 @@ throw new JSException($x655, 144, 27, '<jake>/prelude.js');
 }
 $x652 = JS::toObject($_Object, $global);
 unset($x656, $W656, $S656, $U656);
-$x657 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x652, (string) 'keys', 144, 27, '<jake>/prelude.js');
+$x657 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x652, (string) 'keys', 144, 27, '<jake>/prelude.js');
 $x656 =& $x657[0]; list(,$W656,$S656,$U656) = $x657;
 unset($___tasks, $W__tasks, $S__tasks, $U__tasks);
-$x658 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) '_tasks', 144, 28, '<jake>/prelude.js');
+$x658 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) '_tasks', 144, 28, '<jake>/prelude.js');
 $___tasks =& $x658[0]; list(,$W__tasks,$S__tasks,$U__tasks) = $x658;
 if ($U__tasks) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x659 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 144, 28, '<jake>/prelude.js');
+$x659 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 144, 28, '<jake>/prelude.js');
 $_ReferenceError =& $x659[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x659;
 $x660 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 28);
@@ -2166,7 +2166,7 @@ throw new JSException($x661, 144, 28, '<jake>/prelude.js');
 }
 if (!(is_object($x656) && isset($x656->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x664 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 144, 27, '<jake>/prelude.js');
+$x664 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 144, 27, '<jake>/prelude.js');
 $_TypeError =& $x664[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x664;
 $x665 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 27);
@@ -2181,7 +2181,7 @@ $x663 = $x662($global, $x652, $x656, array($___tasks), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if ($x663 === JS::$undefined || $x663 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x668 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 144, 39, '<jake>/prelude.js');
+$x668 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 144, 39, '<jake>/prelude.js');
 $_TypeError =& $x668[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x668;
 $x669 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 39);
@@ -2192,14 +2192,14 @@ throw new JSException($x670, 144, 39, '<jake>/prelude.js');
 }
 $x667 = JS::toObject($x663, $global);
 unset($x671, $W671, $S671, $U671);
-$x672 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x667, (string) 'map', 144, 39, '<jake>/prelude.js');
+$x672 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x667, (string) 'map', 144, 39, '<jake>/prelude.js');
 $x671 =& $x672[0]; list(,$W671,$S671,$U671) = $x672;
-$x677 = clone JS::$functionTemplate; $x677->call = '_f0835ad0e40147b74c2b17106f21eb60_16'; $x677->parameters = array (
+$x677 = clone JS::$functionTemplate; $x677->call = '_e1d02b440e29b3d14790f8d0c3439513_16'; $x677->parameters = array (
   0 => 'n',
 ); $x677->scope = $scope; $x677->properties['prototype'] = clone JS::$objectTemplate; $x677->attributes['prototype'] = JS::WRITABLE; $x677->properties['prototype']->properties['constructor'] = $x677; $x677->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x677->properties['length'] = 1; $x677->attributes['length'] = 0;
 if (!(is_object($x671) && isset($x671->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x680 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 144, 39, '<jake>/prelude.js');
+$x680 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 144, 39, '<jake>/prelude.js');
 $_TypeError =& $x680[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x680;
 $x681 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 39);
@@ -2214,7 +2214,7 @@ $x679 = $x678($global, $x667, $x671, array($x677), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 if ($x679 === JS::$undefined || $x679 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x684 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 144, 80, '<jake>/prelude.js');
+$x684 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 144, 80, '<jake>/prelude.js');
 $_TypeError =& $x684[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x684;
 $x685 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 80);
@@ -2225,14 +2225,14 @@ throw new JSException($x686, 144, 80, '<jake>/prelude.js');
 }
 $x683 = JS::toObject($x679, $global);
 unset($x687, $W687, $S687, $U687);
-$x688 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x683, (string) 'reduce', 144, 80, '<jake>/prelude.js');
+$x688 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x683, (string) 'reduce', 144, 80, '<jake>/prelude.js');
 $x687 =& $x688[0]; list(,$W687,$S687,$U687) = $x688;
 unset($_Math, $WMath, $SMath, $UMath);
-$x689 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'Math', 144, 81, '<jake>/prelude.js');
+$x689 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'Math', 144, 81, '<jake>/prelude.js');
 $_Math =& $x689[0]; list(,$WMath,$SMath,$UMath) = $x689;
 if ($UMath) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x690 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 144, 81, '<jake>/prelude.js');
+$x690 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 144, 81, '<jake>/prelude.js');
 $_ReferenceError =& $x690[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x690;
 $x691 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 81);
@@ -2242,11 +2242,11 @@ if (isset($x692->class) && $x692->class === 'Error') {$x692->properties['file'] 
 throw new JSException($x692, 144, 81, '<jake>/prelude.js');
 }
 unset($x693, $W693, $S693, $U693);
-$x694 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_Math, (string) 'max', 144, 85, '<jake>/prelude.js');
+$x694 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_Math, (string) 'max', 144, 85, '<jake>/prelude.js');
 $x693 =& $x694[0]; list(,$W693,$S693,$U693) = $x694;
 if (!(is_object($x687) && isset($x687->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x697 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 144, 80, '<jake>/prelude.js');
+$x697 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 144, 80, '<jake>/prelude.js');
 $_TypeError =& $x697[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x697;
 $x698 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 144, 80);
@@ -2263,11 +2263,11 @@ $scope->properties['nameMax'] = JS::$undefined; $_nameMax =& $scope->properties[
 $UnameMax = FALSE;
 $_nameMax = $x696;
 unset($_puts, $Wputs, $Sputs, $Uputs);
-$x700 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'puts', 146, 2, '<jake>/prelude.js');
+$x700 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'puts', 146, 2, '<jake>/prelude.js');
 $_puts =& $x700[0]; list(,$Wputs,$Sputs,$Uputs) = $x700;
 if ($Uputs) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x701 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 146, 2, '<jake>/prelude.js');
+$x701 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 146, 2, '<jake>/prelude.js');
 $_ReferenceError =& $x701[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x701;
 $x702 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 146, 2);
@@ -2281,7 +2281,7 @@ $x705 = JS::toPrimitive(' defines following tasks:
 ', $global);
 if (!(is_object($_puts) && isset($_puts->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x708 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 146, 6, '<jake>/prelude.js');
+$x708 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 146, 6, '<jake>/prelude.js');
 $_TypeError =& $x708[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x708;
 $x709 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 146, 6);
@@ -2306,15 +2306,15 @@ $_name = $property;
 $x714 = JS::toPrimitive('  $ jake ', $global);
 $x715 = JS::toPrimitive($_name, $global);
 unset($x717, $W717, $S717, $U717);
-$x718 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 149, 11, '<jake>/prelude.js');
+$x718 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 149, 11, '<jake>/prelude.js');
 $x717 =& $x718[0]; list(,$W717,$S717,$U717) = $x718;
 unset($x719, $W719, $S719, $U719);
-$x720 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x717, (string) 'description', 149, 17, '<jake>/prelude.js');
+$x720 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x717, (string) 'description', 149, 17, '<jake>/prelude.js');
 $x719 =& $x720[0]; list(,$W719,$S719,$U719) = $x720;
 if (JS::toBoolean($x719, $global)) {
 if (' ' === JS::$undefined || ' ' === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x726 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 150, 17, '<jake>/prelude.js');
+$x726 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 150, 17, '<jake>/prelude.js');
 $_TypeError =& $x726[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x726;
 $x727 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 150, 17);
@@ -2325,14 +2325,14 @@ throw new JSException($x728, 150, 17, '<jake>/prelude.js');
 }
 $x725 = JS::toObject(' ', $global);
 unset($x729, $W729, $S729, $U729);
-$x730 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x725, (string) 'times', 150, 17, '<jake>/prelude.js');
+$x730 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x725, (string) 'times', 150, 17, '<jake>/prelude.js');
 $x729 =& $x730[0]; list(,$W729,$S729,$U729) = $x730;
 unset($x731, $W731, $S731, $U731);
-$x732 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_name, (string) 'length', 150, 32, '<jake>/prelude.js');
+$x732 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_name, (string) 'length', 150, 32, '<jake>/prelude.js');
 $x731 =& $x732[0]; list(,$W731,$S731,$U731) = $x732;
 if (!(is_object($x729) && isset($x729->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x735 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 150, 17, '<jake>/prelude.js');
+$x735 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 150, 17, '<jake>/prelude.js');
 $_TypeError =& $x735[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x735;
 $x736 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 150, 17);
@@ -2348,10 +2348,10 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 $x723 = JS::toPrimitive($x734, $global);
 $x724 = JS::toPrimitive('  # ', $global);
 unset($x738, $W738, $S738, $U738);
-$x739 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $___tasks, (string) $_name, 150, 58, '<jake>/prelude.js');
+$x739 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $___tasks, (string) $_name, 150, 58, '<jake>/prelude.js');
 $x738 =& $x739[0]; list(,$W738,$S738,$U738) = $x739;
 unset($x740, $W740, $S740, $U740);
-$x741 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $x738, (string) 'description', 150, 64, '<jake>/prelude.js');
+$x741 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $x738, (string) 'description', 150, 64, '<jake>/prelude.js');
 $x740 =& $x741[0]; list(,$W740,$S740,$U740) = $x741;
 $x721 = JS::toPrimitive((is_string($x723) || is_string($x724) ? JS::toString($x723, $global) . JS::toString($x724, $global) : JS::toNumber($x723, $global) + JS::toNumber($x724, $global)), $global);
 $x722 = JS::toPrimitive($x740, $global);
@@ -2363,7 +2363,7 @@ $x712 = JS::toPrimitive((is_string($x714) || is_string($x715) ? JS::toString($x7
 $x713 = JS::toPrimitive($x716, $global);
 if (!(is_object($_puts) && isset($_puts->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x744 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 148, 7, '<jake>/prelude.js');
+$x744 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 148, 7, '<jake>/prelude.js');
 $_TypeError =& $x744[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x744;
 $x745 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 148, 7);
@@ -2381,7 +2381,7 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 };
 if (!(is_object($_puts) && isset($_puts->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x749 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 153, 6, '<jake>/prelude.js');
+$x749 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 153, 6, '<jake>/prelude.js');
 $_TypeError =& $x749[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x749;
 $x750 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 153, 6);
@@ -2397,7 +2397,7 @@ unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_17($global, $leThis, $fn, $args, $constructor = FALSE) {
+function _e1d02b440e29b3d14790f8d0c3439513_17($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
 if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
@@ -2434,7 +2434,7 @@ return $_s;
 ;
 return JS::$undefined;
 }
-function _f0835ad0e40147b74c2b17106f21eb60_0($global = NULL, $scope = NULL) {
+function _e1d02b440e29b3d14790f8d0c3439513_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<jake>/prelude.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<jake>/prelude.js';$scope->properties['__dirname'] = '<jake>';}
 if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }
@@ -2447,7 +2447,7 @@ $_runTask;
 $_needRun;
 $_puts;
 $_displayTasks;
-$x114 = clone JS::$functionTemplate; $x114->call = '_f0835ad0e40147b74c2b17106f21eb60_1'; $x114->parameters = array (
+$x114 = clone JS::$functionTemplate; $x114->call = '_e1d02b440e29b3d14790f8d0c3439513_1'; $x114->parameters = array (
   0 => 'name',
   1 => 'description',
   2 => 'action',
@@ -2455,43 +2455,43 @@ $x114 = clone JS::$functionTemplate; $x114->call = '_f0835ad0e40147b74c2b17106f2
 $scope->properties['task'] = JS::$undefined; $_task =& $scope->properties['task'];
 $Utask = FALSE;
 $_task = $x114;
-$x154 = clone JS::$functionTemplate; $x154->call = '_f0835ad0e40147b74c2b17106f21eb60_6'; $x154->parameters = array (
+$x154 = clone JS::$functionTemplate; $x154->call = '_e1d02b440e29b3d14790f8d0c3439513_6'; $x154->parameters = array (
   0 => 'file',
 ); $x154->name = 'result'; $x154->scope = $scope; $x154->properties['prototype'] = clone JS::$objectTemplate; $x154->attributes['prototype'] = JS::WRITABLE; $x154->properties['prototype']->properties['constructor'] = $x154; $x154->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x154->properties['length'] = 1; $x154->attributes['length'] = 0;
 $scope->properties['result'] = JS::$undefined; $_result =& $scope->properties['result'];
 $Uresult = FALSE;
 $_result = $x154;
-$x207 = clone JS::$functionTemplate; $x207->call = '_f0835ad0e40147b74c2b17106f21eb60_7'; $x207->parameters = array (
+$x207 = clone JS::$functionTemplate; $x207->call = '_e1d02b440e29b3d14790f8d0c3439513_7'; $x207->parameters = array (
   0 => 'cmd',
 ); $x207->name = 'run'; $x207->scope = $scope; $x207->properties['prototype'] = clone JS::$objectTemplate; $x207->attributes['prototype'] = JS::WRITABLE; $x207->properties['prototype']->properties['constructor'] = $x207; $x207->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x207->properties['length'] = 1; $x207->attributes['length'] = 0;
 $scope->properties['run'] = JS::$undefined; $_run =& $scope->properties['run'];
 $Urun = FALSE;
 $_run = $x207;
-$x223 = clone JS::$functionTemplate; $x223->call = '_f0835ad0e40147b74c2b17106f21eb60_8'; $x223->parameters = array (
+$x223 = clone JS::$functionTemplate; $x223->call = '_e1d02b440e29b3d14790f8d0c3439513_8'; $x223->parameters = array (
   0 => 'msg',
 ); $x223->name = 'fail'; $x223->scope = $scope; $x223->properties['prototype'] = clone JS::$objectTemplate; $x223->attributes['prototype'] = JS::WRITABLE; $x223->properties['prototype']->properties['constructor'] = $x223; $x223->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x223->properties['length'] = 1; $x223->attributes['length'] = 0;
 $scope->properties['fail'] = JS::$undefined; $_fail =& $scope->properties['fail'];
 $Ufail = FALSE;
 $_fail = $x223;
-$x386 = clone JS::$functionTemplate; $x386->call = '_f0835ad0e40147b74c2b17106f21eb60_9'; $x386->parameters = array (
+$x386 = clone JS::$functionTemplate; $x386->call = '_e1d02b440e29b3d14790f8d0c3439513_9'; $x386->parameters = array (
   0 => 'name',
 ); $x386->name = 'runTask'; $x386->scope = $scope; $x386->properties['prototype'] = clone JS::$objectTemplate; $x386->attributes['prototype'] = JS::WRITABLE; $x386->properties['prototype']->properties['constructor'] = $x386; $x386->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x386->properties['length'] = 1; $x386->attributes['length'] = 0;
 $scope->properties['runTask'] = JS::$undefined; $_runTask =& $scope->properties['runTask'];
 $UrunTask = FALSE;
 $_runTask = $x386;
-$x619 = clone JS::$functionTemplate; $x619->call = '_f0835ad0e40147b74c2b17106f21eb60_10'; $x619->parameters = array (
+$x619 = clone JS::$functionTemplate; $x619->call = '_e1d02b440e29b3d14790f8d0c3439513_10'; $x619->parameters = array (
   0 => 'name',
   1 => 'beingSearched',
 ); $x619->name = 'needRun'; $x619->scope = $scope; $x619->properties['prototype'] = clone JS::$objectTemplate; $x619->attributes['prototype'] = JS::WRITABLE; $x619->properties['prototype']->properties['constructor'] = $x619; $x619->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x619->properties['length'] = 2; $x619->attributes['length'] = 0;
 $scope->properties['needRun'] = JS::$undefined; $_needRun =& $scope->properties['needRun'];
 $UneedRun = FALSE;
 $_needRun = $x619;
-$x645 = clone JS::$functionTemplate; $x645->call = '_f0835ad0e40147b74c2b17106f21eb60_14'; $x645->parameters = array (
+$x645 = clone JS::$functionTemplate; $x645->call = '_e1d02b440e29b3d14790f8d0c3439513_14'; $x645->parameters = array (
 ); $x645->name = 'puts'; $x645->scope = $scope; $x645->properties['prototype'] = clone JS::$objectTemplate; $x645->attributes['prototype'] = JS::WRITABLE; $x645->properties['prototype']->properties['constructor'] = $x645; $x645->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x645->properties['length'] = 0; $x645->attributes['length'] = 0;
 $scope->properties['puts'] = JS::$undefined; $_puts =& $scope->properties['puts'];
 $Uputs = FALSE;
 $_puts = $x645;
-$x752 = clone JS::$functionTemplate; $x752->call = '_f0835ad0e40147b74c2b17106f21eb60_15'; $x752->parameters = array (
+$x752 = clone JS::$functionTemplate; $x752->call = '_e1d02b440e29b3d14790f8d0c3439513_15'; $x752->parameters = array (
   0 => 'jakefilePath',
 ); $x752->name = 'displayTasks'; $x752->scope = $scope; $x752->properties['prototype'] = clone JS::$objectTemplate; $x752->attributes['prototype'] = JS::WRITABLE; $x752->properties['prototype']->properties['constructor'] = $x752; $x752->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x752->properties['length'] = 1; $x752->attributes['length'] = 0;
 $scope->properties['displayTasks'] = JS::$undefined; $_displayTasks =& $scope->properties['displayTasks'];
@@ -2504,15 +2504,15 @@ $___tasks = $x753;
 $scope->properties['_level'] = JS::$undefined; $___level =& $scope->properties['_level'];
 $U__level = FALSE;
 $___level = 0;
-$x764 = clone JS::$functionTemplate; $x764->call = '_f0835ad0e40147b74c2b17106f21eb60_17'; $x764->parameters = array (
+$x764 = clone JS::$functionTemplate; $x764->call = '_e1d02b440e29b3d14790f8d0c3439513_17'; $x764->parameters = array (
   0 => 'n',
 ); $x764->scope = $scope; $x764->properties['prototype'] = clone JS::$objectTemplate; $x764->attributes['prototype'] = JS::WRITABLE; $x764->properties['prototype']->properties['constructor'] = $x764; $x764->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x764->properties['length'] = 1; $x764->attributes['length'] = 0;
 unset($_String, $WString, $SString, $UString);
-$x765 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'String', 46, 1, '<jake>/prelude.js');
+$x765 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'String', 46, 1, '<jake>/prelude.js');
 $_String =& $x765[0]; list(,$WString,$SString,$UString) = $x765;
 if ($UString) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x766 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 46, 1, '<jake>/prelude.js');
+$x766 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 46, 1, '<jake>/prelude.js');
 $_ReferenceError =& $x766[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x766;
 $x767 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 46, 1);
@@ -2522,11 +2522,11 @@ if (isset($x768->class) && $x768->class === 'Error') {$x768->properties['file'] 
 throw new JSException($x768, 46, 1, '<jake>/prelude.js');
 }
 unset($x769, $W769, $S769, $U769);
-$x770 = _f0835ad0e40147b74c2b17106f21eb60_4($global, $scope, $_String, (string) 'prototype', 46, 7, '<jake>/prelude.js');
+$x770 = _e1d02b440e29b3d14790f8d0c3439513_4($global, $scope, $_String, (string) 'prototype', 46, 7, '<jake>/prelude.js');
 $x769 =& $x770[0]; list(,$W769,$S769,$U769) = $x770;
 if ($x769 === JS::$undefined || $x769 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x771 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 46, 24, '<jake>/prelude.js');
+$x771 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 46, 24, '<jake>/prelude.js');
 $_TypeError =& $x771[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x771;
 $x772 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 46, 24);
@@ -2537,7 +2537,7 @@ throw new JSException($x773, 46, 24, '<jake>/prelude.js');
 }
 $x769 = JS::toObject($x769, $global);
 unset($x774, $W774, $S774, $U774);
-$x775 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $x769, (string) 'times', 46, 24, '<jake>/prelude.js');
+$x775 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $x769, (string) 'times', 46, 24, '<jake>/prelude.js');
 $x774 =& $x775[0]; list(,$W774,$S774,$U774) = $x775;
 if ($U774 && (!isset($x769->extensible) || $x769->extensible)) {$x769->properties['times'] = $x774; $x774 =& $x769->properties['times']; $x769->attributes['times'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U774 = FALSE; $W774 = TRUE; }
 if (isset($S774)) {
@@ -2552,11 +2552,11 @@ else { $x776 = JS::$undefined; }
 }
 if (isset($x769->class) && $x769->class === 'Array' &&  is_int('times') && 'times' >= $x769->properties['length']) { $x769->properties['length'] = 'times' + 1; };
 unset($_global, $Wglobal, $Sglobal, $Uglobal);
-$x779 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'global', 156, 1, '<jake>/prelude.js');
+$x779 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'global', 156, 1, '<jake>/prelude.js');
 $_global =& $x779[0]; list(,$Wglobal,$Sglobal,$Uglobal) = $x779;
 if ($Uglobal) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x780 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'ReferenceError', 156, 1, '<jake>/prelude.js');
+$x780 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'ReferenceError', 156, 1, '<jake>/prelude.js');
 $_ReferenceError =& $x780[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x780;
 $x781 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 156, 1);
@@ -2567,7 +2567,7 @@ throw new JSException($x782, 156, 1, '<jake>/prelude.js');
 }
 if ($_global === JS::$undefined || $_global === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x783 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 156, 13, '<jake>/prelude.js');
+$x783 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 156, 13, '<jake>/prelude.js');
 $_TypeError =& $x783[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x783;
 $x784 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 156, 13);
@@ -2578,7 +2578,7 @@ throw new JSException($x785, 156, 13, '<jake>/prelude.js');
 }
 $_global = JS::toObject($_global, $global);
 unset($x786, $W786, $S786, $U786);
-$x787 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'task', 156, 13, '<jake>/prelude.js');
+$x787 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $_global, (string) 'task', 156, 13, '<jake>/prelude.js');
 $x786 =& $x787[0]; list(,$W786,$S786,$U786) = $x787;
 if ($U786 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['task'] = $x786; $x786 =& $_global->properties['task']; $_global->attributes['task'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U786 = FALSE; $W786 = TRUE; }
 if (isset($S786)) {
@@ -2594,7 +2594,7 @@ else { $x788 = JS::$undefined; }
 if (isset($_global->class) && $_global->class === 'Array' &&  is_int('task') && 'task' >= $_global->properties['length']) { $_global->properties['length'] = 'task' + 1; };
 if ($_global === JS::$undefined || $_global === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x791 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 157, 12, '<jake>/prelude.js');
+$x791 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 157, 12, '<jake>/prelude.js');
 $_TypeError =& $x791[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x791;
 $x792 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 157, 12);
@@ -2605,7 +2605,7 @@ throw new JSException($x793, 157, 12, '<jake>/prelude.js');
 }
 $_global = JS::toObject($_global, $global);
 unset($x794, $W794, $S794, $U794);
-$x795 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'run', 157, 12, '<jake>/prelude.js');
+$x795 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $_global, (string) 'run', 157, 12, '<jake>/prelude.js');
 $x794 =& $x795[0]; list(,$W794,$S794,$U794) = $x795;
 if ($U794 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['run'] = $x794; $x794 =& $_global->properties['run']; $_global->attributes['run'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U794 = FALSE; $W794 = TRUE; }
 if (isset($S794)) {
@@ -2621,7 +2621,7 @@ else { $x796 = JS::$undefined; }
 if (isset($_global->class) && $_global->class === 'Array' &&  is_int('run') && 'run' >= $_global->properties['length']) { $_global->properties['length'] = 'run' + 1; };
 if ($_global === JS::$undefined || $_global === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x799 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 158, 13, '<jake>/prelude.js');
+$x799 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 158, 13, '<jake>/prelude.js');
 $_TypeError =& $x799[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x799;
 $x800 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 158, 13);
@@ -2632,7 +2632,7 @@ throw new JSException($x801, 158, 13, '<jake>/prelude.js');
 }
 $_global = JS::toObject($_global, $global);
 unset($x802, $W802, $S802, $U802);
-$x803 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'fail', 158, 13, '<jake>/prelude.js');
+$x803 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $_global, (string) 'fail', 158, 13, '<jake>/prelude.js');
 $x802 =& $x803[0]; list(,$W802,$S802,$U802) = $x803;
 if ($U802 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['fail'] = $x802; $x802 =& $_global->properties['fail']; $_global->attributes['fail'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U802 = FALSE; $W802 = TRUE; }
 if (isset($S802)) {
@@ -2648,7 +2648,7 @@ else { $x804 = JS::$undefined; }
 if (isset($_global->class) && $_global->class === 'Array' &&  is_int('fail') && 'fail' >= $_global->properties['length']) { $_global->properties['length'] = 'fail' + 1; };
 if ($_global === JS::$undefined || $_global === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x807 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 159, 16, '<jake>/prelude.js');
+$x807 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 159, 16, '<jake>/prelude.js');
 $_TypeError =& $x807[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x807;
 $x808 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 159, 16);
@@ -2659,7 +2659,7 @@ throw new JSException($x809, 159, 16, '<jake>/prelude.js');
 }
 $_global = JS::toObject($_global, $global);
 unset($x810, $W810, $S810, $U810);
-$x811 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'runTask', 159, 16, '<jake>/prelude.js');
+$x811 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $_global, (string) 'runTask', 159, 16, '<jake>/prelude.js');
 $x810 =& $x811[0]; list(,$W810,$S810,$U810) = $x811;
 if ($U810 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['runTask'] = $x810; $x810 =& $_global->properties['runTask']; $_global->attributes['runTask'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U810 = FALSE; $W810 = TRUE; }
 if (isset($S810)) {
@@ -2675,89 +2675,62 @@ else { $x812 = JS::$undefined; }
 if (isset($_global->class) && $_global->class === 'Array' &&  is_int('runTask') && 'runTask' >= $_global->properties['length']) { $_global->properties['length'] = 'runTask' + 1; };
 if ($_global === JS::$undefined || $_global === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x815 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 160, 13, '<jake>/prelude.js');
+$x815 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 160, 15, '<jake>/prelude.js');
 $_TypeError =& $x815[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x815;
 $x816 = $_TypeError->call;
-$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 160, 13);
+$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 160, 15);
 $x817 = $x816($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x817->class) && $x817->class === 'Error') {$x817->properties['file'] = '<jake>/prelude.js';$x817->properties['line'] = 160;$x817->properties['column'] = 13;$x817->attributes['file'] = $x817->attributes['line'] = $x817->attributes['column'] = 0; }
-throw new JSException($x817, 160, 13, '<jake>/prelude.js');
+if (isset($x817->class) && $x817->class === 'Error') {$x817->properties['file'] = '<jake>/prelude.js';$x817->properties['line'] = 160;$x817->properties['column'] = 15;$x817->attributes['file'] = $x817->attributes['line'] = $x817->attributes['column'] = 0; }
+throw new JSException($x817, 160, 15, '<jake>/prelude.js');
 }
 $_global = JS::toObject($_global, $global);
 unset($x818, $W818, $S818, $U818);
-$x819 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'puts', 160, 13, '<jake>/prelude.js');
+$x819 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $_global, (string) 'result', 160, 15, '<jake>/prelude.js');
 $x818 =& $x819[0]; list(,$W818,$S818,$U818) = $x819;
-if ($U818 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['puts'] = $x818; $x818 =& $_global->properties['puts']; $_global->attributes['puts'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U818 = FALSE; $W818 = TRUE; }
+if ($U818 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['result'] = $x818; $x818 =& $_global->properties['result']; $_global->attributes['result'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U818 = FALSE; $W818 = TRUE; }
 if (isset($S818)) {
 $x821 = $S818->call;
-$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 160, 13);
-$x822 = $x821($global, $_global, $S818, array($_puts), false);
+$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 160, 15);
+$x822 = $x821($global, $_global, $S818, array($_result), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
 $x820 = $x822;
 } else {
-if (!$U818) {$x820 = $_puts;if ($W818) { $x818 = $_puts; }  }
+if (!$U818) {$x820 = $_result;if ($W818) { $x818 = $_result; }  }
 else { $x820 = JS::$undefined; }
-}
-if (isset($_global->class) && $_global->class === 'Array' &&  is_int('puts') && 'puts' >= $_global->properties['length']) { $_global->properties['length'] = 'puts' + 1; };
-if ($_global === JS::$undefined || $_global === NULL) {
-unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x823 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 161, 15, '<jake>/prelude.js');
-$_TypeError =& $x823[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x823;
-$x824 = $_TypeError->call;
-$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 161, 15);
-$x825 = $x824($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
-unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x825->class) && $x825->class === 'Error') {$x825->properties['file'] = '<jake>/prelude.js';$x825->properties['line'] = 161;$x825->properties['column'] = 15;$x825->attributes['file'] = $x825->attributes['line'] = $x825->attributes['column'] = 0; }
-throw new JSException($x825, 161, 15, '<jake>/prelude.js');
-}
-$_global = JS::toObject($_global, $global);
-unset($x826, $W826, $S826, $U826);
-$x827 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'result', 161, 15, '<jake>/prelude.js');
-$x826 =& $x827[0]; list(,$W826,$S826,$U826) = $x827;
-if ($U826 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['result'] = $x826; $x826 =& $_global->properties['result']; $_global->attributes['result'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U826 = FALSE; $W826 = TRUE; }
-if (isset($S826)) {
-$x829 = $S826->call;
-$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 161, 15);
-$x830 = $x829($global, $_global, $S826, array($_result), false);
-unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x828 = $x830;
-} else {
-if (!$U826) {$x828 = $_result;if ($W826) { $x826 = $_result; }  }
-else { $x828 = JS::$undefined; }
 }
 if (isset($_global->class) && $_global->class === 'Array' &&  is_int('result') && 'result' >= $_global->properties['length']) { $_global->properties['length'] = 'result' + 1; };
 if ($_global === JS::$undefined || $_global === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x831 = _f0835ad0e40147b74c2b17106f21eb60_2($global, $scope, $scope, (string) 'TypeError', 162, 21, '<jake>/prelude.js');
-$_TypeError =& $x831[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x831;
-$x832 = $_TypeError->call;
-$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 162, 21);
-$x833 = $x832($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x823 = _e1d02b440e29b3d14790f8d0c3439513_2($global, $scope, $scope, (string) 'TypeError', 161, 21, '<jake>/prelude.js');
+$_TypeError =& $x823[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x823;
+$x824 = $_TypeError->call;
+$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 161, 21);
+$x825 = $x824($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x833->class) && $x833->class === 'Error') {$x833->properties['file'] = '<jake>/prelude.js';$x833->properties['line'] = 162;$x833->properties['column'] = 21;$x833->attributes['file'] = $x833->attributes['line'] = $x833->attributes['column'] = 0; }
-throw new JSException($x833, 162, 21, '<jake>/prelude.js');
+if (isset($x825->class) && $x825->class === 'Error') {$x825->properties['file'] = '<jake>/prelude.js';$x825->properties['line'] = 161;$x825->properties['column'] = 21;$x825->attributes['file'] = $x825->attributes['line'] = $x825->attributes['column'] = 0; }
+throw new JSException($x825, 161, 21, '<jake>/prelude.js');
 }
 $_global = JS::toObject($_global, $global);
-unset($x834, $W834, $S834, $U834);
-$x835 = _f0835ad0e40147b74c2b17106f21eb60_3($global, $scope, $_global, (string) 'displayTasks', 162, 21, '<jake>/prelude.js');
-$x834 =& $x835[0]; list(,$W834,$S834,$U834) = $x835;
-if ($U834 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['displayTasks'] = $x834; $x834 =& $_global->properties['displayTasks']; $_global->attributes['displayTasks'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U834 = FALSE; $W834 = TRUE; }
-if (isset($S834)) {
-$x837 = $S834->call;
-$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 162, 21);
-$x838 = $x837($global, $_global, $S834, array($_displayTasks), false);
+unset($x826, $W826, $S826, $U826);
+$x827 = _e1d02b440e29b3d14790f8d0c3439513_3($global, $scope, $_global, (string) 'displayTasks', 161, 21, '<jake>/prelude.js');
+$x826 =& $x827[0]; list(,$W826,$S826,$U826) = $x827;
+if ($U826 && (!isset($_global->extensible) || $_global->extensible)) {$_global->properties['displayTasks'] = $x826; $x826 =& $_global->properties['displayTasks']; $_global->attributes['displayTasks'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U826 = FALSE; $W826 = TRUE; }
+if (isset($S826)) {
+$x829 = $S826->call;
+$global->trace[++$global->trace_sp] = array('<jake>/prelude.js', 161, 21);
+$x830 = $x829($global, $_global, $S826, array($_displayTasks), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x836 = $x838;
+$x828 = $x830;
 } else {
-if (!$U834) {$x836 = $_displayTasks;if ($W834) { $x834 = $_displayTasks; }  }
-else { $x836 = JS::$undefined; }
+if (!$U826) {$x828 = $_displayTasks;if ($W826) { $x826 = $_displayTasks; }  }
+else { $x828 = JS::$undefined; }
 }
 if (isset($_global->class) && $_global->class === 'Array' &&  is_int('displayTasks') && 'displayTasks' >= $_global->properties['length']) { $_global->properties['length'] = 'displayTasks' + 1; };
 ;
 return JS::$undefined;
 }
-return '_f0835ad0e40147b74c2b17106f21eb60_0';
+return '_e1d02b440e29b3d14790f8d0c3439513_0';
 } call_user_func(prelude(), JS::$global);$i = new JSInterpreter(file_get_contents(getcwd() . '/Jakefile'), getcwd() . '/Jakefile'); $i->run();
 function main() {function _d89a5fec19d3742c50b6d74a1bf5ee71_1($global, $scope, $base, $id, $line, $column, $file) {
 $WPHP = $SPHP = $UPHP = NULL;

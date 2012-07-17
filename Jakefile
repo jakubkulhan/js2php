@@ -162,6 +162,9 @@ task("build:jake", "build jake util binary",
 		code += "try {\n";
 
 		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(), ast;
+
+		puts("[ COMPILING prelude.js ]");
+
 		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jake.d/prelude.js"), { file: "<jake>/prelude.js" });
 		if (!ast[0]) {
 			fail("syntax error in prelude.js@" + ast[2].line + ":" + ast[2].column +
@@ -169,7 +172,9 @@ task("build:jake", "build jake util binary",
 		}
 		code += "function prelude() {" + compile(ast[1], { force: true }) + "} call_user_func(prelude(), JS::$global);";
 
-		code += "$i = new JSInterpreter(file_get_contents(getcwd() . '/Jakefile'), getcwd() . '/Jakefile'); $i->run();\n"
+		code += "$i = new JSInterpreter(file_get_contents(getcwd() . '/Jakefile'), getcwd() . '/Jakefile'); $i->run();\n";
+
+		puts("[ COMPILING main.js ]");
 
 		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jake.d/main.js"), { file: "<jake>/main.js" });
 		if (!ast[0]) {
@@ -199,6 +204,8 @@ task("build:jtest", "build jtest util binary",
 		[ buildDir + "/image.php", buildDir + "/JSInterpreter.php" ].forEach(function (f) {
 			code += PHP.fn("ltrim")(PHP.fn("file_get_contents")(f).substring(5)); // remove <?php
 		});
+
+		puts("[ COMPILING main.js ]");
 
 		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(), ast;
 		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jtest.d/main.js"), { file: "<jtest>/main.js" });

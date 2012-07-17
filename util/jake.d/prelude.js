@@ -2,15 +2,23 @@ var _tasks = {},
 	_level = 0;
 
 function task(name, description, action) {
+	var actionsStartIndex = 2,
+		desc = description;
+
+	if (typeof desc !== "string") {
+		desc = undefined;
+		actionsStartIndex = 1;
+	}
+
 	_tasks[name] = {
-		description: description,
+		description: desc,
 		running: false,
 		alreadyRun: false,
 		results: [],
 		actions: []
 	};
 
-	Array.prototype.slice.call(arguments, 2).forEach(function (dep) {
+	Array.prototype.slice.call(arguments, actionsStartIndex).forEach(function (dep) {
 		if (typeof dep === "object") {
 			_tasks[name].results.push(dep.result);
 
@@ -53,7 +61,9 @@ String.prototype.times = function (n) {
 	return s;
 };
 
-function runTask(name) {
+function runTask(name, args) {
+	args = args || [];
+
 	if (typeof _tasks[name] === "undefined") {
 		throw new Error("no task " + name);
 	}
@@ -73,7 +83,7 @@ function runTask(name) {
 			if (action.charAt(0) !== "/") { runTask(action); }
 
 		} else {
-			action();
+			action.apply(global, args);
 		}
 	}
 
@@ -156,6 +166,5 @@ function displayTasks(jakefilePath) {
 global.task = task;
 global.run = run;
 global.fail = fail;
-global.runTask = runTask;
 global.result = result;
-global.displayTasks = displayTasks;
+global.jake = { runTask: runTask, displayTasks: displayTasks };

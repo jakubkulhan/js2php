@@ -252,6 +252,168 @@ exported.
 From Javascript, you can access PHP functions and classes through `PHP.fn()`,
 respectively `PHP.cls()`. See `test/builtin/php.js` for examples.
 
+## `jake` - build system (yet another make replacement)
+
+js2php uses its own build system called jake. There are other systems called jake:
+
+- https://github.com/isaacs/node-jake
+- https://github.com/280north/jake
+
+So, don't confuse them with js2php's.
+
+jake looks for file named `Jakefile` in current directory and runs it. `Jakefile` is
+just Javascript source file. In `Jakefile` you define tasks that can be run:
+
+	task("hello", function () {
+		dump("Hello, world!");
+	});
+
+Then if you run jake:
+
+	$ ./util/jake
+	/home/jakub/Jakefile defines following tasks:
+
+	  $ jake hello
+
+	$ ./util/jake hello
+	"Hello, world!"
+
+Tasks can have description and accept arguments from command line:
+
+	Jakefile:
+
+	task("echo", "print given arguments", function () {
+		dump(Array.prototype.slice.call(arguments));
+	});
+
+	shell:
+
+	$ ./util/jake
+	/home/jakub/Jakefile defined following tasks:
+
+	  $ jake echo  # print given arguments
+
+	$ ./util/jake echo foo bar baz
+	[ "foo", "bar", "baz" ]
+
+Tasks can depend on each other:
+
+	Jakefile:
+
+	task("foo", "first string argument is always description, not dependency",
+		"bar", "baz",
+		function () {
+			dump("running foo");
+		});
+
+	task("bar", "",
+		"baz",
+		function () {
+			dump("running bar");
+		});
+
+	task("baz",
+		function () {
+			dump("running baz");
+		});
+
+	shell:
+
+	$ ./util/jake foo
+	=> bar
+	==> baz
+	"running baz"
+	==> ok
+	"running bar"
+	=> ok
+	"running foo"
+
+If a task produces files as a result, it can depend on other files:
+
+	Jakefile:
+
+	task("build", "",
+
+		// result() marks that these are resulting files
+		// __dirname is an absolute path to the current directory
+		result(__dirname + "/build/*.php"),
+
+		// build task depends on these files
+		__dirname + "/src/*.js",
+
+		function () {
+			PHP.fn("glob")(__dirname + "/src/*.js").forEach(function (file) {
+				// run() executes given shell command
+				run("compile " + file + " " +
+					__dirname + "/build/" + PHP.fn("basename")(file, ".js") + ".php");
+			});
+		});
+
+	shell:
+
+	$ ./util/jake build
+	compile /home/jakub/src/foo.js /home/jakub/build/foo.php
+	compile /home/jakub/src/bar.js /home/jakub/build/bar.php
+
+If a task proces files and has set result files, it is not run when the result files are
+newer (within the meaning of `filemtime()`) than the dependant.
+
+See js2php's `Jakefile` for examples.
+
+## `jtest` - testing system
+
+jtest runs js2php's tests and reports results. Tests are plain Javascript files that
+define tests to run using the `test(name, callback)` function. Tests are realized by assertions.
+There are two functions for assertions - `assert(test [, message])`, and
+`assertEqual(a, b [, message])`:
+
+	foo.js:
+
+	test("foo", function () {
+		assert(true);
+	});
+
+	bar.js:
+
+	test("bar", function () {
+		assertEqual(1, 2, "oh no!");
+	});
+
+	syntax-error.js:
+
+	test("error
+
+	shell:
+
+	$ ./util/jtest foo.js
+	.
+	>>>
+	>>> 1 passed, 0 failed to compile, 0 compiled code failed, 0 failed assert
+	>>>
+	$ ./util/jtest bar.js
+
+	>>>
+	>>> FILE: bar.js, TEST: bar
+	>>>
+	>>>   assertion #1 failed: oh no!, <1> !== <2>
+	>>>
+	>>>
+
+	>>>
+	>>> 0 passed, 0 failed to compile, 0 compiled code failed, 1 failed assert
+	>>>
+	$ ./util/jtest syntax-error.js
+	>>>
+	>>> syntax error in syntax-error.js@1:12, expected [\"], "\\b", "\\f", "\\n", "\\r",
+	>>> "\\t", "\\v", "\\\\", "\\\"", "\\", "\\0", "\\x"
+	>>>
+
+
+	>>>
+	>>> 0 passed, 1 failed to compile, 0 compiled code failed, 0 failed assert
+	>>>
+
+
 ## License
 
 The MIT license

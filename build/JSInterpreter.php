@@ -33,7 +33,7 @@ class JSInterpreter
 	{
 		if ($this->compiled === NULL) {
 			$parser = new JSParser;
-			list($ok, $result, $error) = $parser->__invoke($this->code, $this->file);
+			list($ok, $result, $error) = $parser->__invoke($this->code, array('file' => $this->file));
 
 			if (!$ok) {
 				throw new Exception(

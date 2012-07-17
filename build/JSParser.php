@@ -20,11 +20,22 @@ class JSParser {
         $this->_environments[0] = get_defined_vars();
     }
     
-    public function __invoke($string, $file) {
+    public function __invoke($string) {
     foreach ($this->_environments as $_env) { extract($_env, EXTR_OVERWRITE | EXTR_REFS); }
         $self->fns = $self->fns_stack = array();
-        	$self->file = $file;
+        	$self->file = NULL;
         	$self->identifier_throw = TRUE;
+        
+        	if (func_num_args() > 1) {
+        		foreach ((array) func_get_arg(1) as $k => $v) {
+        			if ($k === 'file') {
+        				$self->file = $v;
+        
+        			} else {
+        				throw new Exception('Unknown option ' . $k . '.');
+        			}
+        		}
+        	}
         
         	return $this->parse($string);
     }

@@ -15,7 +15,7 @@ function Function() {
 	@@
 		$parser = new JSParser;
 
-		list($ok, $ast, $error) = $parser->__invoke(JS::toString(`fn, $global), '<Function>');
+		list($ok, $ast, $error) = $parser->__invoke(JS::toString(`fn, $global), array('file' => '<Function>'));
 
 		if (!$ok) { @@
 			throw new SyntaxError("Function(): syntax error at " +

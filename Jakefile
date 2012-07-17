@@ -80,21 +80,21 @@ task("build:jake", "build jake util binary",
 		code += "try {\n";
 
 		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(), ast;
-		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jake.d/prelude.js"), "<jake>/prelude.js");
+		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jake.d/prelude.js"), { file: "<jake>/prelude.js" });
 		if (!ast[0]) {
 			fail("syntax error in prelude.js@" + ast[2].line + ":" + ast[2].column +
 				", expected " + ast[2].expected.join(", "));
 		}
-		code += "function prelude() {" + compile(ast[1], true) + "} call_user_func(prelude(), JS::$global);";
+		code += "function prelude() {" + compile(ast[1], { force: true }) + "} call_user_func(prelude(), JS::$global);";
 
 		code += "$i = new JSInterpreter(file_get_contents(getcwd() . '/Jakefile'), getcwd() . '/Jakefile'); $i->run();\n"
 
-		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jake.d/main.js"), "<jake>/main.js");
+		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jake.d/main.js"), { file: "<jake>/main.js" });
 		if (!ast[0]) {
 			fail("syntax error in main.js@" + ast[2].line + ":" + ast[2].column +
 				", expected " + ast[2].expected.join(", "));
 		}
-		code += "function main() {" + compile(ast[1], true) + "} call_user_func(main(), JS::$global);";
+		code += "function main() {" + compile(ast[1], { force: true }) + "} call_user_func(main(), JS::$global);";
 
 		code += "} catch (JSException $e) {\n" +
 			"echo $e->value->properties['name'], \": \", $e->value->properties['message'], ' in ', $e->value->properties['file'], '@', $e->value->properties['line'], ':', $e->value->properties['column'], \"\\n\";\n" +
@@ -119,14 +119,14 @@ task("build:jtest", "build jtest util binary",
 		});
 
 		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(), ast;
-		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jtest.d/main.js"), "<jtest>/main.js");
+		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jtest.d/main.js"), { file: "<jtest>/main.js" });
 		if (!ast[0]) {
 			fail("syntax error in main.js@" + ast[2].line + ":" + ast[2].column +
 				", expected " + ast[2].expected.join(", "));
 		}
 
 		code += "JS::$global->trace = array(array('<jtest>/main.js', NULL, NULL)); JS::$global->trace_sp = 0;";
-		code += "function main() {" + compile(ast[1], true) + "} call_user_func(main(), JS::$global);";
+		code += "function main() {" + compile(ast[1], { force: true }) + "} call_user_func(main(), JS::$global);";
 
 		PHP.fn("file_put_contents")(utilDir + "/jtest", code);
 		run("chmod +x " + utilDir + "/jtest");

@@ -66,7 +66,7 @@ var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(),
 
 try {
 	files.forEach(function (f) {
-		ast = parse(PHP.fn("file_get_contents")(f), f);
+		ast = parse(PHP.fn("file_get_contents")(f), { file: f });
 
 		if (!ast[0]) {
 			puts(">>>");
@@ -78,7 +78,7 @@ try {
 			return;
 		}
 
-		code = compile(ast[1], false);
+		code = compile(ast[1]);
 		call = @@ eval(`code) @@;
 
 		if (call === false) {

@@ -14,10 +14,18 @@
 	);
 }
 
--invoke(ast) {
-	// if optional second argument is true, code generation will be forced,
-	// even if this AST has been already compiled
+// has optional second argument `options`
+// options:
+//
+//   - force: if true, code will be generated even if main function (`_<AST hash>_0`) exists
+//   - generate: "string" | "object", default "string"
+//               if "string", functions will be concatenated and `return "_<AST hash>_0";`
+//               added at the end;
+//               if "object" (object) array("functions" => array( ... ), "main" => "_<AST hash>_0"),
+//               where functions array is filled with function declarations will be returned
+//
 
+-invoke(ast) {
 	$self->functions = $self->prestatement = $self->assigned = array();
 	$self->prefix = WALK(array('genprefix_', $ast));
 	$self->varCounter = $self->fnCounter = 0;
@@ -27,13 +35,39 @@
 		FALSE => array(TRUE => array(), FALSE => array()),
 	);
 
-	// this code has been already compiled
-	if (function_exists("_{$self->prefix}_0") && (func_num_args() < 2 || !func_get_arg(1))) {
-		return "return '_{$self->prefix}_0';";
+	$force = FALSE;
+	$generate = 'string';
+
+	if (func_num_args() > 1) {
+		foreach ((array) func_get_arg(1) as $k => $v) {
+			if ($k === 'force') {
+				$force = $v;
+
+			} else if ($k === 'generate') {
+				$generate = $v;
+
+			} else {
+				throw new Exception("Unknown option $k.");
+			}
+		}
 	}
 
-	$ret = WALK($ast);
-	return implode("\n", $self->functions) . "\n$ret";
+	if ($force || !function_exists("_{$self->prefix}_0")) {
+		WALK($ast);
+	}
+
+	if ($generate === 'string') {
+		return implode("\n", $self->functions) . "\nreturn '_{$self->prefix}_0';";
+
+	} else if ($generate === 'object') {
+		return (object) array(
+			'functions' => $self->functions,
+			'main' => "_{$self->prefix}_0",
+		);
+
+	} else {
+		throw new Exception("Unknown generate option $generate.");
+	}
 }
 
 genprefix_(ast) {
@@ -52,11 +86,11 @@ genprefix_(ast) {
 }
 
 program(ast, file) {
-	$ret = array();
+	$body = array();
 	$fn = WALK(array("genfn_"));
 
-	$ret[] = 'function ' . $fn . '($global = NULL, $scope = NULL) {';
-	$ret[] = "if (!is_object(\$global)) {" .
+	$body[] = 'function ' . $fn . '($global = NULL, $scope = NULL) {';
+	$body[] = "if (!is_object(\$global)) {" .
 			"\$global = (object) array(" .
 				"'properties' => array()," .
 				"'attributes' => array()," .
@@ -69,31 +103,30 @@ program(ast, file) {
 			"\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;" .
 		"}";
 
-	$ret[] = "if (\$scope === NULL) {" .
+	$body[] = "if (\$scope === NULL) {" .
 			"\$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => \$global);" .
 			"\$scope->properties['global'] = \$global;" .
 			"\$scope->properties['__filename'] = " . var_export($file, TRUE) . ";" .
 			"\$scope->properties['__dirname'] = " . var_export(dirname($file), TRUE) . ";" .
 		"}";
 
-	$ret[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
-	$ret[] = '$leThis = $global;';
+	$body[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
+	$body[] = '$leThis = $global;';
 
 	$code = WALK($ast);
 
 	if (!empty($self->prestatement)) {
-		$ret[] = implode("\n", $self->prestatement);
+		$body[] = implode("\n", $self->prestatement);
 	}
 
 	if (!empty($code)) {
-		$ret[] = $code;
+		$body[] = $code;
 	}
-	$ret[] = ';';
-	$ret[] = 'return JS::$undefined;';
-	$ret[] = '}';
-	$ret[] = 'return ' . var_export($fn, TRUE) . ';';
+	$body[] = ';';
+	$body[] = 'return JS::$undefined;';
+	$body[] = '}';
 
-	return implode("\n", $ret) . "\n";
+	$self->functions[$fn] = implode("\n", $body);
 }
 
 genvar_() -> '$x' . $self->varCounter++
@@ -197,7 +230,7 @@ function(name, parameters_list, body, pStart, pEnd, file) {
 	$self->prestatement[] = '$global->scope[++$global->scope_sp] = $scope;';
 
 	$body = WALK($body);
-	$self->functions[] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args, $constructor = FALSE) {',
+	$self->functions[$fn] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args, $constructor = FALSE) {',
 		implode("\n", $self->prestatement), $body, ';', 'return JS::$undefined;', '}'));
 	$self->prestatement = $saved_prestatement;
 	$self->assigned = $saved_assigned;
@@ -730,7 +763,7 @@ lookup_(base, id, up, assign, get, p, file) {
 		$body[] = "return array(&$var, \$W$v, \$S$v, \$U$v);";
 		$body[] = "}";
 
-		$self->functions[] = implode("\n", $body);
+		$self->functions[$fn] = implode("\n", $body);
 		$self->prestatement = $saved_prestatement;
 		$self->lookups[$get][$throw][$up] = $fn;
 	}

@@ -123,26 +123,44 @@ object is created.
 		// ...
 	}
 
-Code returned by `JSCompiler->__invoke($ast, $force = NULL)` is a string that consists of
-generated function declarations joined together followed by `return "_a123456789_0";`,
-thus returning a function name of global code. The string does not start with PHP
-open tag and so it can be directly fed to `eval()`. To evaluate contents of
-Javascript file `foo.js`:
+`JSCompiler->__invoke($ast, $options = array())` generates PHP code from the AST.
+There are two possible generation types. They are specified by `$options`'s
+`generate` option. One is `string`. Then `__invoke()` returns string consisting of
+concatenated function declarations followed by `return "_a123456789_0";`, thus
+returning a function name of global code. The string does not start with PHP open tag
+and so it can be fed directly to `eval()`. To evaluate contents of file `foo.js`:
 
 	$parser = new JSParser;
-	list(,$ast) = $parser(file_get_contents("foo.js"), "foo.js");
+	list(,$ast) = $parser(file_get_contents("foo.js"), array("file" => "foo.js"));
 
 	$compiler = new JSCompiler;
+	// "generate" => "string" option does not need to be specified, string is default
 	$code = $compiler($ast);
 
 	$entryPoint = eval($code);
 
 	$entryPoint(JS::$global);
 
+The other is `object`. Then `__invoke()` returns `stdClass` object with properties
+`functions`, and `main`. `functions` is an array of function names associated to
+their PHP code. `main` is a name of the Javascript's global code generated function.
+To evaluate contents of file `foo.js`:
+
+	$parser = new JSParser;
+	list(,$ast) = $parser(file_get_contents("foo.js"), array("file" => "foo.js"));
+
+	$compiler = new JSCompiler;
+	$code = $compiler($ast, array("generate" => "object"));
+
+	eval(implode("\n", $code->functions));
+	$entryPoint = $code->main;
+
+	$entryPoint(JS::$global);
+
 `JSCompiler->__invoke()` makes hash of given AST and if main function of the tree `_<hash>_0`
 already exists (`function_exists()`), JSCompiler won't compile AST again, it will just return
-`return '_<hash>_0';`. If you want to even though get the code, just pass `TRUE` as
-the second argument.
+`return '_<hash>_0';`, or `(object) array("functions" => array(), "main" => "_<hash>_0").
+If you want to even though generate PHP code for all functions, set `force` option to `TRUE`.
 
 ## Extensions to Javascript syntax
 

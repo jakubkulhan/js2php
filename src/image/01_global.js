@@ -6,7 +6,7 @@ function eval(x) {
 	@@
 		$parser = new JSParser;
 
-		list($ok, $ast, $error) = $parser->__invoke(JS::toString(`x, $global), '<eval>');
+		list($ok, $ast, $error) = $parser->__invoke(JS::toString(`x, $global), array('file' => '<eval>'));
 
 		if (!$ok) { @@
 			throw new SyntaxError("eval(): syntax error at " +

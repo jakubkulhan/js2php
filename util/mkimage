@@ -7,7 +7,7 @@ require_once __DIR__ . '/shrink.php';
 function compile($code, $file = NULL)
 {
 	$parser = new JSParser;
-	list($ok, $result, $error) = $parser->__invoke($code, $file);
+	list($ok, $result, $error) = $parser->__invoke($code, array('file' => $file));
 
 	if (!$ok) {
 		return array(FALSE, NULL, $error);

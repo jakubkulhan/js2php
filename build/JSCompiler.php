@@ -329,10 +329,7 @@ $self = (object) array(
     {
         /*$this->_init();*/
         extract($this->_env, EXTR_REFS);
-        // if optional second argument is true, code generation will be forced,
-        	// even if this AST has been already compiled
-        
-        	$self->functions = $self->prestatement = $self->assigned = array();
+        $self->functions = $self->prestatement = $self->assigned = array();
         	$self->prefix = $this->_walk(array('genprefix_', $ast));
         	$self->varCounter = $self->fnCounter = 0;
         	$self->catch_return = FALSE;
@@ -341,13 +338,39 @@ $self = (object) array(
         		FALSE => array(TRUE => array(), FALSE => array()),
         	);
         
-        	// this code has been already compiled
-        	if (function_exists("_{$self->prefix}_0") && (func_num_args() < 2 || !func_get_arg(1))) {
-        		return "return '_{$self->prefix}_0';";
+        	$force = FALSE;
+        	$generate = 'string';
+        
+        	if (func_num_args() > 1) {
+        		foreach ((array) func_get_arg(1) as $k => $v) {
+        			if ($k === 'force') {
+        				$force = $v;
+        
+        			} else if ($k === 'generate') {
+        				$generate = $v;
+        
+        			} else {
+        				throw new Exception("Unknown option $k.");
+        			}
+        		}
         	}
         
-        	$ret = $this->_walk($ast);
-        	return implode("\n", $self->functions) . "\n$ret";
+        	if ($force || !function_exists("_{$self->prefix}_0")) {
+        		$this->_walk($ast);
+        	}
+        
+        	if ($generate === 'string') {
+        		return implode("\n", $self->functions) . "\nreturn '_{$self->prefix}_0';";
+        
+        	} else if ($generate === 'object') {
+        		return (object) array(
+        			'functions' => $self->functions,
+        			'main' => "_{$self->prefix}_0",
+        		);
+        
+        	} else {
+        		throw new Exception("Unknown generate option $generate.");
+        	}
 
     }
 
@@ -365,11 +388,11 @@ protected function _0($ast) { extract($this->_env, EXTR_REFS); $ret = '';
 	return md5($ret);
 
 }
-protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $ret = array();
+protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $body = array();
 	$fn = $this->_walk(array("genfn_"));
 
-	$ret[] = 'function ' . $fn . '($global = NULL, $scope = NULL) {';
-	$ret[] = "if (!is_object(\$global)) {" .
+	$body[] = 'function ' . $fn . '($global = NULL, $scope = NULL) {';
+	$body[] = "if (!is_object(\$global)) {" .
 			"\$global = (object) array(" .
 				"'properties' => array()," .
 				"'attributes' => array()," .
@@ -382,31 +405,30 @@ protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $ret = arr
 			"\$global->trace = array(array(" . var_export($file, TRUE) . ", NULL, NULL)); \$global->trace_sp = 0;" .
 		"}";
 
-	$ret[] = "if (\$scope === NULL) {" .
+	$body[] = "if (\$scope === NULL) {" .
 			"\$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => \$global);" .
 			"\$scope->properties['global'] = \$global;" .
 			"\$scope->properties['__filename'] = " . var_export($file, TRUE) . ";" .
 			"\$scope->properties['__dirname'] = " . var_export(dirname($file), TRUE) . ";" .
 		"}";
 
-	$ret[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
-	$ret[] = '$leThis = $global;';
+	$body[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
+	$body[] = '$leThis = $global;';
 
 	$code = $this->_walk($ast);
 
 	if (!empty($self->prestatement)) {
-		$ret[] = implode("\n", $self->prestatement);
+		$body[] = implode("\n", $self->prestatement);
 	}
 
 	if (!empty($code)) {
-		$ret[] = $code;
+		$body[] = $code;
 	}
-	$ret[] = ';';
-	$ret[] = 'return JS::$undefined;';
-	$ret[] = '}';
-	$ret[] = 'return ' . var_export($fn, TRUE) . ';';
+	$body[] = ';';
+	$body[] = 'return JS::$undefined;';
+	$body[] = '}';
 
-	return implode("\n", $ret) . "\n";
+	$self->functions[$fn] = implode("\n", $body);
 
 }
 protected function _2() { extract($this->_env, EXTR_REFS); return '$x' . $self->varCounter++;
@@ -503,7 +525,7 @@ protected function _9($name, $parameters_list, $body, $pStart, $pEnd, $file) { e
 	$self->prestatement[] = '$global->scope[++$global->scope_sp] = $scope;';
 
 	$body = $this->_walk($body);
-	$self->functions[] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args, $constructor = FALSE) {',
+	$self->functions[$fn] = implode("\n", array('function ' . $fn . '($global, $leThis, $fn, $args, $constructor = FALSE) {',
 		implode("\n", $self->prestatement), $body, ';', 'return JS::$undefined;', '}'));
 	$self->prestatement = $saved_prestatement;
 	$self->assigned = $saved_assigned;
@@ -1013,7 +1035,7 @@ protected function _29($base, $id, $up, $assign, $get, $p, $file) { extract($thi
 		$body[] = "return array(&$var, \$W$v, \$S$v, \$U$v);";
 		$body[] = "}";
 
-		$self->functions[] = implode("\n", $body);
+		$self->functions[$fn] = implode("\n", $body);
 		$self->prestatement = $saved_prestatement;
 		$self->lookups[$get][$throw][$up] = $fn;
 	}

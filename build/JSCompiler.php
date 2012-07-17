@@ -823,14 +823,18 @@ protected function _25($try_block, $catch_var, $catch_block, $finally_block) { e
 		$saved_assigned = $self->assigned;
 		$self->catch_return = !empty($finally);
 		$catch_block = $this->_walk($catch_block);
+		$catch_block = implode("\n", $self->prestatement) . $catch_block;
+		$self->prestatement = array();
 		$self->catch_return = FALSE;
 		$self->assigned = $saved_assigned;
+
 		$ret[] = 'catch (JSException $e) {';
 		$this->_walk(array('var', array(array($catch_var, array('raw', '$e->value'))))); // FIXME: leaks into current scope
 		$ret[] = implode("\n", $self->prestatement);
 		$self->prestatement = array();
 		$ret[] = $catch_block . ';';
 		$ret[] = '}';
+
 		$ret[] = 'catch (Exception $e) {';
 		$e = $this->_walk(array('var', array(array($catch_var, array('raw', 'JS::fromNative($e)'))))); // FIXME: leaks into current scope
 		$ret[] = implode("\n", $self->prestatement);

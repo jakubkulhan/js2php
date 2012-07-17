@@ -3,8 +3,8 @@ var buildDir = __dirname + "/build",
 	testDir = __dirname + "/test";
 	utilDir = __dirname + "/util";
 
-task("all", "clean, build image, binary, jake, and run tests",
-	"clean", "build", "build:binary", "build:jake", "test");
+task("all", "clean, build image, binary, jake, jtest, and run tests",
+	"clean", "build", "build:binary", "build:jake", "build:jtest", "test");
 
 task("build", "build parser, compiler and image",
 	"build:image",
@@ -105,6 +105,33 @@ task("build:jake", "build jake util binary",
 		run("chmod +x " + utilDir + "/jake");
 	});
 
+task("build:jtest", "build jtest util binary",
+	"build",
+	result(utilDir + "/jtest"),
+	utilDir + "/jtest.d/*.js",
+	buildDir + "/*.php",
+	__filename,
+	function () {
+		var code = "#!/usr/bin/php\n<?php\n";
+
+		[ buildDir + "/image.php", buildDir + "/JSInterpreter.php" ].forEach(function (f) {
+			code += PHP.fn("ltrim")(PHP.fn("file_get_contents")(f).substring(5)); // remove <?php
+		});
+
+		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(), ast;
+		ast = parse(PHP.fn("file_get_contents")(utilDir + "/jtest.d/main.js"), "<jtest>/main.js");
+		if (!ast[0]) {
+			fail("syntax error in main.js@" + ast[2].line + ":" + ast[2].column +
+				", expected " + ast[2].expected.join(", "));
+		}
+
+		code += "JS::$global->trace = array(array('<jtest>/main.js', NULL, NULL)); JS::$global->trace_sp = 0;";
+		code += "function main() {" + compile(ast[1], true) + "} call_user_func(main(), JS::$global);";
+
+		PHP.fn("file_put_contents")(utilDir + "/jtest", code);
+		run("chmod +x " + utilDir + "/jtest");
+	});
+
 task("clean", "clean build/",
 	function () {
 		PHP.fn("glob")(buildDir + "/*.php").forEach(function (f) {
@@ -113,7 +140,7 @@ task("clean", "clean build/",
 	});
 
 task("test", "run tests",
-	"build",
+	"build", "build:jtest",
 	function () {
-		run(testDir + "/run.php");
+		run(utilDir + "/jtest " + testDir);
 	});

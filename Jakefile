@@ -114,6 +114,26 @@ task("build:image", "build image.php from src/image/*.js",
 		run("php -l " + buildDir + "/mkimage.php");
 		run("php " + buildDir + "/mkimage.php > " + buildDir + "/newimage.php");
 		run("php -l " + buildDir + "/newimage.php");
+
+		puts("[ CHECKING NEW IMAGE VALIDITY ]");
+		var lastLine = false;
+		PHP.fn("file_get_contents")(buildDir + "/newimage.php").split(/\n/).forEach(function (line, n) {
+			if (line === "" || line.match(/^(function|class|foreach \(unserialize|<\?php)/) !== null) {
+				if (line.match(/^foreach/) && lastLine) {
+					fail("there can be only one unserialization of image, second one on line #" +
+						(n + 1) + ", " + buildDir + "/newimage.php is not valid");
+				}
+
+				if (line.match(/^foreach/)) {
+					lastLine = true;
+				}
+
+				return;
+			}
+
+			fail("line #" + (n + 1) + " of " + buildDir + "/newimage.php is not valid");
+		});
+
 		run("mv " + buildDir + "/newimage.php " + buildDir + "/image.php");
 		run("rm " + buildDir + "/mkimage.php");
 	});
@@ -184,7 +204,11 @@ task("build:jake", "build jake util binary",
 		code += "function main() {" + compile(ast[1], { force: true }) + "} call_user_func(main(), JS::$global);";
 
 		code += "} catch (JSException $e) {\n" +
-			"echo $e->value->properties['name'], \": \", $e->value->properties['message'], ' in ', $e->value->properties['file'], '@', $e->value->properties['line'], ':', $e->value->properties['column'], \"\\n\";\n" +
+			"if (isset($e->value->properties)) {\n" +
+			"echo (isset($e->value->properties['name']) ? $e->value->properties['name'] . \": \" : \"\"), $e->value->properties['message'], ' in ', $e->value->properties['file'], '@', $e->value->properties['line'], ':', $e->value->properties['column'], \"\\n\";\n" +
+			"} else {\n" +
+			"echo $e->value->getMessage(), \"\\n\";\n" +
+			"}\n" +
 			"echo implode(\"\\n\", array_map(function ($t) { return '  ' . $t[0] . '@' . $t[1] . ':' . $t[2]; }, array_reverse(JS::$global->trace))), \"\\n\";\n" +
 			"}\n";
 

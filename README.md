@@ -186,8 +186,12 @@ PHP statement and expression. Both are delimited by `@@`.
 ## The image
 
 The image (`build/image.php`) contains pre-compiled Javascript code from `src/image/`
-directory, `JSParser` and `JSCompiler` classes. Sources in `src/image/` initialise runtime
+directory, and `JSParser` and `JSCompiler` classes. Sources in `src/image/` initialise runtime
 environment - create Javascript built-in objects etc.
+
+The image's first line is PHP open tag (`<?php`), all other lines are class and function 
+declarations. The last line foreach's serialized objects and fills `JS::*` static properties
+with them.
 
 ## PHP interoperability
 

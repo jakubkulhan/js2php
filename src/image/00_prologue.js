@@ -51,6 +51,7 @@ class JS
 
 	static $global;
 	static $undefined;
+	static $loader;
 	static $emptyScope;
 	static $objectTemplate;
 	static $functionTemplate;
@@ -76,10 +77,22 @@ class JS
 		} else {
 			if (($f = JS::getProperty($v, 'toString')) !== NULL && isset($f->call)) {
 				$c = $f->call;
+
+				if (JS::$loader !== NULL && !$f->loaded) {
+					$l = JS::$loader;
+					$l($f, $global);
+				}
+
 				$r = $c($global, $v, $f, array());
 
 			} else if (($f = JS::getProperty($v, 'valueOf')) !== NULL && isset($f->call)) {
 				$c = $f->call;
+
+				if (JS::$loader !== NULL && !$f->loaded) {
+					$l = JS::$loader;
+					$l($f, $global);
+				}
+
 				$r = $c($global, $v, $f, array());
 			}
 
@@ -96,6 +109,12 @@ class JS
 		if (isset($global->properties['TypeError'])) {
 			$TypeError = $global->properties['TypeError'];
 			$c = $TypeError->call;
+
+			if (JS::$loader !== NULL && !$TypeError->loaded) {
+				$l = JS::$loader;
+				$l($TypeError, $global);
+			}
+
 			throw new JSException($c($global, JS::$undefined, $TypeError, array($msg)));
 		}
 

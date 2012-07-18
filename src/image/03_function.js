@@ -72,6 +72,7 @@ Function.prototype.apply = function (thisArg, argArray) {
 		@@ $passArgs[] = `arg; @@
 	}
 
+	@@ if (JS::$loader !== NULL && !$leThis->loaded) { $l = JS::$loader; $l($leThis, $global); } @@
 	return @@ `call($global, `thisArg, $leThis, $passArgs) @@;
 };
 
@@ -91,6 +92,7 @@ Function.prototype.call = function (thisArg) {
 		@@ $passArgs[] = `arg; @@
 	}
 
+	@@ if (JS::$loader !== NULL && !$leThis->loaded) { $l = JS::$loader; $l($leThis, $global); } @@
 	return @@ `call($global, `thisArg, $leThis, $passArgs) @@;
 };
 

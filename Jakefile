@@ -111,6 +111,11 @@ task("build:image", "build image.php from src/image/*.js; argument <loader>, ima
 			"$r = new ReflectionFunction($fn); echo ltrim(substr(shrink('<?php ' . implode(\"\\n\", array_slice($lines, " +
 			"$r->getStartLine() - 1, $r->getEndLine() - $r->getStartLine() + 1))), 6)) . \"\\n\"; }\n";
 
+		if (loader) {
+			code += "JS::$loader = " + PHP.fn("var_export")(loader, true) + ";\n";
+			code += "JS::$functionTemplate->loaded = FALSE;\n";
+		}
+
 		code += "$r = new ReflectionClass('JS');\n" +
 			"echo 'foreach (unserialize(' . var_export(serialize($r->getStaticProperties()), TRUE)  . ') " +
 			"as $k => $v) {JS::$$k = $v;}', \"\\n\";\n";

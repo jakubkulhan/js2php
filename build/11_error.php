@@ -179,31 +179,32 @@ if (is_object($x21) && $x21 !== JS::$undefined) { $x20 = $x21; }
 $scope->properties['e'] = JS::$undefined; $_e =& $scope->properties['e'];
 $Ue = FALSE;
 $_e = $x20;
+$x38 = 'RangeError';
 if ($_e === JS::$undefined || $_e === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x38 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 53, 9, '<image>/11_error.js');
-$_TypeError =& $x38[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x38;
-$x39 = $_TypeError->call;
+$x39 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 53, 9, '<image>/11_error.js');
+$_TypeError =& $x39[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x39;
+$x40 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 53, 9);
-$x40 = $x39($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x41 = $x40($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x40->class) && $x40->class === 'Error') {$x40->properties['file'] = '<image>/11_error.js';$x40->properties['line'] = 53;$x40->properties['column'] = 9;$x40->attributes['file'] = $x40->attributes['line'] = $x40->attributes['column'] = 0; }
-throw new JSException($x40, 53, 9, '<image>/11_error.js');
+if (isset($x41->class) && $x41->class === 'Error') {$x41->properties['file'] = '<image>/11_error.js';$x41->properties['line'] = 53;$x41->properties['column'] = 9;$x41->attributes['file'] = $x41->attributes['line'] = $x41->attributes['column'] = 0; }
+throw new JSException($x41, 53, 9, '<image>/11_error.js');
 }
 $_e = JS::toObject($_e, $global);
-unset($x41, $W41, $S41, $U41);
-$x42 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 53, 9, '<image>/11_error.js');
-$x41 =& $x42[0]; list(,$W41,$S41,$U41) = $x42;
-if ($U41 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x41; $x41 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U41 = FALSE; $W41 = TRUE; }
-if (isset($S41)) {
-$x44 = $S41->call;
+unset($x42, $W42, $S42, $U42);
+$x43 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 53, 9, '<image>/11_error.js');
+$x42 =& $x43[0]; list(,$W42,$S42,$U42) = $x43;
+if ($U42 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x42; $x42 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U42 = FALSE; $W42 = TRUE; }
+if (isset($S42)) {
+$x45 = $S42->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 53, 9);
-$x45 = $x44($global, $_e, $S41, array('RangeError'), false);
+$x46 = $x45($global, $_e, $S42, array($x38), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x43 = $x45;
+$x44 = $x46;
 } else {
-if (!$U41) {$x43 = 'RangeError';if ($W41) { $x41 = 'RangeError'; }  }
-else { $x43 = JS::$undefined; }
+if (!$U42) {$x44 = $x38;if ($W42) { $x42 = $x38; }  }
+else { $x44 = JS::$undefined; }
 }
 if (isset($_e->class) && $_e->class === 'Array' &&  is_int('name') && 'name' >= $_e->properties['length']) { $_e->properties['length'] = 'name' + 1; };
 $_e->prototype =$_RangeError->properties['prototype'];
@@ -211,7 +212,7 @@ return $_e;
 ;
 return JS::$undefined;
 }
-echo 'function _89174112e855facd9d2f6198b727df5b_4($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x19=&$scope->properties[\'arguments\'];$x19->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x19->properties[$i]=$args[$i];$x19->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'RangeError\']=$fn;$_RangeError=&$scope->properties[\'RangeError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x22=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',52,14,\'<image>/11_error.js\');$_Error=&$x22[0];list(,$WError,$SError,$UError)=$x22;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x23=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',52,14,\'<image>/11_error.js\');$_ReferenceError=&$x23[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x23;$x24=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',52,14);$x25=$x24($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x25->class)&&$x25->class===\'Error\'){$x25->properties[\'file\']=\'<image>/11_error.js\';$x25->properties[\'line\']=52;$x25->properties[\'column\']=14;$x25->attributes[\'file\']=$x25->attributes[\'line\']=$x25->attributes[\'column\']=0;}throw new JSException($x25,52,14,\'<image>/11_error.js\');}$x20=clone JS::$objectTemplate;unset($x26,$W26,$S26,$U26);$x32=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',52,10,\'<image>/11_error.js\');$x26=&$x32[0];list(,$W26,$S26,$U26)=$x32;$x21=$x26;$x20->prototype=$x21;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x35=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',52,10,\'<image>/11_error.js\');$_TypeError=&$x35[0];list(,$WTypeError,$STypeError,$UTypeError)=$x35;$x36=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',52,10);$x37=$x36($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x37->class)&&$x37->class===\'Error\'){$x37->properties[\'file\']=\'<image>/11_error.js\';$x37->properties[\'line\']=52;$x37->properties[\'column\']=10;$x37->attributes[\'file\']=$x37->attributes[\'line\']=$x37->attributes[\'column\']=0;}throw new JSException($x37,52,10,\'<image>/11_error.js\');}$x33=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',52,10);$x34=$x33($global,$x20,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x21=$x34;if(is_object($x21)&&$x21!==JS::$undefined){$x20=$x21;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x20;if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x38=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',53,9,\'<image>/11_error.js\');$_TypeError=&$x38[0];list(,$WTypeError,$STypeError,$UTypeError)=$x38;$x39=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',53,9);$x40=$x39($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x40->class)&&$x40->class===\'Error\'){$x40->properties[\'file\']=\'<image>/11_error.js\';$x40->properties[\'line\']=53;$x40->properties[\'column\']=9;$x40->attributes[\'file\']=$x40->attributes[\'line\']=$x40->attributes[\'column\']=0;}throw new JSException($x40,53,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x41,$W41,$S41,$U41);$x42=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',53,9,\'<image>/11_error.js\');$x41=&$x42[0];list(,$W41,$S41,$U41)=$x42;if($U41&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x41;$x41=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U41=FALSE;$W41=TRUE;}if(isset($S41)){$x44=$S41->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',53,9);$x45=$x44($global,$_e,$S41,array(\'RangeError\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x43=$x45;}else{if(!$U41){$x43=\'RangeError\';if($W41){$x41=\'RangeError\';}}else{$x43=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_RangeError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
+echo 'function _89174112e855facd9d2f6198b727df5b_4($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x19=&$scope->properties[\'arguments\'];$x19->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x19->properties[$i]=$args[$i];$x19->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'RangeError\']=$fn;$_RangeError=&$scope->properties[\'RangeError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x22=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',52,14,\'<image>/11_error.js\');$_Error=&$x22[0];list(,$WError,$SError,$UError)=$x22;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x23=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',52,14,\'<image>/11_error.js\');$_ReferenceError=&$x23[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x23;$x24=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',52,14);$x25=$x24($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x25->class)&&$x25->class===\'Error\'){$x25->properties[\'file\']=\'<image>/11_error.js\';$x25->properties[\'line\']=52;$x25->properties[\'column\']=14;$x25->attributes[\'file\']=$x25->attributes[\'line\']=$x25->attributes[\'column\']=0;}throw new JSException($x25,52,14,\'<image>/11_error.js\');}$x20=clone JS::$objectTemplate;unset($x26,$W26,$S26,$U26);$x32=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',52,10,\'<image>/11_error.js\');$x26=&$x32[0];list(,$W26,$S26,$U26)=$x32;$x21=$x26;$x20->prototype=$x21;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x35=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',52,10,\'<image>/11_error.js\');$_TypeError=&$x35[0];list(,$WTypeError,$STypeError,$UTypeError)=$x35;$x36=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',52,10);$x37=$x36($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x37->class)&&$x37->class===\'Error\'){$x37->properties[\'file\']=\'<image>/11_error.js\';$x37->properties[\'line\']=52;$x37->properties[\'column\']=10;$x37->attributes[\'file\']=$x37->attributes[\'line\']=$x37->attributes[\'column\']=0;}throw new JSException($x37,52,10,\'<image>/11_error.js\');}$x33=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',52,10);$x34=$x33($global,$x20,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x21=$x34;if(is_object($x21)&&$x21!==JS::$undefined){$x20=$x21;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x20;$x38=\'RangeError\';if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x39=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',53,9,\'<image>/11_error.js\');$_TypeError=&$x39[0];list(,$WTypeError,$STypeError,$UTypeError)=$x39;$x40=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',53,9);$x41=$x40($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x41->class)&&$x41->class===\'Error\'){$x41->properties[\'file\']=\'<image>/11_error.js\';$x41->properties[\'line\']=53;$x41->properties[\'column\']=9;$x41->attributes[\'file\']=$x41->attributes[\'line\']=$x41->attributes[\'column\']=0;}throw new JSException($x41,53,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x42,$W42,$S42,$U42);$x43=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',53,9,\'<image>/11_error.js\');$x42=&$x43[0];list(,$W42,$S42,$U42)=$x43;if($U42&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x42;$x42=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U42=FALSE;$W42=TRUE;}if(isset($S42)){$x45=$S42->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',53,9);$x46=$x45($global,$_e,$S42,array($x38),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x44=$x46;}else{if(!$U42){$x44=$x38;if($W42){$x42=$x38;}}else{$x44=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_RangeError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
 function _89174112e855facd9d2f6198b727df5b_6($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -219,11 +220,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x48 =& $scope->properties['arguments'];
-$x48->properties['length'] = count($args);
+$x49 =& $scope->properties['arguments'];
+$x49->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x48->properties[$i] = $args[$i];
-$x48->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x49->properties[$i] = $args[$i];
+$x49->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['message'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_message =& $scope->properties['message'];
@@ -232,67 +233,68 @@ $scope->properties['ReferenceError'] = $fn;
 $_ReferenceError =& $scope->properties['ReferenceError'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Error, $WError, $SError, $UError);
-$x51 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 61, 14, '<image>/11_error.js');
-$_Error =& $x51[0]; list(,$WError,$SError,$UError) = $x51;
+$x52 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 61, 14, '<image>/11_error.js');
+$_Error =& $x52[0]; list(,$WError,$SError,$UError) = $x52;
 if ($UError) {
-$x52 = $_ReferenceError->call;
+$x53 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 61, 14);
-$x53 = $x52($global, $global, $_ReferenceError, array('Error is not defined'), false);
+$x54 = $x53($global, $global, $_ReferenceError, array('Error is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x53->class) && $x53->class === 'Error') {$x53->properties['file'] = '<image>/11_error.js';$x53->properties['line'] = 61;$x53->properties['column'] = 14;$x53->attributes['file'] = $x53->attributes['line'] = $x53->attributes['column'] = 0; }
-throw new JSException($x53, 61, 14, '<image>/11_error.js');
+if (isset($x54->class) && $x54->class === 'Error') {$x54->properties['file'] = '<image>/11_error.js';$x54->properties['line'] = 61;$x54->properties['column'] = 14;$x54->attributes['file'] = $x54->attributes['line'] = $x54->attributes['column'] = 0; }
+throw new JSException($x54, 61, 14, '<image>/11_error.js');
 }
-$x49 = clone JS::$objectTemplate;
-unset($x54, $W54, $S54, $U54);
-$x55 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 61, 10, '<image>/11_error.js');
-$x54 =& $x55[0]; list(,$W54,$S54,$U54) = $x55;
-$x50 = $x54;
-$x49->prototype = $x50;
+$x50 = clone JS::$objectTemplate;
+unset($x55, $W55, $S55, $U55);
+$x56 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 61, 10, '<image>/11_error.js');
+$x55 =& $x56[0]; list(,$W55,$S55,$U55) = $x56;
+$x51 = $x55;
+$x50->prototype = $x51;
 if (!(is_object($_Error) && isset($_Error->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x58 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 61, 10, '<image>/11_error.js');
-$_TypeError =& $x58[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x58;
-$x59 = $_TypeError->call;
+$x59 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 61, 10, '<image>/11_error.js');
+$_TypeError =& $x59[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x59;
+$x60 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 61, 10);
-$x60 = $x59($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
+$x61 = $x60($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x60->class) && $x60->class === 'Error') {$x60->properties['file'] = '<image>/11_error.js';$x60->properties['line'] = 61;$x60->properties['column'] = 10;$x60->attributes['file'] = $x60->attributes['line'] = $x60->attributes['column'] = 0; }
-throw new JSException($x60, 61, 10, '<image>/11_error.js');
+if (isset($x61->class) && $x61->class === 'Error') {$x61->properties['file'] = '<image>/11_error.js';$x61->properties['line'] = 61;$x61->properties['column'] = 10;$x61->attributes['file'] = $x61->attributes['line'] = $x61->attributes['column'] = 0; }
+throw new JSException($x61, 61, 10, '<image>/11_error.js');
 }
-$x56 = $_Error->call;
+$x57 = $_Error->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 61, 10);
-$x57 = $x56($global, $x49, $_Error, array($_message), true);
+$x58 = $x57($global, $x50, $_Error, array($_message), true);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x50 = $x57;
-if (is_object($x50) && $x50 !== JS::$undefined) { $x49 = $x50; }
+$x51 = $x58;
+if (is_object($x51) && $x51 !== JS::$undefined) { $x50 = $x51; }
 $scope->properties['e'] = JS::$undefined; $_e =& $scope->properties['e'];
 $Ue = FALSE;
-$_e = $x49;
+$_e = $x50;
+$x62 = 'ReferenceError';
 if ($_e === JS::$undefined || $_e === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x61 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 62, 9, '<image>/11_error.js');
-$_TypeError =& $x61[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x61;
-$x62 = $_TypeError->call;
+$x63 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 62, 9, '<image>/11_error.js');
+$_TypeError =& $x63[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x63;
+$x64 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 62, 9);
-$x63 = $x62($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x65 = $x64($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x63->class) && $x63->class === 'Error') {$x63->properties['file'] = '<image>/11_error.js';$x63->properties['line'] = 62;$x63->properties['column'] = 9;$x63->attributes['file'] = $x63->attributes['line'] = $x63->attributes['column'] = 0; }
-throw new JSException($x63, 62, 9, '<image>/11_error.js');
+if (isset($x65->class) && $x65->class === 'Error') {$x65->properties['file'] = '<image>/11_error.js';$x65->properties['line'] = 62;$x65->properties['column'] = 9;$x65->attributes['file'] = $x65->attributes['line'] = $x65->attributes['column'] = 0; }
+throw new JSException($x65, 62, 9, '<image>/11_error.js');
 }
 $_e = JS::toObject($_e, $global);
-unset($x64, $W64, $S64, $U64);
-$x65 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 62, 9, '<image>/11_error.js');
-$x64 =& $x65[0]; list(,$W64,$S64,$U64) = $x65;
-if ($U64 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x64; $x64 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U64 = FALSE; $W64 = TRUE; }
-if (isset($S64)) {
-$x67 = $S64->call;
+unset($x66, $W66, $S66, $U66);
+$x67 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 62, 9, '<image>/11_error.js');
+$x66 =& $x67[0]; list(,$W66,$S66,$U66) = $x67;
+if ($U66 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x66; $x66 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U66 = FALSE; $W66 = TRUE; }
+if (isset($S66)) {
+$x69 = $S66->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 62, 9);
-$x68 = $x67($global, $_e, $S64, array('ReferenceError'), false);
+$x70 = $x69($global, $_e, $S66, array($x62), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x66 = $x68;
+$x68 = $x70;
 } else {
-if (!$U64) {$x66 = 'ReferenceError';if ($W64) { $x64 = 'ReferenceError'; }  }
-else { $x66 = JS::$undefined; }
+if (!$U66) {$x68 = $x62;if ($W66) { $x66 = $x62; }  }
+else { $x68 = JS::$undefined; }
 }
 if (isset($_e->class) && $_e->class === 'Array' &&  is_int('name') && 'name' >= $_e->properties['length']) { $_e->properties['length'] = 'name' + 1; };
 $_e->prototype =$_ReferenceError->properties['prototype'];
@@ -300,7 +302,7 @@ return $_e;
 ;
 return JS::$undefined;
 }
-echo 'function _89174112e855facd9d2f6198b727df5b_6($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x48=&$scope->properties[\'arguments\'];$x48->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x48->properties[$i]=$args[$i];$x48->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'ReferenceError\']=$fn;$_ReferenceError=&$scope->properties[\'ReferenceError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x51=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',61,14,\'<image>/11_error.js\');$_Error=&$x51[0];list(,$WError,$SError,$UError)=$x51;if($UError){$x52=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',61,14);$x53=$x52($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x53->class)&&$x53->class===\'Error\'){$x53->properties[\'file\']=\'<image>/11_error.js\';$x53->properties[\'line\']=61;$x53->properties[\'column\']=14;$x53->attributes[\'file\']=$x53->attributes[\'line\']=$x53->attributes[\'column\']=0;}throw new JSException($x53,61,14,\'<image>/11_error.js\');}$x49=clone JS::$objectTemplate;unset($x54,$W54,$S54,$U54);$x55=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',61,10,\'<image>/11_error.js\');$x54=&$x55[0];list(,$W54,$S54,$U54)=$x55;$x50=$x54;$x49->prototype=$x50;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x58=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',61,10,\'<image>/11_error.js\');$_TypeError=&$x58[0];list(,$WTypeError,$STypeError,$UTypeError)=$x58;$x59=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',61,10);$x60=$x59($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x60->class)&&$x60->class===\'Error\'){$x60->properties[\'file\']=\'<image>/11_error.js\';$x60->properties[\'line\']=61;$x60->properties[\'column\']=10;$x60->attributes[\'file\']=$x60->attributes[\'line\']=$x60->attributes[\'column\']=0;}throw new JSException($x60,61,10,\'<image>/11_error.js\');}$x56=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',61,10);$x57=$x56($global,$x49,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x50=$x57;if(is_object($x50)&&$x50!==JS::$undefined){$x49=$x50;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x49;if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x61=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',62,9,\'<image>/11_error.js\');$_TypeError=&$x61[0];list(,$WTypeError,$STypeError,$UTypeError)=$x61;$x62=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',62,9);$x63=$x62($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x63->class)&&$x63->class===\'Error\'){$x63->properties[\'file\']=\'<image>/11_error.js\';$x63->properties[\'line\']=62;$x63->properties[\'column\']=9;$x63->attributes[\'file\']=$x63->attributes[\'line\']=$x63->attributes[\'column\']=0;}throw new JSException($x63,62,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x64,$W64,$S64,$U64);$x65=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',62,9,\'<image>/11_error.js\');$x64=&$x65[0];list(,$W64,$S64,$U64)=$x65;if($U64&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x64;$x64=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U64=FALSE;$W64=TRUE;}if(isset($S64)){$x67=$S64->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',62,9);$x68=$x67($global,$_e,$S64,array(\'ReferenceError\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x66=$x68;}else{if(!$U64){$x66=\'ReferenceError\';if($W64){$x64=\'ReferenceError\';}}else{$x66=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_ReferenceError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
+echo 'function _89174112e855facd9d2f6198b727df5b_6($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x49=&$scope->properties[\'arguments\'];$x49->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x49->properties[$i]=$args[$i];$x49->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'ReferenceError\']=$fn;$_ReferenceError=&$scope->properties[\'ReferenceError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x52=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',61,14,\'<image>/11_error.js\');$_Error=&$x52[0];list(,$WError,$SError,$UError)=$x52;if($UError){$x53=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',61,14);$x54=$x53($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x54->class)&&$x54->class===\'Error\'){$x54->properties[\'file\']=\'<image>/11_error.js\';$x54->properties[\'line\']=61;$x54->properties[\'column\']=14;$x54->attributes[\'file\']=$x54->attributes[\'line\']=$x54->attributes[\'column\']=0;}throw new JSException($x54,61,14,\'<image>/11_error.js\');}$x50=clone JS::$objectTemplate;unset($x55,$W55,$S55,$U55);$x56=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',61,10,\'<image>/11_error.js\');$x55=&$x56[0];list(,$W55,$S55,$U55)=$x56;$x51=$x55;$x50->prototype=$x51;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x59=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',61,10,\'<image>/11_error.js\');$_TypeError=&$x59[0];list(,$WTypeError,$STypeError,$UTypeError)=$x59;$x60=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',61,10);$x61=$x60($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x61->class)&&$x61->class===\'Error\'){$x61->properties[\'file\']=\'<image>/11_error.js\';$x61->properties[\'line\']=61;$x61->properties[\'column\']=10;$x61->attributes[\'file\']=$x61->attributes[\'line\']=$x61->attributes[\'column\']=0;}throw new JSException($x61,61,10,\'<image>/11_error.js\');}$x57=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',61,10);$x58=$x57($global,$x50,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x51=$x58;if(is_object($x51)&&$x51!==JS::$undefined){$x50=$x51;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x50;$x62=\'ReferenceError\';if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x63=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',62,9,\'<image>/11_error.js\');$_TypeError=&$x63[0];list(,$WTypeError,$STypeError,$UTypeError)=$x63;$x64=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',62,9);$x65=$x64($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x65->class)&&$x65->class===\'Error\'){$x65->properties[\'file\']=\'<image>/11_error.js\';$x65->properties[\'line\']=62;$x65->properties[\'column\']=9;$x65->attributes[\'file\']=$x65->attributes[\'line\']=$x65->attributes[\'column\']=0;}throw new JSException($x65,62,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x66,$W66,$S66,$U66);$x67=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',62,9,\'<image>/11_error.js\');$x66=&$x67[0];list(,$W66,$S66,$U66)=$x67;if($U66&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x66;$x66=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U66=FALSE;$W66=TRUE;}if(isset($S66)){$x69=$S66->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',62,9);$x70=$x69($global,$_e,$S66,array($x62),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x68=$x70;}else{if(!$U66){$x68=$x62;if($W66){$x66=$x62;}}else{$x68=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_ReferenceError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
 function _89174112e855facd9d2f6198b727df5b_7($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -308,11 +310,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x71 =& $scope->properties['arguments'];
-$x71->properties['length'] = count($args);
+$x73 =& $scope->properties['arguments'];
+$x73->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x71->properties[$i] = $args[$i];
-$x71->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x73->properties[$i] = $args[$i];
+$x73->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['message'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_message =& $scope->properties['message'];
@@ -321,70 +323,71 @@ $scope->properties['SyntaxError'] = $fn;
 $_SyntaxError =& $scope->properties['SyntaxError'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Error, $WError, $SError, $UError);
-$x74 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 70, 14, '<image>/11_error.js');
-$_Error =& $x74[0]; list(,$WError,$SError,$UError) = $x74;
+$x76 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 70, 14, '<image>/11_error.js');
+$_Error =& $x76[0]; list(,$WError,$SError,$UError) = $x76;
 if ($UError) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x75 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'ReferenceError', 70, 14, '<image>/11_error.js');
-$_ReferenceError =& $x75[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x75;
-$x76 = $_ReferenceError->call;
+$x77 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'ReferenceError', 70, 14, '<image>/11_error.js');
+$_ReferenceError =& $x77[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x77;
+$x78 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 70, 14);
-$x77 = $x76($global, $global, $_ReferenceError, array('Error is not defined'), false);
+$x79 = $x78($global, $global, $_ReferenceError, array('Error is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x77->class) && $x77->class === 'Error') {$x77->properties['file'] = '<image>/11_error.js';$x77->properties['line'] = 70;$x77->properties['column'] = 14;$x77->attributes['file'] = $x77->attributes['line'] = $x77->attributes['column'] = 0; }
-throw new JSException($x77, 70, 14, '<image>/11_error.js');
+if (isset($x79->class) && $x79->class === 'Error') {$x79->properties['file'] = '<image>/11_error.js';$x79->properties['line'] = 70;$x79->properties['column'] = 14;$x79->attributes['file'] = $x79->attributes['line'] = $x79->attributes['column'] = 0; }
+throw new JSException($x79, 70, 14, '<image>/11_error.js');
 }
-$x72 = clone JS::$objectTemplate;
-unset($x78, $W78, $S78, $U78);
-$x79 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 70, 10, '<image>/11_error.js');
-$x78 =& $x79[0]; list(,$W78,$S78,$U78) = $x79;
-$x73 = $x78;
-$x72->prototype = $x73;
+$x74 = clone JS::$objectTemplate;
+unset($x80, $W80, $S80, $U80);
+$x81 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 70, 10, '<image>/11_error.js');
+$x80 =& $x81[0]; list(,$W80,$S80,$U80) = $x81;
+$x75 = $x80;
+$x74->prototype = $x75;
 if (!(is_object($_Error) && isset($_Error->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x82 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 70, 10, '<image>/11_error.js');
-$_TypeError =& $x82[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x82;
-$x83 = $_TypeError->call;
+$x84 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 70, 10, '<image>/11_error.js');
+$_TypeError =& $x84[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x84;
+$x85 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 70, 10);
-$x84 = $x83($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
+$x86 = $x85($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x84->class) && $x84->class === 'Error') {$x84->properties['file'] = '<image>/11_error.js';$x84->properties['line'] = 70;$x84->properties['column'] = 10;$x84->attributes['file'] = $x84->attributes['line'] = $x84->attributes['column'] = 0; }
-throw new JSException($x84, 70, 10, '<image>/11_error.js');
+if (isset($x86->class) && $x86->class === 'Error') {$x86->properties['file'] = '<image>/11_error.js';$x86->properties['line'] = 70;$x86->properties['column'] = 10;$x86->attributes['file'] = $x86->attributes['line'] = $x86->attributes['column'] = 0; }
+throw new JSException($x86, 70, 10, '<image>/11_error.js');
 }
-$x80 = $_Error->call;
+$x82 = $_Error->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 70, 10);
-$x81 = $x80($global, $x72, $_Error, array($_message), true);
+$x83 = $x82($global, $x74, $_Error, array($_message), true);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x73 = $x81;
-if (is_object($x73) && $x73 !== JS::$undefined) { $x72 = $x73; }
+$x75 = $x83;
+if (is_object($x75) && $x75 !== JS::$undefined) { $x74 = $x75; }
 $scope->properties['e'] = JS::$undefined; $_e =& $scope->properties['e'];
 $Ue = FALSE;
-$_e = $x72;
+$_e = $x74;
+$x87 = 'SyntaxError';
 if ($_e === JS::$undefined || $_e === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x85 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 71, 9, '<image>/11_error.js');
-$_TypeError =& $x85[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x85;
-$x86 = $_TypeError->call;
+$x88 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 71, 9, '<image>/11_error.js');
+$_TypeError =& $x88[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x88;
+$x89 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 71, 9);
-$x87 = $x86($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x90 = $x89($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x87->class) && $x87->class === 'Error') {$x87->properties['file'] = '<image>/11_error.js';$x87->properties['line'] = 71;$x87->properties['column'] = 9;$x87->attributes['file'] = $x87->attributes['line'] = $x87->attributes['column'] = 0; }
-throw new JSException($x87, 71, 9, '<image>/11_error.js');
+if (isset($x90->class) && $x90->class === 'Error') {$x90->properties['file'] = '<image>/11_error.js';$x90->properties['line'] = 71;$x90->properties['column'] = 9;$x90->attributes['file'] = $x90->attributes['line'] = $x90->attributes['column'] = 0; }
+throw new JSException($x90, 71, 9, '<image>/11_error.js');
 }
 $_e = JS::toObject($_e, $global);
-unset($x88, $W88, $S88, $U88);
-$x89 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 71, 9, '<image>/11_error.js');
-$x88 =& $x89[0]; list(,$W88,$S88,$U88) = $x89;
-if ($U88 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x88; $x88 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U88 = FALSE; $W88 = TRUE; }
-if (isset($S88)) {
-$x91 = $S88->call;
+unset($x91, $W91, $S91, $U91);
+$x92 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 71, 9, '<image>/11_error.js');
+$x91 =& $x92[0]; list(,$W91,$S91,$U91) = $x92;
+if ($U91 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x91; $x91 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U91 = FALSE; $W91 = TRUE; }
+if (isset($S91)) {
+$x94 = $S91->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 71, 9);
-$x92 = $x91($global, $_e, $S88, array('SyntaxError'), false);
+$x95 = $x94($global, $_e, $S91, array($x87), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x90 = $x92;
+$x93 = $x95;
 } else {
-if (!$U88) {$x90 = 'SyntaxError';if ($W88) { $x88 = 'SyntaxError'; }  }
-else { $x90 = JS::$undefined; }
+if (!$U91) {$x93 = $x87;if ($W91) { $x91 = $x87; }  }
+else { $x93 = JS::$undefined; }
 }
 if (isset($_e->class) && $_e->class === 'Array' &&  is_int('name') && 'name' >= $_e->properties['length']) { $_e->properties['length'] = 'name' + 1; };
 $_e->prototype =$_SyntaxError->properties['prototype'];
@@ -392,7 +395,7 @@ return $_e;
 ;
 return JS::$undefined;
 }
-echo 'function _89174112e855facd9d2f6198b727df5b_7($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x71=&$scope->properties[\'arguments\'];$x71->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x71->properties[$i]=$args[$i];$x71->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'SyntaxError\']=$fn;$_SyntaxError=&$scope->properties[\'SyntaxError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x74=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',70,14,\'<image>/11_error.js\');$_Error=&$x74[0];list(,$WError,$SError,$UError)=$x74;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x75=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',70,14,\'<image>/11_error.js\');$_ReferenceError=&$x75[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x75;$x76=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',70,14);$x77=$x76($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x77->class)&&$x77->class===\'Error\'){$x77->properties[\'file\']=\'<image>/11_error.js\';$x77->properties[\'line\']=70;$x77->properties[\'column\']=14;$x77->attributes[\'file\']=$x77->attributes[\'line\']=$x77->attributes[\'column\']=0;}throw new JSException($x77,70,14,\'<image>/11_error.js\');}$x72=clone JS::$objectTemplate;unset($x78,$W78,$S78,$U78);$x79=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',70,10,\'<image>/11_error.js\');$x78=&$x79[0];list(,$W78,$S78,$U78)=$x79;$x73=$x78;$x72->prototype=$x73;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x82=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',70,10,\'<image>/11_error.js\');$_TypeError=&$x82[0];list(,$WTypeError,$STypeError,$UTypeError)=$x82;$x83=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',70,10);$x84=$x83($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x84->class)&&$x84->class===\'Error\'){$x84->properties[\'file\']=\'<image>/11_error.js\';$x84->properties[\'line\']=70;$x84->properties[\'column\']=10;$x84->attributes[\'file\']=$x84->attributes[\'line\']=$x84->attributes[\'column\']=0;}throw new JSException($x84,70,10,\'<image>/11_error.js\');}$x80=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',70,10);$x81=$x80($global,$x72,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x73=$x81;if(is_object($x73)&&$x73!==JS::$undefined){$x72=$x73;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x72;if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x85=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',71,9,\'<image>/11_error.js\');$_TypeError=&$x85[0];list(,$WTypeError,$STypeError,$UTypeError)=$x85;$x86=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',71,9);$x87=$x86($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x87->class)&&$x87->class===\'Error\'){$x87->properties[\'file\']=\'<image>/11_error.js\';$x87->properties[\'line\']=71;$x87->properties[\'column\']=9;$x87->attributes[\'file\']=$x87->attributes[\'line\']=$x87->attributes[\'column\']=0;}throw new JSException($x87,71,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x88,$W88,$S88,$U88);$x89=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',71,9,\'<image>/11_error.js\');$x88=&$x89[0];list(,$W88,$S88,$U88)=$x89;if($U88&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x88;$x88=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U88=FALSE;$W88=TRUE;}if(isset($S88)){$x91=$S88->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',71,9);$x92=$x91($global,$_e,$S88,array(\'SyntaxError\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x90=$x92;}else{if(!$U88){$x90=\'SyntaxError\';if($W88){$x88=\'SyntaxError\';}}else{$x90=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_SyntaxError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
+echo 'function _89174112e855facd9d2f6198b727df5b_7($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x73=&$scope->properties[\'arguments\'];$x73->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x73->properties[$i]=$args[$i];$x73->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'SyntaxError\']=$fn;$_SyntaxError=&$scope->properties[\'SyntaxError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x76=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',70,14,\'<image>/11_error.js\');$_Error=&$x76[0];list(,$WError,$SError,$UError)=$x76;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x77=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',70,14,\'<image>/11_error.js\');$_ReferenceError=&$x77[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x77;$x78=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',70,14);$x79=$x78($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x79->class)&&$x79->class===\'Error\'){$x79->properties[\'file\']=\'<image>/11_error.js\';$x79->properties[\'line\']=70;$x79->properties[\'column\']=14;$x79->attributes[\'file\']=$x79->attributes[\'line\']=$x79->attributes[\'column\']=0;}throw new JSException($x79,70,14,\'<image>/11_error.js\');}$x74=clone JS::$objectTemplate;unset($x80,$W80,$S80,$U80);$x81=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',70,10,\'<image>/11_error.js\');$x80=&$x81[0];list(,$W80,$S80,$U80)=$x81;$x75=$x80;$x74->prototype=$x75;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x84=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',70,10,\'<image>/11_error.js\');$_TypeError=&$x84[0];list(,$WTypeError,$STypeError,$UTypeError)=$x84;$x85=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',70,10);$x86=$x85($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x86->class)&&$x86->class===\'Error\'){$x86->properties[\'file\']=\'<image>/11_error.js\';$x86->properties[\'line\']=70;$x86->properties[\'column\']=10;$x86->attributes[\'file\']=$x86->attributes[\'line\']=$x86->attributes[\'column\']=0;}throw new JSException($x86,70,10,\'<image>/11_error.js\');}$x82=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',70,10);$x83=$x82($global,$x74,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x75=$x83;if(is_object($x75)&&$x75!==JS::$undefined){$x74=$x75;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x74;$x87=\'SyntaxError\';if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x88=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',71,9,\'<image>/11_error.js\');$_TypeError=&$x88[0];list(,$WTypeError,$STypeError,$UTypeError)=$x88;$x89=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',71,9);$x90=$x89($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x90->class)&&$x90->class===\'Error\'){$x90->properties[\'file\']=\'<image>/11_error.js\';$x90->properties[\'line\']=71;$x90->properties[\'column\']=9;$x90->attributes[\'file\']=$x90->attributes[\'line\']=$x90->attributes[\'column\']=0;}throw new JSException($x90,71,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x91,$W91,$S91,$U91);$x92=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',71,9,\'<image>/11_error.js\');$x91=&$x92[0];list(,$W91,$S91,$U91)=$x92;if($U91&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x91;$x91=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U91=FALSE;$W91=TRUE;}if(isset($S91)){$x94=$S91->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',71,9);$x95=$x94($global,$_e,$S91,array($x87),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x93=$x95;}else{if(!$U91){$x93=$x87;if($W91){$x91=$x87;}}else{$x93=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_SyntaxError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
 function _89174112e855facd9d2f6198b727df5b_8($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -400,11 +403,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x95 =& $scope->properties['arguments'];
-$x95->properties['length'] = count($args);
+$x98 =& $scope->properties['arguments'];
+$x98->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x95->properties[$i] = $args[$i];
-$x95->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x98->properties[$i] = $args[$i];
+$x98->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['message'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_message =& $scope->properties['message'];
@@ -413,64 +416,65 @@ $scope->properties['TypeError'] = $fn;
 $_TypeError =& $scope->properties['TypeError'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Error, $WError, $SError, $UError);
-$x98 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 79, 14, '<image>/11_error.js');
-$_Error =& $x98[0]; list(,$WError,$SError,$UError) = $x98;
+$x101 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 79, 14, '<image>/11_error.js');
+$_Error =& $x101[0]; list(,$WError,$SError,$UError) = $x101;
 if ($UError) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x99 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'ReferenceError', 79, 14, '<image>/11_error.js');
-$_ReferenceError =& $x99[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x99;
-$x100 = $_ReferenceError->call;
+$x102 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'ReferenceError', 79, 14, '<image>/11_error.js');
+$_ReferenceError =& $x102[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x102;
+$x103 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 79, 14);
-$x101 = $x100($global, $global, $_ReferenceError, array('Error is not defined'), false);
+$x104 = $x103($global, $global, $_ReferenceError, array('Error is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x101->class) && $x101->class === 'Error') {$x101->properties['file'] = '<image>/11_error.js';$x101->properties['line'] = 79;$x101->properties['column'] = 14;$x101->attributes['file'] = $x101->attributes['line'] = $x101->attributes['column'] = 0; }
-throw new JSException($x101, 79, 14, '<image>/11_error.js');
+if (isset($x104->class) && $x104->class === 'Error') {$x104->properties['file'] = '<image>/11_error.js';$x104->properties['line'] = 79;$x104->properties['column'] = 14;$x104->attributes['file'] = $x104->attributes['line'] = $x104->attributes['column'] = 0; }
+throw new JSException($x104, 79, 14, '<image>/11_error.js');
 }
-$x96 = clone JS::$objectTemplate;
-unset($x102, $W102, $S102, $U102);
-$x103 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 79, 10, '<image>/11_error.js');
-$x102 =& $x103[0]; list(,$W102,$S102,$U102) = $x103;
-$x97 = $x102;
-$x96->prototype = $x97;
+$x99 = clone JS::$objectTemplate;
+unset($x105, $W105, $S105, $U105);
+$x106 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 79, 10, '<image>/11_error.js');
+$x105 =& $x106[0]; list(,$W105,$S105,$U105) = $x106;
+$x100 = $x105;
+$x99->prototype = $x100;
 if (!(is_object($_Error) && isset($_Error->call))) { 
-$x106 = $_TypeError->call;
+$x109 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 79, 10);
-$x107 = $x106($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
+$x110 = $x109($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x107->class) && $x107->class === 'Error') {$x107->properties['file'] = '<image>/11_error.js';$x107->properties['line'] = 79;$x107->properties['column'] = 10;$x107->attributes['file'] = $x107->attributes['line'] = $x107->attributes['column'] = 0; }
-throw new JSException($x107, 79, 10, '<image>/11_error.js');
+if (isset($x110->class) && $x110->class === 'Error') {$x110->properties['file'] = '<image>/11_error.js';$x110->properties['line'] = 79;$x110->properties['column'] = 10;$x110->attributes['file'] = $x110->attributes['line'] = $x110->attributes['column'] = 0; }
+throw new JSException($x110, 79, 10, '<image>/11_error.js');
 }
-$x104 = $_Error->call;
+$x107 = $_Error->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 79, 10);
-$x105 = $x104($global, $x96, $_Error, array($_message), true);
+$x108 = $x107($global, $x99, $_Error, array($_message), true);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x97 = $x105;
-if (is_object($x97) && $x97 !== JS::$undefined) { $x96 = $x97; }
+$x100 = $x108;
+if (is_object($x100) && $x100 !== JS::$undefined) { $x99 = $x100; }
 $scope->properties['e'] = JS::$undefined; $_e =& $scope->properties['e'];
 $Ue = FALSE;
-$_e = $x96;
+$_e = $x99;
+$x111 = 'TypeError';
 if ($_e === JS::$undefined || $_e === NULL) {
-$x108 = $_TypeError->call;
+$x112 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 80, 9);
-$x109 = $x108($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x113 = $x112($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x109->class) && $x109->class === 'Error') {$x109->properties['file'] = '<image>/11_error.js';$x109->properties['line'] = 80;$x109->properties['column'] = 9;$x109->attributes['file'] = $x109->attributes['line'] = $x109->attributes['column'] = 0; }
-throw new JSException($x109, 80, 9, '<image>/11_error.js');
+if (isset($x113->class) && $x113->class === 'Error') {$x113->properties['file'] = '<image>/11_error.js';$x113->properties['line'] = 80;$x113->properties['column'] = 9;$x113->attributes['file'] = $x113->attributes['line'] = $x113->attributes['column'] = 0; }
+throw new JSException($x113, 80, 9, '<image>/11_error.js');
 }
 $_e = JS::toObject($_e, $global);
-unset($x110, $W110, $S110, $U110);
-$x111 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 80, 9, '<image>/11_error.js');
-$x110 =& $x111[0]; list(,$W110,$S110,$U110) = $x111;
-if ($U110 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x110; $x110 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U110 = FALSE; $W110 = TRUE; }
-if (isset($S110)) {
-$x113 = $S110->call;
+unset($x114, $W114, $S114, $U114);
+$x115 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 80, 9, '<image>/11_error.js');
+$x114 =& $x115[0]; list(,$W114,$S114,$U114) = $x115;
+if ($U114 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x114; $x114 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U114 = FALSE; $W114 = TRUE; }
+if (isset($S114)) {
+$x117 = $S114->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 80, 9);
-$x114 = $x113($global, $_e, $S110, array('TypeError'), false);
+$x118 = $x117($global, $_e, $S114, array($x111), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x112 = $x114;
+$x116 = $x118;
 } else {
-if (!$U110) {$x112 = 'TypeError';if ($W110) { $x110 = 'TypeError'; }  }
-else { $x112 = JS::$undefined; }
+if (!$U114) {$x116 = $x111;if ($W114) { $x114 = $x111; }  }
+else { $x116 = JS::$undefined; }
 }
 if (isset($_e->class) && $_e->class === 'Array' &&  is_int('name') && 'name' >= $_e->properties['length']) { $_e->properties['length'] = 'name' + 1; };
 $_e->prototype =$_TypeError->properties['prototype'];
@@ -478,7 +482,7 @@ return $_e;
 ;
 return JS::$undefined;
 }
-echo 'function _89174112e855facd9d2f6198b727df5b_8($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x95=&$scope->properties[\'arguments\'];$x95->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x95->properties[$i]=$args[$i];$x95->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'TypeError\']=$fn;$_TypeError=&$scope->properties[\'TypeError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x98=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',79,14,\'<image>/11_error.js\');$_Error=&$x98[0];list(,$WError,$SError,$UError)=$x98;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x99=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',79,14,\'<image>/11_error.js\');$_ReferenceError=&$x99[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x99;$x100=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',79,14);$x101=$x100($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x101->class)&&$x101->class===\'Error\'){$x101->properties[\'file\']=\'<image>/11_error.js\';$x101->properties[\'line\']=79;$x101->properties[\'column\']=14;$x101->attributes[\'file\']=$x101->attributes[\'line\']=$x101->attributes[\'column\']=0;}throw new JSException($x101,79,14,\'<image>/11_error.js\');}$x96=clone JS::$objectTemplate;unset($x102,$W102,$S102,$U102);$x103=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',79,10,\'<image>/11_error.js\');$x102=&$x103[0];list(,$W102,$S102,$U102)=$x103;$x97=$x102;$x96->prototype=$x97;if(!(is_object($_Error)&&isset($_Error->call))){$x106=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',79,10);$x107=$x106($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x107->class)&&$x107->class===\'Error\'){$x107->properties[\'file\']=\'<image>/11_error.js\';$x107->properties[\'line\']=79;$x107->properties[\'column\']=10;$x107->attributes[\'file\']=$x107->attributes[\'line\']=$x107->attributes[\'column\']=0;}throw new JSException($x107,79,10,\'<image>/11_error.js\');}$x104=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',79,10);$x105=$x104($global,$x96,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x97=$x105;if(is_object($x97)&&$x97!==JS::$undefined){$x96=$x97;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x96;if($_e===JS::$undefined||$_e===NULL){$x108=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',80,9);$x109=$x108($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x109->class)&&$x109->class===\'Error\'){$x109->properties[\'file\']=\'<image>/11_error.js\';$x109->properties[\'line\']=80;$x109->properties[\'column\']=9;$x109->attributes[\'file\']=$x109->attributes[\'line\']=$x109->attributes[\'column\']=0;}throw new JSException($x109,80,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x110,$W110,$S110,$U110);$x111=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',80,9,\'<image>/11_error.js\');$x110=&$x111[0];list(,$W110,$S110,$U110)=$x111;if($U110&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x110;$x110=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U110=FALSE;$W110=TRUE;}if(isset($S110)){$x113=$S110->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',80,9);$x114=$x113($global,$_e,$S110,array(\'TypeError\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x112=$x114;}else{if(!$U110){$x112=\'TypeError\';if($W110){$x110=\'TypeError\';}}else{$x112=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_TypeError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
+echo 'function _89174112e855facd9d2f6198b727df5b_8($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x98=&$scope->properties[\'arguments\'];$x98->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x98->properties[$i]=$args[$i];$x98->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'TypeError\']=$fn;$_TypeError=&$scope->properties[\'TypeError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x101=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',79,14,\'<image>/11_error.js\');$_Error=&$x101[0];list(,$WError,$SError,$UError)=$x101;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x102=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',79,14,\'<image>/11_error.js\');$_ReferenceError=&$x102[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x102;$x103=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',79,14);$x104=$x103($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x104->class)&&$x104->class===\'Error\'){$x104->properties[\'file\']=\'<image>/11_error.js\';$x104->properties[\'line\']=79;$x104->properties[\'column\']=14;$x104->attributes[\'file\']=$x104->attributes[\'line\']=$x104->attributes[\'column\']=0;}throw new JSException($x104,79,14,\'<image>/11_error.js\');}$x99=clone JS::$objectTemplate;unset($x105,$W105,$S105,$U105);$x106=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',79,10,\'<image>/11_error.js\');$x105=&$x106[0];list(,$W105,$S105,$U105)=$x106;$x100=$x105;$x99->prototype=$x100;if(!(is_object($_Error)&&isset($_Error->call))){$x109=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',79,10);$x110=$x109($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x110->class)&&$x110->class===\'Error\'){$x110->properties[\'file\']=\'<image>/11_error.js\';$x110->properties[\'line\']=79;$x110->properties[\'column\']=10;$x110->attributes[\'file\']=$x110->attributes[\'line\']=$x110->attributes[\'column\']=0;}throw new JSException($x110,79,10,\'<image>/11_error.js\');}$x107=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',79,10);$x108=$x107($global,$x99,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x100=$x108;if(is_object($x100)&&$x100!==JS::$undefined){$x99=$x100;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x99;$x111=\'TypeError\';if($_e===JS::$undefined||$_e===NULL){$x112=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',80,9);$x113=$x112($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x113->class)&&$x113->class===\'Error\'){$x113->properties[\'file\']=\'<image>/11_error.js\';$x113->properties[\'line\']=80;$x113->properties[\'column\']=9;$x113->attributes[\'file\']=$x113->attributes[\'line\']=$x113->attributes[\'column\']=0;}throw new JSException($x113,80,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x114,$W114,$S114,$U114);$x115=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',80,9,\'<image>/11_error.js\');$x114=&$x115[0];list(,$W114,$S114,$U114)=$x115;if($U114&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x114;$x114=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U114=FALSE;$W114=TRUE;}if(isset($S114)){$x117=$S114->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',80,9);$x118=$x117($global,$_e,$S114,array($x111),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x116=$x118;}else{if(!$U114){$x116=$x111;if($W114){$x114=$x111;}}else{$x116=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_TypeError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
 function _89174112e855facd9d2f6198b727df5b_9($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -486,11 +490,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x117 =& $scope->properties['arguments'];
-$x117->properties['length'] = count($args);
+$x121 =& $scope->properties['arguments'];
+$x121->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x117->properties[$i] = $args[$i];
-$x117->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x121->properties[$i] = $args[$i];
+$x121->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['message'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_message =& $scope->properties['message'];
@@ -499,70 +503,71 @@ $scope->properties['NotImplementedError'] = $fn;
 $_NotImplementedError =& $scope->properties['NotImplementedError'];
 $global->scope[++$global->scope_sp] = $scope;
 unset($_Error, $WError, $SError, $UError);
-$x120 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 89, 14, '<image>/11_error.js');
-$_Error =& $x120[0]; list(,$WError,$SError,$UError) = $x120;
+$x124 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Error', 89, 14, '<image>/11_error.js');
+$_Error =& $x124[0]; list(,$WError,$SError,$UError) = $x124;
 if ($UError) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x121 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'ReferenceError', 89, 14, '<image>/11_error.js');
-$_ReferenceError =& $x121[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x121;
-$x122 = $_ReferenceError->call;
+$x125 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'ReferenceError', 89, 14, '<image>/11_error.js');
+$_ReferenceError =& $x125[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x125;
+$x126 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 89, 14);
-$x123 = $x122($global, $global, $_ReferenceError, array('Error is not defined'), false);
+$x127 = $x126($global, $global, $_ReferenceError, array('Error is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x123->class) && $x123->class === 'Error') {$x123->properties['file'] = '<image>/11_error.js';$x123->properties['line'] = 89;$x123->properties['column'] = 14;$x123->attributes['file'] = $x123->attributes['line'] = $x123->attributes['column'] = 0; }
-throw new JSException($x123, 89, 14, '<image>/11_error.js');
+if (isset($x127->class) && $x127->class === 'Error') {$x127->properties['file'] = '<image>/11_error.js';$x127->properties['line'] = 89;$x127->properties['column'] = 14;$x127->attributes['file'] = $x127->attributes['line'] = $x127->attributes['column'] = 0; }
+throw new JSException($x127, 89, 14, '<image>/11_error.js');
 }
-$x118 = clone JS::$objectTemplate;
-unset($x124, $W124, $S124, $U124);
-$x125 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 89, 10, '<image>/11_error.js');
-$x124 =& $x125[0]; list(,$W124,$S124,$U124) = $x125;
-$x119 = $x124;
-$x118->prototype = $x119;
+$x122 = clone JS::$objectTemplate;
+unset($x128, $W128, $S128, $U128);
+$x129 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 89, 10, '<image>/11_error.js');
+$x128 =& $x129[0]; list(,$W128,$S128,$U128) = $x129;
+$x123 = $x128;
+$x122->prototype = $x123;
 if (!(is_object($_Error) && isset($_Error->call))) { 
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x128 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 89, 10, '<image>/11_error.js');
-$_TypeError =& $x128[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x128;
-$x129 = $_TypeError->call;
+$x132 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 89, 10, '<image>/11_error.js');
+$_TypeError =& $x132[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x132;
+$x133 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 89, 10);
-$x130 = $x129($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
+$x134 = $x133($global, $global, $_TypeError, array('Trying to call what is not a function.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x130->class) && $x130->class === 'Error') {$x130->properties['file'] = '<image>/11_error.js';$x130->properties['line'] = 89;$x130->properties['column'] = 10;$x130->attributes['file'] = $x130->attributes['line'] = $x130->attributes['column'] = 0; }
-throw new JSException($x130, 89, 10, '<image>/11_error.js');
+if (isset($x134->class) && $x134->class === 'Error') {$x134->properties['file'] = '<image>/11_error.js';$x134->properties['line'] = 89;$x134->properties['column'] = 10;$x134->attributes['file'] = $x134->attributes['line'] = $x134->attributes['column'] = 0; }
+throw new JSException($x134, 89, 10, '<image>/11_error.js');
 }
-$x126 = $_Error->call;
+$x130 = $_Error->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 89, 10);
-$x127 = $x126($global, $x118, $_Error, array($_message), true);
+$x131 = $x130($global, $x122, $_Error, array($_message), true);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x119 = $x127;
-if (is_object($x119) && $x119 !== JS::$undefined) { $x118 = $x119; }
+$x123 = $x131;
+if (is_object($x123) && $x123 !== JS::$undefined) { $x122 = $x123; }
 $scope->properties['e'] = JS::$undefined; $_e =& $scope->properties['e'];
 $Ue = FALSE;
-$_e = $x118;
+$_e = $x122;
+$x135 = 'NotImplementedError';
 if ($_e === JS::$undefined || $_e === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x131 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 90, 9, '<image>/11_error.js');
-$_TypeError =& $x131[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x131;
-$x132 = $_TypeError->call;
+$x136 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'TypeError', 90, 9, '<image>/11_error.js');
+$_TypeError =& $x136[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x136;
+$x137 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 90, 9);
-$x133 = $x132($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x138 = $x137($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x133->class) && $x133->class === 'Error') {$x133->properties['file'] = '<image>/11_error.js';$x133->properties['line'] = 90;$x133->properties['column'] = 9;$x133->attributes['file'] = $x133->attributes['line'] = $x133->attributes['column'] = 0; }
-throw new JSException($x133, 90, 9, '<image>/11_error.js');
+if (isset($x138->class) && $x138->class === 'Error') {$x138->properties['file'] = '<image>/11_error.js';$x138->properties['line'] = 90;$x138->properties['column'] = 9;$x138->attributes['file'] = $x138->attributes['line'] = $x138->attributes['column'] = 0; }
+throw new JSException($x138, 90, 9, '<image>/11_error.js');
 }
 $_e = JS::toObject($_e, $global);
-unset($x134, $W134, $S134, $U134);
-$x135 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 90, 9, '<image>/11_error.js');
-$x134 =& $x135[0]; list(,$W134,$S134,$U134) = $x135;
-if ($U134 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x134; $x134 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U134 = FALSE; $W134 = TRUE; }
-if (isset($S134)) {
-$x137 = $S134->call;
+unset($x139, $W139, $S139, $U139);
+$x140 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_e, (string) 'name', 90, 9, '<image>/11_error.js');
+$x139 =& $x140[0]; list(,$W139,$S139,$U139) = $x140;
+if ($U139 && (!isset($_e->extensible) || $_e->extensible)) {$_e->properties['name'] = $x139; $x139 =& $_e->properties['name']; $_e->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U139 = FALSE; $W139 = TRUE; }
+if (isset($S139)) {
+$x142 = $S139->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 90, 9);
-$x138 = $x137($global, $_e, $S134, array('NotImplementedError'), false);
+$x143 = $x142($global, $_e, $S139, array($x135), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x136 = $x138;
+$x141 = $x143;
 } else {
-if (!$U134) {$x136 = 'NotImplementedError';if ($W134) { $x134 = 'NotImplementedError'; }  }
-else { $x136 = JS::$undefined; }
+if (!$U139) {$x141 = $x135;if ($W139) { $x139 = $x135; }  }
+else { $x141 = JS::$undefined; }
 }
 if (isset($_e->class) && $_e->class === 'Array' &&  is_int('name') && 'name' >= $_e->properties['length']) { $_e->properties['length'] = 'name' + 1; };
 $_e->prototype =$_NotImplementedError->properties['prototype'];
@@ -570,7 +575,7 @@ return $_e;
 ;
 return JS::$undefined;
 }
-echo 'function _89174112e855facd9d2f6198b727df5b_9($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x117=&$scope->properties[\'arguments\'];$x117->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x117->properties[$i]=$args[$i];$x117->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'NotImplementedError\']=$fn;$_NotImplementedError=&$scope->properties[\'NotImplementedError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x120=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',89,14,\'<image>/11_error.js\');$_Error=&$x120[0];list(,$WError,$SError,$UError)=$x120;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x121=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',89,14,\'<image>/11_error.js\');$_ReferenceError=&$x121[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x121;$x122=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',89,14);$x123=$x122($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x123->class)&&$x123->class===\'Error\'){$x123->properties[\'file\']=\'<image>/11_error.js\';$x123->properties[\'line\']=89;$x123->properties[\'column\']=14;$x123->attributes[\'file\']=$x123->attributes[\'line\']=$x123->attributes[\'column\']=0;}throw new JSException($x123,89,14,\'<image>/11_error.js\');}$x118=clone JS::$objectTemplate;unset($x124,$W124,$S124,$U124);$x125=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',89,10,\'<image>/11_error.js\');$x124=&$x125[0];list(,$W124,$S124,$U124)=$x125;$x119=$x124;$x118->prototype=$x119;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x128=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',89,10,\'<image>/11_error.js\');$_TypeError=&$x128[0];list(,$WTypeError,$STypeError,$UTypeError)=$x128;$x129=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',89,10);$x130=$x129($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x130->class)&&$x130->class===\'Error\'){$x130->properties[\'file\']=\'<image>/11_error.js\';$x130->properties[\'line\']=89;$x130->properties[\'column\']=10;$x130->attributes[\'file\']=$x130->attributes[\'line\']=$x130->attributes[\'column\']=0;}throw new JSException($x130,89,10,\'<image>/11_error.js\');}$x126=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',89,10);$x127=$x126($global,$x118,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x119=$x127;if(is_object($x119)&&$x119!==JS::$undefined){$x118=$x119;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x118;if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x131=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',90,9,\'<image>/11_error.js\');$_TypeError=&$x131[0];list(,$WTypeError,$STypeError,$UTypeError)=$x131;$x132=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',90,9);$x133=$x132($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x133->class)&&$x133->class===\'Error\'){$x133->properties[\'file\']=\'<image>/11_error.js\';$x133->properties[\'line\']=90;$x133->properties[\'column\']=9;$x133->attributes[\'file\']=$x133->attributes[\'line\']=$x133->attributes[\'column\']=0;}throw new JSException($x133,90,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x134,$W134,$S134,$U134);$x135=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',90,9,\'<image>/11_error.js\');$x134=&$x135[0];list(,$W134,$S134,$U134)=$x135;if($U134&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x134;$x134=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U134=FALSE;$W134=TRUE;}if(isset($S134)){$x137=$S134->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',90,9);$x138=$x137($global,$_e,$S134,array(\'NotImplementedError\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x136=$x138;}else{if(!$U134){$x136=\'NotImplementedError\';if($W134){$x134=\'NotImplementedError\';}}else{$x136=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_NotImplementedError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
+echo 'function _89174112e855facd9d2f6198b727df5b_9($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x121=&$scope->properties[\'arguments\'];$x121->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x121->properties[$i]=$args[$i];$x121->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'message\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_message=&$scope->properties[\'message\'];$Umessage=FALSE;$scope->properties[\'NotImplementedError\']=$fn;$_NotImplementedError=&$scope->properties[\'NotImplementedError\'];$global->scope[++$global->scope_sp]=$scope;unset($_Error,$WError,$SError,$UError);$x124=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'Error\',89,14,\'<image>/11_error.js\');$_Error=&$x124[0];list(,$WError,$SError,$UError)=$x124;if($UError){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x125=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'ReferenceError\',89,14,\'<image>/11_error.js\');$_ReferenceError=&$x125[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x125;$x126=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',89,14);$x127=$x126($global,$global,$_ReferenceError,array(\'Error is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x127->class)&&$x127->class===\'Error\'){$x127->properties[\'file\']=\'<image>/11_error.js\';$x127->properties[\'line\']=89;$x127->properties[\'column\']=14;$x127->attributes[\'file\']=$x127->attributes[\'line\']=$x127->attributes[\'column\']=0;}throw new JSException($x127,89,14,\'<image>/11_error.js\');}$x122=clone JS::$objectTemplate;unset($x128,$W128,$S128,$U128);$x129=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$_Error,(string)\'prototype\',89,10,\'<image>/11_error.js\');$x128=&$x129[0];list(,$W128,$S128,$U128)=$x129;$x123=$x128;$x122->prototype=$x123;if(!(is_object($_Error)&&isset($_Error->call))){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x132=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',89,10,\'<image>/11_error.js\');$_TypeError=&$x132[0];list(,$WTypeError,$STypeError,$UTypeError)=$x132;$x133=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',89,10);$x134=$x133($global,$global,$_TypeError,array(\'Trying to call what is not a function.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x134->class)&&$x134->class===\'Error\'){$x134->properties[\'file\']=\'<image>/11_error.js\';$x134->properties[\'line\']=89;$x134->properties[\'column\']=10;$x134->attributes[\'file\']=$x134->attributes[\'line\']=$x134->attributes[\'column\']=0;}throw new JSException($x134,89,10,\'<image>/11_error.js\');}$x130=$_Error->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',89,10);$x131=$x130($global,$x122,$_Error,array($_message),true);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x123=$x131;if(is_object($x123)&&$x123!==JS::$undefined){$x122=$x123;}$scope->properties[\'e\']=JS::$undefined;$_e=&$scope->properties[\'e\'];$Ue=FALSE;$_e=$x122;$x135=\'NotImplementedError\';if($_e===JS::$undefined||$_e===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x136=_89174112e855facd9d2f6198b727df5b_2($global,$scope,$scope,(string)\'TypeError\',90,9,\'<image>/11_error.js\');$_TypeError=&$x136[0];list(,$WTypeError,$STypeError,$UTypeError)=$x136;$x137=$_TypeError->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',90,9);$x138=$x137($global,$global,$_TypeError,array(\'Cannot assign property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x138->class)&&$x138->class===\'Error\'){$x138->properties[\'file\']=\'<image>/11_error.js\';$x138->properties[\'line\']=90;$x138->properties[\'column\']=9;$x138->attributes[\'file\']=$x138->attributes[\'line\']=$x138->attributes[\'column\']=0;}throw new JSException($x138,90,9,\'<image>/11_error.js\');}$_e=JS::toObject($_e,$global);unset($x139,$W139,$S139,$U139);$x140=_89174112e855facd9d2f6198b727df5b_3($global,$scope,$_e,(string)\'name\',90,9,\'<image>/11_error.js\');$x139=&$x140[0];list(,$W139,$S139,$U139)=$x140;if($U139&&(!isset($_e->extensible)||$_e->extensible)){$_e->properties[\'name\']=$x139;$x139=&$_e->properties[\'name\'];$_e->attributes[\'name\']=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;$U139=FALSE;$W139=TRUE;}if(isset($S139)){$x142=$S139->call;$global->trace[++$global->trace_sp]=array(\'<image>/11_error.js\',90,9);$x143=$x142($global,$_e,$S139,array($x135),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x141=$x143;}else{if(!$U139){$x141=$x135;if($W139){$x139=$x135;}}else{$x141=JS::$undefined;}}if(isset($_e->class)&&$_e->class===\'Array\'&&is_int(\'name\')&&\'name\'>=$_e->properties[\'length\']){$_e->properties[\'length\']=\'name\'+1;}$_e->prototype=$_NotImplementedError->properties[\'prototype\'];return$_e;return JS::$undefined;}', "\n";
 function _89174112e855facd9d2f6198b727df5b_10($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -578,63 +583,65 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x179 =& $scope->properties['arguments'];
-$x179->properties['length'] = count($args);
+$x186 =& $scope->properties['arguments'];
+$x186->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x179->properties[$i] = $args[$i];
-$x179->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x186->properties[$i] = $args[$i];
+$x186->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $global->scope[++$global->scope_sp] = $scope;
-unset($x180, $W180, $S180, $U180);
-$x181 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $leThis, (string) 'name', 26, 17, '<image>/11_error.js');
-$x180 =& $x181[0]; list(,$W180,$S180,$U180) = $x181;
+unset($x187, $W187, $S187, $U187);
+$x188 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $leThis, (string) 'name', 26, 17, '<image>/11_error.js');
+$x187 =& $x188[0]; list(,$W187,$S187,$U187) = $x188;
 $scope->properties['name'] = JS::$undefined; $_name =& $scope->properties['name'];
 $Uname = FALSE;
-$_name = $x180;
-unset($x182, $W182, $S182, $U182);
-$x183 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $leThis, (string) 'message', 26, 34, '<image>/11_error.js');
-$x182 =& $x183[0]; list(,$W182,$S182,$U182) = $x183;
+$_name = $x187;
+unset($x189, $W189, $S189, $U189);
+$x190 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $leThis, (string) 'message', 26, 34, '<image>/11_error.js');
+$x189 =& $x190[0]; list(,$W189,$S189,$U189) = $x190;
 $scope->properties['msg'] = JS::$undefined; $_msg =& $scope->properties['msg'];
 $Umsg = FALSE;
-$_msg = $x182;
-$x184 = (((gettype($_name) === gettype(JS::$undefined) && $_name === JS::$undefined))|| (((is_float($_name) || is_int($_name)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_name == JS::$undefined));
-if (JS::toBoolean($x184, $global)) {
+$_msg = $x189;
+$x191 = (((gettype($_name) === gettype(JS::$undefined) && $_name === JS::$undefined))|| (((is_float($_name) || is_int($_name)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_name == JS::$undefined));
+if (JS::toBoolean($x191, $global)) {
+$x192 = '';
 if ($Uname) {$global->properties['name'] = $_name; $_name =& $global->properties['name']; }
-$_name = '';;
+$_name = $x192;;
 };
-$x185 = (((gettype($_msg) === gettype(JS::$undefined) && $_msg === JS::$undefined))|| (((is_float($_msg) || is_int($_msg)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_msg == JS::$undefined));
-if (JS::toBoolean($x185, $global)) {
+$x193 = (((gettype($_msg) === gettype(JS::$undefined) && $_msg === JS::$undefined))|| (((is_float($_msg) || is_int($_msg)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_msg == JS::$undefined));
+if (JS::toBoolean($x193, $global)) {
+$x194 = '';
 if ($Umsg) {$global->properties['msg'] = $_msg; $_msg =& $global->properties['msg']; }
-$_msg = '';;
+$_msg = $x194;;
 };
-$x187 = (((gettype($_name) === gettype('') && $_name === ''))|| (((is_float($_name) || is_int($_name)) && (is_float('') || is_int(''))) && $_name == ''));
-$x186 = $x187;
-if (JS::toBoolean($x186, $global)) {
-$x188 = (((gettype($_msg) === gettype('') && $_msg === ''))|| (((is_float($_msg) || is_int($_msg)) && (is_float('') || is_int(''))) && $_msg == ''));
-$x186 = $x188; }
-if (JS::toBoolean($x186, $global)) {
+$x196 = (((gettype($_name) === gettype('') && $_name === ''))|| (((is_float($_name) || is_int($_name)) && (is_float('') || is_int(''))) && $_name == ''));
+$x195 = $x196;
+if (JS::toBoolean($x195, $global)) {
+$x197 = (((gettype($_msg) === gettype('') && $_msg === ''))|| (((is_float($_msg) || is_int($_msg)) && (is_float('') || is_int(''))) && $_msg == ''));
+$x195 = $x197; }
+if (JS::toBoolean($x195, $global)) {
 
 return 'Error';;
 };
-$x189 = (((gettype($_name) === gettype('') && $_name === ''))|| (((is_float($_name) || is_int($_name)) && (is_float('') || is_int(''))) && $_name == ''));
-if (JS::toBoolean($x189, $global)) {
+$x198 = (((gettype($_name) === gettype('') && $_name === ''))|| (((is_float($_name) || is_int($_name)) && (is_float('') || is_int(''))) && $_name == ''));
+if (JS::toBoolean($x198, $global)) {
 
 return $_msg;;
 };
-$x190 = (((gettype($_msg) === gettype('') && $_msg === ''))|| (((is_float($_msg) || is_int($_msg)) && (is_float('') || is_int(''))) && $_msg == ''));
-if (JS::toBoolean($x190, $global)) {
+$x199 = (((gettype($_msg) === gettype('') && $_msg === ''))|| (((is_float($_msg) || is_int($_msg)) && (is_float('') || is_int(''))) && $_msg == ''));
+if (JS::toBoolean($x199, $global)) {
 
 return $_name;;
 };
-$x193 = JS::toPrimitive($_name, $global);
-$x194 = JS::toPrimitive(': ', $global);
-$x191 = JS::toPrimitive((is_string($x193) || is_string($x194) ? JS::toString($x193, $global) . JS::toString($x194, $global) : JS::toNumber($x193, $global) + JS::toNumber($x194, $global)), $global);
-$x192 = JS::toPrimitive($_msg, $global);
-return (is_string($x191) || is_string($x192) ? JS::toString($x191, $global) . JS::toString($x192, $global) : JS::toNumber($x191, $global) + JS::toNumber($x192, $global));
+$x202 = JS::toPrimitive($_name, $global);
+$x203 = JS::toPrimitive(': ', $global);
+$x200 = JS::toPrimitive((is_string($x202) || is_string($x203) ? JS::toString($x202, $global) . JS::toString($x203, $global) : JS::toNumber($x202, $global) + JS::toNumber($x203, $global)), $global);
+$x201 = JS::toPrimitive($_msg, $global);
+return (is_string($x200) || is_string($x201) ? JS::toString($x200, $global) . JS::toString($x201, $global) : JS::toNumber($x200, $global) + JS::toNumber($x201, $global));
 ;
 return JS::$undefined;
 }
-echo 'function _89174112e855facd9d2f6198b727df5b_10($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x179=&$scope->properties[\'arguments\'];$x179->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x179->properties[$i]=$args[$i];$x179->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$global->scope[++$global->scope_sp]=$scope;unset($x180,$W180,$S180,$U180);$x181=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$leThis,(string)\'name\',26,17,\'<image>/11_error.js\');$x180=&$x181[0];list(,$W180,$S180,$U180)=$x181;$scope->properties[\'name\']=JS::$undefined;$_name=&$scope->properties[\'name\'];$Uname=FALSE;$_name=$x180;unset($x182,$W182,$S182,$U182);$x183=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$leThis,(string)\'message\',26,34,\'<image>/11_error.js\');$x182=&$x183[0];list(,$W182,$S182,$U182)=$x183;$scope->properties[\'msg\']=JS::$undefined;$_msg=&$scope->properties[\'msg\'];$Umsg=FALSE;$_msg=$x182;$x184=(((gettype($_name)===gettype(JS::$undefined)&&$_name===JS::$undefined))||(((is_float($_name)||is_int($_name))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_name==JS::$undefined));if(JS::toBoolean($x184,$global)){if($Uname){$global->properties[\'name\']=$_name;$_name=&$global->properties[\'name\'];}$_name=\'\';}$x185=(((gettype($_msg)===gettype(JS::$undefined)&&$_msg===JS::$undefined))||(((is_float($_msg)||is_int($_msg))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_msg==JS::$undefined));if(JS::toBoolean($x185,$global)){if($Umsg){$global->properties[\'msg\']=$_msg;$_msg=&$global->properties[\'msg\'];}$_msg=\'\';}$x187=(((gettype($_name)===gettype(\'\')&&$_name===\'\'))||(((is_float($_name)||is_int($_name))&&(is_float(\'\')||is_int(\'\')))&&$_name==\'\'));$x186=$x187;if(JS::toBoolean($x186,$global)){$x188=(((gettype($_msg)===gettype(\'\')&&$_msg===\'\'))||(((is_float($_msg)||is_int($_msg))&&(is_float(\'\')||is_int(\'\')))&&$_msg==\'\'));$x186=$x188;}if(JS::toBoolean($x186,$global)){return\'Error\';}$x189=(((gettype($_name)===gettype(\'\')&&$_name===\'\'))||(((is_float($_name)||is_int($_name))&&(is_float(\'\')||is_int(\'\')))&&$_name==\'\'));if(JS::toBoolean($x189,$global)){return$_msg;}$x190=(((gettype($_msg)===gettype(\'\')&&$_msg===\'\'))||(((is_float($_msg)||is_int($_msg))&&(is_float(\'\')||is_int(\'\')))&&$_msg==\'\'));if(JS::toBoolean($x190,$global)){return$_name;}$x193=JS::toPrimitive($_name,$global);$x194=JS::toPrimitive(\': \',$global);$x191=JS::toPrimitive((is_string($x193)||is_string($x194)?JS::toString($x193,$global).JS::toString($x194,$global):JS::toNumber($x193,$global)+JS::toNumber($x194,$global)),$global);$x192=JS::toPrimitive($_msg,$global);return(is_string($x191)||is_string($x192)?JS::toString($x191,$global).JS::toString($x192,$global):JS::toNumber($x191,$global)+JS::toNumber($x192,$global));return JS::$undefined;}', "\n";
+echo 'function _89174112e855facd9d2f6198b727df5b_10($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x186=&$scope->properties[\'arguments\'];$x186->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x186->properties[$i]=$args[$i];$x186->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$global->scope[++$global->scope_sp]=$scope;unset($x187,$W187,$S187,$U187);$x188=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$leThis,(string)\'name\',26,17,\'<image>/11_error.js\');$x187=&$x188[0];list(,$W187,$S187,$U187)=$x188;$scope->properties[\'name\']=JS::$undefined;$_name=&$scope->properties[\'name\'];$Uname=FALSE;$_name=$x187;unset($x189,$W189,$S189,$U189);$x190=_89174112e855facd9d2f6198b727df5b_5($global,$scope,$leThis,(string)\'message\',26,34,\'<image>/11_error.js\');$x189=&$x190[0];list(,$W189,$S189,$U189)=$x190;$scope->properties[\'msg\']=JS::$undefined;$_msg=&$scope->properties[\'msg\'];$Umsg=FALSE;$_msg=$x189;$x191=(((gettype($_name)===gettype(JS::$undefined)&&$_name===JS::$undefined))||(((is_float($_name)||is_int($_name))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_name==JS::$undefined));if(JS::toBoolean($x191,$global)){$x192=\'\';if($Uname){$global->properties[\'name\']=$_name;$_name=&$global->properties[\'name\'];}$_name=$x192;}$x193=(((gettype($_msg)===gettype(JS::$undefined)&&$_msg===JS::$undefined))||(((is_float($_msg)||is_int($_msg))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_msg==JS::$undefined));if(JS::toBoolean($x193,$global)){$x194=\'\';if($Umsg){$global->properties[\'msg\']=$_msg;$_msg=&$global->properties[\'msg\'];}$_msg=$x194;}$x196=(((gettype($_name)===gettype(\'\')&&$_name===\'\'))||(((is_float($_name)||is_int($_name))&&(is_float(\'\')||is_int(\'\')))&&$_name==\'\'));$x195=$x196;if(JS::toBoolean($x195,$global)){$x197=(((gettype($_msg)===gettype(\'\')&&$_msg===\'\'))||(((is_float($_msg)||is_int($_msg))&&(is_float(\'\')||is_int(\'\')))&&$_msg==\'\'));$x195=$x197;}if(JS::toBoolean($x195,$global)){return\'Error\';}$x198=(((gettype($_name)===gettype(\'\')&&$_name===\'\'))||(((is_float($_name)||is_int($_name))&&(is_float(\'\')||is_int(\'\')))&&$_name==\'\'));if(JS::toBoolean($x198,$global)){return$_msg;}$x199=(((gettype($_msg)===gettype(\'\')&&$_msg===\'\'))||(((is_float($_msg)||is_int($_msg))&&(is_float(\'\')||is_int(\'\')))&&$_msg==\'\'));if(JS::toBoolean($x199,$global)){return$_name;}$x202=JS::toPrimitive($_name,$global);$x203=JS::toPrimitive(\': \',$global);$x200=JS::toPrimitive((is_string($x202)||is_string($x203)?JS::toString($x202,$global).JS::toString($x203,$global):JS::toNumber($x202,$global)+JS::toNumber($x203,$global)),$global);$x201=JS::toPrimitive($_msg,$global);return(is_string($x200)||is_string($x201)?JS::toString($x200,$global).JS::toString($x201,$global):JS::toNumber($x200,$global)+JS::toNumber($x201,$global));return JS::$undefined;}', "\n";
 function _89174112e855facd9d2f6198b727df5b_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<image>/11_error.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<image>/11_error.js';$scope->properties['__dirname'] = '<image>';}
@@ -652,185 +659,187 @@ $x17 = clone JS::$functionTemplate; $x17->call = '_89174112e855facd9d2f6198b727d
 $scope->properties['Error'] = JS::$undefined; $_Error =& $scope->properties['Error'];
 $UError = FALSE;
 $_Error = $x17;
-$x46 = clone JS::$functionTemplate; $x46->call = '_89174112e855facd9d2f6198b727df5b_4'; $x46->parameters = array (
+$x47 = clone JS::$functionTemplate; $x47->call = '_89174112e855facd9d2f6198b727df5b_4'; $x47->parameters = array (
   0 => 'message',
-); $x46->name = 'RangeError'; $x46->scope = $scope; $x46->properties['prototype'] = clone JS::$objectTemplate; $x46->attributes['prototype'] = JS::WRITABLE; $x46->properties['prototype']->properties['constructor'] = $x46; $x46->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x46->properties['length'] = 1; $x46->attributes['length'] = 0;
+); $x47->name = 'RangeError'; $x47->scope = $scope; $x47->properties['prototype'] = clone JS::$objectTemplate; $x47->attributes['prototype'] = JS::WRITABLE; $x47->properties['prototype']->properties['constructor'] = $x47; $x47->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x47->properties['length'] = 1; $x47->attributes['length'] = 0;
 $scope->properties['RangeError'] = JS::$undefined; $_RangeError =& $scope->properties['RangeError'];
 $URangeError = FALSE;
-$_RangeError = $x46;
-$x69 = clone JS::$functionTemplate; $x69->call = '_89174112e855facd9d2f6198b727df5b_6'; $x69->parameters = array (
+$_RangeError = $x47;
+$x71 = clone JS::$functionTemplate; $x71->call = '_89174112e855facd9d2f6198b727df5b_6'; $x71->parameters = array (
   0 => 'message',
-); $x69->name = 'ReferenceError'; $x69->scope = $scope; $x69->properties['prototype'] = clone JS::$objectTemplate; $x69->attributes['prototype'] = JS::WRITABLE; $x69->properties['prototype']->properties['constructor'] = $x69; $x69->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x69->properties['length'] = 1; $x69->attributes['length'] = 0;
+); $x71->name = 'ReferenceError'; $x71->scope = $scope; $x71->properties['prototype'] = clone JS::$objectTemplate; $x71->attributes['prototype'] = JS::WRITABLE; $x71->properties['prototype']->properties['constructor'] = $x71; $x71->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x71->properties['length'] = 1; $x71->attributes['length'] = 0;
 $scope->properties['ReferenceError'] = JS::$undefined; $_ReferenceError =& $scope->properties['ReferenceError'];
 $UReferenceError = FALSE;
-$_ReferenceError = $x69;
-$x93 = clone JS::$functionTemplate; $x93->call = '_89174112e855facd9d2f6198b727df5b_7'; $x93->parameters = array (
+$_ReferenceError = $x71;
+$x96 = clone JS::$functionTemplate; $x96->call = '_89174112e855facd9d2f6198b727df5b_7'; $x96->parameters = array (
   0 => 'message',
-); $x93->name = 'SyntaxError'; $x93->scope = $scope; $x93->properties['prototype'] = clone JS::$objectTemplate; $x93->attributes['prototype'] = JS::WRITABLE; $x93->properties['prototype']->properties['constructor'] = $x93; $x93->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x93->properties['length'] = 1; $x93->attributes['length'] = 0;
+); $x96->name = 'SyntaxError'; $x96->scope = $scope; $x96->properties['prototype'] = clone JS::$objectTemplate; $x96->attributes['prototype'] = JS::WRITABLE; $x96->properties['prototype']->properties['constructor'] = $x96; $x96->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x96->properties['length'] = 1; $x96->attributes['length'] = 0;
 $scope->properties['SyntaxError'] = JS::$undefined; $_SyntaxError =& $scope->properties['SyntaxError'];
 $USyntaxError = FALSE;
-$_SyntaxError = $x93;
-$x115 = clone JS::$functionTemplate; $x115->call = '_89174112e855facd9d2f6198b727df5b_8'; $x115->parameters = array (
+$_SyntaxError = $x96;
+$x119 = clone JS::$functionTemplate; $x119->call = '_89174112e855facd9d2f6198b727df5b_8'; $x119->parameters = array (
   0 => 'message',
-); $x115->name = 'TypeError'; $x115->scope = $scope; $x115->properties['prototype'] = clone JS::$objectTemplate; $x115->attributes['prototype'] = JS::WRITABLE; $x115->properties['prototype']->properties['constructor'] = $x115; $x115->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x115->properties['length'] = 1; $x115->attributes['length'] = 0;
+); $x119->name = 'TypeError'; $x119->scope = $scope; $x119->properties['prototype'] = clone JS::$objectTemplate; $x119->attributes['prototype'] = JS::WRITABLE; $x119->properties['prototype']->properties['constructor'] = $x119; $x119->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x119->properties['length'] = 1; $x119->attributes['length'] = 0;
 $scope->properties['TypeError'] = JS::$undefined; $_TypeError =& $scope->properties['TypeError'];
 $UTypeError = FALSE;
-$_TypeError = $x115;
-$x139 = clone JS::$functionTemplate; $x139->call = '_89174112e855facd9d2f6198b727df5b_9'; $x139->parameters = array (
+$_TypeError = $x119;
+$x144 = clone JS::$functionTemplate; $x144->call = '_89174112e855facd9d2f6198b727df5b_9'; $x144->parameters = array (
   0 => 'message',
-); $x139->name = 'NotImplementedError'; $x139->scope = $scope; $x139->properties['prototype'] = clone JS::$objectTemplate; $x139->attributes['prototype'] = JS::WRITABLE; $x139->properties['prototype']->properties['constructor'] = $x139; $x139->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x139->properties['length'] = 1; $x139->attributes['length'] = 0;
+); $x144->name = 'NotImplementedError'; $x144->scope = $scope; $x144->properties['prototype'] = clone JS::$objectTemplate; $x144->attributes['prototype'] = JS::WRITABLE; $x144->properties['prototype']->properties['constructor'] = $x144; $x144->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x144->properties['length'] = 1; $x144->attributes['length'] = 0;
 $scope->properties['NotImplementedError'] = JS::$undefined; $_NotImplementedError =& $scope->properties['NotImplementedError'];
 $UNotImplementedError = FALSE;
-$_NotImplementedError = $x139;
-$x140 = clone JS::$objectTemplate;
+$_NotImplementedError = $x144;
+$x145 = clone JS::$objectTemplate;
 if ($_Error === JS::$undefined || $_Error === NULL) {
-$x141 = $_TypeError->call;
+$x146 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 15, 17);
-$x142 = $x141($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x147 = $x146($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x142->class) && $x142->class === 'Error') {$x142->properties['file'] = '<image>/11_error.js';$x142->properties['line'] = 15;$x142->properties['column'] = 17;$x142->attributes['file'] = $x142->attributes['line'] = $x142->attributes['column'] = 0; }
-throw new JSException($x142, 15, 17, '<image>/11_error.js');
+if (isset($x147->class) && $x147->class === 'Error') {$x147->properties['file'] = '<image>/11_error.js';$x147->properties['line'] = 15;$x147->properties['column'] = 17;$x147->attributes['file'] = $x147->attributes['line'] = $x147->attributes['column'] = 0; }
+throw new JSException($x147, 15, 17, '<image>/11_error.js');
 }
 $_Error = JS::toObject($_Error, $global);
-unset($x143, $W143, $S143, $U143);
-$x144 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_Error, (string) 'prototype', 15, 17, '<image>/11_error.js');
-$x143 =& $x144[0]; list(,$W143,$S143,$U143) = $x144;
-if ($U143 && (!isset($_Error->extensible) || $_Error->extensible)) {$_Error->properties['prototype'] = $x143; $x143 =& $_Error->properties['prototype']; $_Error->attributes['prototype'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U143 = FALSE; $W143 = TRUE; }
-if (isset($S143)) {
-$x146 = $S143->call;
+unset($x148, $W148, $S148, $U148);
+$x149 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $_Error, (string) 'prototype', 15, 17, '<image>/11_error.js');
+$x148 =& $x149[0]; list(,$W148,$S148,$U148) = $x149;
+if ($U148 && (!isset($_Error->extensible) || $_Error->extensible)) {$_Error->properties['prototype'] = $x148; $x148 =& $_Error->properties['prototype']; $_Error->attributes['prototype'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U148 = FALSE; $W148 = TRUE; }
+if (isset($S148)) {
+$x151 = $S148->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 15, 17);
-$x147 = $x146($global, $_Error, $S143, array($x140), false);
+$x152 = $x151($global, $_Error, $S148, array($x145), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x145 = $x147;
+$x150 = $x152;
 } else {
-if (!$U143) {$x145 = $x140;if ($W143) { $x143 = $x140; }  }
-else { $x145 = JS::$undefined; }
+if (!$U148) {$x150 = $x145;if ($W148) { $x148 = $x145; }  }
+else { $x150 = JS::$undefined; }
 }
 if (isset($_Error->class) && $_Error->class === 'Array' &&  is_int('prototype') && 'prototype' >= $_Error->properties['length']) { $_Error->properties['length'] = 'prototype' + 1; };
 unset($_Object, $WObject, $SObject, $UObject);
-$x148 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Object', 16, 50, '<image>/11_error.js');
-$_Object =& $x148[0]; list(,$WObject,$SObject,$UObject) = $x148;
+$x153 = _89174112e855facd9d2f6198b727df5b_2($global, $scope, $scope, (string) 'Object', 16, 50, '<image>/11_error.js');
+$_Object =& $x153[0]; list(,$WObject,$SObject,$UObject) = $x153;
 if ($UObject) {
-$x149 = $_ReferenceError->call;
+$x154 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 16, 50);
-$x150 = $x149($global, $global, $_ReferenceError, array('Object is not defined'), false);
+$x155 = $x154($global, $global, $_ReferenceError, array('Object is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x150->class) && $x150->class === 'Error') {$x150->properties['file'] = '<image>/11_error.js';$x150->properties['line'] = 16;$x150->properties['column'] = 50;$x150->attributes['file'] = $x150->attributes['line'] = $x150->attributes['column'] = 0; }
-throw new JSException($x150, 16, 50, '<image>/11_error.js');
+if (isset($x155->class) && $x155->class === 'Error') {$x155->properties['file'] = '<image>/11_error.js';$x155->properties['line'] = 16;$x155->properties['column'] = 50;$x155->attributes['file'] = $x155->attributes['line'] = $x155->attributes['column'] = 0; }
+throw new JSException($x155, 16, 50, '<image>/11_error.js');
 }
 $_Error->properties['prototype']->prototype =$_Object->properties['prototype'];
 $_Error->properties['prototype']->class = 'Error';
 $_Error->properties['prototype']->extensible = TRUE;
-unset($x151, $W151, $S151, $U151);
-$x152 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 19, 6, '<image>/11_error.js');
-$x151 =& $x152[0]; list(,$W151,$S151,$U151) = $x152;
-if ($x151 === JS::$undefined || $x151 === NULL) {
-$x153 = $_TypeError->call;
+unset($x156, $W156, $S156, $U156);
+$x157 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 19, 6, '<image>/11_error.js');
+$x156 =& $x157[0]; list(,$W156,$S156,$U156) = $x157;
+if ($x156 === JS::$undefined || $x156 === NULL) {
+$x158 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 19, 29);
-$x154 = $x153($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x159 = $x158($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x154->class) && $x154->class === 'Error') {$x154->properties['file'] = '<image>/11_error.js';$x154->properties['line'] = 19;$x154->properties['column'] = 29;$x154->attributes['file'] = $x154->attributes['line'] = $x154->attributes['column'] = 0; }
-throw new JSException($x154, 19, 29, '<image>/11_error.js');
+if (isset($x159->class) && $x159->class === 'Error') {$x159->properties['file'] = '<image>/11_error.js';$x159->properties['line'] = 19;$x159->properties['column'] = 29;$x159->attributes['file'] = $x159->attributes['line'] = $x159->attributes['column'] = 0; }
+throw new JSException($x159, 19, 29, '<image>/11_error.js');
 }
-$x151 = JS::toObject($x151, $global);
-unset($x155, $W155, $S155, $U155);
-$x156 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x151, (string) 'constructor', 19, 29, '<image>/11_error.js');
-$x155 =& $x156[0]; list(,$W155,$S155,$U155) = $x156;
-if ($U155 && (!isset($x151->extensible) || $x151->extensible)) {$x151->properties['constructor'] = $x155; $x155 =& $x151->properties['constructor']; $x151->attributes['constructor'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U155 = FALSE; $W155 = TRUE; }
-if (isset($S155)) {
-$x158 = $S155->call;
-$global->trace[++$global->trace_sp] = array('<image>/11_error.js', 19, 29);
-$x159 = $x158($global, $x151, $S155, array($_Error), false);
-unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x157 = $x159;
-} else {
-if (!$U155) {$x157 = $_Error;if ($W155) { $x155 = $_Error; }  }
-else { $x157 = JS::$undefined; }
-}
-if (isset($x151->class) && $x151->class === 'Array' &&  is_int('constructor') && 'constructor' >= $x151->properties['length']) { $x151->properties['length'] = 'constructor' + 1; };
+$x156 = JS::toObject($x156, $global);
 unset($x160, $W160, $S160, $U160);
-$x161 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 21, 6, '<image>/11_error.js');
+$x161 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x156, (string) 'constructor', 19, 29, '<image>/11_error.js');
 $x160 =& $x161[0]; list(,$W160,$S160,$U160) = $x161;
-if ($x160 === JS::$undefined || $x160 === NULL) {
-$x162 = $_TypeError->call;
+if ($U160 && (!isset($x156->extensible) || $x156->extensible)) {$x156->properties['constructor'] = $x160; $x160 =& $x156->properties['constructor']; $x156->attributes['constructor'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U160 = FALSE; $W160 = TRUE; }
+if (isset($S160)) {
+$x163 = $S160->call;
+$global->trace[++$global->trace_sp] = array('<image>/11_error.js', 19, 29);
+$x164 = $x163($global, $x156, $S160, array($_Error), false);
+unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
+$x162 = $x164;
+} else {
+if (!$U160) {$x162 = $_Error;if ($W160) { $x160 = $_Error; }  }
+else { $x162 = JS::$undefined; }
+}
+if (isset($x156->class) && $x156->class === 'Array' &&  is_int('constructor') && 'constructor' >= $x156->properties['length']) { $x156->properties['length'] = 'constructor' + 1; };
+$x165 = 'Error';
+unset($x166, $W166, $S166, $U166);
+$x167 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 21, 6, '<image>/11_error.js');
+$x166 =& $x167[0]; list(,$W166,$S166,$U166) = $x167;
+if ($x166 === JS::$undefined || $x166 === NULL) {
+$x168 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 21, 22);
-$x163 = $x162($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x169 = $x168($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x163->class) && $x163->class === 'Error') {$x163->properties['file'] = '<image>/11_error.js';$x163->properties['line'] = 21;$x163->properties['column'] = 22;$x163->attributes['file'] = $x163->attributes['line'] = $x163->attributes['column'] = 0; }
-throw new JSException($x163, 21, 22, '<image>/11_error.js');
+if (isset($x169->class) && $x169->class === 'Error') {$x169->properties['file'] = '<image>/11_error.js';$x169->properties['line'] = 21;$x169->properties['column'] = 22;$x169->attributes['file'] = $x169->attributes['line'] = $x169->attributes['column'] = 0; }
+throw new JSException($x169, 21, 22, '<image>/11_error.js');
 }
-$x160 = JS::toObject($x160, $global);
-unset($x164, $W164, $S164, $U164);
-$x165 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x160, (string) 'name', 21, 22, '<image>/11_error.js');
-$x164 =& $x165[0]; list(,$W164,$S164,$U164) = $x165;
-if ($U164 && (!isset($x160->extensible) || $x160->extensible)) {$x160->properties['name'] = $x164; $x164 =& $x160->properties['name']; $x160->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U164 = FALSE; $W164 = TRUE; }
-if (isset($S164)) {
-$x167 = $S164->call;
+$x166 = JS::toObject($x166, $global);
+unset($x170, $W170, $S170, $U170);
+$x171 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x166, (string) 'name', 21, 22, '<image>/11_error.js');
+$x170 =& $x171[0]; list(,$W170,$S170,$U170) = $x171;
+if ($U170 && (!isset($x166->extensible) || $x166->extensible)) {$x166->properties['name'] = $x170; $x170 =& $x166->properties['name']; $x166->attributes['name'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U170 = FALSE; $W170 = TRUE; }
+if (isset($S170)) {
+$x173 = $S170->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 21, 22);
-$x168 = $x167($global, $x160, $S164, array('Error'), false);
+$x174 = $x173($global, $x166, $S170, array($x165), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x166 = $x168;
+$x172 = $x174;
 } else {
-if (!$U164) {$x166 = 'Error';if ($W164) { $x164 = 'Error'; }  }
-else { $x166 = JS::$undefined; }
+if (!$U170) {$x172 = $x165;if ($W170) { $x170 = $x165; }  }
+else { $x172 = JS::$undefined; }
 }
-if (isset($x160->class) && $x160->class === 'Array' &&  is_int('name') && 'name' >= $x160->properties['length']) { $x160->properties['length'] = 'name' + 1; };
-unset($x169, $W169, $S169, $U169);
-$x170 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 23, 6, '<image>/11_error.js');
-$x169 =& $x170[0]; list(,$W169,$S169,$U169) = $x170;
-if ($x169 === JS::$undefined || $x169 === NULL) {
-$x171 = $_TypeError->call;
+if (isset($x166->class) && $x166->class === 'Array' &&  is_int('name') && 'name' >= $x166->properties['length']) { $x166->properties['length'] = 'name' + 1; };
+$x175 = '';
+unset($x176, $W176, $S176, $U176);
+$x177 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 23, 6, '<image>/11_error.js');
+$x176 =& $x177[0]; list(,$W176,$S176,$U176) = $x177;
+if ($x176 === JS::$undefined || $x176 === NULL) {
+$x178 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 23, 25);
-$x172 = $x171($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x179 = $x178($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x172->class) && $x172->class === 'Error') {$x172->properties['file'] = '<image>/11_error.js';$x172->properties['line'] = 23;$x172->properties['column'] = 25;$x172->attributes['file'] = $x172->attributes['line'] = $x172->attributes['column'] = 0; }
-throw new JSException($x172, 23, 25, '<image>/11_error.js');
+if (isset($x179->class) && $x179->class === 'Error') {$x179->properties['file'] = '<image>/11_error.js';$x179->properties['line'] = 23;$x179->properties['column'] = 25;$x179->attributes['file'] = $x179->attributes['line'] = $x179->attributes['column'] = 0; }
+throw new JSException($x179, 23, 25, '<image>/11_error.js');
 }
-$x169 = JS::toObject($x169, $global);
-unset($x173, $W173, $S173, $U173);
-$x174 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x169, (string) 'message', 23, 25, '<image>/11_error.js');
-$x173 =& $x174[0]; list(,$W173,$S173,$U173) = $x174;
-if ($U173 && (!isset($x169->extensible) || $x169->extensible)) {$x169->properties['message'] = $x173; $x173 =& $x169->properties['message']; $x169->attributes['message'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U173 = FALSE; $W173 = TRUE; }
-if (isset($S173)) {
-$x176 = $S173->call;
+$x176 = JS::toObject($x176, $global);
+unset($x180, $W180, $S180, $U180);
+$x181 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x176, (string) 'message', 23, 25, '<image>/11_error.js');
+$x180 =& $x181[0]; list(,$W180,$S180,$U180) = $x181;
+if ($U180 && (!isset($x176->extensible) || $x176->extensible)) {$x176->properties['message'] = $x180; $x180 =& $x176->properties['message']; $x176->attributes['message'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U180 = FALSE; $W180 = TRUE; }
+if (isset($S180)) {
+$x183 = $S180->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 23, 25);
-$x177 = $x176($global, $x169, $S173, array(''), false);
+$x184 = $x183($global, $x176, $S180, array($x175), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x175 = $x177;
+$x182 = $x184;
 } else {
-if (!$U173) {$x175 = '';if ($W173) { $x173 = ''; }  }
-else { $x175 = JS::$undefined; }
+if (!$U180) {$x182 = $x175;if ($W180) { $x180 = $x175; }  }
+else { $x182 = JS::$undefined; }
 }
-if (isset($x169->class) && $x169->class === 'Array' &&  is_int('message') && 'message' >= $x169->properties['length']) { $x169->properties['length'] = 'message' + 1; };
-$x195 = clone JS::$functionTemplate; $x195->call = '_89174112e855facd9d2f6198b727df5b_10'; $x195->parameters = array (
-); $x195->scope = $scope; $x195->properties['prototype'] = clone JS::$objectTemplate; $x195->attributes['prototype'] = JS::WRITABLE; $x195->properties['prototype']->properties['constructor'] = $x195; $x195->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x195->properties['length'] = 0; $x195->attributes['length'] = 0;
-unset($x196, $W196, $S196, $U196);
-$x197 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 25, 6, '<image>/11_error.js');
-$x196 =& $x197[0]; list(,$W196,$S196,$U196) = $x197;
-if ($x196 === JS::$undefined || $x196 === NULL) {
-$x198 = $_TypeError->call;
+if (isset($x176->class) && $x176->class === 'Array' &&  is_int('message') && 'message' >= $x176->properties['length']) { $x176->properties['length'] = 'message' + 1; };
+$x204 = clone JS::$functionTemplate; $x204->call = '_89174112e855facd9d2f6198b727df5b_10'; $x204->parameters = array (
+); $x204->scope = $scope; $x204->properties['prototype'] = clone JS::$objectTemplate; $x204->attributes['prototype'] = JS::WRITABLE; $x204->properties['prototype']->properties['constructor'] = $x204; $x204->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x204->properties['length'] = 0; $x204->attributes['length'] = 0;
+unset($x205, $W205, $S205, $U205);
+$x206 = _89174112e855facd9d2f6198b727df5b_5($global, $scope, $_Error, (string) 'prototype', 25, 6, '<image>/11_error.js');
+$x205 =& $x206[0]; list(,$W205,$S205,$U205) = $x206;
+if ($x205 === JS::$undefined || $x205 === NULL) {
+$x207 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 25, 26);
-$x199 = $x198($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x208 = $x207($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x199->class) && $x199->class === 'Error') {$x199->properties['file'] = '<image>/11_error.js';$x199->properties['line'] = 25;$x199->properties['column'] = 26;$x199->attributes['file'] = $x199->attributes['line'] = $x199->attributes['column'] = 0; }
-throw new JSException($x199, 25, 26, '<image>/11_error.js');
+if (isset($x208->class) && $x208->class === 'Error') {$x208->properties['file'] = '<image>/11_error.js';$x208->properties['line'] = 25;$x208->properties['column'] = 26;$x208->attributes['file'] = $x208->attributes['line'] = $x208->attributes['column'] = 0; }
+throw new JSException($x208, 25, 26, '<image>/11_error.js');
 }
-$x196 = JS::toObject($x196, $global);
-unset($x200, $W200, $S200, $U200);
-$x201 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x196, (string) 'toString', 25, 26, '<image>/11_error.js');
-$x200 =& $x201[0]; list(,$W200,$S200,$U200) = $x201;
-if ($U200 && (!isset($x196->extensible) || $x196->extensible)) {$x196->properties['toString'] = $x200; $x200 =& $x196->properties['toString']; $x196->attributes['toString'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U200 = FALSE; $W200 = TRUE; }
-if (isset($S200)) {
-$x203 = $S200->call;
+$x205 = JS::toObject($x205, $global);
+unset($x209, $W209, $S209, $U209);
+$x210 = _89174112e855facd9d2f6198b727df5b_3($global, $scope, $x205, (string) 'toString', 25, 26, '<image>/11_error.js');
+$x209 =& $x210[0]; list(,$W209,$S209,$U209) = $x210;
+if ($U209 && (!isset($x205->extensible) || $x205->extensible)) {$x205->properties['toString'] = $x209; $x209 =& $x205->properties['toString']; $x205->attributes['toString'] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U209 = FALSE; $W209 = TRUE; }
+if (isset($S209)) {
+$x212 = $S209->call;
 $global->trace[++$global->trace_sp] = array('<image>/11_error.js', 25, 26);
-$x204 = $x203($global, $x196, $S200, array($x195), false);
+$x213 = $x212($global, $x205, $S209, array($x204), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x202 = $x204;
+$x211 = $x213;
 } else {
-if (!$U200) {$x202 = $x195;if ($W200) { $x200 = $x195; }  }
-else { $x202 = JS::$undefined; }
+if (!$U209) {$x211 = $x204;if ($W209) { $x209 = $x204; }  }
+else { $x211 = JS::$undefined; }
 }
-if (isset($x196->class) && $x196->class === 'Array' &&  is_int('toString') && 'toString' >= $x196->properties['length']) { $x196->properties['length'] = 'toString' + 1; };
+if (isset($x205->class) && $x205->class === 'Array' &&  is_int('toString') && 'toString' >= $x205->properties['length']) { $x205->properties['length'] = 'toString' + 1; };
 $_RangeError->properties['prototype']->prototype =$_Error->properties['prototype'];
 $_ReferenceError->properties['prototype']->prototype =$_Error->properties['prototype'];
 $_SyntaxError->properties['prototype']->prototype =$_Error->properties['prototype'];

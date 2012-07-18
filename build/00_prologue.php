@@ -1,4 +1,4 @@
-function _3cbefdea5dea08732e5f84d980fe926d_0($global = NULL, $scope = NULL) {
+function _1d61b3baf7743d5255ab12a679fca3b3_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<image>/00_prologue.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<image>/00_prologue.js';$scope->properties['__dirname'] = '<image>';}
 if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }
@@ -55,6 +55,7 @@ class JS
 
 	static $global;
 	static $undefined;
+	static $loader;
 	static $emptyScope;
 	static $objectTemplate;
 	static $functionTemplate;
@@ -80,10 +81,22 @@ class JS
 		} else {
 			if (($f = JS::getProperty($v, 'toString')) !== NULL && isset($f->call)) {
 				$c = $f->call;
+
+				if (JS::$loader !== NULL && !$f->loaded) {
+					$l = JS::$loader;
+					$l($f, $global);
+				}
+
 				$r = $c($global, $v, $f, array());
 
 			} else if (($f = JS::getProperty($v, 'valueOf')) !== NULL && isset($f->call)) {
 				$c = $f->call;
+
+				if (JS::$loader !== NULL && !$f->loaded) {
+					$l = JS::$loader;
+					$l($f, $global);
+				}
+
 				$r = $c($global, $v, $f, array());
 			}
 
@@ -100,6 +113,12 @@ class JS
 		if (isset($global->properties['TypeError'])) {
 			$TypeError = $global->properties['TypeError'];
 			$c = $TypeError->call;
+
+			if (JS::$loader !== NULL && !$TypeError->loaded) {
+				$l = JS::$loader;
+				$l($TypeError, $global);
+			}
+
 			throw new JSException($c($global, JS::$undefined, $TypeError, array($msg)));
 		}
 

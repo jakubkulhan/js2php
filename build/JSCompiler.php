@@ -558,6 +558,7 @@ protected function _10($declarations_list) { extract($this->_env, EXTR_REFS); $r
 		$phpVarname = $this->_walk(array('varize_', $varname));
 
 		if (isset($self->assigned[$varname]) && !$expr) {
+			$ret = $phpVarname;
 			continue;
 		}
 

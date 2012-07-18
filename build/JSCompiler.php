@@ -937,6 +937,12 @@ protected function _27($exprs) { extract($this->_env, EXTR_REFS); foreach ($expr
 }
 protected function _28($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_env, EXTR_REFS); $rhs = $this->_walk($rhs_expr);
 
+	if ($rhs[0] !== '$') {
+		$tmp = $this->_walk(array('genvar_'));
+		$self->prestatement[] = "$tmp = $rhs;";
+		$rhs = $tmp;
+	}
+
 	if ($lhs_expr[0] === 'identifier') {
 		$lhs = $this->_walk(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE, $p, $file));
 

@@ -666,6 +666,12 @@ exprs(exprs) {
 assignment(op, lhs_expr, rhs_expr, p, file) {
 	$rhs = WALK($rhs_expr);
 
+	if ($rhs[0] !== '$') {
+		$tmp = WALK(array('genvar_'));
+		$self->prestatement[] = "$tmp = $rhs;";
+		$rhs = $tmp;
+	}
+
 	if ($lhs_expr[0] === 'identifier') {
 		$lhs = WALK(array('lookup_', '$scope', $lhs_expr[1], 'up', TRUE, FALSE, $p, $file));
 

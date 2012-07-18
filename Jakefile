@@ -28,15 +28,16 @@ task("build:compiler", "build JSCompiler from phptw source",
 		run(utilDir + "/phptwc " + srcDir + "/JSCompiler.phptw " + buildDir + "/JSCompiler.php");
 	});
 
-task("build:image", "build image.php from src/image/*.js",
+task("build:image", "build image.php from src/image/*.js; argument <loader>, image will be built with it",
 	"build:parser", "build:compiler",
 	result(buildDir + "/image.php"),
 	srcDir + "/image/*.js",
 	__filename,
-	function () {
+	function (loader) {
 		@@ require_once `utilDir . "/shrink.php"; @@
 
 		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(),
+			compileOptions = { force: true, generate: "object" }
 			code = "<?php\n" +
 				"require_once " + PHP.fn("var_export")(utilDir + "/shrink.php", true) + ";\n" +
 				"$global = (object) array('properties' => array(), 'attributes' => array(), " +
@@ -45,6 +46,11 @@ task("build:image", "build image.php from src/image/*.js",
 				"$lines = explode(\"\\n\", file_get_contents(__FILE__));\n" +
 				"echo \"<?php\\n\";\n",
 			mains = "";
+
+		if (loader) {
+			compileOptions.loader = loader;
+			code += "function " + loader + "(){}\n";
+		}
 
 		PHP.fn("glob")(srcDir + "/image/*.js").forEach(function (f) {
 			var fileCode = "", fileMain, buildFile = buildDir + "/" + PHP.fn("basename")(f, ".js");
@@ -66,7 +72,7 @@ task("build:image", "build image.php from src/image/*.js",
 					", expected " + ast[2].expected.join(", "));
 			}
 
-			var compiled = compile(ast[1], { force: true, generate: "object" });
+			var compiled = compile(ast[1], compileOptions);
 
 			for (var k in compiled.functions) {
 				fileCode += compiled.functions[k] + "\n";

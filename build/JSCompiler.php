@@ -37,6 +37,9 @@ $self = (object) array(
 			TRUE => array(TRUE => array(), FALSE => array()),
 			FALSE => array(TRUE => array(), FALSE => array()),
 		),
+		'loader' => NULL,
+		'dumpFunctions' => TRUE,
+		'dumper' => NULL,
 	);
 
         $this->_env = get_defined_vars();
@@ -338,6 +341,7 @@ $self = (object) array(
         		FALSE => array(TRUE => array(), FALSE => array()),
         	);
         	$self->loader = NULL;
+        	$self->dumpFunctions = TRUE;
         
         	$force = FALSE;
         	$generate = 'string';
@@ -353,11 +357,19 @@ $self = (object) array(
         			} else if ($k === 'loader') {
         				$self->loader = $v;
         
+        			} else if ($k === 'dumpFunctions') {
+        				$self->dumpFunctions = $v;
+        
         			} else {
         				throw new Exception("Unknown option $k.");
         			}
         		}
         	}
+        
+        	if ($self->dumpFunctions) {
+        		$self->dumper = new JSDumper;
+        	}
+        
         
         	if ($force || !function_exists("_{$self->prefix}_0")) {
         		$this->_walk($ast);
@@ -541,6 +553,9 @@ protected function _9($name, $parameters_list, $body, $pStart, $pEnd, $file) { e
 		($name !== NULL ? $var . '->name = ' . var_export($name, TRUE) . '; ' : '') .
 		$var . '->scope = $scope; ' .
 		($self->loader !== NULL ? $var . '->loaded = FALSE; ' : '') .
+		($self->dumpFunctions
+			? $var . '->string = ' . var_export($self->dumper->__invoke($this->_node()), TRUE) . ';'
+			: '') .
 		$var . '->properties[\'prototype\'] = clone JS::$objectTemplate; ' .
 		$var . '->attributes[\'prototype\'] = JS::WRITABLE; ' .
 		$var . '->properties[\'prototype\']->properties[\'constructor\'] = ' . $var . '; ' .

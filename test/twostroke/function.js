@@ -27,8 +27,7 @@ test("apply", function() {
 });
 
 test("toString", function() {
-	// not implemented
-	//assert(/function foo/.test((function foo() { }).toString()));
+	assert(/function foo/.test((function foo() { }).toString()));
 });
 
 test("new with member access", function() {

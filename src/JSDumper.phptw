@@ -1,0 +1,143 @@
+-invoke(ast) -> WALK($ast)
+
+program(ast) -> WALK($ast)
+
+// STATEMENTS
+
+block(statements) -> "{" . implode("", WALKEACH($statements)) . "}"
+
+php_statement(parts) -> "@@" . implode("", WALKEACH($parts)) . "@@"
+
+function(name, parameters_list, body) -> "function" . ($name !== NULL ? " " : "") . "$name(" . implode(",", $parameters_list) . "){" . WALK($body) . "}"
+
+var(declarations_list) {
+	$ret = array();
+
+	foreach ($declarations_list as $declaration) {
+		list($varname, $expr) = $declaration;
+		$ret[] = "$varname=" . WALK($expr);
+	}
+
+	return "var " . implode("", $ret) . ";";
+}
+
+if(cond_expr, statement, else_statement) {
+	return "if(" . WALK($cond_expr) . ")" . WALK($statement) .
+		($else_statement ? "else " . WALK($else_statement) : "");
+}
+
+do(cond_expr, statement) -> "do " . WALK($statement) . "while(" . WALK($cond_expr) . ");";
+
+while(cond_expr, statement) -> "while(" . WALK($cond_expr) . ")" . WALK($statement);
+
+for_in(assignment_expr, in_expr, statement) -> "for(" . rtrim(WALK($assignment_expr), ";") . " in " . WALK($in_expr) . ")" . WALK($statement)
+
+for(init_expr, cond_expr, iter_expr, statement) {
+	$init = $cond = $iter = '';
+
+	if ($init_expr) { $init = rtrim(WALK($init_expr), ";"); }
+	if ($cond_expr) { $cond = WALK($cond_expr); }
+	if ($iter_expr) { $iter = WALK($iter_expr); }
+
+	return "for($init;$cond;$iter)" . WALK($statement);
+}
+
+continue(label) -> "continue $label;"
+
+break(label) -> "break $label;"
+
+return(expr) -> "return " . WALK($expr) . ";"
+
+with(expr, statement) -> "with(" . WALK($expr) . ")" . WALK($statement)
+
+labelled(label, statement) -> "$label:" . WALK($statement)
+
+switch(expr, clauses_list) -> "switch(" . WALK($expr) . "){" . implode("", WALKEACH($clauses_list)) . "}"
+
+case(expr, statement) -> "case " . WALK($expr) . ":" . WALK($statement)
+
+default(statement) -> "default:" . WALK($statement)
+
+throw(expr) -> "throw " . WALK($expr) . ";"
+
+try(try_block, catch_var, catch_block, finally_block) {
+	return "try" . WALK($try_block) . 
+		($catch_block ? "catch($catch_var)" . WALK($catch_block) : "") .
+		($finally_block ? "finally" . WALK($finally_block) : "");
+}
+
+discard(expr) -> rtrim(WALK($expr), ";") . ";"
+
+
+// EXPRESSIONS
+
+exprs(exprs) -> implode(",", WALKEACH($exprs))
+
+assignment(op, lhs_expr, rhs_expr) -> WALK($lhs_expr) . $op . WALK($rhs_expr)
+
+cond(cond_expr, iftrue_expr, iffalse_expr) -> WALK($cond_expr) . "?" . WALK($iftrue_expr) . ":" . WALK($iffalse_expr)
+
+binary(op, left_expr, right_expr) -> "(" . WALK($left_expr) . ")$op(" . WALK($right_expr) . ")" 
+
+delete(expr) -> "delete " . WALK($expr)
+
+void(expr) -> "void " . WALK($expr)
+
+typeof(expr) -> "typeof " . WALK($expr)
+
+preinc(expr) -> "++" . WALK($expr)
+
+predec(expr) -> "--" . WALK($expr)
+
+positive(expr) -> "+" . WALK($expr)
+
+negative(expr) -> "-" . WALK($expr)
+
+inverse(expr) -> "~" . WALK($expr)
+
+not(expr) -> "!" . WALK($expr)
+
+postinc(expr) -> WALK($expr) . "++"
+
+postdec(expr) -> WALK($expr) . "--"
+
+call(fn_expr, arguments) -> WALK($fn_expr) . "(" . implode(",", WALKEACH($arguments)) . ")"
+
+index(base, index_expr) -> WALK($base) . "[" . WALK($index_expr) . "]"
+
+new(expr, arguments_exprs_list) -> "new " . WALK($expr) . "(" . implode(",", WALKEACH($arguments_exprs_list)) . ")"
+
+this() -> "this"
+
+null() -> "null"
+
+true() -> "true"
+
+false() -> "false"
+
+undefined() -> "undefined"
+
+number(n) -> json_encode($n)
+
+string(s) -> json_encode($s)
+
+regexp(regexp, flags) -> "/$regexp/$flags"
+
+identifier(identifier) -> $identifier
+
+array(elements_list) -> "[" . implode(",", WALKEACH($elements_list)) . "]"
+
+object(properties_list) {
+	$ret = array();
+
+	foreach ($properties_list as $property) {
+		list($name, $value) = $property;
+		$ret[] = "$name:" . WALK($value);
+	}
+
+	return "{" . implode(",", $ret) . "}";
+}
+
+php(parts) -> "@@" . implode("", WALKEACH($parts)) . "@@"
+
+raw(code) -> trim($code)

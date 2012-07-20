@@ -52,7 +52,13 @@ function F() {
 delete F;
 
 Function.prototype.toString = function () {
-	throw new NotImplementedError("Function.prototype.toString(): not implemented.");
+	if (@@ isset($leThis->string) @@) {
+		return @@ $leThis->string @@;
+	}
+
+	return @@
+		"function " . (isset($leThis->name) ? $leThis->name : "") .
+		"(" . implode(",", $leThis->parameters) . "){ [native code] }" @@;
 };
 
 Function.prototype.apply = function (thisArg, argArray) {

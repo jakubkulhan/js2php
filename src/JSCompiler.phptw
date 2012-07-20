@@ -11,6 +11,9 @@
 			TRUE => array(TRUE => array(), FALSE => array()),
 			FALSE => array(TRUE => array(), FALSE => array()),
 		),
+		'loader' => NULL,
+		'dumpFunctions' => TRUE,
+		'dumper' => NULL,
 	);
 }
 
@@ -25,6 +28,8 @@
 //               where functions array is filled with function declarations will be returned
 //   - loader: function that will be called when when function object ->loaded is FALSE
 //             the function will be given two arguments, function object and global object
+//   - dumpFunctions: true | false, default true, if true, function objects will be added
+//                    ->string property with dumper function declaration
 //
 
 -invoke(ast) {
@@ -37,6 +42,7 @@
 		FALSE => array(TRUE => array(), FALSE => array()),
 	);
 	$self->loader = NULL;
+	$self->dumpFunctions = TRUE;
 
 	$force = FALSE;
 	$generate = 'string';
@@ -52,11 +58,19 @@
 			} else if ($k === 'loader') {
 				$self->loader = $v;
 
+			} else if ($k === 'dumpFunctions') {
+				$self->dumpFunctions = $v;
+
 			} else {
 				throw new Exception("Unknown option $k.");
 			}
 		}
 	}
+
+	if ($self->dumpFunctions) {
+		$self->dumper = new JSDumper;
+	}
+
 
 	if ($force || !function_exists("_{$self->prefix}_0")) {
 		WALK($ast);
@@ -248,6 +262,9 @@ function(name, parameters_list, body, pStart, pEnd, file) {
 		($name !== NULL ? $var . '->name = ' . var_export($name, TRUE) . '; ' : '') .
 		$var . '->scope = $scope; ' .
 		($self->loader !== NULL ? $var . '->loaded = FALSE; ' : '') .
+		($self->dumpFunctions
+			? $var . '->string = ' . var_export($self->dumper->__invoke(NODE()), TRUE) . ';'
+			: '') .
 		$var . '->properties[\'prototype\'] = clone JS::$objectTemplate; ' .
 		$var . '->attributes[\'prototype\'] = JS::WRITABLE; ' .
 		$var . '->properties[\'prototype\']->properties[\'constructor\'] = ' . $var . '; ' .

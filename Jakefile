@@ -28,8 +28,15 @@ task("build:compiler", "build JSCompiler from phptw source",
 		run(utilDir + "/phptwc " + srcDir + "/JSCompiler.phptw " + buildDir + "/JSCompiler.php");
 	});
 
+task("build:dumper", "build JSDumper from phptw source",
+	result(buildDir + "/JSDumper.php"),
+	srcDir + "/JSDumper.phptw",
+	function () {
+		run(utilDir + "/phptwc " + srcDir + "/JSDumper.phptw " + buildDir + "/JSDumper.php");
+	});
+
 task("build:image", "build image.php from src/image/*.js; argument <loader>, image will be built with it",
-	"build:parser", "build:compiler",
+	"build:parser", "build:compiler", "build:dumper",
 	result(buildDir + "/image.php"),
 	srcDir + "/image/*.js",
 	__filename,
@@ -37,7 +44,7 @@ task("build:image", "build image.php from src/image/*.js; argument <loader>, ima
 		@@ require_once `utilDir . "/shrink.php"; @@
 
 		var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(),
-			compileOptions = { force: true, generate: "object" }
+			compileOptions = { force: true, generate: "object", dumpFunctions: false }
 			code = "<?php\n" +
 				"require_once " + PHP.fn("var_export")(utilDir + "/shrink.php", true) + ";\n" +
 				"$global = (object) array('properties' => array(), 'attributes' => array(), " +
@@ -96,11 +103,12 @@ task("build:image", "build image.php from src/image/*.js; argument <loader>, ima
 			"$functions = get_defined_functions(); $functions = $functions['user'];\n";
 		code += mains;
 
-		[ buildDir + "/JSParser.php", buildDir + "/JSCompiler.php" ].forEach(function (f) {
-			code += "echo " + PHP.fn("var_export")(
-				PHP.fn("ltrim")(PHP.fn("shrink")(PHP.fn("file_get_contents")(f)).substring(5)),
-				true) + ", \"\\n\";\n";
-		});
+		[ buildDir + "/JSParser.php", buildDir + "/JSCompiler.php", buildDir + "/JSDumper.php" ]
+			.forEach(function (f) {
+				code += "echo " + PHP.fn("var_export")(
+					PHP.fn("ltrim")(PHP.fn("shrink")(PHP.fn("file_get_contents")(f)).substring(5)),
+					true) + ", \"\\n\";\n";
+			});
 
 		code += "foreach (array_diff(get_declared_classes(), $classes) as $class) {" +
 			"$r = new ReflectionClass($class); echo ltrim(substr(shrink('<?php ' . implode(\"\\n\", array_slice($lines, " +

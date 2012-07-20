@@ -31,6 +31,21 @@ function F(that, msg) {
 
 var o = {};
 
+test("Function.prototype.toString()", function () {
+	var FString = F.toString();
+	assert(/^function F/.test(FString));
+	assert(/\(.*that.*\)/.test(FString));
+	assert(/\(.*msg.*\)/.test(FString));
+	assert(/assert/.test(FString));
+
+	var G = function () { return 42; },
+		GString = G.toString(),
+		GNew = eval("return " + GString + ";");
+
+	assertEqual(G(), GNew());
+	assertEqual(G.toString(), GNew.toString());
+});
+
 test("Function.prototype.apply()", function () {
 	F.apply(o, [o, "Function.prototype.apply(): wrong this"]);
 });

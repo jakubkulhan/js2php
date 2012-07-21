@@ -268,13 +268,17 @@ class JSDumper
             list($_, $_0) = $node;
             $ret = $this->_49($_0);
         break;
-        case 'php':
+        case 'id_':
             list($_, $_0) = $node;
             $ret = $this->_50($_0);
         break;
-        case 'raw':
+        case 'php':
             list($_, $_0) = $node;
             $ret = $this->_51($_0);
+        break;
+        case 'raw':
+            list($_, $_0) = $node;
+            $ret = $this->_52($_0);
         break;
         }
 
@@ -412,15 +416,17 @@ protected function _49($properties_list) { extract($this->_env, EXTR_REFS); $ret
 
 	foreach ($properties_list as $property) {
 		list($name, $value) = $property;
-		$ret[] = "$name:" . $this->_walk($value);
+		$ret[] = $this->_walk(array("id_", $name)) . ":" . $this->_walk($value);
 	}
 
 	return "{" . implode(",", $ret) . "}";
 
 }
-protected function _50($parts) { extract($this->_env, EXTR_REFS); return "@@" . implode("", $this->_walkeach($parts)) . "@@";
+protected function _50($name) { extract($this->_env, EXTR_REFS); return preg_match("/^[a-zA-Z_$][a-zA-Z0-9_$]*$|^\d+$/", $name) ? $name : $this->_walk(array("string", $name));;
 }
-protected function _51($code) { extract($this->_env, EXTR_REFS); return trim($code);
+protected function _51($parts) { extract($this->_env, EXTR_REFS); return "@@" . implode("", $this->_walkeach($parts)) . "@@";
+}
+protected function _52($code) { extract($this->_env, EXTR_REFS); return trim($code);
 }
 
 }

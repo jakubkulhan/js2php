@@ -132,11 +132,13 @@ object(properties_list) {
 
 	foreach ($properties_list as $property) {
 		list($name, $value) = $property;
-		$ret[] = "$name:" . WALK($value);
+		$ret[] = WALK(array("id_", $name)) . ":" . WALK($value);
 	}
 
 	return "{" . implode(",", $ret) . "}";
 }
+
+id_(name) ->  preg_match("/^[a-zA-Z_$][a-zA-Z0-9_$]*$|^\d+$/", $name) ? $name : WALK(array("string", $name));
 
 php(parts) -> "@@" . implode("", WALKEACH($parts)) . "@@"
 

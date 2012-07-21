@@ -61,6 +61,9 @@ test("Object.defineProperty()", function () {
 	assert(o.three === 3, "Object.defineProperty(): getter returned wrong value");
 	o.three = 4;
 	assert(o.three === 4, "Object.defineProperty(): setter set wrong value");
+
+	Object.defineProperty(o, "four", { value: "" });
+	assertEqual(o.four, "");
 });
 
 test("Object.defineProperties()", function() {

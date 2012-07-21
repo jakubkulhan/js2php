@@ -91,9 +91,9 @@ Object.defineProperty = function (o, p, attributes) {
 	attributes = attributes || {};
 	p = @@ JS::toString(`p, $global) @@;
 
-	var value = attributes.value || undefined,
-		get = attributes.get || undefined,
-		set = attributes.set || undefined,
+	var value = attributes.value,
+		get = attributes.get,
+		set = attributes.set,
 		attrs = 0;
 	
 	if (typeof value !== "undefined") {

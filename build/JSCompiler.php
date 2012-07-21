@@ -660,6 +660,7 @@ protected function _13($cond_expr, $statement) { extract($this->_env, EXTR_REFS)
 }
 protected function _14($assignment_expr, $in_expr, $statement) { extract($this->_env, EXTR_REFS); $ret = array();
 	$tmp = $this->_walk(array('genvar_'));
+	$keys = $this->_walk(array('genvar_'));
 
 	$in_expr = $this->_walk($in_expr);
 	$ret[] = implode("\n", $self->prestatement);
@@ -670,10 +671,11 @@ protected function _14($assignment_expr, $in_expr, $statement) { extract($this->
 	$self->prestatement = array();
 
 	$ret[] = "if ($in_expr !== JS::\$undefined && $in_expr !== NULL) {";
-	$ret[] = "for ($tmp = JS::toObject($in_expr, \$global); $tmp; $tmp = {$tmp}->prototype) {";
+	$ret[] = "for ($keys = array(), $tmp = JS::toObject($in_expr, \$global); $tmp; $tmp = {$tmp}->prototype) {";
 
 	$ret[] = 'foreach (' . $tmp . '->attributes as $property => $attributes) {';
-	$ret[] = 'if (!($attributes & JS::ENUMERABLE)) { continue; }';
+	$ret[] = "if (!(\$attributes & JS::ENUMERABLE) || isset({$keys}[\$property])) { continue; }";
+	$ret[] = "{$keys}[\$property] = TRUE;";
 
 	$ret[] = $assignment_expr . ' = $property;';
 

@@ -374,6 +374,7 @@ while(cond_expr, statement) {
 for_in(assignment_expr, in_expr, statement) {
 	$ret = array();
 	$tmp = WALK(array('genvar_'));
+	$keys = WALK(array('genvar_'));
 
 	$in_expr = WALK($in_expr);
 	$ret[] = implode("\n", $self->prestatement);
@@ -384,10 +385,11 @@ for_in(assignment_expr, in_expr, statement) {
 	$self->prestatement = array();
 
 	$ret[] = "if ($in_expr !== JS::\$undefined && $in_expr !== NULL) {";
-	$ret[] = "for ($tmp = JS::toObject($in_expr, \$global); $tmp; $tmp = {$tmp}->prototype) {";
+	$ret[] = "for ($keys = array(), $tmp = JS::toObject($in_expr, \$global); $tmp; $tmp = {$tmp}->prototype) {";
 
 	$ret[] = 'foreach (' . $tmp . '->attributes as $property => $attributes) {';
-	$ret[] = 'if (!($attributes & JS::ENUMERABLE)) { continue; }';
+	$ret[] = "if (!(\$attributes & JS::ENUMERABLE) || isset({$keys}[\$property])) { continue; }";
+	$ret[] = "{$keys}[\$property] = TRUE;";
 
 	$ret[] = $assignment_expr . ' = $property;';
 

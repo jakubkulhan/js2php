@@ -11,15 +11,28 @@ function dump() {
 			return { multiline: false, dump: v.toString() };
 
 		} else if (typeof v === "string") {
-			if (@@ strlen(`v) > 70 @@) {
-				return { multiline: true, dump: @@ str_replace("\\/", "/", json_encode(substr(`v, 0, 70))) . "..." @@ };
-			} else {
-				return { multiline: false, dump: @@ str_replace("\\/", "/", json_encode(`v)) @@ };
-			}
+			return { multiline: false, dump: @@ str_replace("\\/", "/", json_encode(`v)) @@ };
 
 		} else if (@@ isset(`v->call) @@) {
-			return { multiline: false,
-			         dump: "[function" + @@ (isset(`v->name) ? " " . `v->name : "") @@ + "]" };
+			var o = {};
+
+			for (var k in v) {
+				o[k] = v[k];
+			}
+
+			if (Object.getOwnPropertyNames(o).length > 0) {
+				o = dumper(o);
+				o.dump = " " + o.dump;
+
+			} else {
+				o = { multiline: false, dump: "" };
+			}
+
+			return { multiline: o.multiline,
+			         dump:
+						 "[function" +
+						 @@ (isset(`v->name) ? " " . `v->name : "") @@ +
+						 o.dump + "]" };
 
 		} else {
 			var multiline = false, i, k, d, isArray = @@ isset(`v->class) && `v->class === "Array" @@;
@@ -28,7 +41,7 @@ function dump() {
 
 			if (isArray) {
 				for (i = 0; i < v.length; ++i) {
-					if ((d = dumper(v[i], indent + "  ")).multiline) {
+					if ((d = dumper(v[i], indent + "  ")).multiline || d.dump.length > 40) {
 						multiline = true;
 					}
 
@@ -37,16 +50,20 @@ function dump() {
 					@@ $values[] = `d; @@
 				}
 
-			} else {
-				for (k in v) {
-					if ((d = dumper(v[k], indent + "  ")).multiline) {
-						multiline = true;
-					}
+			}
 
-					d = d.dump;
+			for (k in v) {
+				if (isArray && String(Number(k)) === String(k)) { continue; }
 
-					@@ $values[] = (preg_match("~^[A-Za-z][A-Za-z0-9]*$~", `k) ? `k : json_encode(`k)) . ": " . `d; @@
+				if ((d = dumper(v[k], indent + "  ")).multiline || d.dump.length > 40) {
+					multiline = true;
 				}
+
+				d = d.dump;
+
+				@@ $values[] = (preg_match("~^[A-Za-z][A-Za-z0-9]*$~", `k)
+						? `k
+						: str_replace("\\/", "/", json_encode(`k))) . ": " . `d; @@
 			}
 
 			if (@@ empty($values) @@) {

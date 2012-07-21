@@ -853,11 +853,13 @@ protected function _24($expr, $p, $file) { extract($this->_env, EXTR_REFS); $ret
 		$expr = $tmp;
 	}
 
-	$self->prestatement[] = "if (isset({$expr}->class) && {$expr}->class === 'Error') {" .
-		"{$expr}->properties['file'] = " . $this->_walk($file) . ";" .
-		"{$expr}->properties['line'] = " . $this->_walk($p[0]) . ";" .
-		"{$expr}->properties['column'] = " . $this->_walk($p[1]) . ";" .
-		"{$expr}->attributes['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
+	$self->prestatement[] = "if (isset({$expr}->class) && {$expr}->class === 'Error' && " .
+		"!isset({$expr}->properties['file']) && !isset({$expr}->properties['line']) && " .
+		"!isset({$expr}->properties['column'])) {" .
+			"{$expr}->properties['file'] = " . $this->_walk($file) . ";" .
+			"{$expr}->properties['line'] = " . $this->_walk($p[0]) . ";" .
+			"{$expr}->properties['column'] = " . $this->_walk($p[1]) . ";" .
+			"{$expr}->attributes['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
 
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();

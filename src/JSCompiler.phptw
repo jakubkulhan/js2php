@@ -577,11 +577,13 @@ throw(expr, p, file) {
 		$expr = $tmp;
 	}
 
-	$self->prestatement[] = "if (isset({$expr}->class) && {$expr}->class === 'Error') {" .
-		"{$expr}->properties['file'] = " . WALK($file) . ";" .
-		"{$expr}->properties['line'] = " . WALK($p[0]) . ";" .
-		"{$expr}->properties['column'] = " . WALK($p[1]) . ";" .
-		"{$expr}->attributes['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
+	$self->prestatement[] = "if (isset({$expr}->class) && {$expr}->class === 'Error' && " .
+		"!isset({$expr}->properties['file']) && !isset({$expr}->properties['line']) && " .
+		"!isset({$expr}->properties['column'])) {" .
+			"{$expr}->properties['file'] = " . WALK($file) . ";" .
+			"{$expr}->properties['line'] = " . WALK($p[0]) . ";" .
+			"{$expr}->properties['column'] = " . WALK($p[1]) . ";" .
+			"{$expr}->attributes['file'] = {$expr}->attributes['line'] = {$expr}->attributes['column'] = 0; }";
 
 	$ret[] = implode("\n", $self->prestatement);
 	$self->prestatement = array();

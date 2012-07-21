@@ -296,7 +296,7 @@ class JSDumper
 
 protected function _0($ast) { extract($this->_env, EXTR_REFS); return $this->_walk($ast);
 }
-protected function _1($statements) { extract($this->_env, EXTR_REFS); return "{" . implode("", $this->_walkeach($statements)) . "}";
+protected function _1($statements) { extract($this->_env, EXTR_REFS); return implode("", $this->_walkeach($statements));
 }
 protected function _2($parts) { extract($this->_env, EXTR_REFS); return "@@" . implode("", $this->_walkeach($parts)) . "@@";
 }
@@ -312,15 +312,15 @@ protected function _4($declarations_list) { extract($this->_env, EXTR_REFS); $re
 	return "var " . implode("", $ret) . ";";
 
 }
-protected function _5($cond_expr, $statement, $else_statement) { extract($this->_env, EXTR_REFS); return "if(" . $this->_walk($cond_expr) . ")" . $this->_walk($statement) .
-		($else_statement ? "else " . $this->_walk($else_statement) : "");
+protected function _5($cond_expr, $statement, $else_statement) { extract($this->_env, EXTR_REFS); return "if(" . $this->_walk($cond_expr) . "){" . $this->_walk($statement) . "}" .
+		($else_statement ? "else{" . $this->_walk($else_statement) . "}" : "");
 
 }
-protected function _6($cond_expr, $statement) { extract($this->_env, EXTR_REFS); return "do " . $this->_walk($statement) . "while(" . $this->_walk($cond_expr) . ");";;
+protected function _6($cond_expr, $statement) { extract($this->_env, EXTR_REFS); return "do{" . $this->_walk($statement) . "}while(" . $this->_walk($cond_expr) . ");";;
 }
-protected function _7($cond_expr, $statement) { extract($this->_env, EXTR_REFS); return "while(" . $this->_walk($cond_expr) . ")" . $this->_walk($statement);;
+protected function _7($cond_expr, $statement) { extract($this->_env, EXTR_REFS); return "while(" . $this->_walk($cond_expr) . "){" . $this->_walk($statement) . "}";
 }
-protected function _8($assignment_expr, $in_expr, $statement) { extract($this->_env, EXTR_REFS); return "for(" . rtrim($this->_walk($assignment_expr), ";") . " in " . $this->_walk($in_expr) . ")" . $this->_walk($statement);
+protected function _8($assignment_expr, $in_expr, $statement) { extract($this->_env, EXTR_REFS); return "for(" . rtrim($this->_walk($assignment_expr), ";") . " in " . $this->_walk($in_expr) . "){" . $this->_walk($statement) . "}";
 }
 protected function _9($init_expr, $cond_expr, $iter_expr, $statement) { extract($this->_env, EXTR_REFS); $init = $cond = $iter = '';
 
@@ -328,7 +328,7 @@ protected function _9($init_expr, $cond_expr, $iter_expr, $statement) { extract(
 	if ($cond_expr) { $cond = $this->_walk($cond_expr); }
 	if ($iter_expr) { $iter = $this->_walk($iter_expr); }
 
-	return "for($init;$cond;$iter)" . $this->_walk($statement);
+	return "for($init;$cond;$iter){" . $this->_walk($statement) . "}";
 
 }
 protected function _10($label) { extract($this->_env, EXTR_REFS); return "continue $label;";
@@ -337,7 +337,7 @@ protected function _11($label) { extract($this->_env, EXTR_REFS); return "break 
 }
 protected function _12($expr) { extract($this->_env, EXTR_REFS); return "return " . $this->_walk($expr) . ";";
 }
-protected function _13($expr, $statement) { extract($this->_env, EXTR_REFS); return "with(" . $this->_walk($expr) . ")" . $this->_walk($statement);
+protected function _13($expr, $statement) { extract($this->_env, EXTR_REFS); return "with(" . $this->_walk($expr) . "){" . $this->_walk($statement) . "}";
 }
 protected function _14($label, $statement) { extract($this->_env, EXTR_REFS); return "$label:" . $this->_walk($statement);
 }
@@ -349,9 +349,9 @@ protected function _17($statement) { extract($this->_env, EXTR_REFS); return "de
 }
 protected function _18($expr) { extract($this->_env, EXTR_REFS); return "throw " . $this->_walk($expr) . ";";
 }
-protected function _19($try_block, $catch_var, $catch_block, $finally_block) { extract($this->_env, EXTR_REFS); return "try" . $this->_walk($try_block) . 
-		($catch_block ? "catch($catch_var)" . $this->_walk($catch_block) : "") .
-		($finally_block ? "finally" . $this->_walk($finally_block) : "");
+protected function _19($try_block, $catch_var, $catch_block, $finally_block) { extract($this->_env, EXTR_REFS); return "try{" . $this->_walk($try_block) . "}" .
+		($catch_block ? "catch($catch_var){" . $this->_walk($catch_block) . "}" : "") .
+		($finally_block ? "finally{" . $this->_walk($finally_block) . "}": "");
 
 }
 protected function _20($expr) { extract($this->_env, EXTR_REFS); return rtrim($this->_walk($expr), ";") . ";";
@@ -404,7 +404,7 @@ protected function _43() { extract($this->_env, EXTR_REFS); return "undefined";
 }
 protected function _44($n) { extract($this->_env, EXTR_REFS); return json_encode($n);
 }
-protected function _45($s) { extract($this->_env, EXTR_REFS); return json_encode($s);
+protected function _45($s) { extract($this->_env, EXTR_REFS); return str_replace("\\/", "/", json_encode($s));
 }
 protected function _46($regexp, $flags) { extract($this->_env, EXTR_REFS); return "/$regexp/$flags";
 }

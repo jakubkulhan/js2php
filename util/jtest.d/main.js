@@ -66,7 +66,7 @@ var parse = PHP.cls("JSParser")(), compile = PHP.cls("JSCompiler")(),
 
 try {
 	files.forEach(function (f) {
-		ast = parse(PHP.fn("file_get_contents")(f), { file: f });
+		ast = parse(PHP.fn("file_get_contents")(f), { file: PHP.fn("realpath")(f) });
 
 		if (!ast[0]) {
 			puts(">>>");
@@ -93,7 +93,13 @@ try {
 		}
 
 		try {
-			@@ $trace = $global->trace; `call($global); $global->trace = $trace; @@
+			@@
+				$trace = $global->trace;
+				$trace_sp = $global->trace_sp;
+				`call($global);
+				$global->trace = $trace;
+				$global->trace_sp = $trace_sp;
+			@@
 			++passed;
 			putc(".");
 
@@ -119,6 +125,7 @@ try {
 	puts();
 	puts(e.name + ": " + e.message + " in " + e.file + "@" + e.line + ":" + e.column);
 	var trace = @@ JS::fromNative($global->trace) @@;
+	console.log(trace);
 	trace.reverse().forEach(function (t) {
 		puts("  " + t[0] + (t[1] !== null ? "@" + t[1] + ":" + t[2] : ""));
 	});

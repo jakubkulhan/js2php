@@ -1,5 +1,3 @@
-var console = { log: function () { dump.call(undefined, arguments); } };
-
 test("hasOwnProperty", function() {
 	assertEqual(console.hasOwnProperty("log"), true);
 	assertEqual("test".hasOwnProperty("length"), true);

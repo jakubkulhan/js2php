@@ -2814,6 +2814,7 @@ echo 'function _a3686fcdd5b5a69538641de6dddfbea8_32($global,$leThis,$fn,$args,$c
 function _a3686fcdd5b5a69538641de6dddfbea8_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<image>/09_date.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<image>/09_date.js';$scope->properties['__dirname'] = '<image>';}
+if (isset($global->properties['require'])) {$global->properties['require']->properties['.'] = '<image>';$global->properties['require']->attributes['.'] = 0;}
 if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }
 $leThis = $global;
 $_Date;

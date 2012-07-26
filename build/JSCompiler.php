@@ -428,6 +428,11 @@ protected function _1($ast, $file) { extract($this->_env, EXTR_REFS); $body = ar
 			"\$scope->properties['__dirname'] = " . var_export(dirname($file), TRUE) . ";" .
 		"}";
 
+	$body[] = "if (isset(\$global->properties['require'])) {" .
+			"\$global->properties['require']->properties['.'] = " . var_export(dirname($file), TRUE) . ";" .
+			"\$global->properties['require']->attributes['.'] = 0;" .
+		"}";
+
 	$body[] = 'if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; }';
 	$body[] = '$leThis = $global;';
 

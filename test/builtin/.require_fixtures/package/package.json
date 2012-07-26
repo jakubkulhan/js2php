@@ -1,0 +1,2 @@
+{ "name": "package",
+  "main": "./lib/foo.js" }

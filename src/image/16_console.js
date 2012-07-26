@@ -8,9 +8,9 @@ var console = {
 
 		if (arguments.length > 1) {
 			this.p(@@ $out @@, PHP.fn("vsprintf")(data, Array.prototype.slice.call(arguments, 1)));
+		} else {
+			this.p(@@ $out @@, this.inspect(data));
 		}
-
-		this.p(@@ $out @@, this.inspect(data));
 	},
 
 	error: function (data) {
@@ -18,9 +18,9 @@ var console = {
 
 		if (arguments.length > 1) {
 			this.p(@@ $err @@, PHP.fn("vsprintf")(data, Array.prototype.slice.call(arguments, 1)));
+		} else {
+			this.p(@@ $err @@, this.inspect(data));
 		}
-
-		this.p(@@ $err @@, this.inspect(data));
 	},
 
 	dir: function (object) {

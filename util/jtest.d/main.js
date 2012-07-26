@@ -125,7 +125,6 @@ try {
 	puts();
 	puts(e.name + ": " + e.message + " in " + e.file + "@" + e.line + ":" + e.column);
 	var trace = @@ JS::fromNative($global->trace) @@;
-	console.log(trace);
 	trace.reverse().forEach(function (t) {
 		puts("  " + t[0] + (t[1] !== null ? "@" + t[1] + ":" + t[2] : ""));
 	});

@@ -1,4 +1,4 @@
-require.modules["crypto"] = {
+require.modules.crypto = {
 	exports: {
 		createHash: function createHash(algorithm) {
 			var hash = {
@@ -75,11 +75,11 @@ require.modules["crypto"] = {
 		},
 
 		md5: function (data) {
-			return require.modules["crypto"].exports.createHash("md5").update(data).digest("hex");
+			return require.modules.crypto.exports.createHash("md5").update(data).digest("hex");
 		},
 
 		sha1: function (data) {
-			return require.modules["crypto"].exports.createHash("sha1").update(data).digest("hex");
+			return require.modules.crypto.exports.createHash("sha1").update(data).digest("hex");
 		}
 	}
 };

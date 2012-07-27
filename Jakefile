@@ -14,16 +14,19 @@ task("build", "build parser, compiler and image",
 		run("cp " + srcDir + "/JSInterpreter.php " + buildDir + "/");
 	});
 
-task("build:parser", "build JSParser from phpeg source", 
+task("build:parser", "build JSParser from phpeg source; argument <usePHPGenerator>, parser for PHP 5.2", 
 	result(buildDir + "/JSParser.php"),
 	srcDir + "/JSParser.phpeg",
-	function () {
-		run(utilDir + "/phpeg " + srcDir + "/JSParser.phpeg " + buildDir + "/JSParser.php");
+	utilDir + "/phpeg",
+	function (usePHPGenerator) {
+		run(utilDir + "/phpeg " + (usePHPGenerator ? "-t php " : "") +
+			srcDir + "/JSParser.phpeg " + buildDir + "/JSParser.php");
 	});
 
 task("build:compiler", "build JSCompiler from phptw source",
 	result(buildDir + "/JSCompiler.php"),
 	srcDir + "/JSCompiler.phptw",
+	utilDir + "/phptwc",
 	function () {
 		run(utilDir + "/phptwc " + srcDir + "/JSCompiler.phptw " + buildDir + "/JSCompiler.php");
 	});
@@ -31,6 +34,7 @@ task("build:compiler", "build JSCompiler from phptw source",
 task("build:dumper", "build JSDumper from phptw source",
 	result(buildDir + "/JSDumper.php"),
 	srcDir + "/JSDumper.phptw",
+	utilDir + "/phptwc",
 	function () {
 		run(utilDir + "/phptwc " + srcDir + "/JSDumper.phptw " + buildDir + "/JSDumper.php");
 	});

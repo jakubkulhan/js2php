@@ -53,12 +53,12 @@ function shrink($input)
 					continue;
 				}
 
+				if (isset($set[substr($output, -1)]) || isset($set[$token[1]{0}])) { $space = ''; }
 				$lastc = ord(substr($output, -1));
 				if ($token[1] === '.' && $lastc >= 0x30 && $lastc <= 0x39) {
 					$space = ' ';
 				}
 
-				if (isset($set[substr($output, -1)]) || isset($set[$token[1]{0}])) { $space = ''; }
 				$output .= $space . $token[1] . ($token[0] === T_END_HEREDOC ? PHP_EOL : '');
 				$space = '';
 		}

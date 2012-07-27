@@ -10,7 +10,7 @@ class JSParser {
     }
     
     private function _init0() {
-        $this->_environments[0] = array();
+         $this->_environments[0] = array();
         $self = (object) array(
         		'fns' => array(),
         		'fns_stack' => array(),

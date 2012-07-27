@@ -49,6 +49,10 @@ class JS
 		HAS_GETTER = 8,
 		HAS_SETTER = 16;
 
+	const
+		HINT_STRING = 0,
+		HINT_NUMBER = 1;
+
 	static $global;
 	static $undefined;
 	static $loader;
@@ -68,12 +72,17 @@ class JS
 	/** @var array object hash => object */
 	static $wrappedObjects = array();
 
-	static function toPrimitive($v, $global)
+	static function toPrimitive($v, $global, $hint = JS::HINT_STRING)
 	{
 		if ($v === JS::$undefined || !is_object($v)) {
 			return $v;
+
+		} else if (isset($v->class) && $v->class === 'Date' && $hint === JS::HINT_NUMBER) {
+			return $v->value * 1000;
+
 		} else if (isset($v->value)) {
 			return $v->value;
+
 		} else {
 			if (($f = JS::getProperty($v, 'toString')) !== NULL && isset($f->call)) {
 				$c = $f->call;
@@ -153,7 +162,7 @@ class JS
 			return ((string) intval($v)) === $v ? intval($v) : floatval($v);
 
 		} else {
-			return JS::toNumber(JS::toPrimitive($v, $global), $global);
+			return JS::toNumber(JS::toPrimitive($v, $global), $global, JS::HINT_NUMBER);
 		}
 	}
 
@@ -186,7 +195,7 @@ class JS
 			return $v;
 
 		} else {
-			return JS::toString(JS::toPrimitive($v, $global), $global);
+			return JS::toString(JS::toPrimitive($v, $global), $global, JS::HINT_STRING);
 		}
 	}
 

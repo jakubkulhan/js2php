@@ -442,6 +442,7 @@ php
 
 number
   = "0" [Xx] hex:[0-9a-fA-F]+ !identifier_start -> hexdec($hex)
+  / "0" oct:[0-7]+ -> octdec($oct)
   / int:("0" / [1-9] [0-9]*) frac:("." [0-9]*)? exp:([eE] [+-]? [0-9]+)? !identifier_start
     { $v = floatval($int . $frac . $exp); if (((string) $v) === intval($v)) { $v = intval($v); } return $v; }
   / "." frac:("." [0-9]+) exp:([eE] [+-]? [0-9]+)? !identifier_start -> floatval("0." . $frac . $exp)

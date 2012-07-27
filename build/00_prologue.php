@@ -1,4 +1,4 @@
-function _1d61b3baf7743d5255ab12a679fca3b3_0($global = NULL, $scope = NULL) {
+function _9273b0ff6f7baa815f4ec0ba04dfeffe_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<image>/00_prologue.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<image>/00_prologue.js';$scope->properties['__dirname'] = '<image>';}
 if (isset($global->properties['require'])) {$global->properties['require']->properties['.'] = '<image>';$global->properties['require']->attributes['.'] = 0;}
@@ -54,6 +54,10 @@ class JS
 		HAS_GETTER = 8,
 		HAS_SETTER = 16;
 
+	const
+		HINT_STRING = 0,
+		HINT_NUMBER = 1;
+
 	static $global;
 	static $undefined;
 	static $loader;
@@ -73,12 +77,17 @@ class JS
 	/** @var array object hash => object */
 	static $wrappedObjects = array();
 
-	static function toPrimitive($v, $global)
+	static function toPrimitive($v, $global, $hint = JS::HINT_STRING)
 	{
 		if ($v === JS::$undefined || !is_object($v)) {
 			return $v;
+
+		} else if (isset($v->class) && $v->class === 'Date' && $hint === JS::HINT_NUMBER) {
+			return $v->value * 1000;
+
 		} else if (isset($v->value)) {
 			return $v->value;
+
 		} else {
 			if (($f = JS::getProperty($v, 'toString')) !== NULL && isset($f->call)) {
 				$c = $f->call;
@@ -158,7 +167,7 @@ class JS
 			return ((string) intval($v)) === $v ? intval($v) : floatval($v);
 
 		} else {
-			return JS::toNumber(JS::toPrimitive($v, $global), $global);
+			return JS::toNumber(JS::toPrimitive($v, $global), $global, JS::HINT_NUMBER);
 		}
 	}
 
@@ -191,7 +200,7 @@ class JS
 			return $v;
 
 		} else {
-			return JS::toString(JS::toPrimitive($v, $global), $global);
+			return JS::toString(JS::toPrimitive($v, $global), $global, JS::HINT_STRING);
 		}
 	}
 

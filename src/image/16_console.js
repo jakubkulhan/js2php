@@ -59,6 +59,9 @@ var console = {
 			} else if (typeof v === "string") {
 				return { multiline: false, dump: @@ str_replace("\\/", "/", json_encode(`v)) @@ };
 
+			} else if (@@ isset(`v->class) && `v->class === 'Date' @@) {
+				return { multiline: false, dump: "[date " + v.toString() + "]" };
+
 			} else if (@@ isset(`v->call) @@) {
 				var o = {};
 

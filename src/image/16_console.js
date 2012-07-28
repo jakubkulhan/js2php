@@ -4,7 +4,7 @@ var console = {
 	},
 
 	log: function (data) {
-		@@ static $out; if ($out === NULL) { $out = defined('STDOUT') ? STDOUT : fopen('php://ouput', 'w'); } @@
+		@@ static $out; if ($out === NULL) { $out = defined('STDOUT') ? STDOUT : fopen('php://output', 'w'); } @@
 
 		if (arguments.length > 1) {
 			this.p(@@ $out @@, PHP.fn("vsprintf")(data, Array.prototype.slice.call(arguments, 1)));

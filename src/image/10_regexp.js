@@ -79,7 +79,7 @@ RegExp.prototype.exec = function (string) {
 	}
 
 	result = @@ preg_match(
-		'/' . `pattern . '/' . `flags,
+		'/' . `pattern . '/u' . `flags,
 		JS::toString(`string, $global),
 		$matches,
 		PREG_OFFSET_CAPTURE,

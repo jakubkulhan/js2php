@@ -514,14 +514,18 @@ require.modules.fs = {
 		},
 
 		readFileSync: function readFileSync(path, encoding) {
-			if (encoding !== undefined) {
-				throw new NotImplementedError("encoding not implemented");
+			if (encoding !== undefined && encoding !== 'utf8') {
+				throw new NotImplementedError("only utf8 encoding supported");
 			}
 
 			var ret = @@ @file_get_contents(`path) @@;
 			if (ret === false) {
 				@@ $e = error_get_last(); $e = $e['message']; @@
 					throw new Error(@@ $e @@);
+			}
+
+			if (encoding) {
+				return ret;
 			}
 
 			return new require.modules.buffer.exports.Buffer(ret);
@@ -545,8 +549,8 @@ require.modules.fs = {
 		},
 
 		writeFileSync: function writeFileSync(path, data, encoding) {
-			if (encoding !== undefined) {
-				throw new NotImplementedError("encoding not implemented");
+			if (encoding !== undefined && encoding !== 'utf8') {
+				throw new NotImplementedError("only utf8 encoding supported");
 			}
 
 			data = @@ JS::toString(`data, $global) @@;
@@ -578,8 +582,8 @@ require.modules.fs = {
 		},
 
 		appendFileSync: function appendFileSync(path, data, encoding) {
-			if (encoding !== undefined) {
-				throw new NotImplementedError("encoding not implemented");
+			if (encoding !== undefined && encoding !== 'utf8') {
+				throw new NotImplementedError("only utf8 encoding supported");
 			}
 
 			data = @@ JS::toString(`data, $global) @@;

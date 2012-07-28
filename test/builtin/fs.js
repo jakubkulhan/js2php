@@ -279,6 +279,8 @@ test("fs.read()", function () {
 test("fs.readFile()", function () {
 	PHP.fn("file_put_contents")(a, "readFile");
 	assertEqual(fs.readFileSync(a).toString(), "readFile");
+	assertEqual(fs.readFileSync(a, "utf8"), "readFile");
+	try { fs.readlinkSync(a, "cp1250"); assert(false, "did not throw"); } catch (e) {}
 	fs.readFile(a, function (err, data) {
 		assert(!err);
 		assertEqual(data.toString(), "readFile");

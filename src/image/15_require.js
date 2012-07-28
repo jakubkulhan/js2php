@@ -176,6 +176,19 @@ require.extensions = {
 
 		try {
 			savedCurrentDirectory = require["."];
+			var moduleRequire = (function (__dirname) {
+				return function (path) {
+					var savedCurrentDirectory = require["."], ret;
+					try {
+						@@ `require->properties['.'] = `__dirname; @@
+						ret = require(path);
+					} finally {
+						@@ `require->properties['.'] = `savedCurrentDirectory; @@
+					}
+
+					return ret;
+				};
+			})(@@ dirname(`path) @@);
 
 			@@
 				$newScope = clone JS::$emptyScope;
@@ -185,6 +198,8 @@ require.extensions = {
 				$newScope->properties['module'] = clone JS::$objectTemplate;
 				$newScope->properties['module']->properties['exports'] = clone JS::$objectTemplate;
 				$newScope->properties['module']->attributes['exports'] = JS::WRITABLE | JS::CONFIGURABLE;
+				$newScope->properties['module']->properties['require'] = `moduleRequire;
+				$newScope->properties['module']->attributes['require'] = 0;
 				$newScope->properties['module']->up = $global;
 				$newScope->up = $newScope->properties['module'];
 			@@

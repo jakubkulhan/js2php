@@ -14,4 +14,6 @@ test("require()", function () {
 
 	assertEqual(require("foo"), "Jeph's foo");
 	assertEqual(require("bar"), "Node's bar");
+
+	assertEqual(require("./.require_fixtures/baz").baz(), "baz");
 });

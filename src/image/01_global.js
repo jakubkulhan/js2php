@@ -15,7 +15,7 @@ function eval(x) {
 		@@ }
 
 		$compiler = new JSCompiler;
-		$code = $compiler->__invoke($ast);
+		$code = $compiler->__invoke($ast, array('loader' => JS::$loader));
 		$entryPoint = eval($code);
 		return $entryPoint($global, $global->scope[$global->scope_sp - 1]);
 	@@

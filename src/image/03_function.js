@@ -24,7 +24,7 @@ function Function() {
 		@@ }
 
 		$compiler = new JSCompiler;
-		$code = $compiler->__invoke($ast);
+		$code = $compiler->__invoke($ast, array('loader' => JS::$loader));
 
 		$entryPoint = eval($code);
 		$fn = $entryPoint();

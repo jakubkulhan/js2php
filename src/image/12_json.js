@@ -43,7 +43,7 @@ var JSON = {
 			throw new NotImplementedError("JSON.stringify(): replacer and space arguments not supported.");
 		}
 
-		return @@ json_encode(JS::toNative(`value)) @@;
+		return @@ str_replace("\\/", "/", json_encode(JS::toNative(`value))) @@;
 	}
 };
 

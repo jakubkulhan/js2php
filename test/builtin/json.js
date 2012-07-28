@@ -33,6 +33,7 @@ test("JSON.stringify()", function () {
 	assert(JSON.stringify(false) === "false", "JSON.stringify(): 5");
 	assert(JSON.stringify(42) === "42", "JSON.stringify(): 6");
 	assert(JSON.stringify("hello") === '"hello"', "JSON.stringify(): 7");
-	assert(JSON.stringify({ a: "b", c: "d" }) === '{"a":"b","c":"d"}', "JSON.stringify(): 8");
-	assert(JSON.stringify([ 1, 2, 3, 4, 5 ]) === "[1,2,3,4,5]", "JSON.stringify(): 9");
+	assert(JSON.stringify("/") === '"/"', "JSON.stringify(): 8");
+	assert(JSON.stringify({ a: "b", c: "d" }) === '{"a":"b","c":"d"}', "JSON.stringify(): 9");
+	assert(JSON.stringify([ 1, 2, 3, 4, 5 ]) === "[1,2,3,4,5]", "JSON.stringify(): 10");
 });

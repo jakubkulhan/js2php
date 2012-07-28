@@ -15,10 +15,10 @@ var(declarations_list) {
 
 	foreach ($declarations_list as $declaration) {
 		list($varname, $expr) = $declaration;
-		$ret[] = "$varname=" . WALK($expr);
+		$ret[] = "$varname" . ($expr ? "=" . WALK($expr) : "");
 	}
 
-	return "var " . implode("", $ret) . ";";
+	return "var " . implode(",", $ret) . ";";
 }
 
 if(cond_expr, statement, else_statement) {
@@ -103,7 +103,7 @@ postdec(expr) -> WALK($expr) . "--"
 
 call(fn_expr, arguments) -> WALK($fn_expr) . "(" . implode(",", WALKEACH($arguments)) . ")"
 
-index(base, index_expr) -> WALK($base) . "[" . WALK($index_expr) . "]"
+index(base, index_expr) -> WALK($base) . (($index_expr[0] === "string" && preg_match("/^[a-zA-Z_$][a-zA-Z0-9_$]*$/", $index_expr[1])) ? "." . $index_expr[1] : "[" . WALK($index_expr) . "]")
 
 new(expr, arguments_exprs_list) -> "new " . WALK($expr) . "(" . implode(",", WALKEACH($arguments_exprs_list)) . ")"
 

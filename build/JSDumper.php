@@ -306,10 +306,10 @@ protected function _4($declarations_list) { extract($this->_env, EXTR_REFS); $re
 
 	foreach ($declarations_list as $declaration) {
 		list($varname, $expr) = $declaration;
-		$ret[] = "$varname=" . $this->_walk($expr);
+		$ret[] = "$varname" . ($expr ? "=" . $this->_walk($expr) : "");
 	}
 
-	return "var " . implode("", $ret) . ";";
+	return "var " . implode(",", $ret) . ";";
 
 }
 protected function _5($cond_expr, $statement, $else_statement) { extract($this->_env, EXTR_REFS); return "if(" . $this->_walk($cond_expr) . "){" . $this->_walk($statement) . "}" .
@@ -388,7 +388,7 @@ protected function _35($expr) { extract($this->_env, EXTR_REFS); return $this->_
 }
 protected function _36($fn_expr, $arguments) { extract($this->_env, EXTR_REFS); return $this->_walk($fn_expr) . "(" . implode(",", $this->_walkeach($arguments)) . ")";
 }
-protected function _37($base, $index_expr) { extract($this->_env, EXTR_REFS); return $this->_walk($base) . "[" . $this->_walk($index_expr) . "]";
+protected function _37($base, $index_expr) { extract($this->_env, EXTR_REFS); return $this->_walk($base) . (($index_expr[0] === "string" && preg_match("/^[a-zA-Z_$][a-zA-Z0-9_$]*$/", $index_expr[1])) ? "." . $index_expr[1] : "[" . $this->_walk($index_expr) . "]");
 }
 protected function _38($expr, $arguments_exprs_list) { extract($this->_env, EXTR_REFS); return "new " . $this->_walk($expr) . "(" . implode(",", $this->_walkeach($arguments_exprs_list)) . ")";
 }

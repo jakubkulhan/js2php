@@ -791,17 +791,18 @@ unset($x189, $W189, $S189, $U189);
 $x193 = _f004d8b1515b13f36d85248542abfcb6_11($global, $scope, $x183, JS::toString($x185, $global), 1, 24, '<image>/17_crypto.js');
 $x189 =& $x193[0]; list(,$W189,$S189,$U189) = $x193;
 if ($U189 && (!isset($x183->extensible) || $x183->extensible)) {$x183->properties[$x185] = $x189; $x189 =& $x183->properties[$x185]; $x183->attributes[$x185] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U189 = FALSE; $W189 = TRUE; }
+if (isset($x183->class) && $x183->class === 'Array') {  if (isset($x183->properties['length']) && $x183->properties['length'] !== JS::$undefined) { $x195 = $x183->properties['length']; }  else { $x195 = 0; } }
 if (isset($S189)) {
-$x195 = $S189->call;
+$x196 = $S189->call;
 $global->trace[++$global->trace_sp] = array('<image>/17_crypto.js', 1, 24);
-$x196 = $x195($global, $x183, $S189, array($x0), false);
+$x197 = $x196($global, $x183, $S189, array($x0), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x194 = $x196;
+$x194 = $x197;
 } else {
 if (!$U189) {$x194 = $x0;if ($W189) { $x189 = $x0; }  }
 else { $x194 = JS::$undefined; }
 }
-if (isset($x183->class) && $x183->class === 'Array' &&  is_int('crypto') && 'crypto' >= $x183->properties['length']) { $x183->properties['length'] = 'crypto' + 1; }
+if (isset($x183->class) && $x183->class === 'Array') {if (is_int('crypto') && 'crypto' >= $x183->properties['length']) { $x183->properties['length'] = 'crypto' + 1; }else if ($x185 === 'length' && is_int($x0) && $x195 > $x0) {  for ($i = $x0; $i < $x195; ++$i) {  unset($x183->properties[$i], $x183->attributes[$i]); }}}
 ;
 return JS::$undefined;
 }

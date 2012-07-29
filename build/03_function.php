@@ -305,11 +305,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x119 =& $scope->properties['arguments'];
-$x119->properties['length'] = count($args);
+$x121 =& $scope->properties['arguments'];
+$x121->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x119->properties[$i] = $args[$i];
-$x119->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x121->properties[$i] = $args[$i];
+$x121->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $global->scope[++$global->scope_sp] = $scope;
 if (JS::toBoolean(isset($leThis->string), $global)) {
@@ -321,7 +321,7 @@ return "function " . (isset($leThis->name) ? $leThis->name : "") .
 ;
 return JS::$undefined;
 }
-echo 'function _8cc783701129b82efc0bf45cf12c568e_6($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x119=&$scope->properties[\'arguments\'];$x119->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x119->properties[$i]=$args[$i];$x119->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$global->scope[++$global->scope_sp]=$scope;if(JS::toBoolean(isset($leThis->string),$global)){return$leThis->string;}return"function ".(isset($leThis->name)?$leThis->name:"")."(".implode(",",$leThis->parameters)."){ [native code] }";return JS::$undefined;}', "\n";
+echo 'function _8cc783701129b82efc0bf45cf12c568e_6($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x121=&$scope->properties[\'arguments\'];$x121->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x121->properties[$i]=$args[$i];$x121->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$global->scope[++$global->scope_sp]=$scope;if(JS::toBoolean(isset($leThis->string),$global)){return$leThis->string;}return"function ".(isset($leThis->name)?$leThis->name:"")."(".implode(",",$leThis->parameters)."){ [native code] }";return JS::$undefined;}', "\n";
 function _8cc783701129b82efc0bf45cf12c568e_7($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -329,11 +329,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x133 =& $scope->properties['arguments'];
-$x133->properties['length'] = count($args);
+$x136 =& $scope->properties['arguments'];
+$x136->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x133->properties[$i] = $args[$i];
-$x133->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x136->properties[$i] = $args[$i];
+$x136->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['thisArg'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_thisArg =& $scope->properties['thisArg'];
@@ -348,64 +348,64 @@ $_fn = $leThis;
 $scope->properties['call'] = JS::$undefined; $_call =& $scope->properties['call'];
 $Ucall = FALSE;
 $_call = $_fn->call;
-$x134 = (((gettype($_thisArg) === gettype(JS::$undefined) && $_thisArg === JS::$undefined))|| (((is_float($_thisArg) || is_int($_thisArg)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_thisArg == JS::$undefined));
-if (JS::toBoolean($x134, $global)) {
+$x137 = (((gettype($_thisArg) === gettype(JS::$undefined) && $_thisArg === JS::$undefined))|| (((is_float($_thisArg) || is_int($_thisArg)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_thisArg == JS::$undefined));
+if (JS::toBoolean($x137, $global)) {
 if ($UthisArg) {$global->properties['thisArg'] = $_thisArg; $_thisArg =& $global->properties['thisArg']; }
 $_thisArg = $global;;
 }
 else {
-$x137 = $_thisArg;
-$x137 = ($x137 === JS::$undefined ? 'undefined' : (is_int($x137) || is_float($x137) ? 'number' : (is_bool($x137) ? 'boolean' : (is_string($x137) ? 'string' : (is_object($x137) && isset($x137->call) ? 'function' : 'object')))));
-$x136 = !(((gettype($x137) === gettype('object') && $x137 === 'object'))|| (((is_float($x137) || is_int($x137)) && (is_float('object') || is_int('object'))) && $x137 == 'object'));
-$x135 = $x136;
-if (JS::toBoolean($x135, $global)) {
-$x139 = $_thisArg;
-$x139 = ($x139 === JS::$undefined ? 'undefined' : (is_int($x139) || is_float($x139) ? 'number' : (is_bool($x139) ? 'boolean' : (is_string($x139) ? 'string' : (is_object($x139) && isset($x139->call) ? 'function' : 'object')))));
-$x138 = !(((gettype($x139) === gettype('function') && $x139 === 'function'))|| (((is_float($x139) || is_int($x139)) && (is_float('function') || is_int('function'))) && $x139 == 'function'));
-$x135 = $x138; }
-if (JS::toBoolean($x135, $global)) {
-$x140 = JS::toObject($_thisArg, $global);
+$x140 = $_thisArg;
+$x140 = ($x140 === JS::$undefined ? 'undefined' : (is_int($x140) || is_float($x140) ? 'number' : (is_bool($x140) ? 'boolean' : (is_string($x140) ? 'string' : (is_object($x140) && isset($x140->call) ? 'function' : 'object')))));
+$x139 = !(((gettype($x140) === gettype('object') && $x140 === 'object'))|| (((is_float($x140) || is_int($x140)) && (is_float('object') || is_int('object'))) && $x140 == 'object'));
+$x138 = $x139;
+if (JS::toBoolean($x138, $global)) {
+$x142 = $_thisArg;
+$x142 = ($x142 === JS::$undefined ? 'undefined' : (is_int($x142) || is_float($x142) ? 'number' : (is_bool($x142) ? 'boolean' : (is_string($x142) ? 'string' : (is_object($x142) && isset($x142->call) ? 'function' : 'object')))));
+$x141 = !(((gettype($x142) === gettype('function') && $x142 === 'function'))|| (((is_float($x142) || is_int($x142)) && (is_float('function') || is_int('function'))) && $x142 == 'function'));
+$x138 = $x141; }
+if (JS::toBoolean($x138, $global)) {
+$x143 = JS::toObject($_thisArg, $global);
 if ($UthisArg) {$global->properties['thisArg'] = $_thisArg; $_thisArg =& $global->properties['thisArg']; }
-$_thisArg = $x140;;
+$_thisArg = $x143;;
 };
 };
-$x141 = $_argArray;
-if (!JS::toBoolean($x141, $global)) {
-$x142 = clone JS::$arrayTemplate;
-$x142->properties['length'] = 0;
-$x142->attributes['length'] = JS::WRITABLE;
-$x141 = $x142; }
+$x144 = $_argArray;
+if (!JS::toBoolean($x144, $global)) {
+$x145 = clone JS::$arrayTemplate;
+$x145->properties['length'] = 0;
+$x145->attributes['length'] = JS::WRITABLE;
+$x144 = $x145; }
 if ($UargArray) {$global->properties['argArray'] = $_argArray; $_argArray =& $global->properties['argArray']; }
-$_argArray = $x141;
+$_argArray = $x144;
 $passArgs = array();
-for ($x143 = 0;; ++$x143) {
-if ($x143 === 0) {
+for ($x146 = 0;; ++$x146) {
+if ($x146 === 0) {
 $scope->properties['i'] = JS::$undefined; $_i =& $scope->properties['i'];
 $Ui = FALSE;
 $_i = 0;
-unset($x144, $W144, $S144, $U144);
-$x145 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_argArray, JS::toString('length', $global), 76, 30, '<image>/03_function.js');
-$x144 =& $x145[0]; list(,$W144,$S144,$U144) = $x145;
+unset($x147, $W147, $S147, $U147);
+$x148 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_argArray, JS::toString('length', $global), 76, 30, '<image>/03_function.js');
+$x147 =& $x148[0]; list(,$W147,$S147,$U147) = $x148;
 $scope->properties['l'] = JS::$undefined; $_l =& $scope->properties['l'];
 $Ul = FALSE;
-$_l = $x144;
+$_l = $x147;
 $scope->properties['arg'] = JS::$undefined; $_arg =& $scope->properties['arg'];
 $Uarg = FALSE;
 $_arg = JS::$undefined;
 }
-if ($x143 !== 0) {
-$x146 = ++$_i;
+if ($x146 !== 0) {
+$x149 = ++$_i;
 }
-$x147 = JS::toPrimitive($_i, $global);
-$x148 = JS::toPrimitive($_l, $global);
-$x149 = (is_string($x147) && is_string($x148) ? strcmp($x147, $x148) < 0 : (!is_nan($x150 = JS::toNumber($x147, $global)) && !is_nan($x151 = JS::toNumber($x148, $global)) && $x150 < $x151));
-if (!JS::toBoolean($x149, $global)) { break; }
+$x150 = JS::toPrimitive($_i, $global);
+$x151 = JS::toPrimitive($_l, $global);
+$x152 = (is_string($x150) && is_string($x151) ? strcmp($x150, $x151) < 0 : (!is_nan($x153 = JS::toNumber($x150, $global)) && !is_nan($x154 = JS::toNumber($x151, $global)) && $x153 < $x154));
+if (!JS::toBoolean($x152, $global)) { break; }
 
-unset($x152, $W152, $S152, $U152);
-$x153 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_argArray, JS::toString($_i, $global), 77, 17, '<image>/03_function.js');
-$x152 =& $x153[0]; list(,$W152,$S152,$U152) = $x153;
+unset($x155, $W155, $S155, $U155);
+$x156 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_argArray, JS::toString($_i, $global), 77, 17, '<image>/03_function.js');
+$x155 =& $x156[0]; list(,$W155,$S155,$U155) = $x156;
 if ($Uarg) {$global->properties['arg'] = $_arg; $_arg =& $global->properties['arg']; }
-$_arg = $x152;
+$_arg = $x155;
 $passArgs[] =$_arg;;
 };
 if (JS::$loader !== NULL && !$leThis->loaded) { $l = JS::$loader; $l($leThis, $global); };
@@ -413,7 +413,7 @@ return $_call($global,$_thisArg, $leThis, $passArgs);
 ;
 return JS::$undefined;
 }
-echo 'function _8cc783701129b82efc0bf45cf12c568e_7($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x133=&$scope->properties[\'arguments\'];$x133->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x133->properties[$i]=$args[$i];$x133->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'thisArg\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_thisArg=&$scope->properties[\'thisArg\'];$UthisArg=FALSE;$scope->properties[\'argArray\']=array_key_exists(1,$args)?$args[1]:JS::$undefined;$_argArray=&$scope->properties[\'argArray\'];$UargArray=FALSE;$global->scope[++$global->scope_sp]=$scope;$scope->properties[\'fn\']=JS::$undefined;$_fn=&$scope->properties[\'fn\'];$Ufn=FALSE;$_fn=$leThis;$scope->properties[\'call\']=JS::$undefined;$_call=&$scope->properties[\'call\'];$Ucall=FALSE;$_call=$_fn->call;$x134=(((gettype($_thisArg)===gettype(JS::$undefined)&&$_thisArg===JS::$undefined))||(((is_float($_thisArg)||is_int($_thisArg))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_thisArg==JS::$undefined));if(JS::toBoolean($x134,$global)){if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$global;}else{$x137=$_thisArg;$x137=($x137===JS::$undefined?\'undefined\':(is_int($x137)||is_float($x137)?\'number\':(is_bool($x137)?\'boolean\':(is_string($x137)?\'string\':(is_object($x137)&&isset($x137->call)?\'function\':\'object\')))));$x136=!(((gettype($x137)===gettype(\'object\')&&$x137===\'object\'))||(((is_float($x137)||is_int($x137))&&(is_float(\'object\')||is_int(\'object\')))&&$x137==\'object\'));$x135=$x136;if(JS::toBoolean($x135,$global)){$x139=$_thisArg;$x139=($x139===JS::$undefined?\'undefined\':(is_int($x139)||is_float($x139)?\'number\':(is_bool($x139)?\'boolean\':(is_string($x139)?\'string\':(is_object($x139)&&isset($x139->call)?\'function\':\'object\')))));$x138=!(((gettype($x139)===gettype(\'function\')&&$x139===\'function\'))||(((is_float($x139)||is_int($x139))&&(is_float(\'function\')||is_int(\'function\')))&&$x139==\'function\'));$x135=$x138;}if(JS::toBoolean($x135,$global)){$x140=JS::toObject($_thisArg,$global);if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$x140;}}$x141=$_argArray;if(!JS::toBoolean($x141,$global)){$x142=clone JS::$arrayTemplate;$x142->properties[\'length\']=0;$x142->attributes[\'length\']=JS::WRITABLE;$x141=$x142;}if($UargArray){$global->properties[\'argArray\']=$_argArray;$_argArray=&$global->properties[\'argArray\'];}$_argArray=$x141;$passArgs=array();for($x143=0;;++$x143){if($x143===0){$scope->properties[\'i\']=JS::$undefined;$_i=&$scope->properties[\'i\'];$Ui=FALSE;$_i=0;unset($x144,$W144,$S144,$U144);$x145=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_argArray,JS::toString(\'length\',$global),76,30,\'<image>/03_function.js\');$x144=&$x145[0];list(,$W144,$S144,$U144)=$x145;$scope->properties[\'l\']=JS::$undefined;$_l=&$scope->properties[\'l\'];$Ul=FALSE;$_l=$x144;$scope->properties[\'arg\']=JS::$undefined;$_arg=&$scope->properties[\'arg\'];$Uarg=FALSE;$_arg=JS::$undefined;}if($x143!==0){$x146=++$_i;}$x147=JS::toPrimitive($_i,$global);$x148=JS::toPrimitive($_l,$global);$x149=(is_string($x147)&&is_string($x148)?strcmp($x147,$x148)<0:(!is_nan($x150=JS::toNumber($x147,$global))&&!is_nan($x151=JS::toNumber($x148,$global))&&$x150<$x151));if(!JS::toBoolean($x149,$global)){break;}unset($x152,$W152,$S152,$U152);$x153=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_argArray,JS::toString($_i,$global),77,17,\'<image>/03_function.js\');$x152=&$x153[0];list(,$W152,$S152,$U152)=$x153;if($Uarg){$global->properties[\'arg\']=$_arg;$_arg=&$global->properties[\'arg\'];}$_arg=$x152;$passArgs[]=$_arg;}if(JS::$loader!==NULL&&!$leThis->loaded){$l=JS::$loader;$l($leThis,$global);}return$_call($global,$_thisArg,$leThis,$passArgs);return JS::$undefined;}', "\n";
+echo 'function _8cc783701129b82efc0bf45cf12c568e_7($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x136=&$scope->properties[\'arguments\'];$x136->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x136->properties[$i]=$args[$i];$x136->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'thisArg\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_thisArg=&$scope->properties[\'thisArg\'];$UthisArg=FALSE;$scope->properties[\'argArray\']=array_key_exists(1,$args)?$args[1]:JS::$undefined;$_argArray=&$scope->properties[\'argArray\'];$UargArray=FALSE;$global->scope[++$global->scope_sp]=$scope;$scope->properties[\'fn\']=JS::$undefined;$_fn=&$scope->properties[\'fn\'];$Ufn=FALSE;$_fn=$leThis;$scope->properties[\'call\']=JS::$undefined;$_call=&$scope->properties[\'call\'];$Ucall=FALSE;$_call=$_fn->call;$x137=(((gettype($_thisArg)===gettype(JS::$undefined)&&$_thisArg===JS::$undefined))||(((is_float($_thisArg)||is_int($_thisArg))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_thisArg==JS::$undefined));if(JS::toBoolean($x137,$global)){if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$global;}else{$x140=$_thisArg;$x140=($x140===JS::$undefined?\'undefined\':(is_int($x140)||is_float($x140)?\'number\':(is_bool($x140)?\'boolean\':(is_string($x140)?\'string\':(is_object($x140)&&isset($x140->call)?\'function\':\'object\')))));$x139=!(((gettype($x140)===gettype(\'object\')&&$x140===\'object\'))||(((is_float($x140)||is_int($x140))&&(is_float(\'object\')||is_int(\'object\')))&&$x140==\'object\'));$x138=$x139;if(JS::toBoolean($x138,$global)){$x142=$_thisArg;$x142=($x142===JS::$undefined?\'undefined\':(is_int($x142)||is_float($x142)?\'number\':(is_bool($x142)?\'boolean\':(is_string($x142)?\'string\':(is_object($x142)&&isset($x142->call)?\'function\':\'object\')))));$x141=!(((gettype($x142)===gettype(\'function\')&&$x142===\'function\'))||(((is_float($x142)||is_int($x142))&&(is_float(\'function\')||is_int(\'function\')))&&$x142==\'function\'));$x138=$x141;}if(JS::toBoolean($x138,$global)){$x143=JS::toObject($_thisArg,$global);if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$x143;}}$x144=$_argArray;if(!JS::toBoolean($x144,$global)){$x145=clone JS::$arrayTemplate;$x145->properties[\'length\']=0;$x145->attributes[\'length\']=JS::WRITABLE;$x144=$x145;}if($UargArray){$global->properties[\'argArray\']=$_argArray;$_argArray=&$global->properties[\'argArray\'];}$_argArray=$x144;$passArgs=array();for($x146=0;;++$x146){if($x146===0){$scope->properties[\'i\']=JS::$undefined;$_i=&$scope->properties[\'i\'];$Ui=FALSE;$_i=0;unset($x147,$W147,$S147,$U147);$x148=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_argArray,JS::toString(\'length\',$global),76,30,\'<image>/03_function.js\');$x147=&$x148[0];list(,$W147,$S147,$U147)=$x148;$scope->properties[\'l\']=JS::$undefined;$_l=&$scope->properties[\'l\'];$Ul=FALSE;$_l=$x147;$scope->properties[\'arg\']=JS::$undefined;$_arg=&$scope->properties[\'arg\'];$Uarg=FALSE;$_arg=JS::$undefined;}if($x146!==0){$x149=++$_i;}$x150=JS::toPrimitive($_i,$global);$x151=JS::toPrimitive($_l,$global);$x152=(is_string($x150)&&is_string($x151)?strcmp($x150,$x151)<0:(!is_nan($x153=JS::toNumber($x150,$global))&&!is_nan($x154=JS::toNumber($x151,$global))&&$x153<$x154));if(!JS::toBoolean($x152,$global)){break;}unset($x155,$W155,$S155,$U155);$x156=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_argArray,JS::toString($_i,$global),77,17,\'<image>/03_function.js\');$x155=&$x156[0];list(,$W155,$S155,$U155)=$x156;if($Uarg){$global->properties[\'arg\']=$_arg;$_arg=&$global->properties[\'arg\'];}$_arg=$x155;$passArgs[]=$_arg;}if(JS::$loader!==NULL&&!$leThis->loaded){$l=JS::$loader;$l($leThis,$global);}return$_call($global,$_thisArg,$leThis,$passArgs);return JS::$undefined;}', "\n";
 function _8cc783701129b82efc0bf45cf12c568e_8($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -421,11 +421,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x167 =& $scope->properties['arguments'];
-$x167->properties['length'] = count($args);
+$x171 =& $scope->properties['arguments'];
+$x171->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x167->properties[$i] = $args[$i];
-$x167->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x171->properties[$i] = $args[$i];
+$x171->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['thisArg'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_thisArg =& $scope->properties['thisArg'];
@@ -437,70 +437,70 @@ $_fn = $leThis;
 $scope->properties['call'] = JS::$undefined; $_call =& $scope->properties['call'];
 $Ucall = FALSE;
 $_call = $_fn->call;
-$x168 = (((gettype($_thisArg) === gettype(JS::$undefined) && $_thisArg === JS::$undefined))|| (((is_float($_thisArg) || is_int($_thisArg)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_thisArg == JS::$undefined));
-if (JS::toBoolean($x168, $global)) {
+$x172 = (((gettype($_thisArg) === gettype(JS::$undefined) && $_thisArg === JS::$undefined))|| (((is_float($_thisArg) || is_int($_thisArg)) && (is_float(JS::$undefined) || is_int(JS::$undefined))) && $_thisArg == JS::$undefined));
+if (JS::toBoolean($x172, $global)) {
 if ($UthisArg) {$global->properties['thisArg'] = $_thisArg; $_thisArg =& $global->properties['thisArg']; }
 $_thisArg = $global;;
 }
 else {
-$x171 = $_thisArg;
-$x171 = ($x171 === JS::$undefined ? 'undefined' : (is_int($x171) || is_float($x171) ? 'number' : (is_bool($x171) ? 'boolean' : (is_string($x171) ? 'string' : (is_object($x171) && isset($x171->call) ? 'function' : 'object')))));
-$x170 = !(((gettype($x171) === gettype('object') && $x171 === 'object'))|| (((is_float($x171) || is_int($x171)) && (is_float('object') || is_int('object'))) && $x171 == 'object'));
-$x169 = $x170;
-if (JS::toBoolean($x169, $global)) {
-$x173 = $_thisArg;
-$x173 = ($x173 === JS::$undefined ? 'undefined' : (is_int($x173) || is_float($x173) ? 'number' : (is_bool($x173) ? 'boolean' : (is_string($x173) ? 'string' : (is_object($x173) && isset($x173->call) ? 'function' : 'object')))));
-$x172 = !(((gettype($x173) === gettype('function') && $x173 === 'function'))|| (((is_float($x173) || is_int($x173)) && (is_float('function') || is_int('function'))) && $x173 == 'function'));
-$x169 = $x172; }
-if (JS::toBoolean($x169, $global)) {
-$x174 = JS::toObject($_thisArg, $global);
+$x175 = $_thisArg;
+$x175 = ($x175 === JS::$undefined ? 'undefined' : (is_int($x175) || is_float($x175) ? 'number' : (is_bool($x175) ? 'boolean' : (is_string($x175) ? 'string' : (is_object($x175) && isset($x175->call) ? 'function' : 'object')))));
+$x174 = !(((gettype($x175) === gettype('object') && $x175 === 'object'))|| (((is_float($x175) || is_int($x175)) && (is_float('object') || is_int('object'))) && $x175 == 'object'));
+$x173 = $x174;
+if (JS::toBoolean($x173, $global)) {
+$x177 = $_thisArg;
+$x177 = ($x177 === JS::$undefined ? 'undefined' : (is_int($x177) || is_float($x177) ? 'number' : (is_bool($x177) ? 'boolean' : (is_string($x177) ? 'string' : (is_object($x177) && isset($x177->call) ? 'function' : 'object')))));
+$x176 = !(((gettype($x177) === gettype('function') && $x177 === 'function'))|| (((is_float($x177) || is_int($x177)) && (is_float('function') || is_int('function'))) && $x177 == 'function'));
+$x173 = $x176; }
+if (JS::toBoolean($x173, $global)) {
+$x178 = JS::toObject($_thisArg, $global);
 if ($UthisArg) {$global->properties['thisArg'] = $_thisArg; $_thisArg =& $global->properties['thisArg']; }
-$_thisArg = $x174;;
+$_thisArg = $x178;;
 };
 };
 $passArgs = array();
-for ($x175 = 0;; ++$x175) {
-if ($x175 === 0) {
+for ($x179 = 0;; ++$x179) {
+if ($x179 === 0) {
 $scope->properties['i'] = JS::$undefined; $_i =& $scope->properties['i'];
 $Ui = FALSE;
 $_i = 1;
 unset($_arguments, $Warguments, $Sarguments, $Uarguments);
-$x176 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('arguments', $global), 96, 22, '<image>/03_function.js');
-$_arguments =& $x176[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x176;
+$x180 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('arguments', $global), 96, 22, '<image>/03_function.js');
+$_arguments =& $x180[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x180;
 if ($Uarguments) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x177 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('ReferenceError', $global), 96, 22, '<image>/03_function.js');
-$_ReferenceError =& $x177[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x177;
-$x178 = $_ReferenceError->call;
+$x181 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('ReferenceError', $global), 96, 22, '<image>/03_function.js');
+$_ReferenceError =& $x181[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x181;
+$x182 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 96, 22);
-$x179 = $x178($global, $global, $_ReferenceError, array('arguments is not defined'), false);
+$x183 = $x182($global, $global, $_ReferenceError, array('arguments is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x179->class) && $x179->class === 'Error' && !isset($x179->properties['file']) && !isset($x179->properties['line']) && !isset($x179->properties['column'])) {$x179->properties['file'] = '<image>/03_function.js';$x179->properties['line'] = 96;$x179->properties['column'] = 22;$x179->attributes['file'] = $x179->attributes['line'] = $x179->attributes['column'] = 0; }
-throw new JSException($x179, 96, 22, '<image>/03_function.js');
+if (isset($x183->class) && $x183->class === 'Error' && !isset($x183->properties['file']) && !isset($x183->properties['line']) && !isset($x183->properties['column'])) {$x183->properties['file'] = '<image>/03_function.js';$x183->properties['line'] = 96;$x183->properties['column'] = 22;$x183->attributes['file'] = $x183->attributes['line'] = $x183->attributes['column'] = 0; }
+throw new JSException($x183, 96, 22, '<image>/03_function.js');
 }
-unset($x180, $W180, $S180, $U180);
-$x181 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString('length', $global), 96, 31, '<image>/03_function.js');
-$x180 =& $x181[0]; list(,$W180,$S180,$U180) = $x181;
+unset($x184, $W184, $S184, $U184);
+$x185 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString('length', $global), 96, 31, '<image>/03_function.js');
+$x184 =& $x185[0]; list(,$W184,$S184,$U184) = $x185;
 $scope->properties['l'] = JS::$undefined; $_l =& $scope->properties['l'];
 $Ul = FALSE;
-$_l = $x180;
+$_l = $x184;
 $scope->properties['arg'] = JS::$undefined; $_arg =& $scope->properties['arg'];
 $Uarg = FALSE;
 $_arg = JS::$undefined;
 }
-if ($x175 !== 0) {
-$x182 = ++$_i;
+if ($x179 !== 0) {
+$x186 = ++$_i;
 }
-$x183 = JS::toPrimitive($_i, $global);
-$x184 = JS::toPrimitive($_l, $global);
-$x185 = (is_string($x183) && is_string($x184) ? strcmp($x183, $x184) < 0 : (!is_nan($x186 = JS::toNumber($x183, $global)) && !is_nan($x187 = JS::toNumber($x184, $global)) && $x186 < $x187));
-if (!JS::toBoolean($x185, $global)) { break; }
+$x187 = JS::toPrimitive($_i, $global);
+$x188 = JS::toPrimitive($_l, $global);
+$x189 = (is_string($x187) && is_string($x188) ? strcmp($x187, $x188) < 0 : (!is_nan($x190 = JS::toNumber($x187, $global)) && !is_nan($x191 = JS::toNumber($x188, $global)) && $x190 < $x191));
+if (!JS::toBoolean($x189, $global)) { break; }
 
-unset($x188, $W188, $S188, $U188);
-$x189 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString($_i, $global), 97, 18, '<image>/03_function.js');
-$x188 =& $x189[0]; list(,$W188,$S188,$U188) = $x189;
+unset($x192, $W192, $S192, $U192);
+$x193 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString($_i, $global), 97, 18, '<image>/03_function.js');
+$x192 =& $x193[0]; list(,$W192,$S192,$U192) = $x193;
 if ($Uarg) {$global->properties['arg'] = $_arg; $_arg =& $global->properties['arg']; }
-$_arg = $x188;
+$_arg = $x192;
 $passArgs[] =$_arg;;
 };
 if (JS::$loader !== NULL && !$leThis->loaded) { $l = JS::$loader; $l($leThis, $global); };
@@ -508,7 +508,7 @@ return $_call($global,$_thisArg, $leThis, $passArgs);
 ;
 return JS::$undefined;
 }
-echo 'function _8cc783701129b82efc0bf45cf12c568e_8($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x167=&$scope->properties[\'arguments\'];$x167->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x167->properties[$i]=$args[$i];$x167->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'thisArg\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_thisArg=&$scope->properties[\'thisArg\'];$UthisArg=FALSE;$global->scope[++$global->scope_sp]=$scope;$scope->properties[\'fn\']=JS::$undefined;$_fn=&$scope->properties[\'fn\'];$Ufn=FALSE;$_fn=$leThis;$scope->properties[\'call\']=JS::$undefined;$_call=&$scope->properties[\'call\'];$Ucall=FALSE;$_call=$_fn->call;$x168=(((gettype($_thisArg)===gettype(JS::$undefined)&&$_thisArg===JS::$undefined))||(((is_float($_thisArg)||is_int($_thisArg))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_thisArg==JS::$undefined));if(JS::toBoolean($x168,$global)){if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$global;}else{$x171=$_thisArg;$x171=($x171===JS::$undefined?\'undefined\':(is_int($x171)||is_float($x171)?\'number\':(is_bool($x171)?\'boolean\':(is_string($x171)?\'string\':(is_object($x171)&&isset($x171->call)?\'function\':\'object\')))));$x170=!(((gettype($x171)===gettype(\'object\')&&$x171===\'object\'))||(((is_float($x171)||is_int($x171))&&(is_float(\'object\')||is_int(\'object\')))&&$x171==\'object\'));$x169=$x170;if(JS::toBoolean($x169,$global)){$x173=$_thisArg;$x173=($x173===JS::$undefined?\'undefined\':(is_int($x173)||is_float($x173)?\'number\':(is_bool($x173)?\'boolean\':(is_string($x173)?\'string\':(is_object($x173)&&isset($x173->call)?\'function\':\'object\')))));$x172=!(((gettype($x173)===gettype(\'function\')&&$x173===\'function\'))||(((is_float($x173)||is_int($x173))&&(is_float(\'function\')||is_int(\'function\')))&&$x173==\'function\'));$x169=$x172;}if(JS::toBoolean($x169,$global)){$x174=JS::toObject($_thisArg,$global);if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$x174;}}$passArgs=array();for($x175=0;;++$x175){if($x175===0){$scope->properties[\'i\']=JS::$undefined;$_i=&$scope->properties[\'i\'];$Ui=FALSE;$_i=1;unset($_arguments,$Warguments,$Sarguments,$Uarguments);$x176=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'arguments\',$global),96,22,\'<image>/03_function.js\');$_arguments=&$x176[0];list(,$Warguments,$Sarguments,$Uarguments)=$x176;if($Uarguments){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x177=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'ReferenceError\',$global),96,22,\'<image>/03_function.js\');$_ReferenceError=&$x177[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x177;$x178=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/03_function.js\',96,22);$x179=$x178($global,$global,$_ReferenceError,array(\'arguments is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x179->class)&&$x179->class===\'Error\'&&!isset($x179->properties[\'file\'])&&!isset($x179->properties[\'line\'])&&!isset($x179->properties[\'column\'])){$x179->properties[\'file\']=\'<image>/03_function.js\';$x179->properties[\'line\']=96;$x179->properties[\'column\']=22;$x179->attributes[\'file\']=$x179->attributes[\'line\']=$x179->attributes[\'column\']=0;}throw new JSException($x179,96,22,\'<image>/03_function.js\');}unset($x180,$W180,$S180,$U180);$x181=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString(\'length\',$global),96,31,\'<image>/03_function.js\');$x180=&$x181[0];list(,$W180,$S180,$U180)=$x181;$scope->properties[\'l\']=JS::$undefined;$_l=&$scope->properties[\'l\'];$Ul=FALSE;$_l=$x180;$scope->properties[\'arg\']=JS::$undefined;$_arg=&$scope->properties[\'arg\'];$Uarg=FALSE;$_arg=JS::$undefined;}if($x175!==0){$x182=++$_i;}$x183=JS::toPrimitive($_i,$global);$x184=JS::toPrimitive($_l,$global);$x185=(is_string($x183)&&is_string($x184)?strcmp($x183,$x184)<0:(!is_nan($x186=JS::toNumber($x183,$global))&&!is_nan($x187=JS::toNumber($x184,$global))&&$x186<$x187));if(!JS::toBoolean($x185,$global)){break;}unset($x188,$W188,$S188,$U188);$x189=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString($_i,$global),97,18,\'<image>/03_function.js\');$x188=&$x189[0];list(,$W188,$S188,$U188)=$x189;if($Uarg){$global->properties[\'arg\']=$_arg;$_arg=&$global->properties[\'arg\'];}$_arg=$x188;$passArgs[]=$_arg;}if(JS::$loader!==NULL&&!$leThis->loaded){$l=JS::$loader;$l($leThis,$global);}return$_call($global,$_thisArg,$leThis,$passArgs);return JS::$undefined;}', "\n";
+echo 'function _8cc783701129b82efc0bf45cf12c568e_8($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x171=&$scope->properties[\'arguments\'];$x171->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x171->properties[$i]=$args[$i];$x171->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'thisArg\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_thisArg=&$scope->properties[\'thisArg\'];$UthisArg=FALSE;$global->scope[++$global->scope_sp]=$scope;$scope->properties[\'fn\']=JS::$undefined;$_fn=&$scope->properties[\'fn\'];$Ufn=FALSE;$_fn=$leThis;$scope->properties[\'call\']=JS::$undefined;$_call=&$scope->properties[\'call\'];$Ucall=FALSE;$_call=$_fn->call;$x172=(((gettype($_thisArg)===gettype(JS::$undefined)&&$_thisArg===JS::$undefined))||(((is_float($_thisArg)||is_int($_thisArg))&&(is_float(JS::$undefined)||is_int(JS::$undefined)))&&$_thisArg==JS::$undefined));if(JS::toBoolean($x172,$global)){if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$global;}else{$x175=$_thisArg;$x175=($x175===JS::$undefined?\'undefined\':(is_int($x175)||is_float($x175)?\'number\':(is_bool($x175)?\'boolean\':(is_string($x175)?\'string\':(is_object($x175)&&isset($x175->call)?\'function\':\'object\')))));$x174=!(((gettype($x175)===gettype(\'object\')&&$x175===\'object\'))||(((is_float($x175)||is_int($x175))&&(is_float(\'object\')||is_int(\'object\')))&&$x175==\'object\'));$x173=$x174;if(JS::toBoolean($x173,$global)){$x177=$_thisArg;$x177=($x177===JS::$undefined?\'undefined\':(is_int($x177)||is_float($x177)?\'number\':(is_bool($x177)?\'boolean\':(is_string($x177)?\'string\':(is_object($x177)&&isset($x177->call)?\'function\':\'object\')))));$x176=!(((gettype($x177)===gettype(\'function\')&&$x177===\'function\'))||(((is_float($x177)||is_int($x177))&&(is_float(\'function\')||is_int(\'function\')))&&$x177==\'function\'));$x173=$x176;}if(JS::toBoolean($x173,$global)){$x178=JS::toObject($_thisArg,$global);if($UthisArg){$global->properties[\'thisArg\']=$_thisArg;$_thisArg=&$global->properties[\'thisArg\'];}$_thisArg=$x178;}}$passArgs=array();for($x179=0;;++$x179){if($x179===0){$scope->properties[\'i\']=JS::$undefined;$_i=&$scope->properties[\'i\'];$Ui=FALSE;$_i=1;unset($_arguments,$Warguments,$Sarguments,$Uarguments);$x180=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'arguments\',$global),96,22,\'<image>/03_function.js\');$_arguments=&$x180[0];list(,$Warguments,$Sarguments,$Uarguments)=$x180;if($Uarguments){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x181=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'ReferenceError\',$global),96,22,\'<image>/03_function.js\');$_ReferenceError=&$x181[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x181;$x182=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/03_function.js\',96,22);$x183=$x182($global,$global,$_ReferenceError,array(\'arguments is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x183->class)&&$x183->class===\'Error\'&&!isset($x183->properties[\'file\'])&&!isset($x183->properties[\'line\'])&&!isset($x183->properties[\'column\'])){$x183->properties[\'file\']=\'<image>/03_function.js\';$x183->properties[\'line\']=96;$x183->properties[\'column\']=22;$x183->attributes[\'file\']=$x183->attributes[\'line\']=$x183->attributes[\'column\']=0;}throw new JSException($x183,96,22,\'<image>/03_function.js\');}unset($x184,$W184,$S184,$U184);$x185=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString(\'length\',$global),96,31,\'<image>/03_function.js\');$x184=&$x185[0];list(,$W184,$S184,$U184)=$x185;$scope->properties[\'l\']=JS::$undefined;$_l=&$scope->properties[\'l\'];$Ul=FALSE;$_l=$x184;$scope->properties[\'arg\']=JS::$undefined;$_arg=&$scope->properties[\'arg\'];$Uarg=FALSE;$_arg=JS::$undefined;}if($x179!==0){$x186=++$_i;}$x187=JS::toPrimitive($_i,$global);$x188=JS::toPrimitive($_l,$global);$x189=(is_string($x187)&&is_string($x188)?strcmp($x187,$x188)<0:(!is_nan($x190=JS::toNumber($x187,$global))&&!is_nan($x191=JS::toNumber($x188,$global))&&$x190<$x191));if(!JS::toBoolean($x189,$global)){break;}unset($x192,$W192,$S192,$U192);$x193=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString($_i,$global),97,18,\'<image>/03_function.js\');$x192=&$x193[0];list(,$W192,$S192,$U192)=$x193;if($Uarg){$global->properties[\'arg\']=$_arg;$_arg=&$global->properties[\'arg\'];}$_arg=$x192;$passArgs[]=$_arg;}if(JS::$loader!==NULL&&!$leThis->loaded){$l=JS::$loader;$l($leThis,$global);}return$_call($global,$_thisArg,$leThis,$passArgs);return JS::$undefined;}', "\n";
 function _8cc783701129b82efc0bf45cf12c568e_9($global, $leThis, $fn, $args, $constructor = FALSE) {
 
 if (isset($fn->boundThis) && !$constructor) { $leThis = $fn->boundThis; }
@@ -516,11 +516,11 @@ if (isset($fn->boundArgs)) { $args = array_merge($fn->boundArgs, $args); }
 $scope = clone JS::$emptyScope;
 $scope->up = $fn->scope;
 $scope->properties['arguments'] = clone JS::$argumentsTemplate;
-$x203 =& $scope->properties['arguments'];
-$x203->properties['length'] = count($args);
+$x208 =& $scope->properties['arguments'];
+$x208->properties['length'] = count($args);
 foreach ($args as $i => $arg) {
-$x203->properties[$i] = $args[$i];
-$x203->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
+$x208->properties[$i] = $args[$i];
+$x208->attributes[$i] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE;
 }
 $scope->properties['thisArg'] = array_key_exists(0, $args) ? $args[0] : JS::$undefined;
 $_thisArg =& $scope->properties['thisArg'];
@@ -531,60 +531,60 @@ $UnewFn = FALSE;
 $_newFn = clone $leThis;
 $_newFn->boundThis =$_thisArg;
 $boundArgs = isset($_newFn->boundArgs) ?$_newFn->boundArgs : array();
-for ($x204 = 0;; ++$x204) {
-if ($x204 === 0) {
+for ($x209 = 0;; ++$x209) {
+if ($x209 === 0) {
 $scope->properties['i'] = JS::$undefined; $_i =& $scope->properties['i'];
 $Ui = FALSE;
 $_i = 1;
 unset($_arguments, $Warguments, $Sarguments, $Uarguments);
-$x205 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('arguments', $global), 111, 22, '<image>/03_function.js');
-$_arguments =& $x205[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x205;
+$x210 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('arguments', $global), 111, 22, '<image>/03_function.js');
+$_arguments =& $x210[0]; list(,$Warguments,$Sarguments,$Uarguments) = $x210;
 if ($Uarguments) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x206 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('ReferenceError', $global), 111, 22, '<image>/03_function.js');
-$_ReferenceError =& $x206[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x206;
-$x207 = $_ReferenceError->call;
+$x211 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('ReferenceError', $global), 111, 22, '<image>/03_function.js');
+$_ReferenceError =& $x211[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x211;
+$x212 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 111, 22);
-$x208 = $x207($global, $global, $_ReferenceError, array('arguments is not defined'), false);
+$x213 = $x212($global, $global, $_ReferenceError, array('arguments is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x208->class) && $x208->class === 'Error' && !isset($x208->properties['file']) && !isset($x208->properties['line']) && !isset($x208->properties['column'])) {$x208->properties['file'] = '<image>/03_function.js';$x208->properties['line'] = 111;$x208->properties['column'] = 22;$x208->attributes['file'] = $x208->attributes['line'] = $x208->attributes['column'] = 0; }
-throw new JSException($x208, 111, 22, '<image>/03_function.js');
+if (isset($x213->class) && $x213->class === 'Error' && !isset($x213->properties['file']) && !isset($x213->properties['line']) && !isset($x213->properties['column'])) {$x213->properties['file'] = '<image>/03_function.js';$x213->properties['line'] = 111;$x213->properties['column'] = 22;$x213->attributes['file'] = $x213->attributes['line'] = $x213->attributes['column'] = 0; }
+throw new JSException($x213, 111, 22, '<image>/03_function.js');
 }
-unset($x209, $W209, $S209, $U209);
-$x210 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString('length', $global), 111, 31, '<image>/03_function.js');
-$x209 =& $x210[0]; list(,$W209,$S209,$U209) = $x210;
+unset($x214, $W214, $S214, $U214);
+$x215 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString('length', $global), 111, 31, '<image>/03_function.js');
+$x214 =& $x215[0]; list(,$W214,$S214,$U214) = $x215;
 $scope->properties['l'] = JS::$undefined; $_l =& $scope->properties['l'];
 $Ul = FALSE;
-$_l = $x209;
+$_l = $x214;
 $scope->properties['arg'] = JS::$undefined; $_arg =& $scope->properties['arg'];
 $Uarg = FALSE;
 $_arg = JS::$undefined;
 }
-if ($x204 !== 0) {
-$x211 = ++$_i;
+if ($x209 !== 0) {
+$x216 = ++$_i;
 }
-$x212 = JS::toPrimitive($_i, $global);
-$x213 = JS::toPrimitive($_l, $global);
-$x214 = (is_string($x212) && is_string($x213) ? strcmp($x212, $x213) < 0 : (!is_nan($x215 = JS::toNumber($x212, $global)) && !is_nan($x216 = JS::toNumber($x213, $global)) && $x215 < $x216));
-if (!JS::toBoolean($x214, $global)) { break; }
+$x217 = JS::toPrimitive($_i, $global);
+$x218 = JS::toPrimitive($_l, $global);
+$x219 = (is_string($x217) && is_string($x218) ? strcmp($x217, $x218) < 0 : (!is_nan($x220 = JS::toNumber($x217, $global)) && !is_nan($x221 = JS::toNumber($x218, $global)) && $x220 < $x221));
+if (!JS::toBoolean($x219, $global)) { break; }
 
-unset($x217, $W217, $S217, $U217);
-$x218 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString($_i, $global), 112, 18, '<image>/03_function.js');
-$x217 =& $x218[0]; list(,$W217,$S217,$U217) = $x218;
+unset($x222, $W222, $S222, $U222);
+$x223 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_arguments, JS::toString($_i, $global), 112, 18, '<image>/03_function.js');
+$x222 =& $x223[0]; list(,$W222,$S222,$U222) = $x223;
 if ($Uarg) {$global->properties['arg'] = $_arg; $_arg =& $global->properties['arg']; }
-$_arg = $x217;
+$_arg = $x222;
 $boundArgs[] =$_arg;
-unset($x219, $W219, $S219, $U219);
-$x220 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_newFn, JS::toString('length', $global), 114, 10, '<image>/03_function.js');
-$x219 =& $x220[0]; list(,$W219,$S219,$U219) = $x220;
-$x221 = --$x219;;
+unset($x224, $W224, $S224, $U224);
+$x225 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_newFn, JS::toString('length', $global), 114, 10, '<image>/03_function.js');
+$x224 =& $x225[0]; list(,$W224,$S224,$U224) = $x225;
+$x226 = --$x224;;
 };
 $_newFn->boundArgs = $boundArgs;
 return $_newFn;
 ;
 return JS::$undefined;
 }
-echo 'function _8cc783701129b82efc0bf45cf12c568e_9($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x203=&$scope->properties[\'arguments\'];$x203->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x203->properties[$i]=$args[$i];$x203->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'thisArg\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_thisArg=&$scope->properties[\'thisArg\'];$UthisArg=FALSE;$global->scope[++$global->scope_sp]=$scope;$scope->properties[\'newFn\']=JS::$undefined;$_newFn=&$scope->properties[\'newFn\'];$UnewFn=FALSE;$_newFn=clone$leThis;$_newFn->boundThis=$_thisArg;$boundArgs=isset($_newFn->boundArgs)?$_newFn->boundArgs:array();for($x204=0;;++$x204){if($x204===0){$scope->properties[\'i\']=JS::$undefined;$_i=&$scope->properties[\'i\'];$Ui=FALSE;$_i=1;unset($_arguments,$Warguments,$Sarguments,$Uarguments);$x205=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'arguments\',$global),111,22,\'<image>/03_function.js\');$_arguments=&$x205[0];list(,$Warguments,$Sarguments,$Uarguments)=$x205;if($Uarguments){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x206=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'ReferenceError\',$global),111,22,\'<image>/03_function.js\');$_ReferenceError=&$x206[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x206;$x207=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/03_function.js\',111,22);$x208=$x207($global,$global,$_ReferenceError,array(\'arguments is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x208->class)&&$x208->class===\'Error\'&&!isset($x208->properties[\'file\'])&&!isset($x208->properties[\'line\'])&&!isset($x208->properties[\'column\'])){$x208->properties[\'file\']=\'<image>/03_function.js\';$x208->properties[\'line\']=111;$x208->properties[\'column\']=22;$x208->attributes[\'file\']=$x208->attributes[\'line\']=$x208->attributes[\'column\']=0;}throw new JSException($x208,111,22,\'<image>/03_function.js\');}unset($x209,$W209,$S209,$U209);$x210=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString(\'length\',$global),111,31,\'<image>/03_function.js\');$x209=&$x210[0];list(,$W209,$S209,$U209)=$x210;$scope->properties[\'l\']=JS::$undefined;$_l=&$scope->properties[\'l\'];$Ul=FALSE;$_l=$x209;$scope->properties[\'arg\']=JS::$undefined;$_arg=&$scope->properties[\'arg\'];$Uarg=FALSE;$_arg=JS::$undefined;}if($x204!==0){$x211=++$_i;}$x212=JS::toPrimitive($_i,$global);$x213=JS::toPrimitive($_l,$global);$x214=(is_string($x212)&&is_string($x213)?strcmp($x212,$x213)<0:(!is_nan($x215=JS::toNumber($x212,$global))&&!is_nan($x216=JS::toNumber($x213,$global))&&$x215<$x216));if(!JS::toBoolean($x214,$global)){break;}unset($x217,$W217,$S217,$U217);$x218=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString($_i,$global),112,18,\'<image>/03_function.js\');$x217=&$x218[0];list(,$W217,$S217,$U217)=$x218;if($Uarg){$global->properties[\'arg\']=$_arg;$_arg=&$global->properties[\'arg\'];}$_arg=$x217;$boundArgs[]=$_arg;unset($x219,$W219,$S219,$U219);$x220=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_newFn,JS::toString(\'length\',$global),114,10,\'<image>/03_function.js\');$x219=&$x220[0];list(,$W219,$S219,$U219)=$x220;$x221=--$x219;}$_newFn->boundArgs=$boundArgs;return$_newFn;return JS::$undefined;}', "\n";
+echo 'function _8cc783701129b82efc0bf45cf12c568e_9($global,$leThis,$fn,$args,$constructor=FALSE){if(isset($fn->boundThis)&&!$constructor){$leThis=$fn->boundThis;}if(isset($fn->boundArgs)){$args=array_merge($fn->boundArgs,$args);}$scope=clone JS::$emptyScope;$scope->up=$fn->scope;$scope->properties[\'arguments\']=clone JS::$argumentsTemplate;$x208=&$scope->properties[\'arguments\'];$x208->properties[\'length\']=count($args);foreach($args as$i=>$arg){$x208->properties[$i]=$args[$i];$x208->attributes[$i]=JS::WRITABLE|JS::ENUMERABLE|JS::CONFIGURABLE;}$scope->properties[\'thisArg\']=array_key_exists(0,$args)?$args[0]:JS::$undefined;$_thisArg=&$scope->properties[\'thisArg\'];$UthisArg=FALSE;$global->scope[++$global->scope_sp]=$scope;$scope->properties[\'newFn\']=JS::$undefined;$_newFn=&$scope->properties[\'newFn\'];$UnewFn=FALSE;$_newFn=clone$leThis;$_newFn->boundThis=$_thisArg;$boundArgs=isset($_newFn->boundArgs)?$_newFn->boundArgs:array();for($x209=0;;++$x209){if($x209===0){$scope->properties[\'i\']=JS::$undefined;$_i=&$scope->properties[\'i\'];$Ui=FALSE;$_i=1;unset($_arguments,$Warguments,$Sarguments,$Uarguments);$x210=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'arguments\',$global),111,22,\'<image>/03_function.js\');$_arguments=&$x210[0];list(,$Warguments,$Sarguments,$Uarguments)=$x210;if($Uarguments){unset($_ReferenceError,$WReferenceError,$SReferenceError,$UReferenceError);$x211=_8cc783701129b82efc0bf45cf12c568e_2($global,$scope,$scope,JS::toString(\'ReferenceError\',$global),111,22,\'<image>/03_function.js\');$_ReferenceError=&$x211[0];list(,$WReferenceError,$SReferenceError,$UReferenceError)=$x211;$x212=$_ReferenceError->call;$global->trace[++$global->trace_sp]=array(\'<image>/03_function.js\',111,22);$x213=$x212($global,$global,$_ReferenceError,array(\'arguments is not defined\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x213->class)&&$x213->class===\'Error\'&&!isset($x213->properties[\'file\'])&&!isset($x213->properties[\'line\'])&&!isset($x213->properties[\'column\'])){$x213->properties[\'file\']=\'<image>/03_function.js\';$x213->properties[\'line\']=111;$x213->properties[\'column\']=22;$x213->attributes[\'file\']=$x213->attributes[\'line\']=$x213->attributes[\'column\']=0;}throw new JSException($x213,111,22,\'<image>/03_function.js\');}unset($x214,$W214,$S214,$U214);$x215=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString(\'length\',$global),111,31,\'<image>/03_function.js\');$x214=&$x215[0];list(,$W214,$S214,$U214)=$x215;$scope->properties[\'l\']=JS::$undefined;$_l=&$scope->properties[\'l\'];$Ul=FALSE;$_l=$x214;$scope->properties[\'arg\']=JS::$undefined;$_arg=&$scope->properties[\'arg\'];$Uarg=FALSE;$_arg=JS::$undefined;}if($x209!==0){$x216=++$_i;}$x217=JS::toPrimitive($_i,$global);$x218=JS::toPrimitive($_l,$global);$x219=(is_string($x217)&&is_string($x218)?strcmp($x217,$x218)<0:(!is_nan($x220=JS::toNumber($x217,$global))&&!is_nan($x221=JS::toNumber($x218,$global))&&$x220<$x221));if(!JS::toBoolean($x219,$global)){break;}unset($x222,$W222,$S222,$U222);$x223=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_arguments,JS::toString($_i,$global),112,18,\'<image>/03_function.js\');$x222=&$x223[0];list(,$W222,$S222,$U222)=$x223;if($Uarg){$global->properties[\'arg\']=$_arg;$_arg=&$global->properties[\'arg\'];}$_arg=$x222;$boundArgs[]=$_arg;unset($x224,$W224,$S224,$U224);$x225=_8cc783701129b82efc0bf45cf12c568e_3($global,$scope,$_newFn,JS::toString(\'length\',$global),114,10,\'<image>/03_function.js\');$x224=&$x225[0];list(,$W224,$S224,$U224)=$x225;$x226=--$x224;}$_newFn->boundArgs=$boundArgs;return$_newFn;return JS::$undefined;}', "\n";
 function _8cc783701129b82efc0bf45cf12c568e_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<image>/03_function.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<image>/03_function.js';$scope->properties['__dirname'] = '<image>';}
@@ -621,206 +621,212 @@ unset($x93, $W93, $S93, $U93);
 $x97 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $_Function, JS::toString($x89, $global), 40, 20, '<image>/03_function.js');
 $x93 =& $x97[0]; list(,$W93,$S93,$U93) = $x97;
 if ($U93 && (!isset($_Function->extensible) || $_Function->extensible)) {$_Function->properties[$x89] = $x93; $x93 =& $_Function->properties[$x89]; $_Function->attributes[$x89] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U93 = FALSE; $W93 = TRUE; }
+if (isset($_Function->class) && $_Function->class === 'Array') {  if (isset($_Function->properties['length']) && $_Function->properties['length'] !== JS::$undefined) { $x99 = $_Function->properties['length']; }  else { $x99 = 0; } }
 if (isset($S93)) {
-$x99 = $S93->call;
+$x100 = $S93->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 40, 20);
-$x100 = $x99($global, $_Function, $S93, array($_Function->prototype), false);
+$x101 = $x100($global, $_Function, $S93, array($_Function->prototype), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x98 = $x100;
+$x98 = $x101;
 } else {
 if (!$U93) {$x98 = $_Function->prototype;if ($W93) { $x93 = $_Function->prototype; }  }
 else { $x98 = JS::$undefined; }
 }
-if (isset($_Function->class) && $_Function->class === 'Array' &&  is_int('prototype') && 'prototype' >= $_Function->properties['length']) { $_Function->properties['length'] = 'prototype' + 1; };
+if (isset($_Function->class) && $_Function->class === 'Array') {if (is_int('prototype') && 'prototype' >= $_Function->properties['length']) { $_Function->properties['length'] = 'prototype' + 1; }else if ($x89 === 'length' && is_int($_Function->prototype) && $x99 > $_Function->prototype) {  for ($i = $_Function->prototype; $i < $x99; ++$i) {  unset($_Function->properties[$i], $_Function->attributes[$i]); }}};
 unset($_Object, $WObject, $SObject, $UObject);
-$x101 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('Object', $global), 41, 53, '<image>/03_function.js');
-$_Object =& $x101[0]; list(,$WObject,$SObject,$UObject) = $x101;
+$x102 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('Object', $global), 41, 53, '<image>/03_function.js');
+$_Object =& $x102[0]; list(,$WObject,$SObject,$UObject) = $x102;
 if ($UObject) {
 unset($_ReferenceError, $WReferenceError, $SReferenceError, $UReferenceError);
-$x102 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('ReferenceError', $global), 41, 53, '<image>/03_function.js');
-$_ReferenceError =& $x102[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x102;
-$x103 = $_ReferenceError->call;
+$x103 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('ReferenceError', $global), 41, 53, '<image>/03_function.js');
+$_ReferenceError =& $x103[0]; list(,$WReferenceError,$SReferenceError,$UReferenceError) = $x103;
+$x104 = $_ReferenceError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 41, 53);
-$x104 = $x103($global, $global, $_ReferenceError, array('Object is not defined'), false);
+$x105 = $x104($global, $global, $_ReferenceError, array('Object is not defined'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x104->class) && $x104->class === 'Error' && !isset($x104->properties['file']) && !isset($x104->properties['line']) && !isset($x104->properties['column'])) {$x104->properties['file'] = '<image>/03_function.js';$x104->properties['line'] = 41;$x104->properties['column'] = 53;$x104->attributes['file'] = $x104->attributes['line'] = $x104->attributes['column'] = 0; }
-throw new JSException($x104, 41, 53, '<image>/03_function.js');
+if (isset($x105->class) && $x105->class === 'Error' && !isset($x105->properties['file']) && !isset($x105->properties['line']) && !isset($x105->properties['column'])) {$x105->properties['file'] = '<image>/03_function.js';$x105->properties['line'] = 41;$x105->properties['column'] = 53;$x105->attributes['file'] = $x105->attributes['line'] = $x105->attributes['column'] = 0; }
+throw new JSException($x105, 41, 53, '<image>/03_function.js');
 }
 $_Function->properties['prototype']->prototype =$_Object->properties['prototype'];
 $_Function->properties['prototype']->class = 'Function';
 $_Function->properties['prototype']->extensible = TRUE;
-unset($x105, $W105, $S105, $U105);
-$x106 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 44, 9, '<image>/03_function.js');
-$x105 =& $x106[0]; list(,$W105,$S105,$U105) = $x106;
-$x107 = JS::toString('constructor', $global);
-if ($x105 === JS::$undefined || $x105 === NULL) {
+unset($x106, $W106, $S106, $U106);
+$x107 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 44, 9, '<image>/03_function.js');
+$x106 =& $x107[0]; list(,$W106,$S106,$U106) = $x107;
+$x108 = JS::toString('constructor', $global);
+if ($x106 === JS::$undefined || $x106 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x108 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 44, 32, '<image>/03_function.js');
-$_TypeError =& $x108[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x108;
-$x109 = $_TypeError->call;
+$x109 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 44, 32, '<image>/03_function.js');
+$_TypeError =& $x109[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x109;
+$x110 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 44, 32);
-$x110 = $x109($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x111 = $x110($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x110->class) && $x110->class === 'Error' && !isset($x110->properties['file']) && !isset($x110->properties['line']) && !isset($x110->properties['column'])) {$x110->properties['file'] = '<image>/03_function.js';$x110->properties['line'] = 44;$x110->properties['column'] = 32;$x110->attributes['file'] = $x110->attributes['line'] = $x110->attributes['column'] = 0; }
-throw new JSException($x110, 44, 32, '<image>/03_function.js');
+if (isset($x111->class) && $x111->class === 'Error' && !isset($x111->properties['file']) && !isset($x111->properties['line']) && !isset($x111->properties['column'])) {$x111->properties['file'] = '<image>/03_function.js';$x111->properties['line'] = 44;$x111->properties['column'] = 32;$x111->attributes['file'] = $x111->attributes['line'] = $x111->attributes['column'] = 0; }
+throw new JSException($x111, 44, 32, '<image>/03_function.js');
 }
-$x105 = JS::toObject($x105, $global);
-unset($x111, $W111, $S111, $U111);
-$x112 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x105, JS::toString($x107, $global), 44, 32, '<image>/03_function.js');
-$x111 =& $x112[0]; list(,$W111,$S111,$U111) = $x112;
-if ($U111 && (!isset($x105->extensible) || $x105->extensible)) {$x105->properties[$x107] = $x111; $x111 =& $x105->properties[$x107]; $x105->attributes[$x107] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U111 = FALSE; $W111 = TRUE; }
-if (isset($S111)) {
-$x114 = $S111->call;
+$x106 = JS::toObject($x106, $global);
+unset($x112, $W112, $S112, $U112);
+$x113 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x106, JS::toString($x108, $global), 44, 32, '<image>/03_function.js');
+$x112 =& $x113[0]; list(,$W112,$S112,$U112) = $x113;
+if ($U112 && (!isset($x106->extensible) || $x106->extensible)) {$x106->properties[$x108] = $x112; $x112 =& $x106->properties[$x108]; $x106->attributes[$x108] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U112 = FALSE; $W112 = TRUE; }
+if (isset($x106->class) && $x106->class === 'Array') {  if (isset($x106->properties['length']) && $x106->properties['length'] !== JS::$undefined) { $x115 = $x106->properties['length']; }  else { $x115 = 0; } }
+if (isset($S112)) {
+$x116 = $S112->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 44, 32);
-$x115 = $x114($global, $x105, $S111, array($_Function), false);
+$x117 = $x116($global, $x106, $S112, array($_Function), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x113 = $x115;
+$x114 = $x117;
 } else {
-if (!$U111) {$x113 = $_Function;if ($W111) { $x111 = $_Function; }  }
-else { $x113 = JS::$undefined; }
+if (!$U112) {$x114 = $_Function;if ($W112) { $x112 = $_Function; }  }
+else { $x114 = JS::$undefined; }
 }
-if (isset($x105->class) && $x105->class === 'Array' &&  is_int('constructor') && 'constructor' >= $x105->properties['length']) { $x105->properties['length'] = 'constructor' + 1; };
+if (isset($x106->class) && $x106->class === 'Array') {if (is_int('constructor') && 'constructor' >= $x106->properties['length']) { $x106->properties['length'] = 'constructor' + 1; }else if ($x108 === 'length' && is_int($_Function) && $x115 > $_Function) {  for ($i = $_Function; $i < $x115; ++$i) {  unset($x106->properties[$i], $x106->attributes[$i]); }}};
 $_Function->prototype->call =$_F->call;
-for ($x117 = $scope; $x117 && $x117->up && !array_key_exists('F', $x117->attributes) && !array_key_exists('F', $x117->properties); $x117 = $x117->up);
-if (!array_key_exists('F', $x117->attributes)) { unset($x117->properties['F'], $_F); $x116 = TRUE; }
-else if ($x117->attributes['F'] & JS::CONFIGURABLE) { unset($x117->properties['F'], $x117->attributes['F'], $x117->getters['F'], $x117->setters['F'], $_F); $x116 = TRUE; }
-else { $x116 = FALSE; };
-$x120 = clone JS::$functionTemplate; $x120->call = '_8cc783701129b82efc0bf45cf12c568e_6'; $x120->parameters = array (
-); $x120->scope = $scope; $x120->properties['prototype'] = clone JS::$objectTemplate; $x120->attributes['prototype'] = JS::WRITABLE; $x120->properties['prototype']->properties['constructor'] = $x120; $x120->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x120->properties['length'] = 0; $x120->attributes['length'] = 0;
-unset($x121, $W121, $S121, $U121);
-$x122 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 54, 9, '<image>/03_function.js');
-$x121 =& $x122[0]; list(,$W121,$S121,$U121) = $x122;
-$x123 = JS::toString('toString', $global);
-if ($x121 === JS::$undefined || $x121 === NULL) {
+for ($x119 = $scope; $x119 && $x119->up && !array_key_exists('F', $x119->attributes) && !array_key_exists('F', $x119->properties); $x119 = $x119->up);
+if (!array_key_exists('F', $x119->attributes)) { unset($x119->properties['F'], $_F); $x118 = TRUE; }
+else if ($x119->attributes['F'] & JS::CONFIGURABLE) { unset($x119->properties['F'], $x119->attributes['F'], $x119->getters['F'], $x119->setters['F'], $_F); $x118 = TRUE; }
+else { $x118 = FALSE; };
+$x122 = clone JS::$functionTemplate; $x122->call = '_8cc783701129b82efc0bf45cf12c568e_6'; $x122->parameters = array (
+); $x122->scope = $scope; $x122->properties['prototype'] = clone JS::$objectTemplate; $x122->attributes['prototype'] = JS::WRITABLE; $x122->properties['prototype']->properties['constructor'] = $x122; $x122->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x122->properties['length'] = 0; $x122->attributes['length'] = 0;
+unset($x123, $W123, $S123, $U123);
+$x124 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 54, 9, '<image>/03_function.js');
+$x123 =& $x124[0]; list(,$W123,$S123,$U123) = $x124;
+$x125 = JS::toString('toString', $global);
+if ($x123 === JS::$undefined || $x123 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x124 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 54, 29, '<image>/03_function.js');
-$_TypeError =& $x124[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x124;
-$x125 = $_TypeError->call;
+$x126 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 54, 29, '<image>/03_function.js');
+$_TypeError =& $x126[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x126;
+$x127 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 54, 29);
-$x126 = $x125($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x128 = $x127($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x126->class) && $x126->class === 'Error' && !isset($x126->properties['file']) && !isset($x126->properties['line']) && !isset($x126->properties['column'])) {$x126->properties['file'] = '<image>/03_function.js';$x126->properties['line'] = 54;$x126->properties['column'] = 29;$x126->attributes['file'] = $x126->attributes['line'] = $x126->attributes['column'] = 0; }
-throw new JSException($x126, 54, 29, '<image>/03_function.js');
+if (isset($x128->class) && $x128->class === 'Error' && !isset($x128->properties['file']) && !isset($x128->properties['line']) && !isset($x128->properties['column'])) {$x128->properties['file'] = '<image>/03_function.js';$x128->properties['line'] = 54;$x128->properties['column'] = 29;$x128->attributes['file'] = $x128->attributes['line'] = $x128->attributes['column'] = 0; }
+throw new JSException($x128, 54, 29, '<image>/03_function.js');
 }
-$x121 = JS::toObject($x121, $global);
-unset($x127, $W127, $S127, $U127);
-$x128 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x121, JS::toString($x123, $global), 54, 29, '<image>/03_function.js');
-$x127 =& $x128[0]; list(,$W127,$S127,$U127) = $x128;
-if ($U127 && (!isset($x121->extensible) || $x121->extensible)) {$x121->properties[$x123] = $x127; $x127 =& $x121->properties[$x123]; $x121->attributes[$x123] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U127 = FALSE; $W127 = TRUE; }
-if (isset($S127)) {
-$x130 = $S127->call;
+$x123 = JS::toObject($x123, $global);
+unset($x129, $W129, $S129, $U129);
+$x130 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x123, JS::toString($x125, $global), 54, 29, '<image>/03_function.js');
+$x129 =& $x130[0]; list(,$W129,$S129,$U129) = $x130;
+if ($U129 && (!isset($x123->extensible) || $x123->extensible)) {$x123->properties[$x125] = $x129; $x129 =& $x123->properties[$x125]; $x123->attributes[$x125] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U129 = FALSE; $W129 = TRUE; }
+if (isset($x123->class) && $x123->class === 'Array') {  if (isset($x123->properties['length']) && $x123->properties['length'] !== JS::$undefined) { $x132 = $x123->properties['length']; }  else { $x132 = 0; } }
+if (isset($S129)) {
+$x133 = $S129->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 54, 29);
-$x131 = $x130($global, $x121, $S127, array($x120), false);
+$x134 = $x133($global, $x123, $S129, array($x122), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x129 = $x131;
+$x131 = $x134;
 } else {
-if (!$U127) {$x129 = $x120;if ($W127) { $x127 = $x120; }  }
-else { $x129 = JS::$undefined; }
+if (!$U129) {$x131 = $x122;if ($W129) { $x129 = $x122; }  }
+else { $x131 = JS::$undefined; }
 }
-if (isset($x121->class) && $x121->class === 'Array' &&  is_int('toString') && 'toString' >= $x121->properties['length']) { $x121->properties['length'] = 'toString' + 1; };
-$x154 = clone JS::$functionTemplate; $x154->call = '_8cc783701129b82efc0bf45cf12c568e_7'; $x154->parameters = array (
+if (isset($x123->class) && $x123->class === 'Array') {if (is_int('toString') && 'toString' >= $x123->properties['length']) { $x123->properties['length'] = 'toString' + 1; }else if ($x125 === 'length' && is_int($x122) && $x132 > $x122) {  for ($i = $x122; $i < $x132; ++$i) {  unset($x123->properties[$i], $x123->attributes[$i]); }}};
+$x157 = clone JS::$functionTemplate; $x157->call = '_8cc783701129b82efc0bf45cf12c568e_7'; $x157->parameters = array (
   0 => 'thisArg',
   1 => 'argArray',
-); $x154->scope = $scope; $x154->properties['prototype'] = clone JS::$objectTemplate; $x154->attributes['prototype'] = JS::WRITABLE; $x154->properties['prototype']->properties['constructor'] = $x154; $x154->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x154->properties['length'] = 2; $x154->attributes['length'] = 0;
-unset($x155, $W155, $S155, $U155);
-$x156 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 64, 9, '<image>/03_function.js');
-$x155 =& $x156[0]; list(,$W155,$S155,$U155) = $x156;
-$x157 = JS::toString('apply', $global);
-if ($x155 === JS::$undefined || $x155 === NULL) {
+); $x157->scope = $scope; $x157->properties['prototype'] = clone JS::$objectTemplate; $x157->attributes['prototype'] = JS::WRITABLE; $x157->properties['prototype']->properties['constructor'] = $x157; $x157->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x157->properties['length'] = 2; $x157->attributes['length'] = 0;
+unset($x158, $W158, $S158, $U158);
+$x159 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 64, 9, '<image>/03_function.js');
+$x158 =& $x159[0]; list(,$W158,$S158,$U158) = $x159;
+$x160 = JS::toString('apply', $global);
+if ($x158 === JS::$undefined || $x158 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x158 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 64, 26, '<image>/03_function.js');
-$_TypeError =& $x158[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x158;
-$x159 = $_TypeError->call;
+$x161 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 64, 26, '<image>/03_function.js');
+$_TypeError =& $x161[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x161;
+$x162 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 64, 26);
-$x160 = $x159($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x163 = $x162($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x160->class) && $x160->class === 'Error' && !isset($x160->properties['file']) && !isset($x160->properties['line']) && !isset($x160->properties['column'])) {$x160->properties['file'] = '<image>/03_function.js';$x160->properties['line'] = 64;$x160->properties['column'] = 26;$x160->attributes['file'] = $x160->attributes['line'] = $x160->attributes['column'] = 0; }
-throw new JSException($x160, 64, 26, '<image>/03_function.js');
+if (isset($x163->class) && $x163->class === 'Error' && !isset($x163->properties['file']) && !isset($x163->properties['line']) && !isset($x163->properties['column'])) {$x163->properties['file'] = '<image>/03_function.js';$x163->properties['line'] = 64;$x163->properties['column'] = 26;$x163->attributes['file'] = $x163->attributes['line'] = $x163->attributes['column'] = 0; }
+throw new JSException($x163, 64, 26, '<image>/03_function.js');
 }
-$x155 = JS::toObject($x155, $global);
-unset($x161, $W161, $S161, $U161);
-$x162 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x155, JS::toString($x157, $global), 64, 26, '<image>/03_function.js');
-$x161 =& $x162[0]; list(,$W161,$S161,$U161) = $x162;
-if ($U161 && (!isset($x155->extensible) || $x155->extensible)) {$x155->properties[$x157] = $x161; $x161 =& $x155->properties[$x157]; $x155->attributes[$x157] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U161 = FALSE; $W161 = TRUE; }
-if (isset($S161)) {
-$x164 = $S161->call;
+$x158 = JS::toObject($x158, $global);
+unset($x164, $W164, $S164, $U164);
+$x165 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x158, JS::toString($x160, $global), 64, 26, '<image>/03_function.js');
+$x164 =& $x165[0]; list(,$W164,$S164,$U164) = $x165;
+if ($U164 && (!isset($x158->extensible) || $x158->extensible)) {$x158->properties[$x160] = $x164; $x164 =& $x158->properties[$x160]; $x158->attributes[$x160] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U164 = FALSE; $W164 = TRUE; }
+if (isset($x158->class) && $x158->class === 'Array') {  if (isset($x158->properties['length']) && $x158->properties['length'] !== JS::$undefined) { $x167 = $x158->properties['length']; }  else { $x167 = 0; } }
+if (isset($S164)) {
+$x168 = $S164->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 64, 26);
-$x165 = $x164($global, $x155, $S161, array($x154), false);
+$x169 = $x168($global, $x158, $S164, array($x157), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x163 = $x165;
+$x166 = $x169;
 } else {
-if (!$U161) {$x163 = $x154;if ($W161) { $x161 = $x154; }  }
-else { $x163 = JS::$undefined; }
+if (!$U164) {$x166 = $x157;if ($W164) { $x164 = $x157; }  }
+else { $x166 = JS::$undefined; }
 }
-if (isset($x155->class) && $x155->class === 'Array' &&  is_int('apply') && 'apply' >= $x155->properties['length']) { $x155->properties['length'] = 'apply' + 1; };
-$x190 = clone JS::$functionTemplate; $x190->call = '_8cc783701129b82efc0bf45cf12c568e_8'; $x190->parameters = array (
+if (isset($x158->class) && $x158->class === 'Array') {if (is_int('apply') && 'apply' >= $x158->properties['length']) { $x158->properties['length'] = 'apply' + 1; }else if ($x160 === 'length' && is_int($x157) && $x167 > $x157) {  for ($i = $x157; $i < $x167; ++$i) {  unset($x158->properties[$i], $x158->attributes[$i]); }}};
+$x194 = clone JS::$functionTemplate; $x194->call = '_8cc783701129b82efc0bf45cf12c568e_8'; $x194->parameters = array (
   0 => 'thisArg',
-); $x190->scope = $scope; $x190->properties['prototype'] = clone JS::$objectTemplate; $x190->attributes['prototype'] = JS::WRITABLE; $x190->properties['prototype']->properties['constructor'] = $x190; $x190->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x190->properties['length'] = 1; $x190->attributes['length'] = 0;
-unset($x191, $W191, $S191, $U191);
-$x192 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 85, 9, '<image>/03_function.js');
-$x191 =& $x192[0]; list(,$W191,$S191,$U191) = $x192;
-$x193 = JS::toString('call', $global);
-if ($x191 === JS::$undefined || $x191 === NULL) {
+); $x194->scope = $scope; $x194->properties['prototype'] = clone JS::$objectTemplate; $x194->attributes['prototype'] = JS::WRITABLE; $x194->properties['prototype']->properties['constructor'] = $x194; $x194->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x194->properties['length'] = 1; $x194->attributes['length'] = 0;
+unset($x195, $W195, $S195, $U195);
+$x196 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 85, 9, '<image>/03_function.js');
+$x195 =& $x196[0]; list(,$W195,$S195,$U195) = $x196;
+$x197 = JS::toString('call', $global);
+if ($x195 === JS::$undefined || $x195 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x194 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 85, 25, '<image>/03_function.js');
-$_TypeError =& $x194[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x194;
-$x195 = $_TypeError->call;
+$x198 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 85, 25, '<image>/03_function.js');
+$_TypeError =& $x198[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x198;
+$x199 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 85, 25);
-$x196 = $x195($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x200 = $x199($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x196->class) && $x196->class === 'Error' && !isset($x196->properties['file']) && !isset($x196->properties['line']) && !isset($x196->properties['column'])) {$x196->properties['file'] = '<image>/03_function.js';$x196->properties['line'] = 85;$x196->properties['column'] = 25;$x196->attributes['file'] = $x196->attributes['line'] = $x196->attributes['column'] = 0; }
-throw new JSException($x196, 85, 25, '<image>/03_function.js');
+if (isset($x200->class) && $x200->class === 'Error' && !isset($x200->properties['file']) && !isset($x200->properties['line']) && !isset($x200->properties['column'])) {$x200->properties['file'] = '<image>/03_function.js';$x200->properties['line'] = 85;$x200->properties['column'] = 25;$x200->attributes['file'] = $x200->attributes['line'] = $x200->attributes['column'] = 0; }
+throw new JSException($x200, 85, 25, '<image>/03_function.js');
 }
-$x191 = JS::toObject($x191, $global);
-unset($x197, $W197, $S197, $U197);
-$x198 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x191, JS::toString($x193, $global), 85, 25, '<image>/03_function.js');
-$x197 =& $x198[0]; list(,$W197,$S197,$U197) = $x198;
-if ($U197 && (!isset($x191->extensible) || $x191->extensible)) {$x191->properties[$x193] = $x197; $x197 =& $x191->properties[$x193]; $x191->attributes[$x193] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U197 = FALSE; $W197 = TRUE; }
-if (isset($S197)) {
-$x200 = $S197->call;
+$x195 = JS::toObject($x195, $global);
+unset($x201, $W201, $S201, $U201);
+$x202 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x195, JS::toString($x197, $global), 85, 25, '<image>/03_function.js');
+$x201 =& $x202[0]; list(,$W201,$S201,$U201) = $x202;
+if ($U201 && (!isset($x195->extensible) || $x195->extensible)) {$x195->properties[$x197] = $x201; $x201 =& $x195->properties[$x197]; $x195->attributes[$x197] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U201 = FALSE; $W201 = TRUE; }
+if (isset($x195->class) && $x195->class === 'Array') {  if (isset($x195->properties['length']) && $x195->properties['length'] !== JS::$undefined) { $x204 = $x195->properties['length']; }  else { $x204 = 0; } }
+if (isset($S201)) {
+$x205 = $S201->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 85, 25);
-$x201 = $x200($global, $x191, $S197, array($x190), false);
+$x206 = $x205($global, $x195, $S201, array($x194), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x199 = $x201;
+$x203 = $x206;
 } else {
-if (!$U197) {$x199 = $x190;if ($W197) { $x197 = $x190; }  }
-else { $x199 = JS::$undefined; }
+if (!$U201) {$x203 = $x194;if ($W201) { $x201 = $x194; }  }
+else { $x203 = JS::$undefined; }
 }
-if (isset($x191->class) && $x191->class === 'Array' &&  is_int('call') && 'call' >= $x191->properties['length']) { $x191->properties['length'] = 'call' + 1; };
-$x222 = clone JS::$functionTemplate; $x222->call = '_8cc783701129b82efc0bf45cf12c568e_9'; $x222->parameters = array (
+if (isset($x195->class) && $x195->class === 'Array') {if (is_int('call') && 'call' >= $x195->properties['length']) { $x195->properties['length'] = 'call' + 1; }else if ($x197 === 'length' && is_int($x194) && $x204 > $x194) {  for ($i = $x194; $i < $x204; ++$i) {  unset($x195->properties[$i], $x195->attributes[$i]); }}};
+$x227 = clone JS::$functionTemplate; $x227->call = '_8cc783701129b82efc0bf45cf12c568e_9'; $x227->parameters = array (
   0 => 'thisArg',
-); $x222->scope = $scope; $x222->properties['prototype'] = clone JS::$objectTemplate; $x222->attributes['prototype'] = JS::WRITABLE; $x222->properties['prototype']->properties['constructor'] = $x222; $x222->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x222->properties['length'] = 1; $x222->attributes['length'] = 0;
-unset($x223, $W223, $S223, $U223);
-$x224 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 105, 9, '<image>/03_function.js');
-$x223 =& $x224[0]; list(,$W223,$S223,$U223) = $x224;
-$x225 = JS::toString('bind', $global);
-if ($x223 === JS::$undefined || $x223 === NULL) {
+); $x227->scope = $scope; $x227->properties['prototype'] = clone JS::$objectTemplate; $x227->attributes['prototype'] = JS::WRITABLE; $x227->properties['prototype']->properties['constructor'] = $x227; $x227->properties['prototype']->attributes['constructor'] = JS::WRITABLE | JS::CONFIGURABLE; $x227->properties['length'] = 1; $x227->attributes['length'] = 0;
+unset($x228, $W228, $S228, $U228);
+$x229 = _8cc783701129b82efc0bf45cf12c568e_3($global, $scope, $_Function, JS::toString('prototype', $global), 105, 9, '<image>/03_function.js');
+$x228 =& $x229[0]; list(,$W228,$S228,$U228) = $x229;
+$x230 = JS::toString('bind', $global);
+if ($x228 === JS::$undefined || $x228 === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x226 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 105, 25, '<image>/03_function.js');
-$_TypeError =& $x226[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x226;
-$x227 = $_TypeError->call;
+$x231 = _8cc783701129b82efc0bf45cf12c568e_2($global, $scope, $scope, JS::toString('TypeError', $global), 105, 25, '<image>/03_function.js');
+$_TypeError =& $x231[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x231;
+$x232 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 105, 25);
-$x228 = $x227($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
+$x233 = $x232($global, $global, $_TypeError, array('Cannot assign property of undefined/null.'), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-if (isset($x228->class) && $x228->class === 'Error' && !isset($x228->properties['file']) && !isset($x228->properties['line']) && !isset($x228->properties['column'])) {$x228->properties['file'] = '<image>/03_function.js';$x228->properties['line'] = 105;$x228->properties['column'] = 25;$x228->attributes['file'] = $x228->attributes['line'] = $x228->attributes['column'] = 0; }
-throw new JSException($x228, 105, 25, '<image>/03_function.js');
+if (isset($x233->class) && $x233->class === 'Error' && !isset($x233->properties['file']) && !isset($x233->properties['line']) && !isset($x233->properties['column'])) {$x233->properties['file'] = '<image>/03_function.js';$x233->properties['line'] = 105;$x233->properties['column'] = 25;$x233->attributes['file'] = $x233->attributes['line'] = $x233->attributes['column'] = 0; }
+throw new JSException($x233, 105, 25, '<image>/03_function.js');
 }
-$x223 = JS::toObject($x223, $global);
-unset($x229, $W229, $S229, $U229);
-$x230 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x223, JS::toString($x225, $global), 105, 25, '<image>/03_function.js');
-$x229 =& $x230[0]; list(,$W229,$S229,$U229) = $x230;
-if ($U229 && (!isset($x223->extensible) || $x223->extensible)) {$x223->properties[$x225] = $x229; $x229 =& $x223->properties[$x225]; $x223->attributes[$x225] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U229 = FALSE; $W229 = TRUE; }
-if (isset($S229)) {
-$x232 = $S229->call;
+$x228 = JS::toObject($x228, $global);
+unset($x234, $W234, $S234, $U234);
+$x235 = _8cc783701129b82efc0bf45cf12c568e_5($global, $scope, $x228, JS::toString($x230, $global), 105, 25, '<image>/03_function.js');
+$x234 =& $x235[0]; list(,$W234,$S234,$U234) = $x235;
+if ($U234 && (!isset($x228->extensible) || $x228->extensible)) {$x228->properties[$x230] = $x234; $x234 =& $x228->properties[$x230]; $x228->attributes[$x230] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U234 = FALSE; $W234 = TRUE; }
+if (isset($x228->class) && $x228->class === 'Array') {  if (isset($x228->properties['length']) && $x228->properties['length'] !== JS::$undefined) { $x237 = $x228->properties['length']; }  else { $x237 = 0; } }
+if (isset($S234)) {
+$x238 = $S234->call;
 $global->trace[++$global->trace_sp] = array('<image>/03_function.js', 105, 25);
-$x233 = $x232($global, $x223, $S229, array($x222), false);
+$x239 = $x238($global, $x228, $S234, array($x227), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x231 = $x233;
+$x236 = $x239;
 } else {
-if (!$U229) {$x231 = $x222;if ($W229) { $x229 = $x222; }  }
-else { $x231 = JS::$undefined; }
+if (!$U234) {$x236 = $x227;if ($W234) { $x234 = $x227; }  }
+else { $x236 = JS::$undefined; }
 }
-if (isset($x223->class) && $x223->class === 'Array' &&  is_int('bind') && 'bind' >= $x223->properties['length']) { $x223->properties['length'] = 'bind' + 1; };
+if (isset($x228->class) && $x228->class === 'Array') {if (is_int('bind') && 'bind' >= $x228->properties['length']) { $x228->properties['length'] = 'bind' + 1; }else if ($x230 === 'length' && is_int($x227) && $x237 > $x227) {  for ($i = $x227; $i < $x237; ++$i) {  unset($x228->properties[$i], $x228->attributes[$i]); }}};
 ;
 return JS::$undefined;
 }

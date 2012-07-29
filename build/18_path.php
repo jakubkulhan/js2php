@@ -1417,17 +1417,18 @@ unset($x441, $W441, $S441, $U441);
 $x445 = _dc8b81f3d85c475b76d3fad15e533f32_10($global, $scope, $x435, JS::toString($x437, $global), 1, 22, '<image>/18_path.js');
 $x441 =& $x445[0]; list(,$W441,$S441,$U441) = $x445;
 if ($U441 && (!isset($x435->extensible) || $x435->extensible)) {$x435->properties[$x437] = $x441; $x441 =& $x435->properties[$x437]; $x435->attributes[$x437] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; $U441 = FALSE; $W441 = TRUE; }
+if (isset($x435->class) && $x435->class === 'Array') {  if (isset($x435->properties['length']) && $x435->properties['length'] !== JS::$undefined) { $x447 = $x435->properties['length']; }  else { $x447 = 0; } }
 if (isset($S441)) {
-$x447 = $S441->call;
+$x448 = $S441->call;
 $global->trace[++$global->trace_sp] = array('<image>/18_path.js', 1, 22);
-$x448 = $x447($global, $x435, $S441, array($x0), false);
+$x449 = $x448($global, $x435, $S441, array($x0), false);
 unset($global->trace[$global->trace_sp--], $global->scope[$global->scope_sp--]);
-$x446 = $x448;
+$x446 = $x449;
 } else {
 if (!$U441) {$x446 = $x0;if ($W441) { $x441 = $x0; }  }
 else { $x446 = JS::$undefined; }
 }
-if (isset($x435->class) && $x435->class === 'Array' &&  is_int('path') && 'path' >= $x435->properties['length']) { $x435->properties['length'] = 'path' + 1; }
+if (isset($x435->class) && $x435->class === 'Array') {if (is_int('path') && 'path' >= $x435->properties['length']) { $x435->properties['length'] = 'path' + 1; }else if ($x437 === 'length' && is_int($x0) && $x447 > $x0) {  for ($i = $x0; $i < $x447; ++$i) {  unset($x435->properties[$i], $x435->attributes[$i]); }}}
 ;
 return JS::$undefined;
 }

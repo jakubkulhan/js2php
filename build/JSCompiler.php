@@ -1013,6 +1013,12 @@ protected function _28($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_e
 
 	if ($lhs_expr[0] === 'index') {
 		$ret = $this->_walk(array('genvar_'));
+		$tmp = $this->_walk(array('genvar_'));
+
+		$self->prestatement[] = "if (isset({$base}->class) && {$base}->class === 'Array') { " .
+			"if (isset({$base}->properties['length']) && {$base}->properties['length'] !== JS::\$undefined) { " .
+				"$tmp = {$base}->properties['length']; } " .
+			"else { $tmp = 0; } }";
 
 		$self->prestatement[] = 'if (isset($S' . substr($lhs, 2) . ')) {';
 		$self->prestatement[] =
@@ -1025,9 +1031,14 @@ protected function _28($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_e
 		$self->prestatement[] = 'else { ' . $ret . ' = JS::$undefined; }';
 		$self->prestatement[] = '}';
 
-		$self->prestatement[] = "if (isset({$base}->class) && {$base}->class === 'Array' && " .
-			"is_int($index) && $index >= {$base}->properties['length']) { " .
-			"{$base}->properties['length'] = $index + 1; }";
+		$self->prestatement[] = "if (isset({$base}->class) && {$base}->class === 'Array') {" .
+				"if (is_int($index) && $index >= {$base}->properties['length']) { " .
+					"{$base}->properties['length'] = $index + 1; }" .
+				"else if ($tmpIndex === 'length' && is_int($rhs) && $tmp > $rhs) { " .
+					"for (\$i = $rhs; \$i < $tmp; ++\$i) { " .
+						"unset({$base}->properties[\$i], {$base}->attributes[\$i]); }" .
+				"}" .
+			"}";
 
 		return $ret;
 

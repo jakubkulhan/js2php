@@ -26,7 +26,7 @@ echo 'function _b45fd4b010504c47d533cae31d7d4176_3($global,$scope,$base,$id,$lin
 function _b45fd4b010504c47d533cae31d7d4176_2($global, $scope, $base, $id, $line, $column, $file) {
 if ($base === JS::$undefined || $base === NULL) {
 unset($_TypeError, $WTypeError, $STypeError, $UTypeError);
-$x8 = _b45fd4b010504c47d533cae31d7d4176_3($global, $scope, $scope, (string) 'TypeError', $line, $column, $file);
+$x8 = _b45fd4b010504c47d533cae31d7d4176_3($global, $scope, $scope, JS::toString('TypeError', $global), $line, $column, $file);
 $_TypeError =& $x8[0]; list(,$WTypeError,$STypeError,$UTypeError) = $x8;
 $x9 = $_TypeError->call;
 $global->trace[++$global->trace_sp] = array($file, $line, $column);
@@ -48,7 +48,7 @@ $x5 = $x12; }
 else { $x5 = JS::$undefined; $U5 = TRUE; }
 return array(&$x5, $W5, $S5, $U5);
 }
-echo 'function _b45fd4b010504c47d533cae31d7d4176_2($global,$scope,$base,$id,$line,$column,$file){if($base===JS::$undefined||$base===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x8=_b45fd4b010504c47d533cae31d7d4176_3($global,$scope,$scope,(string)\'TypeError\',$line,$column,$file);$_TypeError=&$x8[0];list(,$WTypeError,$STypeError,$UTypeError)=$x8;$x9=$_TypeError->call;$global->trace[++$global->trace_sp]=array($file,$line,$column);$x10=$x9($global,$global,$_TypeError,array(\'Cannot lookup property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x10->class)&&$x10->class===\'Error\'&&!isset($x10->properties[\'file\'])&&!isset($x10->properties[\'line\'])&&!isset($x10->properties[\'column\'])){$x10->properties[\'file\']=$file;$x10->properties[\'line\']=$line;$x10->properties[\'column\']=$column;$x10->attributes[\'file\']=$x10->attributes[\'line\']=$x10->attributes[\'column\']=0;}throw new JSException($x10,$line,$column,$file);}$W5=$S5=$U5=NULL;$lookup=JS::toObject($base,$global);for(;$lookup&&!(array_key_exists($id,$lookup->properties)||isset($lookup->attributes[$id]))&&isset($lookup->prototype);$lookup=$lookup->prototype);if(array_key_exists($id,$lookup->properties)){$x5=&$lookup->properties[$id];}else if(isset($lookup->attributes[$id])&&$lookup->attributes[$id]&JS::HAS_GETTER){$x11=$lookup->getters[$id]->call;$global->trace[++$global->trace_sp]=array($file,$line,$column);$x12=$x11($global,$lookup,$lookup->getters[$id],array(),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x5=$x12;}else{$x5=JS::$undefined;$U5=TRUE;}return array(&$x5,$W5,$S5,$U5);}', "\n";
+echo 'function _b45fd4b010504c47d533cae31d7d4176_2($global,$scope,$base,$id,$line,$column,$file){if($base===JS::$undefined||$base===NULL){unset($_TypeError,$WTypeError,$STypeError,$UTypeError);$x8=_b45fd4b010504c47d533cae31d7d4176_3($global,$scope,$scope,JS::toString(\'TypeError\',$global),$line,$column,$file);$_TypeError=&$x8[0];list(,$WTypeError,$STypeError,$UTypeError)=$x8;$x9=$_TypeError->call;$global->trace[++$global->trace_sp]=array($file,$line,$column);$x10=$x9($global,$global,$_TypeError,array(\'Cannot lookup property of undefined/null.\'),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);if(isset($x10->class)&&$x10->class===\'Error\'&&!isset($x10->properties[\'file\'])&&!isset($x10->properties[\'line\'])&&!isset($x10->properties[\'column\'])){$x10->properties[\'file\']=$file;$x10->properties[\'line\']=$line;$x10->properties[\'column\']=$column;$x10->attributes[\'file\']=$x10->attributes[\'line\']=$x10->attributes[\'column\']=0;}throw new JSException($x10,$line,$column,$file);}$W5=$S5=$U5=NULL;$lookup=JS::toObject($base,$global);for(;$lookup&&!(array_key_exists($id,$lookup->properties)||isset($lookup->attributes[$id]))&&isset($lookup->prototype);$lookup=$lookup->prototype);if(array_key_exists($id,$lookup->properties)){$x5=&$lookup->properties[$id];}else if(isset($lookup->attributes[$id])&&$lookup->attributes[$id]&JS::HAS_GETTER){$x11=$lookup->getters[$id]->call;$global->trace[++$global->trace_sp]=array($file,$line,$column);$x12=$x11($global,$lookup,$lookup->getters[$id],array(),false);unset($global->trace[$global->trace_sp--],$global->scope[$global->scope_sp--]);$x5=$x12;}else{$x5=JS::$undefined;$U5=TRUE;}return array(&$x5,$W5,$S5,$U5);}', "\n";
 function _b45fd4b010504c47d533cae31d7d4176_0($global = NULL, $scope = NULL) {
 if (!is_object($global)) {$global = (object) array('properties' => array(),'attributes' => array(),'getters' => array(),'setters' => array(),'prototype' => NULL,'up' => NULL,);$set_scope = TRUE;$global->trace = array(array('<image>/99_epilogue.js', NULL, NULL)); $global->trace_sp = 0;}
 if ($scope === NULL) {$scope = (object) array('properties' => array(), 'attributes' => array(), 'up' => $global);$scope->properties['global'] = $global;$scope->properties['__filename'] = '<image>/99_epilogue.js';$scope->properties['__dirname'] = '<image>';}
@@ -57,7 +57,7 @@ if (isset($set_scope)) { $global->scope = array($scope); $global->scope_sp = 0; 
 $leThis = $global;
 $x0 = JS::$global;
 unset($_global, $Wglobal, $Sglobal, $Uglobal);
-$x1 = _b45fd4b010504c47d533cae31d7d4176_1($global, $scope, $scope, (string) 'global', 1, 8, '<image>/99_epilogue.js');
+$x1 = _b45fd4b010504c47d533cae31d7d4176_1($global, $scope, $scope, JS::toString('global', $global), 1, 8, '<image>/99_epilogue.js');
 $_global =& $x1[0]; list(,$Wglobal,$Sglobal,$Uglobal) = $x1;
 if ($Uglobal) {$global->properties['global'] = $_global; $_global =& $global->properties['global']; }
 $_global = $x0;
@@ -75,14 +75,14 @@ $x3[$property] = TRUE;
 $_k = $property;
 
 unset($x5, $W5, $S5, $U5);
-$x13 = _b45fd4b010504c47d533cae31d7d4176_2($global, $scope, $_global, (string) $_k, 5, 19, '<image>/99_epilogue.js');
+$x13 = _b45fd4b010504c47d533cae31d7d4176_2($global, $scope, $_global, JS::toString($_k, $global), 5, 19, '<image>/99_epilogue.js');
 $x5 =& $x13[0]; list(,$W5,$S5,$U5) = $x13;
 $x14 = $x5;
 $x14 = ($x14 === JS::$undefined ? 'undefined' : (is_int($x14) || is_float($x14) ? 'number' : (is_bool($x14) ? 'boolean' : (is_string($x14) ? 'string' : (is_object($x14) && isset($x14->call) ? 'function' : 'object')))));
 $x4 = (((gettype($x14) === gettype('function') && $x14 === 'function'))|| (((is_float($x14) || is_int($x14)) && (is_float('function') || is_int('function'))) && $x14 == 'function'));
 if (JS::toBoolean($x4, $global)) {
 unset($x15, $W15, $S15, $U15);
-$x16 = _b45fd4b010504c47d533cae31d7d4176_2($global, $scope, $_global, (string) $_k, 6, 13, '<image>/99_epilogue.js');
+$x16 = _b45fd4b010504c47d533cae31d7d4176_2($global, $scope, $_global, JS::toString($_k, $global), 6, 13, '<image>/99_epilogue.js');
 $x15 =& $x16[0]; list(,$W15,$S15,$U15) = $x16;
 if ($Uf) {$global->properties['f'] = $_f; $_f =& $global->properties['f']; }
 $_f = $x15;

@@ -46,3 +46,17 @@ test("exception - rethrowing", function () {
 		assert(e.column, 4);
 	}
 });
+
+test("exception - no catch block", function () {
+	try {
+		try {
+			ok = false;
+			throw "foo";
+		} finally {
+			ok = true;
+		}
+	} catch (e) {
+		assertEqual(e, "foo");
+		assert(ok);
+	}
+});

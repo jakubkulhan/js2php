@@ -985,18 +985,21 @@ protected function _28($op, $lhs_expr, $rhs_expr, $p, $file) { extract($this->_e
 			$base = $tmp;
 		}
 
+		$tmpIndex = $this->_walk(array('genvar_'));
+		$self->prestatement[] = "$tmpIndex = JS::toString($index, \$global);";
+
 		$self->prestatement[] = "if ($base === JS::\$undefined || $base === NULL) {";
 		$this->_walk(array('TypeError_', 'Cannot assign property of undefined/null.', $p, $file));
 		$self->prestatement[] = "}";
 		$self->prestatement[] = $base . ' = JS::toObject(' . $base . ', $global);';
 
-		$lhs = $this->_walk(array('lookup_', $base, $index, 'prototype', FALSE, FALSE, $p, $file));
+		$lhs = $this->_walk(array('lookup_', $base, $tmpIndex, 'prototype', FALSE, FALSE, $p, $file));
 
 		$self->prestatement[] = 'if ($U' . substr($lhs, 2) . ' && (!isset(' . 
 			$base . '->extensible) || ' . $base . '->extensible)) {' .
-			$base . '->properties[' . $index . '] = ' .
-			$lhs . '; ' . $lhs . ' =& ' . $base . '->properties[' . $index . ']; ' .
-			$base . '->attributes[' . $index . '] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; ' .
+			$base . '->properties[' . $tmpIndex . '] = ' .
+			$lhs . '; ' . $lhs . ' =& ' . $base . '->properties[' . $tmpIndex . ']; ' .
+			$base . '->attributes[' . $tmpIndex . '] = JS::WRITABLE | JS::ENUMERABLE | JS::CONFIGURABLE; ' .
 			'$U' . substr($lhs, 2) . ' = FALSE; $W' . substr($lhs, 2) . ' = TRUE; }';
 
 	} else {
@@ -1110,7 +1113,7 @@ protected function _29($base, $id, $up, $assign, $get, $p, $file) { extract($thi
 	$self->prestatement[] = "unset($var, \$W$v, \$S$v, \$U$v);";
 	$tmp = $this->_walk(array('genvar_'));
 	$self->prestatement[] =
-		"$tmp = {$self->lookups[$get][$throw][$up]}(\$global, \$scope, $base, (string) $id, " .
+		"$tmp = {$self->lookups[$get][$throw][$up]}(\$global, \$scope, $base, JS::toString($id, \$global), " .
 		$this->_walk($p[0]) . ", " . $this->_walk($p[1]) . ", " . $this->_walk($file) . ");";
 	$self->prestatement[] = "$var =& {$tmp}[0]; list(,\$W$v,\$S$v,\$U$v) = $tmp;";
 

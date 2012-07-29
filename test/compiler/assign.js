@@ -24,6 +24,8 @@ test("assign", function () {
 	o.f = function () {
 		this.number /= 2;
 	};
+	o[[ 1, 2, 3 ]] = "x";
+	o[{}] = "y";
 
 	assert(o["undefined"] === undefined);
 	assert(o["null"] === null);
@@ -33,4 +35,16 @@ test("assign", function () {
 	assert(typeof o["f"] === "function");
 	o["f"]();
 	assert(o["number"] === 21);
+	assertEqual(o["1,2,3"], "x");
+	assertEqual(o["[object Object]"], "y");
+	assertEqual(o[[ 1, 2, 3 ]], "x");
+	assertEqual(o[{}], "y");
+
+	o[undefined] = "z";
+	assertEqual(o["undefined"], "z");
+	assertEqual(o[undefined], "z");
+
+	o[null] = "z";
+	assertEqual(o["null"], "z");
+	assertEqual(o[null], "z");
 });

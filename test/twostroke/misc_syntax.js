@@ -262,7 +262,7 @@ test("labelled block", function() {
 
 test("floating point is used for large numbers but not for small numbers", function() {
     assertEqual(99999999999999999999999999999999999999, 99999999999999999999999999999999999999 + 1);
-    assert(999999 !== 999999 + 1);
+    assertNotEqual(999999, 999999 + 1);
 });
 
 test("redeclaring a variable", function() {

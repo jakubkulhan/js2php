@@ -30,6 +30,19 @@ function assertEqual(a, b, message) {
 	++assertionsCount;
 }
 
+function assertNotEqual(a, b, message) {
+	if (a === b) {
+		var eq = "<" + a + "> === <" + b + ">";
+		if (message) {
+			throw new AssertionFailed(message + ", " + eq);
+		} else {
+			throw new AssertionFailed(eq);
+		}
+	}
+
+	++assertionsCount;
+}
+
 function test(name, callback) {
 	currentTest = name;
 	assertionsCount = 1;
@@ -47,6 +60,7 @@ function putc(c) {
 
 global.assert = assert;
 global.assertEqual = assertEqual;
+global.assertNotEqual = assertNotEqual;
 global.test = test;
 
 var args = @@ JS::fromNative($_SERVER['argv']) @@;

@@ -14,7 +14,7 @@ test("number coercion", function() {
 
 test("calling date without new gives current date as string", function() {
   assertEqual("string", typeof Date());
-  assert("Sat Apr 25 1970 17:29:03 GMT+1000 (EST)" !== String(Date(9876543210)));
+  assertNotEqual("Sat Apr 25 1970 17:29:03 GMT+1000 (EST)", String(Date(9876543210)));
 });
 
 test("date prefers to be coerced to a number", function() {

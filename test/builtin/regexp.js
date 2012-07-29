@@ -26,7 +26,7 @@ test("RegExp.prototype.exec()", function () {
 	assert(r.exec("baba") === null, "RegExp.prototype.exec(): should not match");
 
 	var r = /a/g, m = r.exec("baba");
-	assert(m !== null, "RegExp.prototype.exec(): should match");
+	assertNotEqual(m, null, "RegExp.prototype.exec(): should match");
 	assert(m.length === 1 && m[0] === "a", "RegExp.prototype.exec(): wrong match");
 	assert(m.index === 1, "RegExp.prototype.exec(): wrong index");
 	assert(m.input === "baba", "RegExp.prototype.exec(): wrong input");

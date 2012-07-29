@@ -75,7 +75,7 @@ test("concat", function() {
   var b = [1,2,3];
   assert(b.concat() == "1,2,3");
   
-  assert(b.concat() !== b);
+  assertNotEqual(b.concat(), b);
   
   assert(Array.prototype.concat.call({ length: 2, 0: 1, 1: 2 }, [3, 4]) == "1,2,3,4");
 });
